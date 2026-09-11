@@ -1,0 +1,54 @@
+import { NavLink, Outlet } from "react-router-dom";
+import { LayoutDashboard, ScanSearch } from "lucide-react";
+
+const links = [
+  { to: "/overview", label: "Overview", icon: LayoutDashboard },
+  { to: "/audit", label: "Label Audit", icon: ScanSearch },
+];
+
+export function AppLayout() {
+  return (
+    <div className="grid min-h-screen grid-cols-[240px_1fr] bg-canvas font-sans text-ink-soft">
+      <aside className="sticky top-0 flex h-screen flex-col border-r border-hairline bg-surface px-4 py-5">
+        <div className="space-y-7">
+          <div className="px-2 pt-1 leading-tight">
+            <div className="text-sm font-semibold text-ink">IntentDiff-RAG</div>
+            <div className="font-mono text-xs text-ink-faint">npm update audit</div>
+          </div>
+
+          <nav className="space-y-0.5">
+            <div className="eyebrow px-2">Research tooling</div>
+            {links.map(({ to, label, icon: Icon }) => (
+              <NavLink
+                key={to}
+                to={to}
+                className={({ isActive }) =>
+                  `flex items-center gap-2.5 rounded px-3 py-2 text-sm transition-colors duration-100 ${
+                    isActive
+                      ? "bg-accent-soft font-semibold text-accent"
+                      : "text-ink-soft hover:bg-canvas hover:text-ink"
+                  }`
+                }
+              >
+                <Icon className="h-4 w-4 shrink-0" />
+                <span>{label}</span>
+              </NavLink>
+            ))}
+          </nav>
+        </div>
+      </aside>
+
+      <div className="flex min-w-0 flex-col">
+        <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-hairline bg-surface px-8">
+          <span className="text-xs text-ink-faint">
+            Analisis statis — sampel tidak pernah dieksekusi
+          </span>
+          <span className="font-mono text-xs text-ink-faint">local research tool</span>
+        </header>
+        <main className="min-w-0 flex-1 p-8">
+          <Outlet />
+        </main>
+      </div>
+    </div>
+  );
+}
