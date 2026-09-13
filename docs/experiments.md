@@ -52,29 +52,29 @@ Warm-up menambah 3 request per sesi server dan tidak dicatat.
 
 ## 4. Checklist implementasi
 
-Status per 2026-09-13. Kode saat ini masih mengikuti desain E0–E4 lama.
+Status per 2026-09-13. Prompt dan runner sudah mengikuti desain revisi; komponen pra-pemrosesan dan skrip analisis belum.
 
 **Prompt** — [pipeline/prompts.py](../pipeline/prompts.py)
 
-- [ ] Ganti `CONFIGS` menjadi `E0-noint, E0, E2, E3, E3-k2, E4, E4-noint`; hapus `E1` dan `FIXED_DEMO` ([L8](../pipeline/prompts.py#L8), [L22-L27](../pipeline/prompts.py#L22-L27)).
-- [ ] Ganti `SYSTEM` dengan teks verbatim methodology §6.1 ([L10-L18](../pipeline/prompts.py#L10-L18)).
-- [ ] Ubah `_pair_block` sesuai template §6.2: hapus nama paket dan capability delta, tambah blok intent terstruktur ([L30-L38](../pipeline/prompts.py#L30-L38)).
-- [ ] Ubah `_card_block` sesuai §5.1: label `MALICIOUS`/`BENIGN`, dan delta tidak dicetak ([L41-L47](../pipeline/prompts.py#L41-L47)).
-- [ ] Taruh instruksi format JSON di akhir pesan user.
+- [x] Ganti `CONFIGS` menjadi `E0-noint, E0, E2, E3, E3-k2, E4, E4-noint`; hapus `E1` dan `FIXED_DEMO` ([L8](../pipeline/prompts.py#L8), [L22-L27](../pipeline/prompts.py#L22-L27)).
+- [x] Ganti `SYSTEM` dengan teks verbatim methodology §6.1 ([L10-L18](../pipeline/prompts.py#L10-L18)).
+- [x] Ubah `_pair_block` sesuai template §6.2: hapus nama paket dan capability delta, tambah blok intent terstruktur ([L30-L38](../pipeline/prompts.py#L30-L38)).
+- [x] Ubah `_card_block` sesuai §5.1: label `MALICIOUS`/`BENIGN`, dan delta tidak dicetak ([L41-L47](../pipeline/prompts.py#L41-L47)).
+- [x] Taruh instruksi format JSON di akhir pesan user.
 
 **Runner** — [pipeline/runner.py](../pipeline/runner.py)
 
-- [ ] Perbarui `retrieve` sesuai §5.2 ([L54-L66](../pipeline/runner.py#L54-L66)):
+- [x] Perbarui `retrieve` sesuai §5.2 ([L54-L66](../pipeline/runner.py#L54-L66)):
   - kecualikan card dengan paket atau kampanye yang sama;
   - pecah skor seri dengan hash;
   - tambah `E3-k2`;
   - counterbalance urutan card di `E3-k2` dan `E4`.
-- [ ] Ganti `parse_verdict` dengan `raw_decode` dan validasi §7 ([L69-L77](../pipeline/runner.py#L69-L77)).
-- [ ] `call_llm`: kirim temperature, top_p, dan top_k dari argumen, lalu kembalikan `finish_reason` ([L80-L101](../pipeline/runner.py#L80-L101)).
-- [ ] Masukkan temperature ke `run_key` ([L34-L35](../pipeline/runner.py#L34-L35)). Tanpa ini, run Stage 2 dengan seed 0 dianggap sudah selesai dan dilewati.
-- [ ] Simpan field hasil tambahan (§3).
+- [x] Ganti `parse_verdict` dengan `raw_decode` dan validasi §7 ([L69-L77](../pipeline/runner.py#L69-L77)).
+- [x] `call_llm`: kirim temperature, top_p, dan top_k dari argumen, lalu kembalikan `finish_reason` ([L80-L101](../pipeline/runner.py#L80-L101)).
+- [x] Masukkan temperature ke `run_key` ([L34-L35](../pipeline/runner.py#L34-L35)). Tanpa ini, run Stage 2 dengan seed 0 dianggap sudah selesai dan dilewati.
+- [x] Simpan field hasil tambahan (§3).
 - [x] Ganti default `--base-url` yang memakai port 8000 dan bentrok dengan backend ([L107](../pipeline/runner.py#L107)). Sekarang 8101; backend pindah ke 8100. Port 8000 dipakai production-service di mesin GPU.
-- [ ] Perbarui `selfcheck` untuk konfigurasi dan aturan baru ([L170-L201](../pipeline/runner.py#L170-L201)).
+- [x] Perbarui `selfcheck` untuk konfigurasi dan aturan baru ([L170-L201](../pipeline/runner.py#L170-L201)).
 
 **Komponen baru**
 

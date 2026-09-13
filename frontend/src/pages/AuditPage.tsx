@@ -6,6 +6,7 @@ import { DecisionPanel } from "@/components/audit/DecisionPanel";
 import { CapabilityDelta } from "@/components/audit/CapabilityDelta";
 import { DiffView } from "@/components/audit/DiffView";
 import { FilterBar } from "@/components/audit/FilterBar";
+import { ModelOutput } from "@/components/audit/ModelOutput";
 import { useDecisions, usePairs, useSaveDecision } from "@/hooks/useAuditData";
 import { NO_FILTER, keep, type Filters } from "@/lib/audit";
 import type { Decision } from "@/types/api";
@@ -117,10 +118,13 @@ export function AuditPage() {
             <DecisionPanel pair={pair} entry={entry} onRecord={record} />
           </div>
 
-          <Card className="min-w-0">
-            <h3 className="eyebrow">Smart-diff</h3>
-            <DiffView diff={pair.diff} />
-          </Card>
+          <div className="min-w-0 space-y-5">
+            <Card className="min-w-0">
+              <h3 className="eyebrow">Smart-diff</h3>
+              <DiffView diff={pair.diff} />
+            </Card>
+            <ModelOutput pair={pair} />
+          </div>
         </div>
       )}
     </div>

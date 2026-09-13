@@ -58,3 +58,31 @@ export interface AnnotatorProgress {
   annotator: string;
   count: number;
 }
+
+// RetrievedCard is one knowledge-base card as retrieval ranked and placed it.
+export interface RetrievedCard {
+  id: string;
+  label: string;
+  score: number;
+  position: number;
+}
+
+// ModelResult is one recorded run, matching a results.jsonl row (§3).
+export interface ModelResult {
+  run_key: string;
+  config: string;
+  model: string;
+  seed: number;
+  temperature: number;
+  cards: RetrievedCard[];
+  verdict?: string | null;
+  evidence?: string[] | null;
+  reason?: string | null;
+  json_valid?: boolean;
+  finish_reason?: string | null;
+  raw?: string;
+  error?: string;
+  prompt_tokens?: number | null;
+  completion_tokens?: number | null;
+  latency_ms?: number;
+}

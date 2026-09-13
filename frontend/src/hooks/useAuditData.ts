@@ -25,6 +25,15 @@ export function useAnnotators() {
   return useQuery({ queryKey: ["annotators"], queryFn: api.annotators });
 }
 
+// useResults loads every recorded model run for one pair, for EA4 error analysis.
+export function useResults(pairId: string | undefined) {
+  return useQuery({
+    queryKey: ["results", pairId],
+    queryFn: () => api.results(pairId!),
+    enabled: Boolean(pairId),
+  });
+}
+
 // useSaveDecision patches one pair's decision and refreshes the cached list.
 export function useSaveDecision() {
   const { annotator } = useAnnotator();
