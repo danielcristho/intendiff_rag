@@ -199,3 +199,18 @@ Konteks: GPU yang tersedia dicek terhadap kebutuhan memori di
 - Alasan [R]: Ollama menyajikan model terkuantisasi (GGUF) secara bawaan, sedangkan D40 mensyaratkan bfloat16 tanpa kuantisasi supaya tingkat kuantisasi tidak menjadi faktor pembeda antar konfigurasi.
 - Alasan [R]: §9.3 membaca memori bobot model dari log vLLM, yang tidak disediakan Ollama, dan D41 sudah menutup jalan `nvidia-smi`.
 - **Dampak:** angka yang masuk laporan hanya dari vLLM. Docstring `pipeline/runner.py` yang sebelumnya menyebut "vLLM atau Ollama" diperbaiki.
+
+**D47. Kebutuhan memori diukur, bukan diperkirakan: §9.3 kurang menghitung ~2,0 GiB per model.**
+
+- Sumber: log vLLM 0.29.0 pada RTX 3060 saat `--gpu-memory-utilization 0.45` gagal dengan "No available memory for the cache blocks".
+- Yang tidak diperhitungkan §9.3: **CUDA graphs 0,37 GiB** dan **overhead runtime 1,67 GiB** (aktivasi, puncak profiling, alokasi non-torch). Angka bobot model sendiri tepat: §9.3 memperkirakan 5,76 GiB, vLLM melaporkan 5,79 GiB.
+
+| Model @ 32.768 token | §9.3 | Terukur | Selisih |
+|---|---|---|---|
+| Qwen2.5-Coder-3B | 6,92 GiB | **8,96 GiB** | +29% |
+| Qwen3-4B-Instruct | 11,95 GiB | **13,99 GiB** | +17% |
+
+- **Dampak pada D44:** kesimpulannya tidak berubah, tetapi marginnya jauh lebih lebar. Qwen3-4B butuh 13,99 GiB, bukan 11,95 GiB, sehingga GPU 16 GB pun terpakai ~88%.
+- **Dampak pada D45:** **opsi B praktis gugur.** Di kartu 12 GiB, Qwen3-4B hanya menyisakan 1,55 GiB untuk KV cache, yaitu maksimum **11.286 token** — sedangkan §4.5 saja sudah menganggarkan 28.000 token untuk smart-diff. Menurunkan konteks tidak cukup untuk membuatnya muat; yang tersisa adalah opsi A.
+- **Dampak pada RQ4:** angka "memori minimum terhitung" di §9.3 harus memasukkan CUDA graphs dan overhead runtime, atau yang dilaporkan di naskah akan lebih rendah daripada kebutuhan sebenarnya.
+- Qwen2.5-Coder-3B tetap muat di kartu ini: butuh fraksi 0,75, dan `.env.example` disetel 0,80.

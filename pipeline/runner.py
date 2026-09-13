@@ -57,9 +57,16 @@ def run_key(model, config, pair_id, seed, temperature):
     return f"{model}|{config}|{pair_id}|{seed}|{temperature}"
 
 
-# done_keys returns the run keys already recorded in a results file.
+# done_keys returns the run keys that finished, so a resume can skip them.
 def done_keys(path):
-    return {r["run_key"] for r in load_jsonl(path) if "run_key" in r}
+    # A transport error is not a result: the run has to be retried. An invalid
+    # model output is different — D18 counts that as a benign verdict, so it
+    # stays done. Without this split, one network blip marks runs done forever.
+    return {
+        row["run_key"]
+        for row in load_jsonl(path)
+        if "run_key" in row and not row.get("error")
+    }
 
 
 # score measures capability-delta overlap between a pair and a card.
@@ -294,6 +301,16 @@ def selfcheck():
     assert load_jsonl(f) == [], "a missing file reads as empty, not a crash"
     f.write_text('{"run_key":"m|E0|a|0|0.0"}\n\n{"run_key":"m|E2|a|0|0.0"}\n')
     assert done_keys(f) == {"m|E0|a|0|0.0", "m|E2|a|0|0.0"}, "resume keys misread"
+
+    # A row that failed to reach the server must be retried, not skipped.
+    failed = tmp / "err.jsonl"
+    failed.write_text(
+        '{"run_key":"m|E0|a|0|0.0","error":"connection refused"}\n'
+        '{"run_key":"m|E4|a|0|0.0","verdict":"benign"}\n'
+        '{"run_key":"m|E3|a|0|0.0","verdict":null,"json_valid":false}\n'
+    )
+    # The invalid-output row still counts as done: D18 scores it as benign.
+    assert done_keys(failed) == {"m|E4|a|0|0.0", "m|E3|a|0|0.0"}, done_keys(failed)
 
     # Stage 2 reuses seed 0 at a different temperature, so the keys must differ
     # or those 3,000 runs are silently skipped (§4).
