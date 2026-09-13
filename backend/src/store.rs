@@ -1,20 +1,38 @@
-//! Baca pair + tulis keputusan audit, file-backed.
-//!
-//! Dataset input (`pairs.jsonl`, `kb.jsonl`) hanya pernah dibaca. Keputusan
-//! ditulis ke file terpisah, dan runner Python membaca file yang sama — jadi
-//! formatnya sengaja tetap JSON/JSONL biasa, bukan database.
+// Reads update pairs and writes audit decisions, backed by plain files.
 
 use serde_json::{Map, Value};
 use std::path::{Path, PathBuf};
 use std::{fs, io};
 
+const PREFIX: &str = "audit_decisions.";
+const SUFFIX: &str = ".json";
+
+// Store resolves and reads the project's data directory.
 pub struct Store {
     pub data_dir: PathBuf,
 }
 
-/// Nama file yang dipakai, plus fallback sample supaya UI tetap hidup sebelum
-/// dataset asli ada (M1-2).
-fn resolve(dir: &Path, name: &str, sample: &str) -> PathBuf {
+// valid_annotator reports whether a name is safe to use as part of a filename.
+pub fn valid_annotator(name: &str) -> bool {
+    !name.is_empty()
+        && name.len() <= 32
+        && name.chars().all(|c| c.is_ascii_alphanumeric() || c == '_' || c == '-')
+}
+
+// read_jsonl parses one JSON value per non-blank line, or nothing if absent.
+pub fn read_jsonl(path: &Path) -> io::Result<Vec<Value>> {
+    if !path.exists() {
+        return Ok(Vec::new());
+    }
+    let text = fs::read_to_string(path)?;
+    text.lines()
+        .filter(|line| !line.trim().is_empty())
+        .map(|line| serde_json::from_str(line).map_err(io::Error::other))
+        .collect()
+}
+
+// existing_or_sample prefers the real dataset and falls back to the fixture.
+fn existing_or_sample(dir: &Path, name: &str, sample: &str) -> PathBuf {
     let real = dir.join(name);
     if real.exists() {
         real
@@ -23,64 +41,82 @@ fn resolve(dir: &Path, name: &str, sample: &str) -> PathBuf {
     }
 }
 
-pub fn read_jsonl(path: &Path) -> io::Result<Vec<Value>> {
-    if !path.exists() {
-        return Ok(Vec::new());
-    }
-    let text = fs::read_to_string(path)?;
-    text.lines()
-        .filter(|l| !l.trim().is_empty())
-        .map(|l| serde_json::from_str(l).map_err(io::Error::other))
-        .collect()
-}
-
 impl Store {
+    // new points a store at the directory holding the project's data files.
     pub fn new(data_dir: PathBuf) -> Self {
         Self { data_dir }
     }
 
+    // pairs_path returns the pairs file in use, real dataset or fixture.
     pub fn pairs_path(&self) -> PathBuf {
-        resolve(&self.data_dir, "pairs.jsonl", "pairs.sample.jsonl")
+        existing_or_sample(&self.data_dir, "pairs.jsonl", "pairs.sample.jsonl")
     }
 
-    pub fn decisions_path(&self) -> PathBuf {
-        self.data_dir.join("audit_decisions.json")
+    // decisions_path returns where one annotator's decisions are stored.
+    pub fn decisions_path(&self, annotator: &str) -> PathBuf {
+        self.data_dir.join(format!("{PREFIX}{annotator}{SUFFIX}"))
     }
 
+    // pairs returns every update pair along with the filename it came from.
     pub fn pairs(&self) -> io::Result<(String, Vec<Value>)> {
         let path = self.pairs_path();
         let source = path
             .file_name()
-            .map(|n| n.to_string_lossy().into_owned())
+            .map(|name| name.to_string_lossy().into_owned())
             .unwrap_or_default();
         Ok((source, read_jsonl(&path)?))
     }
 
-    pub fn decisions(&self) -> io::Result<Map<String, Value>> {
-        let path = self.decisions_path();
+    // decisions returns one annotator's decisions, empty if they have none yet.
+    pub fn decisions(&self, annotator: &str) -> io::Result<Map<String, Value>> {
+        let path = self.decisions_path(annotator);
         if !path.exists() {
             return Ok(Map::new());
         }
-        let text = fs::read_to_string(&path)?;
-        match serde_json::from_str(&text) {
+        match serde_json::from_str(&fs::read_to_string(&path)?) {
             Ok(Value::Object(map)) => Ok(map),
             _ => Ok(Map::new()),
         }
     }
 
-    /// Gabungkan patch ke keputusan satu pair, lalu tulis ulang seluruh file.
-    ///
-    /// Pemanggil WAJIB memegang lock: ini read-modify-write, dan dua request
-    /// bersamaan tanpa lock akan saling menimpa keputusan.
-    pub fn merge_decision(&self, id: &str, patch: &Value, now: String) -> io::Result<Value> {
-        let mut all = self.decisions()?;
+    // annotators lists each annotator and how many decisions they have recorded.
+    pub fn annotators(&self) -> io::Result<Vec<(String, usize)>> {
+        let mut found = Vec::new();
+        if !self.data_dir.exists() {
+            return Ok(found);
+        }
+        for entry in fs::read_dir(&self.data_dir)? {
+            let filename = entry?.file_name().to_string_lossy().into_owned();
+            let Some(name) = filename
+                .strip_prefix(PREFIX)
+                .and_then(|rest| rest.strip_suffix(SUFFIX))
+            else {
+                continue;
+            };
+            if valid_annotator(name) {
+                found.push((name.to_string(), self.decisions(name)?.len()));
+            }
+        }
+        found.sort();
+        Ok(found)
+    }
+
+    // merge_decision applies a patch to one pair's decision and rewrites the file.
+    pub fn merge_decision(
+        &self,
+        annotator: &str,
+        id: &str,
+        patch: &Value,
+        now: String,
+    ) -> io::Result<Value> {
+        let mut all = self.decisions(annotator)?;
         let mut entry = match all.get(id) {
             Some(Value::Object(existing)) => existing.clone(),
             _ => Map::new(),
         };
         if let Value::Object(fields) = patch {
-            for (k, v) in fields {
-                entry.insert(k.clone(), v.clone());
+            for (key, value) in fields {
+                entry.insert(key.clone(), value.clone());
             }
         }
         entry.insert("at".into(), Value::String(now));
@@ -89,11 +125,11 @@ impl Store {
         all.insert(id.to_string(), merged.clone());
 
         fs::create_dir_all(&self.data_dir)?;
-        // Tulis ke file sementara lalu rename: kalau proses mati saat menulis,
-        // file keputusan lama tetap utuh alih-alih jadi JSON terpotong.
-        let tmp = self.decisions_path().with_extension("json.tmp");
+        // Write to a temp file and rename.
+        let target = self.decisions_path(annotator);
+        let tmp = target.with_extension("tmp");
         fs::write(&tmp, serde_json::to_string_pretty(&Value::Object(all))?)?;
-        fs::rename(&tmp, self.decisions_path())?;
+        fs::rename(&tmp, &target)?;
         Ok(merged)
     }
 }
@@ -103,10 +139,9 @@ mod tests {
     use super::*;
     use serde_json::json;
 
-    // Cargo menjalankan test paralel dalam satu proses, jadi PID saja tidak
-    // cukup: tiap test butuh direktorinya sendiri.
     static SEQ: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
 
+    // temp_store creates an empty store in a directory unique to one test.
     fn temp_store() -> Store {
         let n = SEQ.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
         let dir = std::env::temp_dir().join(format!("idr-test-{}-{n}", std::process::id()));
@@ -116,50 +151,75 @@ mod tests {
     }
 
     #[test]
-    fn membaca_jsonl_melewati_baris_kosong() {
-        let s = temp_store();
-        let p = s.data_dir.join("pairs.jsonl");
-        fs::write(&p, "{\"id\":\"a\"}\n\n{\"id\":\"b\"}\n").unwrap();
-        let rows = read_jsonl(&p).unwrap();
-        assert_eq!(rows.len(), 2);
+    fn skips_blank_lines_when_reading_jsonl() {
+        let store = temp_store();
+        let path = store.data_dir.join("pairs.jsonl");
+        fs::write(&path, "{\"id\":\"a\"}\n\n{\"id\":\"b\"}\n").unwrap();
+        assert_eq!(read_jsonl(&path).unwrap().len(), 2);
     }
 
     #[test]
-    fn file_belum_ada_bukan_error() {
-        let s = temp_store();
-        assert!(s.decisions().unwrap().is_empty());
-        assert!(read_jsonl(&s.data_dir.join("hilang.jsonl")).unwrap().is_empty());
+    fn treats_a_missing_file_as_empty_rather_than_an_error() {
+        let store = temp_store();
+        assert!(store.decisions("A").unwrap().is_empty());
+        assert!(read_jsonl(&store.data_dir.join("missing.jsonl")).unwrap().is_empty());
     }
 
     #[test]
-    fn jatuh_ke_sample_saat_dataset_asli_belum_ada() {
-        let s = temp_store();
-        fs::write(s.data_dir.join("pairs.sample.jsonl"), "{\"id\":\"a\"}\n").unwrap();
-        assert!(s.pairs_path().ends_with("pairs.sample.jsonl"));
-        fs::write(s.data_dir.join("pairs.jsonl"), "{\"id\":\"b\"}\n").unwrap();
-        assert!(s.pairs_path().ends_with("pairs.jsonl"));
+    fn falls_back_to_the_sample_until_the_real_dataset_exists() {
+        let store = temp_store();
+        fs::write(store.data_dir.join("pairs.sample.jsonl"), "{\"id\":\"a\"}\n").unwrap();
+        assert!(store.pairs_path().ends_with("pairs.sample.jsonl"));
+        fs::write(store.data_dir.join("pairs.jsonl"), "{\"id\":\"b\"}\n").unwrap();
+        assert!(store.pairs_path().ends_with("pairs.jsonl"));
     }
 
     #[test]
-    fn patch_menggabung_bukan_menimpa() {
-        let s = temp_store();
-        s.merge_decision("p1", &json!({"label": "benign"}), "t1".into()).unwrap();
-        let out = s
-            .merge_decision("p1", &json!({"note": "ragu"}), "t2".into())
-            .unwrap();
-        // label lama harus bertahan setelah patch kedua
+    fn rejects_annotator_names_that_escape_the_data_dir() {
+        for bad in ["", "../etc", "a/b", "a.b", "a b", "..", &"x".repeat(33)] {
+            assert!(!valid_annotator(bad), "should reject: {bad:?}");
+        }
+        for good in ["A", "robby", "daniel-2", "annotator_B"] {
+            assert!(valid_annotator(good), "should accept: {good:?}");
+        }
+    }
+
+    #[test]
+    fn merges_a_patch_instead_of_replacing_the_decision() {
+        let store = temp_store();
+        store.merge_decision("A", "p1", &json!({"label": "benign"}), "t1".into()).unwrap();
+        let out = store.merge_decision("A", "p1", &json!({"note": "unsure"}), "t2".into()).unwrap();
         assert_eq!(out["label"], "benign");
-        assert_eq!(out["note"], "ragu");
+        assert_eq!(out["note"], "unsure");
         assert_eq!(out["at"], "t2");
     }
 
     #[test]
-    fn keputusan_pair_lain_tidak_ikut_hilang() {
-        let s = temp_store();
-        s.merge_decision("p1", &json!({"label": "benign"}), "t1".into()).unwrap();
-        s.merge_decision("p2", &json!({"label": "malicious"}), "t2".into()).unwrap();
-        let all = s.decisions().unwrap();
+    fn keeps_decisions_on_other_pairs_when_writing_one() {
+        let store = temp_store();
+        store.merge_decision("A", "p1", &json!({"label": "benign"}), "t1".into()).unwrap();
+        store.merge_decision("A", "p2", &json!({"label": "malicious"}), "t2".into()).unwrap();
+        let all = store.decisions("A").unwrap();
         assert_eq!(all.len(), 2);
         assert_eq!(all["p1"]["label"], "benign");
+    }
+
+    #[test]
+    fn keeps_two_annotators_verdicts_on_the_same_pair_apart() {
+        let store = temp_store();
+        store.merge_decision("A", "p1", &json!({"label": "benign"}), "t1".into()).unwrap();
+        store.merge_decision("B", "p1", &json!({"label": "malicious"}), "t2".into()).unwrap();
+        assert_eq!(store.decisions("A").unwrap()["p1"]["label"], "benign");
+        assert_eq!(store.decisions("B").unwrap()["p1"]["label"], "malicious");
+    }
+
+    #[test]
+    fn counts_annotators_without_exposing_their_labels() {
+        let store = temp_store();
+        store.merge_decision("A", "p1", &json!({"label": "benign"}), "t".into()).unwrap();
+        store.merge_decision("A", "p2", &json!({"label": "benign"}), "t".into()).unwrap();
+        store.merge_decision("B", "p1", &json!({"label": "malicious"}), "t".into()).unwrap();
+        fs::write(store.data_dir.join("audit_decisions.json"), "{}").unwrap();
+        assert_eq!(store.annotators().unwrap(), vec![("A".into(), 2), ("B".into(), 1)]);
     }
 }

@@ -1,0 +1,56 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: deployments/docker/Dockerfile.backend
+    image: intentdiff-backend:latest
+    user: "${APP_UID:-1000}:${APP_GID:-1000}"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "test -e /proc/1"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  frontend:
+    build:
+      context: .
+      dockerfile: deployments/docker/Dockerfile.frontend
+    image: intentdiff-frontend:latest
+    ports:
+      - "5174:80"
+    depends_on:
+      - backend
+
+  vllm:
+    profiles: ["model"]
+    image: ${VLLM_IMAGE:-vllm/vllm-openai:latest}
+    ports:
+      - "8001:8000"
+    volumes:
+      - hf-cache:/root/.cache/huggingface
+    environment:
+      HF_TOKEN: ${HF_TOKEN:-}
+    command:
+      - --model
+      - ${MODEL:-Qwen/Qwen2.5-Coder-3B-Instruct}
+      - --dtype
+      - bfloat16
+      - --max-model-len
+      - "32768"
+      - --seed
+      - "0"
+    ipc: host
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+volumes:
+  hf-cache:

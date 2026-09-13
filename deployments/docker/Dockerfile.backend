@@ -1,0 +1,27 @@
+FROM rust:1.98-slim-bookworm AS build
+
+WORKDIR /src
+
+COPY backend/Cargo.toml backend/Cargo.lock ./
+
+RUN mkdir src && echo "fn main() {}" > src/main.rs \
+    && cargo build --release --locked \
+    && rm -rf src
+
+COPY backend/src ./src
+
+RUN touch src/main.rs && cargo build --release --locked
+
+FROM debian:bookworm-slim
+
+RUN useradd --system --create-home --uid 10001 audit
+
+COPY --from=build /src/target/release/intentdiff-backend /usr/local/bin/
+
+USER audit
+
+EXPOSE 8000
+
+ENTRYPOINT ["intentdiff-backend"]
+
+CMD ["--data-dir", "/data", "--port", "8000"]
