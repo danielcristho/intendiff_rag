@@ -1,3 +1,7 @@
+# Bahan referensi lokal: repo pihak ketiga utuh (rogueone, spider, cloudx_ui).
+# Jangan di-commit. PDF proposal sudah ada di labs/refrences/.
+.ref/
+
 data/audit_decisions.json
 data/results.jsonl
 node_modules/
