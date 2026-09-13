@@ -5,10 +5,8 @@ services:
       dockerfile: deployments/docker/Dockerfile.backend
     image: intentdiff-backend:latest
     user: "${APP_UID:-1000}:${APP_GID:-1000}"
-    # Bound to loopback: the audit UI has no authentication, and the GPU host
-    # carries production services on a routable address.
     ports:
-      - "127.0.0.1:${BACKEND_PORT:-8100}:8000"
+      - "${BIND_ADDR:-0.0.0.0}:${BACKEND_PORT:-8100}:8000"
     volumes:
       - ./data:/data
     healthcheck:
@@ -24,7 +22,7 @@ services:
     image: intentdiff-frontend:latest
     restart: unless-stopped
     ports:
-      - "127.0.0.1:${FRONTEND_PORT:-5174}:80"
+      - "${BIND_ADDR:-0.0.0.0}:${FRONTEND_PORT:-5174}:80"
     depends_on:
       - backend
 
@@ -36,7 +34,7 @@ services:
     # Never 8000: the GPU host already runs production-service there, plus 8080,
     # 8081, 5433, 9400 and 18888. Check `docker ps` before changing this.
     ports:
-      - "127.0.0.1:${VLLM_PORT:-8101}:8000"
+      - "${BIND_ADDR:-0.0.0.0}:${VLLM_PORT:-8101}:8000"
     volumes:
       - hf-cache:/root/.cache/huggingface
     environment:

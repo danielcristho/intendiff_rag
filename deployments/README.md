@@ -21,10 +21,20 @@ butuh ~6,9 GiB dan Qwen3-4B ~11,95 GiB (D44). Kalau yang bebas kurang dari itu,
 **jangan paksakan** — jadwalkan jendela saat yolo dimatikan, atau pakai mesin
 lain (D45 opsi A).
 
-**2. UI audit tidak punya autentikasi.** Siapa pun yang bisa mencapai portnya
-bisa membaca dan mengubah label penelitian. Karena itu semua port di-bind ke
-`127.0.0.1` saja. Akses dari laptop lewat SSH tunnel, jangan pernah dibuka ke
-alamat yang bisa dirute.
+**2. UI audit tidak punya autentikasi.** Port di-publish ke `0.0.0.0`, jadi
+siapa pun yang bisa mencapai host itu bisa membaca dan mengubah label
+penelitian. Tidak ada login, tidak ada token.
+
+Kalau mau lebih rapat tanpa kehilangan akses jarak jauh, setel `BIND_ADDR` di
+`.env` ke alamat VPN mesin itu:
+
+```
+BIND_ADDR=192.0.2.11
+```
+
+Itu mengikuti cara container lain di host ini di-publish, dan menjauhkan port
+dari LAN. `BIND_ADDR=127.0.0.1` menutupnya sama sekali, lalu diakses lewat
+`ssh -L 5174:localhost:5174 <user>@<gpu-host>`.
 
 ## Langkah
 
@@ -45,15 +55,10 @@ docker compose up -d --build backend frontend
 curl localhost:8100/health          # -> ok
 ```
 
-Akses UI dari laptop:
+Akses UI dari laptop: buka `http://<host>:5174`.
 
-```bash
-ssh -L 5174:localhost:5174 <user>@<gpu-host>
-# lalu buka http://localhost:5174 di laptop
-```
-
-Tiap anotator menjalankan tunnel-nya sendiri dan mengisi namanya di gerbang
-identitas. Keputusan mereka tersimpan terpisah di `data/audit_decisions.<nama>.json`.
+Tiap anotator mengisi namanya sendiri di gerbang identitas, dan keputusannya
+tersimpan terpisah di `data/audit_decisions.<nama>.json`.
 
 ## Model server (hanya saat menjalankan eksperimen)
 

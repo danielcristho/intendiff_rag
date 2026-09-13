@@ -35,14 +35,14 @@ docker compose --profile model up -d     # tambah vLLM di :8101, butuh GPU NVIDI
 vLLM memakai image resmi, bukan Dockerfile sendiri. Model default
 `Qwen2.5-Coder-3B` — Qwen3-4B tidak muat di 12 GiB (D44).
 
-Deploy ke mesin GPU: `deployments/README.md`. Dua peringatan di sana bukan
-formalitas — vLLM mem-pra-alokasi VRAM dari total kartu dan bisa mematikan
-`production-service`, dan UI audit tidak punya autentikasi.
+Deploy ke mesin GPU: `deployments/README.md`. vLLM mem-pra-alokasi VRAM dari
+total kartu dan bisa mematikan `production-service`, jadi `VLLM_GPU_UTIL` harus
+disetel terhadap VRAM yang benar-benar bebas.
 
 **Port di mesin GPU sudah padat.** 8000 dipakai production-service, ditambah 8080,
 8081, 5433, 9400, dan 18888. Karena itu backend memakai 8100 dan vLLM 8101,
-semuanya di-bind ke loopback saja — UI audit tidak punya autentikasi. Jalankan
-`docker ps` sebelum mengubah port di `.env`.
+di-publish ke `0.0.0.0` lewat `BIND_ADDR`. Jalankan `docker ps` sebelum
+mengubah port di `.env`.
 
 `frontend/` — alat kerja riset: label audit (M1-2) dan error analysis (M7-8).
 Vite + React + TS + Tailwind. Konvensi struktur mengikuti `.ref/spider/frontend`,
