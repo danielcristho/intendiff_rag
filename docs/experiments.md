@@ -73,7 +73,7 @@ Status per 2026-09-13. Kode saat ini masih mengikuti desain E0–E4 lama.
 - [ ] `call_llm`: kirim temperature, top_p, dan top_k dari argumen, lalu kembalikan `finish_reason` ([L80-L101](../pipeline/runner.py#L80-L101)).
 - [ ] Masukkan temperature ke `run_key` ([L34-L35](../pipeline/runner.py#L34-L35)). Tanpa ini, run Stage 2 dengan seed 0 dianggap sudah selesai dan dilewati.
 - [ ] Simpan field hasil tambahan (§3).
-- [ ] Ganti default `--base-url` yang memakai port 8000 dan bentrok dengan backend ([L107](../pipeline/runner.py#L107)).
+- [x] Ganti default `--base-url` yang memakai port 8000 dan bentrok dengan backend ([L107](../pipeline/runner.py#L107)). Sekarang 8101; backend pindah ke 8100. Port 8000 dipakai production-service di mesin GPU.
 - [ ] Perbarui `selfcheck` untuk konfigurasi dan aturan baru ([L170-L201](../pipeline/runner.py#L170-L201)).
 
 **Komponen baru**
@@ -86,6 +86,6 @@ Status per 2026-09-13. Kode saat ini masih mengikuti desain E0–E4 lama.
 
 **Data dan UI**
 
-- [ ] Tambah field skema pair (§3) ke tipe `Pair` di [frontend/src/types/api.ts](../frontend/src/types/api.ts#L10-L20), plus filter per `subset` dan `category`.
-- [ ] Dukung label ganda. Backend menyimpan satu keputusan per pair, jadi perlu file per anotator atau field `annotator`.
+- [x] Tambah field skema pair (§3) ke tipe `Pair` di [frontend/src/types/api.ts](../frontend/src/types/api.ts#L10-L20), plus filter per `subset` dan `category`. Kategori HN juga bisa dilabeli di UI (§8).
+- [x] Dukung label ganda. Satu file per anotator: `data/audit_decisions.<anotator>.json`. UI menahan di gerbang identitas, dan `GET /api/annotators` hanya melaporkan jumlah, bukan label.
 - [x] Taksonomi error capability/intent/retrieval sudah ada di UI dan sesuai dengan EA4.
