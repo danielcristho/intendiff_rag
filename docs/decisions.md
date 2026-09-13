@@ -214,3 +214,16 @@ Konteks: GPU yang tersedia dicek terhadap kebutuhan memori di
 - **Dampak pada D45:** **opsi B praktis gugur.** Di kartu 12 GiB, Qwen3-4B hanya menyisakan 1,55 GiB untuk KV cache, yaitu maksimum **11.286 token** — sedangkan §4.5 saja sudah menganggarkan 28.000 token untuk smart-diff. Menurunkan konteks tidak cukup untuk membuatnya muat; yang tersisa adalah opsi A.
 - **Dampak pada RQ4:** angka "memori minimum terhitung" di §9.3 harus memasukkan CUDA graphs dan overhead runtime, atau yang dilaporkan di naskah akan lebih rendah daripada kebutuhan sebenarnya.
 - Qwen2.5-Coder-3B tetap muat di kartu ini: butuh fraksi 0,75, dan `.env.example` disetel 0,80.
+
+**D48. vLLM dijalankan dengan `--generation-config vllm`, mengabaikan `generation_config.json` model.**
+
+- Sumber: peringatan vLLM 0.29.0 saat menyajikan Qwen2.5-Coder-3B-Instruct — "Default vLLM sampling parameters have been overridden by the model's `generation_config.json`: `{'repetition_penalty': 1.05, 'temperature': 0.7, 'top_k': 20, 'top_p': 0.8}`".
+- Alasan [L]: runner mengirim `temperature`, `top_p`, dan `top_k` secara eksplisit, sehingga ketiganya tertimpa dengan benar. Tetapi **`repetition_penalty` 1,05 tidak pernah dikirim**, jadi nilai itu akan berlaku diam-diam pada seluruh run di kedua stage. §9.2 tidak menyebut `repetition_penalty`, yang berarti nilainya seharusnya 1,0.
+- **Dampak:** tanpa flag ini, Stage 1 yang seharusnya greedy murni berjalan dengan penalti pengulangan aktif, dan faktor itu tidak tercatat di mana pun. Hasilnya tetap konsisten antar konfigurasi, jadi perbandingan internal tidak batal, tetapi angkanya tidak bisa direplikasi oleh orang yang mengikuti §9.2 apa adanya.
+- Berlaku untuk kedua model, karena keduanya dari keluarga Qwen dan mengirim `generation_config.json` serupa.
+
+**D49. Estimasi memori D47 terverifikasi pada perangkat keras sebenarnya.**
+
+- Qwen2.5-Coder-3B pada `--gpu-memory-utilization 0.80`, konteks 32.768: nvidia-smi melaporkan 9.364 MiB terpakai. Dikurangi ~232 MiB milik desktop, vLLM memakai **8,92 GiB**.
+- D47 memperkirakan 8,96 GiB (selisih 0,5%); §9.3 memperkirakan 6,92 GiB (meleset 29%).
+- **Dampak:** rumus §9.3 untuk RQ4 harus diperbaiki agar memasukkan CUDA graphs dan overhead runtime. Angka yang dilaporkan di naskah memakai pengukuran ini, bukan rumus lama.
