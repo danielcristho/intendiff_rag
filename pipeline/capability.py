@@ -37,6 +37,7 @@ CHANGE_SIGNALS = ["dependency_change", "large_deletion"]
 SOURCE_SUFFIXES = {".js", ".ts", ".ejs", ".mjs", ".cjs"}
 DEPENDENCY_FIELDS = ("dependencies", "optionalDependencies", "peerDependencies")
 INSTALL_HOOKS = ("preinstall", "install", "postinstall")
+MAX_EVIDENCE = 3
 
 NETWORK_MODULES = {"http", "https", "net", "dgram", "tls", "dns"}
 NETWORK_CALLS = re.compile(r"\bfetch\s*\(|\bXMLHttpRequest\b|\bWebSocket\s*\(|\bnavigator\.sendBeacon\s*\(")
@@ -93,8 +94,8 @@ def text_files(root):
     return found
 
 
-# source_texts yields the contents of every file the extractor scans.
-def source_texts(root):
+# source_files yields each scanned file as a (relative path, contents) pair.
+def source_files(root):
     root = Path(root)
     for path in sorted(root.rglob("*")):
         if not path.is_file():
@@ -103,25 +104,57 @@ def source_texts(root):
             continue
         text = read_text(path)
         if text is not None:
-            yield text
+            yield str(path.relative_to(root)), text
 
 
-# imported_modules returns the module specifiers a source file requires or imports.
+# imported_modules yields each required or imported module with its match.
 def imported_modules(text):
-    names = set()
     for match in MODULE_REF.finditer(text):
         name = next(group for group in match.groups() if group is not None)
-        names.add(name[5:] if name.startswith("node:") else name)
-    return names
+        yield (name[5:] if name.startswith("node:") else name), match
 
 
-# long_encoded_literal reports whether a string literal looks like packed data.
-def long_encoded_literal(text):
+# encoded_literals yields string literals long enough to look like packed data.
+def encoded_literals(text):
     for match in STRING_LITERAL.finditer(text):
         value = next((group for group in match.groups() if group is not None), "")
         if len(value) >= 200 and (BASE64_ONLY.match(value) or HEX_ONLY.match(value)):
-            return True
-    return False
+            yield match
+
+
+# scan_text yields every (signal, matched text, offset) found in one file.
+def scan_text(text):
+    # scan_version and explain_version both build on this, so the §4.3 table's
+    # detection rules exist in exactly one place.
+    for name, match in imported_modules(text):
+        if name in NETWORK_MODULES:
+            yield "network", match.group(0), match.start()
+        elif name == "child_process":
+            yield "process_exec", match.group(0), match.start()
+
+    for signal, pattern in (
+        ("network", NETWORK_CALLS),
+        ("host_info", HOST_INFO),
+        ("browser_data", BROWSER_DATA),
+        ("dynamic_code", DYNAMIC_CODE),
+        ("obfuscation", HEX_IDENTIFIER),
+        ("obfuscation", DECODE_CALL),
+    ):
+        for match in pattern.finditer(text):
+            yield signal, match.group(0), match.start()
+
+    for marker in FS_SENSITIVE_MARKERS:
+        offset = text.find(marker)
+        if offset >= 0:
+            yield "fs_sensitive", marker, offset
+
+    for match in encoded_literals(text):
+        yield "obfuscation", match.group(0)[:60] + "…", match.start()
+
+
+# line_number returns the 1-based line an offset falls on.
+def line_number(text, offset):
+    return text.count("\n", 0, offset) + 1
 
 
 # package_json returns a version's parsed manifest, empty when absent or invalid.
@@ -165,28 +198,31 @@ def is_non_registry(spec):
 
 # scan_version returns the capabilities detected in one version of a package.
 def scan_version(root):
-    found = set()
+    found = {signal for _, text in source_files(root) for signal, _, _ in scan_text(text)}
     if install_commands(root):
         found.add("install_script")
-
-    for text in source_texts(root):
-        modules = imported_modules(text)
-        if modules & NETWORK_MODULES or NETWORK_CALLS.search(text):
-            found.add("network")
-        if "child_process" in modules:
-            found.add("process_exec")
-        if HOST_INFO.search(text):
-            found.add("host_info")
-        if any(marker in text for marker in FS_SENSITIVE_MARKERS):
-            found.add("fs_sensitive")
-        if BROWSER_DATA.search(text):
-            found.add("browser_data")
-        if DYNAMIC_CODE.search(text):
-            found.add("dynamic_code")
-        if HEX_IDENTIFIER.search(text) or DECODE_CALL.search(text) or long_encoded_literal(text):
-            found.add("obfuscation")
-
     return found
+
+
+# explain_version maps each detected capability to where it fires.
+def explain_version(root):
+    # At most MAX_EVIDENCE per signal: enough for an annotator to judge the
+    # documented purpose behind it (§3.3) without bloating pairs.jsonl.
+    evidence = {}
+    for path, text in source_files(root):
+        for signal, matched, offset in scan_text(text):
+            entries = evidence.setdefault(signal, [])
+            if len(entries) < MAX_EVIDENCE:
+                entries.append({
+                    "file": path,
+                    "line": line_number(text, offset),
+                    "match": matched.strip()[:120],
+                })
+    for hook, command in install_commands(root).items():
+        entries = evidence.setdefault("install_script", [])
+        if len(entries) < MAX_EVIDENCE:
+            entries.append({"file": "package.json", "hook": hook, "match": str(command)[:120]})
+    return evidence
 
 
 # capabilities lists one version's capabilities in table order.
@@ -197,24 +233,33 @@ def capabilities(root):
     return [name for name in CAPABILITIES if name in found]
 
 
-# dependency_change reports a new dependency or one repointed off the registry.
-def dependency_change(before, after):
+# dependency_changes lists each new dependency or one repointed off the registry.
+def dependency_changes(before, after):
     old, new = declared_dependencies(before), declared_dependencies(after)
+    found = []
     for name, spec in new.items():
         if name not in old:
-            return True
-        if spec != old[name] and is_non_registry(spec):
-            return True
-    return False
+            found.append({"dependency": name, "before": None, "after": spec})
+        elif spec != old[name] and is_non_registry(spec):
+            found.append({"dependency": name, "before": old[name], "after": spec})
+    return found
+
+
+# dependency_change reports whether any dependency was added or repointed.
+def dependency_change(before, after):
+    return bool(dependency_changes(before, after))
+
+
+# deletion_counts returns how many of the previous text files are gone, and of how many.
+def deletion_counts(before, after):
+    old = text_files(before)
+    return len(old - text_files(after)), len(old)
 
 
 # large_deletion reports whether at least half the previous text files are gone.
 def large_deletion(before, after):
-    old = text_files(before)
-    if not old:
-        return False
-    removed = old - text_files(after)
-    return len(removed) * 2 >= len(old)
+    removed, total = deletion_counts(before, after)
+    return total > 0 and removed * 2 >= total
 
 
 # delta returns the capability delta between two versions, in table order.
@@ -235,20 +280,42 @@ def delta(before, after):
     return ordered
 
 
+# delta_evidence maps each signal in the delta to why it fired.
+def delta_evidence(before, after):
+    # Evidence comes from the new version only: a signal in the delta was by
+    # definition absent before, so v_t is where the annotator has to look.
+    signals = delta(before, after)
+    from_after = explain_version(after)
+    evidence = {name: from_after.get(name, []) for name in signals if name in CAPABILITIES}
+
+    if "dependency_change" in signals:
+        evidence["dependency_change"] = dependency_changes(before, after)[:MAX_EVIDENCE]
+    if "large_deletion" in signals:
+        removed, total = deletion_counts(before, after)
+        evidence["large_deletion"] = [{"removed": removed, "of": total}]
+    return evidence
+
+
 # main prints the delta for a version pair, or one version's capabilities.
 def main(argv=None):
     parser = argparse.ArgumentParser()
     parser.add_argument("--before")
     parser.add_argument("--after")
     parser.add_argument("--single", help="one version, for a malicious-intent card")
+    parser.add_argument("--explain", action="store_true", help="also report where each signal fires")
     args = parser.parse_args(argv)
 
     if args.single:
-        print(json.dumps(capabilities(args.single)))
+        result = explain_version(args.single) if args.explain else capabilities(args.single)
     elif args.before and args.after:
-        print(json.dumps(delta(args.before, args.after)))
+        result = (
+            delta_evidence(args.before, args.after)
+            if args.explain
+            else delta(args.before, args.after)
+        )
     else:
         parser.error("pass --single, or both --before and --after")
+    print(json.dumps(result, indent=2 if args.explain else None))
 
 
 # build_fixture writes a package tree and returns its root, for the self-check.
@@ -354,6 +421,42 @@ def selfcheck():
     # --- capabilities(): whole set for a card with no predecessor
     card = pkg({"a.js": "require('https'); eval(x);", "package.json": '{"scripts": {"install": "s"}}'})
     assert capabilities(card) == ["network", "dynamic_code", "install_script"], capabilities(card)
+
+    # --- explain: file, line and the matched text, for §3.3 verification
+    b = pkg({"index.js": "module.exports = s => s.trim();", "package.json": "{}"})
+    a = pkg({
+        "index.js": "module.exports = s => s.trim();",
+        "scripts/setup.js": "const https = require('https');\nconst env = JSON.stringify(process.env);\n",
+        "package.json": '{"scripts": {"preinstall": "node ./scripts/setup.js"}}',
+    })
+    why = delta_evidence(b, a)
+    assert set(why) == {"network", "host_info", "install_script"}, set(why)
+    assert why["network"][0]["file"] == "scripts/setup.js", why["network"]
+    assert why["network"][0]["line"] == 1, why["network"]
+    assert "https" in why["network"][0]["match"], why["network"]
+    # process.env sits on the second line, so the line number must follow it.
+    assert why["host_info"][0]["line"] == 2, why["host_info"]
+    assert why["install_script"][0]["hook"] == "preinstall", why["install_script"]
+
+    # Evidence covers only what is in the delta: a capability present in both
+    # versions is not something the annotator has to re-judge.
+    both = pkg({"a.js": "require('https');"})
+    grew = pkg({"a.js": "require('https'); eval(x);"})
+    assert set(delta_evidence(both, grew)) == {"dynamic_code"}, delta_evidence(both, grew)
+
+    # --- change-signal evidence names the dependency and the counts
+    b = pkg({"package.json": '{"dependencies": {"axios": "^1.0.0"}}'})
+    a = pkg({"package.json": '{"dependencies": {"axios": "git+https://e.com/a.git"}}'})
+    dep = delta_evidence(b, a)["dependency_change"][0]
+    assert dep["dependency"] == "axios" and dep["before"] == "^1.0.0", dep
+
+    four = pkg({"a.js": "1", "b.js": "1", "c.js": "1", "d.js": "1"})
+    gone = delta_evidence(four, pkg({"a.js": "1"}))["large_deletion"][0]
+    assert gone == {"removed": 3, "of": 4}, gone
+
+    # At most MAX_EVIDENCE entries per signal, so pairs.jsonl stays small.
+    noisy = pkg({"a.js": "\n".join("eval(x);" for _ in range(10))})
+    assert len(explain_version(noisy)["dynamic_code"]) == MAX_EVIDENCE
 
     print("ok")
 
