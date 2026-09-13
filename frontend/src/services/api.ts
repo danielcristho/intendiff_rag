@@ -1,19 +1,26 @@
-import type { Decision, Decisions, PairsResponse } from "@/types/api";
+import type { AnnotatorProgress, Decision, Decisions, PairsResponse } from "@/types/api";
 
+// request issues a JSON call and turns any non-2xx response into an error.
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(path, {
+  const response = await fetch(path, {
     ...init,
     headers: { "Content-Type": "application/json", ...init?.headers },
   });
-  if (!res.ok) throw new Error((await res.text()) || `Request gagal (${res.status})`);
-  return (await res.json()) as T;
+  if (!response.ok) {
+    throw new Error((await response.text()) || `Request failed (${response.status})`);
+  }
+  return (await response.json()) as T;
 }
 
+const q = encodeURIComponent;
+
+// api is the typed client for the Rust backend, proxied through /api in dev.
 export const api = {
   pairs: () => request<PairsResponse>("/api/pairs"),
-  decisions: () => request<Decisions>("/api/decisions"),
-  saveDecision: (id: string, patch: Decision) =>
-    request<Decision>(`/api/decisions?id=${encodeURIComponent(id)}`, {
+  annotators: () => request<AnnotatorProgress[]>("/api/annotators"),
+  decisions: (annotator: string) => request<Decisions>(`/api/decisions?annotator=${q(annotator)}`),
+  saveDecision: (annotator: string, id: string, patch: Decision) =>
+    request<Decision>(`/api/decisions?id=${q(id)}&annotator=${q(annotator)}`, {
       method: "PUT",
       body: JSON.stringify(patch),
     }),

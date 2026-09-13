@@ -72,7 +72,7 @@ cargo test
 cd frontend && pnpm install && pnpm dev
 pnpm test
 
-# pipeline: butuh server model OpenAI-compatible (vLLM/Ollama)
+# pipeline: butuh server vLLM (D46 — Ollama hanya untuk smoke test mekanik)
 python pipeline/runner.py --model Qwen/Qwen3-4B-Instruct-2507 --base-url http://localhost:<port-model>
 python pipeline/runner.py --selfcheck
 ```

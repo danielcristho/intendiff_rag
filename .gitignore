@@ -1,10 +1,11 @@
-# Bahan referensi lokal: repo pihak ketiga utuh (rogueone, spider, cloudx_ui).
-# Jangan di-commit. PDF proposal sudah ada di labs/refrences/.
 .ref/
 
-data/audit_decisions.json
+data/audit_decisions*.json
 data/results.jsonl
 node_modules/
 dist/
 target/
 __pycache__/
+
+# Salinan lokal .env.example; APP_UID/HF_TOKEN spesifik per mesin.
+.env
