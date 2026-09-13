@@ -28,11 +28,11 @@ pelengkap `npm audit`, bukan audit tata kelola TI.
 
 | | Pertanyaan | Jenis | Pembanding |
 |---|---|---|---|
-| RQ1 | Seberapa akurat model 3–4B mendeteksi update berbahaya dari smart-diff tanpa contoh, dan seberapa jauh selisihnya dari model tertutup di Wyss et al.? | Deskriptif | E0-noint, E0 |
+| RQ1 | Seberapa akurat model 3–4B mendeteksi update berbahaya dari smart-diff tanpa contoh, diukur dari recall dan FPR? | Deskriptif | E0-noint, E0 |
 | RQ2a | Apakah contoh malicious hasil retrieval menaikkan FPR pada hard negative? | Uji hipotesis | E3 vs E0 |
 | RQ2b | Dengan jumlah contoh yang sama, apakah benign look-alike menurunkan FPR hard negative tanpa recall turun lebih dari 5 poin? | Uji hipotesis (utama) | E4 vs E3-k2 |
 | RQ3 | Apakah intent paket eksplisit menurunkan FPR hard negative tanpa recall turun lebih dari 5 poin? | Uji hipotesis | E4 vs E4-noint |
-| RQ4 | Berapa tambahan token, latency, dan VRAM dari tiap komponen? | Deskriptif | semua konfigurasi |
+| RQ4 | Berapa tambahan token, latency, dan memori GPU dari tiap komponen? | Deskriptif | semua konfigurasi |
 
 Hipotesis, decision rule, dan ancaman validitas ada di
 [docs/research.md](docs/research.md). RQ di proposal P1 (slide 10) sudah
@@ -43,19 +43,22 @@ tidak berlaku; alasan tiap perubahan ada di [docs/decisions.md](docs/decisions.m
 - [x] Proposal P1 — `labs/refrences/P1_Metodologi Penelitian.pdf`
 - [x] Audit referensi ke sumber asli — [docs/references.md](docs/references.md)
 - [x] Revisi RQ, hipotesis, dan protokol eksperimen
+- [x] Metodologi final — [docs/methodology.md](docs/methodology.md)
 - [x] Kerangka runner, prompt builder, dan UI label audit
 - [ ] Dataset (`data/` belum ada)
 - [ ] Smart-diff, intent profile, capability extractor, skrip analisis
-- [ ] Penyesuaian kode ke konfigurasi revisi — [checklist](docs/experiments.md#9-checklist-implementasi)
+- [ ] Penyesuaian kode ke konfigurasi revisi — [checklist](docs/experiments.md#4-checklist-implementasi)
 
 ## Peta dokumen
 
 | File | Isi |
 |---|---|
 | [docs/research.md](docs/research.md) | masalah, posisi terhadap penelitian terkait, gap, RQ, hipotesis, decision rule, ancaman validitas |
-| [docs/experiments.md](docs/experiments.md) | konfigurasi, data dan protokol label, KB dan retrieval, metrik, statistik, timeline, checklist implementasi |
+| [docs/methodology.md](docs/methodology.md) | prosedur final: data, smart-diff, capability extractor, intent profile, KB dan retrieval, prompt verbatim, inferensi, metrik, statistik |
+| [docs/experiments.md](docs/experiments.md) | pelaksanaan: timeline dan gate, volume run, skema file, checklist implementasi |
 | [docs/references.md](docs/references.md) | status tiap referensi, fakta yang boleh dikutip, koreksi slide P1, referensi yang perlu ditambah |
 | [docs/decisions.md](docs/decisions.md) | log keputusan bertanggal beserta alasannya |
+| [.agent/](.agent/) | ringkasan operasional untuk agent AI: invarian kode, skema file, urutan run, posisi terhadap RogueOne. `docs/` tetap sumber kebenaran |
 | `labs/latex/` | naskah (Elsevier CAS) |
 
 ## Menjalankan
