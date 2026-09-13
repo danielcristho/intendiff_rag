@@ -1,4 +1,4 @@
-import type { Decisions, ErrorClass, Pair, Subset, Verdict } from "@/types/api";
+import type { Decisions, DeltaEvidence, ErrorClass, Pair, Subset, Verdict } from "@/types/api";
 
 // STATUSES are the review-progress filters offered in the queue.
 export const STATUSES = ["semua", "belum direview", "beda dari gold"] as const;
@@ -84,4 +84,18 @@ export function summarize(pairs: Pair[], decisions: Decisions): Summary {
       keep(pair, decisions, { ...NO_FILTER, status: "beda dari gold" }),
     ).length,
   };
+}
+
+// describeEvidence renders one piece of delta evidence as a single line.
+export function describeEvidence(entry: DeltaEvidence): string {
+  if ("dependency" in entry) {
+    return `${entry.dependency}: ${entry.before ?? "(baru)"} → ${entry.after}`;
+  }
+  if ("removed" in entry) {
+    return `${entry.removed} dari ${entry.of} file teks hilang`;
+  }
+  if ("hook" in entry) {
+    return `${entry.file} · ${entry.hook} — ${entry.match}`;
+  }
+  return `${entry.file}:${entry.line} — ${entry.match}`;
 }

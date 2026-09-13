@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { StateBlock } from "@/components/ui/state-block";
 import { DecisionPanel } from "@/components/audit/DecisionPanel";
+import { CapabilityDelta } from "@/components/audit/CapabilityDelta";
 import { DiffView } from "@/components/audit/DiffView";
 import { FilterBar } from "@/components/audit/FilterBar";
 import { useDecisions, usePairs, useSaveDecision } from "@/hooks/useAuditData";
@@ -110,24 +111,7 @@ export function AuditPage() {
                   <span className="italic text-ink-faint">belum ada intent profile</span>
                 )}
               </p>
-              {pair.delta?.length ? (
-                <>
-                  <h3 className="eyebrow mt-5">Capability delta</h3>
-                  <div className="space-y-1">
-                    {pair.delta.map((signal) => (
-                      <code
-                        key={signal}
-                        className="block rounded bg-canvas px-2 py-1 font-mono text-xs"
-                      >
-                        {signal}
-                      </code>
-                    ))}
-                  </div>
-                  <p className="mt-2 text-xs text-ink-faint">
-                    Hanya kunci retrieval — tidak pernah ditampilkan ke model (D25).
-                  </p>
-                </>
-              ) : null}
+              <CapabilityDelta pair={pair} />
             </Card>
 
             <DecisionPanel pair={pair} entry={entry} onRecord={record} />

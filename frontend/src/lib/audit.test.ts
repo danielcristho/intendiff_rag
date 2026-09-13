@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { NO_FILTER, keep, summarize, type Filters } from "@/lib/audit";
+import { NO_FILTER, describeEvidence, keep, summarize, type Filters } from "@/lib/audit";
 import { validAnnotator } from "@/lib/annotator";
 import type { Decisions, Pair } from "@/types/api";
 
@@ -85,5 +85,36 @@ describe("validAnnotator", () => {
     for (const ok of ["A", "robby", "daniel-2", "anotator_B"]) {
       expect(validAnnotator(ok), ok).toBe(true);
     }
+  });
+});
+
+describe("describeEvidence", () => {
+  it("points a source match at its file and line", () => {
+    expect(describeEvidence({ file: "scripts/setup.js", line: 2, match: "process.env" })).toBe(
+      "scripts/setup.js:2 — process.env",
+    );
+  });
+
+  it("names the lifecycle hook for an install script", () => {
+    expect(describeEvidence({ file: "package.json", hook: "preinstall", match: "node s.js" })).toBe(
+      "package.json · preinstall — node s.js",
+    );
+  });
+
+  it("shows the old and new spec for a repointed dependency", () => {
+    expect(
+      describeEvidence({ dependency: "axios", before: "^1.0.0", after: "git+https://e.com/a.git" }),
+    ).toBe("axios: ^1.0.0 → git+https://e.com/a.git");
+  });
+
+  it("marks a dependency that had no previous spec as new", () => {
+    // A null `before` means the dependency was added, not repointed.
+    expect(describeEvidence({ dependency: "x", before: null, after: "^1.0.0" })).toBe(
+      "x: (baru) → ^1.0.0",
+    );
+  });
+
+  it("reports counts for a large deletion", () => {
+    expect(describeEvidence({ removed: 3, of: 4 })).toBe("3 dari 4 file teks hilang");
   });
 });
