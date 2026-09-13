@@ -22,6 +22,7 @@ services:
       context: .
       dockerfile: deployments/docker/Dockerfile.frontend
     image: intentdiff-frontend:latest
+    restart: unless-stopped
     ports:
       - "127.0.0.1:${FRONTEND_PORT:-5174}:80"
     depends_on:
@@ -29,6 +30,8 @@ services:
 
   vllm:
     profiles: ["model"]
+    # No restart policy on purpose: a reboot must not silently seize the GPU
+    # from whatever else runs on this host.
     image: ${VLLM_IMAGE:-vllm/vllm-openai:latest}
     # Never 8000: the GPU host already runs production-service there, plus 8080,
     # 8081, 5433, 9400 and 18888. Check `docker ps` before changing this.
@@ -47,6 +50,12 @@ services:
       - "32768"
       - --seed
       - "0"
+      # vLLM pre-allocates this fraction of TOTAL GPU memory at startup, not
+      # of the free memory. Left at the 0.9 default it will take the card out
+      # from under any other GPU container. Size it against what is actually
+      # free (`nvidia-smi`) before starting.
+      - --gpu-memory-utilization
+      - "${VLLM_GPU_UTIL:-0.45}"
     ipc: host
     deploy:
       resources:
