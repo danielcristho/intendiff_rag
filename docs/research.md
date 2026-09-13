@@ -2,7 +2,7 @@
 
 Revisi 2026-09-13. Dokumen ini menggantikan research gap dan RQ di proposal P1
 (slide 8–10 dan 15). Alasan tiap perubahan ada di [decisions.md](decisions.md);
-detail data, konfigurasi, dan statistik ada di [experiments.md](experiments.md).
+prosedur lengkap (data, prompt, konfigurasi, statistik) ada di [methodology.md](methodology.md).
 
 ## 1. Masalah
 
@@ -67,7 +67,7 @@ knowledge card, dan protokol label yang dapat direplikasi.
 
 ### Notasi
 
-- **MAL, HN, TYP**: subset update malicious, hard negative, dan typical ([experiments.md §2](experiments.md#2-data)).
+- **MAL, HN, TYP**: subset update malicious, hard negative, dan typical ([methodology.md §3](methodology.md#3-data)).
 - **FPR_HN(E)**: proporsi pair HN yang diberi verdict `malicious` oleh konfigurasi E. FPR_TYP didefinisikan sama untuk TYP.
 - **Recall(E)**: proporsi pair MAL yang diberi verdict `malicious` oleh konfigurasi E.
 - Semua perbandingan bersifat **paired**: pair sama, model sama, dan hanya satu faktor yang berbeda.
@@ -75,23 +75,25 @@ knowledge card, dan protokol label yang dapat direplikasi.
 ### RQ1 — Kemampuan dasar model kecil (Gap 1) · deskriptif
 
 > Seberapa akurat LLM open-weight 3–4B mendeteksi update npm berbahaya dari
-> smart-diff tanpa contoh, dan seberapa jauh selisihnya dari model tertutup yang
-> dilaporkan Wyss et al. (2025)?
+> smart-diff tanpa contoh, diukur dari recall serta FPR pada update typical dan
+> hard negative?
 >
 > *How accurately do 3–4B open-weight LLMs detect malicious npm updates from a
-> smart-diff without examples, and how far are they from the closed models
-> reported by Wyss et al. (2025)?*
+> smart-diff without examples, in terms of recall and false-positive rate on
+> typical and hard-negative updates?*
 
-- **Konfigurasi:** E0-noint (input setara Wyss: smart-diff saja) dan E0.
+- **Konfigurasi:** E0-noint (smart-diff saja) dan E0 (smart-diff + intent).
 - **Ukuran:** Recall, FPR_TYP, dan FPR_HN dengan Wilson 95% CI, per model.
-- **Pembanding eksternal:** angka Wyss pada subset Wyss (46 update malicious dan
-  typical updates) dilaporkan berdampingan, **tanpa uji hipotesis**. Alasannya,
-  prompt dan implementasinya berbeda dan GPT-4o tidak dijalankan ulang.
 - **Kenapa bukan "apakah model kecil cukup?":** tidak ada ambang "cukup" yang
   disepakati. Kalau ambangnya kami tetapkan sendiri, jawabannya bergantung pada
   ambang itu, bukan pada data.
-- **Bentuk jawaban:** "Qwen3-4B (E0-noint): recall a% [CI], FPR_TYP b% [CI].
-  GPT-4o menurut Wyss: 46/46 dan 8/2.000."
+- **Kenapa angka Wyss et al. tidak masuk rumusan RQ:** prompt, implementasi, dan
+  sampelnya berbeda, dan GPT-4o tidak dijalankan ulang, sehingga selisihnya tidak
+  bisa diuji. RQ hanya menjanjikan apa yang bisa dijawab dengan data sendiri.
+  Perbandingan dengan Wyss dibahas di Diskusi ([§5, aturan klaim](#aturan-klaim)).
+- **Bentuk jawaban:** "Qwen3-4B (E0-noint): recall a% [CI], FPR_TYP b% [CI],
+  FPR_HN c% [CI]." Di Diskusi, FPR boleh diterjemahkan ke beban operasional
+  (§1: setiap 1% FPR ≈ 216 alarm palsu per hari).
 
 ### RQ2 — Confirmation bias dan contoh pembanding (Gap 2) · uji hipotesis
 
@@ -141,12 +143,12 @@ Pembanding sekunder tanpa uji: E0 vs E0-noint, yaitu efek intent tanpa retrieval
 
 ### RQ4 — Biaya · deskriptif
 
-> Berapa tambahan token, latency (median dan p95), dan peak VRAM yang dibutuhkan
+> Berapa tambahan token, latency (median dan p95), dan memori GPU yang dibutuhkan
 > setiap komponen — intent, retrieval, dan contoh kedua — pada dua model 3–4B,
 > dan konfigurasi mana yang tidak didominasi konfigurasi lain?
 >
 > *What does each component — intent, retrieval, and the second example — add in
-> tokens, median and p95 latency, and peak VRAM on two 3–4B models, and which
+> tokens, median and p95 latency, and GPU memory on two 3–4B models, and which
 > configurations are Pareto-optimal?*
 
 - **Biaya komponen** dihitung sebagai selisih antar pasangan konfigurasi:
@@ -154,7 +156,7 @@ Pembanding sekunder tanpa uji: E0 vs E0-noint, yaitu efek intent tanpa retrieval
   - E0 → E3: satu card
   - E3 → E3-k2 atau E4: card kedua
 - **Pareto front** dihitung pada (FPR_HN, Recall, median latency).
-- Peak VRAM diukur satu angka per model (nvidia-smi). Hardware dan quantization dilaporkan.
+- Memori GPU dilaporkan sebagai memori minimum terhitung per model: memori bobot dari log vLLM ditambah KV cache terhitung ([methodology.md §9.3](methodology.md#93-kebutuhan-memori-dan-cara-mengukurnya)). Puncak nvidia-smi tidak dipakai (D41). Model GPU, total VRAM, dan dtype dilaporkan.
 
 ### Analisis eksploratif
 
@@ -203,18 +205,24 @@ dengan p_Holm < 0,05), **Arah sesuai, tidak signifikan**, atau **Tidak didukung*
 - Klaim umum, misalnya "benign look-alike menurunkan FPR pada model 3–4B", hanya
   boleh ditulis jika **kedua model** berlabel Didukung atau Didukung sebagian.
 - "Tidak signifikan" **bukan** bukti bahwa tidak ada efek. Batas deteksi desain
-  ini dijelaskan di [experiments.md §7](experiments.md#7-metrik-dan-analisis).
+  ini dijelaskan di [methodology.md §11.3](methodology.md#113-batas-yang-bisa-dibuktikan).
 - **Kriteria adopsi** (revisi slide 15 dan 17): E4 direkomendasikan hanya jika H2b
   dan H3 berlabel Didukung atau Didukung sebagian pada kedua model, arah efeknya
   sama pada subset pasca-rilis (EA3), dan biaya RQ4 dilaporkan.
 - Jika jumlah pair suatu subset di bawah minimum pada Gate G1, RQ yang bergantung
   pada subset itu dilaporkan secara deskriptif saja.
+- **Angka penelitian lain** (Wyss et al., RogueOne, IntelGuard) hanya dibahas di
+  Diskusi sebagai konteks, dengan menyebut perbedaan model, prompt, dan dataset.
+  Tidak ada klaim "lebih baik" atau "lebih buruk" dari perbandingan lintas setup.
+  Kalau data Wyss di OSF bisa dipakai, angka kita pada subset yang sama boleh
+  disajikan berdampingan dengan angka mereka, tetap tanpa uji (D23).
 
 ## 6. Ancaman validitas
 
 **Internal**
 
 - *E4 punya lebih banyak contoh daripada E3.* Mitigasi: kontrol E3-k2.
+- *Capability delta kosong pada serangan tersamar,* yaitu payload yang memakai capability yang sudah ada di v_{t−1}. Pada pola ini (CC-Harvest), RogueOne default melewatkan 10 dari 10 kasus. Retrieval berbasis delta tidak mendapat sinyal pada pair seperti itu. Mitigasi: recall dilaporkan terpisah untuk pair MAL dengan delta kosong.
 - *Recency bias: card terakhir memengaruhi verdict.* Mitigasi: urutan card E4 di-counterbalance per pair.
 - *Kualitas retrieval tidak simetris; pool benign lebih kecil sehingga card benign bisa kurang mirip.* Mitigasi: skor kemiripan setiap card dicatat dan dilaporkan per konfigurasi.
 - *System prompt memberi petunjuk kategori HN.* Mitigasi: daftar kategori dihapus dari prompt (D17).

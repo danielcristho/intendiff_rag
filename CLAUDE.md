@@ -30,7 +30,7 @@ pnpm build         # tsc --noEmit && vite build
 `pipeline/` — runner eksperimen. Batch, bukan service: baca pairs, jalankan
 setiap konfigurasi lewat endpoint OpenAI-compatible (vLLM/Ollama), tulis satu
 baris per run. Kode masih memakai E0–E4 lama; konfigurasi revisi dan checklist
-penyesuaiannya ada di `docs/experiments.md` §9.
+penyesuaiannya ada di `docs/methodology.md` dan `docs/experiments.md` §4.
 
 ```
 python pipeline/runner.py --model Qwen/Qwen3-4B-Instruct-2507
@@ -41,8 +41,9 @@ Resumable — run yang sudah ada di `results.jsonl` dilewati, jadi batch boleh
 dihentikan kapan saja. Sekuensial dengan sengaja: RQ4 mengukur median dan p95
 latency, dan angka itu rusak kalau request tumpang tindih di server.
 
-Peak VRAM tidak diukur runner (satu angka per model yang dimuat, bukan per
-request) — catat terpisah lewat nvidia-smi.
+Memori GPU tidak diukur runner. Jangan pakai puncak nvidia-smi sebagai metrik:
+vLLM mempra-alokasi memori sesuai `--gpu-memory-utilization`. Cara ukurnya ada
+di `docs/methodology.md` §9.3 (D41).
 
 `backend/` — API untuk UI audit. Rust + axum.
 
@@ -64,8 +65,14 @@ Default `--base-url` runner juga port 8000 — jangan jalankan server model di
 port yang sama dengan backend.
 
 - `docs/research.md` — masalah, posisi, gap, RQ1–RQ4, hipotesis, decision rule, ancaman validitas
-- `docs/experiments.md` — konfigurasi, data & protokol label, KB, metrik, statistik, timeline, checklist implementasi
+- `docs/methodology.md` — prosedur final: data, smart-diff, extractor, intent, KB & retrieval, prompt verbatim, inferensi, metrik, statistik
+- `docs/experiments.md` — pelaksanaan: timeline & gate, volume run, skema file, checklist implementasi
 - `docs/references.md` — status referensi (dicek ke sumber asli), fakta yang boleh dikutip, koreksi slide P1
 - `docs/decisions.md` — log keputusan bertanggal; tambahkan entri setiap desain berubah
 - `labs/refrences/P1_Metodologi Penelitian.pdf` — proposal awal; scope masih berlaku, RQ-nya sudah digantikan `docs/research.md`
-- RogueOne (ICSE 2024) — dikutip sebagai pembanding, tidak dijalankan ulang (D20)
+- `.agent/research.md` — ringkasan untuk agent: RQ → konfigurasi, invarian yang tidak boleh dilanggar, larangan, istilah
+- `.agent/experiments.md` — spesifikasi konfigurasi untuk kode, skema file, urutan run, penanganan sampel yang aman
+- `.agent/rogueone.md` — posisi terhadap RogueOne: ide yang diambil & di-skip, angka yang boleh dikutip (tidak dijalankan ulang, D20)
+
+`docs/` adalah sumber kebenaran; `.agent/` adalah ringkasan operasionalnya. Kalau
+keduanya berbeda, `docs/` yang benar dan `.agent/` diperbarui.
