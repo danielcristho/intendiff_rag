@@ -10,6 +10,8 @@ teknis dari "apakah ini menjawab RQ", bukan dari kelengkapan fitur.
 - **Sampel malicious hanya dianalisis statis.** Jangan pernah dieksekusi, di-`npm install`, atau dijalankan lifecycle script-nya. Tidak ada network call ke endpoint yang muncul di dalam sampel.
 - **`.ref/` read-only** — bahan referensi, bukan kode proyek. Jangan diedit.
 - **Laporkan angka apa adanya.** Kalau satu konfigurasi kalah dari baseline, itu hasil — bukan bug yang harus di-tuning sampai menang.
+- **Desain yang berlaku ada di `docs/`, bukan di slide P1.** RQ proposal sudah direvisi (2026-09-13). Setiap perubahan desain dicatat di `docs/decisions.md`.
+- **Desain dibekukan di Gate G2** (akhir M4). Setelah itu, perubahan prompt, konfigurasi, daftar capability, atau decision rule wajib dicatat di `docs/decisions.md` dan semua konfigurasi dijalankan ulang. Jangan menyetel prompt berdasarkan hasil test set.
 - Scope 8 minggu. Di luar scope kecuali diminta: web UI, CI integration, service/API, dynamic sandbox execution, fine-tuning, model tertutup.
 
 ## Konteks
@@ -26,7 +28,9 @@ pnpm build         # tsc --noEmit && vite build
 ```
 
 `pipeline/` — runner eksperimen. Batch, bukan service: baca pairs, jalankan
-E0-E4 lewat endpoint OpenAI-compatible (vLLM/Ollama), tulis satu baris per run.
+setiap konfigurasi lewat endpoint OpenAI-compatible (vLLM/Ollama), tulis satu
+baris per run. Kode masih memakai E0–E4 lama; konfigurasi revisi dan checklist
+penyesuaiannya ada di `docs/experiments.md` §9.
 
 ```
 python pipeline/runner.py --model Qwen/Qwen3-4B-Instruct-2507
@@ -34,7 +38,7 @@ python pipeline/runner.py --selfcheck
 ```
 
 Resumable — run yang sudah ada di `results.jsonl` dilewati, jadi batch boleh
-dihentikan kapan saja. Sekuensial dengan sengaja: RQ3 mengukur median dan p95
+dihentikan kapan saja. Sekuensial dengan sengaja: RQ4 mengukur median dan p95
 latency, dan angka itu rusak kalau request tumpang tindih di server.
 
 Peak VRAM tidak diukur runner (satu angka per model yang dimuat, bukan per
@@ -56,9 +60,12 @@ Tulis keputusan dijaga mutex dan lewat rename atomik, jadi dua klik berdekatan
 tidak saling menimpa dan proses yang mati saat menulis tidak merusak file.
 
 Frontend mem-proxy `/api` ke port 8000, jadi backend harus jalan lebih dulu.
+Default `--base-url` runner juga port 8000 — jangan jalankan server model di
+port yang sama dengan backend.
 
-- `.agent/research.md` — RQ, hipotesis, pipeline, decision rule, gap
-- `.agent/experiments.md` — matriks E0–E4, data, metrik, timeline
-- `.agent/rogueone.md` — posisi terhadap RogueOne, novelty yang diambil & di-skip
-- `.ref/P1_Metodologi Penelitian.pdf` — proposal, sumber kebenaran untuk scope
-- `.ref/rogueone/` — kode RogueOne (ICSE 2024), baseline
+- `docs/research.md` — masalah, posisi, gap, RQ1–RQ4, hipotesis, decision rule, ancaman validitas
+- `docs/experiments.md` — konfigurasi, data & protokol label, KB, metrik, statistik, timeline, checklist implementasi
+- `docs/references.md` — status referensi (dicek ke sumber asli), fakta yang boleh dikutip, koreksi slide P1
+- `docs/decisions.md` — log keputusan bertanggal; tambahkan entri setiap desain berubah
+- `labs/refrences/P1_Metodologi Penelitian.pdf` — proposal awal; scope masih berlaku, RQ-nya sudah digantikan `docs/research.md`
+- RogueOne (ICSE 2024) — dikutip sebagai pembanding, tidak dijalankan ulang (D20)
