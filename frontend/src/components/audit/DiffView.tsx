@@ -1,10 +1,6 @@
 import { cn } from "@/lib/utils";
 
-/**
- * Smart-diff dirender per baris supaya tambahan/hapusan langsung terbaca.
- * ponytail: pewarnaan per-prefix, bukan syntax highlighting — yang dinilai
- * saat audit adalah baris mana yang berubah, bukan token JS-nya.
- */
+// DiffView renders a smart-diff line by line, tinted by its change marker.
 export function DiffView({ diff }: { diff: string }) {
   const lines = diff.split("\n");
   return (

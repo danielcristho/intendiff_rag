@@ -1,12 +1,16 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { LayoutDashboard, ScanSearch } from "lucide-react";
+import { LayoutDashboard, ScanSearch, UserRound } from "lucide-react";
+import { useAnnotator } from "@/components/AnnotatorGate";
 
-const links = [
+const NAV_LINKS = [
   { to: "/overview", label: "Overview", icon: LayoutDashboard },
   { to: "/audit", label: "Label Audit", icon: ScanSearch },
 ];
 
+// AppLayout frames every page with the sidebar and the annotator header.
 export function AppLayout() {
+  const { annotator, clear } = useAnnotator();
+
   return (
     <div className="grid min-h-screen grid-cols-[240px_1fr] bg-canvas font-sans text-ink-soft">
       <aside className="sticky top-0 flex h-screen flex-col border-r border-hairline bg-surface px-4 py-5">
@@ -18,7 +22,7 @@ export function AppLayout() {
 
           <nav className="space-y-0.5">
             <div className="eyebrow px-2">Research tooling</div>
-            {links.map(({ to, label, icon: Icon }) => (
+            {NAV_LINKS.map(({ to, label, icon: Icon }) => (
               <NavLink
                 key={to}
                 to={to}
@@ -43,7 +47,18 @@ export function AppLayout() {
           <span className="text-xs text-ink-faint">
             Analisis statis — sampel tidak pernah dieksekusi
           </span>
-          <span className="font-mono text-xs text-ink-faint">local research tool</span>
+          <div className="flex items-center gap-3 text-xs">
+            <span className="flex items-center gap-1.5 text-ink">
+              <UserRound className="h-3.5 w-3.5 text-ink-faint" />
+              <span className="font-mono">{annotator}</span>
+            </span>
+            <button
+              onClick={clear}
+              className="text-ink-faint underline-offset-2 hover:text-accent hover:underline"
+            >
+              ganti
+            </button>
+          </div>
         </header>
         <main className="min-w-0 flex-1 p-8">
           <Outlet />

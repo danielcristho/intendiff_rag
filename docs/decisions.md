@@ -173,3 +173,29 @@ eksplisit [L]; rinciannya ada di bagian yang dirujuk.
 
 **D43. Perangkat lunak statistik dikunci: `statsmodels`, dan bootstrap memakai seed 2026** (§11).
 - Alasan [L]: analisis harus bisa diulang dan menghasilkan angka yang persis sama.
+
+## 2026-09-13 — Kendala perangkat keras
+
+Konteks: GPU yang tersedia dicek terhadap kebutuhan memori di
+[methodology.md §9.3](methodology.md#93-kebutuhan-memori-dan-cara-mengukurnya).
+
+**D44. GPU yang tersedia (RTX 3060, 12 GiB) tidak cukup untuk Qwen3-4B pada konteks 32.768 token.**
+
+- Perhitungan memakai rumus §9.3, bukan pengukuran: bobot 7,45 GiB + KV cache 4,50 GiB = **11,95 GiB**, sedangkan kartu hanya punya 12,0 GiB total. Sisa itu masih harus menampung aktivasi dan CUDA context (±0,3–0,5 GiB), dan vLLM hanya mengambil ±11,0 GiB dengan `--gpu-memory-utilization` 0,92.
+- Qwen2.5-Coder-3B muat: 5,76 + 1,13 = 6,9 GiB, tersisa ±4,4 GiB.
+- Alasan [R]: angka bobot dan KV cache diturunkan dari `config.json` kedua model (§9.1).
+- **Dampak:** pekerjaan M3–4 (smoke test dev set, parsing, pemotongan diff, pengecualian retrieval) bisa jalan di GPU ini dengan Qwen2.5-Coder-3B. Stage 1 dan Stage 2 tidak bisa.
+
+**D45. Pilihan penyelesaian D44 harus ditetapkan sebelum Gate G2.** Belum diputuskan.
+
+- **Opsi A — jalankan M5–6 di GPU ≥16 GB.** Desain §4.5 dan D31 tidak berubah. Beban: ±6.500 panggilan sekuensial (3.500 Stage 1 + 3.000 Stage 2) dengan prompt rata-rata ±25 ribu token, perkiraan kasar 2–3 hari GPU menyala. Runner sudah resumable, jadi boleh dicicil.
+- **Opsi B — turunkan `--max-model-len` ke ±20.480 token.** Qwen3-4B jadi muat di 12 GiB, tetapi anggaran smart-diff §4.5 turun dari 28.000 ke ±15.700 token. Karena rata-rata smart-diff Wyss 25.246 token [R], mayoritas pair akan terpotong, bukan sebagian. D31 mewajibkan kedua model menerima input identik, jadi Qwen2.5-Coder-3B harus ikut diturunkan meski muat.
+- **Opsi C — kuantisasi.** Ditolak: melanggar D40.
+- Alasan [L]: `truncated` sudah menjadi subgroup analysis, jadi memperbanyak pemotongan justru mengaburkan hal yang sedang diukur. Opsi A menukar biaya sewa dengan validitas; Opsi B menukar validitas dengan biaya.
+- **Dampak:** setelah G2 desain beku, sehingga mengubah panjang konteks memaksa seluruh konfigurasi dijalankan ulang. Kalau Opsi B dipilih, §4.5 harus diturunkan ulang dan dicatat sebagai keputusan tersendiri.
+
+**D46. Ollama bukan pengganti vLLM; hanya untuk smoke test mekanik.**
+
+- Alasan [R]: Ollama menyajikan model terkuantisasi (GGUF) secara bawaan, sedangkan D40 mensyaratkan bfloat16 tanpa kuantisasi supaya tingkat kuantisasi tidak menjadi faktor pembeda antar konfigurasi.
+- Alasan [R]: §9.3 membaca memori bobot model dari log vLLM, yang tidak disediakan Ollama, dan D41 sudah menutup jalan `nvidia-smi`.
+- **Dampak:** angka yang masuk laporan hanya dari vLLM. Docstring `pipeline/runner.py` yang sebelumnya menyebut "vLLM atau Ollama" diperbaiki.

@@ -24,7 +24,6 @@
 }
 
 @layer components {
-  /* Label seksi: uppercase, tracking lebar, warna aksen. */
   .eyebrow {
     @apply mb-3 text-xs font-semibold uppercase tracking-[0.1em] text-accent;
   }

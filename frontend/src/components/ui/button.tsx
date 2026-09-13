@@ -1,12 +1,14 @@
 import { cn } from "@/lib/utils";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
+// ButtonProps is the standard button plus a visual variant and size.
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "default" | "solid" | "danger";
   size?: "sm" | "md";
   icon?: ReactNode;
 }
 
+// Button renders the shared hairline button used across the app.
 export function Button({
   className,
   variant = "default",
