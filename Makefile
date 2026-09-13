@@ -1,4 +1,5 @@
-PORT ?= 8000
+# 8000 is taken by production-service on the GPU host; stay clear of it.
+PORT ?= 8100
 DATA ?= ./data
 
 .PHONY: help install backend ui test

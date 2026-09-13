@@ -66,10 +66,10 @@ tidak berlaku; alasan tiap perubahan ada di [docs/decisions.md](docs/decisions.m
 
 ```bash
 # backend: API untuk UI audit
-cd backend && cargo run -- --data-dir ../data --port 8000
+cd backend && cargo run -- --data-dir ../data --port 8100
 cargo test
 
-# frontend: http://localhost:5174, mem-proxy /api ke port 8000
+# frontend: http://localhost:5174, mem-proxy /api ke port 8100
 cd frontend && pnpm install && pnpm dev
 pnpm test
 
@@ -78,6 +78,6 @@ python pipeline/runner.py --model Qwen/Qwen3-4B-Instruct-2507 --base-url http://
 python pipeline/runner.py --selfcheck
 ```
 
-Default `--base-url` runner adalah port 8000, sama dengan port backend dan port
-default vLLM. Kalau server model dan backend jalan bersamaan, pindahkan salah
-satunya.
+Backend memakai 8100 dan vLLM 8101; runner sudah default ke 8101. Port 8000
+sengaja dihindari karena di mesin GPU sudah dipakai production-service, bersama
+8080, 8081, 5433, 9400, dan 18888. Jalankan `docker ps` sebelum mengubahnya.

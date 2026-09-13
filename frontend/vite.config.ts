@@ -9,6 +9,6 @@ export default defineConfig({
     port: 5174,
     // API dilayani backend Rust (backend/), bukan middleware dev — jadi build
     // produksi memakai jalur yang sama dengan dev.
-    proxy: { "/api": "http://localhost:8000", "/health": "http://localhost:8000" },
+    proxy: { "/api": "http://localhost:8100", "/health": "http://localhost:8100" },
   },
 });
