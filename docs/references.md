@@ -76,9 +76,9 @@ lisensi yang di-obfuscate) dan cdk-assets (unggah ke S3 di test script).
 
 | Insiden | Fakta | Sumber |
 |---|---|---|
-| chalk, debug + 16 paket | 8 Sep 2025; akun maintainer diambil lewat phishing; payload mengalihkan transaksi kripto; tersedia sekitar 2 jam | AWS Security Blog; Unit 42 |
-| Shai-Hulud | Mulai 15 Sep 2025; worm yang menyebar sendiri lewat `postinstall`; lebih dari 500 paket dihapus | Unit 42 |
-| axios | 31 Mar 2026; axios@1.14.1 dan axios@0.30.4 menambah dependency trojan yang memasang RAT | Datadog Security Labs |
+| chalk, debug + 16 paket | September 2025; kredensial maintainer diperoleh lewat rekayasa sosial; payload diam-diam memanipulasi transaksi kripto; gabungan unduhan sekitar 2 miliar per minggu | AWS Security Blog, *Defending against supply chain attacks like Chalk/Debug and the Shai-Hulud worm* (2 Okt 2025) |
+| Shai-Hulud | Sepekan setelah chalk/debug (September 2025); berjalan saat post-install, mencuri token npm, PAT GitHub, dan kredensial cloud, lalu menerbitkan versi terinfeksi dari paket lain milik maintainer yang sama; lebih dari 180 paket dalam 24 jam pertama (AWS); varian November 2025 berjalan saat pre-install (Unit 42) | AWS Security Blog; Unit 42, *"Shai-Hulud" Worm Compromises npm Ecosystem in Supply Chain Attack* |
+| axios | 31 Mar 2026; akun maintainer dibajak lewat rekayasa sosial; axios@1.14.1 dan axios@0.30.4 menambah dependency `plain-crypto-js` (typosquat `crypto-js`) yang lewat `postinstall` mengunduh dan menjalankan RAT lintas platform | Datadog Security Labs, *Compromised axios npm package delivers cross-platform RAT* |
 | node-ipc | 14 Mei 2026; versi 9.1.6, 9.2.3, 12.0.1 berisi pencuri kredensial obfuscated | StepSecurity (hanya dilihat lewat ringkasan pencarian; baca artikelnya sebelum dikutip) |
 | CVE-2025-66478 | Kerentanan RCE (React2Shell) di Next.js, digabung ke CVE-2025-55182. **Bukan update berbahaya** | nextjs.org/blog/CVE-2025-66478 |
 
@@ -128,6 +128,29 @@ URL insiden:
 | npm Registry API (github.com/npm/registry) | `GET /-/v1/search` dengan parameter `text`, `size` (maks 250), `from`; `GET /{package}/{version}` memuat `dist.tarball` |
 | Dolos | Skor similarity 0–1, dihitung dari proporsi fingerprint k-gram yang sama (winnowing) |
 | README GuardDog | Aturan kode sumber berbasis YARA; tidak mengeksekusi kode paket |
+| npm Docs, `npm audit` (CLI v11) | Mengirim deskripsi dependensi proyek ke registry dan meminta laporan kerentanan yang sudah diketahui (*known vulnerabilities*) |
+
+## Penelitian terkait tambahan (dicek 2026-09-13, dipakai di Bagian Penelitian Terkait)
+
+| Referensi | Venue | Fakta yang dikutip |
+|---|---|---|
+| Zimmermann, Staicu, Tenny, Pradel (2019). *Small World with High Risks* | USENIX Security, hlm. 995–1010 | Paket npm secara implisit mempercayai rata-rata 79 paket pihak ketiga dan 39 maintainer; segelintir akun maintainer cukup untuk menyuntikkan kode ke sebagian besar paket |
+| Ohm, Plate, Sykosch, Meier (2020). *Backstabber's Knife Collection* | DIMVA; DOI 10.1007/978-3-030-52683-2_2 | 174 paket berbahaya dari npm, PyPI, dan RubyGems, November 2015 – November 2019 |
+| Ladisa, Plate, Martinez, Barais (2023). *SoK: Taxonomy of Attacks on Open-Source Software Supply Chains* | IEEE S&P | Attack tree dengan 107 vektor, 94 insiden nyata, 33 safeguard |
+| Wyss, Wittman, Davidson, De Carli (2022). *Wolf at the Door* (Latch) | ASIA CCS, hlm. 1139–1153; DOI 10.1145/3488932.3523262 | Manifest izin perilaku saat instalasi yang diperiksa terhadap kebijakan pengguna |
+| Duan, Alrawi, Kasturi, Elder, Saltaformaggio, Lee (2021). MalOSS | NDSS | Analisis metadata, statis, dan dinamis; 339 paket dilaporkan, 278 dikonfirmasi |
+| Sejfia, Schäfer (2022). *Practical Automated Detection of Malicious npm Packages* (Amalfi) | ICSE, hlm. 1681–1692; DOI 10.1145/3510003.3510104 | Classifier, reproducer, dan clone detector; beberapa detik per paket |
+| Huang et al. (2024). DONAPI | USENIX Security | Analisis statis + urutan API dinamis; basis pengetahuan perilaku berjenjang; 325 sampel berbahaya diverifikasi |
+| Zhang, Huang, Huang, Chen, Wang, Wang, Peng (2025). Cerebro | ACM TOSEM 34(4); DOI 10.1145/3705304 | Satu model urutan perilaku untuk npm dan PyPI; 196 paket berbahaya baru di npm, 306 di PyPI |
+| Zheng et al. (2024). OSCAR | ASE Industry Showcase | Sandbox, fuzzing fungsi yang diekspor, hook API; F1 0,95 (npm); FPR npm turun dari 34,63% ke 2,57% |
+| Froh, Gobbi, Kinder (2023). *Differential Static Analysis for Detecting Malicious Updates to Open Source Packages* | SCORED, hlm. 41–49; DOI 10.1145/3605770.3625211 | Kueri CodeQL dibandingkan antarversi; semua versi berbahaya terdeteksi pada dataset riwayat berbahaya; rata-rata 1,3% alarm palsu pada paket npm populer |
+| Wang, Li, Qu, Zou, Xu, Xu, Wang, Jin (2025). MalPacDetector | IEEE TIFS 20:6279–6291 | LLM membangkitkan fitur; FPR 1,3%, FNR 7,5%; 39 paket berbahaya baru dikonfirmasi npm |
+| Du et al. (2026). Vul-RAG | ACM TOSEM; DOI 10.1145/3797277 | LLM hanya mencapai akurasi 0,06–0,14 saat membedakan kode rentan dari kode tambalan yang mirip; pengetahuan multidimensi menaikkan akurasi 16–24% |
+| Kaniewski, Schmidt, Heer (2026). *Revisiting Vul-RAG* | AI&CCPS 2026 (ARES); arXiv 2606.04739 | Replikasi dengan model open-weight; akurasi berpasangan tertahan di sekitar 0,30; kapasitas model saja tidak banyak membantu |
+| Ding et al. (2025). PrimeVul | ICSE; DOI 10.1109/ICSE55347.2025.00038 | Model 7B: F1 68,26% pada BigVul, tetapi 3,09% pada PrimeVul |
+| Pandita, Xiao, Yang, Enck, Xie (2013). WHYPER | USENIX Security, hlm. 527–542 | NLP untuk menemukan kalimat di deskripsi aplikasi yang menjelaskan kebutuhan izin |
+| Qu, Rastogi, Zhang, Chen, Zhu, Chen (2014). AutoCog | ACM CCS; DOI 10.1145/2660267.2660287 | Kesesuaian deskripsi–izin; presisi rata-rata 92,6%, recall 92,0% pada 11 izin; 45.811 aplikasi |
+| Guo et al. (2026), benchmark (tambahan) | arXiv 2603.27549v2 | IntelGuard F1 95,98% vs recall SocketAI 44,41%; presisi dan recall alat ditentukan cara alat menyelesaikan ambiguitas capability vs intent |
 
 ## Belum diverifikasi
 
@@ -137,3 +160,5 @@ URL insiden:
 - **Isi zip replikasi Wyss:** apakah memuat kode generator smart-diff dan tarball.
 - **Tanggal commit pertama** repositori kedua model Qwen di Hugging Face, yang dipakai sebagai batas EA3.
 - **Artikel StepSecurity tentang node-ipc**, yang baru dilihat lewat ringkasan pencarian.
+- Ejaan nama penulis MalPacDetector "Deqing Zou" (sumber ADS menulis "Deiqing"): cek di DBLP.
+- DOI Kaniewski et al. (10.1007/978-3-032-35576-8_5) diambil dari judul halaman Springer yang cocok; halamannya belum dibuka.
