@@ -1,4 +1,10 @@
-import type { AnnotatorProgress, Decision, Decisions, PairsResponse } from "@/types/api";
+import type {
+  AnnotatorProgress,
+  Decision,
+  Decisions,
+  ModelResult,
+  PairsResponse,
+} from "@/types/api";
 
 // request issues a JSON call and turns any non-2xx response into an error.
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
@@ -18,6 +24,7 @@ const q = encodeURIComponent;
 export const api = {
   pairs: () => request<PairsResponse>("/api/pairs"),
   annotators: () => request<AnnotatorProgress[]>("/api/annotators"),
+  results: (pairId: string) => request<ModelResult[]>(`/api/results?pair_id=${q(pairId)}`),
   decisions: (annotator: string) => request<Decisions>(`/api/decisions?annotator=${q(annotator)}`),
   saveDecision: (annotator: string, id: string, patch: Decision) =>
     request<Decision>(`/api/decisions?id=${q(id)}&annotator=${q(annotator)}`, {

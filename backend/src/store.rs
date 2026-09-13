@@ -52,6 +52,21 @@ impl Store {
         existing_or_sample(&self.data_dir, "pairs.jsonl", "pairs.sample.jsonl")
     }
 
+    // results_path returns the results file in use, real run or fixture.
+    pub fn results_path(&self) -> PathBuf {
+        existing_or_sample(&self.data_dir, "results.jsonl", "results.sample.jsonl")
+    }
+
+    // results returns every recorded model run for one pair.
+    pub fn results(&self, pair_id: &str) -> io::Result<Vec<Value>> {
+        // Filtering on read keeps this a plain file: the audit UI shows one pair
+        // at a time, so an index only becomes worth building if it gets slow.
+        Ok(read_jsonl(&self.results_path())?
+            .into_iter()
+            .filter(|row| row.get("pair_id").and_then(Value::as_str) == Some(pair_id))
+            .collect())
+    }
+
     // decisions_path returns where one annotator's decisions are stored.
     pub fn decisions_path(&self, annotator: &str) -> PathBuf {
         self.data_dir.join(format!("{PREFIX}{annotator}{SUFFIX}"))
@@ -172,6 +187,20 @@ mod tests {
         assert!(store.pairs_path().ends_with("pairs.sample.jsonl"));
         fs::write(store.data_dir.join("pairs.jsonl"), "{\"id\":\"b\"}\n").unwrap();
         assert!(store.pairs_path().ends_with("pairs.jsonl"));
+    }
+
+    #[test]
+    fn returns_only_the_runs_belonging_to_one_pair() {
+        let store = temp_store();
+        fs::write(
+            store.data_dir.join("results.jsonl"),
+            "{\"pair_id\":\"a\",\"config\":\"E0\"}\n             {\"pair_id\":\"b\",\"config\":\"E0\"}\n             {\"pair_id\":\"a\",\"config\":\"E4\"}\n",
+        )
+        .unwrap();
+        let rows = store.results("a").unwrap();
+        assert_eq!(rows.len(), 2);
+        assert!(rows.iter().all(|row| row["pair_id"] == "a"));
+        assert!(store.results("missing").unwrap().is_empty());
     }
 
     #[test]

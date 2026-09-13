@@ -78,6 +78,21 @@ async fn get_decisions(
     Ok(Json(Value::Object(decisions)))
 }
 
+// PairParam identifies which pair's model runs to return.
+#[derive(Deserialize)]
+struct PairParam {
+    pair_id: String,
+}
+
+// get_results returns every recorded model run for one pair.
+async fn get_results(
+    State(app): State<Shared>,
+    Query(params): Query<PairParam>,
+) -> Result<Json<Value>, Failure> {
+    let rows = app.store.results(&params.pair_id).map_err(internal)?;
+    Ok(Json(Value::Array(rows)))
+}
+
 // get_annotators returns each annotator's decision count, never their labels.
 async fn get_annotators(State(app): State<Shared>) -> Result<Json<Value>, Failure> {
     let rows: Vec<Value> = app
@@ -142,6 +157,7 @@ fn routes(app: Shared) -> Router {
         .route("/api/decisions", get(get_decisions))
         .route("/api/decisions", put(put_decision))
         .route("/api/annotators", get(get_annotators))
+        .route("/api/results", get(get_results))
         .route("/health", get(|| async { "ok" }))
         .with_state(app)
 }
