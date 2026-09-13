@@ -48,6 +48,12 @@ services:
       - "32768"
       - --seed
       - "0"
+      # Ignore the model's generation_config.json. Qwen ships one that sets
+      # repetition_penalty 1.05, temperature 0.7, top_k 20 and top_p 0.8; the
+      # runner overrides the three it sends, but repetition_penalty would apply
+      # silently to every run and is not part of §9.2 (D48).
+      - --generation-config
+      - vllm
       # vLLM pre-allocates this fraction of TOTAL GPU memory at startup, not
       # of the free memory. Left at the 0.9 default it will take the card out
       # from under any other GPU container. Size it against what is actually
