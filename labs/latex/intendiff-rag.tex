@@ -41,9 +41,374 @@
 
 \maketitle
 
-\section{Introduction}\label{sec:intro}
+\section{Pendahuluan}\label{sec:intro}
 
-\section{Related work}\label{sec:related}
+% Setiap klaim faktual di bagian ini sudah dicocokkan ke sumber aslinya
+% (lihat docs/references.md). Jangan menambah angka tanpa sumber terverifikasi.
+
+Pengembangan perangkat lunak modern bergantung pada paket pihak ketiga yang
+didistribusikan melalui repositori terpusat. Di ekosistem JavaScript, repositori
+npm menerima sekitar 15 pembaruan paket setiap menit, dan pemasangan satu paket
+dapat menarik puluhan dependensi transitif \citep{wyss2025evaluating}. Setiap
+versi baru dari paket-paket tersebut sampai ke proyek hilir melalui mekanisme
+yang sama: versi diterbitkan, lalu dipasang oleh proyek yang bergantung padanya.
+Akibatnya, kepercayaan terhadap sebuah paket pada praktiknya juga berarti
+kepercayaan terhadap setiap versi yang kelak diterbitkan atas nama paket itu.
+
+Kepercayaan inilah yang dimanfaatkan penyerang. Alih-alih menerbitkan paket baru
+yang harus lebih dulu ditemukan korbannya, penyerang menyisipkan kode berbahaya
+ke dalam pembaruan paket yang sudah digunakan secara luas, yaitu serangan yang
+oleh \citet{sofaer2024rogueone} disebut \emph{rogue update}. Rangkaian insiden
+terbaru menunjukkan besarnya risiko ini. Pada September 2025, penyerang
+memperoleh kredensial seorang pengelola (\emph{maintainer}) melalui rekayasa
+sosial, lalu memperbarui 18 paket populer, termasuk \texttt{chalk} dan
+\texttt{debug}. Muatan yang disisipkan secara diam-diam memanipulasi transaksi
+mata uang kripto, sementara paket-paket tersebut secara gabungan diunduh sekitar
+dua miliar kali per minggu \citep{aws2025chalk}. Sepekan kemudian, cacing
+\emph{Shai-Hulud} mulai mencuri token npm dan kredensial lain dari lingkungan
+pengembang. Dengan token curian itu, ia menerbitkan versi terinfeksi dari
+paket-paket lain milik pengelola yang sama, dan lebih dari 180 paket
+terkompromi dalam 24 jam pertama \citep{aws2025chalk,unit42shaihulud}. Pada Maret
+2026, akun salah satu pengelola \texttt{axios} dibajak dan dipakai untuk
+menerbitkan versi 1.14.1 dan 0.30.4. Kedua rilis itu menambahkan dependensi
+\texttt{plain-crypto-js}, yang saat instalasi mengunduh dan menjalankan
+\emph{remote access trojan} \citep{datadog2026axios}. Dalam ketiga kasus, muatan
+berbahaya tiba melalui kanal distribusi yang sah milik paket yang sudah
+dipercaya.
+
+Mekanisme pengamanan yang lazim dipakai pengembang tidak dirancang untuk
+menghadapi serangan semacam ini. Perintah \texttt{npm audit}, misalnya,
+mengirimkan deskripsi dependensi proyek ke registry dan meminta laporan
+kerentanan yang sudah diketahui \citep{npmaudit}, padahal pembaruan berbahaya
+yang baru diterbitkan belum memiliki catatan semacam itu. Deteksi karenanya
+harus dilakukan terhadap isi pembaruan itu sendiri, sebelum ada laporan publik.
+Kesulitannya, kode berbahaya dan kode yang sah menggunakan API yang sama.
+Berdasarkan evaluasi berskala besar terhadap detektor paket berbahaya npm,
+\citet{guo2026effective} menyimpulkan bahwa setiap detektor harus menyelesaikan
+ambiguitas antara kemampuan (\emph{capability}) kode dan niat (\emph{intent}) di
+baliknya. Sebagai contoh, alat bantu \emph{build} yang sah seperti
+\texttt{husky}, \texttt{patch-package}, dan \texttt{prisma} mendeklarasikan
+\emph{install hook} yang sama dengan yang dipakai malware. Ambiguitas ini mahal
+secara operasional. Karena pembaruan yang sah jauh lebih banyak daripada yang
+berbahaya, tingkat positif palsu yang kecil pun dapat menghasilkan alarm palsu
+yang jumlahnya melebihi deteksi yang benar \citep{wyss2025evaluating}.
+
+Penelitian sebelumnya menempuh dua pendekatan. Pendekatan pertama adalah analisis
+program. RogueOne membandingkan aliran data antara versi lama dan versi baru
+sebuah paket, lalu menandai aliran data baru yang melintasi \emph{trust domain}.
+Pada dataset pembaruan tunggal, pendekatan ini mendeteksi 75,6\% \emph{rogue
+update} dengan 4,7\% positif palsu \citep{sofaer2024rogueone}. Namun, analisis
+berbasis interpretasi abstrak ini membutuhkan rata-rata 226,7 detik per
+pembaruan, belum termasuk kasus yang melampaui batas waktu satu jam. Konfigurasi
+yang lebih sensitif memang menaikkan deteksi menjadi 92,7\%, tetapi dengan 40\%
+positif palsu \citep{sofaer2024rogueone}. Pendekatan kedua memanfaatkan
+\emph{large language model} (LLM). SocketAI memakai GPT-3 dan GPT-4 untuk
+meninjau kode paket npm; dengan GPT-4, sistem ini mencapai presisi 99\% dan F1
+97\% \citep{zahan2025leveraging}. \citet{wyss2025evaluating} memusatkan analisis
+LLM pada pembaruan paket. Dengan \emph{smart-diff} yang mereduksi ukuran masukan
+sebesar 95,4\%, GPT-4o mendeteksi seluruh 46 pembaruan berbahaya historis dan
+163 klon berbahaya, dengan 8 positif palsu dari 2.000 pembaruan tipikal.
+IntelGuard menambahkan \emph{retrieval-augmented generation} (RAG) dengan basis
+pengetahuan yang dibangun dari 8.024 halaman laporan intelijen ancaman, lalu
+menilai apakah semantik kode sesuai dengan fungsi yang dimaksudkan paket. Pada
+paket npm, sistem ini mencapai akurasi 98,72\% dengan 0,20\% positif palsu
+\citep{guo2026bridging}.
+
+Meskipun menjanjikan, hasil-hasil tersebut menyisakan tiga pertanyaan terbuka.
+\emph{Pertama}, keberhasilan deteksi berbasis LLM sejauh ini ditunjukkan dengan
+model tertutup: GPT-4o, GPT-4-Turbo, dan Gemini 2.0 Flash pada
+\citet{wyss2025evaluating}, serta GPT-4.1-mini pada IntelGuard
+\citep{guo2026bridging}. Model tertutup mengharuskan kode dikirim ke penyedia
+model, dan penggunaan LLM secara ekstensif menimbulkan biaya finansial maupun
+energi yang tidak kecil \citep{wyss2025evaluating}. Evaluasi model
+\emph{open-weight} yang dapat dijalankan secara lokal memang sudah ada, tetapi
+dilakukan pada tingkat paket utuh dengan model berukuran 6,7 miliar parameter
+\citep{nguyen2025taint}. Kemampuan model berukuran 3--4 miliar parameter dalam
+menilai \emph{smart-diff} pembaruan belum pernah diukur.
+
+\emph{Kedua}, \emph{retrieval} pada IntelGuard hanya mengambil contoh berbahaya
+\citep{guo2026bridging}. Padahal, literatur \emph{in-context learning}
+menunjukkan bahwa pemilihan dan urutan contoh memengaruhi prediksi model. Model
+bahasa cenderung memprediksi label yang sering muncul atau yang muncul di dekat
+akhir \emph{prompt} \citep{zhao2021calibrate}, dan contoh yang dipilih
+berdasarkan kedekatan dengan masukan menghasilkan kinerja yang lebih baik
+daripada contoh acak \citep{liu2022makes}. Karena itu, konteks yang hanya berisi
+contoh berbahaya berpotensi mendorong model menjatuhkan vonis berbahaya, termasuk
+pada pembaruan sah yang perilakunya mirip. Contoh positif dan negatif telah
+diusulkan untuk memperjelas karakteristik keluaran yang diinginkan dan yang
+harus dihindari model \citep{gao2024customizing}. Namun, sejauh penelusuran
+kami, pendekatan ini belum dievaluasi untuk deteksi paket berbahaya. Selain itu,
+temuan bahwa mengganti label contoh secara acak hampir tidak menurunkan kinerja
+\citep{min2022rethinking} menunjukkan bahwa contoh pembanding perlu membawa alasan
+yang eksplisit, bukan sekadar label.
+
+\emph{Ketiga}, gagasan membandingkan perilaku program dengan deskripsi yang
+dinyatakan pengembangnya bukanlah hal baru. CHABADA mengelompokkan aplikasi
+Android berdasarkan deskripsinya, lalu menandai penggunaan API yang menyimpang
+dari kelompoknya. Tanpa memerlukan pola malware yang sudah diketahui,
+pendekatan ini menandai 56\% malware baru \citep{gorla2014checking}. IntelGuard
+menerapkan penalaran serupa secara implisit \citep{guo2026bridging}. Yang belum
+diketahui adalah seberapa besar profil intent yang eksplisit, yaitu deskripsi,
+README, dan \emph{scripts} dari versi sebelumnya, dapat menurunkan positif palsu
+pada pembaruan sah yang menambahkan perilaku sensitif, apabila efeknya diukur
+melalui ablasi yang terkontrol.
+
+Penelitian ini menjawab ketiga pertanyaan tersebut melalui IntentDiff-RAG,
+sebuah \emph{pipeline} analisis statis untuk menilai pembaruan paket npm dengan
+LLM \emph{open-weight} berukuran kecil. Untuk setiap pasangan versi,
+IntentDiff-RAG melakukan empat langkah:
+(i)~membentuk \emph{smart-diff} mengikuti spesifikasi \citet{wyss2025evaluating};
+(ii)~menyusun profil intent dari versi sebelumnya, karena isi versi baru berada
+di bawah kendali penyerang \citep{wyss2025evaluating};
+(iii)~mengambil satu contoh berbahaya dan satu contoh sah yang mirip
+berdasarkan kesamaan kemampuan yang ditambahkan oleh pembaruan; dan
+(iv)~meminta model menghasilkan vonis dalam format JSON beserta baris kode yang
+menjadi bukti. Pipeline ini dievaluasi pada dua model, yaitu
+Qwen3-4B-Instruct-2507 dan Qwen2.5-Coder-3B-Instruct. Himpunan datanya
+dipisahkan menjadi tiga subset: pembaruan berbahaya, pembaruan tipikal, dan
+\emph{hard negative}, yaitu pembaruan sah yang menambahkan kemampuan sensitif
+dengan tujuan yang terdokumentasi. Setiap perbandingan konfirmatori hanya
+berbeda pada satu faktor, sehingga efek contoh pembanding dan efek profil intent
+dapat dipisahkan dari efek jumlah contoh. Penelitian ini dipandu oleh empat
+pertanyaan berikut.
+
+\begin{itemize}
+\item \textbf{RQ1.} Seberapa akurat LLM \emph{open-weight} berukuran 3--4
+miliar parameter mendeteksi pembaruan npm berbahaya dari \emph{smart-diff} tanpa
+contoh, diukur dari \emph{recall} serta tingkat positif palsu pada pembaruan
+tipikal dan \emph{hard negative}?
+\item \textbf{RQ2.} Apakah contoh berbahaya hasil \emph{retrieval} menaikkan
+tingkat positif palsu pada \emph{hard negative} dibandingkan tanpa contoh, dan,
+dengan jumlah contoh yang sama, apakah mengganti satu contoh berbahaya dengan
+satu contoh sah yang mirip menurunkan tingkat positif palsu tersebut tanpa
+menurunkan \emph{recall} lebih dari 5 poin persentase?
+\item \textbf{RQ3.} Apakah profil intent yang eksplisit menurunkan tingkat
+positif palsu pada \emph{hard negative} tanpa menurunkan \emph{recall} lebih
+dari 5 poin persentase?
+\item \textbf{RQ4.} Berapa tambahan token, latensi, dan kebutuhan memori GPU
+dari setiap komponen, yaitu profil intent, \emph{retrieval}, dan contoh kedua,
+pada kedua model?
+\end{itemize}
+
+Kontribusi penelitian ini adalah sebagai berikut.
+
+\begin{itemize}
+\item Evaluasi LLM \emph{open-weight} berukuran 3--4 miliar parameter untuk
+mendeteksi pembaruan npm berbahaya pada tingkat \emph{smart-diff}, dengan metrik
+yang dilaporkan terpisah untuk pembaruan tipikal dan \emph{hard negative}.
+\item Desain ablasi yang memisahkan efek contoh sah pembanding dari efek jumlah
+contoh, serta efek profil intent dari efek \emph{retrieval}. Aturan keputusan
+dan koreksi uji berganda ditetapkan sebelum eksperimen dijalankan.
+\item Protokol data yang dapat direplikasi, meliputi subset \emph{hard negative}
+berlabel ganda, skema \emph{knowledge card}, seleksi sampel yang deterministik,
+dan pengelompokan kampanye untuk mencegah kebocoran antara basis pengetahuan dan
+data uji.
+\item Pengukuran biaya inferensi lokal, yaitu token, latensi median dan persentil
+ke-95, serta kebutuhan memori GPU, untuk setiap komponen \emph{pipeline}.
+\end{itemize}
+
+% TODO(hasil): tambahkan satu paragraf ringkasan temuan utama setelah eksperimen
+% selesai. Jangan diisi sebelum angka hasil tersedia.
+
+Bagian selanjutnya disusun sebagai berikut. Bagian~\ref{sec:related} membahas
+penelitian terkait. Bagian~\ref{sec:method} menjelaskan IntentDiff-RAG.
+Bagian~\ref{sec:setup} memaparkan data, konfigurasi, dan prosedur evaluasi.
+Bagian~\ref{sec:results} menyajikan hasil, Bagian~\ref{sec:discussion} membahas
+implikasi dan ancaman validitas, dan Bagian~\ref{sec:conclusion} menutup artikel.
+
+\section{Penelitian Terkait}\label{sec:related}
+
+% Semua angka di bagian ini dicocokkan ke sumber aslinya (docs/references.md).
+
+Bagian ini membahas enam kelompok penelitian yang menjadi dasar IntentDiff-RAG:
+serangan rantai pasok pada ekosistem paket, deteksi paket berbahaya tanpa LLM,
+deteksi pembaruan berbahaya, deteksi berbasis LLM, penggunaan \emph{retrieval}
+dan contoh dalam \emph{prompt} untuk analisis keamanan, serta pemeriksaan
+kesesuaian antara deskripsi dan perilaku program. Bagian ini ditutup dengan
+posisi penelitian ini terhadap keenam kelompok tersebut.
+
+\subsection{Serangan rantai pasok pada ekosistem paket}
+
+Risiko rantai pasok di npm berakar pada struktur ekosistemnya.
+\citet{zimmermann2019small} menunjukkan bahwa sebuah paket npm secara implisit
+mempercayai rata-rata 79 paket pihak ketiga dan 39 pengelola. Mereka juga
+menemukan bahwa segelintir akun pengelola cukup untuk menyuntikkan kode
+berbahaya ke sebagian besar paket. \citet{ohm2020backstabber} mengumpulkan dan
+menganalisis 174 paket berbahaya yang dipakai dalam serangan nyata di npm, PyPI,
+dan RubyGems antara November 2015 dan November 2019. \citet{ladisa2023sok}
+kemudian menyusun taksonomi serangan rantai pasok perangkat lunak
+\emph{open-source} berbentuk \emph{attack tree}. Taksonomi ini memuat 107 vektor
+serangan yang dikaitkan dengan 94 insiden nyata dan 33 langkah mitigasi.
+
+Penelitian ini hanya menyasar satu kelas serangan, yaitu pembaruan berbahaya pada
+paket yang sebelumnya sah. Pembatasan yang sama dipakai RogueOne, yang
+mengecualikan paket berbahaya baru seperti \emph{typosquatting} dari cakupannya
+\citep{sofaer2024rogueone}. Karena banyak serangan bekerja saat instalasi,
+sebagian penelitian memilih mencegah alih-alih mendeteksi. Latch, misalnya,
+membuat \emph{manifest} izin yang merangkum perilaku setiap paket saat
+instalasi, lalu memeriksanya terhadap kebijakan yang ditetapkan pengguna
+\citep{wyss2022wolf}.
+
+\subsection{Deteksi paket berbahaya tanpa LLM}
+
+Detektor awal menggabungkan beberapa jenis analisis. MalOSS memadukan analisis
+metadata, statis, dan dinamis. Dari 339 paket berbahaya baru yang dilaporkan ke
+pengelola registry, 278 dikonfirmasi \citep{duan2021towards}. Amalfi
+menggabungkan \emph{classifier} berbasis \emph{machine learning}, pemeriksa
+reproduksibilitas paket, dan pendeteksi klon. Ekstraksi fitur dan klasifikasinya
+hanya membutuhkan beberapa detik per paket \citep{sejfia2022practical}.
+
+Penelitian berikutnya memodelkan perilaku sebagai urutan pemanggilan API. DONAPI
+menggabungkan analisis statis dengan urutan pemanggilan API dari eksekusi
+dinamis, lalu mencocokkannya dengan basis pengetahuan perilaku yang berjenjang
+\citep{huang2024donapi}. Cerebro memakai satu model urutan perilaku berbahaya
+untuk npm dan PyPI sekaligus, dan menemukan 196 paket berbahaya baru di npm serta
+306 di PyPI \citep{zhang2025killing}. OSCAR menjalankan paket di dalam
+\emph{sandbox}, melakukan \emph{fuzzing} terhadap fungsi dan kelas yang diekspor,
+serta memantau perilakunya melalui \emph{hook} API. Pada npm, OSCAR mencapai F1
+0,95 dan menurunkan tingkat positif palsu dari 34,63\% menjadi 2,57\%
+\citep{zheng2024towards}.
+
+Evaluasi terpadu oleh \citet{guo2026effective} membandingkan 11 alat (16 varian)
+pada 6.420 paket berbahaya dan 7.288 paket sah. Dari evaluasi tersebut, mereka
+menyimpulkan bahwa presisi dan \emph{recall} setiap alat ditentukan oleh cara
+alat itu menyelesaikan ambiguitas antara kemampuan dan niat kode.
+
+Keterbatasan kelompok penelitian ini bagi masalah yang kami teliti ada dua.
+Pertama, sebagian besar detektor di atas menilai paket secara utuh, bukan
+perubahan antarversi. Kedua, detektor dinamis memerlukan eksekusi paket, padahal
+penelitian ini membatasi diri pada analisis statis.
+
+\subsection{Deteksi pembaruan berbahaya}
+
+Kelompok penelitian ini menjadikan perubahan antarversi sebagai unit analisis.
+RogueOne menandai aliran data baru yang melintasi \emph{trust domain} antara
+versi lama dan baru. Pendekatan ini mendeteksi 75,6\% \emph{rogue update} dengan
+4,7\% positif palsu pada dataset pembaruan tunggal \citep{sofaer2024rogueone}.
+Analisis RogueOne juga menunjukkan titik buta pendekatan diferensial. Ketika
+muatan berbahaya hanya memakai API yang sudah digunakan versi sebelumnya, tidak
+muncul aliran data baru, sehingga konfigurasi bawaannya melewatkan seluruh 10
+kasus serangan tersamar dalam kategori tersebut \citep{sofaer2024rogueone}.
+
+\citet{froh2023differential} menyatakan perilaku mencurigakan sebagai kueri
+CodeQL dan membandingkan hasil kueri antarversi. Pendekatan ini mengenali semua
+versi berbahaya pada dataset paket yang memiliki riwayat kode berbahaya, dengan
+rata-rata 1,3\% alarm palsu pada paket npm populer yang sah.
+
+\citet{wyss2025evaluating} membawa unit analisis yang sama ke LLM melalui
+\emph{smart-diff}. Analisis mereka menunjukkan bahwa positif palsu terutama
+berasal dari operasi sensitif, penghapusan kode dalam jumlah besar (termasuk
+paket yang diganti dengan penanda \emph{deprecation}), dan perubahan dependensi.
+Kombinasi obfuskasi aliran data ringan dan pemecahan muatan juga dapat
+menyebabkan negatif palsu.
+
+\subsection{LLM untuk deteksi paket berbahaya}
+
+SocketAI menunjukkan bahwa GPT-4 mengungguli analisis statis berbasis CodeQL,
+dengan peningkatan presisi sebesar 16\% dan F1 sebesar 9\%, pada 5.115 paket npm
+yang 2.180 di antaranya berbahaya \citep{zahan2025leveraging}. MalPacDetector
+memanfaatkan LLM untuk membangkitkan fitur secara otomatis alih-alih mengandalkan
+fitur yang dirumuskan pakar. Hasilnya adalah tingkat positif palsu 1,3\% dan
+negatif palsu 7,5\%, serta 39 paket berbahaya baru yang dikonfirmasi tim keamanan
+npm \citep{wang2025malpacdetector}.
+
+IntelGuard mengambil contoh berbahaya yang mirip secara semantik dari basis
+pengetahuan berisi 4.420 konteks kode berbahaya, lalu menggunakan GPT-4.1-mini
+untuk menilai kesesuaian perilaku kode dengan fungsi paket
+\citep{guo2026bridging}. Dalam benchmark \citet{guo2026effective}, pendekatan
+yang mendasarkan penilaian pada bukti hasil \emph{retrieval} ini mencapai F1
+95,98\%. Sebaliknya, SocketAI yang meminta model menilai kode tanpa bukti
+tambahan hanya mencapai \emph{recall} 44,41\%.
+
+Untuk model \emph{open-weight}, \citet{nguyen2025taint} memotong kode berdasarkan
+alur \emph{taint} menuju API sensitif sebelum menganalisisnya dengan
+DeepSeek-Coder 6,7B. Pendekatan ini mencapai akurasi 87,04\% pada 2.537 paket.
+Pada ekosistem PyPI, evaluasi terhadap 13 LLM menemukan bahwa model mengenali
+pola kode yang umum, tetapi melewatkan indikator yang memerlukan konteks lebih
+luas atau pemahaman tentang niat penulis \citep{ryan2026evaluation}.
+
+\subsection{\emph{Retrieval} dan contoh dalam \emph{prompt} untuk analisis keamanan}
+
+Penelitian deteksi kerentanan memberi dua pelajaran yang relevan bagi desain
+contoh pembanding. Pelajaran pertama: membedakan kode bermasalah dari kode yang
+mirip tetapi aman merupakan tugas yang sulit bagi LLM. Vul-RAG menunjukkan bahwa
+LLM hanya mencapai akurasi 0,06--0,14 dalam membedakan kode rentan dari kode
+hasil tambalan yang mirip. Dengan pengetahuan kerentanan multidimensi, yaitu
+semantik fungsional, akar penyebab, dan cara perbaikan, akurasinya meningkat
+16--24\% \citep{du2026vulrag}. PrimeVul memperlihatkan bahwa benchmark yang kurang
+realistis melebih-lebihkan kinerja: model 7B yang mencapai F1 68,26\% pada BigVul
+hanya mencapai 3,09\% pada PrimeVul \citep{ding2025vulnerability}.
+
+Pelajaran kedua: manfaat \emph{retrieval} bagi model \emph{open-weight} tidak
+dapat diasumsikan. Replikasi Vul-RAG dengan beragam model \emph{open-weight}
+menemukan bahwa akurasi berpasangan tertahan di sekitar 0,30, dan penambahan
+kapasitas model saja tidak banyak memperbaikinya \citep{kaniewski2026revisiting}.
+
+Di luar domain keamanan, literatur \emph{in-context learning} menunjukkan bahwa
+pemilihan, urutan, dan label contoh memengaruhi prediksi
+\citep{liu2022makes,zhao2021calibrate,min2022rethinking}. Selain itu, contoh
+positif dan negatif telah diusulkan untuk memperjelas keluaran yang diinginkan
+\citep{gao2024customizing}. Temuan-temuan ini menjadi dasar keputusan kami untuk
+mengontrol jumlah dan urutan contoh, alih-alih mengasumsikan bahwa
+\emph{retrieval} pasti membantu.
+
+\subsection{Kesesuaian deskripsi dan perilaku}
+
+Gagasan memeriksa apakah perilaku program sesuai dengan deskripsinya berkembang
+di ekosistem aplikasi seluler. WHYPER menggunakan pemrosesan bahasa alami untuk
+menemukan kalimat dalam deskripsi aplikasi yang menjelaskan alasan aplikasi
+membutuhkan suatu izin \citep{pandita2013whyper}. AutoCog mengukur kesesuaian
+antara deskripsi dan izin. Pada sebelas izin, sistem ini mencapai presisi
+rata-rata 92,6\% dan \emph{recall} 92,0\%, lalu diterapkan pada 45.811 aplikasi
+\citep{qu2014autocog}. CHABADA mengelompokkan lebih dari 22.500 aplikasi Android
+berdasarkan topik deskripsinya, lalu menandai penggunaan API yang menyimpang di
+setiap kelompok \citep{gorla2014checking}. Pada paket npm, IntelGuard menerapkan
+penalaran serupa secara implisit \citep{guo2026bridging}. Namun, belum ada
+penelitian yang mengukur efek profil intent eksplisit secara terpisah dari
+komponen lain.
+
+\subsection{Posisi penelitian ini}
+
+Tabel~\ref{tab:positioning} merangkum posisi IntentDiff-RAG terhadap penelitian
+yang paling dekat. Penelitian ini mengambil unit analisis pembaruan dari RogueOne,
+\citet{froh2023differential}, dan \citet{wyss2025evaluating}, serta mengambil
+gagasan \emph{retrieval} dan penalaran berbasis fungsi paket dari IntelGuard.
+Perbedaannya terletak pada tiga aspek yang diuji secara terkontrol:
+\begin{enumerate}
+  \item penggunaan model \emph{open-weight} berukuran 3--4 miliar parameter pada
+  tingkat pembaruan;
+  \item contoh sah pembanding sebagai pasangan dari contoh berbahaya; dan
+  \item profil intent eksplisit yang diambil dari versi sebelumnya.
+\end{enumerate}
+Mengikuti pelajaran dari Vul-RAG, PrimeVul, dan replikasinya, evaluasi dilakukan
+pada \emph{hard negative}, yaitu pembaruan sah yang menambahkan kemampuan
+sensitif, bukan hanya pada pembaruan tipikal.
+
+\begin{table*}[t]
+\caption{Posisi IntentDiff-RAG terhadap penelitian terdekat. Tanda ``--''
+berarti komponen tersebut tidak digunakan atau tidak dijelaskan dalam sumber
+yang kami periksa. Kolom \emph{Retrieval} merujuk pada pengambilan contoh ke
+dalam \emph{prompt} LLM.}
+\label{tab:positioning}
+\small
+\begin{tabular}{p{3.2cm} p{1.6cm} p{3.9cm} p{3.2cm} p{2.4cm} p{1.8cm}}
+\hline
+Penelitian & Unit analisis & Pendekatan & Model bahasa & \emph{Retrieval} & Intent \\
+\hline
+MalOSS \citep{duan2021towards} & Paket & Metadata, statis, dinamis & -- & -- & -- \\
+Amalfi \citep{sejfia2022practical} & Paket & \emph{Classifier}, reproduksi, deteksi klon & -- & -- & -- \\
+DONAPI \citep{huang2024donapi} & Paket & Statis dan urutan API dinamis & -- & -- & -- \\
+OSCAR \citep{zheng2024towards} & Paket & Dinamis (\emph{sandbox}, \emph{fuzzing}) & -- & -- & -- \\
+\citet{froh2023differential} & Pembaruan & Statis diferensial (CodeQL) & -- & -- & -- \\
+RogueOne \citep{sofaer2024rogueone} & Pembaruan & Aliran data diferensial & -- & -- & -- \\
+SocketAI \citep{zahan2025leveraging} & Paket & LLM & Tertutup (GPT-3, GPT-4) & -- & -- \\
+\citet{wyss2025evaluating} & Pembaruan & \emph{Smart-diff} + LLM & Tertutup (GPT-4o, GPT-4-Turbo, Gemini 2.0 Flash) & -- & -- \\
+IntelGuard \citep{guo2026bridging} & Paket & RAG + LLM & Tertutup (GPT-4.1-mini) & Contoh berbahaya & Implisit \\
+\citet{nguyen2025taint} & Paket & \emph{Taint slicing} + LLM & \emph{Open-weight} (6,7B) & -- & -- \\
+\textbf{IntentDiff-RAG} & \textbf{Pembaruan} & \textbf{\emph{Smart-diff} + RAG + LLM} & \textbf{\emph{Open-weight} (3--4B)} & \textbf{Berbahaya + sah pembanding} & \textbf{Eksplisit} \\
+\hline
+\end{tabular}
+\end{table*}
 
 \section{Method}\label{sec:method}
 

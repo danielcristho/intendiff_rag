@@ -9,17 +9,19 @@ prosedur lengkap (data, prompt, konfigurasi, statistik) ada di [methodology.md](
 **Serangan yang disasar:** update pada paket yang sudah dipercaya menyisipkan
 payload. Contoh motivasi untuk naskah:
 
-- **chalk, debug, dan 16 paket lain** (8 Sep 2025). Akun maintainer diambil lewat
-  phishing; payload mengalihkan transaksi kripto di browser.
-- **Worm Shai-Hulud** (mulai 15 Sep 2025). Menyebar sendiri lewat `postinstall`;
-  lebih dari 500 paket dihapus dari registry.
-- **axios@1.14.1 dan axios@0.30.4** (31 Mar 2026). Menambahkan dependency trojan
-  yang memasang RAT saat instalasi.
+- **chalk, debug, dan 16 paket lain** (September 2025). Kredensial maintainer diperoleh
+  lewat rekayasa sosial; payload diam-diam memanipulasi transaksi kripto. Gabungan
+  unduhan paket-paket itu sekitar dua miliar per minggu.
+- **Worm Shai-Hulud** (sepekan setelahnya). Mencuri token npm dan kredensial lain,
+  lalu menerbitkan versi terinfeksi dari paket lain milik maintainer yang sama.
+  Lebih dari 180 paket terkompromi dalam 24 jam pertama.
+- **axios@1.14.1 dan axios@0.30.4** (31 Mar 2026). Menambahkan dependency
+  `plain-crypto-js` yang mengunduh dan menjalankan RAT saat instalasi.
 
 CVE-2025-66478 (Next.js, slide 3) **tidak dipakai** sebagai contoh update
 berbahaya. Itu kerentanan (React2Shell) di kode yang sah. Kasus itu boleh dipakai
-sebagai kontras: `npm audit` menangkapnya karena advisory-nya terbit, tetapi
-tidak menangkap chalk/debug pada jam-jam pertama.
+sebagai kontras: `npm audit` menangkapnya karena advisory-nya sudah terbit,
+tetapi tidak menangkap update berbahaya yang belum punya advisory.
 
 **Kenapa sulit:** API yang dipakai malware (network, `child_process`, `process.env`,
 install hook, obfuscation) juga dipakai paket sah. Guo et al. (2026) menyimpulkan
@@ -44,6 +46,10 @@ dengan model lokal sehingga kode tidak dikirim ke pihak ketiga.
 | Nguyen et al., arXiv 2512.12313 | Taint slicing + DeepSeek-Coder 6.7B pada paket utuh, akurasi 87,04% | Level update; model 3–4B | Pesaing terdekat untuk Gap 1, harus dibedakan secara eksplisit |
 | CHABADA (Gorla et al., ICSE 2014) | Membandingkan deskripsi app Android dengan perilaku API-nya | npm; LLM | Akar konsep intent mismatch |
 | Gao & Das, AAAI 2024 | Contrastive in-context learning (contoh positif + negatif) | Domain keamanan | Akar konsep contoh pembanding |
+| Froh et al., SCORED 2023 | Analisis statis diferensial (CodeQL) antarversi; rata-rata 1,3% alarm palsu | LLM, intent | Pendahulu non-LLM di level update |
+| Vul-RAG (Du et al., TOSEM 2026) dan replikasinya (Kaniewski et al., 2026) | RAG pengetahuan untuk kerentanan; LLM sulit membedakan kode rentan dari tambalan yang mirip; pada model open-weight akurasi berpasangan tertahan di sekitar 0,30 | Paket npm | Bukti bahwa kasus "mirip tapi aman" sulit dan manfaat RAG bagi model open-weight tidak dijamin |
+
+Tabel positioning lengkap untuk naskah ada di `labs/latex/intendiff-rag.tex` (Tabel `tab:positioning`).
 
 ## 3. Research gap (revisi)
 
