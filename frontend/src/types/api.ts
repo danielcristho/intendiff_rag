@@ -5,6 +5,17 @@ export type ErrorClass = "capability" | "intent" | "retrieval";
 // Subset is which part of the test set a pair belongs to.
 export type Subset = "MAL" | "HN" | "TYP";
 
+// DeltaEvidence is one reason a capability signal fired, from `capability.py --explain`.
+//
+// Four shapes, because the signals are not alike: a source match carries a
+// line, an install hook carries the hook name, and the two change signals
+// describe a manifest or a file count instead of a location.
+export type DeltaEvidence =
+  | { file: string; line: number; match: string }
+  | { file: string; hook: string; match: string }
+  | { dependency: string; before: string | null; after: string }
+  | { removed: number; of: number };
+
 // Pair is one npm update under review; full schema in docs/experiments.md §3.
 export interface Pair {
   id: string;
@@ -17,6 +28,8 @@ export interface Pair {
   campaign?: string;
   intent?: string;
   delta?: string[];
+  // Keyed by signal name; snake_case matches the pairs.jsonl schema.
+  delta_evidence?: Record<string, DeltaEvidence[]>;
   truncated?: boolean;
   label?: string;
   pred?: string;
