@@ -81,6 +81,13 @@ Status per 2026-09-13. Prompt dan runner sudah mengikuti desain revisi; komponen
 - [x] Capability extractor (§4.3) — [pipeline/capability.py](../pipeline/capability.py). `--before/--after` untuk pair, `--single` untuk card malicious-intent, `--selfcheck` untuk aturan tabelnya. `--explain` melaporkan file, baris, dan potongan yang memicu tiap sinyal, untuk verifikasi kandidat HN (§3.3); simpan sebagai `delta_evidence` di `pairs.jsonl` supaya UI bisa menampilkannya. Definisi "file teks" pada `large_deletion` diambil sebagai "bisa didekode UTF-8", karena §4.3 tidak menyebutkannya.
 - [ ] Smart-diff dan pemotongan (§4.2, §4.5), dijalankan di container tanpa jaringan.
 - [ ] Intent profile builder (§4.4).
+- [~] Pengumpulan kandidat jalur B (§3.3) — [pipeline/collect.py](../pipeline/collect.py).
+  `search --category N` mencari registry dengan kata kunci tetap, `pairs --package X`
+  membangun pasangan rilis menurut D27. Aturan v_(t-1) diuji terhadap data axios asli:
+  24 dari 144 versi mendapat v_(t-1) berbeda dibanding aturan waktu terbit, jadi D27
+  bukan sekadar kehati-hatian. Langkah unduh tarball + ekstraksi sengaja TIDAK ada di
+  sini: §4.1 mewajibkannya di container tanpa jaringan.
+- [ ] Jalur A (§3.3): jalankan 1.900 typical update sisa Wyss lewat extractor. Menunggu unduhan OSF.
 - [ ] Pengelompokan kampanye (§3.6).
 - [ ] Skrip analisis (§11).
 
