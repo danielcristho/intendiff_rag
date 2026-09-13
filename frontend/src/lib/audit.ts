@@ -1,9 +1,14 @@
 import type { Decisions, ErrorClass, Pair, Subset, Verdict } from "@/types/api";
 
+// STATUSES are the review-progress filters offered in the queue.
 export const STATUSES = ["semua", "belum direview", "beda dari gold"] as const;
+// Status is one review-progress filter.
 export type Status = (typeof STATUSES)[number];
+// SUBSETS lists the test-set subsets in reporting order.
 export const SUBSETS: Subset[] = ["MAL", "HN", "TYP"];
+// VERDICTS lists the verdicts an annotator can record.
 export const VERDICTS: Verdict[] = ["malicious", "benign", "skip"];
+// ERRORS lists the EA4 error classes.
 export const ERRORS: ErrorClass[] = ["capability", "intent", "retrieval"];
 
 // HN_CATEGORIES names the five hard-negative categories of methodology §3.3.
@@ -15,14 +20,17 @@ export const HN_CATEGORIES: Record<number, string> = {
   5: "Deprecation & perubahan struktur",
 };
 
+// CATEGORY_IDS lists the hard-negative category numbers in order.
 export const CATEGORY_IDS = Object.keys(HN_CATEGORIES).map(Number);
 
+// Filters is the combination of review status, subset and category in effect.
 export interface Filters {
   status: Status;
   subset: Subset | null;
   category: number | null;
 }
 
+// NO_FILTER is the filter state that admits every pair.
 export const NO_FILTER: Filters = { status: "semua", subset: null, category: null };
 
 // keep reports whether a pair survives every active filter.
