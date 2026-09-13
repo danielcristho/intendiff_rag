@@ -192,7 +192,10 @@ def call_llm(base_url, model, messages, seed, timeout, sampling, retries=3):
         try:
             with urllib.request.urlopen(req, timeout=timeout) as res:
                 return json.loads(res.read())
-        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
+        # OSError, not URLError: a reset mid-read raises ConnectionResetError,
+        # which is an OSError but NOT a URLError, so a narrower clause lets the
+        # most retryable failure of all escape without a single retry.
+        except (OSError, json.JSONDecodeError) as exc:
             last = exc
             time.sleep(2**attempt)
     raise RuntimeError(f"failed after {retries} attempts: {last}")
@@ -389,6 +392,26 @@ def selfcheck():
     assert parse_verdict('{"evidence":[],"verdict":"benign"}') is None
     # Extra keys are ignored rather than rejected.
     assert parse_verdict('{"evidence":[],"reason":"r","verdict":"benign","extra":1}') is not None
+
+    # A connection reset must be retried. It is an OSError but not a URLError,
+    # so the narrower clause this replaced skipped the backoff entirely.
+    attempts = []
+
+    def refuse(*_args, **_kwargs):
+        attempts.append(1)
+        raise ConnectionResetError(104, "Connection reset by peer")
+
+    real_urlopen, real_sleep = urllib.request.urlopen, time.sleep
+    urllib.request.urlopen, time.sleep = refuse, lambda _seconds: None
+    try:
+        call_llm("http://x", "m", [], 0, 1, {"temperature": 0})
+    except RuntimeError as exc:
+        assert "failed after 3 attempts" in str(exc), exc
+    else:
+        raise AssertionError("a reset must surface as a failure, not a result")
+    finally:
+        urllib.request.urlopen, time.sleep = real_urlopen, real_sleep
+    assert len(attempts) == 3, f"retried {len(attempts)} times, expected 3"
 
     print("ok")
 
