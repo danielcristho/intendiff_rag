@@ -1,1 +1,79 @@
-# intendiff_rag
+# IntentDiff-RAG
+
+Tugas Metodologi Penelitian, S2 ITS: Robby Ulung Pambudi (6025252022) dan
+Gloriyano Cristho Daniel Pepuho (6025252017).
+
+**Pertanyaan besarnya:** bisakah LLM open-weight 3–4B yang jalan lokal
+membedakan update npm yang berbahaya dari update sah yang perilakunya mirip?
+
+> Ini eksperimen penelitian, bukan production scanner. Sampel malicious hanya
+> dianalisis statis: tidak pernah di-`npm install`, dieksekusi, atau dijalankan
+> lifecycle script-nya.
+
+## Masalah
+
+Update pada paket yang sudah dipercaya bisa menyisipkan payload, contohnya
+chalk/debug dan worm Shai-Hulud (September 2025) serta axios (Maret 2026).
+`npm audit` tidak menangkap serangan seperti ini karena hanya mencocokkan
+advisory yang sudah terbit. Wyss et al. (RAID 2025) menunjukkan LLM tertutup
+bisa mendeteksinya dengan akurat dari smart-diff. Yang belum diketahui: apakah
+model kecil yang bisa jalan lokal juga mampu, dan apakah false positive pada
+perilaku sensitif yang sah (telemetry, install hook, validasi lisensi) bisa
+ditekan dengan contoh pembanding benign dan intent paket.
+
+Posisi penelitian ini: **triage update dependensi sebelum advisory terbit**,
+pelengkap `npm audit`, bukan audit tata kelola TI.
+
+## Pertanyaan penelitian (revisi 2026-09-13)
+
+| | Pertanyaan | Jenis | Pembanding |
+|---|---|---|---|
+| RQ1 | Seberapa akurat model 3–4B mendeteksi update berbahaya dari smart-diff tanpa contoh, dan seberapa jauh selisihnya dari model tertutup di Wyss et al.? | Deskriptif | E0-noint, E0 |
+| RQ2a | Apakah contoh malicious hasil retrieval menaikkan FPR pada hard negative? | Uji hipotesis | E3 vs E0 |
+| RQ2b | Dengan jumlah contoh yang sama, apakah benign look-alike menurunkan FPR hard negative tanpa recall turun lebih dari 5 poin? | Uji hipotesis (utama) | E4 vs E3-k2 |
+| RQ3 | Apakah intent paket eksplisit menurunkan FPR hard negative tanpa recall turun lebih dari 5 poin? | Uji hipotesis | E4 vs E4-noint |
+| RQ4 | Berapa tambahan token, latency, dan VRAM dari tiap komponen? | Deskriptif | semua konfigurasi |
+
+Hipotesis, decision rule, dan ancaman validitas ada di
+[docs/research.md](docs/research.md). RQ di proposal P1 (slide 10) sudah
+tidak berlaku; alasan tiap perubahan ada di [docs/decisions.md](docs/decisions.md).
+
+## Status
+
+- [x] Proposal P1 — `labs/refrences/P1_Metodologi Penelitian.pdf`
+- [x] Audit referensi ke sumber asli — [docs/references.md](docs/references.md)
+- [x] Revisi RQ, hipotesis, dan protokol eksperimen
+- [x] Kerangka runner, prompt builder, dan UI label audit
+- [ ] Dataset (`data/` belum ada)
+- [ ] Smart-diff, intent profile, capability extractor, skrip analisis
+- [ ] Penyesuaian kode ke konfigurasi revisi — [checklist](docs/experiments.md#9-checklist-implementasi)
+
+## Peta dokumen
+
+| File | Isi |
+|---|---|
+| [docs/research.md](docs/research.md) | masalah, posisi terhadap penelitian terkait, gap, RQ, hipotesis, decision rule, ancaman validitas |
+| [docs/experiments.md](docs/experiments.md) | konfigurasi, data dan protokol label, KB dan retrieval, metrik, statistik, timeline, checklist implementasi |
+| [docs/references.md](docs/references.md) | status tiap referensi, fakta yang boleh dikutip, koreksi slide P1, referensi yang perlu ditambah |
+| [docs/decisions.md](docs/decisions.md) | log keputusan bertanggal beserta alasannya |
+| `labs/latex/` | naskah (Elsevier CAS) |
+
+## Menjalankan
+
+```bash
+# backend: API untuk UI audit
+cd backend && cargo run -- --data-dir ../data --port 8000
+cargo test
+
+# frontend: http://localhost:5174, mem-proxy /api ke port 8000
+cd frontend && pnpm install && pnpm dev
+pnpm test
+
+# pipeline: butuh server model OpenAI-compatible (vLLM/Ollama)
+python pipeline/runner.py --model Qwen/Qwen3-4B-Instruct-2507 --base-url http://localhost:<port-model>
+python pipeline/runner.py --selfcheck
+```
+
+Default `--base-url` runner adalah port 8000, sama dengan port backend dan port
+default vLLM. Kalau server model dan backend jalan bersamaan, pindahkan salah
+satunya.
