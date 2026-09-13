@@ -78,7 +78,7 @@ Status per 2026-09-13. Kode saat ini masih mengikuti desain E0–E4 lama.
 
 **Komponen baru**
 
-- [ ] Capability extractor (§4.3).
+- [x] Capability extractor (§4.3) — [pipeline/capability.py](../pipeline/capability.py). `--before/--after` untuk pair, `--single` untuk card malicious-intent, `--selfcheck` untuk aturan tabelnya. Definisi "file teks" pada `large_deletion` diambil sebagai "bisa didekode UTF-8", karena §4.3 tidak menyebutkannya.
 - [ ] Smart-diff dan pemotongan (§4.2, §4.5), dijalankan di container tanpa jaringan.
 - [ ] Intent profile builder (§4.4).
 - [ ] Pengelompokan kampanye (§3.6).

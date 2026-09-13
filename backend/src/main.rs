@@ -111,6 +111,7 @@ async fn put_decision(
     Ok(Json(merged))
 }
 
+// Options is the server configuration taken from the command line.
 struct Options {
     data_dir: PathBuf,
     port: u16,
@@ -134,7 +135,7 @@ fn parse_args(args: &[String]) -> Options {
     options
 }
 
-// List all the routes.
+// routes wires every endpoint to the shared application state.
 fn routes(app: Shared) -> Router {
     Router::new()
         .route("/api/pairs", get(get_pairs))
