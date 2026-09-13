@@ -16,6 +16,30 @@ teknis dari "apakah ini menjawab RQ", bukan dari kelengkapan fitur.
 
 ## Konteks
 
+Jalankan lewat `make` (dua terminal — `make help` untuk daftarnya):
+
+```
+make backend   # terminal 1, :8100 — harus jalan lebih dulu
+make ui        # terminal 2, http://localhost:5174
+make test      # backend + frontend + runner sekaligus
+```
+
+Atau lewat Docker (nginx melayani UI dan mem-proxy `/api`, jadi satu perintah):
+
+```
+cp .env.example .env               # sesuaikan APP_UID/APP_GID dengan `id -u`/`id -g`
+docker compose up -d backend frontend    # http://localhost:5174, tanpa GPU
+docker compose --profile model up -d     # tambah vLLM di :8101, butuh GPU NVIDIA
+```
+
+vLLM memakai image resmi, bukan Dockerfile sendiri. Model default
+`Qwen2.5-Coder-3B` — Qwen3-4B tidak muat di 12 GiB (D44).
+
+**Port di mesin GPU sudah padat.** 8000 dipakai production-service, ditambah 8080,
+8081, 5433, 9400, dan 18888. Karena itu backend memakai 8100 dan vLLM 8101,
+semuanya di-bind ke loopback saja — UI audit tidak punya autentikasi. Jalankan
+`docker ps` sebelum mengubah port di `.env`.
+
 `frontend/` — alat kerja riset: label audit (M1-2) dan error analysis (M7-8).
 Vite + React + TS + Tailwind. Konvensi struktur mengikuti `.ref/spider/frontend`,
 bahasa desain (token warna, komponen flat) mengikuti `.ref/cloudx_ui`.
@@ -28,7 +52,7 @@ pnpm build         # tsc --noEmit && vite build
 ```
 
 `pipeline/` — runner eksperimen. Batch, bukan service: baca pairs, jalankan
-setiap konfigurasi lewat endpoint OpenAI-compatible (vLLM/Ollama), tulis satu
+setiap konfigurasi lewat endpoint OpenAI-compatible vLLM (D46), tulis satu
 baris per run. Kode masih memakai E0–E4 lama; konfigurasi revisi dan checklist
 penyesuaiannya ada di `docs/methodology.md` dan `docs/experiments.md` §4.
 
@@ -48,21 +72,26 @@ di `docs/methodology.md` §9.3 (D41).
 `backend/` — API untuk UI audit. Rust + axum.
 
 ```
-cd backend && cargo run -- --data-dir ../data --port 8000
+cd backend && cargo run -- --data-dir ../data --port 8100
 cargo test
 ```
 
 Data dibaca dari `data/pairs.jsonl` (fallback `data/pairs.sample.jsonl`; KB di
-`data/kb.jsonl`), keputusan ditulis ke `data/audit_decisions.json` — dataset
-input tidak pernah disentuh. Menyajikan file, bukan database: runner Python dan
-backend membaca-menulis file yang sama.
+`data/kb.jsonl`) — dataset input tidak pernah disentuh. Menyajikan file, bukan
+database: runner Python dan backend membaca-menulis file yang sama.
+
+**Label ganda (§8):** keputusan ditulis per anotator ke
+`data/audit_decisions.<anotator>.json`, bukan satu file bersama. UI menahan di
+gerbang identitas sebelum melabeli, dan `GET /api/annotators` hanya memberi
+jumlah keputusan — tidak pernah labelnya, supaya pelabelan tetap independen.
+Nama anotator ikut menyusun nama file, jadi divalidasi `[A-Za-z0-9_-]{1,32}`
+di backend dan frontend; kalau salah satu diubah, ubah keduanya.
 
 Tulis keputusan dijaga mutex dan lewat rename atomik, jadi dua klik berdekatan
 tidak saling menimpa dan proses yang mati saat menulis tidak merusak file.
 
-Frontend mem-proxy `/api` ke port 8000, jadi backend harus jalan lebih dulu.
-Default `--base-url` runner juga port 8000 — jangan jalankan server model di
-port yang sama dengan backend.
+Frontend mem-proxy `/api` ke port 8100, jadi backend harus jalan lebih dulu.
+Runner default ke `--base-url http://localhost:8101`, yaitu port vLLM.
 
 - `docs/research.md` — masalah, posisi, gap, RQ1–RQ4, hipotesis, decision rule, ancaman validitas
 - `docs/methodology.md` — prosedur final: data, smart-diff, extractor, intent, KB & retrieval, prompt verbatim, inferensi, metrik, statistik
