@@ -23,3 +23,4 @@ test:
 	python3 pipeline/runner.py --selfcheck
 	python3 pipeline/capability.py --selfcheck
 	python3 pipeline/prompts.py
+	python3 pipeline/collect.py --selfcheck
