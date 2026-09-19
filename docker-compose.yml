@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: deployments/docker/Dockerfile.backend
+      args:
+        CARGO_BUILD_JOBS: ${CARGO_BUILD_JOBS:-2}
     image: intentdiff-backend:latest
     user: "${APP_UID:-1000}:${APP_GID:-1000}"
     ports:
