@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import { useResults } from "@/hooks/useAuditData";
 import type { ModelResult, Pair } from "@/types/api";
 
-// agreement compares a run's verdict with the gold label, when both are known.
 function agreement(result: ModelResult, gold?: string) {
   if (!gold || !result.verdict) return null;
   return result.verdict.toLowerCase() === gold.toLowerCase() ? "✓" : "✗";

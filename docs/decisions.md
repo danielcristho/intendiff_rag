@@ -227,3 +227,15 @@ Konteks: GPU yang tersedia dicek terhadap kebutuhan memori di
 - Qwen2.5-Coder-3B pada `--gpu-memory-utilization 0.80`, konteks 32.768: nvidia-smi melaporkan 9.364 MiB terpakai. Dikurangi ~232 MiB milik desktop, vLLM memakai **8,92 GiB**.
 - D47 memperkirakan 8,96 GiB (selisih 0,5%); §9.3 memperkirakan 6,92 GiB (meleset 29%).
 - **Dampak:** rumus §9.3 untuk RQ4 harus diperbaiki agar memasukkan CUDA graphs dan overhead runtime. Angka yang dilaporkan di naskah memakai pengukuran ini, bukan rumus lama.
+
+**D50. Header smart-diff memakai label `a/` dan `b/`, tanpa path ekstraksi dan tanpa timestamp** (§4.2).
+
+- Alasan [L] **kebocoran nama paket:** `diff -ruN` mencetak path yang diberikan padanya. Di alur sebenarnya path itu memuat nama paket (`/work/node-ipc/9.2.0/...`), sehingga nama tersebut muncul di header setiap file — melanggar D26. Nama yang muncul di *isi* file tetap dibiarkan, sesuai §1, dan efeknya diukur lewat EA3.
+- Alasan [L] **reproducibility:** `diff` menambahkan mtime pada baris `---`/`+++`. Karena mtime mengikuti kapan tarball diekstrak, pair yang sama menghasilkan teks berbeda pada setiap ekstraksi. Itu merusak invarian §4.5 (smart-diff identik di semua konfigurasi dan kedua model) sekaligus pengelompokan kampanye lewat SHA-256 file (§3.6).
+- Diverifikasi: mengekstrak pasangan yang sama ke dua lokasi berbeda kini menghasilkan SHA-256 identik, dan `patch(1)` tetap menerima formatnya.
+
+**D51. Nama file README dicocokkan tanpa memperhatikan besar-kecil huruf** (§4.4).
+
+- §4.4 menulis "file `README*` di root". Dibaca harfiah pada filesystem yang peka huruf, pola itu melewatkan `readme.md` huruf kecil — dan itu bukan kasus pinggiran: dari tiga paket asli yang diuji (chalk, ms, node-ipc), **dua memakai huruf kecil**.
+- Alasan [L]: melewatkan README berarti pair diberi `intent_available=false` padahal README-nya ada. Dampaknya langsung ke RQ3, karena ablation intent akan membandingkan blok intent yang separuh kosong dengan blok intent yang kosong — bukan yang dimaksud §4.4. Jumlah `intent_available=false` juga dilaporkan, jadi angkanya akan salah.
+- **Dampak:** pencocokan memakai awalan `readme` tanpa memperhatikan besar-kecil huruf, diambil menurut urutan nama file bila ada lebih dari satu.

@@ -1,19 +1,9 @@
-"""Batch runner for the IntentDiff-RAG experiments.
+"""Batch runner against a vLLM server.
 
-    python pipeline/runner.py --model Qwen/Qwen3-4B-Instruct-2507
+    python pipeline/runner.py --model Qwen/Qwen2.5-Coder-3B-Instruct
     python pipeline/runner.py --selfcheck
 
-Reads pairs.jsonl, runs every configuration against a vLLM server over its
-OpenAI-compatible endpoint, and appends one result line per run to
-results.jsonl. Safe to stop at any time: runs already present are skipped.
-
-vLLM specifically, not Ollama (D46): D40 requires unquantized bfloat16, and
-§9.3 reads the model weight memory from the vLLM log. Ollama serves quantized
-GGUF by default, so it is only ever used to smoke-test pipeline mechanics.
-
-GPU memory is not measured here. vLLM pre-allocates according to
---gpu-memory-utilization, so an nvidia-smi peak reflects that allocation rather
-than the model's need; methodology §9.3 (D41) defines what to report instead.
+Resumable: runs already in results.jsonl are skipped.
 """
 import argparse
 import hashlib
@@ -33,8 +23,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # existing_or_sample prefers the real dataset and falls back to the fixture.
 def existing_or_sample(path):
-    # Mirrors backend/src/store.rs so both halves of the project agree on which
-    # file they are reading before the M1-2 corpus exists.
+    # Mirrors backend/src/store.rs so both halves read the same file.
     real = Path(path)
     if real.exists():
         return real
@@ -50,18 +39,17 @@ def load_jsonl(path):
     return [json.loads(line) for line in p.read_text().splitlines() if line.strip()]
 
 
-# run_key identifies one run so a resumed batch can skip what is already done.
+# Identifies one run for the resume check.
 def run_key(model, config, pair_id, seed, temperature):
-    # The temperature belongs in the key: Stage 2 reuses seed 0, so without it
-    # that run collides with Stage 1 and is silently skipped (§4).
+    # Temperature belongs in the key: seed 0 is reused at another temperature
+    # and would otherwise collide and be skipped.
     return f"{model}|{config}|{pair_id}|{seed}|{temperature}"
 
 
-# done_keys returns the run keys that finished, so a resume can skip them.
+# A resume skips these.
 def done_keys(path):
-    # A transport error is not a result: the run has to be retried. An invalid
-    # model output is different — D18 counts that as a benign verdict, so it
-    # stays done. Without this split, one network blip marks runs done forever.
+    # A transport error is not a result and must be retried; an invalid model
+    # reply is one, and stays done. Without the split one blip loses runs.
     return {
         row["run_key"]
         for row in load_jsonl(path)
@@ -71,8 +59,7 @@ def done_keys(path):
 
 # score measures capability-delta overlap between a pair and a card.
 def score(pair_delta, card_delta):
-    # Retrieval is keyed on the delta, not on text: "look-alike" here means the
-    # same capability, which a text embedding would not guarantee (§5.2).
+    # Keyed on the delta, not on text.
     a, b = set(pair_delta or []), set(card_delta or [])
     union = a | b
     return len(a & b) / len(union) if union else 0.0
@@ -80,8 +67,7 @@ def score(pair_delta, card_delta):
 
 # eligible reports whether a card may be shown for this pair.
 def eligible(pair, card):
-    # A card from the same package or campaign would leak the answer into the
-    # prompt, so it is excluded before ranking (§5.2, D13).
+    # Same package or campaign leaks the answer into the prompt.
     for field in ("name", "campaign"):
         if pair.get(field) and pair.get(field) == card.get(field):
             return False
@@ -90,9 +76,8 @@ def eligible(pair, card):
 
 # rank orders eligible cards by score, breaking ties deterministically.
 def rank(pair, kb):
-    # With only ten signals, ties are common. Breaking them on a hash of the
-    # pair and card ids keeps the choice independent of the order of kb.jsonl,
-    # which would otherwise favour whichever card was written first (D34).
+    # Ten signals means frequent ties; hashing keeps the winner independent
+    # of the order kb.jsonl happens to be written in.
     def key(card):
         tiebreak = hashlib.sha256(f"{pair.get('id')}|{card.get('id')}".encode()).hexdigest()
         return (-score(pair.get("delta"), card.get("delta")), tiebreak)
@@ -102,8 +87,7 @@ def rank(pair, kb):
 
 # _ordered places the best malicious card first or second, per the pair's hash.
 def _ordered(pair_id, primary, secondary):
-    # Counterbalancing the slots removes recency bias, and keeps E3-k2 and E4
-    # differing only in their second card (D16, D42).
+    # Counterbalanced so the two configurations differ only in the second card.
     if secondary is None:
         return [primary]
     return [primary, secondary] if zlib.crc32(str(pair_id).encode()) % 2 == 0 else [secondary, primary]
@@ -132,7 +116,6 @@ def retrieve(config, pair, kb):
     return _ordered(pair.get("id"), primary, secondary)
 
 
-# retrieval_log records which cards were shown, with their score and position.
 def retrieval_log(pair, cards):
     return [
         {
@@ -147,8 +130,8 @@ def retrieval_log(pair, cards):
 
 # parse_verdict returns the first complete JSON object of a reply, if it is valid.
 def parse_verdict(text):
-    # §7: read ONE object with raw_decode rather than slicing to the last brace,
-    # which breaks as soon as the model writes prose containing "}".
+    # raw_decode reads ONE object; slicing to the last brace breaks on prose
+    # containing "}".
     start = text.find("{")
     if start == -1:
         return None
@@ -168,8 +151,7 @@ def parse_verdict(text):
     if not isinstance(parsed.get("reason"), str):
         return None
 
-    # Extra keys are ignored, not rejected: the decision rule is about the three
-    # fields the analysis reads.
+    # Extra keys are ignored, not rejected.
     return {"verdict": verdict.strip().lower(), "evidence": evidence, "reason": parsed["reason"]}
 
 
@@ -192,16 +174,14 @@ def call_llm(base_url, model, messages, seed, timeout, sampling, retries=3):
         try:
             with urllib.request.urlopen(req, timeout=timeout) as res:
                 return json.loads(res.read())
-        # OSError, not URLError: a reset mid-read raises ConnectionResetError,
-        # which is an OSError but NOT a URLError, so a narrower clause lets the
-        # most retryable failure of all escape without a single retry.
+        # OSError, not URLError: ConnectionResetError is an OSError only, and
+        # a narrower clause let the most retryable failure escape unretried.
         except (OSError, json.JSONDecodeError) as exc:
             last = exc
             time.sleep(2**attempt)
     raise RuntimeError(f"failed after {retries} attempts: {last}")
 
 
-# main runs every pending pair-configuration combination and records the results.
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", required=True)
@@ -211,8 +191,7 @@ def main(argv=None):
     ap.add_argument("--out", default=str(ROOT / "data/results.jsonl"))
     ap.add_argument("--configs", default=",".join(CONFIGS))
     ap.add_argument("--seed", type=int, default=0)
-    # §9.2: Stage 1 is greedy; Stage 2 (EA2) uses the Qwen3 model card's
-    # recommended sampling, the same values for both models.
+    # Defaults are greedy; the sampling values come from the Qwen model card.
     ap.add_argument("--temperature", type=float, default=0.0)
     ap.add_argument("--top-p", type=float, default=1.0)
     ap.add_argument("--top-k", type=int)
@@ -240,14 +219,12 @@ def main(argv=None):
         for config in configs
         if run_key(args.model, config, pair["id"], args.seed, args.temperature) not in already
     ]
-    # Name the files out loud: falling back to the fixtures must never be
-    # mistaken for a run over the real corpus.
+    # Name the files: a fixture fallback must not look like a real run.
     print(f"pairs={pairs_path.name} kb={kb_path.name} temp={args.temperature}")
     print(f"{len(pairs)} pairs x {len(configs)} configs · {len(already)} done · {len(todo)} to run")
 
-    # ponytail: sequential on purpose. RQ4 reports median and p95 latency, and
-    # those numbers are wrong if requests overlap on the server (methodology
-    # §9.2). Add a parallel flag only when throughput matters more than latency.
+    # ponytail: sequential on purpose — overlapping requests distort the
+    # latency figures. Add a parallel flag when throughput matters more.
     for i, (pair, config) in enumerate(todo, 1):
         cards = retrieve(config, pair, kb)
         messages = build(config, pair, cards)
@@ -271,8 +248,7 @@ def main(argv=None):
             text = choice["message"]["content"]
             parsed = parse_verdict(text)
             usage = res.get("usage", {})
-            # §7: output cut off by the token limit counts as invalid, however
-            # well-formed the fragment happens to look.
+            # A truncated reply is invalid however well-formed the fragment looks.
             finish_reason = choice.get("finish_reason")
             valid = parsed is not None and finish_reason != "length"
             record.update({
@@ -295,7 +271,6 @@ def main(argv=None):
         print(f"[{i}/{len(todo)}] {config} {pair['id']} -> {record.get('verdict') or record.get('error')}")
 
 
-# selfcheck asserts the resume, retrieval and parsing rules without a live model.
 def selfcheck():
     import tempfile
 
@@ -344,8 +319,7 @@ def selfcheck():
     # Ties break on a hash, so the order of kb.jsonl cannot decide the winner (D34).
     assert [c["id"] for c in rank(pair, kb)] == [c["id"] for c in rank(pair, list(reversed(kb)))]
 
-    # E4 is contrastive; E4-noint must receive exactly the same cards and order,
-    # so RQ3 measures only the intent block (§5.2 invariant).
+    # E4-noint must receive exactly the same cards and order as E4.
     assert {c["label"] for c in retrieve("E4", pair, kb)} == {"malicious", "benign"}
     assert retrieve("E4", pair, kb) == retrieve("E4-noint", pair, kb)
 

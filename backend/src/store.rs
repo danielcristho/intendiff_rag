@@ -16,10 +16,12 @@ pub struct Store {
 pub fn valid_annotator(name: &str) -> bool {
     !name.is_empty()
         && name.len() <= 32
-        && name.chars().all(|c| c.is_ascii_alphanumeric() || c == '_' || c == '-')
+        && name
+            .chars()
+            .all(|c| c.is_ascii_alphanumeric() || c == '_' || c == '-')
 }
 
-// read_jsonl parses one JSON value per non-blank line, or nothing if absent.
+// A missing file reads as empty, not an error.
 pub fn read_jsonl(path: &Path) -> io::Result<Vec<Value>> {
     if !path.exists() {
         return Ok(Vec::new());
@@ -31,7 +33,6 @@ pub fn read_jsonl(path: &Path) -> io::Result<Vec<Value>> {
         .collect()
 }
 
-// existing_or_sample prefers the real dataset and falls back to the fixture.
 fn existing_or_sample(dir: &Path, name: &str, sample: &str) -> PathBuf {
     let real = dir.join(name);
     if real.exists() {
@@ -42,37 +43,29 @@ fn existing_or_sample(dir: &Path, name: &str, sample: &str) -> PathBuf {
 }
 
 impl Store {
-    // new points a store at the directory holding the project's data files.
     pub fn new(data_dir: PathBuf) -> Self {
         Self { data_dir }
     }
 
-    // pairs_path returns the pairs file in use, real dataset or fixture.
     pub fn pairs_path(&self) -> PathBuf {
         existing_or_sample(&self.data_dir, "pairs.jsonl", "pairs.sample.jsonl")
     }
 
-    // results_path returns the results file in use, real run or fixture.
     pub fn results_path(&self) -> PathBuf {
         existing_or_sample(&self.data_dir, "results.jsonl", "results.sample.jsonl")
     }
 
-    // results returns every recorded model run for one pair.
     pub fn results(&self, pair_id: &str) -> io::Result<Vec<Value>> {
-        // Filtering on read keeps this a plain file: the audit UI shows one pair
-        // at a time, so an index only becomes worth building if it gets slow.
         Ok(read_jsonl(&self.results_path())?
             .into_iter()
             .filter(|row| row.get("pair_id").and_then(Value::as_str) == Some(pair_id))
             .collect())
     }
 
-    // decisions_path returns where one annotator's decisions are stored.
     pub fn decisions_path(&self, annotator: &str) -> PathBuf {
         self.data_dir.join(format!("{PREFIX}{annotator}{SUFFIX}"))
     }
 
-    // pairs returns every update pair along with the filename it came from.
     pub fn pairs(&self) -> io::Result<(String, Vec<Value>)> {
         let path = self.pairs_path();
         let source = path
@@ -82,7 +75,6 @@ impl Store {
         Ok((source, read_jsonl(&path)?))
     }
 
-    // decisions returns one annotator's decisions, empty if they have none yet.
     pub fn decisions(&self, annotator: &str) -> io::Result<Map<String, Value>> {
         let path = self.decisions_path(annotator);
         if !path.exists() {
@@ -116,7 +108,6 @@ impl Store {
         Ok(found)
     }
 
-    // merge_decision applies a patch to one pair's decision and rewrites the file.
     pub fn merge_decision(
         &self,
         annotator: &str,
@@ -156,7 +147,6 @@ mod tests {
 
     static SEQ: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
 
-    // temp_store creates an empty store in a directory unique to one test.
     fn temp_store() -> Store {
         let n = SEQ.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
         let dir = std::env::temp_dir().join(format!("idr-test-{}-{n}", std::process::id()));
@@ -177,13 +167,19 @@ mod tests {
     fn treats_a_missing_file_as_empty_rather_than_an_error() {
         let store = temp_store();
         assert!(store.decisions("A").unwrap().is_empty());
-        assert!(read_jsonl(&store.data_dir.join("missing.jsonl")).unwrap().is_empty());
+        assert!(read_jsonl(&store.data_dir.join("missing.jsonl"))
+            .unwrap()
+            .is_empty());
     }
 
     #[test]
     fn falls_back_to_the_sample_until_the_real_dataset_exists() {
         let store = temp_store();
-        fs::write(store.data_dir.join("pairs.sample.jsonl"), "{\"id\":\"a\"}\n").unwrap();
+        fs::write(
+            store.data_dir.join("pairs.sample.jsonl"),
+            "{\"id\":\"a\"}\n",
+        )
+        .unwrap();
         assert!(store.pairs_path().ends_with("pairs.sample.jsonl"));
         fs::write(store.data_dir.join("pairs.jsonl"), "{\"id\":\"b\"}\n").unwrap();
         assert!(store.pairs_path().ends_with("pairs.jsonl"));
@@ -216,8 +212,12 @@ mod tests {
     #[test]
     fn merges_a_patch_instead_of_replacing_the_decision() {
         let store = temp_store();
-        store.merge_decision("A", "p1", &json!({"label": "benign"}), "t1".into()).unwrap();
-        let out = store.merge_decision("A", "p1", &json!({"note": "unsure"}), "t2".into()).unwrap();
+        store
+            .merge_decision("A", "p1", &json!({"label": "benign"}), "t1".into())
+            .unwrap();
+        let out = store
+            .merge_decision("A", "p1", &json!({"note": "unsure"}), "t2".into())
+            .unwrap();
         assert_eq!(out["label"], "benign");
         assert_eq!(out["note"], "unsure");
         assert_eq!(out["at"], "t2");
@@ -226,8 +226,12 @@ mod tests {
     #[test]
     fn keeps_decisions_on_other_pairs_when_writing_one() {
         let store = temp_store();
-        store.merge_decision("A", "p1", &json!({"label": "benign"}), "t1".into()).unwrap();
-        store.merge_decision("A", "p2", &json!({"label": "malicious"}), "t2".into()).unwrap();
+        store
+            .merge_decision("A", "p1", &json!({"label": "benign"}), "t1".into())
+            .unwrap();
+        store
+            .merge_decision("A", "p2", &json!({"label": "malicious"}), "t2".into())
+            .unwrap();
         let all = store.decisions("A").unwrap();
         assert_eq!(all.len(), 2);
         assert_eq!(all["p1"]["label"], "benign");
@@ -236,8 +240,12 @@ mod tests {
     #[test]
     fn keeps_two_annotators_verdicts_on_the_same_pair_apart() {
         let store = temp_store();
-        store.merge_decision("A", "p1", &json!({"label": "benign"}), "t1".into()).unwrap();
-        store.merge_decision("B", "p1", &json!({"label": "malicious"}), "t2".into()).unwrap();
+        store
+            .merge_decision("A", "p1", &json!({"label": "benign"}), "t1".into())
+            .unwrap();
+        store
+            .merge_decision("B", "p1", &json!({"label": "malicious"}), "t2".into())
+            .unwrap();
         assert_eq!(store.decisions("A").unwrap()["p1"]["label"], "benign");
         assert_eq!(store.decisions("B").unwrap()["p1"]["label"], "malicious");
     }
@@ -245,10 +253,19 @@ mod tests {
     #[test]
     fn counts_annotators_without_exposing_their_labels() {
         let store = temp_store();
-        store.merge_decision("A", "p1", &json!({"label": "benign"}), "t".into()).unwrap();
-        store.merge_decision("A", "p2", &json!({"label": "benign"}), "t".into()).unwrap();
-        store.merge_decision("B", "p1", &json!({"label": "malicious"}), "t".into()).unwrap();
+        store
+            .merge_decision("A", "p1", &json!({"label": "benign"}), "t".into())
+            .unwrap();
+        store
+            .merge_decision("A", "p2", &json!({"label": "benign"}), "t".into())
+            .unwrap();
+        store
+            .merge_decision("B", "p1", &json!({"label": "malicious"}), "t".into())
+            .unwrap();
         fs::write(store.data_dir.join("audit_decisions.json"), "{}").unwrap();
-        assert_eq!(store.annotators().unwrap(), vec![("A".into(), 2), ("B".into(), 1)]);
+        assert_eq!(
+            store.annotators().unwrap(),
+            vec![("A".into(), 2), ("B".into(), 1)]
+        );
     }
 }

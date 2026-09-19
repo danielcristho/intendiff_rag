@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 
-// Flat fills: soft background, strong text, no ring or dot.
 const tones: Record<string, string> = {
   MALICIOUS: "bg-danger-soft text-danger",
   BENIGN: "bg-ok-soft text-ok",
@@ -10,7 +9,6 @@ const tones: Record<string, string> = {
   RETRIEVAL: "bg-accent-soft text-accent",
 };
 
-// Badge labels a verdict, subset or error class in one flat pill.
 export function Badge({ value, className }: { value: string; className?: string }) {
   const key = value.split(" ").pop()?.toUpperCase() ?? "";
   return (

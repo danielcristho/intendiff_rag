@@ -1,15 +1,6 @@
-"""Prompt assembly, methodology.md §6.
+"""Prompt assembly, one builder per configuration.
 
-Configurations differ ONLY in the examples and the intent block they carry. The
-system prompt, the smart-diff, and the format instruction are identical
-everywhere (§10), so a difference in results can be attributed to the factor
-under test rather than to prompt drift.
-
-English with role-play, per D35: the code and READMEs being analysed are
-English, and mixing instruction and material language adds an untested factor.
-Message order is examples, then the update, then the format instruction —
-information at the start and end of a long context is used more reliably than
-information buried in the middle (§6.2).
+    python pipeline/prompts.py     # runs the self-check
 """
 
 # §10. The -noint variants drop the intent block; E0 and E0-noint carry no cards.
@@ -38,17 +29,14 @@ FORMAT_INSTRUCTION = (
 )
 
 
-# uses_intent reports whether a configuration shows the intent profile.
 def uses_intent(config):
     return not config.endswith("-noint")
 
 
-# uses_retrieval reports whether a configuration is given knowledge-base cards.
 def uses_retrieval(config):
     return config not in ("E0", "E0-noint")
 
 
-# _as_text renders a missing or structured intent field as prompt text.
 def _as_text(value):
     if value is None or value == "" or value == [] or value == {}:
         return MISSING
@@ -73,7 +61,6 @@ def intent_block(pair):
     )
 
 
-# examples_block renders the retrieved cards in the order retrieval chose.
 def examples_block(cards):
     if not cards:
         return ""
@@ -92,7 +79,6 @@ def examples_block(cards):
     return "".join(parts)
 
 
-# build assembles the chat messages for one configuration.
 def build(config, pair, cards=()):
     if config not in CONFIGS:
         raise ValueError(f"unknown configuration: {config}")
@@ -113,7 +99,6 @@ def build(config, pair, cards=()):
     ]
 
 
-# selfcheck asserts the §6 template rules without a live model.
 def selfcheck():
     pair = {
         "id": "p1",

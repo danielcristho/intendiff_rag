@@ -9,7 +9,6 @@ const queryClient = new QueryClient({
   defaultOptions: { queries: { staleTime: 15_000, refetchOnWindowFocus: false } },
 });
 
-// App wires the query client, the annotator gate, and the router together.
 export function App() {
   return (
     <QueryClientProvider client={queryClient}>
