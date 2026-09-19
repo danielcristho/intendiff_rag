@@ -209,18 +209,17 @@ Klaster akhir adalah penutupan transitif dari relasi di atas.
 
 Tiga langkah pertama mengikuti spesifikasi Wyss et al. [R]:
 
-1. File JavaScript (`*.js`, `*.ts`, `*.ejs`, `*.mjs`, `*.cjs`) di kedua versi di-minify dengan UglifyJS, lalu di-unminify dengan Webcrack. Tujuannya menyeragamkan nama variabel dan struktur, serta membuang komentar.
-2. Untuk file yang ada di kedua versi, kode berulang dihapus dengan Dolos (panjang k-gram 70, window 17).
-3. Kedua direktori dibandingkan dengan `diff` menjadi satu smart-diff per pair. Karena yang dibandingkan seluruh direktori, `package.json` dan file teks lain ikut masuk.
+1. File yang namanya berakhiran `js` (`*.js`, `*.mjs`, `*.cjs`, `*.ejs` — **bukan** `*.ts`) di kedua versi di-minify dengan `uglifyjs -c -m`, lalu di-unminify dengan `webcrack`. Tujuannya menyeragamkan nama variabel dan struktur, serta membuang komentar.
+2. Untuk file yang ada di kedua versi, kode berulang dihapus dengan Dolos (panjang k-gram 70, window 17), dipanggil sebagai `node index.mjs FILE PEMBANDING` yang menghasilkan `FILE.stripped`. **`index.mjs` tidak ikut dirilis di paket replikasi**, jadi langkah ini belum bisa direproduksi (D56).
+3. Kedua direktori dibandingkan dengan `diff -N -U 0 -r` menjadi satu smart-diff per pair, setelah `*.wasm`, `*.md`, `*.map`, `.npmignore`, `LICENSE*`, `license*`, `*.tsbuildinfo`, `package-lock.json`, dan `yarn.lock` dibuang. `package.json` ikut masuk; README tidak (D56).
 
-Empat tambahan berikut melengkapi hal yang tidak dirinci Wyss:
+Tiga tambahan berikut melengkapi hal yang tidak dirinci Wyss:
 
-4. **Format `diff -ruN`** [L]. Wyss tidak menyebut format diff. Format unified dipilih karena merupakan format diff yang paling umum (git). Opsi `-N` membuat file yang baru ditambahkan tampil utuh, dan file baru adalah lokasi umum payload.
-5. **File biner** tetap ditulis sebagai baris bawaan `diff` ("Binary files … differ").
-6. **Baris lebih dari 2.000 karakter dipotong** menjadi 2.000 karakter + `…[+N chars]` [L]. Baris tunggal yang sangat panjang (payload ter-encode) menghabiskan anggaran tanpa menambah informasi setelah bagian awalnya. Sinyal obfuscation-nya sudah ditangkap extractor dari file mentah (§4.3).
-7. **Versi alat dicatat dan dikunci:** UglifyJS, Webcrack, Dolos, dan diffutils.
+4. **File biner** tetap ditulis sebagai baris bawaan `diff` ("Binary files … differ").
+5. **Baris lebih dari 2.000 karakter dipotong** menjadi 2.000 karakter + `…[+N chars]` [L]. Baris tunggal yang sangat panjang (payload ter-encode) menghabiskan anggaran tanpa menambah informasi setelah bagian awalnya. Sinyal obfuscation-nya sudah ditangkap extractor dari file mentah (§4.3).
+6. **Versi alat dicatat dan dikunci:** UglifyJS, Webcrack, Dolos, dan diffutils.
 
-Kalau paket replikasi Wyss memuat kode generator, kode itu dipakai untuk langkah 1–2, sedangkan langkah 3–7 dijalankan dengan aturan di atas. Kalau tidak memuat, langkah 1–2 diimplementasikan dari spesifikasi yang sama.
+Paket replikasi Wyss memuat generatornya (`code/smart_diff_generator.py`), dan langkah 1–3 di atas dibaca langsung dari sana, bukan dari teks paper (D56).
 
 **Ukuran yang diharapkan:** rata-rata smart-diff di Wyss adalah 25.246 token (tokenizer GPT-4), dan 1,47% melebihi 128 ribu token [R]. Dengan konteks 32.768 token (§4.5), sebagian pair pasti perlu dipotong. Aturan pemotongannya ada di §4.5.
 

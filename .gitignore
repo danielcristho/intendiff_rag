@@ -9,3 +9,5 @@ __pycache__/
 
 # Salinan lokal .env.example; APP_UID/HF_TOKEN spesifik per mesin.
 .env
+.venv/
+figures/
