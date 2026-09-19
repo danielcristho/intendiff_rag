@@ -239,3 +239,63 @@ Konteks: GPU yang tersedia dicek terhadap kebutuhan memori di
 - §4.4 menulis "file `README*` di root". Dibaca harfiah pada filesystem yang peka huruf, pola itu melewatkan `readme.md` huruf kecil — dan itu bukan kasus pinggiran: dari tiga paket asli yang diuji (chalk, ms, node-ipc), **dua memakai huruf kecil**.
 - Alasan [L]: melewatkan README berarti pair diberi `intent_available=false` padahal README-nya ada. Dampaknya langsung ke RQ3, karena ablation intent akan membandingkan blok intent yang separuh kosong dengan blok intent yang kosong — bukan yang dimaksud §4.4. Jumlah `intent_available=false` juga dilaporkan, jadi angkanya akan salah.
 - **Dampak:** pencocokan memakai awalan `readme` tanpa memperhatikan besar-kecil huruf, diambil menurut urutan nama file bila ada lebih dari satu.
+
+## 2026-09-19 — Node GPU baru
+
+**D52. Eksperimen pindah ke RTX 5080 (16.303 MiB); seluruh angka dari RTX 3060 dibuang.**
+
+- Alasan [L]: RQ4 membandingkan biaya antar model. Kalau Qwen2.5-Coder-3B diukur di satu kartu dan Qwen3-4B di kartu lain, selisihnya tercampur dengan perbedaan perangkat keras dan tidak bisa diurai lagi.
+- **Dampak:** run yang sudah ada di 3060 diarsipkan sebagai `data/results.rtx3060.jsonl` dan tidak dipakai. `run_key` tidak memuat perangkat keras, jadi tanpa pengarsipan ini runner akan melewatinya sebagai "sudah selesai".
+- **D45 selesai lewat opsi A**, bukan dengan menyewa: kedua model muat di kartu ini, sehingga aturan klaim §5 yang mensyaratkan kedua model berlabel Didukung menjadi bisa dipenuhi.
+
+**D53. Angka memori D47 diukur ulang di Blackwell; koreksinya bertahan.**
+
+| Komponen @32.768 token | RTX 3060 (Ampere) | RTX 5080 (Blackwell) |
+|---|---|---|
+| Bobot Qwen2.5-Coder-3B | 5,79 GiB | 5,79 GiB |
+| CUDA graphs | 0,37 GiB | 0,34 GiB |
+| Overhead runtime | 1,67 GiB | 1,95 GiB |
+| **Total dengan KV 1,13** | **8,96 GiB** | **9,21 GiB** |
+
+- Diturunkan dari log vLLM pada `--gpu-memory-utilization 0.80`: budget 12,74 GiB dikurangi bobot, graph, dan KV cache terlapor 4,66 GiB.
+- Bobot identik antar arsitektur, seperti seharusnya. Yang bergeser hanya graph dan overhead.
+- **Dampak:** §9.3 memperkirakan 6,92 GiB, meleset **33%** di kartu ini. Koreksi D47 tetap berlaku dan angkanya diperbarui ke pengukuran Blackwell.
+
+**D54. Reproducibility terikat pada perangkat keras dan versi vLLM, bukan hanya seed.**
+
+- Run fixture yang sama pada model, prompt, dan seed identik menghasilkan verdict berbeda di 3060 dan 5080 (false positive 13/21 menjadi 18/21). Dua faktor berubah bersamaan — arsitektur GPU dan `--generation-config vllm` (D48) — jadi tidak bisa diurai, dan tidak perlu: setelan sekarang yang benar.
+- Alasan [L]: pada temperature 0 decoding memang greedy, tetapi vLLM memilih backend attention dan kernel berbeda antar arsitektur. Pergeseran numerik kecil cukup untuk membuat greedy mengambil cabang lain.
+- **Dampak:** §9.2 harus menyebut model GPU dan versi vLLM sebagai bagian dari kondisi yang wajib sama untuk mengulang hasil. Mengikuti seed saja tidak cukup, dan ini masuk ancaman validitas.
+
+**D55. `--gpu-memory-utilization` disetel per model, bukan satu angka untuk keduanya: 0,80 untuk Qwen2.5-Coder-3B dan 0,95 untuk Qwen3-4B-Instruct.**
+
+- Sumber: Qwen3-4B pada 0,92 di RTX 5080 gagal start — "4.5 GiB KV cache is needed, which is larger than the available KV cache memory (4.45 GiB)". Kurang 0,05 GiB.
+- Flag ini adalah **anggaran total** vLLM, bukan batas KV cache. KV cache adalah sisa setelah bobot, CUDA graph, dan overhead runtime dipotong, dan ketiganya tidak bergantung pada nilai flag — bobot dan graph tetap, overhead diukur saat profiling. Karena itu setiap kenaikan fraksi masuk 1:1 ke KV cache.
+
+| Qwen3-4B @32.768 token | GiB |
+|---|---|
+| Kartu (16.303 MiB) | 15,92 |
+| Anggaran @0,92 | 14,65 |
+| Non-KV terukur (bobot + graph + overhead) | 10,20 |
+| KV cache tersisa | 4,45 |
+| KV cache dibutuhkan (§9.1) | 4,50 |
+| Anggaran @0,95 → KV cache | 15,12 → **4,93** |
+
+- Alasan [L] **kenapa bukan menurunkan `--max-model-len`:** saran vLLM sendiri adalah turun ke 32.352 token. Itu melanggar D40 dan memaksa Qwen2.5-Coder-3B ikut turun lewat D31, sehingga run yang sudah selesai harus diulang — demi 0,05 GiB yang bisa didapat gratis dari fraksi memori.
+- Alasan [L] **kenapa angkanya boleh berbeda antar model:** D41 melaporkan bobot dari log vLLM ditambah KV cache *terhitung* dari `config.json`, dan keduanya tidak bergantung pada fraksi memori. Latensi RQ4 juga tidak bergeser karena runner sekuensial — satu sequence 32.768 token menempati jumlah blok yang sama berapa pun blok yang tersedia.
+- Menyempurnakan D47 dan D53, yang mengukur komponen memori tetapi masih mengasumsikan satu fraksi untuk kedua model.
+- **Dampak:** 0,95 menyisakan 0,80 GiB di kartu, jadi GPU harus benar-benar kosong sebelum vLLM dinyalakan. `.env.example` tetap 0,80 karena default modelnya Coder-3B.
+- **Terverifikasi di perangkat keras** (vLLM di RTX 5080, `--gpu-memory-utilization 0.95`, konteks 32.768). Bobot, graph, dan KV cache dibaca dari log; overhead runtime adalah sisa anggaran 15,12 GiB setelah ketiganya.
+
+| Qwen3-4B-Instruct @32.768 token | §9.3 | Terukur |
+|---|---|---|
+| Bobot | 7,45 | **7,64** |
+| CUDA graphs | — | **0,34** |
+| Overhead runtime | — | **2,23** |
+| KV cache terhitung (§9.1) | 4,50 | 4,50 |
+| **Total** | **11,95** | **14,71** |
+
+- Fraksi minimum sebenarnya **0,924**, sehingga 0,92 kurang 0,07 GiB — cocok dengan defisit 0,05 GiB yang dilaporkan vLLM, dalam batas pembulatan. Prediksi 4,93 GiB KV cache pada 0,95 meleset 0,02 GiB dari 4,91 GiB terukur.
+- Overhead 4B (2,23 GiB) lebih besar daripada Coder-3B di kartu yang sama (1,95 GiB, D53), sesuai dugaan karena aktivasinya lebih besar.
+- Log memuat **dua** baris `Graph capturing finished`: 0,34 GiB sebelum KV cache dialokasikan dan 0,16 GiB sesudahnya. Hanya yang pertama yang bisa dipastikan masuk anggaran; apakah 0,16 GiB kedua diambil dari cadangan anggaran atau dari sisa kartu tidak bisa ditentukan dari log saja. Marginnya 0,80 GiB, jadi tidak berpengaruh pada keputusan ini.
+- **Dampak pada D44:** dikonfirmasi dengan pengukuran, bukan rumus. Qwen3-4B butuh 14,71 GiB, jadi kartu 12 GiB tidak mungkin dan kartu 16 GiB terpakai 92,4%. §9.3 meleset 23% untuk model ini.

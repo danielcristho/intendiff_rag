@@ -33,6 +33,15 @@ def load_jsonl(path):
     return [json.loads(line) for line in text.read_text().splitlines() if line.strip()]
 
 
+def latest_runs(rows):
+    """One row per run_key, the last written. A retried run appends rather than
+    replacing, so without this the abandoned attempt is counted too."""
+    newest = {}
+    for row in rows:
+        newest[row.get("run_key") or id(row)] = row
+    return list(newest.values())
+
+
 def verdict_of(row, invalid_as="benign"):
     """Invalid output counts as benign by default, malicious under --sensitivity."""
     if not row.get("json_valid") or row.get("verdict") not in ("malicious", "benign"):
@@ -271,7 +280,7 @@ def main(argv=None):
                         help="D18 sensitivity analysis: count invalid output as malicious")
     args = parser.parse_args(argv)
 
-    results, pairs = load_jsonl(args.results), load_jsonl(args.pairs)
+    results, pairs = latest_runs(load_jsonl(args.results)), load_jsonl(args.pairs)
     if not results:
         sys.exit(f"no results in {args.results}")
 
@@ -356,6 +365,21 @@ def selfcheck():
     # Same seed, same interval: D43 requires the analysis to reproduce exactly.
     again, _ = recall_delta_bootstrap(better, worse, mal, resamples=200)
     assert again == delta
+
+    # A retried run appends; only the last attempt counts.
+    attempts = [
+        {"run_key": "k1", "pair_id": "h1", "config": "E0", "model": "m",
+         "verdict": None, "json_valid": False, "error": "reset"},
+        {"run_key": "k1", "pair_id": "h1", "config": "E0", "model": "m",
+         "verdict": "benign", "json_valid": True},
+        {"run_key": "k2", "pair_id": "h2", "config": "E0", "model": "m",
+         "verdict": "benign", "json_valid": True},
+    ]
+    kept = latest_runs(attempts)
+    assert len(kept) == 2, len(kept)
+    assert json_validity(kept) == 1.0, "the abandoned attempt must not count"
+    assert all(r["json_valid"] for r in kept)
+    assert latest_runs(kept) == kept, "must be idempotent"
 
     # All four outcomes.
     assert label_hypothesis(True, 0.01, -1.0, -3.0) == "Didukung"
