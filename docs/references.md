@@ -10,8 +10,9 @@ resmi. Yang belum dicek ada di bagian terakhir; periksa dulu sebelum dikutip.
 Detection of Malicious Package Updates in npm. RAID 2025.**
 PDF: https://ldklab.github.io/assets/papers/raid25-llmdetection.pdf
 
-**Data dan kode:** paper menyatakan semua kode dan data dirilis di OSF
-(`osf.io/92w4e`, tautan view-only di §VIII). Isinya belum dibuka.
+**Data dan kode:** dirilis di OSF (`osf.io/92w4e`). **Publik, tanpa login** —
+satu zip 220.605.173 byte, sha256 `8aea1255236fb4753f903a9af165c27f7c2c5723ddcb5610a0cfbdaa82f2150a`.
+Daftar isinya sudah dibuka; isi yang mengoreksi paper ada di D56 dan D57.
 
 Fakta yang boleh dikutip:
 
@@ -19,7 +20,7 @@ Fakta yang boleh dikutip:
 
 - 2.000 typical updates: 1.000 paket yang paling banyak dijadikan dependency + 1.000 paket acak, dari snapshot npm 15 April 2024.
 - 46 known malicious updates dari Backstabber's Knife Collection (termasuk coa, rc, ua-parser-js).
-- 163 malicious clones dari StacklokLabs.
+- 163 malicious clones dari StacklokLabs. **Hati-hati:** `malicious_clones.txt` di paket replikasi memuat 171 baris (D57).
 - Pada 46 insiden asli, 33 adalah form grabbing (19 di antaranya obfuscated).
 
 **Metode**
@@ -104,7 +105,7 @@ URL insiden:
 
 | Referensi | Fakta yang dipakai | Bagian di methodology.md |
 |---|---|---|
-| Wyss et al. 2025 — detail metode | Smart-diff: UglifyJS lalu Webcrack untuk `*.js`, `*.ts`, `*.ejs`, `*.mjs`, `*.cjs`; Dolos (k-gram 70, window 17) untuk file di kedua versi; `diff` seluruh direktori. Rata-rata smart-diff 25.246 token; 1,47% melebihi 128 ribu token. Prompt role-play "You are a program analyst…". Output diklasifikasi dengan SimCSE + classifier yang dilatih dari 600 output berlabel manual per model. Metrik sensitivity dan specificity. Threat model: penyerang menguasai paket yang awalnya benign dan bisa mengubah isi apa pun. Paket replikasi di OSF berupa satu zip 210.605.173 byte (isi belum dibuka) | §3, §4.2, §4.4, §4.5, §6, §11 |
+| Wyss et al. 2025 — detail metode | Smart-diff: UglifyJS lalu Webcrack untuk nama berakhiran `js` — `.ts` tidak ikut (D57); Dolos (k-gram 70, window 17) untuk file di kedua versi; `diff` seluruh direktori. Rata-rata smart-diff 25.246 token; 1,47% melebihi 128 ribu token. Prompt role-play "You are a program analyst…". Output diklasifikasi dengan SimCSE + classifier yang dilatih dari 600 output berlabel manual per model. Metrik sensitivity dan specificity. Threat model: penyerang menguasai paket yang awalnya benign dan bisa mengubah isi apa pun. Paket replikasi di OSF berupa satu zip 220.605.173 byte | §3, §4.2, §4.4, §4.5, §6, §11 |
 | Guo et al. 2026, arXiv 2603.27549 v2 | 11 kategori perilaku: Command Execution, Data Exfiltration, Data Collection, C2 Communication, Malicious Download, Persistence, Credential Theft, Dynamic Code Execution, File Manipulation, Reverse Shell, Web Injection. 8 teknik evasion: String Obfuscation, Encoding Obfuscation, Code Structure Obfuscation, Silent Error Handling, Hook Abuse, Environment Detection, Anti-Analysis, Trace Cleanup. Data collection dan exfiltration muncul bersama di 4.144 paket | §4.3, §5.1 |
 | Zhao, Wallace, Feng, Klein, Singh (2021). *Calibrate Before Use*. ICML | Majority-label bias dan recency bias; urutan contoh bisa mengubah akurasi dari mendekati acak sampai mendekati state of the art | §5.2 |
 | Liu, Shen, Zhang, Dolan, Carin, Chen (2022). *What Makes Good In-Context Examples for GPT-3?* DeeLIO | Contoh nearest-neighbor mengungguli contoh yang dipilih acak | §5.2 |
@@ -157,7 +158,7 @@ URL insiden:
 - **Metode statistik standar** yang dikutip tanpa dicek ulang: McNemar (1947), Holm (1979), Wilson (1927), Cohen (1960), Efron & Tibshirani (1993). Detail bibliografinya perlu dicek sebelum dimasukkan ke `cas-refs.bib`.
 - **Nama fungsi `statsmodels`** di methodology §11.2, terhadap versi yang dikunci.
 - **Venue final Vul-RAG.**
-- **Isi zip replikasi Wyss:** apakah memuat kode generator smart-diff dan tarball.
+- **Selisih 171 versus 163 malicious clone** di `malicious_clones.txt` (D57).
 - **Tanggal commit pertama** repositori kedua model Qwen di Hugging Face, yang dipakai sebagai batas EA3.
 - **Artikel StepSecurity tentang node-ipc**, yang baru dilihat lewat ringkasan pencarian.
 - Ejaan nama penulis MalPacDetector "Deqing Zou" (sumber ADS menulis "Deiqing"): cek di DBLP.

@@ -299,3 +299,35 @@ Konteks: GPU yang tersedia dicek terhadap kebutuhan memori di
 - Overhead 4B (2,23 GiB) lebih besar daripada Coder-3B di kartu yang sama (1,95 GiB, D53), sesuai dugaan karena aktivasinya lebih besar.
 - Log memuat **dua** baris `Graph capturing finished`: 0,34 GiB sebelum KV cache dialokasikan dan 0,16 GiB sesudahnya. Hanya yang pertama yang bisa dipastikan masuk anggaran; apakah 0,16 GiB kedua diambil dari cadangan anggaran atau dari sisa kartu tidak bisa ditentukan dari log saja. Marginnya 0,80 GiB, jadi tidak berpengaruh pada keputusan ini.
 - **Dampak pada D44:** dikonfirmasi dengan pengukuran, bukan rumus. Qwen3-4B butuh 14,71 GiB, jadi kartu 12 GiB tidak mungkin dan kartu 16 GiB terpakai 92,4%. §9.3 meleset 23% untuk model ini.
+
+## 2026-09-19 — Paket replikasi Wyss dibuka
+
+**D56. Smart-diff mengikuti `code/smart_diff_generator.py` dari paket replikasi, bukan tafsir atas teks paper** (§4.2).
+
+- Paket replikasi Wyss ternyata **publik di OSF** tanpa login (`osf.io/92w4e`, satu zip **220.605.173 byte**, sha256 `8aea1255…`). Catatan lama "tautan view-only, isinya belum dibuka" keliru. Daftar isi dibaca dari central directory zip lewat range request, tanpa mengunduh keseluruhan.
+- Generatornya ada, sehingga syarat di akhir §4.2 ("kalau paket replikasi memuat kode generator, kode itu dipakai") berlaku. Tiga hal berubah:
+
+| | Sebelum | Generator |
+|---|---|---|
+| Flag diff | `diff -ruN` (3 baris konteks) | **`diff -N -U 0 -r`** (nol konteks) |
+| Exclude | tidak ada | **`*.wasm *.md *.map .npmignore LICENSE* license* *.tsbuildinfo package-lock.json yarn.lock`** |
+| Cakupan minify | `*.js *.ts *.ejs *.mjs *.cjs` | `file.endswith('js')` — `.ts` **tidak** ikut |
+
+- Alasan [R] **nol konteks:** rata-rata 25.246 token yang dipakai §4.5 sebagai dasar anggaran diukur dengan `-U 0`. Dengan 3 baris konteks, smart-diff kita lebih besar dari asumsi itu dan proporsi pair yang terpotong ikut naik — anggaran dibandingkan dengan angka yang dihasilkan aturan berbeda.
+- Alasan [L] **`*.md` dibuang:** README tidak pernah masuk smart-diff Wyss. Dengan `-ruN` tanpa exclude, isi README ikut ke dalam diff, sehingga E4-noint dan E0-noint tetap menerima intent yang justru sedang di-ablasi. Ablation §4.4 tidak mengukur yang dimaksud, dan RQ3 kehilangan artinya.
+- Alasan [L] **echo opsi dibuang dari header:** `diff` mencetak opsinya sendiri di setiap baris `diff …`. Generator upstream tidak terkena karena membuang file lewat salinan pohon, bukan `-x`, sehingga headernya pendek. Sembilan pola `-x` menambah ±120 karakter per file ke anggaran §4.5 tanpa isi. Implementasi memakai `-x` lalu menghapus echo-nya, agar hasilnya identik tanpa menyalin pohon.
+- Diverifikasi: README, `LICENSE`, dan `yarn.lock` tidak muncul di diff; header kembali `diff -N -U 0 -r a/x b/x`; `patch(1)` masih menerima format nol konteks, jadi invarian D50 bertahan.
+- **Belum bisa direproduksi:** langkah Dolos memanggil `node index.mjs`, dan `index.mjs` tidak ikut dirilis. `normalize()` tetap pass-through, sekarang dengan perintah persisnya tercatat di TODO.
+- **Dampak:** smart-diff berubah, jadi seluruh run sebelumnya batal. Yang terdampak baru 56 run smoke test di fixture; setelah Stage 1 jalan, perubahan yang sama berarti 3.500 run diulang.
+
+**D57. Angka yang dikoreksi setelah paket replikasi dibuka.**
+
+| | Sebelum | Sebenarnya |
+|---|---|---|
+| Ukuran zip replikasi | 210.605.173 byte | **220.605.173** |
+| Cakupan minify | termasuk `*.ts` | `.ts` tidak ikut |
+| `malicious_clones.txt` | 163 clone (dari paper) | **171 baris** |
+
+- `typical_updates_popular.txt` dan `typical_updates_random.txt` masing-masing **1.000 baris**, dan `malicious_updates.txt` **46 baris** — cocok dengan paper. Format tiap baris `path_sebelum,path_sesudah`, dan keduanya menjadi kerangka sampel TYP (§3.2) sekaligus jalur A (§3.3).
+- Selisih 171 versus 163 clone **belum ditelusuri**; jangan kutip angka mana pun sebelum jelas.
+- `code/openai.key` berukuran 0 byte — placeholder, bukan kredensial yang bocor.

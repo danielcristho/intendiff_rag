@@ -19,11 +19,20 @@ HUNK_HEADER = re.compile(r"^@@ ", re.MULTILINE)
 BINARY_LINE = re.compile(r"^Binary files (.+) and (.+) differ$")
 TIMESTAMPED = re.compile(r"^(---|\+\+\+) (\S+)\t.*$", re.MULTILINE)
 
+# Files the upstream generator drops before diffing, copied from its
+# shutil.ignore_patterns call.
+EXCLUDED = ("*.wasm", "*.md", "*.map", ".npmignore", "LICENSE*", "license*",
+            "*.tsbuildinfo", "package-lock.json", "yarn.lock")
+ECHOED_EXCLUDES = re.compile(r"^(diff .*?)(?:-x (?:'[^']*'|\S+) )+", re.MULTILINE)
+
 
 # normalize is the §4.2 step 1-2 seam: minify, un-minify, then drop repeated code.
 def normalize(version_dir):
-    # TODO: pass-through until the upstream minify/un-minify/de-duplicate
-    # generator is available; reimplementing it here risks diverging from it.
+    # TODO: still a pass-through. The upstream generator runs `uglifyjs FILE -c -m`
+    # then `webcrack` on every name ending in "js" (so .mjs/.cjs/.ejs, but not .ts),
+    # and de-duplicates via `node index.mjs FILE OTHER` producing FILE.stripped.
+    # Neither tool is installed here, and index.mjs ships with no source, so the
+    # de-duplication cannot be reproduced at all.
     return version_dir
 
 
@@ -40,12 +49,14 @@ def truncate_long_lines(text, limit=MAX_LINE_CHARS):
     return "\n".join(out)
 
 
-# raw_diff compares two version directories with `diff -ruN` (§4.2 steps 3-5).
+# raw_diff compares two version directories with `diff -N -U 0 -r` (§4.2 steps 3-5).
 def raw_diff(before, after):
-    # -u for the format git made universal, -r to walk the trees, and -N so a
-    # newly added file shows in full: new files are a common payload location.
+    # Flags and exclusions come from the upstream generator, not from taste: it
+    # runs zero context, and the 25,246-token average the §4.5 budget rests on
+    # was measured with that. Three lines of context would silently inflate it.
+    excludes = [arg for pattern in EXCLUDED for arg in ("-x", pattern)]
     result = subprocess.run(
-        ["diff", "-ruN", str(before), str(after)],
+        ["diff", "-N", "-U", "0", "-r", *excludes, str(before), str(after)],
         capture_output=True,
         text=True,
         errors="replace",
@@ -54,7 +65,10 @@ def raw_diff(before, after):
     # above mean the tool itself failed.
     if result.returncode >= 2:
         raise RuntimeError(f"diff failed: {result.stderr.strip()}")
-    return result.stdout
+    # diff echoes its own options on every file header. Upstream excludes by
+    # copying the tree instead, so its headers stay short; left in, nine -x
+    # patterns cost ~120 characters per file out of the §4.5 budget.
+    return ECHOED_EXCLUDES.sub(r"\1", result.stdout)
 
 
 # relabel_paths rewrites the extraction directories to fixed a/ and b/ prefixes.
@@ -230,9 +244,22 @@ def selfcheck():
     (after / "src" / "setup.js").write_text("require('https');\nprocess.env;\n")
     (after / "logo.png").write_bytes(b"\x89PNG\r\n\x1a\n\x00\xff")
     (before / "logo.png").write_bytes(b"\x89PNG\r\n\x1a\n\x00\x01")
+    for root, marker in ((before, "old prose"), (after, "new prose")):
+        (root / "README.md").write_text(marker + "\n")
+        (root / "LICENSE").write_text(marker + "\n")
+        (root / "yarn.lock").write_text(marker + "\n")
 
     diff_text = relabel_paths(raw_diff(before, after), before, after)
     assert "setup.js" in diff_text and "require('https')" in diff_text
+
+    # The README must not reach the diff, or E*-noint still sees the intent it
+    # is supposed to ablate and RQ3 measures nothing.
+    assert "README" not in diff_text and "new prose" not in diff_text, diff_text
+    assert "LICENSE" not in diff_text and "yarn.lock" not in diff_text, diff_text
+
+    # Zero context: a changed line brings no neighbours with it.
+    assert "module.exports = 2;" in diff_text
+    assert "-module.exports = 1;" in diff_text
     assert "Binary files" in diff_text, "a binary file keeps diff's own line (§4.2 step 5)"
 
     # D26: the extraction path carries the package name in real use, so no part
@@ -273,11 +300,11 @@ def selfcheck():
     assert truncated and "files omitted" in text, text
 
     # --- a file too large for the remaining budget is cut at a hunk boundary
-    many = "diff -ruN a/big.js b/big.js\n--- a/big.js\n+++ b/big.js\n" + "".join(
+    many = "diff -N -U 0 -r a/big.js b/big.js\n--- a/big.js\n+++ b/big.js\n" + "".join(
         f"@@ -{i},1 +{i},1 @@\n-old line {i}\n+new line {i}\n" for i in range(20)
     )
     header, hunks = split_hunks(many)
-    assert len(hunks) == 20 and header.startswith("diff -ruN")
+    assert len(hunks) == 20 and header.startswith("diff -N -U 0 -r")
     partial, truncated = fit_budget([{"path": "big.js", "text": many}], words,
                                     budget=words(header) + words(hunks[0]) * 3)
     assert truncated, "a partial file still counts as truncated"
