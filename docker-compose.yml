@@ -28,11 +28,7 @@ services:
 
   vllm:
     profiles: ["model"]
-    # No restart policy on purpose: a reboot must not silently seize the GPU
-    # from whatever else runs on this host.
     image: ${VLLM_IMAGE:-vllm/vllm-openai:latest}
-    # Never 8000: the GPU host already runs production-service there, plus 8080,
-    # 8081, 5433, 9400 and 18888. Check `docker ps` before changing this.
     ports:
       - "${BIND_ADDR:-0.0.0.0}:${VLLM_PORT:-8101}:8000"
     volumes:
@@ -48,16 +44,8 @@ services:
       - "32768"
       - --seed
       - "0"
-      # Ignore the model's generation_config.json. Qwen ships one that sets
-      # repetition_penalty 1.05, temperature 0.7, top_k 20 and top_p 0.8; the
-      # runner overrides the three it sends, but repetition_penalty would apply
-      # silently to every run and is not part of §9.2 (D48).
       - --generation-config
       - vllm
-      # vLLM pre-allocates this fraction of TOTAL GPU memory at startup, not
-      # of the free memory. Left at the 0.9 default it will take the card out
-      # from under any other GPU container. Size it against what is actually
-      # free (`nvidia-smi`) before starting.
       - --gpu-memory-utilization
       - "${VLLM_GPU_UTIL:-0.45}"
     ipc: host

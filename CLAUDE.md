@@ -20,25 +20,35 @@ Everything inside a source file is **English** — comments, test names,
 identifiers — even though the research documents in `docs/` and `.agent/` are in
 Indonesian. Code outlives the language its authors discussed it in.
 
-**Doc comments.** Every exported function, struct, type, and React component
-carries **exactly one line** that starts with its own name:
+**Comments follow the nine rules from Stack Overflow's "Best practices for
+writing code comments"** (2021-12-23). The ones that bite hardest here:
 
-```rust
-// valid_annotator reports whether a name is safe to use as part of a filename.
-pub fn valid_annotator(name: &str) -> bool {
-```
+1. **Never duplicate the code.** A comment that restates the signature is noise
+   — delete it. `# sha256_text returns a hex digest` above `def sha256_text`
+   tells the reader nothing they cannot already see.
+2. **A comment never excuses unclear code.** Rename the thing instead.
+3. **If the comment is hard to write, the code is probably wrong.**
+4. **Dispel confusion, do not add it.**
+5. **Explain unidiomatic code.** This is where comments earn their keep — a
+   trade-off, a constraint, a trap someone would otherwise reintroduce.
+6. **Link the source of copied code.**
+7. **Link an external reference only when the code cannot be read without it** —
+   a file-format spec, a copied algorithm. Never narrate the research: no RQ
+   numbers, no hypotheses, no "why the study needs this". A reader of
+   `pipeline/` is reading code, and the design lives in `docs/`.
+8. **Comment when fixing a bug**, saying what broke.
+9. **Mark incomplete work.** `TODO` for a gap; `// ponytail:` for a deliberate
+   shortcut, naming its ceiling and upgrade path; `// SAFETY:` on every
+   `unsafe` block.
 
-Name first, always — `// keep filters ...`, never `// Filters ...`. Describe
-behaviour, not implementation. Third person, present tense. Private helpers
-follow the same rule.
+**Keep them short** — one or two lines. A paragraph in a source file is a sign
+the explanation belongs in `docs/`. Module docstrings say how to run the file
+and nothing more.
 
-**Rationale.** The doc comment says *what*, in one line. The *why* goes inside
-the body, next to the code it explains — never stacked onto the doc comment.
-Keep it for real decisions: a trade-off, a constraint, a trap someone would
-otherwise reintroduce. Cite the source when it comes from the design: `(D25)`,
-`(methodology §8)`. Two markers are load-bearing and must survive edits:
-`// SAFETY:` on every `unsafe` block, and `// ponytail:` on deliberate
-shortcuts, naming the ceiling and the upgrade path.
+When a comment does earn its place on a declaration, start it with the
+declaration's own name (`// keep filters ...`, never `// Filters ...`) so the
+line reads on its own. That is a format for the comments worth writing, not a
+reason to write one everywhere.
 
 **Clean code.** One reason to change per file; extract past roughly 150 lines
 or a second audience. Name things for what they are — no `data`, `info`,

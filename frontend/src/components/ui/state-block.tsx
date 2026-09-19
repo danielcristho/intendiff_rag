@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
 
-// StateBlock is the dashed placeholder shown while loading, empty, or failed.
 export function StateBlock({
   tone = "muted",
   children,

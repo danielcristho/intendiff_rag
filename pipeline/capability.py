@@ -1,18 +1,8 @@
-"""Capability extractor, methodology.md §4.3.
+"""Capability extractor.
 
-    python pipeline/capability.py --before DIR --after DIR
+    python pipeline/capability.py --before DIR --after DIR [--explain]
     python pipeline/capability.py --single DIR
     python pipeline/capability.py --selfcheck
-
-Emits the capability delta that keys retrieval (§5.2). The delta is never shown
-to the model (D25); it only selects which knowledge-base cards a configuration
-sees.
-
-Runs on RAW files, before the minify/unminify of §4.2 (D29): those transforms
-rename identifiers and can erase the obfuscation patterns this looks for.
-
-Detection is text pattern matching, not parsing. That is what §4.3 specifies,
-and it keeps the extractor readable enough to audit against the table there.
 """
 import argparse
 import json
@@ -74,7 +64,7 @@ NON_REGISTRY_PREFIX = ("git+", "git:", "http:", "https:", "file:", "github:")
 USER_REPO = re.compile(r"^[A-Za-z0-9._-]+/[A-Za-z0-9._-]+(?:#.+)?$")
 
 
-# read_text returns a file's contents, or None when it is not UTF-8 text.
+# None means the file is not UTF-8 text, which callers treat as binary.
 def read_text(path):
     try:
         return path.read_text(encoding="utf-8")
@@ -94,7 +84,6 @@ def text_files(root):
     return found
 
 
-# source_files yields each scanned file as a (relative path, contents) pair.
 def source_files(root):
     root = Path(root)
     for path in sorted(root.rglob("*")):
@@ -107,7 +96,6 @@ def source_files(root):
             yield str(path.relative_to(root)), text
 
 
-# imported_modules yields each required or imported module with its match.
 def imported_modules(text):
     for match in MODULE_REF.finditer(text):
         name = next(group for group in match.groups() if group is not None)
@@ -152,7 +140,7 @@ def scan_text(text):
         yield "obfuscation", match.group(0)[:60] + "…", match.start()
 
 
-# line_number returns the 1-based line an offset falls on.
+# 1-based, to match what an editor shows.
 def line_number(text, offset):
     return text.count("\n", 0, offset) + 1
 
@@ -169,7 +157,6 @@ def package_json(root):
     return parsed if isinstance(parsed, dict) else {}
 
 
-# install_commands returns the lifecycle hooks a manifest defines.
 def install_commands(root):
     scripts = package_json(root).get("scripts")
     if not isinstance(scripts, dict):
@@ -177,7 +164,7 @@ def install_commands(root):
     return {hook: scripts[hook] for hook in INSTALL_HOOKS if hook in scripts}
 
 
-# declared_dependencies flattens every dependency field into one name-to-spec map.
+# Flattens dependencies, optionalDependencies and peerDependencies together.
 def declared_dependencies(root):
     manifest = package_json(root)
     merged = {}
@@ -196,7 +183,6 @@ def is_non_registry(spec):
     return spec.startswith(NON_REGISTRY_PREFIX) or bool(USER_REPO.match(spec))
 
 
-# scan_version returns the capabilities detected in one version of a package.
 def scan_version(root):
     found = {signal for _, text in source_files(root) for signal, _, _ in scan_text(text)}
     if install_commands(root):
@@ -204,7 +190,6 @@ def scan_version(root):
     return found
 
 
-# explain_version maps each detected capability to where it fires.
 def explain_version(root):
     # At most MAX_EVIDENCE per signal: enough for an annotator to judge the
     # documented purpose behind it (§3.3) without bloating pairs.jsonl.
@@ -296,7 +281,6 @@ def delta_evidence(before, after):
     return evidence
 
 
-# main prints the delta for a version pair, or one version's capabilities.
 def main(argv=None):
     parser = argparse.ArgumentParser()
     parser.add_argument("--before")
@@ -318,7 +302,6 @@ def main(argv=None):
     print(json.dumps(result, indent=2 if args.explain else None))
 
 
-# build_fixture writes a package tree and returns its root, for the self-check.
 def build_fixture(root, files):
     root = Path(root)
     for name, content in files.items():
@@ -331,7 +314,6 @@ def build_fixture(root, files):
     return root
 
 
-# selfcheck asserts the detection rules of §4.3 against small fixtures.
 def selfcheck():
     import tempfile
 

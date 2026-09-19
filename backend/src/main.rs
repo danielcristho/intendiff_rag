@@ -18,7 +18,7 @@ use std::{
 };
 use store::{valid_annotator, Store};
 
-// App holds everything the request handlers share.
+// Shared by every request handler.
 struct App {
     store: Store,
     write_lock: Mutex<()>,
@@ -27,12 +27,10 @@ struct App {
 type Shared = Arc<App>;
 type Failure = (StatusCode, Json<Value>);
 
-// bad builds a 400 response carrying a JSON error message for a client error.
 fn bad(message: &str) -> Failure {
     (StatusCode::BAD_REQUEST, Json(json!({ "error": message })))
 }
 
-// internal builds a 500 response from any displayable error.
 fn internal(err: impl std::fmt::Display) -> Failure {
     (
         StatusCode::INTERNAL_SERVER_ERROR,
@@ -45,30 +43,28 @@ fn checked_annotator(raw: &str) -> Result<&str, Failure> {
     if valid_annotator(raw) {
         Ok(raw)
     } else {
-        Err(bad("invalid annotator: letters, digits, _ or -, at most 32 characters"))
+        Err(bad(
+            "invalid annotator: letters, digits, _ or -, at most 32 characters",
+        ))
     }
 }
 
-// AnnotatorParam is the query string of the read-only annotator endpoints.
 #[derive(Deserialize)]
 struct AnnotatorParam {
     annotator: String,
 }
 
-// DecisionParam identifies one annotator's decision on one pair.
 #[derive(Deserialize)]
 struct DecisionParam {
     id: String,
     annotator: String,
 }
 
-// get_pairs returns every update pair together with the file it was read from.
 async fn get_pairs(State(app): State<Shared>) -> Result<Json<Value>, Failure> {
     let (source, pairs) = app.store.pairs().map_err(internal)?;
     Ok(Json(json!({ "source": source, "pairs": pairs })))
 }
 
-// get_decisions returns one annotator's decisions, keyed by pair id.
 async fn get_decisions(
     State(app): State<Shared>,
     Query(params): Query<AnnotatorParam>,
@@ -78,13 +74,11 @@ async fn get_decisions(
     Ok(Json(Value::Object(decisions)))
 }
 
-// PairParam identifies which pair's model runs to return.
 #[derive(Deserialize)]
 struct PairParam {
     pair_id: String,
 }
 
-// get_results returns every recorded model run for one pair.
 async fn get_results(
     State(app): State<Shared>,
     Query(params): Query<PairParam>,
@@ -93,7 +87,6 @@ async fn get_results(
     Ok(Json(Value::Array(rows)))
 }
 
-// get_annotators returns each annotator's decision count, never their labels.
 async fn get_annotators(State(app): State<Shared>) -> Result<Json<Value>, Failure> {
     let rows: Vec<Value> = app
         .store
@@ -105,7 +98,6 @@ async fn get_annotators(State(app): State<Shared>) -> Result<Json<Value>, Failur
     Ok(Json(Value::Array(rows)))
 }
 
-// put_decision merges a patch into one annotator's decision for one pair.
 async fn put_decision(
     State(app): State<Shared>,
     Query(params): Query<DecisionParam>,
@@ -126,13 +118,11 @@ async fn put_decision(
     Ok(Json(merged))
 }
 
-// Options is the server configuration taken from the command line.
 struct Options {
     data_dir: PathBuf,
     port: u16,
 }
 
-// parse_args reads --data-dir and --port, falling back to the local defaults.
 fn parse_args(args: &[String]) -> Options {
     let mut options = Options {
         data_dir: PathBuf::from("../data"),
@@ -150,7 +140,6 @@ fn parse_args(args: &[String]) -> Options {
     options
 }
 
-// routes wires every endpoint to the shared application state.
 fn routes(app: Shared) -> Router {
     Router::new()
         .route("/api/pairs", get(get_pairs))
@@ -177,7 +166,10 @@ async fn main() {
     let listener = tokio::net::TcpListener::bind(&addr)
         .await
         .expect("failed to bind");
-    tracing::info!("listening on {addr} · data dir {}", options.data_dir.display());
+    tracing::info!(
+        "listening on {addr} · data dir {}",
+        options.data_dir.display()
+    );
     axum::serve(listener, routes(app)).await.unwrap();
 }
 
@@ -197,7 +189,12 @@ mod tests {
         assert_eq!(options.port, 8000);
         assert_eq!(options.data_dir, PathBuf::from("../data"));
 
-        let given = parse_args(&["--port".into(), "9100".into(), "--data-dir".into(), "/tmp/d".into()]);
+        let given = parse_args(&[
+            "--port".into(),
+            "9100".into(),
+            "--data-dir".into(),
+            "/tmp/d".into(),
+        ]);
         assert_eq!(given.port, 9100);
         assert_eq!(given.data_dir, PathBuf::from("/tmp/d"));
     }

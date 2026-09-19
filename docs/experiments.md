@@ -79,8 +79,20 @@ Status per 2026-09-13. Prompt dan runner sudah mengikuti desain revisi; komponen
 **Komponen baru**
 
 - [x] Capability extractor (§4.3) — [pipeline/capability.py](../pipeline/capability.py). `--before/--after` untuk pair, `--single` untuk card malicious-intent, `--selfcheck` untuk aturan tabelnya. `--explain` melaporkan file, baris, dan potongan yang memicu tiap sinyal, untuk verifikasi kandidat HN (§3.3); simpan sebagai `delta_evidence` di `pairs.jsonl` supaya UI bisa menampilkannya. Definisi "file teks" pada `large_deletion` diambil sebagai "bisa didekode UTF-8", karena §4.3 tidak menyebutkannya.
-- [ ] Smart-diff dan pemotongan (§4.2, §4.5), dijalankan di container tanpa jaringan.
-- [ ] Intent profile builder (§4.4).
+- [~] Smart-diff dan pemotongan (§4.2, §4.5) — [pipeline/smartdiff.py](../pipeline/smartdiff.py).
+  Langkah 3–7 dan seluruh §4.5 selesai: `diff -ruN`, file biner, pemotongan baris 2.000
+  karakter, pembagian per file, prioritas (package.json → file bersinyal → sisanya),
+  dan pemotongan pada batas hunk. Penghitung token di-inject; `qwen_counter()` memakai
+  tokenizer §4.5 di mesin GPU, `--approx` untuk uji cepat.
+  **Langkah 1–2 (UglifyJS → Webcrack, lalu dedup Dolos) sengaja masih pass-through**
+  di fungsi `normalize()`: §4.2 menyatakan memakai generator Wyss kalau paket OSF
+  memuatnya, jadi menulis versi sendiri sekarang berisiko menyimpang dari kode yang
+  akan dipakai. Isi seam itu setelah OSF diunduh.
+- [x] Intent profile builder (§4.4) — [pipeline/intent.py](../pipeline/intent.py).
+  Diambil dari v_(t-1) (D14), anggaran 1.024 token dengan README menyerap sisa yang
+  tidak terpakai bagian lain, baris badge dan tag HTML dibuang, field kosong ditulis
+  `not available`, dan `intent_available` mengikuti aturan description/README §4.4.
+  Penghitung token di-inject seperti smartdiff. Lihat D51 soal pencocokan nama README.
 - [~] Pengumpulan kandidat jalur B (§3.3) — [pipeline/collect.py](../pipeline/collect.py).
   `search --category N` mencari registry dengan kata kunci tetap, `pairs --package X`
   membangun pasangan rilis menurut D27. Aturan v_(t-1) diuji terhadap data axios asli:
@@ -88,8 +100,20 @@ Status per 2026-09-13. Prompt dan runner sudah mengikuti desain revisi; komponen
   bukan sekadar kehati-hatian. Langkah unduh tarball + ekstraksi sengaja TIDAK ada di
   sini: §4.1 mewajibkannya di container tanpa jaringan.
 - [ ] Jalur A (§3.3): jalankan 1.900 typical update sisa Wyss lewat extractor. Menunggu unduhan OSF.
-- [ ] Pengelompokan kampanye (§3.6).
-- [ ] Skrip analisis (§11).
+- [~] Pengelompokan kampanye (§3.6) — [pipeline/campaign.py](../pipeline/campaign.py).
+  Kriteria (a) laporan sama dan (b) file tambahan identik selesai dan teruji, dengan
+  penutupan transitif dan pelaporan jumlah klaster pada ambang 0,5 dan 0,8. Label kampanye
+  memakai id terkecil sehingga tidak bergantung urutan baca.
+  **Kriteria (c) Dolos belum terverifikasi:** `@dodona/dolos` belum terpasang, jadi
+  `dolos_similarity()` beserta parser keluarannya ditulis dari spesifikasi dan belum pernah
+  dijalankan terhadap Dolos sungguhan. Fungsi similarity di-inject, jadi clustering tetap
+  teruji; pasang Dolos dan verifikasi parser sebelum dipakai untuk data.
+- [~] Skrip analisis (§11) — [pipeline/analysis.py](../pipeline/analysis.py).
+  Metrik, kebijakan D18, aturan cocok evidence, flip rate, p95 nearest-rank, sel diskordan
+  McNemar, bootstrap per kampanye (numpy, seed 2026), dan keempat label §5 selesai dan
+  teruji. Wilson, McNemar exact, Holm, dan Cohen's kappa jadi wrapper tipis ke
+  `statsmodels` sesuai D43 — belum terpasang di mesin mana pun, jadi jalur itu gagal
+  dengan pesan eksplisit dan belum pernah dijalankan. Plot belum dibuat.
 
 **Data dan UI**
 

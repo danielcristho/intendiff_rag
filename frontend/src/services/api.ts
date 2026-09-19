@@ -6,7 +6,6 @@ import type {
   PairsResponse,
 } from "@/types/api";
 
-// request issues a JSON call and turns any non-2xx response into an error.
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(path, {
     ...init,
