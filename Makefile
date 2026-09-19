@@ -1,4 +1,3 @@
-# 8000 is taken by production-service on the GPU host; stay clear of it.
 PORT ?= 8100
 DATA ?= ./data
 
@@ -24,3 +23,13 @@ test:
 	python3 pipeline/capability.py --selfcheck
 	python3 pipeline/prompts.py
 	python3 pipeline/collect.py --selfcheck
+	python3 pipeline/smartdiff.py --selfcheck
+	python3 pipeline/intent.py --selfcheck
+	python3 pipeline/campaign.py --selfcheck
+	python3 pipeline/analysis.py --selfcheck
+
+docker-up:
+	docker compose up -d --build
+
+docker-down:
+	docker compose down

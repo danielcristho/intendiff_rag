@@ -13,7 +13,6 @@ const GATE_G1: Record<Subset, { target: number; min: number }> = {
   TYP: { target: 100, min: 100 },
 };
 
-// Stat is a single headline number with an optional caption.
 function Stat({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
     <Card>

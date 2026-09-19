@@ -2,7 +2,7 @@
 
 use std::time::{SystemTime, UNIX_EPOCH};
 
-// now_rfc3339 returns the current UTC time as an ISO-8601 second-precision string.
+// now_rfc3339 returns the current UTC time.
 pub fn now_rfc3339() -> String {
     let secs = SystemTime::now()
         .duration_since(UNIX_EPOCH)

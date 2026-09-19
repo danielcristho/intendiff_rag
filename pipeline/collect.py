@@ -1,22 +1,8 @@
-"""Candidate collection for the hard-negative set, methodology.md §3.
+"""Candidate collection from the npm registry.
 
     python pipeline/collect.py search --category 2 --size 250
     python pipeline/collect.py pairs --package husky
     python pipeline/collect.py --selfcheck
-
-Covers path B of §3.3: search the npm registry by fixed keywords, then walk each
-package's recent releases to find the earliest pair carrying that category's
-signal. Path A needs the 1,900 unused Wyss typical updates and waits on the OSF
-download.
-
-Network and analysis are deliberately separate commands. §4.1 requires tarball
-extraction and the capability extractor to run in a container with
-`--network none`, so nothing here downloads a tarball: this produces the
-candidate list, and the container step consumes it.
-
-Selection order is the ascending SHA-256 of `name@version` throughout (§3). That
-ordering does not correlate with popularity or with how easy a case is, so the
-choice of candidates cannot be steered.
 """
 import argparse
 import hashlib
@@ -45,7 +31,7 @@ HN_CATEGORIES = {
 }
 
 
-# hash_key returns the ordering key for a package version (§3).
+# §3 orders every selection by this digest, never by popularity.
 def hash_key(name, version):
     return hashlib.sha256(f"{name}@{version}".encode()).hexdigest()
 
@@ -71,9 +57,8 @@ def parse_semver(version):
 
 # previous_version returns v_(t-1) for a target version, or None (D27).
 def previous_version(doc, target):
-    # "Highest semver below the target that was also published earlier", not
-    # "previous by publication time": parallel release lines can publish within
-    # moments of each other, as axios@1.14.1 and axios@0.30.4 did.
+    # Highest semver below the target that also predates it — not "previous by
+    # time", which pairs across parallel release lines.
     times = doc.get("time", {})
     target_time = times.get(target)
     target_key = parse_semver(target)
@@ -98,31 +83,26 @@ def recent_pairs(doc, limit=RECENT_RELEASES):
     return pairs
 
 
-# fetch_json issues a GET and parses the response.
 def fetch_json(url, timeout=30):
     request = urllib.request.Request(url, headers={"Accept": "application/json"})
     with urllib.request.urlopen(request, timeout=timeout) as response:
         return json.loads(response.read())
 
 
-# search_packages returns package names the registry matches for a keyword.
 def search_packages(keyword, size=250, timeout=30):
     query = urllib.parse.urlencode({"text": keyword, "size": min(size, 250)})
     found = fetch_json(f"{REGISTRY}/-/v1/search?{query}", timeout)
     return [entry["package"]["name"] for entry in found.get("objects", [])]
 
 
-# package_doc returns a package's full registry document.
 def package_doc(name, timeout=30):
     return fetch_json(f"{REGISTRY}/{urllib.parse.quote(name, safe='@')}", timeout)
 
 
-# tarball_url returns where one version's tarball lives.
 def tarball_url(doc, version):
     return doc.get("versions", {}).get(version, {}).get("dist", {}).get("tarball")
 
 
-# has_advisory reports whether OSV knows a vulnerability for that exact version.
 def has_advisory(name, version, timeout=30):
     payload = json.dumps({"package": {"name": name, "ecosystem": "npm"}, "version": version})
     request = urllib.request.Request(
@@ -132,7 +112,6 @@ def has_advisory(name, version, timeout=30):
         return bool(json.loads(response.read()).get("vulns"))
 
 
-# candidates_for returns one package's update pairs as unresolved candidates.
 def candidates_for(name, doc, category, limit=RECENT_RELEASES):
     return [
         {
@@ -150,7 +129,6 @@ def candidates_for(name, doc, category, limit=RECENT_RELEASES):
     ]
 
 
-# main writes candidate lists for the container step to download and scan.
 def main(argv=None):
     parser = argparse.ArgumentParser()
     sub = parser.add_subparsers(dest="command", required=True)
@@ -181,16 +159,14 @@ def main(argv=None):
             print(f"{args.package}  {before} -> {after}")
 
 
-# selfcheck asserts the ordering and version rules offline.
 def selfcheck():
     assert parse_semver("1.2.3") > parse_semver("1.2.2")
     assert parse_semver("1.10.0") > parse_semver("1.9.0"), "numeric, not lexicographic"
     assert parse_semver("1.0.0-beta.1") < parse_semver("1.0.0"), "a prerelease sorts below release"
     assert parse_semver("2") == parse_semver("2.0.0"), "missing parts default to zero"
 
-    # D27: axios published 1.14.1 and 0.30.4 minutes apart on parallel release
-    # lines. "Previous by time" would pair 1.14.1 with 0.30.4, comparing two
-    # unrelated lines; the semver rule must not.
+    # Parallel release lines publish minutes apart; a time rule would pair
+    # 1.14.1 with 0.30.4, which are unrelated.
     doc = {
         "versions": {"0.30.3": {}, "0.30.4": {}, "1.14.0": {}, "1.14.1": {}},
         "time": {
