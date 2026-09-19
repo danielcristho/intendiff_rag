@@ -15,7 +15,6 @@ sys.path.insert(0, str(Path(__file__).parent))
 from capability import SOURCE_SUFFIXES, read_text  # noqa: E402
 
 MERGE_THRESHOLD = 0.5
-# Reported alongside 0.5 to show how threshold-sensitive the clustering is.
 REPORTED_THRESHOLDS = (0.5, 0.8)
 DOLOS_KGRAM = 70
 DOLOS_WINDOW = 17
