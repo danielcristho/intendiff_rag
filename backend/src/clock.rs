@@ -16,7 +16,6 @@ pub fn now_rfc3339() -> String {
 
 // civil_from_days converts days since the Unix epoch to a calendar date.
 fn civil_from_days(z: i64) -> (i64, u32, u32) {
-    // Howard Hinnant's algorithm: correct across leap years and century rules,
     let z = z + 719_468;
     let era = z.div_euclid(146_097);
     let doe = z.rem_euclid(146_097);
@@ -37,7 +36,6 @@ mod tests {
     fn maps_epoch_and_leap_days_to_the_right_calendar_date() {
         assert_eq!(civil_from_days(0), (1970, 1, 1));
         assert_eq!(civil_from_days(59), (1970, 3, 1));
-        // 2024 is a leap year, so 29 February must exist.
         assert_eq!(civil_from_days(19_782), (2024, 2, 29));
         assert_eq!(civil_from_days(19_783), (2024, 3, 1));
     }
