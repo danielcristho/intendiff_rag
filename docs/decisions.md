@@ -395,3 +395,23 @@ Hasil `data/pairs.mal.jsonl`: **45 pair, 41 kampanye, 1 terpotong, 1 tanpa inten
 - **Pemisahan capability delta bekerja seperti yang diharapkan §4.3.** MAL menyala di 42 dari 45; TYP diam di 86 dari 100, dan yang menyala hampir semuanya `dependency_change` — perubahan rutin, bukan payload.
 - **Dampak pada retrieval:** untuk 86 pair TYP, skor Jaccard terhadap setiap card adalah 0, sehingga card yang terpilih ditentukan tie-break SHA-256 §5.2 langkah 3. Aturannya sudah ada dan deterministik, jadi tidak ada celah desain — tetapi artinya E2, E3, dan E4 pada sebagian besar TYP mengukur "apakah card yang tidak relevan merusak", bukan "apakah card yang relevan menolong". Itu justru yang relevan untuk FPR_TYP, dan harus disebut saat membaca hasilnya.
 - **TYP lebih panjang daripada MAL di ekor atas:** p95 103.405 char melawan 30.317. Update rutin bisa menyentuh seluruh pohon, sementara payload malicious biasanya kecil dan terpusat. Karena itu pemotongan §4.5 mengenai TYP tujuh kali lebih sering daripada MAL.
+
+## 2026-09-26 — Card malicious KB dan dev set
+
+**D61. 50 card malicious dipilih dari Datadog; teksnya ditulis anotator, bukan oleh model** (§3.4, §5.1).
+
+- Dataset Datadog diambil sebagai clone *blobless* (commit `a9749c04`), dan isi sampel ditarik hanya untuk kandidat yang diperiksa. Pool: **21.068** sampel npm `malicious_intent` yang manifest-nya `null`. Sampel diekstrak dengan `ZipFile.extractall` (tanpa symlink, tanpa `..`), dibatasi 50 MiB, dan hanya dibaca.
+- Round-robin atas 8 capability dalam urutan tabel §4.3, menurut urutan hash. Cukup **358 sampel** dipindai untuk mengisi 50 card: 7 card per capability untuk `network` dan `process_exec`, 6 untuk sisanya.
+- **44 kampanye**, 6 di antaranya berisi 2 card. 12 sampel dilewati karena kampanyenya sudah penuh, 2 karena tidak terbaca, dan **0** karena kampanyenya ada di MAL.
+- **Angka 0 itu belum bukti tidak ada kebocoran.** 45 pair MAL hanya menghasilkan **17** digest file tambahan, karena sebagian besar payload MAL disisipkan ke file yang sudah ada. Kriteria (b) §3.6 jadi lemah sebagai penjaga KB–test, dan kriteria (c) Dolos belum bisa dijalankan (D56). Sampai Dolos jalan, pengecualian per kampanye praktis hanya bersandar pada nama paket.
+- **Root paket:** sampel Datadog dibungkus `tmp/<acak>/<nama>/` bersama `package_info-*.json` milik Datadog. Root diambil dari `package.json` terdangkal di luar `node_modules`, jadi file metadata itu tidak ikut dipindai atau di-hash.
+- **Field `name` ditambahkan ke skema card.** `runner.eligible` sudah mengecualikan card lewat `name`, tetapi skema di experiments.md belum mencantumkannya.
+- **Teks card (`intent`, `behavior_chain`, `code_excerpt`, `rationale`) ditulis anotator A lalu dicek anotator B, sesuai §5.1.** Opsi agar Claude menyusun draf ditolak, karena draf itu termasuk output model. `data/kb.skeleton.jsonl` membawa `delta_evidence` dan `selected_for` sebagai penunjuk ke kode. Kedua field itu dibuang saat card dipromosikan ke `data/kb.jsonl`.
+
+**D62. Dev set: 4 clone Wyss dan 3 TYP yang belum terpakai; 3 HN menyusul** (§3.5).
+
+- **Clone** diambil menurut urutan hash dari `nama_asli@direktori_clone`. `malicious_clones.txt` tidak memberi versi di sisi clone (`j_samples/agent-base/agentbas-7.1.1`), jadi nama direktori clone yang dipakai sebagai identitas. Ke-171 clone berisi.
+- **TYP** diundi menurut urutan hash dari gabungan kedua daftar Wyss, setelah membuang 100 pair TYP test, dengan aturan advisory §3.2 (empat undian ditolak, sama dengan D60). Hasilnya: `ant-mini-flip-draw@1.0.2`, `react-d3-library@1.1.8`, `snappydown@0.0.2`.
+- **Ketiga TYP dev dicatat di `data/pairs.dev.taken.txt` dan harus dikecualikan dari jalur A** (§3.3). Tanpa itu, pair yang dipakai untuk memverifikasi mekanisme bisa muncul lagi sebagai item uji HN.
+- Isinya mencakup kasus yang perlu dilalui mekanisme pipeline: 3 dari 7 pair terpotong, 3 TYP dengan delta kosong, dan 2 clone dengan `large_deletion`.
+- **Replikasi di server:** `pairs.mal.jsonl` yang dibangun ulang dari zip OSF (sha256 cocok dengan D56) identik byte-per-byte dengan versi di git.

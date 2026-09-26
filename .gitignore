@@ -15,4 +15,5 @@ data/figures/
 data/wyss/
 data/typ/
 data/hn/
+data/datadog/
 data/*.log
