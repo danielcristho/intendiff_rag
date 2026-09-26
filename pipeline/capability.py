@@ -145,6 +145,23 @@ def line_number(text, offset):
     return text.count("\n", 0, offset) + 1
 
 
+# package_root resolves the directory an npm tarball unpacks its manifest into.
+def package_root(version_dir):
+    version_dir = Path(version_dir)
+    # 60 of the 92 replication samples keep the tarball's own "package/" wrapper
+    # and 31 do not. Read through it, or the manifest is invisible and both the
+    # intent profile and every manifest-derived signal come out empty.
+    inner = version_dir / "package"
+    if not (version_dir / "package.json").exists() and (inner / "package.json").exists():
+        return inner
+    return version_dir
+
+
+# has_content reports whether a version directory holds any file at all.
+def has_content(version_dir):
+    return any(path.is_file() for path in Path(version_dir).rglob("*"))
+
+
 # package_json returns a version's parsed manifest, empty when absent or invalid.
 def package_json(root):
     text = read_text(Path(root) / "package.json")

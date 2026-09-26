@@ -10,4 +10,9 @@ __pycache__/
 # Salinan lokal .env.example; APP_UID/HF_TOKEN spesifik per mesin.
 .env
 .venv/
-figures/
+data/figures/
+# Tarball yang diunduh ulang oleh collect.py; 2 GB, bukan sumber kebenaran.
+data/wyss/
+data/typ/
+data/hn/
+data/*.log

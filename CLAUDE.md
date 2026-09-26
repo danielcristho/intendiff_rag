@@ -162,6 +162,7 @@ runner defaults to `--base-url http://localhost:8101`, the vLLM port.
 - `docs/research.md` — problem, positioning, gaps, RQ1–RQ4, hypotheses, decision rule, threats to validity
 - `docs/methodology.md` — the final procedure: data, smart-diff, extractor, intent, KB and retrieval, verbatim prompts, inference, metrics, statistics
 - `docs/experiments.md` — execution: timeline and gates, run volume, file schemas, implementation checklist
+- `docs/figures.md` — how to read the figures and the workbook, and the misreadings to avoid
 - `docs/references.md` — reference status (checked against the originals), quotable facts, corrections to the P1 slides
 - `docs/decisions.md` — dated decision log; add an entry whenever the design changes
 - `labs/refrences/P1_Metodologi Penelitian.pdf` — the original proposal; its scope still holds, its RQs are superseded by `docs/research.md`

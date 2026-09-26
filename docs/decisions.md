@@ -331,3 +331,67 @@ Konteks: GPU yang tersedia dicek terhadap kebutuhan memori di
 - `typical_updates_popular.txt` dan `typical_updates_random.txt` masing-masing **1.000 baris**, dan `malicious_updates.txt` **46 baris** — cocok dengan paper. Format tiap baris `path_sebelum,path_sesudah`, dan keduanya menjadi kerangka sampel TYP (§3.2) sekaligus jalur A (§3.3).
 - Selisih 171 versus 163 clone **belum ditelusuri**; jangan kutip angka mana pun sebelum jelas.
 - `code/openai.key` berukuran 0 byte — placeholder, bukan kredensial yang bocor.
+
+**D58. Sampel TYP tidak ada di paket replikasi; kerangka sampelnya masih hidup di registry npm.**
+
+- Isi zip diperiksa per baris terhadap direktori yang benar-benar terekstrak:
+
+| Daftar | Baris | Ada isinya |
+|---|---|---|
+| `malicious_updates.txt` (MAL) | 46 | **46 direktori, 45 berisi** (D59) |
+| `malicious_clones.txt` | 171 | **171** |
+| `typical_updates_popular.txt` | 1.000 | **0** |
+| `typical_updates_random.txt` | 1.000 | **0** |
+
+- `code/automated_b_samples/` dan `code/r_samples/` adalah **direktori kosong** (0 byte) di dalam zip. Yang dirilis hanya daftar `paket@versi`, bukan tarball-nya. MAL dan clone lengkap, sehingga §3.1 dan KB malicious bisa dibangun offline.
+- Ketersediaan 2.000 typical update dicek ke `registry.npmjs.org` pada 2026-09-19, kedua versi per pair:
+
+| | Lengkap | Paket 404 | Kedua versi hilang |
+|---|---|---|---|
+| Popular | **1.000** | 0 | 0 |
+| Random | **981** | 10 | 9 |
+
+- **1.981 dari 2.000 pair masih bisa dibangun.** Yang hilang seluruhnya dari kelompok acak, dan contohnya paket sangat kecil (`qietuzai-cli`), konsisten dengan unpublish biasa.
+- **Dampak:** §3.2 mengambil 100 TYP dan §3.3 jalur A memakai 1.900 sisanya, jadi kehilangan 19 (0,95%) tidak mengancam keduanya. Aturan pengganti di §3.2 sudah menangani pair yang gugur. Tarball ditarik lewat `collect.py`, bukan dari OSF.
+- `malicious_packages.zip` dan `malicious_updates.zip` punya CRC identik (`277aa32c`) — satu file diduplikasi, bukan dua korpus.
+
+**D59. MAL terpakai 45 pair, bukan 46, dan direktori versi harus dibaca menembus pembungkus `package/`** (§3.1).
+
+- **Pembungkus tarball.** 60 dari 92 direktori versi di paket replikasi masih memuat direktori `package/` bawaan tarball npm; 31 sisanya rata. Dibaca apa adanya, `package.json` jadi tak terlihat, sehingga profil intent kosong dan seluruh sinyal yang diturunkan dari manifest (`install_script`, `dependency_change`) tidak pernah menyala. Terdeteksi dari angka **31 dari 46 pair tanpa intent**; setelah pembungkusnya dibaca, tinggal **1**.
+- Tidak ada pair yang pembungkusnya berbeda antara v_(t−1) dan v_t, jadi smart-diff sebelumnya tidak rusak — hanya membawa prefix `package/` di setiap path.
+- **`stream-combine@2.0.2` dikeluarkan.** Direktori v_(t−1) (`stream-combine@2.0.1`) ada tetapi **kosong**. Men-diff-kan v_t terhadap direktori kosong menyajikan seluruh paket sebagai file baru, dan itu bukan update.
+- Verifikasi D58 sebelumnya hanya mengecek direktorinya ada, bukan berisi; angka "46/46" di sana dikoreksi.
+
+Hasil `data/pairs.mal.jsonl`: **45 pair, 41 kampanye, 1 terpotong, 1 tanpa intent, 42 punya capability delta tidak kosong.**
+
+| Sinyal | Pair |
+|---|---|
+| `network` | 30 |
+| `browser_data` | 28 |
+| `obfuscation` | 9 |
+| `install_script` | 8 |
+| `process_exec` | 5 |
+| `dependency_change` | 3 |
+
+- `browser_data` menyala di 28 dari 45 (62%), sejalan dengan klaim Wyss bahwa 33 dari 46 insiden asli adalah form grabbing.
+- Dua kampanye memuat lebih dari satu pair: `rc-calendar-jhorst@8.4.3` (4) dan `coa@2.0.3` (2). Sisanya tunggal, karena kriteria (a) advisory belum terisi dan (c) Dolos belum bisa dijalankan (D56).
+- **`sha256_before`/`sha256_after` memuat digest pohon, bukan digest tarball**, karena yang dirilis adalah direktori terekstrak. Dihitung dari daftar terurut `path\0sha256`, jadi tetap stabil di mana pun diekstrak.
+- **`gold_evidence` sengaja kosong.** Baris bukti gold berasal dari anotasi §8, tidak boleh diturunkan dari extractor — kalau tidak, metrik lokalisasi bukti hanya mengukur extractor terhadap dirinya sendiri.
+
+**D60. TYP terkumpul: 100 pair, diundi dari daftar Wyss dan ditarik dari registry npm** (§3.2).
+
+- 50 dari `typical_updates_popular.txt` dan 50 dari `typical_updates_random.txt`, diambil menurut urutan SHA-256 `name@version`, bukan popularitas.
+- **Lima undian ditolak karena punya advisory** dan diganti undian berikutnya, sesuai §3.2: `@babel/core@8.0.0-alpha.8`, `@babel/runtime@8.0.0-alpha.8`, `@angular/common@18.0.0-next.4`, `http-cache-semantics@4.1.1`, `jws@4.0.0`. Semuanya dari kelompok populer, yang memang wajar — paket populer lebih sering punya CVE tercatat.
+- Tarball diekstrak dengan `tarfile.extractall(..., filter="data")`, yang menolak path absolut, symlink, dan `..`. Paket tidak pernah di-`npm install` maupun dijalankan.
+
+| | MAL (45) | TYP (100) |
+|---|---|---|
+| Capability delta kosong | 3 (7%) | **86 (86%)** |
+| Terpotong (§4.5) | 1 (2%) | 15 (15%) |
+| Panjang diff, median | 6.941 char | 1.277 char |
+| Panjang diff, p95 | 30.317 char | **103.405 char** |
+| Sinyal terbanyak | `network` 30, `browser_data` 28 | `dependency_change` 13 |
+
+- **Pemisahan capability delta bekerja seperti yang diharapkan §4.3.** MAL menyala di 42 dari 45; TYP diam di 86 dari 100, dan yang menyala hampir semuanya `dependency_change` — perubahan rutin, bukan payload.
+- **Dampak pada retrieval:** untuk 86 pair TYP, skor Jaccard terhadap setiap card adalah 0, sehingga card yang terpilih ditentukan tie-break SHA-256 §5.2 langkah 3. Aturannya sudah ada dan deterministik, jadi tidak ada celah desain — tetapi artinya E2, E3, dan E4 pada sebagian besar TYP mengukur "apakah card yang tidak relevan merusak", bukan "apakah card yang relevan menolong". Itu justru yang relevan untuk FPR_TYP, dan harus disebut saat membaca hasilnya.
+- **TYP lebih panjang daripada MAL di ekor atas:** p95 103.405 char melawan 30.317. Update rutin bisa menyentuh seluruh pohon, sementara payload malicious biasanya kecil dan terpusat. Karena itu pemotongan §4.5 mengenai TYP tujuh kali lebih sering daripada MAL.
