@@ -16,6 +16,14 @@ services:
       interval: 10s
       timeout: 3s
       retries: 5
+    develop:
+      watch:
+        - action: rebuild
+          path: ./backend/src
+        - action: rebuild
+          path: ./backend/Cargo.toml
+        - action: rebuild
+          path: ./backend/Cargo.lock
 
   frontend:
     build:
@@ -27,6 +35,15 @@ services:
       - "${BIND_ADDR:-0.0.0.0}:${FRONTEND_PORT:-5174}:80"
     depends_on:
       - backend
+    develop:
+      watch:
+        - action: rebuild
+          path: ./frontend
+          ignore:
+            - node_modules/
+            - dist/
+        - action: rebuild
+          path: ./deployments/docker/nginx.conf
 
   vllm:
     profiles: ["model"]

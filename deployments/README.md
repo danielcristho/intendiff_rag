@@ -94,4 +94,9 @@ git pull
 docker compose up -d --build backend frontend
 ```
 
+While editing code, `make docker-watch` (`docker compose watch backend frontend`)
+rebuilds and replaces a container whenever its sources change, so no `down`/`up` is
+needed. Each rebuild is a full image build, so a backend change takes as long as a
+release compile of `backend/src`. Ctrl-C stops the watch; the containers keep running.
+
 The backend and frontend containers are stateless; all state lives in `./data`.

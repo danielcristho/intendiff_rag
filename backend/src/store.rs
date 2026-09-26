@@ -6,6 +6,10 @@ use std::{fs, io};
 
 const PREFIX: &str = "audit_decisions.";
 const SUFFIX: &str = ".json";
+// Written by pipeline/kb.py; never modified here.
+const SKELETON: &str = "kb.skeleton.jsonl";
+// Shared by every annotator: a card is written by one and checked by another.
+const CARDS: &str = "kb.cards.json";
 
 // Store resolves and reads the project's data directory.
 pub struct Store {
@@ -76,14 +80,7 @@ impl Store {
     }
 
     pub fn decisions(&self, annotator: &str) -> io::Result<Map<String, Value>> {
-        let path = self.decisions_path(annotator);
-        if !path.exists() {
-            return Ok(Map::new());
-        }
-        match serde_json::from_str(&fs::read_to_string(&path)?) {
-            Ok(Value::Object(map)) => Ok(map),
-            _ => Ok(Map::new()),
-        }
+        read_object(&self.decisions_path(annotator))
     }
 
     // annotators lists each annotator and how many decisions they have recorded.
@@ -130,14 +127,66 @@ impl Store {
         let merged = Value::Object(entry);
         all.insert(id.to_string(), merged.clone());
 
-        fs::create_dir_all(&self.data_dir)?;
-        // Write to a temp file and rename.
-        let target = self.decisions_path(annotator);
-        let tmp = target.with_extension("tmp");
-        fs::write(&tmp, serde_json::to_string_pretty(&Value::Object(all))?)?;
-        fs::rename(&tmp, &target)?;
+        write_atomic(&self.decisions_path(annotator), &Value::Object(all))?;
         Ok(merged)
     }
+
+    pub fn kb_skeleton(&self) -> io::Result<Vec<Value>> {
+        read_jsonl(&self.data_dir.join(SKELETON))
+    }
+
+    pub fn card_entries(&self) -> io::Result<Map<String, Value>> {
+        read_object(&self.data_dir.join(CARDS))
+    }
+
+    pub fn save_card(&self, id: &str, entry: Map<String, Value>) -> io::Result<()> {
+        let mut all = self.card_entries()?;
+        all.insert(id.to_string(), Value::Object(entry));
+        write_atomic(&self.data_dir.join(CARDS), &Value::Object(all))
+    }
+
+    // card_root resolves a skeleton card's sample directory, which must sit
+    // inside the data directory.
+    pub fn card_root(&self, id: &str) -> io::Result<Option<PathBuf>> {
+        let skeleton = self.kb_skeleton()?;
+        let Some(root) = skeleton
+            .iter()
+            .find(|row| row.get("id").and_then(Value::as_str) == Some(id))
+            .and_then(|row| row.get("root").and_then(Value::as_str))
+        else {
+            return Ok(None);
+        };
+        let path = self.data_dir.join(root).canonicalize()?;
+        if !path.starts_with(self.data_dir.canonicalize()?) {
+            return Err(io::Error::new(
+                io::ErrorKind::InvalidInput,
+                "root escapes data dir",
+            ));
+        }
+        Ok(Some(path))
+    }
+}
+
+// A missing or malformed file reads as an empty object.
+fn read_object(path: &Path) -> io::Result<Map<String, Value>> {
+    if !path.exists() {
+        return Ok(Map::new());
+    }
+    match serde_json::from_str(&fs::read_to_string(path)?) {
+        Ok(Value::Object(map)) => Ok(map),
+        _ => Ok(Map::new()),
+    }
+}
+
+// write_atomic lands the file through a rename, so a crash mid-write cannot
+// leave it truncated.
+fn write_atomic(target: &Path, value: &Value) -> io::Result<()> {
+    if let Some(dir) = target.parent() {
+        fs::create_dir_all(dir)?;
+    }
+    let tmp = target.with_extension("tmp");
+    fs::write(&tmp, serde_json::to_string_pretty(value)?)?;
+    fs::rename(&tmp, target)
 }
 
 #[cfg(test)]
@@ -248,6 +297,36 @@ mod tests {
             .unwrap();
         assert_eq!(store.decisions("A").unwrap()["p1"]["label"], "benign");
         assert_eq!(store.decisions("B").unwrap()["p1"]["label"], "malicious");
+    }
+
+    #[test]
+    fn keeps_other_cards_when_saving_one() {
+        let store = temp_store();
+        let entry = |stage: &str| json!({ "stage": stage }).as_object().unwrap().clone();
+        store.save_card("c1", entry("draft")).unwrap();
+        store.save_card("c2", entry("submitted")).unwrap();
+        store.save_card("c1", entry("submitted")).unwrap();
+        let all = store.card_entries().unwrap();
+        assert_eq!(all.len(), 2);
+        assert_eq!(all["c1"]["stage"], "submitted");
+    }
+
+    #[test]
+    fn refuses_a_card_root_outside_the_data_dir() {
+        let store = temp_store();
+        fs::create_dir_all(store.data_dir.join("datadog/x")).unwrap();
+        fs::write(
+            store.data_dir.join(SKELETON),
+            "{\"id\":\"in\",\"root\":\"datadog/x\"}\n{\"id\":\"out\",\"root\":\"..\"}\n",
+        )
+        .unwrap();
+        assert!(store
+            .card_root("in")
+            .unwrap()
+            .unwrap()
+            .ends_with("datadog/x"));
+        assert!(store.card_root("out").is_err());
+        assert!(store.card_root("missing").unwrap().is_none());
     }
 
     #[test]

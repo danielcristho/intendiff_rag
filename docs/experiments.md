@@ -101,6 +101,7 @@ Status per 2026-09-13. Prompt dan runner sudah mengikuti desain revisi; komponen
   sini: §4.1 mewajibkannya di container tanpa jaringan.
 - [~] Card malicious KB (§3.4) — [pipeline/kb.py](../pipeline/kb.py). Seleksi 50 card selesai
   (D61), hasilnya `data/kb.skeleton.jsonl`. Keempat field teks masih kosong dan ditulis anotator A.
+  Teks ditulis di halaman KB Cards, lalu `pipeline/promote.py` menulis `data/kb.jsonl` (D63).
 - [~] Dev set (§3.5) — [pipeline/devset.py](../pipeline/devset.py). 4 clone + 3 TYP di
   `data/pairs.dev.jsonl` (D62); 3 HN menunggu pembagian HN.
 - [ ] Jalur A (§3.3): jalankan 1.900 typical update sisa Wyss lewat extractor, dengan `--exclude` ke
