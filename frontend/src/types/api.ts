@@ -8,6 +8,14 @@ export type DeltaEvidence =
   | { dependency: string; before: string | null; after: string }
   | { removed: number; of: number };
 
+// IntentProfile is pipeline/intent.py's output; "not available" marks an empty field.
+export interface IntentProfile {
+  description: string;
+  keywords: string;
+  scripts: string;
+  readme: string;
+}
+
 export interface Pair {
   id: string;
   name: string;
@@ -17,7 +25,7 @@ export interface Pair {
   subset?: Subset;
   category?: number;
   campaign?: string;
-  intent?: string;
+  intent?: IntentProfile | string;
   delta?: string[];
   delta_evidence?: Record<string, DeltaEvidence[]>;
   truncated?: boolean;
@@ -69,4 +77,50 @@ export interface ModelResult {
   prompt_tokens?: number | null;
   completion_tokens?: number | null;
   latency_ms?: number;
+}
+
+export type CardStage = "draft" | "submitted" | "approved";
+
+export interface CardText {
+  intent: string;
+  behavior_chain: string;
+  code_excerpt: string;
+  rationale: string;
+}
+
+// KbCard is one row of kb.skeleton.jsonl: chosen by pipeline/kb.py, text still to write.
+export interface KbCard {
+  id: string;
+  name: string;
+  label: string;
+  campaign: string;
+  source: string;
+  delta: string[];
+  selected_for?: string;
+  root?: string;
+  delta_evidence?: Record<string, DeltaEvidence[]>;
+}
+
+export interface CardEntry extends Partial<CardText> {
+  stage?: CardStage;
+  author?: string;
+  reviewer?: string;
+  note?: string;
+  at?: string;
+}
+
+export interface CardsResponse {
+  cards: KbCard[];
+  entries: Record<string, CardEntry>;
+}
+
+export interface SampleFile {
+  path: string;
+  size: number;
+}
+
+export interface SampleText {
+  path: string;
+  text: string;
+  truncated: boolean;
 }

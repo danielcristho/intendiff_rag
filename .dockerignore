@@ -1,0 +1,10 @@
+# The images build from backend/, frontend/ and deployments/docker/ only.
+# data/ is mounted at runtime and holds malicious samples; never bake it in.
+data/
+.venv/
+.git/
+labs/
+backend/target/
+# Host-built modules carry glibc binaries; the image installs its own on Alpine.
+frontend/node_modules/
+frontend/dist/

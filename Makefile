@@ -1,7 +1,5 @@
 PORT ?= 8100
 DATA ?= ./data
-# analysis.py needs statsmodels (D43) and plots.py needs matplotlib, neither of
-# which a system python is allowed to install under PEP 668.
 PY := $(shell [ -x .venv/bin/python ] && echo .venv/bin/python || echo python3)
 
 .PHONY: help venv install backend ui test
@@ -35,6 +33,7 @@ test: ## run every suite
 	$(PY) pipeline/pairs.py --selfcheck
 	$(PY) pipeline/kb.py --selfcheck
 	$(PY) pipeline/devset.py --selfcheck
+	$(PY) pipeline/promote.py --selfcheck
 	$(PY) pipeline/analysis.py --selfcheck
 	$(PY) pipeline/plots.py --selfcheck
 	$(PY) pipeline/tables.py --selfcheck
@@ -44,3 +43,7 @@ docker-up:
 
 docker-down:
 	docker compose down
+
+docker-watch: ## rebuild and replace backend/frontend containers on every save
+	docker compose up -d --build backend frontend
+	docker compose watch backend frontend

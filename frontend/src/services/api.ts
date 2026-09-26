@@ -1,9 +1,14 @@
 import type {
   AnnotatorProgress,
+  CardEntry,
+  CardText,
+  CardsResponse,
   Decision,
   Decisions,
   ModelResult,
   PairsResponse,
+  SampleFile,
+  SampleText,
 } from "@/types/api";
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
@@ -30,4 +35,18 @@ export const api = {
       method: "PUT",
       body: JSON.stringify(patch),
     }),
+  cards: () => request<CardsResponse>("/api/cards"),
+  writeCard: (annotator: string, id: string, text: CardText, submit: boolean) =>
+    request<CardEntry>(`/api/cards?id=${q(id)}&annotator=${q(annotator)}`, {
+      method: "PUT",
+      body: JSON.stringify({ ...text, submit }),
+    }),
+  reviewCard: (annotator: string, id: string, approve: boolean, note: string) =>
+    request<CardEntry>(`/api/cards/review?id=${q(id)}&annotator=${q(annotator)}`, {
+      method: "PUT",
+      body: JSON.stringify({ approve, note }),
+    }),
+  sampleFiles: (id: string) => request<SampleFile[]>(`/api/cards/files?id=${q(id)}`),
+  sampleFile: (id: string, path: string) =>
+    request<SampleText>(`/api/cards/file?id=${q(id)}&path=${q(path)}`),
 };

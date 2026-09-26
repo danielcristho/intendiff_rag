@@ -1,4 +1,12 @@
-import type { Decisions, DeltaEvidence, ErrorClass, Pair, Subset, Verdict } from "@/types/api";
+import type {
+  Decisions,
+  DeltaEvidence,
+  ErrorClass,
+  IntentProfile,
+  Pair,
+  Subset,
+  Verdict,
+} from "@/types/api";
 
 export const STATUSES = ["semua", "belum direview", "beda dari gold"] as const;
 export type Status = (typeof STATUSES)[number];
@@ -89,4 +97,16 @@ export function describeEvidence(entry: DeltaEvidence): string {
     return `${entry.file} · ${entry.hook} — ${entry.match}`;
   }
   return `${entry.file}:${entry.line} — ${entry.match}`;
+}
+
+// intentSections labels each part of an intent profile in prompt order.
+export function intentSections(intent: IntentProfile | string): [string, string][] {
+  // The hand-written sample pairs carry a bare string rather than a profile.
+  if (typeof intent === "string") return [["Description", intent]];
+  return [
+    ["Description", intent.description],
+    ["Keywords", intent.keywords],
+    ["Scripts", intent.scripts],
+    ["README excerpt", intent.readme],
+  ];
 }

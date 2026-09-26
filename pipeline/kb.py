@@ -155,6 +155,8 @@ def skeleton(card, campaign_id):
         "source": "datadog",
         "delta": card["delta"],
         "selected_for": card["wanted"],
+        # root lets the audit UI show the sample's files, relative to data/.
+        "root": card["root"],
         # delta_evidence points the annotator at the code (§5.1: cards are
         # written from package content, never from model output).
         "delta_evidence": card["evidence"],
@@ -190,6 +192,7 @@ def main(argv=None):
         if key not in scanned:
             root = unpack(datadog, entry, cache)
             scanned[key] = None if root is None else {
+                "root": root.relative_to(datadog.parent).as_posix(),
                 "delta": capability.capabilities(root),
                 "evidence": capability.explain_version(root),
                 "hashes": file_hashes(root, empty),
@@ -216,7 +219,7 @@ def selfcheck():
         return {"name": name, "version": "1.0.0", "path": ""}
 
     scans = {
-        "a": {"delta": ["network"], "hashes": {"h1"}, "evidence": {}},
+        "a": {"delta": ["network"], "hashes": {"h1"}, "evidence": {}, "root": "r/a"},
         "b": {"delta": ["network"], "hashes": {"h1"}, "evidence": {}},
         "c": {"delta": ["network"], "hashes": {"h1"}, "evidence": {}},
         "d": {"delta": ["process_exec"], "hashes": {"mal"}, "evidence": {}},
