@@ -33,6 +33,8 @@ test: ## run every suite
 	$(PY) pipeline/intent.py --selfcheck
 	$(PY) pipeline/campaign.py --selfcheck
 	$(PY) pipeline/pairs.py --selfcheck
+	$(PY) pipeline/kb.py --selfcheck
+	$(PY) pipeline/devset.py --selfcheck
 	$(PY) pipeline/analysis.py --selfcheck
 	$(PY) pipeline/plots.py --selfcheck
 	$(PY) pipeline/tables.py --selfcheck
