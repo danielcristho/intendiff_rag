@@ -88,6 +88,7 @@ Or through Docker, where nginx serves the UI and proxies `/api`:
 ```
 cp .env.example .env               # set APP_UID/APP_GID from `id -u` / `id -g`
 docker compose up -d backend frontend    # http://localhost:5174, no GPU needed
+docker compose watch backend frontend    # rebuilds a container on every save
 docker compose --profile model up -d     # adds vLLM on :8101, needs an NVIDIA GPU
 ```
 
@@ -104,7 +105,7 @@ published via `BIND_ADDR`. Run `docker ps` before changing ports in `.env`.
 
 ## Components
 
-`frontend/` — research tooling: label audit (M1-2) and error analysis (M7-8).
+`frontend/` — research tooling: label audit (M1-2), KB card writing (D63), and error analysis (M7-8).
 Vite + React + TS + Tailwind. Structure follows `.ref/spider/frontend`; the
 design language (colour tokens, flat components) follows `.ref/cloudx_ui`.
 
@@ -153,6 +154,12 @@ labels, so labelling stays independent.
 Decision writes are guarded by a mutex and land through an atomic rename, so two
 nearby clicks cannot overwrite each other and a process dying mid-write cannot
 truncate the file.
+
+**KB cards (§5.1, D63):** `pipeline/kb.py` selects cards into
+`data/kb.skeleton.jsonl`; the UI's KB Cards page writes their text to the shared
+`data/kb.cards.json` (one annotator writes, a different one checks, enforced in
+`backend/src/cards.rs`); `python pipeline/promote.py` writes `data/kb.jsonl` only
+once every card is approved. Sample files are served as text only, never run.
 
 The frontend proxies `/api` to port 8100, so the backend must be up first. The
 runner defaults to `--base-url http://localhost:8101`, the vLLM port.

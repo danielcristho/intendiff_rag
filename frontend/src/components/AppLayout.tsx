@@ -1,10 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { LayoutDashboard, ScanSearch, UserRound } from "lucide-react";
+import { Layers, LayoutDashboard, ScanSearch, UserRound } from "lucide-react";
 import { useAnnotator } from "@/components/AnnotatorGate";
 
 const NAV_LINKS = [
   { to: "/overview", label: "Overview", icon: LayoutDashboard },
   { to: "/audit", label: "Label Audit", icon: ScanSearch },
+  { to: "/cards", label: "KB Cards", icon: Layers },
 ];
 
 // AppLayout frames every page with the sidebar and the annotator header.

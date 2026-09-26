@@ -1,6 +1,9 @@
 //! HTTP API for the IntentDiff-RAG audit UI.
 
+mod card_routes;
+mod cards;
 mod clock;
+mod samples;
 mod store;
 
 use axum::{
@@ -19,19 +22,19 @@ use std::{
 use store::{valid_annotator, Store};
 
 // Shared by every request handler.
-struct App {
+pub(crate) struct App {
     store: Store,
     write_lock: Mutex<()>,
 }
 
-type Shared = Arc<App>;
-type Failure = (StatusCode, Json<Value>);
+pub(crate) type Shared = Arc<App>;
+pub(crate) type Failure = (StatusCode, Json<Value>);
 
-fn bad(message: &str) -> Failure {
+pub(crate) fn bad(message: &str) -> Failure {
     (StatusCode::BAD_REQUEST, Json(json!({ "error": message })))
 }
 
-fn internal(err: impl std::fmt::Display) -> Failure {
+pub(crate) fn internal(err: impl std::fmt::Display) -> Failure {
     (
         StatusCode::INTERNAL_SERVER_ERROR,
         Json(json!({ "error": err.to_string() })),
@@ -39,7 +42,7 @@ fn internal(err: impl std::fmt::Display) -> Failure {
 }
 
 // checked_annotator returns the annotator name only if it is safe as a filename.
-fn checked_annotator(raw: &str) -> Result<&str, Failure> {
+pub(crate) fn checked_annotator(raw: &str) -> Result<&str, Failure> {
     if valid_annotator(raw) {
         Ok(raw)
     } else {
@@ -148,6 +151,7 @@ fn routes(app: Shared) -> Router {
         .route("/api/annotators", get(get_annotators))
         .route("/api/results", get(get_results))
         .route("/health", get(|| async { "ok" }))
+        .merge(card_routes::routes())
         .with_state(app)
 }
 

@@ -19,6 +19,8 @@ sys.path.insert(0, str(Path(__file__).parent))
 from prompts import CONFIGS, build  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
+DEV_PAIRS = ROOT / "data/pairs.dev.jsonl"
+WARMUP_REQUESTS = 3
 
 
 # existing_or_sample prefers the real dataset and falls back to the fixture.
@@ -222,6 +224,14 @@ def main(argv=None):
     # Name the files: a fixture fallback must not look like a real run.
     print(f"pairs={pairs_path.name} kb={kb_path.name} temp={args.temperature}")
     print(f"{len(pairs)} pairs x {len(configs)} configs · {len(already)} done · {len(todo)} to run")
+
+    # The first requests after the server starts carry one-off initialisation,
+    # so they are sent from the dev set and never recorded.
+    for pair in load_jsonl(DEV_PAIRS)[:WARMUP_REQUESTS] if todo else []:
+        try:
+            call_llm(args.base_url, args.model, build("E0", pair, []), args.seed, args.timeout, sampling)
+        except RuntimeError as exc:
+            print(f"warm-up failed: {exc}")
 
     # ponytail: sequential on purpose — overlapping requests distort the
     # latency figures. Add a parallel flag when throughput matters more.

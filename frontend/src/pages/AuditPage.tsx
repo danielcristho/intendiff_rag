@@ -6,6 +6,7 @@ import { DecisionPanel } from "@/components/audit/DecisionPanel";
 import { CapabilityDelta } from "@/components/audit/CapabilityDelta";
 import { DiffView } from "@/components/audit/DiffView";
 import { FilterBar } from "@/components/audit/FilterBar";
+import { IntentView } from "@/components/audit/IntentView";
 import { ModelOutput } from "@/components/audit/ModelOutput";
 import { useDecisions, usePairs, useSaveDecision } from "@/hooks/useAuditData";
 import { NO_FILTER, keep, type Filters } from "@/lib/audit";
@@ -107,12 +108,8 @@ export function AuditPage() {
 
             <Card>
               <h3 className="eyebrow">Intent</h3>
-              <p className="text-sm">
-                {pair.intent ?? (
-                  <span className="italic text-ink-faint">belum ada intent profile</span>
-                )}
-              </p>
-              <CapabilityDelta pair={pair} />
+              <IntentView intent={pair.intent} />
+              <CapabilityDelta item={pair} />
             </Card>
 
             <DecisionPanel pair={pair} entry={entry} onRecord={record} />

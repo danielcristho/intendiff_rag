@@ -415,3 +415,32 @@ Hasil `data/pairs.mal.jsonl`: **45 pair, 41 kampanye, 1 terpotong, 1 tanpa inten
 - **Ketiga TYP dev dicatat di `data/pairs.dev.taken.txt` dan harus dikecualikan dari jalur A** (§3.3). Tanpa itu, pair yang dipakai untuk memverifikasi mekanisme bisa muncul lagi sebagai item uji HN.
 - Isinya mencakup kasus yang perlu dilalui mekanisme pipeline: 3 dari 7 pair terpotong, 3 TYP dengan delta kosong, dan 2 clone dengan `large_deletion`.
 - **Replikasi di server:** `pairs.mal.jsonl` yang dibangun ulang dari zip OSF (sha256 cocok dengan D56) identik byte-per-byte dengan versi di git.
+
+**D63. Card ditulis dan dicek lewat UI dalam empat tahap; `kb.jsonl` hanya ditulis kalau semua card disetujui** (§5.1).
+
+- Tahap: **kosong → draf → menunggu cek → disetujui**. Card yang dikembalikan pengecek kembali ke draf dengan alasan wajib. Card yang sudah disetujui terkunci sampai pengecek membukanya lagi.
+- **Penulis ≠ pengecek dipaksa di backend** (`backend/src/cards.rs`), bukan hanya disembunyikan di UI. Penulis card ditentukan per card oleh siapa yang pertama menulisnya.
+- Teks card disimpan di `data/kb.cards.json`, satu file bersama. Beda dengan keputusan audit (§8), card memang dikerjakan berdua, jadi tidak ada independensi yang perlu dijaga.
+- **`code_excerpt` dipilih dari rentang baris sampel di UI**, bukan diketik, supaya verbatim. `pipeline/promote.py` memeriksanya lagi: setiap baris excerpt harus ada di file sampel.
+- **Batas token dicek saat promosi dengan tokenizer Qwen**: intent ≤ 64 token, card ≤ 512 token yang dihitung atas blok yang benar-benar dilihat model (`prompts.examples_block`). Card yang melebihi batas **ditolak, tidak dipangkas otomatis**. Memangkas excerpt verbatim tanpa anotator berarti mengubah card yang sudah dicek.
+- **Promosi menolak menulis `kb.jsonl` parsial.** Runner otomatis beralih ke `kb.sample.jsonl` kalau `kb.jsonl` tidak ada, dan akan memakai KB parsial tanpa peringatan.
+- **Promosi tetap lewat CLI, tidak lewat tombol di UI.** Backend terbuka di jaringan host GPU tanpa autentikasi, dan menjalankan skrip dari endpoint HTTP menambah permukaan serangan.
+
+## 2026-09-26 — Smoke test dev set pertama dengan model sungguhan
+
+**D64. Smoke test E0/E0-noint atas 7 pair dev set: validitas JSON 10/14; prefix caching vLLM mencemari latensi** (§6.4, §9.2).
+
+- Server: vLLM **0.29.0**, `Qwen/Qwen2.5-Coder-3B-Instruct`, bf16, `--max-model-len 32768`, `--seed 0`, tanpa kuantisasi, `--gpu-memory-utilization 0.80`, RTX 5080 16 GB. Hasil di `data/results.dev.jsonl`, terpisah dari test.
+- **Warm-up §9.2 ternyata belum ada di runner.** Sekarang runner mengirim 3 request E0 dari `data/pairs.dev.jsonl` sebelum run pertama, tanpa dicatat.
+- **Validitas JSON 10/14 (71%)**: E0 5/7, E0-noint 5/7. Angka ini di bawah ambang 90% §6.4, tetapi dev set baru 7 dari 10 pair, jadi keputusan revisi format **belum** diambil.
+
+| Penyebab tidak valid | Run |
+|---|---|
+| `finish_reason=length` (512 token): `evidence` diisi seluruh hunk diff, bukan ≤ 3 baris | 2 |
+| JSON rusak: `"` tidak di-escape di dalam string | 1 |
+| JSON rusak: karakter tab mentah di dalam string | 1 |
+
+- Semua jawaban dibungkus pagar kode ` ```json `. Parser tetap membacanya karena mencari `{` pertama.
+- Pair dengan prompt 28–29K token (smart-diff terpotong §4.5) diproses tanpa error dan muat di konteks 32K.
+- **Prefix caching aktif** (`enable_prefix_caching=True`, default vLLM 0.29, hit rate 22–33%). Warm-up mengirim prompt yang sama dengan run terukur pertama, sehingga run itu tercatat 1,2 s, sedangkan E0-noint pada pair yang sama 4,0 s. Methodology tidak mengatur prefix caching, jadi latensi RQ4 saat ini bergantung pada urutan run. **Keputusan terbuka**, harus diambil sebelum G2.
+- Verdict dev set tidak ditafsirkan (§3.5).
