@@ -11,7 +11,7 @@ help:
 		| awk 'BEGIN{FS=":.*?## "}{printf "  \033[36m%-9s\033[0m %s\n", $$1, $$2}'
 
 venv: ## create .venv with the Python analysis dependencies
-	python3 -m venv .venv && .venv/bin/pip install statsmodels matplotlib
+	python3 -m venv .venv && .venv/bin/pip install statsmodels matplotlib openpyxl pillow transformers
 
 install: ## install frontend dependencies
 	pnpm -C frontend install
@@ -32,8 +32,10 @@ test: ## run every suite
 	$(PY) pipeline/smartdiff.py --selfcheck
 	$(PY) pipeline/intent.py --selfcheck
 	$(PY) pipeline/campaign.py --selfcheck
+	$(PY) pipeline/pairs.py --selfcheck
 	$(PY) pipeline/analysis.py --selfcheck
 	$(PY) pipeline/plots.py --selfcheck
+	$(PY) pipeline/tables.py --selfcheck
 
 docker-up:
 	docker compose up -d --build
