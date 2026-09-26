@@ -38,7 +38,7 @@ Warm-up menambah 3 request per sesi server dan tidak dicatat.
 | `diff`, `truncated` | smart-diff setelah pemotongan (§4.5) |
 | `label`, `gold_evidence` | label gold; baris malicious (MAL saja) |
 
-**`data/kb.jsonl`** — satu baris per card: `id`, `label`, `campaign`, `source`,
+**`data/kb.jsonl`** — satu baris per card: `id`, `name`, `label`, `campaign`, `source`,
 `delta`, `intent`, `behavior_chain`, `code_excerpt`, `rationale` (§5.1).
 
 **`data/results.jsonl`** — field yang sudah ada di runner, ditambah:
@@ -99,7 +99,12 @@ Status per 2026-09-13. Prompt dan runner sudah mengikuti desain revisi; komponen
   24 dari 144 versi mendapat v_(t-1) berbeda dibanding aturan waktu terbit, jadi D27
   bukan sekadar kehati-hatian. Langkah unduh tarball + ekstraksi sengaja TIDAK ada di
   sini: §4.1 mewajibkannya di container tanpa jaringan.
-- [ ] Jalur A (§3.3): jalankan 1.900 typical update sisa Wyss lewat extractor. Menunggu unduhan OSF.
+- [~] Card malicious KB (§3.4) — [pipeline/kb.py](../pipeline/kb.py). Seleksi 50 card selesai
+  (D61), hasilnya `data/kb.skeleton.jsonl`. Keempat field teks masih kosong dan ditulis anotator A.
+- [~] Dev set (§3.5) — [pipeline/devset.py](../pipeline/devset.py). 4 clone + 3 TYP di
+  `data/pairs.dev.jsonl` (D62); 3 HN menunggu pembagian HN.
+- [ ] Jalur A (§3.3): jalankan 1.900 typical update sisa Wyss lewat extractor, dengan `--exclude` ke
+  `data/pairs.dev.taken.txt` agar TYP dev set tidak masuk kandidat HN.
 - [~] Pengelompokan kampanye (§3.6) — [pipeline/campaign.py](../pipeline/campaign.py).
   Kriteria (a) laporan sama dan (b) file tambahan identik selesai dan teruji, dengan
   penutupan transitif dan pelaporan jumlah klaster pada ambang 0,5 dan 0,8. Label kampanye

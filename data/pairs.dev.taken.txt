@@ -1,0 +1,3 @@
+r_samples/ant-mini-flip-draw/ant-mini-flip-draw@1.0.0,r_samples/ant-mini-flip-draw/ant-mini-flip-draw@1.0.2
+r_samples/react-d3-library/react-d3-library@1.1.7,r_samples/react-d3-library/react-d3-library@1.1.8
+r_samples/snappydown/snappydown@0.0.1,r_samples/snappydown/snappydown@0.0.2
