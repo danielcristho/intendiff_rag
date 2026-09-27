@@ -1,4 +1,4 @@
-// Knowledge-base card workflow: one annotator writes a card, another checks it.
+//! Card workflow: writing, submitting, reviewing, approving, returning.
 
 use serde_json::{Map, Value};
 
