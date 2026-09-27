@@ -1,4 +1,4 @@
-// Lists and reads a sample's files as text. Nothing here executes them.
+//! Sample files for a card, with size limits and path safety.
 
 use std::path::{Component, Path, PathBuf};
 use std::{fs, io};
@@ -17,8 +17,6 @@ pub fn list(root: &Path) -> io::Result<Vec<(String, u64)>> {
     while let Some(dir) = pending.pop() {
         for entry in fs::read_dir(&dir)? {
             let entry = entry?;
-            // file_type does not follow symlinks, so a link out of the sample
-            // is neither listed nor descended into.
             let kind = entry.file_type()?;
             if kind.is_dir() {
                 pending.push(entry.path());
@@ -49,14 +47,13 @@ pub fn within(root: &Path, relative: &str) -> io::Result<PathBuf> {
         return Err(invalid("path must stay inside the sample"));
     }
     let path = root.join(relative);
-    // Canonicalising catches a symlinked directory partway down the path.
     if !path.canonicalize()?.starts_with(root.canonicalize()?) {
         return Err(invalid("path must stay inside the sample"));
     }
     Ok(path)
 }
 
-// read returns a file's text, lossily decoded and cut at MAX_BYTES.
+// read returns the contents of a file under root, refusing anything that would leave it.
 pub fn read(root: &Path, relative: &str) -> io::Result<(String, bool)> {
     let path = within(root, relative)?;
     if !fs::symlink_metadata(&path)?.is_file() {
