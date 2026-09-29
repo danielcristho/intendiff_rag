@@ -20,9 +20,9 @@ RECALL_GUARD = -5.0
 WHITESPACE = re.compile(r"\s+")
 
 HYPOTHESES = {
-    "H2a": {"baseline": "E0", "variant": "E3", "direction": "up", "recall_guard": False},
-    "H2b": {"baseline": "E3-k2", "variant": "E4", "direction": "down", "recall_guard": True},
-    "H3": {"baseline": "E4-noint", "variant": "E4", "direction": "down", "recall_guard": True},
+    "H2a": {"baseline": "DIFF+I", "variant": "DIFF+I+M", "direction": "up", "recall_guard": False},
+    "H2b": {"baseline": "DIFF+I+MM", "variant": "DIFF+I+MB", "direction": "down", "recall_guard": True},
+    "H3": {"baseline": "DIFF+MB", "variant": "DIFF+I+MB", "direction": "down", "recall_guard": True},
 }
 
 
@@ -299,11 +299,11 @@ def selfcheck():
 
     # D18: an unparsable answer is benign in the main analysis, malicious in the
     # sensitivity one.
-    broken = row("p1", "E0", None, json_valid=False)
+    broken = row("p1", "DIFF+I", None, json_valid=False)
     assert verdict_of(broken) == "benign"
     assert verdict_of(broken, "malicious") == "malicious"
     # A parsed row with a nonsense verdict is invalid too.
-    assert verdict_of(row("p1", "E0", "suspicious")) == "benign"
+    assert verdict_of(row("p1", "DIFF+I", "suspicious")) == "benign"
 
     pairs = [
         {"id": "m1", "subset": "MAL", "campaign": "c1", "gold_evidence": ["+  eval(payload);"]},
@@ -312,9 +312,9 @@ def selfcheck():
         {"id": "h2", "subset": "HN", "campaign": "c3"},
         {"id": "t1", "subset": "TYP", "campaign": "c4"},
     ]
-    rows = [row("m1", "E0", "malicious"), row("m2", "E0", "benign"),
-            row("h1", "E0", "malicious"), row("h2", "E0", "benign"),
-            row("t1", "E0", "benign")]
+    rows = [row("m1", "DIFF+I", "malicious"), row("m2", "DIFF+I", "benign"),
+            row("h1", "DIFF+I", "malicious"), row("h2", "DIFF+I", "benign"),
+            row("t1", "DIFF+I", "benign")]
 
     assert rate(subset_rows(rows, pairs, "MAL")) == 0.5
     assert rate(subset_rows(rows, pairs, "HN")) == 0.5
@@ -325,16 +325,16 @@ def selfcheck():
     assert json_validity([broken]) == 0.0
 
     # Evidence matches in either direction once whitespace is normalised (§11.1).
-    hit = row("m1", "E0", "malicious", evidence=["+   eval(payload);"])
-    miss = row("m1", "E0", "malicious", evidence=["+  require('fs');"])
+    hit = row("m1", "DIFF+I", "malicious", evidence=["+   eval(payload);"])
+    miss = row("m1", "DIFF+I", "malicious", evidence=["+  require('fs');"])
     assert evidence_localization([hit], pairs) == 1.0
     assert evidence_localization([miss], pairs) == 0.0
     # A pair with no gold lines cannot count as located.
-    assert evidence_localization([row("m2", "E0", "malicious", evidence=["x"])], pairs) == 0.0
+    assert evidence_localization([row("m2", "DIFF+I", "malicious", evidence=["x"])], pairs) == 0.0
 
     # EA2 counts pairs that disagree across seeds, not individual runs.
-    steady = [row("p1", "E0", "benign"), row("p1", "E0", "benign")]
-    wobbly = [row("p1", "E0", "benign"), row("p1", "E0", "malicious")]
+    steady = [row("p1", "DIFF+I", "benign"), row("p1", "DIFF+I", "benign")]
+    wobbly = [row("p1", "DIFF+I", "benign"), row("p1", "DIFF+I", "malicious")]
     assert flip_rate(steady) == 0.0 and flip_rate(wobbly) == 1.0
 
     # Nearest-rank, so p95 of ten values is the tenth, never an interpolation.
@@ -343,8 +343,8 @@ def selfcheck():
     assert percentile_nearest_rank([], 0.5) == 0.0
 
     # McNemar's b and c: only the pairs the two configurations disagree on.
-    baseline = [row("h1", "E0", "malicious"), row("h2", "E0", "malicious")]
-    variant = [row("h1", "E4", "benign"), row("h2", "E4", "malicious")]
+    baseline = [row("h1", "DIFF+I", "malicious"), row("h2", "DIFF+I", "malicious")]
+    variant = [row("h1", "DIFF+I+MB", "benign"), row("h2", "DIFF+I+MB", "malicious")]
     assert discordant(baseline, variant) == (1, 0)
     assert discordant(variant, baseline) == (0, 1)
     assert discordant(baseline, baseline) == (0, 0)
@@ -353,8 +353,8 @@ def selfcheck():
     # The bootstrap draws campaigns, so two pairs sharing one campaign can never
     # land in a resample separately.
     mal = [p for p in pairs if p["subset"] == "MAL"]
-    better = [row("m1", "E4", "malicious"), row("m2", "E4", "malicious")]
-    worse = [row("m1", "E0", "malicious"), row("m2", "E0", "benign")]
+    better = [row("m1", "DIFF+I+MB", "malicious"), row("m2", "DIFF+I+MB", "malicious")]
+    worse = [row("m1", "DIFF+I", "malicious"), row("m2", "DIFF+I", "benign")]
     delta, (low, high) = recall_delta_bootstrap(better, worse, mal, resamples=200)
     assert abs(delta - 50.0) < 1e-6, delta
     assert low <= delta <= high, (low, delta, high)
@@ -368,11 +368,11 @@ def selfcheck():
 
     # A retried run appends; only the last attempt counts.
     attempts = [
-        {"run_key": "k1", "pair_id": "h1", "config": "E0", "model": "m",
+        {"run_key": "k1", "pair_id": "h1", "config": "DIFF+I", "model": "m",
          "verdict": None, "json_valid": False, "error": "reset"},
-        {"run_key": "k1", "pair_id": "h1", "config": "E0", "model": "m",
+        {"run_key": "k1", "pair_id": "h1", "config": "DIFF+I", "model": "m",
          "verdict": "benign", "json_valid": True},
-        {"run_key": "k2", "pair_id": "h2", "config": "E0", "model": "m",
+        {"run_key": "k2", "pair_id": "h2", "config": "DIFF+I", "model": "m",
          "verdict": "benign", "json_valid": True},
     ]
     kept = latest_runs(attempts)

@@ -12,6 +12,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from capability import scan_text, source_files  # noqa: E402
+from normalization import EXCLUDED, prepared_pair  # noqa: E402
 
 MAX_LINE_CHARS = 2000
 BUDGET_TOKENS = 28_000
@@ -19,21 +20,7 @@ HUNK_HEADER = re.compile(r"^@@ ", re.MULTILINE)
 BINARY_LINE = re.compile(r"^Binary files (.+) and (.+) differ$")
 TIMESTAMPED = re.compile(r"^(---|\+\+\+) (\S+)\t.*$", re.MULTILINE)
 
-# Files the upstream generator drops before diffing, copied from its
-# shutil.ignore_patterns call.
-EXCLUDED = ("*.wasm", "*.md", "*.map", ".npmignore", "LICENSE*", "license*",
-            "*.tsbuildinfo", "package-lock.json", "yarn.lock")
 ECHOED_EXCLUDES = re.compile(r"^(diff .*?)(?:-x (?:'[^']*'|\S+) )+", re.MULTILINE)
-
-
-# normalize is the §4.2 step 1-2 seam: minify, un-minify, then drop repeated code.
-def normalize(version_dir):
-    # TODO: still a pass-through. The upstream generator runs `uglifyjs FILE -c -m`
-    # then `webcrack` on every name ending in "js" (so .mjs/.cjs/.ejs, but not .ts),
-    # and de-duplicates via `node index.mjs FILE OTHER` producing FILE.stripped.
-    # Neither tool is installed here, and index.mjs ships with no source, so the
-    # de-duplication cannot be reproduced at all.
-    return version_dir
 
 
 # truncate_long_lines caps any line at 2,000 characters (§4.2 step 6).
@@ -91,23 +78,27 @@ def split_by_file(diff_text, after_root=None):
     def relative(path):
         return path[len(root):] if root and path.startswith(root) else path
 
+    def finish(chunk):
+        return {"path": chunk["path"], "text": "".join(chunk["lines"])}
+
     chunks, current = [], None
     for line in diff_text.split("\n"):
         binary = BINARY_LINE.match(line)
         if binary:
             if current:
-                chunks.append(current)
+                chunks.append(finish(current))
                 current = None
             chunks.append({"path": relative(binary.group(2)), "text": line + "\n"})
         elif line.startswith("diff "):
             if current:
-                chunks.append(current)
+                chunks.append(finish(current))
             parts = line.split()
-            current = {"path": relative(parts[-1]) if len(parts) >= 2 else "", "text": line + "\n"}
+            current = {"path": relative(parts[-1]) if len(parts) >= 2 else "", "lines": [line + "\n"]}
         elif current is not None:
-            current["text"] += line + "\n"
+            # Repeated dictionary-string concatenation is quadratic on large bundles.
+            current["lines"].append(line + "\n")
     if current:
-        chunks.append(current)
+        chunks.append(finish(current))
     return chunks
 
 
@@ -178,20 +169,43 @@ def fit_budget(chunks, count, budget=BUDGET_TOKENS):
 
     text = "".join(kept)
     truncated = omitted > 0 or dropped_tokens > 0
-    if truncated:
-        text += f"\n[smart-diff truncated: {omitted} files omitted, {dropped_tokens} tokens]\n"
-    return text, truncated
+    # Include the marker and tokenization across chunk boundaries in the cap.
+    # Summing separately encoded hunks does not bound the concatenated text.
+    while True:
+        text = "".join(kept)
+        marker = (f"\n[smart-diff truncated: {omitted} files omitted, {dropped_tokens} tokens]\n"
+                  if truncated else "")
+        if count(text + marker) <= budget:
+            return text + marker, truncated
+        if not kept:
+            return "", True
+        previous = kept.pop()
+        header, hunks = split_hunks(previous)
+        replacement = header + "".join(hunks[:-1]) if len(hunks) > 1 else ""
+        if replacement:
+            kept.append(replacement)
+        else:
+            omitted += 1
+        dropped_tokens += count(previous) - count(replacement)
+        truncated = True
 
 
 # build produces one pair's smart-diff and whether it had to be truncated.
-def build(before, after, count, budget=BUDGET_TOKENS):
-    before, after = normalize(Path(before)), normalize(Path(after))
+def build_prepared(before, after, count, budget=BUDGET_TOKENS, signals=None):
     diff_text = relabel_paths(raw_diff(before, after), before, after)
     diff_text = truncate_long_lines(diff_text)
     chunks = split_by_file(diff_text, after_root="b")
-    ordered = order_files(chunks, signals_per_file(after))
+    ordered = order_files(chunks, signals if signals is not None else signals_per_file(after))
     text, truncated = fit_budget(ordered, count, budget)
     return {"diff": text, "truncated": truncated, "files": len(chunks)}
+
+
+def build(before, after, count, budget=BUDGET_TOKENS):
+    signals = signals_per_file(Path(after))
+    with prepared_pair(before, after) as (left, right, report):
+        result = build_prepared(left, right, count, budget, signals)
+        result["preprocessing"] = report
+        return result
 
 
 # §4.5 budgets in Qwen2.5-Coder-3B tokens.
@@ -297,7 +311,7 @@ def selfcheck():
 
     # A budget of zero keeps nothing and reports every file as omitted.
     text, truncated = fit_budget(order_files(chunks, signals), words, budget=0)
-    assert truncated and "files omitted" in text, text
+    assert truncated and text == "", text
 
     # --- a file too large for the remaining budget is cut at a hunk boundary
     many = "diff -N -U 0 -r a/big.js b/big.js\n--- a/big.js\n+++ b/big.js\n" + "".join(
@@ -308,16 +322,18 @@ def selfcheck():
     partial, truncated = fit_budget([{"path": "big.js", "text": many}], words,
                                     budget=words(header) + words(hunks[0]) * 3)
     assert truncated, "a partial file still counts as truncated"
-    assert partial.count("@@ ") == 3, partial.count("@@ ")
+    assert 0 < partial.count("@@ ") < 3, partial.count("@@ ")
+    assert words(partial) <= words(header) + words(hunks[0]) * 3
     # The cut lands between hunks, never inside one.
-    assert "+new line 2" in partial and "+new line 3" not in partial
+    last = partial.count("@@ ") - 1
+    assert f"+new line {last}\n" in partial and f"+new line {last + 1}\n" not in partial
 
     # --- build ties it together and reports the flag pairs.jsonl carries
-    result = build(before, after, words, budget=10_000)
+    result = build_prepared(before, after, words, budget=10_000)
     assert result["truncated"] is False and result["files"] == len(chunks)
     assert result["diff"].index("package.json") < result["diff"].index("setup.js")
 
-    tight = build(before, after, words, budget=1)
+    tight = build_prepared(before, after, words, budget=1)
     assert tight["truncated"] is True
 
     print("ok")

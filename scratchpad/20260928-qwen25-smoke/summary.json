@@ -1,0 +1,103 @@
+{
+  "scope": "Synthetic fixture smoke test; no accuracy or hypothesis claims.",
+  "calls": 24,
+  "unique_runs": 24,
+  "json_valid": 24,
+  "transport_errors": 0,
+  "finish_reasons": {
+    "stop": 24
+  },
+  "prompt_tokens_total": 14429,
+  "completion_tokens_total": 4136,
+  "latency_ms_median_standard": 1091.4,
+  "cost_nearest_rank": {
+    "median_latency_ms": 1073.3,
+    "p95_latency_ms": 1892.8,
+    "mean_prompt_tokens": 601.2083333333334,
+    "mean_completion_tokens": 172.33333333333334
+  },
+  "by_config": {
+    "DIFF": {
+      "median_latency_ms": 1024.8,
+      "p95_latency_ms": 1892.8,
+      "mean_prompt_tokens": 462.75,
+      "mean_completion_tokens": 178.0
+    },
+    "DIFF+I": {
+      "median_latency_ms": 897.2,
+      "p95_latency_ms": 1203.1,
+      "mean_prompt_tokens": 512.25,
+      "mean_completion_tokens": 138.25
+    },
+    "DIFF+I+M": {
+      "median_latency_ms": 939.1,
+      "p95_latency_ms": 1187.5,
+      "mean_prompt_tokens": 608.75,
+      "mean_completion_tokens": 146.25
+    },
+    "DIFF+I+MM": {
+      "median_latency_ms": 988.9,
+      "p95_latency_ms": 1588.2,
+      "mean_prompt_tokens": 699.5,
+      "mean_completion_tokens": 169.25
+    },
+    "DIFF+I+MB": {
+      "median_latency_ms": 1046.9,
+      "p95_latency_ms": 1646.9,
+      "mean_prompt_tokens": 686.75,
+      "mean_completion_tokens": 174.25
+    },
+    "DIFF+MB": {
+      "median_latency_ms": 1230.3,
+      "p95_latency_ms": 2100.3,
+      "mean_prompt_tokens": 637.25,
+      "mean_completion_tokens": 228.0
+    }
+  },
+  "checks": {
+    "all_expected_pairs_and_configs": true,
+    "retrieval_matches_expected": true,
+    "mb_card_identity_and_order": true,
+    "parser_matches_raw": true,
+    "token_usage_present": true,
+    "resume_remaining": 0,
+    "server_successful_completion_requests_including_warmup": 27,
+    "research_results_file_absent": true
+  },
+  "observed_verdicts": {
+    "tinylint@0.9.2": {
+      "DIFF": "malicious",
+      "DIFF+I": "malicious",
+      "DIFF+I+M": "malicious",
+      "DIFF+I+MM": "malicious",
+      "DIFF+I+MB": "malicious",
+      "DIFF+MB": "malicious"
+    },
+    "fmt-cli@2.0.4": {
+      "DIFF": "malicious",
+      "DIFF+I": "malicious",
+      "DIFF+I+M": "malicious",
+      "DIFF+I+MM": "malicious",
+      "DIFF+I+MB": "malicious",
+      "DIFF+MB": "malicious"
+    },
+    "date-pad@3.1.0": {
+      "DIFF": "benign",
+      "DIFF+I": "malicious",
+      "DIFF+I+M": "benign",
+      "DIFF+I+MM": "benign",
+      "DIFF+I+MB": "malicious",
+      "DIFF+MB": "benign"
+    },
+    "usage-kit@1.4.0": {
+      "DIFF": "malicious",
+      "DIFF+I": "malicious",
+      "DIFF+I+M": "malicious",
+      "DIFF+I+MM": "malicious",
+      "DIFF+I+MB": "malicious",
+      "DIFF+MB": "malicious"
+    }
+  },
+  "server_stopped": true,
+  "gpu_memory_after_stop_mib": 2349
+}

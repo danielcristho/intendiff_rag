@@ -16,19 +16,10 @@ import zlib
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from prompts import CONFIGS, build  # noqa: E402
+from configs import CONFIGS, spec  # noqa: E402
+from prompts import build  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-
-
-# existing_or_sample prefers the real dataset and falls back to the fixture.
-def existing_or_sample(path):
-    # Mirrors backend/src/store.rs so both halves read the same file.
-    real = Path(path)
-    if real.exists():
-        return real
-    sample = real.with_name(real.name.replace(".jsonl", ".sample.jsonl"))
-    return sample if sample.exists() else real
 
 
 # load_jsonl parses one JSON value per non-blank line, or nothing if absent.
@@ -95,25 +86,25 @@ def _ordered(pair_id, primary, secondary):
 
 # retrieve selects the knowledge-base cards one configuration is given, in prompt order.
 def retrieve(config, pair, kb):
-    if config in ("E0", "E0-noint") or not kb:
+    wanted = spec(config).cards
+    if not wanted or not kb:
         return []
 
     ranked = rank(pair, kb)
-    malicious = [card for card in ranked if card.get("label") == "malicious"]
-    benign = [card for card in ranked if card.get("label") == "benign"]
+    chosen, taken = [], set()
+    for label in wanted:
+        # A label with no card left is skipped, so a thin pool degrades to fewer
+        # cards rather than repeating one.
+        pick = next((i for i, card in enumerate(ranked)
+                     if i not in taken and card.get("label") == label), None)
+        if pick is None:
+            continue
+        taken.add(pick)
+        chosen.append(ranked[pick])
 
-    if config == "E2":  # nearest card of either label
-        return ranked[:1]
-    if config == "E3":  # one malicious card; the bias is what E3 measures
-        return malicious[:1]
-    if config == "E3-k2":  # two malicious cards, the control for example count
-        return _ordered(pair.get("id"), *(malicious[:2] + [None])[:2]) if malicious else []
-    # E4 and E4-noint are contrastive: one malicious plus one benign look-alike.
-    if not malicious and not benign:
+    if not chosen:
         return []
-    primary = malicious[0] if malicious else benign[0]
-    secondary = benign[0] if malicious and benign else None
-    return _ordered(pair.get("id"), primary, secondary)
+    return _ordered(pair.get("id"), chosen[0], chosen[1] if len(chosen) > 1 else None)
 
 
 def retrieval_log(pair, cards):
@@ -199,12 +190,14 @@ def main(argv=None):
     ap.add_argument("--limit", type=int, help="cap the number of pairs, for smoke tests")
     args = ap.parse_args(argv)
 
-    pairs_path, kb_path = existing_or_sample(args.pairs), existing_or_sample(args.kb)
+    pairs_path, kb_path = Path(args.pairs), Path(args.kb)
     pairs = load_jsonl(pairs_path)[: args.limit]
     kb = load_jsonl(kb_path)
     configs = args.configs.split(",")
     if not pairs:
         sys.exit(f"no pairs found in {pairs_path}")
+    if any(spec(config).cards for config in configs) and not kb:
+        sys.exit(f"retrieval configurations require a nonempty KB: {kb_path}")
 
     sampling = {"temperature": args.temperature, "top_p": args.top_p}
     if args.top_k is not None:
@@ -219,7 +212,7 @@ def main(argv=None):
         for config in configs
         if run_key(args.model, config, pair["id"], args.seed, args.temperature) not in already
     ]
-    # Name the files: a fixture fallback must not look like a real run.
+    # Record the explicit inputs; missing research data never selects a fixture.
     print(f"pairs={pairs_path.name} kb={kb_path.name} temp={args.temperature}")
     print(f"{len(pairs)} pairs x {len(configs)} configs · {len(already)} done · {len(todo)} to run")
 
@@ -241,6 +234,9 @@ def main(argv=None):
             "truncated": pair.get("truncated"),
             "cards": retrieval_log(pair, cards),
         }
+        for field in ("evaluation_scope", "label_origin", "human_annotation_verified", "diff_sha256"):
+            if field in pair:
+                record[field] = pair[field]
         started = time.perf_counter()
         try:
             res = call_llm(args.base_url, args.model, messages, args.seed, args.timeout, sampling)
@@ -277,22 +273,22 @@ def selfcheck():
     tmp = Path(tempfile.mkdtemp())
     f = tmp / "r.jsonl"
     assert load_jsonl(f) == [], "a missing file reads as empty, not a crash"
-    f.write_text('{"run_key":"m|E0|a|0|0.0"}\n\n{"run_key":"m|E2|a|0|0.0"}\n')
-    assert done_keys(f) == {"m|E0|a|0|0.0", "m|E2|a|0|0.0"}, "resume keys misread"
+    f.write_text('{"run_key":"m|DIFF+I|a|0|0.0"}\n\n{"run_key":"m|DIFF|a|0|0.0"}\n')
+    assert done_keys(f) == {"m|DIFF+I|a|0|0.0", "m|DIFF|a|0|0.0"}, "resume keys misread"
 
     # A row that failed to reach the server must be retried, not skipped.
     failed = tmp / "err.jsonl"
     failed.write_text(
-        '{"run_key":"m|E0|a|0|0.0","error":"connection refused"}\n'
-        '{"run_key":"m|E4|a|0|0.0","verdict":"benign"}\n'
-        '{"run_key":"m|E3|a|0|0.0","verdict":null,"json_valid":false}\n'
+        '{"run_key":"m|DIFF+I|a|0|0.0","error":"connection refused"}\n'
+        '{"run_key":"m|DIFF+I+MB|a|0|0.0","verdict":"benign"}\n'
+        '{"run_key":"m|DIFF+I+M|a|0|0.0","verdict":null,"json_valid":false}\n'
     )
     # The invalid-output row still counts as done: D18 scores it as benign.
-    assert done_keys(failed) == {"m|E4|a|0|0.0", "m|E3|a|0|0.0"}, done_keys(failed)
+    assert done_keys(failed) == {"m|DIFF+I+MB|a|0|0.0", "m|DIFF+I+M|a|0|0.0"}, done_keys(failed)
 
     # Stage 2 reuses seed 0 at a different temperature, so the keys must differ
     # or those 3,000 runs are silently skipped (§4).
-    assert run_key("m", "E0", "a", 0, 0.0) != run_key("m", "E0", "a", 0, 0.7)
+    assert run_key("m", "DIFF+I", "a", 0, 0.0) != run_key("m", "DIFF+I", "a", 0, 0.7)
 
     assert score(["x"], ["x"]) == 1.0
     assert score(["x"], ["y"]) == 0.0
@@ -306,9 +302,9 @@ def selfcheck():
     ]
     pair = {"id": "p1", "name": "z", "campaign": "c9", "delta": ["network"]}
 
-    assert retrieve("E0", pair, kb) == []
-    assert retrieve("E0-noint", pair, kb) == []
-    assert retrieve("E4", pair, []) == [], "an empty KB must not crash retrieval"
+    assert retrieve("DIFF+I", pair, kb) == []
+    assert retrieve("DIFF", pair, kb) == []
+    assert retrieve("DIFF+I+MB", pair, []) == [], "an empty KB must not crash retrieval"
 
     # A card from the same package or campaign would leak the answer (D13).
     same_campaign = dict(pair, campaign="c1")
@@ -319,32 +315,32 @@ def selfcheck():
     # Ties break on a hash, so the order of kb.jsonl cannot decide the winner (D34).
     assert [c["id"] for c in rank(pair, kb)] == [c["id"] for c in rank(pair, list(reversed(kb)))]
 
-    # E4-noint must receive exactly the same cards and order as E4.
-    assert {c["label"] for c in retrieve("E4", pair, kb)} == {"malicious", "benign"}
-    assert retrieve("E4", pair, kb) == retrieve("E4-noint", pair, kb)
+    # DIFF+MB must receive exactly the same cards and order as DIFF+I+MB.
+    assert {c["label"] for c in retrieve("DIFF+I+MB", pair, kb)} == {"malicious", "benign"}
+    assert retrieve("DIFF+I+MB", pair, kb) == retrieve("DIFF+MB", pair, kb)
 
-    # D42: the top malicious card sits at the same position in E3-k2 and E4, so
+    # D42: the top malicious card sits at the same position in DIFF+I+MM and DIFF+I+MB, so
     # the two differ only in their second card.
-    top = retrieve("E3", pair, kb)[0]["id"]
-    for config in ("E3-k2", "E4"):
+    top = retrieve("DIFF+I+M", pair, kb)[0]["id"]
+    for config in ("DIFF+I+MM", "DIFF+I+MB"):
         cards = retrieve(config, pair, kb)
         assert len(cards) == 2, config
         assert [c["id"] for c in cards].index(top) == \
-            [c["id"] for c in retrieve("E3-k2", pair, kb)].index(top), config
+            [c["id"] for c in retrieve("DIFF+I+MM", pair, kb)].index(top), config
 
     # Counterbalancing actually swaps: some pair id must put the malicious card
     # first and another must put it second.
     positions = set()
     for n in range(12):
-        cards = retrieve("E4", dict(pair, id=f"p{n}"), kb)
+        cards = retrieve("DIFF+I+MB", dict(pair, id=f"p{n}"), kb)
         positions.add(next(i for i, c in enumerate(cards) if c["label"] == "malicious"))
     assert positions == {0, 1}, positions
 
-    # With a single malicious card and no benign one, E3-k2 degrades to one card.
+    # With a single malicious card and no benign one, DIFF+I+MM degrades to one card.
     only_one = [kb[0]]
-    assert len(retrieve("E3-k2", pair, only_one)) == 1
+    assert len(retrieve("DIFF+I+MM", pair, only_one)) == 1
 
-    log = retrieval_log(pair, retrieve("E4", pair, kb))
+    log = retrieval_log(pair, retrieve("DIFF+I+MB", pair, kb))
     assert [entry["position"] for entry in log] == [1, 2], log
     assert all(entry["score"] == 1.0 for entry in log), log
 

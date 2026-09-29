@@ -30,7 +30,7 @@ Fakta yang boleh dikutip:
 
 **Hasil deteksi**
 
-- Semua model mendeteksi 46/46 update malicious dan 163/163 clone.
+- Semua model mendeteksi 46/46 update malicious dan seluruh clone. **Jangan kutip hitungan clone-nya** sampai selisih 171 versus 163 jelas (D57, D64).
 - False positive pada 2.000 typical updates: GPT-4o 8, GPT-4-Turbo 16, Gemini-2.0-Flash 75.
 - Rata-rata waktu query GPT-4o 9,91 detik.
 
@@ -53,15 +53,19 @@ lisensi yang di-obfuscate) dan cdk-assets (unggah ke S3 di test script).
 
 | Kutipan | Judul resmi dan venue | Fakta yang boleh dikutip | Dipakai untuk |
 |---|---|---|---|
-| Guo, Song, Guo, Xu, Liu, Ou, Ge, Liu (2026) | *Bridging Expert Reasoning and LLM Detection: A Knowledge-Driven Framework for Malicious Packages*. WWW '26. DOI 10.1145/3774904.3792083; arXiv 2601.16458. Nama sistemnya IntelGuard | KB berisi 4.420 konteks kode malicious dari 8.024 halaman laporan; **hanya contoh malicious**; menilai kesesuaian perilaku dengan fungsi paket (58% penalaran bertipe functional violation); GPT-4.1-mini; paket utuh, bukan update; npm 98,72% akurasi, 0,20% FPR | Posisi Gap 2 dan Gap 3; E3 = retrieval ala IntelGuard |
+| Guo, Song, Guo, Xu, Liu, Ou, Ge, Liu (2026) | *Bridging Expert Reasoning and LLM Detection: A Knowledge-Driven Framework for Malicious Packages*. WWW '26. DOI 10.1145/3774904.3792083; arXiv 2601.16458. Nama sistemnya IntelGuard | KB berisi 4.420 konteks kode malicious dari 8.024 halaman laporan; **hanya contoh malicious**; menilai kesesuaian perilaku dengan fungsi paket (58% penalaran bertipe functional violation); GPT-4.1-mini; paket utuh, bukan update; npm 98,72% akurasi, 0,20% FPR | Posisi Gap 2 dan Gap 3; DIFF+I+M = retrieval ala IntelGuard |
 | Guo, Chen, Xu, Liu, Kang, Song, Liu, Xu, Sun, Liu (2026) | *How Effective Are NPM Malicious Package Detectors? A Large-Scale Empirical Study*. arXiv 2603.27549 v2 (preprint). Judul v1: *Understanding NPM Malicious Package Detection: A Benchmark-Driven Empirical Analysis* | 6.420 malicious + 7.288 benign; 11 tool / 16 varian (v1: 8 tool / 13 varian); ambiguitas capability vs intent; sumber FP: husky, patch-package, prisma dengan install hook; benchmark di figshare DOI 10.6084/m9.figshare.31869370 | Bukti masalah; kandidat HN |
-| Sofaer, David, Kang, Yu, Cao, Yang, Nieh (2024) | *RogueOne: Detecting Rogue Updates via Differential Data-flow Analysis Using Trust Domains*. ICSE 2024. DOI 10.1145/3597503.3639199 | Dataset single-update: 300 benign + 41 rogue (29 dari Backstabber's Knife Collection + 12 lainnya); deteksi 31/41 (75,6%), FP 14/300 (4,7%); rata-rata 226,7 detik per update, timeout 1 jam; artefak di figshare | Pembanding non-LLM; sumber data MAL |
+| Sofaer, David, Kang, Yu, Cao, Yang, Nieh (2024) | *RogueOne: Detecting Rogue Updates via Differential Data-flow Analysis Using Trust Domains*. ICSE 2024. DOI 10.1145/3597503.3639199 | Dataset single-update: 300 benign + 41 rogue (29 dari Backstabber's Knife Collection + 12 lainnya); default deteksi 31/41 (75,6%) dan FP 14/300 (4,7%); **Paranoid deteksi 38/41 (92,7%) dan FP 120/300 (40,0%)**; multi-version 333 update dari 12 paket (7 rogue), deteksi 7/7 dan FP 17/326 (5,2%); **serangan tersamar CC-Harvest: default melewatkan 10 dari 10**; 5 update kena timeout 1 jam, sisanya rata-rata 226,7 detik (90% di bawah 4 detik, 95% di bawah 30 menit); error dan timeout dihitung benign; artefak di figshare | Pembanding non-LLM; sumber data MAL |
 | Zahan et al. (2025) | *Leveraging Large Language Models to Detect npm Malicious Packages*. ICSE 2025. DOI 10.1109/ICSE55347.2025.00146; arXiv 2403.12196 | SocketAI; 5.115 paket (2.180 malicious); GPT-4 precision 99% dan F1 97%; GPT-3 precision 91% dan F1 94% | Related work LLM + npm |
 | Nguyen, Ho, Pham, Dang-Thi, Vu, Nguyen, Tran-Truong, Vu (2025) | *Taint-Based Code Slicing for LLMs-based Malicious NPM Package Detection*. arXiv 2512.12313 (preprint; judul berubah antar versi, pakai versi terakhir) | DeepSeek-Coder 6.7B; lebih dari 7.000 paket; akurasi 87,04% pada 2.537 paket; paket utuh | Pesaing terdekat Gap 1 |
 | Ryan et al. (2026) | *An Evaluation of Large Language Models for Detection of Malicious Python Packages*. arXiv 2602.16304 (preprint) | 13 LLM; 4.070 paket PyPI; model melewatkan indikator yang membutuhkan konteks atau intent penulis | Opsional, dukungan Gap 3 (ekosistem PyPI) |
 | Du et al. (2024) | *Vul-RAG: Enhancing LLM-based Vulnerability Detection via Knowledge-level RAG*. arXiv 2406.11147 | RAG berbasis pengetahuan dari kerentanan dan perbaikannya | Analogi RAG pengetahuan; relevansi lemah |
 | Gorla, Tavecchia, Gross, Zeller (2014) | *Checking App Behavior Against App Descriptions*. ICSE 2014. DOI 10.1145/2568225.2568276 | CHABADA; lebih dari 22.500 app Android; menandai 56% malware baru tanpa pola malware | Akar konsep intent mismatch |
 | Gao, Das (2024) | *Customizing Language Model Responses with Contrastive In-Context Learning*. AAAI 2024. DOI 10.1609/aaai.v38i16.29760 | Contoh positif dan negatif dalam prompt membantu model memahami apa yang harus dihindari | Akar konsep contoh pembanding |
+
+Angka RogueOne di atas dibaca langsung dari PDF pada 2026-09-13; rinciannya,
+termasuk sumber positif palsu per jenis, ada di [.agent/rogueone.md](../.agent/rogueone.md).
+Ledger-nya tetap di sini, karena `docs/` yang menjadi sumber kebenaran (D64).
 
 ## Dataset
 
@@ -155,7 +159,8 @@ URL insiden:
 
 ## Belum diverifikasi
 
-- **Metode statistik standar** yang dikutip tanpa dicek ulang: McNemar (1947), Holm (1979), Wilson (1927), Cohen (1960), Efron & Tibshirani (1993). Detail bibliografinya perlu dicek sebelum dimasukkan ke `cas-refs.bib`.
+- **Metode statistik standar** yang dikutip tanpa dicek ulang: McNemar (1947), Holm (1979), Wilson (1927), Cohen (1960), Efron & Tibshirani (1993). Detail bibliografinya perlu dicek sebelum dimasukkan ke `cas-refs.bib`. Yang sudah terverifikasi dan sudah masuk bib pada 2026-09-25: Dietterich (1998), Liu et al. (2024) *Lost in the Middle*, dan Tam et al. (2024).
+- **Klaim SocketAI "presisi +16% dan F1 +9% dibanding CodeQL"** yang dipakai di naskah. Tidak ada di ledger ini dan tidak bisa diturunkan dari angka yang tercatat (GPT-4 99%/97%, GPT-3 91%/94%). Cek ke paper atau buang (D64).
 - **Nama fungsi `statsmodels`** di methodology §11.2, terhadap versi yang dikunci.
 - **Venue final Vul-RAG.**
 - **Selisih 171 versus 163 malicious clone** di `malicious_clones.txt` (D57).

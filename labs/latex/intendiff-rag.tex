@@ -106,15 +106,15 @@ positif palsu \citep{sofaer2024rogueone}. Pendekatan kedua memanfaatkan
 meninjau kode paket npm; dengan GPT-4, sistem ini mencapai presisi 99\% dan F1
 97\% \citep{zahan2025leveraging}. \citet{wyss2025evaluating} memusatkan analisis
 LLM pada pembaruan paket. Dengan \emph{smart-diff} yang mereduksi ukuran masukan
-sebesar 95,4\%, GPT-4o mendeteksi seluruh 46 pembaruan berbahaya historis dan
-163 klon berbahaya, dengan 8 positif palsu dari 2.000 pembaruan tipikal.
+sebesar 95,4\%, GPT-4o mendeteksi seluruh 46 pembaruan berbahaya historis
+beserta klon-klonnya, dengan 8 positif palsu dari 2.000 pembaruan tipikal.
 IntelGuard menambahkan \emph{retrieval-augmented generation} (RAG) dengan basis
 pengetahuan yang dibangun dari 8.024 halaman laporan intelijen ancaman, lalu
 menilai apakah semantik kode sesuai dengan fungsi yang dimaksudkan paket. Pada
 paket npm, sistem ini mencapai akurasi 98,72\% dengan 0,20\% positif palsu
 \citep{guo2026bridging}.
 
-Meskipun menjanjikan, hasil-hasil tersebut menyisakan tiga pertanyaan terbuka.
+Meskipun menjanjikan, hasil-hasil tersebut menyisakan tiga keterbatasan.
 \emph{Pertama}, keberhasilan deteksi berbasis LLM sejauh ini ditunjukkan dengan
 model tertutup: GPT-4o, GPT-4-Turbo, dan Gemini 2.0 Flash pada
 \citet{wyss2025evaluating}, serta GPT-4.1-mini pada IntelGuard
@@ -147,13 +147,12 @@ dinyatakan pengembangnya bukanlah hal baru. CHABADA mengelompokkan aplikasi
 Android berdasarkan deskripsinya, lalu menandai penggunaan API yang menyimpang
 dari kelompoknya. Tanpa memerlukan pola malware yang sudah diketahui,
 pendekatan ini menandai 56\% malware baru \citep{gorla2014checking}. IntelGuard
-menerapkan penalaran serupa secara implisit \citep{guo2026bridging}. Yang belum
-diketahui adalah seberapa besar profil intent yang eksplisit, yaitu deskripsi,
-README, dan \emph{scripts} dari versi sebelumnya, dapat menurunkan positif palsu
-pada pembaruan sah yang menambahkan perilaku sensitif, apabila efeknya diukur
-melalui ablasi yang terkontrol.
+menerapkan penalaran serupa secara implisit \citep{guo2026bridging}. Efek
+profil intent yang eksplisit --- deskripsi, README, dan \emph{scripts} dari
+versi sebelumnya --- terhadap positif palsu pada pembaruan sah yang
+menambahkan perilaku sensitif belum diukur melalui ablasi yang terkontrol.
 
-Penelitian ini menjawab ketiga pertanyaan tersebut melalui IntentDiff-RAG,
+Penelitian ini menempuh ketiga keterbatasan itu melalui IntentDiff-RAG,
 sebuah \emph{pipeline} analisis statis untuk menilai pembaruan paket npm dengan
 LLM \emph{open-weight} berukuran kecil. Untuk setiap pasangan versi,
 IntentDiff-RAG melakukan empat langkah:
@@ -169,26 +168,7 @@ dipisahkan menjadi tiga subset: pembaruan berbahaya, pembaruan tipikal, dan
 \emph{hard negative}, yaitu pembaruan sah yang menambahkan kemampuan sensitif
 dengan tujuan yang terdokumentasi. Setiap perbandingan konfirmatori hanya
 berbeda pada satu faktor, sehingga efek contoh pembanding dan efek profil intent
-dapat dipisahkan dari efek jumlah contoh. Penelitian ini dipandu oleh empat
-pertanyaan berikut.
-
-\begin{itemize}
-\item \textbf{RQ1.} Seberapa akurat LLM \emph{open-weight} berukuran 3--4
-miliar parameter mendeteksi pembaruan npm berbahaya dari \emph{smart-diff} tanpa
-contoh, diukur dari \emph{recall} serta tingkat positif palsu pada pembaruan
-tipikal dan \emph{hard negative}?
-\item \textbf{RQ2.} Apakah contoh berbahaya hasil \emph{retrieval} menaikkan
-tingkat positif palsu pada \emph{hard negative} dibandingkan tanpa contoh, dan,
-dengan jumlah contoh yang sama, apakah mengganti satu contoh berbahaya dengan
-satu contoh sah yang mirip menurunkan tingkat positif palsu tersebut tanpa
-menurunkan \emph{recall} lebih dari 5 poin persentase?
-\item \textbf{RQ3.} Apakah profil intent yang eksplisit menurunkan tingkat
-positif palsu pada \emph{hard negative} tanpa menurunkan \emph{recall} lebih
-dari 5 poin persentase?
-\item \textbf{RQ4.} Berapa tambahan token, latensi, dan kebutuhan memori GPU
-dari setiap komponen, yaitu profil intent, \emph{retrieval}, dan contoh kedua,
-pada kedua model?
-\end{itemize}
+dapat dipisahkan dari efek jumlah contoh.
 
 Kontribusi penelitian ini adalah sebagai berikut.
 
@@ -410,9 +390,546 @@ IntelGuard \citep{guo2026bridging} & Paket & RAG + LLM & Tertutup (GPT-4.1-mini)
 \end{tabular}
 \end{table*}
 
-\section{Method}\label{sec:method}
+\section{Metode}\label{sec:method}
 
-\section{Experimental setup}\label{sec:setup}
+Bagian ini merinci unit analisis, \emph{smart-diff}, profil intent, pengambilan
+contoh, dan format vonis. Tidak semua konfigurasi memakai semua komponen:
+tanpa contoh, masukan adalah \emph{smart-diff} saja atau \emph{smart-diff}
+plus intent; pada ablasi, contoh hasil retrieval ditambahkan ke
+\emph{prompt}.
+
+\subsection{Unit analisis}
+
+Unit analisis adalah satu pembaruan
+\texttt{pkg}@$\mathrm{v}_{t-1}\!\rightarrow$\texttt{pkg}@$\mathrm{v}_{t}$,
+disebut \emph{pair}. Versi
+sebelumnya, $\mathrm{v}_{t-1}$, adalah versi tertinggi menurut semver yang lebih
+kecil dari $\mathrm{v}_t$ dan terbit sebelum $\mathrm{v}_t$. Aturan waktu terbit
+saja tidak dipakai: paket dengan beberapa jalur rilis dapat menerbitkan versi
+berbeda jalur hampir bersamaan, seperti \texttt{axios@1.14.1} dan
+\texttt{axios@0.30.4} pada insiden yang sama \citep{datadog2026axios}.
+
+Pembatasan ini sama dengan RogueOne dan \citet{wyss2025evaluating}: yang dinilai
+adalah perubahan pada paket yang sebelumnya sah, bukan paket yang jahat sejak
+awal.
+
+\subsection{\emph{Smart-diff}}
+
+Masukan model adalah \emph{smart-diff} yang mengikuti spesifikasi
+\citet{wyss2025evaluating}. File JavaScript di kedua versi diseragamkan
+(minify lalu unminify) agar nama variabel dan komentar tidak menjadi sinyal
+palsu, kode berulang dihapus dengan Dolos, lalu kedua pohon berkas dibandingkan
+menjadi satu diff. Berkas \texttt{package.json} ikut masuk; README tidak.
+Pengurangan ukuran masukan pada spesifikasi asli mencapai 95,4\%.
+
+Dua pelengkap ditetapkan karena tidak dirinci di sumber itu. Pertama, baris
+lebih dari 2.000 karakter dipotong. Kedua, \emph{smart-diff} dipotong sekali per
+pair pada 28.000 token dengan tokenizer Qwen2.5-Coder-3B-Instruct, lalu hasil
+potongan yang sama dipakai oleh kedua model dan semua konfigurasi. Anggaran itu
+mengikuti panjang konteks 32.768 token (Tabel~\ref{tab:models}): rata-rata
+\emph{smart-diff} di Wyss et al.\ adalah 25.246 token, dan 1,47\% melebihi
+128.000 token, sehingga aturan pemotongan wajib ada. Memperpanjang konteks pun
+tidak menjamin isinya terpakai: kinerja menurun ketika informasi yang relevan
+berada di tengah konteks panjang \citep{liu2024lost}. File
+\texttt{package.json} dan berkas yang memuat sinyal kemampuan di $\mathrm{v}_t$
+diprioritaskan. Pair yang terpotong ditandai dan dianalisis sebagai subkelompok.
+
+\subsection{Profil intent}
+
+Profil intent diambil dari $\mathrm{v}_{t-1}$: \texttt{description},
+\texttt{keywords}, \texttt{scripts}, dan bagian awal README, dibatasi 1.024
+token. Isi $\mathrm{v}_t$ tidak dipakai. Ancaman yang disasar mengasumsikan
+penyerang dapat mengubah berkas apa pun pada pembaruan
+\citep{wyss2025evaluating}, termasuk README yang menyatakan tujuan palsu.
+
+Nama paket dan daftar kemampuan hasil extractor tidak ditampilkan. Prompt
+\citet{wyss2025evaluating} juga hanya berisi \emph{smart-diff}; menyembunyikan
+nama mengurangi kemungkinan model mengenali insiden dari hafalan, bukan dari
+kode. Nama yang muncul di dalam diff atau README dibiarkan, dan risikonya
+diukur dengan memisahkan insiden sebelum dan sesudah tanggal rilis model.
+
+\subsection{Basis pengetahuan dan retrieval}
+
+Setiap card membawa label, tujuan paket dalam satu kalimat, rantai perilaku,
+cuplikan kode (paling banyak 15 baris dari berkas mentah), dan alasan paling
+banyak dua kalimat. Nama paket, kampanye, sumber, dan delta kemampuan tidak
+ditampilkan. IntelGuard menghubungkan potongan kode dengan deskripsi perilaku
+dan penalaran ahli \citep{guo2026bridging}; field card mengikuti struktur itu.
+Perilaku ditulis sebagai rantai karena kemampuan yang muncul bersamaan,
+misalnya pengumpulan data lalu pengiriman keluar, memperkuat sinyal deteksi
+\citep{guo2026effective}. Alasan ditulis eksplisit karena mengganti label
+contoh secara acak hampir tidak menurunkan kinerja \emph{in-context learning}
+\citep{min2022rethinking}: card yang hanya membawa label tidak memadai.
+Card disusun dari isi paket, dalam bahasa Inggris, oleh anotator A dan dicek
+anotator B terhadap kode sumber; output model tidak dipakai sebagai sumber
+card. Satu card paling banyak 512 token.
+
+Pool berisi 50 card berbahaya dan 25 card sah. Card berbahaya diambil dari
+paket yang jahat sejak awal, yang berada di luar ancaman pembaruan
+\citep{sofaer2024rogueone} dan sah sebagai pengetahuan, bukan sebagai item uji.
+Kampanye yang juga muncul di MAL uji dilewati, paling banyak dua card per
+kampanye. Card sah adalah 25 pair HN yang disisihkan di Bagian~\ref{sec:data}.
+Card sah karena itu berasal dari proses konstruksi yang sama dengan pair HN uji,
+dan pengecualian retrieval hanya menyaring nama paket serta kampanye yang sama.
+Dua \emph{hard negative} dari paket berbeda dalam kategori yang sama tetap dapat
+berpasangan, sehingga kondisinya paling menguntungkan bagi konfigurasi
+kontrastif. Skor kemiripan setiap card yang terambil dicatat dan dilaporkan per
+konfigurasi agar keuntungan itu terlihat.
+
+Retrieval mengecualikan card dengan nama paket atau kampanye yang sama dengan
+pair. Skor adalah Jaccard antara delta pair dan delta card; jika keduanya
+kosong, skornya 0. Urutan dari skor tertinggi; seri dipecah dengan SHA-256
+dari \texttt{pair\_id|card\_id}. Embedding teks tidak dipakai: ``mirip'' di sini
+berarti kesamaan kemampuan, dan IntelGuard memakai
+\texttt{text-embedding-3-large}, model tertutup di luar cakupan
+\citep{guo2026bridging}. Contoh terdekat sebagai demonstrasi lebih baik
+daripada contoh acak \citep{liu2022makes}. Retrieval tidak membaca profil
+intent, sehingga dua konfigurasi yang hanya berbeda pada blok intent selalu
+mendapat card dan urutan yang sama.
+
+Pada konfigurasi dengan dua card, card berbahaya teratas diletakkan di posisi
+pertama jika \texttt{crc32} dari identitas pair genap, dan di posisi kedua jika
+ganjil. Slot sisanya diisi card kedua. Urutan dan frekuensi label memengaruhi
+prediksi \citep{zhao2021calibrate}; counterbalance ini menjaga agar
+perbandingan dua-card hanya berbeda pada card kedua, bukan pada posisi card
+pertama. Contoh berbahaya dan sah dalam satu \emph{prompt} mengikuti
+\citet{gao2024customizing}.
+
+\subsection{Vonis}
+
+Model berperan sebagai penganalisis program, mengikuti role-play
+\citet{wyss2025evaluating}. Perilaku peka keamanan tidak otomatis berbahaya:
+vonis didasarkan pada kemampuan yang ditambahkan, pemicu eksekusi, data beserta
+tujuannya, dan --- jika disediakan --- kesesuaian dengan profil intent serta
+contoh rujukan. Prompt
+tidak menyebut kategori \emph{hard negative}, agar tingkat positif palsu pada
+subset itu tidak menjadi terlalu optimis dibanding evaluasi Wyss et al.
+
+Keluaran adalah satu objek JSON berisi \texttt{evidence} (hingga tiga baris
+disalin dari \emph{smart-diff}), \texttt{reason}, dan \texttt{verdict}
+(\texttt{malicious} atau \texttt{benign}). Output yang gagal diurai, atau
+terpotong karena batas token, dihitung sebagai \texttt{benign} pada analisis
+utama, sama seperti RogueOne memperlakukan galat dan batas waktu
+\citep{sofaer2024rogueone}. Analisis sensitivitas menghitungnya sebagai
+\texttt{malicious}; keduanya dilaporkan.
+
+\section{Rancangan eksperimen}\label{sec:setup}
+
+Pengukuran dasar memakai konfigurasi tanpa contoh. Ablasi kemudian menambah
+atau menukar contoh hasil retrieval, dan memisahkan efek profil intent, pada
+pair, \emph{smart-diff}, dan system prompt yang sama. Yang dilaporkan adalah
+\emph{recall} pada pembaruan berbahaya, FPR pada pembaruan tipikal dan pada
+\emph{hard negative}, serta token, latensi, dan memori GPU. Prompt,
+implementasi \emph{smart-diff}, dan sampelnya berbeda dari
+\citet{wyss2025evaluating}, dan GPT-4o tidak dijalankan ulang, sehingga selisih
+terhadap angka mereka tidak dapat diuji. Angka penelitian lain dibahas di
+Bagian~\ref{sec:discussion} sebagai konteks, tanpa klaim lebih baik atau lebih
+buruk.
+
+\subsection{Posisi terhadap evaluasi terdahulu}
+
+Tabel~\ref{tab:eval-protocol} membandingkan rancangan, bukan hasil. Tugas yang
+diukur sama dengan \citet{wyss2025evaluating}: menilai pembaruan, bukan paket
+utuh, dari \emph{smart-diff}. Nguyen et al.\ memakai model \emph{open-weight},
+tetapi pada paket utuh dengan 6,7 miliar parameter dan masukan berupa potongan
+\emph{taint} \citep{nguyen2025taint}. IntelGuard menilai paket utuh dengan RAG
+contoh berbahaya dan model tertutup \citep{guo2026bridging}. RogueOne menilai
+pembaruan tanpa LLM \citep{sofaer2024rogueone}.
+
+Perbedaan rancangan ada tiga. Pertama, modelnya 3--4B dan dijalankan secara
+lokal. Kedua, pembaruan sah tidak diperlakukan sebagai satu kumpulan.
+PrimeVul menunjukkan bahwa benchmark yang didominasi kasus mudah
+melebih-lebihkan kinerja: model 7B yang mencapai F1 68,26\% pada BigVul hanya
+mencapai 3,09\% pada PrimeVul \citep{ding2025vulnerability}. Vul-RAG menemukan
+bahwa membedakan kode bermasalah dari kode yang mirip tetapi aman adalah tugas
+yang sulit bagi LLM \citep{du2026vulrag}. Karena itu FPR dilaporkan terpisah
+untuk pembaruan tipikal dan \emph{hard negative}. Ketiga, retrieval tidak
+hanya mengambil contoh berbahaya seperti IntelGuard
+\citep{guo2026bridging}: contoh sah pembanding dan profil intent diukur
+sebagai faktor terpisah.
+
+\begin{table*}[t]
+\caption{Rancangan evaluasi model 3--4B pada \emph{smart-diff}, dibanding
+evaluasi terdekat. Tabel ini membandingkan protokol, bukan angka hasil.
+Tanda ``--'' berarti tidak berlaku.}
+\label{tab:eval-protocol}
+\small
+\begin{tabular}{p{2.6cm} p{1.7cm} p{2.4cm} p{2.8cm} p{3.4cm} p{2.8cm}}
+\hline
+Evaluasi & Unit & Masukan & Model & Pembaruan atau paket sah & Metrik primer \\
+\hline
+RogueOne \citep{sofaer2024rogueone}
+  & Pembaruan
+  & Aliran data
+  & --
+  & 300 typical
+  & Deteksi, FPR \\
+\citet{wyss2025evaluating}
+  & Pembaruan
+  & \emph{Smart-diff}
+  & Tertutup
+  & 2.000 typical
+  & Sensitivitas, spesifisitas \\
+SocketAI \citep{zahan2025leveraging}
+  & Paket
+  & Kode paket
+  & Tertutup
+  & Paket sah campuran
+  & Presisi, F1 \\
+IntelGuard \citep{guo2026bridging}
+  & Paket
+  & Kode + RAG
+  & Tertutup
+  & Paket sah campuran
+  & Akurasi, FPR \\
+\citet{nguyen2025taint}
+  & Paket
+  & \emph{Taint slice}
+  & \emph{Open-weight} 6,7B
+  & Paket sah campuran
+  & Akurasi \\
+Penelitian ini
+  & Pembaruan
+  & \emph{Smart-diff} + RAG
+  & \emph{Open-weight} 3--4B
+  & 100 typical + 100 \emph{hard negative}
+  & Recall, FPR per subset \\
+\hline
+\end{tabular}
+\end{table*}
+
+\subsection{Data}\label{sec:data}
+
+Semua pengacakan memakai seed 2026. Urutan deterministik adalah urutan naik
+SHA-256 dari \texttt{nama@versi}. Target himpunan uji adalah sekitar 50 pair
+berbahaya (minimum 40), 100 typical, dan 100 \emph{hard negative}. Setiap
+kampanye diwakili maksimal tiga pair, agar satu insiden seperti Shai-Hulud
+tidak mendominasi \emph{recall}.
+
+\paragraph{Pembaruan berbahaya (MAL).}
+Kandidat diambil, menurut urutan ini, dari 46 pembaruan berbahaya
+\citet{wyss2025evaluating} yang berasal dari Backstabber's Knife Collection
+\citep{ohm2020backstabber}, dari entri dataset Datadog yang menandai paket
+terkompromi, dari laporan OSV \texttt{MAL-*} OpenSSF pada paket yang punya
+versi sah sebelumnya, dan dari artefak RogueOne \citep{sofaer2024rogueone}.
+Pair masuk jika $\mathrm{v}_t$ tercatat berbahaya, $\mathrm{v}_{t-1}$ ada dan
+tanpa advisory, kedua tarball tersedia, dan perubahan berbahaya berada di
+berkas teks. Jumlah kandidat yang gugur dilaporkan per kriteria, karena sumber
+kedua sampai keempat bergantung pada registry dan sebagian paket yang
+terkompromi sudah dicabut seluruhnya. Untuk pair dari \citet{wyss2025evaluating},
+kedua sisi diambil dari paket replikasi mereka, bukan dari registry, sehingga
+masukannya identik dan tidak bergantung pada paket yang masih terbit.
+Duplikat \texttt{nama@versi} digabung; dua di antara keempat sumber berbagi asal
+yang sama, yaitu Backstabber's Knife Collection, sehingga jumlah pair unik
+dilaporkan setelah penggabungan.
+
+Klon berbahaya pada evaluasi Wyss et al.\ tidak masuk himpunan uji: di
+evaluasi asli seluruh klon terdeteksi, sehingga memasukkannya akan menaikkan
+\emph{recall} tanpa menambah kasus yang sebanding dengan insiden asli. Empat
+klon dipakai hanya pada \emph{dev set}.
+
+Himpunan MAL didominasi insiden 2015--2019, yang semuanya terbit sebelum kedua
+model dirilis. Karena itu kampanye yang terbit setelah tanggal rilis model
+dikumpulkan lebih dulu, dengan target minimal 15 pair, sebelum sisa kuota diisi;
+batas tiga pair per kampanye tetap berlaku. Tanpa itu, besar subset pasca-rilis
+yang dipakai untuk menilai risiko kontaminasi ditentukan oleh undian.
+
+\paragraph{Pembaruan tipikal (TYP).}
+Seratus pembaruan diambil acak dari 2.000 typical updates Wyss et al.: 50 dari
+1.000 paket yang paling banyak dijadikan dependensi, dan 50 dari 1.000 paket
+acak, pada snapshot npm 15 April 2024. Pembagian 50/50 mempertahankan campuran
+paket populer dan paket biasa seperti di sumbernya. TYP diasumsikan sah,
+mengikuti asumsi yang sama; pembaruan yang ternyata punya advisory diganti
+dengan hasil undian berikutnya.
+
+\paragraph{\emph{Hard negative} (HN).}
+Subset ini adalah pembaruan sah yang menambahkan kemampuan sensitif dengan
+tujuan yang terdokumentasi. Konstruksinya mengikuti tiga temuan yang sudah ada,
+bukan kategori baru. Tabel~VI pada \citet{wyss2025evaluating} membagi positif palsu menjadi
+operasi sensitif, penghapusan besar (termasuk penanda \emph{deprecation}), dan
+perubahan dependensi; pada analisis langsung, contohnya meliputi validasi
+lisensi yang di-obfuscate dan unggahan ke S3 di skrip uji.
+\citet{guo2026effective} menunjuk \texttt{husky}, \texttt{patch-package}, dan
+\texttt{prisma} sebagai sumber positif palsu karena \emph{install hook}.
+RogueOne mencatat dependensi baru, skrip instalasi, dan API sistem baru sebagai
+sumber alarm palsu \citep{sofaer2024rogueone}.
+
+Lima kategori di Tabel~\ref{tab:hn} menyaring kandidat dari sisa typical
+updates Wyss et al.\ dan dari pencarian registry npm. Kandidat diterima jika
+tidak ada advisory, delta kemampuan tidak kosong, tujuan perilakunya
+terdokumentasi, dan penerbitnya sama dengan versi sebelumnya. Kategori
+ditentukan oleh tujuan yang terdokumentasi, bukan oleh sinyal penyaring.
+Kuota uji adalah 20 pair per kategori (minimum 15). Dua puluh lima pair
+lainnya, lima per kategori, disisihkan sebagai contoh sah di basis pengetahuan
+untuk eksperimen retrieval dan tidak masuk skor FPR.
+
+Karena kategori ditetapkan setelah verifikasi, kuota per kategori tidak dapat
+dijamin oleh konstruksinya. Kalau sebuah kategori tidak terpenuhi, total 100
+pair uji dijaga dengan mengisi dari kategori yang surplus, dan komposisi akhir
+dilaporkan apa adanya; perbandingan antar kategori karena itu dibaca dengan
+jumlah pair yang tidak sama. Aturan ini ditetapkan sebelum pengumpulan.
+
+\begin{table}[t]
+\caption{Kategori \emph{hard negative}. Sinyal hanya menyaring kandidat;
+kategori mengikuti tujuan yang terdokumentasi.}
+\label{tab:hn}
+\small
+\begin{tabular}{p{2.2cm} p{2.0cm} p{3.4cm}}
+\hline
+Kategori & Sinyal & Dasar di evaluasi terdahulu \\
+\hline
+Eksekusi proses dan perkakas
+  & \texttt{install\_script}, \texttt{process\_exec}
+  & \emph{Install hook} sah \citep{guo2026effective}; skrip instalasi pada RogueOne \\
+Telemetri
+  & \texttt{network}
+  & Operasi sensitif, Tabel~VI Wyss et al. \\
+Perizinan
+  & \texttt{obfuscation}, \texttt{dynamic\_code}
+  & Validasi lisensi ter-obfuscate pada analisis langsung Wyss et al. \\
+Jaringan dan unduhan
+  & \texttt{network}, \texttt{process\_exec}
+  & Operasi sensitif; API sistem baru pada RogueOne \\
+Depresiasi dan perubahan struktur
+  & \texttt{large\_deletion}, \texttt{dependency\_change}
+  & Penghapusan besar dan perubahan dependensi, Tabel~VI Wyss et al. \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{Kampanye dan pelabelan.}
+Dua pair masuk satu kampanye jika merujuk insiden yang sama, memuat berkas
+tambahan yang identik, atau kode JavaScript tambahannya mirip menurut Dolos
+(parameter Wyss: $k{=}70$, jendela 17) pada ambang 0,5. Ambang condong ke
+penggabungan: memisahkan item yang sebenarnya satu kampanye lebih merusak
+validitas daripada menggabungkan dua kampanye yang berbeda. Dua anotator
+melabeli MAL dan HN secara independen sebelum model dijalankan pada himpunan
+uji. TYP tidak dilabeli ganda. Cohen's~$\kappa$ dilaporkan; ketidaksepakatan
+yang tidak terselesaikan dikeluarkan dan dihitung.
+
+\paragraph{\emph{Dev set}.}
+Sepuluh pair (empat klon berbahaya Wyss et al., tiga TYP sisa, tiga HN dari
+bagian yang disisihkan untuk basis pengetahuan) dipakai untuk memeriksa
+parsing, pemotongan diff, dan pengecualian retrieval. Dev set tidak dipakai
+untuk menyetel aturan keputusan berdasarkan akurasi.
+
+\subsection{Model dan inferensi}\label{sec:models}
+
+Dua model di Tabel~\ref{tab:models} mewakili satu model instruksi umum dan
+satu model khusus kode pada rentang 3--4B. Keduanya
+satu keluarga dengan ukuran kosakata yang sama, sehingga jumlah token
+sebanding; generalisasi ke keluarga lain terbatas. Qwen2.5-Coder-3B-Instruct
+memakai lisensi \texttt{qwen-research}, bukan Apache-2.0.
+
+\begin{table}[t]
+\caption{Model yang diuji. Konteks Qwen3-4B dibatasi ke 32.768 token agar
+kedua model menerima masukan identik.}
+\label{tab:models}
+\small
+\begin{tabular}{p{2.4cm} p{2.6cm} p{2.6cm}}
+\hline
+  & Qwen3-4B-Instruct-2507 & Qwen2.5-Coder-3B-Instruct \\
+\hline
+Parameter & 4,0B & 3,09B \\
+Lisensi & Apache-2.0 & \texttt{qwen-research} \\
+Konteks native & 262.144 & 32.768 \\
+Konteks yang dipakai & 32.768 & 32.768 \\
+\hline
+\end{tabular}
+\end{table}
+
+Inferensi memakai vLLM, \texttt{bfloat16}, tanpa kuantisasi, permintaan
+sekuensial, dan \emph{temperature} 0. Tiga permintaan pemanasan dari dev set
+dibuang. Qwen3-4B secara native mendukung 262.144 token, tetapi dibatasi ke
+angka Qwen2.5-Coder-3B supaya keunggulan konteks panjang tidak menjadi faktor
+pembeda.
+
+\subsection{Konfigurasi}\label{sec:configs}
+
+Enam konfigurasi di Tabel~\ref{tab:configs} memakai system prompt,
+\emph{smart-diff} hasil potongan, dan parameter generasi yang identik.
+Penamaannya menyatakan komposisi faktor: DIFF untuk \emph{smart-diff}, I untuk
+blok intent, M untuk card berbahaya, dan B untuk card sah. DIFF hanya berisi
+\emph{smart-diff} dan perubahan versi: ini kondisi terdekat dengan prompt
+\citet{wyss2025evaluating}. DIFF+I menambahkan profil intent dari
+$\mathrm{v}_{t-1}$. DIFF+I+M mengambil satu card berbahaya teratas, mengikuti
+retrieval IntelGuard yang hanya menyertakan contoh berbahaya
+\citep{guo2026bridging}. DIFF+I+MM mengambil dua card berbahaya teratas.
+DIFF+I+MB mengambil satu card berbahaya teratas dan satu card sah teratas.
+DIFF+MB identik dengan DIFF+I+MB kecuali blok intent dikosongkan.
+
+Pool card berbahaya lebih besar daripada pool card sah (50 versus 25). Itu tidak
+memengaruhi konfigurasi mana pun, karena tiap konfigurasi meminta card menurut
+label. Sebagai properti retrieval, proporsi pair yang akan menerima card
+berbahaya seandainya basis pengetahuan diperlakukan sebagai satu kolam campuran
+dihitung langsung dari delta, tanpa memanggil model.
+
+\begin{table}[t]
+\caption{Konfigurasi. System prompt, \emph{smart-diff} hasil potongan, dan
+parameter generasi identik di semua baris.}
+\label{tab:configs}
+\small
+\begin{tabular}{lll}
+\hline
+ID & Card & Intent \\
+\hline
+DIFF & -- & tidak \\
+DIFF+I & -- & ya \\
+DIFF+I+M & 1 berbahaya teratas & ya \\
+DIFF+I+MM & 2 berbahaya teratas & ya \\
+DIFF+I+MB & 1 berbahaya + 1 sah & ya \\
+DIFF+MB & sama dengan DIFF+I+MB & tidak \\
+\hline
+\end{tabular}
+\end{table}
+
+Tiga perbandingan konfirmatori masing-masing hanya berbeda satu faktor, pada
+pair dan model yang sama:
+
+\begin{itemize}
+\item DIFF+I vs DIFF+I+M: ada tidaknya satu card berbahaya.
+\item DIFF+I+MM vs DIFF+I+MB: card kedua, berbahaya terbaik kedua versus sah
+terbaik; card pertama dan posisinya sama. Tanpa DIFF+I+MM, penurunan FPR pada
+DIFF+I+MB tidak dapat dipisahkan dari efek jumlah contoh.
+\item DIFF+I+MB vs DIFF+MB: ada tidaknya blok intent; card dan urutannya
+identik karena retrieval tidak membaca intent.
+\end{itemize}
+
+Selisih DIFF vs DIFF+I, yaitu efek intent tanpa retrieval, dilaporkan
+deskriptif dan tidak diuji.
+
+\subsection{Metrik}\label{sec:metrics}
+
+Metrik primer dihitung per subset, bukan pada gabungan himpunan uji.
+
+\begin{itemize}
+\item \emph{Recall}: proporsi pair MAL yang diberi vonis \texttt{malicious}.
+\item FPR$_{\mathrm{TYP}}$: proporsi pair TYP yang diberi vonis \texttt{malicious}.
+\item FPR$_{\mathrm{HN}}$: proporsi pair HN yang diberi vonis \texttt{malicious}.
+\item Validitas JSON: proporsi keluaran yang dapat diurai dan memuat ketiga
+kunci yang diminta.
+\end{itemize}
+
+Validitas JSON ikut diukur, dan karena itu format keluaran tidak dipaksakan
+lewat \emph{constrained decoding}. Pembatasan format yang ketat menurunkan
+kemampuan penalaran model \citep{tam2024speak}, dan dengan pemaksaan format
+angka validitasnya akan selalu 100\% sehingga tidak lagi menjadi pengukuran.
+
+Setiap proporsi dilaporkan dengan interval kepercayaan skor Wilson 95\%, per
+model dan per konfigurasi. \citet{wyss2025evaluating} memakai sensitivitas dan
+spesifisitas karena himpunan berbahaya dan sah terpisah serta tidak seimbang,
+sehingga presisi menjadi tidak proporsional. Alasan yang sama dipakai di sini.
+Presisi dan F1 dihitung pada gabungan uji (rasio kelas 50:200 disebutkan) dan
+bersifat sekunder.
+
+FPR tidak digabung antara TYP dan HN. TYP mendekati campuran Wyss et al.\ dan
+menjadi titik banding operasional --- npm menerima sekitar 15 pembaruan per
+menit, sehingga setiap 1\% FPR berarti sekitar 216 alarm palsu per hari.
+HN mengukur ambiguitas kemampuan versus niat yang diidentifikasi
+\citet{guo2026effective}, yaitu kasus yang membuat FPR pada typical updates
+terlihat rendah.
+
+\emph{Recall} pada pair MAL dengan delta kemampuan kosong dilaporkan terpisah.
+Pada pola itu payload memakai API yang sudah ada di $\mathrm{v}_{t-1}$;
+konfigurasi bawaan RogueOne melewatkan seluruh 10 kasus serangan tersamar
+semacam ini \citep{sofaer2024rogueone}. Pada pair seperti itu retrieval juga
+kehilangan sinyalnya: semua card berskor nol, sehingga card yang terpilih
+ditentukan pemecah skor seri, bukan kemiripan perilaku. Jumlah pair tersebut
+dilaporkan, begitu pula subkelompok \texttt{truncated}.
+
+Tidak ada ambang ``cukup'' yang disepakati untuk model 3--4B. Yang dilaporkan
+pada konfigurasi tanpa contoh adalah estimasi titik beserta intervalnya, per
+model.
+
+Dengan sekitar 50 pair MAL, lebar interval Wilson pada \emph{recall} 0,9
+sekitar $\pm$8,5 poin; pada 100 pair HN dan FPR 0,2, lebarnya sekitar
+$\pm$7,8 poin. Batas ini adalah properti desain, bukan kekurangan yang ditutup
+dengan menambah sampel setelah melihat hasil.
+
+\paragraph{Ablasi.}
+Endpoint yang diuji pada tiga selisih berpasangan adalah FPR$_{\mathrm{HN}}$,
+bukan F1. F1 bergantung pada rasio kelas di himpunan data; mekanisme yang
+diukur --- contoh sah atau profil intent mengurangi kecenderungan menuduh ---
+bekerja pada pembaruan sah yang perilakunya mirip berbahaya.
+
+Uji memakai McNemar exact dua sisi pada subset HN, dengan luaran per pair:
+diberi vonis \texttt{malicious} atau tidak. Untuk algoritma yang hanya dapat
+dijalankan sekali pada himpunan uji tetap, McNemar adalah satu-satunya uji yang
+\emph{type I error}-nya masih dapat diterima \citep{dietterich1998approximate},
+dan rancangan ini persis demikian: setiap konfigurasi dijalankan sekali pada
+pair yang sama. Ada enam uji (tiga selisih
+$\times$ dua model), dikoreksi Holm dengan $\alpha$ keluarga 0,05. Jika tidak
+ada pair yang vonisnya berbeda, $p{=}1$.
+
+\emph{Recall} dipakai sebagai batas, bukan sebagai endpoint kedua yang diuji.
+Selisih recall dihitung berpasangan. Interval 95\% berasal dari bootstrap
+persentil 10.000 resample per kampanye, seed 2026, karena pair dalam satu
+kampanye saling berkorelasi. Penurunan estimasi titik tidak boleh melebihi
+5~poin. Dengan sekitar 50 pair MAL, batas ``tidak turun lebih dari 5~poin''
+tidak dapat dibuktikan dari interval saja; yang dilaporkan adalah estimasi
+titik ditambah CI.
+
+Label hasil untuk DIFF+I+MM vs DIFF+I+MB dan untuk DIFF+I+MB vs DIFF+MB:
+
+\begin{itemize}
+\item \emph{Didukung}: FPR$_{\mathrm{HN}}$ turun, $p_{\mathrm{Holm}}{<}0{,}05$,
+estimasi titik penurunan recall $\le$ 5~poin, dan batas bawah CI selisih
+recall $\ge{-}5$~poin.
+\item \emph{Didukung sebagian}: syarat yang sama kecuali batas bawah CI
+$<{-}5$~poin (recall aman belum terbukti).
+\item \emph{Arah sesuai, tidak signifikan}: FPR$_{\mathrm{HN}}$ turun,
+$p_{\mathrm{Holm}}{\ge}0{,}05$, dan estimasi titik penurunan recall $\le$ 5~poin.
+\item \emph{Tidak didukung}: FPR$_{\mathrm{HN}}$ tidak turun, atau estimasi
+titik penurunan recall $>$ 5~poin.
+\end{itemize}
+
+Untuk DIFF+I vs DIFF+I+M tidak ada syarat recall. Labelnya \emph{Didukung}
+jika FPR$_{\mathrm{HN}}$(DIFF+I+M) $>$ FPR$_{\mathrm{HN}}$(DIFF+I) dengan
+$p_{\mathrm{Holm}}{<}0{,}05$; \emph{Arah sesuai, tidak signifikan}; atau
+\emph{Tidak didukung}. Klaim yang berlaku pada kedua model hanya ditulis jika
+keduanya berlabel Didukung atau Didukung sebagian. ``Tidak signifikan'' bukan
+bukti bahwa tidak ada efek.
+
+\paragraph{Biaya.}
+Token adalah \texttt{prompt\_tokens} dan \texttt{completion\_tokens} dari
+field \texttt{usage} vLLM. Latensi adalah waktu wall-clock di sisi klien,
+dari permintaan dikirim sampai respons lengkap diterima, tanpa streaming;
+dilaporkan sebagai median dan persentil ke-95 (nearest-rank). Permintaan
+sekuensial agar angka itu tidak terdistorsi oleh tumpang-tindih di peladen.
+\citet{wyss2025evaluating} melaporkan rata-rata 9,91 detik per kueri untuk
+GPT-4o.
+
+Memori GPU adalah jumlah memori bobot yang dilaporkan log vLLM saat model
+dimuat dan KV cache terhitung untuk pasangan prompt+output terpanjang yang
+benar-benar terjadi. Puncak \texttt{nvidia-smi} tidak dipakai: vLLM
+mengalokasikan sebagian besar VRAM saat start sesuai
+\texttt{--gpu-memory-utilization}. Model GPU, total VRAM, dan dtype
+dilaporkan.
+
+Tambahan per komponen dihitung sebagai selisih: DIFF $\rightarrow$ DIFF+I
+untuk intent; DIFF+I $\rightarrow$ DIFF+I+M untuk satu card; DIFF+I+M
+$\rightarrow$ DIFF+I+MM atau DIFF+I+MB untuk card kedua. Pareto dihitung pada
+(FPR$_{\mathrm{HN}}$, recall, median latensi).
+
+\subsection{Prosedur dan apa yang tidak dibandingkan}
+
+Urutan kerja: pelabelan selesai sebelum inferensi pada himpunan uji; dev set
+dijalankan lebih dulu untuk validitas JSON; kemudian keenam konfigurasi di
+kedua model, \emph{temperature} 0, permintaan sekuensial. Sampel berbahaya
+hanya dianalisis secara statis.
+
+FPR per kategori HN, persentase pair yang vonisnya berubah pada tiga seed
+(\emph{temperature} 0,7; DIFF+I dan DIFF+I+MB), pemisahan insiden sebelum versus sesudah
+tanggal rilis model, taksonomi kesalahan, dan kesesuaian \texttt{evidence}
+dengan baris gold dilaporkan sebagai deskripsi dan tidak diuji.
+
+Tiga perbandingan sengaja tidak dilakukan. RogueOne tidak dijalankan ulang:
+rata-rata 226,7 detik per pembaruan dengan batas waktu satu jam, dan
+membandingkan angka dari dataset berbeda tidak sah
+\citep{sofaer2024rogueone}. GPT-4o dan GPT-4.1-mini tidak dijalankan: ruang
+lingkup dibatasi model \emph{open-weight} lokal. Kalau data Wyss et al.\ di OSF
+memungkinkan subset yang sama, angka kami boleh disajikan berdampingan dengan
+angka mereka, tetap tanpa uji.
 
 \section{Results}\label{sec:results}
 

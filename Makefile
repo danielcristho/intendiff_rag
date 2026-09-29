@@ -11,7 +11,13 @@ help:
 		| awk 'BEGIN{FS=":.*?## "}{printf "  \033[36m%-9s\033[0m %s\n", $$1, $$2}'
 
 venv: ## create .venv with the Python analysis dependencies
-	python3 -m venv .venv && .venv/bin/pip install statsmodels matplotlib
+	# uv first: a Debian python without the python3-venv package has no ensurepip,
+	# and there `python3 -m venv` cannot bootstrap pip at all.
+	@if command -v uv >/dev/null; then \
+		uv venv .venv && uv pip install --python .venv/bin/python statsmodels matplotlib; \
+	else \
+		python3 -m venv .venv && .venv/bin/pip install statsmodels matplotlib; \
+	fi
 
 install: ## install frontend dependencies
 	pnpm -C frontend install
@@ -25,12 +31,24 @@ ui: ## run the audit UI
 test: ## run every suite
 	cargo test --manifest-path backend/Cargo.toml
 	pnpm -C frontend test
+	$(PY) pipeline/configs.py --selfcheck
 	$(PY) pipeline/runner.py --selfcheck
+	$(PY) pipeline/test_runner_inputs.py
 	$(PY) pipeline/capability.py --selfcheck
 	$(PY) pipeline/prompts.py
 	$(PY) pipeline/collect.py --selfcheck
+	$(PY) pipeline/samples.py --selfcheck
+	$(PY) pipeline/archives.py --selfcheck
+	$(PY) pipeline/wyss.py --selfcheck
+	$(PY) pipeline/registry_fetch.py --selfcheck
+	$(PY) pipeline/advisories.py --selfcheck
+	$(PY) pipeline/typical.py --selfcheck
+	$(PY) pipeline/kb.py --selfcheck
+	$(PY) pipeline/hardnegative.py --selfcheck
 	$(PY) pipeline/smartdiff.py --selfcheck
+	$(PY) pipeline/normalization.py --selfcheck
 	$(PY) pipeline/intent.py --selfcheck
+	$(PY) pipeline/dataset.py --selfcheck
 	$(PY) pipeline/campaign.py --selfcheck
 	$(PY) pipeline/analysis.py --selfcheck
 	$(PY) pipeline/plots.py --selfcheck

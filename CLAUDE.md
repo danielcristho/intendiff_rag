@@ -117,9 +117,10 @@ pnpm build         # tsc --noEmit && vite build
 
 `pipeline/` — experiment runner. Batch, not a service: read pairs, run each
 configuration against vLLM's OpenAI-compatible endpoint (D46), append one line
-per run. The code still follows the superseded E0–E4 scheme; the revised
-configurations and the migration checklist are in `docs/methodology.md` and
-`docs/experiments.md` §4.
+per run. Configuration ids name their factors — `DIFF`, `DIFF+I`, `DIFF+I+M`,
+`DIFF+I+MM`, `DIFF+I+MB`, `DIFF+MB` (D62) — and live in one table in
+`pipeline/configs.py`; the superseded `E0`–`E4` ids are rejected. What is still
+missing is listed in `docs/experiments.md` §4.
 
 ```
 python pipeline/runner.py --model Qwen/Qwen3-4B-Instruct-2507

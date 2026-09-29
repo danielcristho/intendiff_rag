@@ -1,0 +1,21 @@
+{
+  "python": "3.12.9",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "libraries": {
+    "vllm": "0.30.0",
+    "torch": "2.13.0",
+    "transformers": "5.17.0",
+    "tokenizers": "0.23.2",
+    "numpy": "2.3.5",
+    "statsmodels": "0.15.0"
+  },
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "gpu_total_mib": 32607,
+  "driver": "616.56",
+  "gpu_used_before_start_mib": 2552,
+  "inference_environment": {
+    "VLLM_USE_FLASHINFER_SAMPLER": "0",
+    "HF_HUB_OFFLINE": "1",
+    "TOKENIZERS_PARALLELISM": "false"
+  }
+}

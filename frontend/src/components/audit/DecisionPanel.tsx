@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { GoldEvidence } from "@/components/audit/GoldEvidence";
 import { CATEGORY_IDS, ERRORS, HN_CATEGORIES, VERDICTS } from "@/lib/audit";
 import type { Decision, ErrorClass, Pair, Verdict } from "@/types/api";
 
@@ -67,6 +68,8 @@ export function DecisionPanel({
           </div>
         </>
       )}
+
+      {pair.subset === "MAL" && <GoldEvidence key={pair.id} pair={pair} entry={entry} onRecord={onRecord} />}
 
       <textarea
         // Remounting per pair keeps the uncontrolled value from leaking across pairs.
