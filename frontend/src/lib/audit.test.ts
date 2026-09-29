@@ -85,7 +85,7 @@ describe("summarize", () => {
 
 describe("validAnnotator", () => {
   it("rejects annotator names that escape the data directory", () => {
-    // Must match valid_annotator in backend/src/store.rs exactly.
+    // Must match valid_annotator in backend/src/shared/files.rs exactly.
     for (const bad of ["", "../etc", "a/b", "a.b", "a b", "..", "x".repeat(33)]) {
       expect(validAnnotator(bad), bad).toBe(false);
     }

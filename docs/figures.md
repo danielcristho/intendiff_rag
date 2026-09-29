@@ -1,13 +1,13 @@
 # Cara membaca figur dan tabel hasil
 
-Dihasilkan oleh `pipeline/plots.py` (PDF + PNG) dan `pipeline/tables.py` (workbook),
-keduanya membaca angka yang sama dari `pipeline/analysis.py`. Kalau figur dan sheet
+Dihasilkan oleh `python -m pipeline plots` (PDF + PNG) dan `python -m pipeline tables` (workbook),
+keduanya membaca angka yang sama dari `pipeline/results/report.py`. Kalau figur dan sheet
 berbeda, salah satunya tidak di-regenerate — jalankan ulang keduanya.
 
 ```
 make venv
-.venv/bin/python pipeline/plots.py  --results data/results.jsonl --pairs data/pairs.jsonl
-.venv/bin/python pipeline/tables.py --results data/results.jsonl --pairs data/pairs.jsonl
+.venv/bin/python -m pipeline plots
+.venv/bin/python -m pipeline tables
 ```
 
 ## Aturan yang berlaku untuk semua figur
@@ -23,7 +23,7 @@ make venv
 - **Batang setinggi nol tetap digambar sebagai garis di y = 0.** Panel yang tampak
   kosong berarti 0%, bukan data hilang. Whisker-nya diwarnai mengikuti modelnya,
   jadi batang nol tetap bisa dikenali miliknya siapa.
-- Nilai *p* tidak pernah ada di gambar. Semuanya di sheet **hypotheses**, kolom
+- Nilai *p* tidak pernah ada di gambar. Semuanya di sheet **comparisons**, kolom
   `p (Holm)`.
 
 ## Figure 1 — `fig_rates`
@@ -46,7 +46,7 @@ Yang dicari: apakah ada konfigurasi yang menurunkan panel (b) tanpa menurunkan
 panel (a). Kalau pola panel (a) dan (b) bergerak bersama, konfigurasinya hanya
 menggeser ambang kecurigaan, bukan memperbaiki diskriminasi.
 
-## Figure 2 — `fig_hypotheses`
+## Figure 2 — `fig_comparisons`
 
 Figur keputusan. Satu kolom per model.
 
@@ -73,7 +73,7 @@ membuat model lebih sering menuduh. Itu premis yang dibantah H2b dan H3.
 Sebuah hipotesis didukung kalau **ketiganya** terpenuhi:
 
 1. arah sesuai tabel di atas;
-2. `p (Holm)` < 0,05 di sheet **hypotheses**;
+2. `p (Holm)` < 0,05 di sheet **comparisons**;
 3. batas bawah interval recall tidak menembus garis guard — untuk H2b dan H3 saja.
 
 Putusan akhirnya sudah dihitung dan ada di kolom `Verdict`.
@@ -102,7 +102,7 @@ sama berbagi satu label, dipisah koma.
 | Sheet | Isi |
 |---|---|
 | `rates` | satu baris per model × konfigurasi: tiga metrik dengan CI, n tiap subset, validitas JSON, latency median dan p95, rerata token |
-| `hypotheses` | enam uji konfirmatori dengan p mentah, p Holm, pasangan diskordan, Δrecall dan CI, serta putusan |
+| `comparisons` | enam uji konfirmatori dengan p mentah, p Holm, pasangan diskordan, Δrecall dan CI, serta putusan |
 | `figures` | tiga blok bercaption berisi PNG yang sama |
 
 `n MAL`, `n HN`, dan `n TYP` adalah **jumlah run**, bukan jumlah pair. Baca keduanya

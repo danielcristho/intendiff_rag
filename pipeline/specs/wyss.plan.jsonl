@@ -1,0 +1,4 @@
+{"archive": "data/wyss/replication.zip", "target": "data/wyss/package", "sha256": "8aea1255236fb4753f903a9af165c27f7c2c5723ddcb5610a0cfbdaa82f2150a", "max_bytes": 1073741824}
+{"archive": "data/wyss/package/replication_package_evaluating_llm_mal_update_detection/data/malicious_updates.zip", "target": "data/wyss/samples/outer", "max_bytes": 1073741824}
+{"archive": "data/wyss/samples/outer/m_samples.zip", "target": "data/wyss/samples/m", "max_bytes": 1073741824}
+{"archive": "data/wyss/package/replication_package_evaluating_llm_mal_update_detection/data/malicious_clones.zip", "target": "data/wyss/samples/j", "max_bytes": 1073741824}
