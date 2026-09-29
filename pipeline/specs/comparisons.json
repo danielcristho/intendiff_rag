@@ -1,0 +1,16 @@
+{
+  "alpha": 0.05,
+  "recall_guard_pt": -5.0,
+  "comparisons": [
+    {"name": "H2a", "baseline": "E0", "variant": "E3", "direction": "up", "recall_guard": false},
+    {"name": "H2b", "baseline": "E3-k2", "variant": "E4", "direction": "down", "recall_guard": true},
+    {"name": "H3", "baseline": "E4-noint", "variant": "E4", "direction": "down", "recall_guard": true}
+  ],
+  "outcomes": {
+    "not_moved": "Not supported",
+    "recall_drop": "Not supported",
+    "not_significant": "Direction consistent, not significant",
+    "confirmed": "Supported",
+    "confirmed_point_only": "Partially supported"
+  }
+}

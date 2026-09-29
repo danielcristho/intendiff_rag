@@ -65,7 +65,7 @@ five files.
 **DRY** applies to duplicated *knowledge*, not duplicated characters. Two
 functions that look alike but change for different reasons stay apart. One rule
 is duplicated on purpose, because it spans a language boundary:
-`valid_annotator` in `backend/src/store.rs` and `validAnnotator` in
+`valid_annotator` in `backend/src/shared/files.rs` and `validAnnotator` in
 `frontend/src/lib/annotator.ts` encode `[A-Za-z0-9_-]{1,32}` and guard a
 filename. **Change one, change the other**, and keep the test in each.
 
@@ -100,12 +100,13 @@ fraction of the **total** card, so `VLLM_GPU_UTIL` must be sized against what is
 actually free or it will starve `production-service`.
 
 **Ports on the GPU host are crowded.** 8000 belongs to production-service, plus
-8080, 8081, 5433, 9400 and 18888. Hence backend on 8100 and vLLM on 8101,
-published via `BIND_ADDR`. Run `docker ps` before changing ports in `.env`.
+8080, 8081, 5433, 9400 and 18888. Hence backend on 8100 and vLLM on 8101.
+In Docker the backend is published on loopback and reached through nginx.
+Run `docker ps` before changing ports in `.env`.
 
 ## Components
 
-`frontend/` — research tooling: label audit (M1-2), KB card writing (D63), and error analysis (M7-8).
+`frontend/` — research tooling: label audit (M1-2), KB card writing (D63), HN verification (D70), and error analysis (M7-8).
 Vite + React + TS + Tailwind. Structure follows `.ref/spider/frontend`; the
 design language (colour tokens, flat components) follows `.ref/cloudx_ui`.
 
@@ -116,16 +117,27 @@ pnpm test          # filter and aggregation logic
 pnpm build         # tsc --noEmit && vite build
 ```
 
-`pipeline/` — experiment runner. Batch, not a service: read pairs, run each
-configuration against vLLM's OpenAI-compatible endpoint (D46), append one line
-per run. The code still follows the superseded E0–E4 scheme; the revised
-configurations and the migration checklist are in `docs/methodology.md` and
-`docs/experiments.md` §4.
+`pipeline/` — experiment pipeline, one Python package with a single CLI
+(`python -m pipeline <command>`, run from the repository root). Packages by
+feature: `shared/` (settings from .env, the data layout, JSONL, hashing),
+`samples/` (registry, fetch, extract), `features/` (capability, smart-diff,
+intent, campaign), `datasets/` (pairs, typical, dev set, `hn/`, `kb/`),
+`experiment/` (prompts, retrieval, parsing, client, runner) and `results/`
+(metrics, statistics, report, tables, plots). Study definitions (hard-negative
+categories, configurations, prompt text, comparisons and their outcome wording)
+live as data in `pipeline/specs/`, not in code. Tests are in `pipeline/tests/`.
 
 ```
-python pipeline/runner.py --model Qwen/Qwen3-4B-Instruct-2507
-python pipeline/runner.py --selfcheck
+python -m pipeline run --model Qwen/Qwen3-4B-Instruct-2507   # base URL from VLLM_PORT
+python -m pipeline selfcheck
 ```
+
+**Sample handling (§4.1, D68):** the host only fetches (registry, OSV, tarballs
+into `data/tarballs/`, checksums into `data/samples.jsonl`); unpacking, delta,
+smart-diff and intent run in `docker --network none` through the make targets
+(`data-mal`, `data-typ`, `data-dev`, `kb-skeleton`, `hn-candidates`,
+`hn-path-b`, `kb-promote`). Every offline entrypoint calls
+`isolation.require_offline()` and refuses to run with a network interface.
 
 Resumable — runs already in `results.jsonl` are skipped, so the batch can be
 stopped at any time. Sequential on purpose: RQ4 reports median and p95 latency,
@@ -135,33 +147,45 @@ GPU memory is not measured by the runner. Never use an nvidia-smi peak as the
 metric: vLLM pre-allocates per `--gpu-memory-utilization`. `docs/methodology.md`
 §9.3 (D41) defines what to report instead.
 
-`backend/` — API for the audit UI. Rust + axum.
+`backend/` — API for the audit UI. Rust + axum, a library crate served by
+`main.rs`. One directory per feature under `src/modules/` (`auth`, `pairs`,
+`audit`, `cards`), each with `routes.rs`, `handlers.rs`, `dto.rs`, and the
+service and `repository.rs` behind them; helpers several modules need live in
+`src/shared/`. Router-level tests are in `backend/tests/`.
 
 ```
-cd backend && cargo run -- --data-dir ../data --port 8100
+make user-add NAME=daniel   # create an account or reset its password
+make backend                # every setting comes from .env
 cargo test
 ```
+
+**Login (D65, D66):** every `/api` route but login and logout needs the
+`session` cookie, an HttpOnly JWT; the annotator's identity comes from it, never
+from a query parameter. Passwords are argon2 hashes in `data/users.json`
+(gitignored); accounts are created on the machine, not over HTTP. Settings
+(ports, data dir, secret, session TTL, CORS origins, rate limits) live in `.env`
+and are read by `backend/src/config.rs`. Swagger UI: `/api/docs`.
 
 Reads `data/pairs.jsonl` (falling back to `data/pairs.sample.jsonl`; the KB is
 `data/kb.jsonl`) — input datasets are never modified. It serves files, not a
 database: the Python runner and the backend read and write the same directory.
 
 **Double annotation (§8):** decisions are written per annotator to
-`data/audit_decisions.<annotator>.json`, not to one shared file. The UI gates on
-identity before labelling, and `GET /api/annotators` reports counts only, never
-labels, so labelling stays independent.
+`data/audit_decisions.<annotator>.json`, not to one shared file. `GET
+/api/decisions` returns only the caller's own, and `GET /api/annotators` reports
+counts only, never labels, so labelling stays independent.
 
 Decision writes are guarded by a mutex and land through an atomic rename, so two
 nearby clicks cannot overwrite each other and a process dying mid-write cannot
 truncate the file.
 
-**KB cards (§5.1, D63):** `pipeline/kb.py` selects cards into
+**KB cards (§5.1, D63):** `make kb-skeleton` selects cards into
 `data/kb.skeleton.jsonl`; the UI's KB Cards page writes their text to the shared
 `data/kb.cards.json` (one annotator writes, a different one checks, enforced in
-`backend/src/cards.rs`); `python pipeline/promote.py` writes `data/kb.jsonl` only
+`backend/src/modules/cards/service.rs`); `make kb-promote` writes `data/kb.jsonl` only
 once every card is approved. Sample files are served as text only, never run.
 
-The frontend proxies `/api` to port 8100, so the backend must be up first. The
+The frontend proxies `/api` to `BACKEND_PORT`, so the backend must be up first. The
 runner defaults to `--base-url http://localhost:8101`, the vLLM port.
 
 ## Documents

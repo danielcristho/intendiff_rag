@@ -25,7 +25,7 @@ export function groupByColumn(
   return groups;
 }
 
-// canWrite mirrors backend/src/cards.rs so the UI never offers a refused edit.
+// canWrite mirrors backend/src/modules/cards/service.rs so the UI never offers a refused edit.
 export function canWrite(entry: CardEntry | undefined, annotator: string): boolean {
   if (entry?.stage === "approved") return false;
   return !entry?.author || entry.author === annotator;

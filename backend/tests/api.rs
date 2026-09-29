@@ -123,6 +123,9 @@ async fn every_api_route_but_login_and_logout_requires_a_session() {
         (Method::PUT, "/api/cards/review?id=c1"),
         (Method::GET, "/api/cards/files?id=c1"),
         (Method::GET, "/api/cards/file?id=c1&path=x"),
+        (Method::GET, "/api/hn/queue"),
+        (Method::GET, "/api/hn/candidate?id=x@1"),
+        (Method::PUT, "/api/hn/verification?id=x@1"),
     ];
     for (method, uri) in routes {
         let reply = send(&server, method.clone(), uri, None, "{}").await;
@@ -284,6 +287,55 @@ async fn login_attempts_beyond_the_burst_are_refused() {
 }
 
 #[tokio::test]
+async fn hn_verification_records_the_verifier_and_refuses_an_undocumented_acceptance() {
+    let dir = data_dir();
+    std::fs::create_dir_all(dir.join("hn")).unwrap();
+    std::fs::write(
+        dir.join("hn/queue.jsonl"),
+        "{\"id\":\"x@1\",\"name\":\"x\",\"queue_position\":1}\n",
+    )
+    .unwrap();
+    let server = server_in(&dir, "50");
+    let cookie = login(&server, "A", "password-a").await;
+
+    let bare = r#"{"accept":true,"category":2}"#;
+    let reply = send(
+        &server,
+        Method::PUT,
+        "/api/hn/verification?id=x@1",
+        Some(&cookie),
+        bare,
+    )
+    .await;
+    assert_eq!(reply.status, StatusCode::BAD_REQUEST);
+
+    let documented =
+        r#"{"accept":true,"category":2,"doc_source":"readme","doc_ref":"Telemetry section"}"#;
+    let reply = send(
+        &server,
+        Method::PUT,
+        "/api/hn/verification?id=x@1",
+        Some(&cookie),
+        documented,
+    )
+    .await;
+    assert_eq!(reply.body["by"], "A");
+    let queue = send(&server, Method::GET, "/api/hn/queue", Some(&cookie), "").await;
+    assert_eq!(queue.body["candidates"][0]["id"], "x@1");
+    assert_eq!(queue.body["verifications"]["x@1"]["category"], 2);
+
+    let unknown = send(
+        &server,
+        Method::PUT,
+        "/api/hn/verification?id=y@2",
+        Some(&cookie),
+        documented,
+    )
+    .await;
+    assert_eq!(unknown.status, StatusCode::BAD_REQUEST);
+}
+
+#[tokio::test]
 async fn cors_admits_the_configured_origin_with_credentials_and_no_other() {
     let server = server();
     let reply = send(&server, Method::GET, "/health", None, "").await;
@@ -322,6 +374,9 @@ async fn the_openapi_document_lists_every_api_route() {
         "/api/cards/review",
         "/api/cards/files",
         "/api/cards/file",
+        "/api/hn/queue",
+        "/api/hn/candidate",
+        "/api/hn/verification",
     ] {
         assert!(
             paths.contains_key(path),

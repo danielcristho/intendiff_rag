@@ -14,7 +14,7 @@ export function useDecisions() {
   const { annotator } = useAnnotator();
   return useQuery({
     queryKey: decisionsKey(annotator),
-    queryFn: () => api.decisions(annotator),
+    queryFn: api.decisions,
   });
 }
 
@@ -36,7 +36,7 @@ export function useSaveDecision() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: ({ id, patch }: { id: string; patch: Decision }) =>
-      api.saveDecision(annotator, id, patch),
+      api.saveDecision(id, patch),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: decisionsKey(annotator) }),
   });
 }

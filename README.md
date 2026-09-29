@@ -65,17 +65,18 @@ tidak berlaku; alasan tiap perubahan ada di [docs/decisions.md](docs/decisions.m
 ## Menjalankan
 
 ```bash
-# backend: API untuk UI audit
-cd backend && cargo run -- --data-dir ../data --port 8100
-cargo test
+# backend: API untuk UI audit; JWT_SECRET dibaca dari .env
+make user-add NAME=daniel      # buat akun anotator (password diminta di terminal)
+make backend
+cd backend && cargo test
 
 # frontend: http://localhost:5174, mem-proxy /api ke port 8100
 cd frontend && pnpm install && pnpm dev
 pnpm test
 
 # pipeline: butuh server vLLM (D46 — Ollama hanya untuk smoke test mekanik)
-python pipeline/runner.py --model Qwen/Qwen3-4B-Instruct-2507 --base-url http://localhost:<port-model>
-python pipeline/runner.py --selfcheck
+python -m pipeline run --model Qwen/Qwen3-4B-Instruct-2507   # URL dari VLLM_PORT di .env
+python -m pipeline selfcheck
 ```
 
 Backend memakai 8100 dan vLLM 8101; runner sudah default ke 8101. Port 8000

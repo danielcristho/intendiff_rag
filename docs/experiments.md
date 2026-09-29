@@ -54,32 +54,32 @@ Warm-up menambah 3 request per sesi server dan tidak dicatat.
 
 Status per 2026-09-13. Prompt dan runner sudah mengikuti desain revisi; komponen pra-pemrosesan dan skrip analisis belum.
 
-**Prompt** — [pipeline/prompts.py](../pipeline/prompts.py)
+**Prompt** — [pipeline/experiment/prompts.py](../pipeline/experiment/prompts.py)
 
-- [x] Ganti `CONFIGS` menjadi `E0-noint, E0, E2, E3, E3-k2, E4, E4-noint`; hapus `E1` dan `FIXED_DEMO` ([L8](../pipeline/prompts.py#L8), [L22-L27](../pipeline/prompts.py#L22-L27)).
-- [x] Ganti `SYSTEM` dengan teks verbatim methodology §6.1 ([L10-L18](../pipeline/prompts.py#L10-L18)).
-- [x] Ubah `_pair_block` sesuai template §6.2: hapus nama paket dan capability delta, tambah blok intent terstruktur ([L30-L38](../pipeline/prompts.py#L30-L38)).
-- [x] Ubah `_card_block` sesuai §5.1: label `MALICIOUS`/`BENIGN`, dan delta tidak dicetak ([L41-L47](../pipeline/prompts.py#L41-L47)).
+- [x] Ganti `CONFIGS` menjadi `E0-noint, E0, E2, E3, E3-k2, E4, E4-noint`; hapus `E1` dan `FIXED_DEMO` ([L8](../pipeline/experiment/prompts.py), [L22-L27](../pipeline/experiment/prompts.py)).
+- [x] Ganti `SYSTEM` dengan teks verbatim methodology §6.1 ([L10-L18](../pipeline/experiment/prompts.py)).
+- [x] Ubah `_pair_block` sesuai template §6.2: hapus nama paket dan capability delta, tambah blok intent terstruktur ([L30-L38](../pipeline/experiment/prompts.py)).
+- [x] Ubah `_card_block` sesuai §5.1: label `MALICIOUS`/`BENIGN`, dan delta tidak dicetak ([L41-L47](../pipeline/experiment/prompts.py)).
 - [x] Taruh instruksi format JSON di akhir pesan user.
 
-**Runner** — [pipeline/runner.py](../pipeline/runner.py)
+**Runner** — [pipeline/experiment/runner.py](../pipeline/experiment/runner.py)
 
-- [x] Perbarui `retrieve` sesuai §5.2 ([L54-L66](../pipeline/runner.py#L54-L66)):
+- [x] Perbarui `retrieve` sesuai §5.2 ([L54-L66](../pipeline/experiment/runner.py)):
   - kecualikan card dengan paket atau kampanye yang sama;
   - pecah skor seri dengan hash;
   - tambah `E3-k2`;
   - counterbalance urutan card di `E3-k2` dan `E4`.
-- [x] Ganti `parse_verdict` dengan `raw_decode` dan validasi §7 ([L69-L77](../pipeline/runner.py#L69-L77)).
-- [x] `call_llm`: kirim temperature, top_p, dan top_k dari argumen, lalu kembalikan `finish_reason` ([L80-L101](../pipeline/runner.py#L80-L101)).
-- [x] Masukkan temperature ke `run_key` ([L34-L35](../pipeline/runner.py#L34-L35)). Tanpa ini, run Stage 2 dengan seed 0 dianggap sudah selesai dan dilewati.
+- [x] Ganti `parse_verdict` dengan `raw_decode` dan validasi §7 ([L69-L77](../pipeline/experiment/runner.py)).
+- [x] `call_llm`: kirim temperature, top_p, dan top_k dari argumen, lalu kembalikan `finish_reason` ([L80-L101](../pipeline/experiment/runner.py)).
+- [x] Masukkan temperature ke `run_key` ([L34-L35](../pipeline/experiment/runner.py)). Tanpa ini, run Stage 2 dengan seed 0 dianggap sudah selesai dan dilewati.
 - [x] Simpan field hasil tambahan (§3).
-- [x] Ganti default `--base-url` yang memakai port 8000 dan bentrok dengan backend ([L107](../pipeline/runner.py#L107)). Sekarang 8101; backend pindah ke 8100. Port 8000 dipakai production-service di mesin GPU.
-- [x] Perbarui `selfcheck` untuk konfigurasi dan aturan baru ([L170-L201](../pipeline/runner.py#L170-L201)).
+- [x] Ganti default `--base-url` yang memakai port 8000 dan bentrok dengan backend ([L107](../pipeline/experiment/runner.py)). Sekarang 8101; backend pindah ke 8100. Port 8000 dipakai production-service di mesin GPU.
+- [x] Perbarui `selfcheck` untuk konfigurasi dan aturan baru ([L170-L201](../pipeline/experiment/runner.py)).
 
 **Komponen baru**
 
-- [x] Capability extractor (§4.3) — [pipeline/capability.py](../pipeline/capability.py). `--before/--after` untuk pair, `--single` untuk card malicious-intent, `--selfcheck` untuk aturan tabelnya. `--explain` melaporkan file, baris, dan potongan yang memicu tiap sinyal, untuk verifikasi kandidat HN (§3.3); simpan sebagai `delta_evidence` di `pairs.jsonl` supaya UI bisa menampilkannya. Definisi "file teks" pada `large_deletion` diambil sebagai "bisa didekode UTF-8", karena §4.3 tidak menyebutkannya.
-- [~] Smart-diff dan pemotongan (§4.2, §4.5) — [pipeline/smartdiff.py](../pipeline/smartdiff.py).
+- [x] Capability extractor (§4.3) — [pipeline/features/capability.py](../pipeline/features/capability.py). `--before/--after` untuk pair, `--single` untuk card malicious-intent, `--selfcheck` untuk aturan tabelnya. `--explain` melaporkan file, baris, dan potongan yang memicu tiap sinyal, untuk verifikasi kandidat HN (§3.3); simpan sebagai `delta_evidence` di `pairs.jsonl` supaya UI bisa menampilkannya. Definisi "file teks" pada `large_deletion` diambil sebagai "bisa didekode UTF-8", karena §4.3 tidak menyebutkannya.
+- [~] Smart-diff dan pemotongan (§4.2, §4.5) — [pipeline/features/smartdiff.py](../pipeline/features/smartdiff.py).
   Langkah 3–7 dan seluruh §4.5 selesai: `diff -ruN`, file biner, pemotongan baris 2.000
   karakter, pembagian per file, prioritas (package.json → file bersinyal → sisanya),
   dan pemotongan pada batas hunk. Penghitung token di-inject; `qwen_counter()` memakai
@@ -88,25 +88,23 @@ Status per 2026-09-13. Prompt dan runner sudah mengikuti desain revisi; komponen
   di fungsi `normalize()`: §4.2 menyatakan memakai generator Wyss kalau paket OSF
   memuatnya, jadi menulis versi sendiri sekarang berisiko menyimpang dari kode yang
   akan dipakai. Isi seam itu setelah OSF diunduh.
-- [x] Intent profile builder (§4.4) — [pipeline/intent.py](../pipeline/intent.py).
+- [x] Intent profile builder (§4.4) — [pipeline/features/intent.py](../pipeline/features/intent.py).
   Diambil dari v_(t-1) (D14), anggaran 1.024 token dengan README menyerap sisa yang
   tidak terpakai bagian lain, baris badge dan tag HTML dibuang, field kosong ditulis
   `not available`, dan `intent_available` mengikuti aturan description/README §4.4.
   Penghitung token di-inject seperti smartdiff. Lihat D51 soal pencocokan nama README.
-- [~] Pengumpulan kandidat jalur B (§3.3) — [pipeline/collect.py](../pipeline/collect.py).
-  `search --category N` mencari registry dengan kata kunci tetap, `pairs --package X`
-  membangun pasangan rilis menurut D27. Aturan v_(t-1) diuji terhadap data axios asli:
-  24 dari 144 versi mendapat v_(t-1) berbeda dibanding aturan waktu terbit, jadi D27
-  bukan sekadar kehati-hatian. Langkah unduh tarball + ekstraksi sengaja TIDAK ada di
-  sini: §4.1 mewajibkannya di container tanpa jaringan.
-- [~] Card malicious KB (§3.4) — [pipeline/kb.py](../pipeline/kb.py). Seleksi 50 card selesai
+- [x] Pengumpulan kandidat jalur B (§3.3) — [pipeline/datasets/hn/path_b.py](../pipeline/datasets/hn/path_b.py) (D67).
+  `fetch` (host) → ekstraksi offline → `match` (offline, pair paling awal yang cocok) → `verify` (host).
+  Dijalankan lewat `make hn-path-b`.
+- [~] Card malicious KB (§3.4) — [pipeline/datasets/kb/select.py](../pipeline/datasets/kb/select.py). Seleksi 50 card selesai
   (D61), hasilnya `data/kb.skeleton.jsonl`. Keempat field teks masih kosong dan ditulis anotator A.
-  Teks ditulis di halaman KB Cards, lalu `pipeline/promote.py` menulis `data/kb.jsonl` (D63).
-- [~] Dev set (§3.5) — [pipeline/devset.py](../pipeline/devset.py). 4 clone + 3 TYP di
+  Teks ditulis di halaman KB Cards, lalu `make kb-promote` menulis `data/kb.jsonl` (D63).
+- [~] Dev set (§3.5) — [pipeline/datasets/devset.py](../pipeline/datasets/devset.py). 4 clone + 3 TYP di
   `data/pairs.dev.jsonl` (D62); 3 HN menunggu pembagian HN.
-- [ ] Jalur A (§3.3): jalankan 1.900 typical update sisa Wyss lewat extractor, dengan `--exclude` ke
-  `data/pairs.dev.taken.txt` agar TYP dev set tidak masuk kandidat HN.
-- [~] Pengelompokan kampanye (§3.6) — [pipeline/campaign.py](../pipeline/campaign.py).
+- [x] Jalur A (§3.3) — [pipeline/datasets/hn/path_a.py](../pipeline/datasets/hn/path_a.py): `prefilter` (host) lalu `screen` (offline), lewat `make hn-candidates`. Mengecualikan TYP test dan TYP dev.
+- [x] Verifikasi HN (§3.3) — antrean `make hn-queue`, halaman HN Verification, keputusan di `data/hn_verification.json` (D70).
+- [x] Isolasi §4.1 — host hanya mengambil, analisis di `docker --network none`, checksum di `data/samples.jsonl` (D68).
+- [~] Pengelompokan kampanye (§3.6) — [pipeline/features/campaign.py](../pipeline/features/campaign.py).
   Kriteria (a) laporan sama dan (b) file tambahan identik selesai dan teruji, dengan
   penutupan transitif dan pelaporan jumlah klaster pada ambang 0,5 dan 0,8. Label kampanye
   memakai id terkecil sehingga tidak bergantung urutan baca.
@@ -114,7 +112,7 @@ Status per 2026-09-13. Prompt dan runner sudah mengikuti desain revisi; komponen
   `dolos_similarity()` beserta parser keluarannya ditulis dari spesifikasi dan belum pernah
   dijalankan terhadap Dolos sungguhan. Fungsi similarity di-inject, jadi clustering tetap
   teruji; pasang Dolos dan verifikasi parser sebelum dipakai untuk data.
-- [~] Skrip analisis (§11) — [pipeline/analysis.py](../pipeline/analysis.py).
+- [~] Skrip analisis (§11) — [pipeline/results/report.py](../pipeline/results/report.py).
   Metrik, kebijakan D18, aturan cocok evidence, flip rate, p95 nearest-rank, sel diskordan
   McNemar, bootstrap per kampanye (numpy, seed 2026), dan keempat label §5 selesai dan
   teruji. Wilson, McNemar exact, Holm, dan Cohen's kappa jadi wrapper tipis ke

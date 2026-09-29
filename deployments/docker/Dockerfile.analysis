@@ -1,0 +1,7 @@
+# Offline sample analysis (§4.1): run with --network none; see `make analysis-image`.
+FROM python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f
+
+# Same versions as the host .venv, so token counts and truncation match.
+RUN pip install --no-cache-dir transformers==5.17.0 tokenizers==0.23.2 numpy==2.5.3
+
+WORKDIR /work
