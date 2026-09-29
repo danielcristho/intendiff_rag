@@ -7,20 +7,11 @@ services:
         CARGO_BUILD_JOBS: ${CARGO_BUILD_JOBS:-2}
     image: intentdiff-backend:latest
     user: "${APP_UID:-1000}:${APP_GID:-1000}"
+    env_file: .env
     environment:
-      # Paths and addresses as the container sees them; the rest comes from .env.
+      # These override .env with what the container sees: every interface, the mount, nginx in front.
       BIND_ADDR: 0.0.0.0
-      BACKEND_PORT: ${BACKEND_PORT:?set BACKEND_PORT in .env}
       DATA_DIR: /data
-      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET in .env, e.g. openssl rand -hex 32}
-      SESSION_TTL_HOURS: ${SESSION_TTL_HOURS:?set SESSION_TTL_HOURS in .env}
-      COOKIE_SECURE: ${COOKIE_SECURE:?set COOKIE_SECURE in .env}
-      CORS_ORIGINS: ${CORS_ORIGINS:?set CORS_ORIGINS in .env}
-      LOGIN_RATE_BURST: ${LOGIN_RATE_BURST:?set LOGIN_RATE_BURST in .env}
-      LOGIN_RATE_REFILL_SECS: ${LOGIN_RATE_REFILL_SECS:?set LOGIN_RATE_REFILL_SECS in .env}
-      API_RATE_BURST: ${API_RATE_BURST:?set API_RATE_BURST in .env}
-      API_RATE_REFILL_SECS: ${API_RATE_REFILL_SECS:?set API_RATE_REFILL_SECS in .env}
-      # nginx sets X-Forwarded-For, so the client IP comes from it.
       TRUST_PROXY: "true"
     ports:
       # Loopback: reaching the API past nginx would let a client forge X-Forwarded-For.
