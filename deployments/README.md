@@ -66,8 +66,8 @@ identity gate, and their decisions are stored separately in
 docker compose --profile model up -d vllm
 docker compose logs -f vllm            # wait for "Application startup complete"
 
-python pipeline/runner.py --model Qwen/Qwen2.5-Coder-3B-Instruct
-# --base-url already defaults to http://localhost:8101
+.venv/bin/python -m pipeline run --model Qwen/Qwen2.5-Coder-3B-Instruct
+# the base URL comes from VLLM_PORT in .env
 
 docker compose --profile model down    # release the GPU as soon as you are done
 ```
@@ -93,6 +93,25 @@ Back up before Gate G1, and after every long labelling session.
 git pull
 docker compose up -d --build backend frontend
 ```
+
+## Annotator accounts
+
+The UI asks for a username and password. Set `JWT_SECRET` in `.env`
+(`openssl rand -hex 32`), then create one account per annotator on the host;
+`data/` is shared with the container, so the account works there too:
+
+```bash
+make user-add NAME=daniel      # prompts for the password twice; rerun to reset it
+```
+
+Changing `JWT_SECRET` logs everyone out; `data/users.json` holds argon2 hashes, no passwords.
+
+The session is an HttpOnly cookie. Keep `COOKIE_SECURE=false` while the UI is
+served over plain HTTP (browsers drop `Secure` cookies there), and set it to
+`true` behind HTTPS. Login is rate-limited per client IP (`LOGIN_RATE_*`); in
+Docker the backend listens on loopback and nginx passes the real client IP.
+
+Swagger UI is embedded in the backend: `http://<host>:5174/api/docs`.
 
 While editing code, `make docker-watch` (`docker compose watch backend frontend`)
 rebuilds and replaces a container whenever its sources change, so no `down`/`up` is

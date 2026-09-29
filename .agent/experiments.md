@@ -79,7 +79,7 @@ Contoh card **fiktif**:
 
 ## Urutan run
 
-1. **Cek runner:** `python pipeline/runner.py --selfcheck`.
+1. **Cek pipeline:** `python -m pipeline selfcheck`.
 2. **Jalankan server model:**
    `vllm serve <model> --port 8001 --dtype bfloat16 --max-model-len 32768 --seed 0`.
    Catat versi vLLM dan baris log memori bobot model.

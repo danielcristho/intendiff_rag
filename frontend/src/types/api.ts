@@ -124,3 +124,53 @@ export interface SampleText {
   text: string;
   truncated: boolean;
 }
+
+// Session is who holds the session cookie and when it expires, in Unix seconds.
+export interface Session {
+  annotator: string;
+  expires_at: number;
+}
+
+export interface HnSummary {
+  id: string;
+  name: string;
+  before: string;
+  after: string;
+  source: string;
+  queue_position: number;
+  delta: string[];
+  categories: number[];
+}
+
+export type HnDocSource = "readme" | "changelog" | "commit" | "issue";
+
+export interface HnVerification {
+  decision: "accept" | "reject";
+  category?: number;
+  doc_source?: HnDocSource;
+  doc_ref?: string;
+  reason?: string;
+  by?: string;
+  at?: string;
+}
+
+export interface HnQueueResponse {
+  candidates: HnSummary[];
+  verifications: Record<string, HnVerification>;
+}
+
+export interface HnVerifyRequest {
+  accept: boolean;
+  category?: number;
+  doc_source?: HnDocSource;
+  doc_ref?: string;
+  reason?: string;
+}
+
+// HnCandidate is one queue row: a pair plus what the screening found.
+export interface HnCandidate extends Pair {
+  source: string;
+  publisher?: string;
+  categories?: number[];
+  queue_position: number;
+}

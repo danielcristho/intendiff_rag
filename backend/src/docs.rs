@@ -14,6 +14,7 @@ use crate::modules::auth::cookie::SESSION_COOKIE;
         (name = "pairs", description = "Update pairs and model runs"),
         (name = "audit", description = "Each annotator's own labels"),
         (name = "cards", description = "Knowledge-base cards and their samples"),
+        (name = "hn", description = "Hard-negative candidate verification"),
     )
 )]
 pub struct ApiDoc;

@@ -4,7 +4,7 @@ use crate::app::Shared;
 use crate::config::Config;
 use crate::docs::ApiDoc;
 use crate::layers::{cors, rate_limit};
-use crate::modules::{audit, auth, cards, pairs};
+use crate::modules::{audit, auth, cards, hn, pairs};
 use axum::{routing::get, Router};
 use utoipa::OpenApi;
 use utoipa_axum::router::OpenApiRouter;
@@ -19,6 +19,7 @@ pub fn router(app: Shared, config: &Config) -> Result<Router, String> {
         .merge(pairs::routes::routes())
         .merge(audit::routes::routes())
         .merge(cards::routes::routes())
+        .merge(hn::routes::routes())
         .layer(rate_limit(config.api_rate, config.trust_proxy)?)
         .split_for_parts();
     Ok(api

@@ -444,3 +444,96 @@ Hasil `data/pairs.mal.jsonl`: **45 pair, 41 kampanye, 1 terpotong, 1 tanpa inten
 - Pair dengan prompt 28–29K token (smart-diff terpotong §4.5) diproses tanpa error dan muat di konteks 32K.
 - **Prefix caching aktif** (`enable_prefix_caching=True`, default vLLM 0.29, hit rate 22–33%). Warm-up mengirim prompt yang sama dengan run terukur pertama, sehingga run itu tercatat 1,2 s, sedangkan E0-noint pada pair yang sama 4,0 s. Methodology tidak mengatur prefix caching, jadi latensi RQ4 saat ini bergantung pada urutan run. **Keputusan terbuka**, harus diambil sebelum G2.
 - Verdict dev set tidak ditafsirkan (§3.5).
+
+**D64 (lanjutan). Prefix caching dimatikan; image vLLM di-pin per digest.**
+
+- **Keputusan:** `--no-enable-prefix-caching` ditambahkan ke `command` vLLM. Latensi tiap request diukur tanpa cache, sehingga tidak bergantung pada run sebelumnya. Konsekuensinya, angka latensi sedikit lebih pesimis daripada deployment yang memakai cache; ini disebut saat melaporkan RQ4.
+- Smoke test diulang tanpa cache. E0 `log4js` naik dari 1,2 s menjadi **4,4 s**, yang mengonfirmasi artefak cache. Validitas JSON jadi **11/14 (79%)**: E0 6/7, E0-noint 5/7. Run dengan cache disimpan di `data/results.dev.prefix-cache.jsonl`.
+- **Determinisme:** dengan setelan server identik, output greedy **14/14 identik byte-per-byte**, dan tetap 14/14 setelah container vLLM di-restart. Run yang dilanjutkan setelah restart tidak mengubah jawaban.
+- **Tetapi setelan server ikut menentukan output.** Mengganti prefix caching saja sudah mengubah teks 4 dari 14 jawaban dan membalik satu verdict (E0 `react-d3-library`: tidak valid → `malicious`). Setelan dan versi vLLM termasuk desain yang dibekukan di G2. Mengubahnya setelah G2 berarti semua konfigurasi di-run ulang.
+- Karena itu **image di-pin per digest** (`vllm/vllm-openai@sha256:c2914767…`, v0.29.0), baik di compose maupun `.env.example`. Tag `latest` bisa berganti diam-diam saat `docker pull`.
+
+## 2026-09-27 — Login anotator dan struktur backend
+
+**D65. Identitas anotator diambil dari JWT hasil login, bukan dari parameter `?annotator=`** (§5.1, §8).
+
+- Sebelumnya siapa pun bisa mengetik nama anotator lain di UI, lalu membaca label orang itu atau menyetujui card tulisannya sendiri dengan mengaku sebagai "B". Akibatnya independensi label ganda (§8) dan aturan penulis ≠ pengecek (D63) hanya berlaku di atas kertas.
+- Login memakai username dan password. Hash argon2id disimpan di `data/users.json` (gitignored), dan akun dibuat di mesin lewat `make user-add`, tidak lewat HTTP. Token berupa HS256 dengan `JWT_SECRET` minimal 32 byte dan berlaku 7 hari.
+- Semua route `/api` kecuali `/api/login` menolak request tanpa token yang valid. `GET /api/decisions` hanya mengembalikan keputusan milik pemegang token.
+- **Belum ada rate limit login**; biaya argon2 satu-satunya rem. Backend jangan dibuka di luar jaringan privat sebelum rate limit ditambahkan.
+- Backend dipecah per fitur di `src/modules/` (`auth`, `pairs`, `audit`, `cards`). Tiap modul punya `routes.rs`, `handlers.rs`, `dto.rs`, serta service dan `repository.rs` di belakangnya: satu file per lapisan, pola yang lazim di Rust/axum. Helper lintas modul ada di `src/shared/`, dan integration test di `backend/tests/`. **Data tetap berupa file, bukan database**: pipeline Python membaca file yang sama, dan database akan memaksa ada lapisan ekspor yang bisa tidak sinkron. Path di D63 berubah: aturan card kini di `backend/src/modules/cards/service.rs`, dan `valid_annotator` di `backend/src/shared/files.rs`.
+
+**D66. Sesi di cookie HttpOnly, rate limit, CORS, dan Swagger; semua setelan di `.env`** (D65).
+
+- JWT dipindah dari localStorage ke cookie `session` (`HttpOnly; SameSite=Strict`, `Secure` sesuai `COOKIE_SECURE`). Script di halaman, termasuk XSS lewat sampel yang ditampilkan, tidak bisa membacanya. Endpoint baru: `POST /api/logout` dan `GET /api/session`.
+- **Logout hanya menghapus cookie.** Token yang sempat tercuri tetap berlaku sampai `SESSION_TTL_HOURS` habis. Ini konsekuensi sesi stateless yang dipilih; pencabutan butuh penyimpanan sesi di server.
+- Rate limit per IP klien: login `LOGIN_RATE_*` (5 percobaan, lalu 1 per 12 s) dan seluruh `/api` `API_RATE_*`. Di Docker, backend hanya dipublikasikan di loopback, dan nginx menimpa `X-Forwarded-For` dengan IP asli. Kalau backend terbuka langsung dengan `TRUST_PROXY=true`, klien bisa memalsukan IP-nya sendiri.
+- CORS hanya mengizinkan `CORS_ORIGINS` dengan credentials. Wildcard tidak bisa dipakai bersama cookie.
+- Swagger UI tertanam di binary (`utoipa-swagger-ui`, vendored) di `/api/docs`. Path dan method tiap endpoint ditulis sekali di `#[utoipa::path]`, lalu router dan dokumen OpenAPI dibangun dari sumber itu (`utoipa-axum`).
+- Setelan yang berbeda per lingkungan dibaca dari `.env` oleh `backend/src/config.rs`, yang gagal dengan nama variabel yang kurang. `BACKEND_PORT` dipakai bersama oleh backend, nginx (template), Vite, dan compose. Aturan desain (panjang minimal secret dan password, parameter argon2) tetap konstanta di kode.
+
+## 2026-09-27 — Aturan advisory, jalur B, dan isolasi sampel
+
+**D67. Advisory hanya diperiksa pada v_t; advisory pada v_(t−1) tidak menggugurkan update** (§3.2, §3.3).
+
+- §3.2 dan §3.3 melarang advisory pada versi hasil update. Kode sebelumnya menolak kalau salah satu dari v_(t−1) atau v_t punya advisory, sehingga update yang *memperbaiki* celah ikut terbuang (misalnya `lodash.merge@4.6.2`, yang memperbaiki prototype pollution di 4.6.1).
+- **Dampak ke HN jalur A:** 16 pair ditolak keliru (`ansi-regex@6.0.1`, `lodash.merge@4.6.2`, `ejs@3.1.10`, `crypto-js@4.2.0`, dan lainnya). Screening jalur A dijalankan ulang dengan aturan baru.
+- **Dampak ke TYP (D60):** 1 dari 5 penolakan keliru. `http-cache-semantics@4.1.1` masuk (delta kosong), dan `invariant@2.2.4` (undian terakhir kelompok populer) keluar. 95 pair lain identik. Belum ada hasil run pada TYP, dan G2 belum lewat.
+- Dev set tidak berubah (7/7 pair identik).
+- **Jalur B kini lengkap** (`pipeline/path_b.py`): paket hasil pencarian diproses dalam urutan hash nama. Untuk tiap paket, pair **paling awal** di antara 20 rilis terakhir yang delta-nya memuat sinyal kategori dipilih lebih dulu, baru kriteria advisory dan penerbit diterapkan pada pair itu. Pair berikutnya tidak dicoba, supaya tidak "berbelanja" pair yang kebetulan lolos.
+- Jalur A menghasilkan 157 kandidat sebelum perbaikan ini, dengan sinyal kategori 1–4 hanya 4, 8, 10, dan 10. Jalur B dijalankan untuk kategori 1–4.
+
+**D68. §4.1 ditegakkan: host hanya mengambil, analisis sampel berjalan di container `--network none`.**
+
+- Sampai D67, ekstraksi, capability extractor, smart-diff, dan intent dijalankan di host yang terhubung jaringan. Ini menyimpang dari §4.1 sejak MAL dan TYP pertama kali dibentuk (D59/D60), dan `data/samples.jsonl` belum pernah ada. Sampel tidak pernah dijalankan; yang belum terpasang adalah lapisan isolasi jaringan.
+- **Sekarang:** host hanya menghubungi registry, OSV, dan git, lalu mengunduh tarball ke `data/tarballs/` dengan SHA-256 dicatat di `data/samples.jsonl`. Semua ekstraksi lewat `pipeline/extract.py` berdasarkan file rencana, dan analisis berjalan di image `intentdiff-analysis` (Python dan transformers yang di-pin, sama dengan `.venv`) melalui target make. Tokenizer dimuat dari cache Hugging Face host yang di-mount read-only dengan `HF_HUB_OFFLINE=1`.
+- **Ditegakkan oleh kode:** setiap entrypoint analisis memanggil `isolation.require_offline()`, yang berhenti kalau ada interface jaringan selain `lo`. Pemeriksaannya membaca `/sys/class/net`, tanpa mengirim paket.
+- **Verifikasi setelah dibangun ulang di container:** `kb.skeleton.jsonl` identik byte-per-byte, dev set identik, dan 95 pair TYP identik termasuk digest pohonnya.
+- **Dua bug smart-diff terungkap oleh perpindahan ini, dan diperbaiki:**
+  - urutan file dari `diff -r` mengikuti collation locale (host `en_US.UTF-8`, container `C`). Sekarang `diff` dijalankan dengan `LC_ALL=C`, sehingga smart-diff sama di mesin mana pun. Urutan bagian berubah di 4 pair MAL dan 4 pair TYP, tanpa satu baris pun berubah;
+  - timestamp tidak dibuang dari header `---`/`+++` untuk nama file yang dikutip (mengandung spasi). Selama ini timestamp itu ikut ke teks yang dibaca model. Terkena: `zemen@0.0.5`.
+- Hasil smoke test dev set D64 tetap berlaku, karena ketujuh pair dev identik.
+- **Tambahan D68: batas ukuran ekstraksi.** Batas 50 MiB awalnya penjaga zip bomb untuk sampel Datadog, lalu terbawa sebagai default untuk tarball npm dan membuang 8 pair jalur A, termasuk satu kandidat (`com.microsoft.mesh.toolkit.preview@5.2404.340`). Spesifikasi tidak mengenal batas ukuran. Default kini 2 GiB, hanya untuk mencegah disk penuh, sedangkan sampel Datadog tetap 50 MiB lewat `kb.py`, sehingga seleksi KB tidak berubah.
+- **Hasil jalur A setelah D67 dan D68:** 158 kandidat, satu lebih banyak dari sebelum D67 (`ejs@3.1.10` masuk). Sinyal kategori: 1→4, 2→8, 3→10, 4→10, 5→144.
+
+**D69. Dataset diterbitkan di Hugging Face pada M7–8, tanpa kode malicious mentah.**
+
+- **Yang diterbitkan:** metadata pair (`id`, nama, versi, subset, kategori HN, kampanye, delta, `truncated`), label dan anotasi kita (verdict, kategori HN, `gold_evidence`, κ), card KB, hasil run (`results.jsonl`), dan checksum dari `data/samples.jsonl`, sehingga setiap sampel bisa diambil ulang dan diverifikasi dari sumber aslinya.
+- **Yang tidak diterbitkan:** isi atau smart-diff pair MAL dan `code_excerpt` card malicious dalam bentuk terbuka. Kalau diperlukan, bagian itu disertakan dalam zip terenkripsi seperti praktik Datadog, dengan peringatan di dataset card.
+- **Lisensi sumber:** dataset Datadog berlisensi Apache-2.0, jadi turunannya boleh diterbitkan dengan atribusi dan menyertakan NOTICE. Paket replikasi Wyss di OSF tidak mencantumkan lisensi, jadi turunannya (pair MAL, clone, daftar typical update) hanya dirujuk ke OSF, kecuali ada izin dari penulis. Pair TYP dan HN berasal dari paket npm dengan lisensinya masing-masing, jadi yang diterbitkan adalah referensi `nama@versi` beserta checksum, bukan tarball-nya.
+- **Dataset card** memuat tujuan riset, larangan eksekusi sampel, dan batasan (FPR dan recall hasil Stage 1) supaya dataset tidak dipakai sebagai daftar blokir produksi.
+
+**D70. Verifikasi HN (§3.3) lewat halaman "HN Verification"; satu verifikator, kategori final dari label ganda §8.**
+
+- Antrean dibangun offline oleh `pipeline/hn_queue.py` (`make hn-queue`): jalur A lebih dulu, lalu jalur B, masing-masing dalam urutan hash. Setiap baris dibangun dengan `pairs.build_row` yang sama dengan MAL dan TYP, jadi smart-diff, intent, dan bukti delta yang dilihat verifikator sama dengan yang nanti dibaca model. Pair yang ditemukan kedua jalur hanya masuk sekali.
+- **Kandidat yang diterima wajib menyebut kategori 1–5 dan tempat tujuannya terdokumentasi** (`readme`, `changelog`, `commit`, atau `issue`), beserta kutipan atau URL. Kandidat yang ditolak wajib punya alasan. Aturan ini ditegakkan di backend (`backend/src/modules/hn/service.rs`), tidak hanya di UI.
+- §3.3 tidak menyebut siapa yang memverifikasi. Verifikasi dilakukan satu anotator, dan namanya tercatat di `data/hn_verification.json`. Kategori pilihan verifikator bersifat sementara. Kategori final dan κ-nya berasal dari label ganda §8 di halaman Label Audit, sehingga κ tetap mengukur dua anotator yang independen.
+- Verifikasi berhenti saat kelima kategori mencapai 25. Tautan dokumentasi dibangun dari nama dan versi paket di registry npm, bukan dari URL yang tertulis di dalam kode sampel.
+
+**D71. Pipeline menjadi paket per fitur dengan satu CLI; definisi studi dipindah dari kode ke `pipeline/specs/`.**
+
+- Struktur mengikuti backend: `shared/` (setelan dari `.env` dan satu kelas `Layout` untuk semua nama file data), `samples/`, `features/`, `datasets/` (termasuk `hn/` dan `kb/`), `experiment/`, dan `results/`, dengan test di `pipeline/tests/`. Semua perintah lewat `python -m pipeline <perintah>`, dan target make tidak lagi membawa path.
+- **Definisi studi kini berupa data**, bukan kode: kategori HN (`hn_categories.json`), daftar konfigurasi dan strategi card-nya (`configurations.json`), teks prompt verbatim (`prompt.json`), serta perbandingan dan kata-kata hasilnya (`comparisons.json`). Kode tidak memuat nomor RQ, nama hipotesis, atau label hasil. Kode menghitung kunci netral (`not_moved`, `recall_drop`, `not_significant`, `confirmed`, `confirmed_point_only`), dan spesifikasi memetakannya ke kalimat.
+- Label hasil kini berbahasa Inggris, mengikuti naskah: "Supported", "Partially supported", "Direction consistent, not significant", dan "Not supported". Sheet `hypotheses` dan figur `fig_hypotheses` berganti nama menjadi `comparisons` dan `fig_comparisons`. Opsi `--sensitivity` diganti `--invalid-as malicious`, sama dengan tabel dan figur.
+- Semua keluaran CLI dan pesan error dalam bahasa Inggris. Komentar satu baris, tanpa rujukan RQ, hipotesis, atau §/D.
+- Duplikasi yang dihapus: penghitung token (dulu di `intent` dan `smartdiff`), pembaca/penulis JSONL (±6 salinan), `TEXT_FIELDS` card, aturan advisory v_t, pemuatan laporan (dulu di `analysis`, `tables`, dan `plots`), serta `pairs.typ.taken.txt` yang dulu disalin dari `typ/taken.txt`.
+- **Verifikasi:** 78 test lulus. Dibangun ulang di container `--network none`, keluaran berikut identik byte-per-byte dengan versi sebelumnya: `pairs.mal.jsonl`, `pairs.typ.jsonl`, `pairs.dev.jsonl`, kandidat jalur A, antrean HN, dan `kb.skeleton.jsonl`. Laporan atas `results.dev.jsonl` memberi angka yang sama; hanya kata-kata labelnya yang berubah.
+- **Kesalahan selama refactor:** satu pengecekan kesetaraan sempat menjalankan extractor atas sampel MAL langsung di host, di luar container, karena penjaga isolasi hanya ada di `main()` dan pengecekan itu memanggil fungsi secara langsung. Tidak ada kode sampel yang dijalankan (hanya dibaca dengan regex dan `diff`), tetapi ini melanggar §4.1. Semua pengecekan berikutnya berjalan di container.
+- **Temuan terbuka:** satu tarball jalur B (`react-native-smartlook-analytics@2.1.18`) ukurannya sesuai catatan tetapi SHA-256-nya berbeda, sehingga pemeriksaan checksum menolak mengekstraknya. Penyebabnya belum diketahui. Tarball itu diunduh ulang setelah jalur B selesai.
+
+## 2026-09-28 — Jalur B selesai dan antrean HN lengkap
+
+**D72. Jalur B menghasilkan 139 kandidat; antrean verifikasi berisi 297 kandidat; unduhan kini dicocokkan dengan integrity registry.**
+
+| Kategori | Paket dicari | Punya pair cocok | Kandidat |
+|---|---|---|---|
+| 1 | 500 | 76 | 60 (batas `HN_PATH_B_WANT`) |
+| 2 | 499 | 29 | 22 |
+| 3 | 250 | 13 | 11 |
+| 4 | 500 | 52 | 46 |
+
+- Antrean (`make hn-queue`): **297 kandidat**, terdiri dari 158 jalur A dan 139 jalur B. Jumlah kandidat yang sinyalnya cocok per kategori: 1→82, 2→66, 3→32, 4→99, 5→179. Satu kandidat bisa cocok dengan beberapa kategori, dan kategori finalnya ditentukan saat verifikasi.
+- **Kategori 2 dan 3 paling tipis.** Paket telemetry dan licensing biasanya sudah punya capability-nya sejak versi awal, sehingga delta di 20 rilis terakhir kosong, sesuai titik buta §4.3. Kalau setelah verifikasi jumlahnya di bawah kuota, aturan batas minimum di research.md §5 berlaku, atau prosedur §3.3 diubah lewat keputusan baru.
+- **Checksum `react-native-smartlook-analytics@2.1.18` (D71):** file di disk cocok dengan `dist.integrity` registry; yang salah adalah SHA-256 yang tercatat di `samples.jsonl`. Catatan itu dibetulkan, kedua versinya diekstrak, dan pencocokan ulang kategori 2 memberi `matches.cat2.jsonl` yang identik. **Sejak ini `Fetcher` mencocokkan setiap unduhan dengan `dist.integrity` (SHA-512) atau `dist.shasum` dari registry** sebelum menyimpannya, dan packument ringkas jalur B ikut menyimpan kedua field itu.
+- **Masalah terbuka:** percobaan pertama `make hn-queue` gagal karena `tokenizers` panic (`AddedVocabulary bad split`). Pelacakan per kandidat atas data dan kode yang sama tidak mengulang kegagalan itu, dan run berikutnya lolos. Penyebabnya belum diketahui dan kemungkinan ada di library `tokenizers`. Kalau muncul lagi, catat kandidatnya sebelum menjalankan ulang.
+- Skrip pipeline lama dihapus setelah jalur B selesai; semua perintah sekarang lewat `python -m pipeline`.

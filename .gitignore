@@ -16,4 +16,8 @@ data/wyss/
 data/typ/
 data/hn/
 data/datadog/
+# Downloaded tarballs; data/samples.jsonl keeps their checksums in git.
+data/tarballs/
 data/*.log
+# Password hashes; accounts are created per machine with `user-add`.
+data/users.json

@@ -5,6 +5,7 @@ use crate::modules::{
     audit::repository::DecisionRepository,
     auth::{accounts::Accounts, cookie::SessionCookie, repository::UserRepository, tokens::Tokens},
     cards::repository::CardRepository,
+    hn::repository::HnRepository,
     pairs::repository::PairRepository,
 };
 use std::sync::{Arc, Mutex};
@@ -13,6 +14,7 @@ pub struct App {
     pub pairs: PairRepository,
     pub decisions: DecisionRepository,
     pub cards: CardRepository,
+    pub hn: HnRepository,
     pub accounts: Accounts,
     pub tokens: Tokens,
     pub cookies: SessionCookie,
@@ -29,6 +31,7 @@ impl App {
             pairs: PairRepository::new(dir),
             decisions: DecisionRepository::new(dir),
             cards: CardRepository::new(dir),
+            hn: HnRepository::new(dir),
             accounts: Accounts::new(UserRepository::new(dir)),
             tokens: Tokens::new(&config.jwt_secret, config.session.ttl)?,
             cookies: SessionCookie::new(&config.session),

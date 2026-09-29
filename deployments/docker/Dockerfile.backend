@@ -23,8 +23,5 @@ COPY --from=build /src/target/release/intentdiff-backend /usr/local/bin/
 
 USER audit
 
-EXPOSE 8000
-
+# Address, port and data dir come from the environment docker compose passes.
 ENTRYPOINT ["intentdiff-backend"]
-
-CMD ["--data-dir", "/data", "--port", "8000"]
