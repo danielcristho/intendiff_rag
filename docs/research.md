@@ -39,7 +39,7 @@ dengan model lokal sehingga kode tidak dikirim ke pihak ketiga.
 | Penelitian | Yang sudah dilakukan | Yang belum | Hubungan dengan penelitian ini |
 |---|---|---|---|
 | **Wyss et al., RAID 2025 — referensi utama** | Smart-diff update + GPT-4o, GPT-4-Turbo, Gemini-2.0-Flash; GPT-4o mendeteksi 46/46 update malicious dengan 8/2.000 false positive | Model kecil lokal, intent, retrieval, stabilitas antar run | Tugas dan input sama. Kami mengganti model dan menambah intent serta retrieval contrastive |
-| IntelGuard (Guo et al., WWW '26) | RAG dari 8.000+ halaman laporan threat intel; menilai kesesuaian perilaku dengan fungsi paket; GPT-4.1-mini; paket utuh | KB berisi contoh malicious saja; bukan level update; model tertutup | E3 adalah retrieval ala IntelGuard; E4 menguji tambahan benign look-alike |
+| IntelGuard (Guo et al., WWW '26) | RAG dari 8.000+ halaman laporan threat intel; menilai kesesuaian perilaku dengan fungsi paket; GPT-4.1-mini; paket utuh | KB berisi contoh malicious saja; bukan level update; model tertutup | DIFF+I+M adalah retrieval ala IntelGuard; DIFF+I+MB menguji tambahan benign look-alike |
 | Guo et al., arXiv 2603.27549 | Benchmark 6.420 malicious + 7.288 benign; 11 tool / 16 varian | — | Bukti masalah capability vs intent; sumber kandidat hard negative |
 | RogueOne (Sofaer et al., ICSE 2024) | Differential data-flow dengan trust domain; 75,6% deteksi, 4,7% FP pada dataset single-update | — | Pembanding non-LLM; dikutip, tidak dijalankan ulang |
 | SocketAI (Zahan et al., ICSE 2025) | GPT-3/GPT-4 pada 5.115 paket | Model kecil; level update | Related work LLM + npm |
@@ -88,7 +88,7 @@ knowledge card, dan protokol label yang dapat direplikasi.
 > smart-diff without examples, in terms of recall and false-positive rate on
 > typical and hard-negative updates?*
 
-- **Konfigurasi:** E0-noint (smart-diff saja) dan E0 (smart-diff + intent).
+- **Konfigurasi:** DIFF (smart-diff saja) dan DIFF+I (smart-diff + intent).
 - **Ukuran:** Recall, FPR_TYP, dan FPR_HN dengan Wilson 95% CI, per model.
 - **Kenapa bukan "apakah model kecil cukup?":** tidak ada ambang "cukup" yang
   disepakati. Kalau ambangnya kami tetapkan sendiri, jawabannya bergantung pada
@@ -97,7 +97,7 @@ knowledge card, dan protokol label yang dapat direplikasi.
   sampelnya berbeda, dan GPT-4o tidak dijalankan ulang, sehingga selisihnya tidak
   bisa diuji. RQ hanya menjanjikan apa yang bisa dijawab dengan data sendiri.
   Perbandingan dengan Wyss dibahas di Diskusi ([§5, aturan klaim](#aturan-klaim)).
-- **Bentuk jawaban:** "Qwen3-4B (E0-noint): recall a% [CI], FPR_TYP b% [CI],
+- **Bentuk jawaban:** "Qwen3-4B (DIFF): recall a% [CI], FPR_TYP b% [CI],
   FPR_HN c% [CI]." Di Diskusi, FPR boleh diterjemahkan ke beban operasional
   (§1: setiap 1% FPR ≈ 216 alarm palsu per hari).
 
@@ -111,7 +111,7 @@ knowledge card, dan protokol label yang dapat direplikasi.
 > *Does adding a retrieved malicious example increase the false-positive rate
 > on hard negatives compared with zero-shot?*
 
-**H2a:** FPR_HN(E3) > FPR_HN(E0).
+**H2a:** FPR_HN(DIFF+I+M) > FPR_HN(DIFF+I).
 
 **RQ2b — hipotesis utama**
 
@@ -123,9 +123,9 @@ knowledge card, dan protokol label yang dapat direplikasi.
 > with a benign look-alike reduce the false-positive rate on hard negatives
 > without lowering recall by more than 5 points?*
 
-**H2b:** FPR_HN(E4) < FPR_HN(E3-k2), **dan** Recall(E4) − Recall(E3-k2) ≥ −5 poin.
+**H2b:** FPR_HN(DIFF+I+MB) < FPR_HN(DIFF+I+MM), **dan** Recall(DIFF+I+MB) − Recall(DIFF+I+MM) ≥ −5 poin.
 
-- **Kenapa E3-k2, bukan E3:** E4 berisi 2 contoh. Tanpa kontrol dengan 2 contoh,
+- **Kenapa DIFF+I+MM, bukan DIFF+I+M:** DIFF+I+MB berisi 2 contoh. Tanpa kontrol dengan 2 contoh,
   penurunan FPR bisa berasal dari jumlah contohnya.
 - **Kenapa FPR_HN, bukan F1:** F1 bergantung pada rasio kelas di dataset.
   Mekanisme yang diuji (contoh benign mengurangi kecenderungan menuduh) bekerja
@@ -143,9 +143,9 @@ knowledge card, dan protokol label yang dapat direplikasi.
 > scripts from the previous version) reduce the false-positive rate on hard
 > negatives without lowering recall by more than 5 points?*
 
-**H3:** FPR_HN(E4) < FPR_HN(E4-noint), **dan** Recall(E4) − Recall(E4-noint) ≥ −5 poin.
+**H3:** FPR_HN(DIFF+I+MB) < FPR_HN(DIFF+MB), **dan** Recall(DIFF+I+MB) − Recall(DIFF+MB) ≥ −5 poin.
 
-Pembanding sekunder tanpa uji: E0 vs E0-noint, yaitu efek intent tanpa retrieval.
+Pembanding sekunder tanpa uji: DIFF+I vs DIFF, yaitu efek intent tanpa retrieval.
 
 ### RQ4 — Biaya · deskriptif
 
@@ -158,9 +158,9 @@ Pembanding sekunder tanpa uji: E0 vs E0-noint, yaitu efek intent tanpa retrieval
 > configurations are Pareto-optimal?*
 
 - **Biaya komponen** dihitung sebagai selisih antar pasangan konfigurasi:
-  - E0-noint → E0: intent
-  - E0 → E3: satu card
-  - E3 → E3-k2 atau E4: card kedua
+  - DIFF → DIFF+I: intent
+  - DIFF+I → DIFF+I+M: satu card
+  - DIFF+I+M → DIFF+I+MM atau DIFF+I+MB: card kedua
 - **Pareto front** dihitung pada (FPR_HN, Recall, median latency).
 - Memori GPU dilaporkan sebagai memori minimum terhitung per model: memori bobot dari log vLLM ditambah KV cache terhitung ([methodology.md §9.3](methodology.md#93-kebutuhan-memori-dan-cara-mengukurnya)). Puncak nvidia-smi tidak dipakai (D41). Model GPU, total VRAM, dan dtype dilaporkan.
 
@@ -170,10 +170,10 @@ Bagian ini tidak diuji signifikansinya dan dilaporkan sebagai deskripsi.
 
 | ID | Analisis | Catatan |
 |---|---|---|
-| EA1 | FPR_HN per kategori hard negative, E4 vs E3-k2 | Menggantikan H1 proposal. H1 lama menyebut kelima kategori HN sekaligus, jadi tidak mungkin salah. Dengan ~20 pair per kategori, hasilnya hanya deskriptif |
-| EA2 | Stabilitas: persentase pair yang verdict-nya berubah antar 3 run sampling (temperature 0,7) untuk E0 dan E4 | Menjawab limitasi Wyss soal stabilitas berulang |
-| EA3 | Recall dan FPR pada insiden yang terbit sebelum vs sesudah tanggal rilis model | Mengukur risiko kontaminasi pretraining; mendukung "bertahan pada temporal split" (slide 17) |
-| EA4 | Taksonomi error (capability, intent, retrieval) untuk semua kesalahan E4 | Dikerjakan di UI audit |
+| EA1 | FPR_HN per kategori hard negative, DIFF+I+MB vs DIFF+I+MM | Menggantikan H1 proposal. H1 lama menyebut kelima kategori HN sekaligus, jadi tidak mungkin salah. Dengan ~20 pair per kategori, hasilnya hanya deskriptif |
+| EA2 | Stabilitas: persentase pair yang verdict-nya berubah antar 3 run sampling (temperature 0,7) untuk DIFF+I dan DIFF+I+MB | Menjawab limitasi Wyss soal stabilitas berulang |
+| EA3 | Recall dan FPR pada insiden yang terbit sebelum vs sesudah tanggal rilis model | Mengukur risiko kontaminasi pretraining; mendukung "bertahan pada temporal split" (slide 17). Lengan pasca-rilis ditargetkan minimal 15 pair MAL (D58); pada n itu Wilson 95% masih ±19 poin, jadi hasilnya arah, bukan estimasi presisi |
+| EA4 | Taksonomi error (capability, intent, retrieval) untuk semua kesalahan DIFF+I+MB | Dikerjakan di UI audit |
 | EA5 | Evidence localization: proporsi true positive yang evidence-nya menunjuk baris malicious di gold | Butuh anotasi baris malicious pada MAL |
 
 ## 5. Decision rule
@@ -203,7 +203,7 @@ Aturan ini **dibekukan di Gate G2**, sebelum run pertama pada test set.
 | **Arah sesuai, tidak signifikan** | FPR_HN turun, p_Holm ≥ 0,05, dan estimasi titik penurunan recall ≤ 5 poin |
 | **Tidak didukung** | FPR_HN tidak turun, **atau** estimasi titik penurunan recall > 5 poin |
 
-H2a tidak punya syarat recall. Labelnya **Didukung** (FPR_HN(E3) > FPR_HN(E0)
+H2a tidak punya syarat recall. Labelnya **Didukung** (FPR_HN(DIFF+I+M) > FPR_HN(DIFF+I)
 dengan p_Holm < 0,05), **Arah sesuai, tidak signifikan**, atau **Tidak didukung**.
 
 ### Aturan klaim
@@ -212,9 +212,11 @@ dengan p_Holm < 0,05), **Arah sesuai, tidak signifikan**, atau **Tidak didukung*
   boleh ditulis jika **kedua model** berlabel Didukung atau Didukung sebagian.
 - "Tidak signifikan" **bukan** bukti bahwa tidak ada efek. Batas deteksi desain
   ini dijelaskan di [methodology.md §11.3](methodology.md#113-batas-yang-bisa-dibuktikan).
-- **Kriteria adopsi** (revisi slide 15 dan 17): E4 direkomendasikan hanya jika H2b
+- **Kriteria adopsi** (revisi slide 15 dan 17): DIFF+I+MB direkomendasikan hanya jika H2b
   dan H3 berlabel Didukung atau Didukung sebagian pada kedua model, arah efeknya
   sama pada subset pasca-rilis (EA3), dan biaya RQ4 dilaporkan.
+  Kalau lengan pasca-rilis tidak mencapai 15 pair, syarat EA3 dinyatakan **tidak
+  dapat dievaluasi**, bukan dianggap terpenuhi (D58).
 - Jika jumlah pair suatu subset di bawah minimum pada Gate G1, RQ yang bergantung
   pada subset itu dilaporkan secara deskriptif saja.
 - **Angka penelitian lain** (Wyss et al., RogueOne, IntelGuard) hanya dibahas di
@@ -227,9 +229,9 @@ dengan p_Holm < 0,05), **Arah sesuai, tidak signifikan**, atau **Tidak didukung*
 
 **Internal**
 
-- *E4 punya lebih banyak contoh daripada E3.* Mitigasi: kontrol E3-k2.
+- *DIFF+I+MB punya lebih banyak contoh daripada DIFF+I+M.* Mitigasi: kontrol DIFF+I+MM.
 - *Capability delta kosong pada serangan tersamar,* yaitu payload yang memakai capability yang sudah ada di v_{t−1}. Pada pola ini (CC-Harvest), RogueOne default melewatkan 10 dari 10 kasus. Retrieval berbasis delta tidak mendapat sinyal pada pair seperti itu. Mitigasi: recall dilaporkan terpisah untuk pair MAL dengan delta kosong.
-- *Recency bias: card terakhir memengaruhi verdict.* Mitigasi: urutan card E4 di-counterbalance per pair.
+- *Recency bias: card terakhir memengaruhi verdict.* Mitigasi: urutan card DIFF+I+MB di-counterbalance per pair.
 - *Kualitas retrieval tidak simetris; pool benign lebih kecil sehingga card benign bisa kurang mirip.* Mitigasi: skor kemiripan setiap card dicatat dan dilaporkan per konfigurasi.
 - *System prompt memberi petunjuk kategori HN.* Mitigasi: daftar kategori dihapus dari prompt (D17).
 - *Prompt disetel sampai menang pada test set.* Mitigasi: desain dibekukan di G2; smoke test hanya pada dev set yang terpisah.
@@ -250,7 +252,8 @@ dengan p_Holm < 0,05), **Arah sesuai, tidak signifikan**, atau **Tidak didukung*
 **Kontaminasi pretraining**
 
 - Insiden terkenal kemungkinan ada di data latih model, dan nama paket terlihat di prompt.
-- Mitigasi: EA3 membandingkan insiden sebelum dan sesudah tanggal rilis model. Tanggal rilis diambil dari model card dan dicatat di decisions.md.
+- Mitigasi: EA3 membandingkan insiden sebelum dan sesudah tanggal rilis model. Batasnya adalah tanggal commit pertama repositori model di Hugging Face, dengan tanggal model card sebagai pembanding; yang lebih awal yang dipakai, dan keduanya dicatat di decisions.md (D58).
+- MAL didominasi insiden Backstabber's Knife Collection (2015–2019), yang semuanya pra-rilis. Karena itu kampanye pasca-rilis dikumpulkan lebih dulu sampai minimal 15 pair terpenuhi (methodology §3.1), bukan diserahkan ke urutan hash.
 
 **Kesimpulan statistik**
 

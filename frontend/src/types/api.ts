@@ -2,6 +2,13 @@ export type Verdict = "malicious" | "benign" | "skip";
 export type ErrorClass = "capability" | "intent" | "retrieval";
 export type Subset = "MAL" | "HN" | "TYP";
 
+export interface IntentProfile {
+  description: string;
+  keywords: string;
+  scripts: string;
+  readme: string;
+}
+
 export type DeltaEvidence =
   | { file: string; line: number; match: string }
   | { file: string; hook: string; match: string }
@@ -17,7 +24,8 @@ export interface Pair {
   subset?: Subset;
   category?: number;
   campaign?: string;
-  intent?: string;
+  intent?: string | IntentProfile;
+  annotation_status?: string;
   delta?: string[];
   delta_evidence?: Record<string, DeltaEvidence[]>;
   truncated?: boolean;
@@ -30,6 +38,7 @@ export interface Decision {
   category?: number;
   error?: ErrorClass;
   note?: string;
+  gold_evidence?: string[];
   at?: string;
 }
 

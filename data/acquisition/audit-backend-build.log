@@ -1,0 +1,202 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  380.3MB
+Step 1/15 : FROM rust:1.98-slim-bookworm AS build
+1.98-slim-bookworm: Pulling from library/rust
+0a8f0f20aa55: Pulling fs layer
+563b3703fbd2: Download complete
+fa91d0cdf889: Download complete
+0a8f0f20aa55: Download complete
+0a8f0f20aa55: Pull complete
+Digest: sha256:ff521445a372125ed4f76e1453a1f8098f2d05332d1601d30db1c1f62757e730
+Status: Downloaded newer image for rust:1.98-slim-bookworm
+ ---> ff521445a372
+Step 2/15 : ARG CARGO_BUILD_JOBS=2
+ ---> Running in 9dcd5c323897
+ ---> Removed intermediate container 9dcd5c323897
+ ---> 1edd21da2ea2
+Step 3/15 : ENV CARGO_BUILD_JOBS=${CARGO_BUILD_JOBS}
+ ---> Running in 1d7d74bdbd71
+ ---> Removed intermediate container 1d7d74bdbd71
+ ---> dc4f733ac10b
+Step 4/15 : WORKDIR /src
+ ---> Running in f0fe8a08ef10
+ ---> Removed intermediate container f0fe8a08ef10
+ ---> 8e4768d04f65
+Step 5/15 : COPY backend/Cargo.toml backend/Cargo.lock ./
+ ---> 6ac63cfd7ece
+Step 6/15 : RUN mkdir src && echo "fn main() {}" > src/main.rs     && cargo build --release --locked     && rm -rf src
+ ---> Running in aa6b7aa160c4
+[91m    Updating crates.io index
+[0m[91m Downloading crates ...
+[0m[91m  Downloaded cfg-if v1.0.4
+[0m[91m  Downloaded form_urlencoded v1.2.2
+[0m[91m  Downloaded http-body v1.1.0
+[0m[91m  Downloaded itoa v1.0.18
+[0m[91m  Downloaded axum v0.8.9
+[0m[91m  Downloaded atomic-waker v1.1.2
+[0m[91m  Downloaded equivalent v1.0.2
+[0m[91m  Downloaded futures-core v0.3.34
+[0m[91m  Downloaded thread_local v1.1.10
+[0m[91m  Downloaded tower-service v0.3.3
+[0m[91m  Downloaded futures-task v0.3.34
+[0m[91m  Downloaded errno v0.3.14
+[0m[91m  Downloaded percent-encoding v2.3.2
+[0m[91m  Downloaded tokio-macros v2.7.2
+[0m[91m  Downloaded httpdate v1.0.3
+[0m[91m  Downloaded sync_wrapper v1.0.2
+[0m[91m  Downloaded serde_path_to_error v0.1.20
+[0m[91m  Downloaded smallvec v1.16.0
+[0m[91m  Downloaded serde_urlencoded v0.7.1
+[0m[91m  Downloaded mime v0.3.17
+[0m[91m  Downloaded tower-layer v0.3.3
+[0m[91m  Downloaded lazy_static v1.5.0
+[0m[91m  Downloaded quote v1.0.47
+[0m[91m  Downloaded slab v0.4.12
+[0m[91m  Downloaded http-body-util v0.1.5
+[0m[91m  Downloaded signal-hook-registry v1.4.8
+[0m[91m  Downloaded axum-core v0.5.6
+[0m[91m  Downloaded nu-ansi-term v0.50.3
+[0m[91m  Downloaded pin-project-lite v0.2.17
+[0m[91m  Downloaded tracing-log v0.2.0
+[0m[91m  Downloaded matchit v0.8.4
+[0m[91m  Downloaded once_cell v1.21.4
+[0m[91m  Downloaded tracing-attributes v0.1.31
+[0m[91m  Downloaded httparse v1.10.1
+[0m[91m  Downloaded zmij v1.0.23
+[0m[91m  Downloaded futures-channel v0.3.34
+[0m[91m  Downloaded sharded-slab v0.1.7
+[0m[91m  Downloaded ryu v1.0.23
+[0m[91m  Downloaded tracing-core v0.1.36
+[0m[91m  Downloaded serde_core v1.0.229
+[0m[91m  Downloaded unicode-ident v1.0.24
+[0m[91m  Downloaded serde_derive v1.0.229
+[0m[91m  Downloaded log v0.4.34
+[0m[91m  Downloaded socket2 v0.6.5
+[0m[91m  Downloaded bytes v1.12.1
+[0m[91m  Downloaded proc-macro2 v1.0.107
+[0m[91m  Downloaded serde v1.0.229
+[0m[91m  Downloaded memchr v2.8.3
+[0m[91m  Downloaded hyper-util v0.1.20
+[0m[91m  Downloaded tower v0.5.3
+[0m[91m  Downloaded mio v1.2.3
+[0m[91m  Downloaded indexmap v2.14.2
+[0m[91m  Downloaded http v1.5.0
+[0m[91m  Downloaded hyper v1.11.1
+[0m[91m  Downloaded hashbrown v0.17.1
+[0m[91m  Downloaded serde_json v1.0.151
+[0m[91m  Downloaded futures-util v0.3.34
+[0m[91m  Downloaded tracing-subscriber v0.3.23
+[0m[91m  Downloaded syn v2.0.119
+[0m[91m  Downloaded syn v3.0.5
+[0m[91m  Downloaded tracing v0.1.44
+[0m[91m  Downloaded libc v0.2.189
+[0m[91m  Downloaded tokio v1.53.1
+[0m[91m   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+[0m[91m   Compiling unicode-ident v1.0.24
+[0m[91m   Compiling libc v0.2.189
+[0m[91m   Compiling itoa v1.0.18
+[0m[91m   Compiling syn v3.0.5
+[0m[91m   Compiling pin-project-lite v0.2.17
+[0m[91m   Compiling futures-core v0.3.34
+[0m[91m   Compiling once_cell v1.21.4
+[0m[91m   Compiling serde_core v1.0.229
+[0m[91m   Compiling bytes v1.12.1
+[0m[91m   Compiling http v1.5.0
+[0m[91m   Compiling tracing-core v0.1.36
+[0m[91m   Compiling errno v0.3.14
+[0m[91m   Compiling log v0.4.34
+[0m[91m   Compiling signal-hook-registry v1.4.8
+[0m[91m   Compiling tokio-macros v2.7.2
+[0m[91m   Compiling http-body v1.1.0
+[0m[91m   Compiling mio v1.2.3
+[0m[91m   Compiling socket2 v0.6.5
+[0m[91m   Compiling syn v2.0.119
+[0m[91m   Compiling httparse v1.10.1
+[0m[91m   Compiling tokio v1.53.1
+[0m[91m   Compiling tracing-attributes v0.1.31
+[0m[91m   Compiling smallvec v1.16.0
+[0m[91m   Compiling serde v1.0.229
+[0m[91m   Compiling tower-service v0.3.3
+[0m[91m   Compiling zmij v1.0.23
+[0m[91m   Compiling tracing v0.1.44
+[0m[91m   Compiling serde_derive v1.0.229
+[0m[91m   Compiling futures-channel v0.3.34
+[0m[91m   Compiling slab v0.4.12
+[0m[91m   Compiling atomic-waker v1.1.2
+[0m[91m   Compiling tower-layer v0.3.3
+[0m[91m   Compiling hashbrown v0.17.1
+[0m[91m   Compiling httpdate v1.0.3
+[0m[91m   Compiling serde_json v1.0.151
+[0m[91m   Compiling equivalent v1.0.2
+[0m[91m   Compiling sync_wrapper v1.0.2
+[0m[91m   Compiling futures-task v0.3.34
+[0m[91m   Compiling percent-encoding v2.3.2
+[0m[91m   Compiling futures-util v0.3.34
+[0m[91m   Compiling form_urlencoded v1.2.2
+[0m[91m   Compiling indexmap v2.14.2
+[0m[91m   Compiling hyper v1.11.1
+[0m[91m   Compiling http-body-util v0.1.5
+[0m[91m   Compiling cfg-if v1.0.4
+[0m[91m   Compiling ryu v1.0.23
+[0m[91m   Compiling lazy_static v1.5.0
+[0m[91m   Compiling memchr v2.8.3
+[0m[91m   Compiling mime v0.3.17
+[0m[91m   Compiling axum-core v0.5.6
+[0m[91m   Compiling sharded-slab v0.1.7
+[0m[91m   Compiling serde_urlencoded v0.7.1
+[0m[91m   Compiling thread_local v1.1.10
+[0m[91m   Compiling hyper-util v0.1.20
+[0m[91m   Compiling tower v0.5.3
+[0m[91m   Compiling serde_path_to_error v0.1.20
+[0m[91m   Compiling tracing-log v0.2.0
+[0m[91m   Compiling matchit v0.8.4
+[0m[91m   Compiling nu-ansi-term v0.50.3
+[0m[91m   Compiling tracing-subscriber v0.3.23
+[0m[91m   Compiling axum v0.8.9
+[0m[91m   Compiling intentdiff-backend v0.1.0 (/src)
+[0m[91m    Finished `release` profile [optimized] target(s) in 30.75s
+[0m ---> Removed intermediate container aa6b7aa160c4
+ ---> 194ba43afbbf
+Step 7/15 : COPY backend/src ./src
+ ---> dc571b825aa4
+Step 8/15 : RUN touch src/main.rs && cargo build --release --locked
+ ---> Running in 4e5ed6e756cf
+[91m   Compiling intentdiff-backend v0.1.0 (/src)
+[0m[91m    Finished `release` profile [optimized] target(s) in 3.52s
+[0m ---> Removed intermediate container 4e5ed6e756cf
+ ---> 977a6abd917d
+Step 9/15 : FROM debian:bookworm-slim
+bookworm-slim: Pulling from library/debian
+a32736424da2: Download complete
+Digest: sha256:3783cc01769c7b2b1b83a5c5ad96c815348e28ed7da68e2e3687004faa906251
+Status: Downloaded newer image for debian:bookworm-slim
+ ---> 3783cc01769c
+Step 10/15 : RUN useradd --system --create-home --uid 10001 audit
+ ---> Running in 156ec8d1f4c0
+[91museradd warning: audit's uid 10001 is greater than SYS_UID_MAX 999
+[0m ---> Removed intermediate container 156ec8d1f4c0
+ ---> 726bb5bed051
+Step 11/15 : COPY --from=build /src/target/release/intentdiff-backend /usr/local/bin/
+ ---> aa23ecaef8df
+Step 12/15 : USER audit
+ ---> Running in 9ed2f79f4fdf
+ ---> Removed intermediate container 9ed2f79f4fdf
+ ---> 401a1731a47b
+Step 13/15 : EXPOSE 8000
+ ---> Running in e7e2898c182e
+ ---> Removed intermediate container e7e2898c182e
+ ---> e850de27a14a
+Step 14/15 : ENTRYPOINT ["intentdiff-backend"]
+ ---> Running in 9ddace612e22
+ ---> Removed intermediate container 9ddace612e22
+ ---> 4abc99527c16
+Step 15/15 : CMD ["--data-dir", "/data", "--port", "8000"]
+ ---> Running in 9c864e90566e
+ ---> Removed intermediate container 9c864e90566e
+ ---> cab491e4243c
+Successfully built cab491e4243c
+Successfully tagged intendiff-audit-backend:20260928

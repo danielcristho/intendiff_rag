@@ -7,6 +7,7 @@
 import argparse
 import hashlib
 import json
+import random
 import sys
 import urllib.parse
 import urllib.request
@@ -31,6 +32,9 @@ HN_CATEGORIES = {
 }
 
 
+SEED = 2026
+
+
 # §3 orders every selection by this digest, never by popularity.
 def hash_key(name, version):
     return hashlib.sha256(f"{name}@{version}".encode()).hexdigest()
@@ -41,18 +45,31 @@ def hash_order(items, key=lambda item: (item["name"], item["version"])):
     return sorted(items, key=lambda item: hash_key(*key(item)))
 
 
+# deterministic_draw is how §3 draws: sorted by digest so the input order cannot
+# steer it, then shuffled with the study seed. The remainder keeps its order,
+# because §3.2 and §3.3 both replace a rejected pick with "the next one drawn".
+def deterministic_draw(entries, take, seed=SEED, key=lambda entry: f"{entry['name']}@{entry['version']}"):
+    ordered = sorted(entries, key=lambda entry: hashlib.sha256(key(entry).encode()).hexdigest())
+    random.Random(seed).shuffle(ordered)
+    return ordered[:take], ordered[take:]
+
+
 # parse_semver returns a comparable key for a version string.
 def parse_semver(version):
     # A prerelease sorts below the same release, which is what semver requires
     # and what a plain numeric tuple would get backwards.
-    core, _, prerelease = str(version).partition("-")
+    core, _, prerelease = str(version).split("+", 1)[0].partition("-")
     numbers = []
     for part in core.split(".")[:3]:
         digits = "".join(ch for ch in part if ch.isdigit())
         numbers.append(int(digits) if digits else 0)
     while len(numbers) < 3:
         numbers.append(0)
-    return (*numbers, 0 if prerelease else 1, prerelease)
+    # Numeric prerelease identifiers compare numerically (beta.10 > beta.2),
+    # while build metadata never changes precedence: https://semver.org/#spec-item-11.
+    identifiers = tuple((0, int(p)) if p.isdigit() else (1, p)
+                        for p in prerelease.split(".")) if prerelease else ()
+    return (*numbers, 0 if prerelease else 1, identifiers)
 
 
 # previous_version returns v_(t-1) for a target version, or None (D27).
@@ -61,13 +78,15 @@ def previous_version(doc, target):
     # time", which pairs across parallel release lines.
     times = doc.get("time", {})
     target_time = times.get(target)
+    if target_time is None:
+        return None
     target_key = parse_semver(target)
 
     candidates = [
         version
         for version in doc.get("versions", {})
         if parse_semver(version) < target_key
-        and (target_time is None or times.get(version, "") < target_time)
+        and times.get(version) is not None and times[version] < target_time
     ]
     return max(candidates, key=parse_semver) if candidates else None
 
@@ -164,6 +183,8 @@ def selfcheck():
     assert parse_semver("1.10.0") > parse_semver("1.9.0"), "numeric, not lexicographic"
     assert parse_semver("1.0.0-beta.1") < parse_semver("1.0.0"), "a prerelease sorts below release"
     assert parse_semver("2") == parse_semver("2.0.0"), "missing parts default to zero"
+    assert parse_semver("1.0.0-beta.10") > parse_semver("1.0.0-beta.2")
+    assert parse_semver("1.0.0+abc") == parse_semver("1.0.0+xyz")
 
     # Parallel release lines publish minutes apart; a time rule would pair
     # 1.14.1 with 0.30.4, which are unrelated.
@@ -180,6 +201,7 @@ def selfcheck():
     assert previous_version(doc, "0.30.4") == "0.30.3", previous_version(doc, "0.30.4")
     # The oldest version has no predecessor and must not invent one.
     assert previous_version(doc, "0.30.3") is None
+    assert previous_version(dict(doc, time={}), "1.14.1") is None
 
     # A version published before a lower-numbered one is still not its successor.
     out_of_order = {

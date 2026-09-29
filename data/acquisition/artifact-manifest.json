@@ -1,0 +1,220 @@
+{
+  "purpose": "Acquisition artifact checksums, not model evaluation results",
+  "artifacts": [
+    {
+      "path": "data/acquisition/advisories.jsonl",
+      "bytes": 790071,
+      "sha256": "b48fa64a2d10da7a5fa733e6d1d7b1454207dfe52a3f7e44df4ee7bed5d89845"
+    },
+    {
+      "path": "data/acquisition/alias-advisories.jsonl",
+      "bytes": 392,
+      "sha256": "3650400bc128c86c3779391c45dcba473251409358ada771c6bffec49be88899"
+    },
+    {
+      "path": "data/acquisition/corpus-summary.json",
+      "bytes": 368,
+      "sha256": "b8db133671a882e7dd5bb8d2355b3a603e06ea86bceb15228852a9b49e67871c"
+    },
+    {
+      "path": "data/acquisition/datadog-before-advisories.jsonl",
+      "bytes": 189366,
+      "sha256": "d18831b1d6f72ed9fae2a3e69e7d098a23fa8011cbe4f38810ae9d9d38bd42d3"
+    },
+    {
+      "path": "data/acquisition/datadog-screen-summary.json",
+      "bytes": 350,
+      "sha256": "f07ef7bb96a59568d5ae8a24d821a754caf348f9a8357fd79898d0ef5feb3c80"
+    },
+    {
+      "path": "data/acquisition/datadog.all-downloaded.jsonl",
+      "bytes": 1961639,
+      "sha256": "485b93ffb8aa49dfd046bd4951e30145dadd95c3ddb46c06f045a57229b29571"
+    },
+    {
+      "path": "data/acquisition/datadog.compromised.jsonl",
+      "bytes": 1164331,
+      "sha256": "1ec88f35d924c4daeb7180eda6f8823a0cc8b7149f460d0fb015e684c23aa983"
+    },
+    {
+      "path": "data/acquisition/datadog.compromised.pool.jsonl",
+      "bytes": 444277,
+      "sha256": "926c77a74ef3e38907398e834a1abeb268b729bdf888348c6133b70e0094a14f"
+    },
+    {
+      "path": "data/acquisition/datadog.intent-prefix.jsonl",
+      "bytes": 797308,
+      "sha256": "ab59f1fb88e12d86aa9e83312f1c1f9cc6cb3b1e33ea19a5f7db749919c3434c"
+    },
+    {
+      "path": "data/acquisition/datadog.intent-prefix.pool.jsonl",
+      "bytes": 7253388,
+      "sha256": "62f3e18b7fe8d2c08f257474cdf2909034296ecb8c39619191ad54e115039a21"
+    },
+    {
+      "path": "data/acquisition/datadog.inventory.jsonl",
+      "bytes": 3169000,
+      "sha256": "ff358cb09af29299e435bffa1a23b2932e129bca2541496d597c7dc623b6fc23"
+    },
+    {
+      "path": "data/acquisition/datadog.pair-candidates.jsonl",
+      "bytes": 981750,
+      "sha256": "d5733f916be842a8db64e44af0e762df84a95b29ef1d5cb00e9ad4250ebefec0"
+    },
+    {
+      "path": "data/acquisition/datadog.pair-exclusions.jsonl",
+      "bytes": 77051,
+      "sha256": "5fb9d0609d160ea38f7a94b84fb15edcfade361edb9ed6ce9eb031868a8c1f7a"
+    },
+    {
+      "path": "data/acquisition/datadog.pairs-screen-exclusions.jsonl",
+      "bytes": 176021,
+      "sha256": "d14a2c0a68165653de2ea4713d35ad7953ff0f5372473298861dc0868fd67d37"
+    },
+    {
+      "path": "data/acquisition/datadog.pairs-screened.jsonl",
+      "bytes": 1279603,
+      "sha256": "95cbce9b85bf30cf18ec72e070e7e28bf7eecb228cb8a1e99eaa74684ce57bee"
+    },
+    {
+      "path": "data/acquisition/extracted.datadog-before.jsonl",
+      "bytes": 208851,
+      "sha256": "1b0faa22c501d40c99b4a549e2445c28ad54e7308f2020d9c5bc356ea32c94ad"
+    },
+    {
+      "path": "data/acquisition/extracted.typical.jsonl",
+      "bytes": 762550,
+      "sha256": "878bb6243cbec0d30561bbc28eff0d52c68023845ad21205953eac7a0270a0d4"
+    },
+    {
+      "path": "data/acquisition/hn.audit-failures.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/acquisition/hn.audit.jsonl",
+      "bytes": 228899,
+      "sha256": "a04aeb10048b2466217584e6fab69764e5dc247cda0c3418a5705ebd86bbc639"
+    },
+    {
+      "path": "data/acquisition/hn.candidates.jsonl",
+      "bytes": 165563,
+      "sha256": "488f28047d969cd72e47406f9a47a2011f8aefd0e25f3b9fa0b905184beb4744"
+    },
+    {
+      "path": "data/acquisition/hn.path-b-packages.jsonl",
+      "bytes": 598933,
+      "sha256": "f25a1eba8b133b465b4e91038bb48eead836cc1a6c95287590993f7a5d2d754a"
+    },
+    {
+      "path": "data/acquisition/hn.pool-excluded.jsonl",
+      "bytes": 10390,
+      "sha256": "3a89511298bbca3e35708a6874d601eabcb3f16eb3bf27a271ba46fe9fbf3de5"
+    },
+    {
+      "path": "data/acquisition/mal.audit-failures.jsonl",
+      "bytes": 581,
+      "sha256": "82522e30eb5694a76ae6831d805da560b3693e2f7bf5eb513ee25ba111ea2664"
+    },
+    {
+      "path": "data/acquisition/mal.audit.jsonl",
+      "bytes": 79903,
+      "sha256": "7877b1a382969f445cb2d755accf6f411e64b8eb8988dbff7bd62cbc1d44718b"
+    },
+    {
+      "path": "data/acquisition/mal.source.jsonl",
+      "bytes": 20091,
+      "sha256": "69847e3a8fb47c9482c1cc121182dc942e4bb5a2b546e8300598136d81d29ab1"
+    },
+    {
+      "path": "data/acquisition/samples.datadog-before.jsonl",
+      "bytes": 509237,
+      "sha256": "e91cb768656d43e7162804ed9d7c02c31f46a0e0848937a2f817e27fb3fcdbbb"
+    },
+    {
+      "path": "data/acquisition/samples.typical.jsonl",
+      "bytes": 2248283,
+      "sha256": "eb72898fea392f93500f0517840203a5c3749df9add0210b1418cdf3bb07f65b"
+    },
+    {
+      "path": "data/acquisition/selfchecks.json",
+      "bytes": 2172,
+      "sha256": "95870f7994a8c6f3386acd4c0f5dc1a524314313454f4716072de94836e48afc"
+    },
+    {
+      "path": "data/acquisition/typ.draw.jsonl",
+      "bytes": 42674,
+      "sha256": "950eff882b3fc92a2f6f09db40a27ab13761416b0b82454ce0b91f688d43e524"
+    },
+    {
+      "path": "data/acquisition/typ.excluded.jsonl",
+      "bytes": 3170,
+      "sha256": "bec369d93d9aefeb3500571c990a62f92fb41c33663da42729d5cac694467f8e"
+    },
+    {
+      "path": "data/acquisition/typ.pool.jsonl",
+      "bytes": 818721,
+      "sha256": "4fa633e34ad401e8f88d8a55e6c615373d8558aa76230ebbf2f72f5ac16b3d9e"
+    },
+    {
+      "path": "data/acquisition/typ.selected.jsonl",
+      "bytes": 65050,
+      "sha256": "d136be7eb627b0a55c91ea52c43dd6bacb3f6886d83d1ce5a5c25f7da5b88512"
+    },
+    {
+      "path": "data/acquisition/verification.json",
+      "bytes": 403,
+      "sha256": "a00630e7655f6bef7b507bbf1b8d393b2ef9bcd6c57dcadfc3ef8a2b01567fa7"
+    },
+    {
+      "path": "data/acquisition/wanted.advisories.jsonl",
+      "bytes": 291244,
+      "sha256": "23f7a740adaf67be4ab86432d27c64f8bbbf1d8beaf2d04bdde91395556be494"
+    },
+    {
+      "path": "data/acquisition/wanted.alias-advisories.jsonl",
+      "bytes": 92,
+      "sha256": "b9a8e62d64b6fe80aa7e38d291bd3dc234a24cf77db3eb38870808415b27e89b"
+    },
+    {
+      "path": "data/acquisition/wanted.datadog-before.jsonl",
+      "bytes": 74090,
+      "sha256": "ed19dcbd28301e3e8399454537491634240c8d2064363d8b36a91004efecc79f"
+    },
+    {
+      "path": "data/acquisition/wanted.typical.jsonl",
+      "bytes": 287034,
+      "sha256": "01c982a0ad2dacec1cf3e3cc20a5a656597e356cf097586e3f144877e33a21aa"
+    },
+    {
+      "path": "data/acquisition/wyss-campaigns.json",
+      "bytes": 2330,
+      "sha256": "05f63ee1d82943436323f76a5e01dda3aca070493248cad864be0e5c13fe1c02"
+    },
+    {
+      "path": "data/acquisition/wyss-dolos-pairs.json",
+      "bytes": 6528,
+      "sha256": "aeefa9c0e6292f281b17c39e1e116571cefeba182d7905f4b3755b00e00a7ee3"
+    },
+    {
+      "path": "data/acquisition/wyss-extraction.json",
+      "bytes": 193,
+      "sha256": "5fc38f4405e5b6bb8c61e073796d0659de61a296c5f1c0c870cc5c03cbc10891"
+    },
+    {
+      "path": "data/acquisition/wyss-mal-extraction.json",
+      "bytes": 212,
+      "sha256": "1d2163a3b5c7130ea7de9bcf66be60f00bb2ce144e4505c204fa1eaba5e5fc49"
+    },
+    {
+      "path": "data/acquisition/wyss-mal-outer.json",
+      "bytes": 273,
+      "sha256": "5b1ff8dc8c669c2052d5c7bbb12070d66c00fd59ded2d382b3259d7075faccac"
+    },
+    {
+      "path": "data/acquisition/wyss-plan.json",
+      "bytes": 690,
+      "sha256": "24c79ac1657e2844ca1504692d88c17afd775b1060224df60c4c1062ec9c35dc"
+    }
+  ]
+}

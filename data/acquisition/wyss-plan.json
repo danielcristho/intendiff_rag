@@ -1,0 +1,16 @@
+{
+  "popular": 1000,
+  "random": 1000,
+  "typ_draw": 100,
+  "path_a_pool": 1900,
+  "unique_registry_versions": 4000,
+  "mal_source_pairs": 46,
+  "seed": 2026,
+  "source_sha256": {
+    "typical_updates_random.txt": "46c02b250303c8b37d8fadbd40a7bc57a258cbeae3368cc8012cd3e7fea95204",
+    "malicious_clones.txt": "c837addfff1c766b244d4bc1e82e8cd8a95cef3b66b44a494a1087e85d8084ed",
+    "malicious_updates.txt": "bfd560ae57dffa5d9f3b02492d99f34bc209ec53a3d91954fd4843d3e0f62e95",
+    "typical_updates_popular.txt": "bc23af708add209747eafc4ced2814dec1b96477a03eb1e515d26cc21b39cdaa",
+    "live_analysis_update_events.txt": "44b16c14657b58fd20ebbc0830bd24cee891b009b2886407dfa2807e0dbfe52f"
+  }
+}

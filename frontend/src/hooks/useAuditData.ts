@@ -35,6 +35,8 @@ export function useSaveDecision() {
   const { annotator } = useAnnotator();
   const queryClient = useQueryClient();
   return useMutation({
+    // Blur and verdict clicks can save adjacent fields; keep their writes ordered.
+    scope: { id: `annotation-${annotator}` },
     mutationFn: ({ id, patch }: { id: string; patch: Decision }) =>
       api.saveDecision(annotator, id, patch),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: decisionsKey(annotator) }),

@@ -6,9 +6,7 @@
 import argparse
 import hashlib
 import json
-import subprocess
 import sys
-import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
@@ -45,7 +43,15 @@ def added_files(before, after):
 
 # Compares raw file digests, not paths.
 def added_hashes(before, after):
-    return {sha256_text(text) for text in added_files(before, after).values()}
+    before, after = Path(before), Path(after)
+    existing = {p.relative_to(before).as_posix() for p in before.rglob("*") if p.is_file()}
+    hashes = set()
+    for path in after.rglob("*"):
+        if path.is_file() and path.relative_to(after).as_posix() not in existing:
+            # read_text normalizes CRLF and omits binary files, violating raw-byte hashes.
+            with path.open("rb") as stream:
+                hashes.add(hashlib.file_digest(stream, "sha256").hexdigest())
+    return hashes
 
 
 # added_code concatenates the added JavaScript, which is what Dolos compares.
@@ -61,38 +67,8 @@ def added_code(before, after):
 def dolos_similarity(left, right):
     if not left.strip() or not right.strip():
         return 0.0
-    with tempfile.TemporaryDirectory() as work:
-        root = Path(work)
-        (root / "a.js").write_text(left, encoding="utf-8")
-        (root / "b.js").write_text(right, encoding="utf-8")
-        result = subprocess.run(
-            ["npx", "--yes", "@dodona/dolos", "run", "-f", "terminal",
-             "--kgram-length", str(DOLOS_KGRAM), "--kgrams-in-window", str(DOLOS_WINDOW),
-             str(root / "a.js"), str(root / "b.js")],
-            capture_output=True, text=True,
-        )
-        if result.returncode != 0:
-            raise RuntimeError(
-                "dolos failed; install @dodona/dolos or inject a similarity "
-                f"function: {result.stderr.strip()[:300]}"
-            )
-        return _parse_similarity(result.stdout)
-
-
-# _parse_similarity pulls the pair similarity out of Dolos's terminal report.
-def _parse_similarity(output):
-    for line in output.splitlines():
-        # The terminal report prints the score as a bare 0-1 float in the
-        # similarity column; take the first one on a line naming both files.
-        if "a.js" in line and "b.js" in line:
-            for token in line.replace("|", " ").split():
-                try:
-                    value = float(token)
-                except ValueError:
-                    continue
-                if 0.0 <= value <= 1.0:
-                    return value
-    return 0.0
+    from dolos import score_lookup
+    return score_lookup([{"code": left}, {"code": right}])(left, right)
 
 
 # Union-find with path compression.
@@ -122,15 +98,20 @@ def linked_without_code(left, right):
 # cluster assigns every item a campaign id, as the transitive closure of §3.6.
 def cluster(items, similarity=None, threshold=MERGE_THRESHOLD):
     parent = {item["id"]: item["id"] for item in items}
+    # Index exact links before similarity; rebuilding large hash sets for every
+    # pair is prohibitive on the full KB pool and does not change the closure.
+    owners = {}
+    for item in items:
+        for field in ("reports", "added_hashes"):
+            for value in item.get(field) or ():
+                owner = owners.setdefault((field, value), item["id"])
+                union(parent, owner, item["id"])
 
-    for index, left in enumerate(items):
-        for right in items[index + 1:]:
-            if find(parent, left["id"]) == find(parent, right["id"]):
-                # ponytail: still O(n^2); batch Dolos over all files if slow.
-                continue
-            if linked_without_code(left, right):
-                union(parent, left["id"], right["id"])
-            elif similarity is not None:
+    if similarity is not None:
+        for index, left in enumerate(items):
+            for right in items[index + 1:]:
+                if find(parent, left["id"]) == find(parent, right["id"]):
+                    continue
                 if similarity(left.get("code", ""), right.get("code", "")) >= threshold:
                     union(parent, left["id"], right["id"])
 
@@ -154,7 +135,8 @@ def main(argv=None):
     args = parser.parse_args(argv)
 
     items = [json.loads(line) for line in Path(args.items).read_text().splitlines() if line.strip()]
-    similarity = None if args.no_dolos else dolos_similarity
+    from dolos import score_lookup
+    similarity = None if args.no_dolos else score_lookup(items)
     assigned = cluster(items, similarity, args.threshold)
     print(json.dumps({
         "campaigns": assigned,
@@ -214,6 +196,25 @@ def selfcheck():
     assert counts == {0.5: 1, 0.8: 2}, counts
     assert counts[0.8] >= counts[0.5], "a stricter threshold cannot produce fewer clusters"
 
+    # Indexed linking must match the exhaustive edge graph, including transitive
+    # bridges and values appearing in both metadata namespaces.
+    import random
+    rng = random.Random(2026)
+    for _ in range(20):
+        rows = [item(str(i), reports=[str(rng.randrange(20))],
+                     hashes=[str(rng.randrange(20))], code=str(i)) for i in range(25)]
+        edges = {(str(i), str(j)): rng.random() for i in range(25) for j in range(i + 1, 25)}
+        sim = lambda a, b: edges.get((a, b), edges.get((b, a), 0.0))
+        for threshold in (0.5, 0.8):
+            expected = {r["id"]: r["id"] for r in rows}
+            for i, left in enumerate(rows):
+                for right in rows[i + 1:]:
+                    if linked_without_code(left, right) or sim(left["code"], right["code"]) >= threshold:
+                        union(expected, left["id"], right["id"])
+            expected = {key: find(expected, key) for key in expected}
+            assert cluster(rows, sim, threshold) == expected
+            assert cluster(list(reversed(rows)), sim, threshold) == expected
+
     # --- added_files and added_code read real directories
     import tempfile as tf
 
@@ -233,6 +234,12 @@ def selfcheck():
     # Dolos compares JavaScript; a text file is not part of the code excerpt.
     assert "not javascript" not in added_code(before, after)
     assert sha256_text("exfiltrate();") in added_hashes(before, after)
+    (after / "crlf.txt").write_bytes(b"first\r\nsecond\r\n")
+    (after / "binary.bin").write_bytes(b"\x00\xff")
+    hashes = added_hashes(before, after)
+    assert hashlib.sha256(b"first\r\nsecond\r\n").hexdigest() in hashes
+    assert hashlib.sha256(b"\x00\xff").hexdigest() in hashes
+    assert hashlib.sha256(b"first\nsecond\n").hexdigest() not in hashes
 
     # --- an empty excerpt scores zero rather than invoking Dolos
     assert dolos_similarity("", "anything") == 0.0
