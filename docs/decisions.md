@@ -331,3 +331,201 @@ Konteks: GPU yang tersedia dicek terhadap kebutuhan memori di
 - `typical_updates_popular.txt` dan `typical_updates_random.txt` masing-masing **1.000 baris**, dan `malicious_updates.txt` **46 baris** — cocok dengan paper. Format tiap baris `path_sebelum,path_sesudah`, dan keduanya menjadi kerangka sampel TYP (§3.2) sekaligus jalur A (§3.3).
 - Selisih 171 versus 163 clone **belum ditelusuri**; jangan kutip angka mana pun sebelum jelas.
 - `code/openai.key` berukuran 0 byte — placeholder, bukan kredensial yang bocor.
+
+## 2026-09-25 — Audit referensi dan dataset sebelum G2
+
+**D58. Batas EA3 adalah satu tanggal per model, dan lengan pasca-rilis punya target minimum.**
+
+- Dua dokumen mendefinisikannya berbeda: research.md §6 menulis "tanggal rilis diambil dari model card", methodology §11.2 menulis "tanggal commit pertama repositori model di Hugging Face". Keduanya di `docs/`, jadi aturan "docs/ yang benar" tidak menyelesaikannya.
+- **Yang dipakai:** tanggal commit pertama repositori model di Hugging Face, yaitu saat bobot pertama kali publik. Tanggal di model card dicatat sebagai pembanding; kalau keduanya berbeda, yang lebih awal menjadi batas dan keduanya dilaporkan.
+- Alasan [L]: yang diukur adalah kemungkinan sebuah insiden ikut ke data latih. Yang bisa diamati hanya kapan bobot terbit, jadi tanggal paling awal yang bisa dipastikan adalah batas yang konservatif.
+- **Target: minimal 15 pair MAL dari kampanye yang terbit setelah batas kedua model.** Kampanye pasca-rilis dikumpulkan lebih dulu sampai target terpenuhi, baru sisa kuota diisi. Urutan hash di dalam kampanye (§3.1) tidak berubah.
+- Alasan [L]: MAL didominasi Backstabber's Knife Collection (2015–2019). Empat insiden pasca-rilis yang sudah tercatat di references.md — chalk/debug, Shai-Hulud, axios, node-ipc — hanya memberi paling banyak 11 pair dengan cap 3 pair per kampanye, sehingga tanpa stratifikasi besar lengan itu diserahkan ke undian.
+- Dasar angka 15 [L]: Wilson 95% pada recall 0,8 memberi ±22,7 poin pada n=10 dan ±19,1 poin pada n=15. Lebar itu tetap besar, jadi 15 bukan ambang kecukupan melainkan batas bawah agar arah efeknya masih terbaca. Lebar interval selalu dilaporkan bersama angkanya.
+- Cap 3 pair per kampanye **tidak** dinaikkan untuk kampanye pasca-rilis. Itu akan membuat satu insiden mendominasi recall, yang justru alasan cap itu ada.
+- **Dampak:** kedua tanggal wajib diverifikasi sebelum G1 dan dicatat di sini. Kalau target 15 tidak tercapai, EA3 dilaporkan dengan n apa adanya beserta lebar intervalnya, dan syarat "arah efek sama pada subset pasca-rilis" di kriteria adopsi (research.md §5) dinyatakan tidak dapat dievaluasi, bukan dianggap terpenuhi.
+
+**D59. Kedua sisi pair dari sumber Wyss diambil dari paket replikasi, bukan registry, dan alur eksklusi dilaporkan per kriteria.**
+
+- §4.1 mengambil versi benign dari `dist.tarball` di registry npm untuk semua sumber. Untuk 46 pair Wyss itu tidak perlu: D57 mencatat setiap baris `malicious_updates.txt` berformat `path_sebelum,path_sesudah`, jadi kedua sisi ada di dalam zip.
+- Alasan [L]: mengambil dari registry menambah dua risiko tanpa manfaat. Tarball bisa berbeda dari yang dipakai Wyss (repack atau versi ditarik), dan untuk paket yang di-unpublish seluruhnya v_{t−1} tidak ada lagi. Memakai isi zip membuat masukan kami identik dengan masukan mereka.
+- Registry tetap satu-satunya jalur untuk sumber Datadog, OSV, dan RogueOne. Di sumber-sumber itu kriteria (c) §3.1 bisa menggugurkan kandidat karena paketnya sudah hilang dari registry.
+- **Alur eksklusi dilaporkan per kriteria** (a, b, c, d, dan cap kampanye), bukan hanya jumlah pair yang gugur karena payload biner seperti sebelumnya.
+- **Dampak:** §4.1 dan §3.1 diperbarui. `data/samples.jsonl` mencatat asal tiap tarball (`replication` atau `registry`) di samping checksum. Komponen pengunduh dan ekstraksi belum ada di `pipeline/` dan belum tercatat di checklist experiments.md §4; ditambahkan sebagai item, karena seluruh subset bergantung padanya.
+
+**D60. Kuota HN di-backfill antar kategori, dan jalur B punya aturan berhenti.**
+
+- §3.3 menetapkan kategori dari tujuan yang terdokumentasi, bukan dari sinyal penyaring. Kategori sebuah kandidat karena itu baru diketahui setelah verifikasi, sementara kuotanya per kategori (20 uji + 5 card). Konstruksinya tidak bisa menjamin kuota itu.
+- **Aturan:** total HN uji dijaga 100 dan card benign 25. Kategori yang tidak mencapai kuotanya diisi dari kategori yang surplus menurut urutan hash. Komposisi akhir per kategori dilaporkan apa adanya, dan EA1 dibaca dengan n yang tidak sama antar kategori.
+- Kategori paling rawan adalah Perizinan: dasarnya satu contoh (react-native-bootsplash pada live analysis Wyss) dan sinyalnya `obfuscation` serta `dynamic_code`, kombinasi yang paling jarang sah sekaligus terdokumentasi.
+- **Aturan berhenti jalur B:** pencarian sebuah kategori dihentikan setelah 25 kandidat terverifikasi atau 250 hasil pencarian habis, mana yang lebih dulu. Tanpa batas ini volume unduhnya tidak terbatas (5 kategori × ≤250 hasil × 20 rilis per paket).
+- Kuota total tetap 125, tidak dinaikkan. Aturan ini ditulis sebelum G1 supaya bukan penyetelan setelah melihat data.
+
+**D61. E2 dihapus; proporsi label card dihitung tanpa inferensi.**
+
+- E2 (satu card teratas tanpa melihat label) tidak masuk perbandingan konfirmatori mana pun dan tidak pernah diuji. Satu-satunya angka yang dilaporkan darinya adalah proporsi label card yang terambil.
+- Alasan [L]: angka itu tidak butuh LLM. Retrieval deterministik — Jaccard atas delta, seri dipecah `sha256(pair_id|card_id)`, dan tidak membaca intent — sehingga label card teratas per pair bisa dihitung langsung dari `pairs.jsonl` dan `kb.jsonl`. E2 memakan 500 panggilan untuk angka yang gratis.
+- Alasan [L]: vonis E2 juga tidak bisa diatribusikan. Label card-nya berbeda antar pair, jadi FPR-nya campuran dua mekanisme dan tidak berbeda satu faktor dari konfigurasi mana pun.
+- **Dampak:** Stage 1 turun dari 3.500 ke 3.000 panggilan. Proporsi label card dilaporkan sebagai properti retrieval (§3.4), bukan sebagai hasil sebuah konfigurasi.
+
+**D62. ID konfigurasi diganti menjadi semantik.**
+
+| Sebelum | Sekarang | Isi |
+|---|---|---|
+| E0-noint | `DIFF` | smart-diff saja |
+| E0 | `DIFF+I` | + intent |
+| E3 | `DIFF+I+M` | + 1 card berbahaya |
+| E3-k2 | `DIFF+I+MM` | + 2 card berbahaya |
+| E4 | `DIFF+I+MB` | + 1 berbahaya + 1 sah |
+| E4-noint | `DIFF+MB` | sama, tanpa intent |
+
+- Alasan [L]: penomoran lama adalah sisa skema yang sudah digantikan. E1 dihapus D8 dan E2 dihapus D61, sehingga tabel konfigurasi memuat dua lubang yang tidak berarti apa pun bagi pembaca. ID baru menyatakan komposisi faktornya, sehingga ketiga kontras konfirmatori terbaca sebagai selisih satu token: `+M`, `MM→MB`, dan `±I`.
+- Alasan [L] **kenapa sekarang:** `run_key` memuat nama konfigurasi, dan `data/results.jsonl` belum ada — belum ada satu pun run test-set. Rename setelah Stage 1 berarti 3.000 run hangus.
+- Entri D1–D61 di file ini **tidak** ditulis ulang. Log ini bertanggal, jadi entri lama tetap memakai ID yang berlaku saat itu, dan tabel di atas adalah pemetaannya.
+
+**D63. Naskah dibingkai kontribusi, tanpa label RQ.**
+
+- RQ1–RQ4 tetap di research.md sebagai desain internal dan tetap mengikat kode serta skrip analisis. Naskah tidak menyebut "RQ1" dan seterusnya; strukturnya mengikuti daftar kontribusi di Pendahuluan.
+- Naskah memang sudah tidak memuat satu pun label RQ (diperiksa 2026-09-25), jadi entri ini mengunci keadaan itu, bukan mengubahnya.
+- Alasan [L]: pembaca naskah membutuhkan kontribusi dan endpoint, bukan penomoran internal. Penomoran tetap berguna di `docs/` untuk melacak konfigurasi mana menjawab apa.
+
+**D64. Angka yang harus diverifikasi sebelum masuk naskah.**
+
+- **"163 klon" dikutip dua kali di naskah** (Pendahuluan dan §Data) padahal D57 melarangnya sampai selisih 171 versus 163 jelas. Sampai itu selesai, argumen klon ditulis tanpa angka; argumennya — seluruh klon terdeteksi di evaluasi asli — tidak membutuhkan hitungannya.
+- **SocketAI "presisi +16%, F1 +9% dibanding CodeQL"** tidak ada di references.md dan tidak bisa diturunkan dari angka yang tercatat (GPT-4 99%/97%, GPT-3 91%/94%). Ditandai belum terverifikasi.
+- **Angka RogueOne-Paranoid (38/41 = 92,7%, FP 120/300 = 40,0%) dan CC-Harvest (10 dari 10) terverifikasi**, dibaca dari PDF pada 2026-09-13, tetapi hanya tercatat di `.agent/rogueone.md`. Itu membalik hierarki `docs/` dan `.agent/`, jadi baris RogueOne di references.md dilengkapi.
+- **Bagian statistik naskah tidak memuat satu pun sitasi.** Dietterich 1998, Liu et al. 2024, dan Tam et al. 2024 sudah terverifikasi dan masuk `cas-refs.bib`. Lima referensi klasik — McNemar 1947, Holm 1979, Wilson 1927, Cohen 1960, Efron & Tibshirani 1993 — belum diverifikasi, jadi belum masuk.
+- **Tabel §11.3 dihitung ulang dan cocok:** recall 0,9 pada n=50 → [0,786; 0,957]; recall 0,8 → [0,670; 0,888].
+
+## 2026-09-25 — Rantai data dibangun
+
+**D65. Dua berkas perantara masuk skema, dan isolasi §4.1 dijalankan sebagai dua fase.**
+
+- §3 menamai `samples.jsonl`, `pairs.jsonl`, `kb.jsonl`, dan `dev.jsonl`, tetapi tidak ada tempat untuk dua fakta yang tidak bisa diturunkan dari kode: versi mana yang perlu diunduh, dan pair mana yang ada beserta labelnya. Keduanya berasal dari pengumpulan dan pelabelan, jadi masing-masing mendapat berkas: `data/wanted.jsonl` dan `data/pairs.manifest.jsonl`.
+- **Dua fase** [R]: §4.1 sendiri sudah memisahkannya — tarball "diunduh di luar container", sedangkan ekstraksi dijalankan di container tanpa jaringan. Karena itu `samples.py fetch` butuh jaringan dan tidak pernah membuka arsip, sementara `samples.py extract` membuka arsip dan dijalankan tanpa jaringan. Modulnya tidak memanggil `docker` sendiri; operator yang menjalankan fase kedua di dalam container.
+- **Ekstraksi memperlakukan arsip sebagai bermusuhan** [L]: sampel malicious diasumsikan jahat, dan membuka arsipnya adalah satu-satunya titik di mana isinya menyentuh filesystem. Anggota arsip yang path-nya absolut atau memuat `..` ditolak, begitu pula symlink dan hardlink; hanya berkas biasa dan direktori yang diekstrak. Yang ditolak dilaporkan, tidak dibuang diam-diam.
+- **Checksum diverifikasi ulang sebelum arsip dibuka** [L]: fase kedua harus bisa memastikan bahwa yang dianalisis adalah bita yang tercatat di `samples.jsonl`, bukan berkas yang berubah di antara dua fase.
+- **Awalan `package/` npm dibuang** [L]: tarball npm menaruh semua berkas di bawah satu direktori teratas, sedangkan extractor, intent builder, dan smart-diff mencari `package.json` di akar direktori versi.
+- **Diff dipotong di perakit, bukan di runner** (§4.5): `dataset.py` memanggil pemotongan sekali per pair dan menyimpan hasilnya di `pairs.jsonl`, sehingga semua konfigurasi dan kedua model membaca teks yang sama. Runner tidak pernah memotong ulang.
+- **Urutan keluaran `pairs.jsonl`** mengikuti urutan naik SHA-256 dari `name@versi` (§3), sehingga berkasnya tidak bergantung pada urutan manifest.
+- Terverifikasi lewat dry run penuh tanpa jaringan: tarball bergaya npm → `samples.jsonl` → `work/` → `pairs.jsonl` → prompt keenam konfigurasi, dengan smart-diff sampai ke prompt dan nama paket tidak muncul di header diff.
+
+**D66. Undian TYP dan jalur A adalah satu pembagian, dengan tiga penafsiran dicatat.**
+
+- §3.2 mengambil 100 TYP dari 2.000 typical update Wyss dan §3.3 menjalankan 1.900 sisanya lewat extractor. Keduanya bagian dari satu pembagian atas daftar yang sama, jadi ditangani satu modul ([pipeline/typical.py](../pipeline/typical.py)) supaya aturan pembagiannya tidak hidup di dua tempat.
+- **Undian: urut digest dulu, lalu diacak dengan seed 2026.** Alasan [L]: mengurutkan menurut SHA-256 lebih dulu membuat undian tidak bisa dipengaruhi urutan baris di berkas upstream. Yang dipakai `shuffle`, bukan `sample`, karena §3.2 mengganti TYP yang ternyata punya advisory dengan "hasil undian berikutnya" — aturan itu hanya terdefinisi kalau sisa undiannya berurutan. Sisa itu sekaligus menjadi kolam jalur A.
+- **Identitas pair dibaca dari `package.json`, bukan dari path.** Alasan [L]: tata letak direktori di dalam zip replikasi belum diverifikasi; D57 baru memastikan format barisnya `path_sebelum,path_sesudah`. Membaca `name` dan `version` dari manifest membuat jalur A tidak bergantung pada tata letak yang belum pernah dilihat.
+- **Keluaran memakai field `signal_categories`, bukan `category`.** Alasan [L]: §3.3 menetapkan kategori dari tujuan yang terdokumentasi, sedangkan sinyal hanya menyaring. Satu delta bisa cocok dengan beberapa kategori — `network` masuk kategori 2 dan 4, `process_exec` masuk 1 dan 4 — jadi nama field harus menyatakan bahwa isinya kandidat, bukan penetapan. Anotator yang menetapkan kategorinya.
+- **Penyaringan dijalankan tanpa jaringan,** dan kriterianya hanya "delta tidak kosong". Tiga kriteria HN lainnya — tidak ada advisory, tujuan terdokumentasi, penerbit sama — adalah langkah verifikasi; `has_advisory` sudah ada di `collect.py`.
+- Terverifikasi pada skala sebenarnya: 1.000 + 1.000 baris menghasilkan 100 TYP (50 popular, 50 random) dan kolam 1.900 tanpa irisan, dengan undian ulang yang identik. Penyaringan diuji atas enam update sintetis yang memicu kelima kategori plus satu tanpa delta.
+
+**D67. Pemilihan card malicious dan batas ukuran card diimplementasikan; skeleton memisahkan yang otomatis dari yang ditulis anotator.**
+
+- Round-robin §3.4 dijalankan dengan satu kursor per capability. Alasan [L]: setiap penolakan bersifat permanen — kuota kampanye tidak pernah menyusut, paket tidak pernah dilepas, dan kampanye yang dikecualikan tidak pernah kembali — sehingga kursor yang hanya maju sudah benar dan tidak perlu menyapu ulang kolam.
+- **Empat field yang ditulis manusia dikeluarkan dalam keadaan kosong:** `intent`, `behavior_chain`, `code_excerpt`, dan `rationale`. Alasan [R]: §5.1 mewajibkan card disusun dari isi paket oleh anotator A dan dicek anotator B, dan card tidak pernah berasal dari output model. Kode hanya boleh menyiapkan slotnya.
+- **`drawn_for` dan `dir` dicatat** sebagai metadata: yang pertama membuat round-robin bisa diaudit, yang kedua menunjukkan anotator ke kodenya. Keduanya tidak pernah masuk prompt, sama seperti `id`, `campaign`, `source`, dan `delta`.
+- **`fit` menahan 15 baris excerpt lalu anggaran 512 token**, dan yang dipangkas adalah excerpt (§5.1). Pemangkasan **berhenti di satu baris**: excerpt kosong dirender sebagai placeholder `not available`, yang lebih panjang daripada satu baris kode pendek, sehingga pangkasan terakhir justru membesarkan card. Card yang prosa-nya sendiri sudah melebihi anggaran dilaporkan, bukan dipangkas diam-diam.
+- **Perenderan card sekarang hanya didefinisikan di `prompts.card_block`,** dipakai bersama oleh prompt dan pemeriksa ukuran. Alasan [L]: kalau formatnya ditulis dua kali, yang diukur bisa berbeda dari yang dilihat model.
+- **Koreksi ke `.agent/experiments.md`:** barisnya menyatakan `label` tidak pernah masuk prompt. Untuk pair itu benar, untuk card salah — §5.1 dan §6.2 menampilkan label card, dan justru itu yang membuat contohnya kontrastif. Barisnya dipisah menjadi field pair dan field card.
+- Terverifikasi atas kolam 80 paket sintetis dengan 30 kampanye: 50 card, sebaran round-robin 7/7/6/6/6/6/6/6, maksimum 2 card per kampanye, dan dua kampanye MAL test tidak muncul.
+
+**D68. Pembagian HN mengisi kuota card lebih dulu, dan pengisian kekurangan memakai urutan hash global.**
+
+- §3.3 membagi 125 HN terverifikasi menjadi 100 uji dan 25 card benign, berstrata per kategori. Kategori yang dipakai adalah kategori yang **ditetapkan anotator**, bukan sinyal yang menyaring kandidatnya.
+- **Kuota card diisi lebih dulu, baru kuota uji.** Alasan [L]: retrieval kontrastif hanya punya pembanding kalau setiap kategori menyumbang setidaknya satu card benign, sedangkan subset uji yang kurang masih bisa ditambal dari kategori lain. Membalik urutannya akan membuat kategori yang tipis — Perizinan adalah yang paling rawan (D60) — kehilangan card-nya justru pada kategori yang paling ingin diuji.
+- **Pengisian kekurangan memakai urutan hash atas seluruh sisa**, bukan urutan kategori. Alasan [L]: mengambil sisa kategori 1 lebih dulu hanya karena nomornya kecil adalah bias yang tidak ada dasarnya, dan D60 sendiri menyebut urutan hash.
+- **Komposisi akhir per kategori dilaporkan apa adanya.** Pada simulasi dengan kategori Perizinan hanya mendapat 9 kandidat: total uji tetap 100 dengan komposisi 22/25/4/28/21, card tetap 25, dan kategori Perizinan tetap menyumbang 5 card. EA1 karena itu dibaca dengan n yang tidak sama antar kategori.
+- **Kandidat tanpa kategori dihitung, tidak ditebak.** Kandidat yang belum diberi kategori oleh anotator tidak masuk kedua kuota, dan jumlahnya dilaporkan.
+- **Dev set (§3.5) tidak butuh komponen baru:** isinya 10 pair berbentuk sama, jadi dirakit `dataset.py` dari manifest yang berbeda.
+
+## 2026-09-28 — Akuisisi data asli dan pemeriksaan sumber
+
+**D69. Arsip dan identitas sumber diperiksa sebelum pemilihan dataset.**
+
+- ZIP OSF sudah diunduh dan SHA-256 cocok dengan metadata OSF. Arsip memuat daftar 2.000 typical updates, tetapi tidak memuat kode versi typical. Versi tepat pada daftar diambil dari registry dengan verifikasi integrity, tanpa instalasi paket. Kedua sisi MAL Wyss tetap memakai ZIP sesuai D59.
+- Undian D66 memakai identitas kanonis `name@after`, bukan nama direktori lokal. Perubahan lokasi ekstraksi tidak boleh mengubah hasil undian. Entri yang gagal diunduh atau tidak cocok identitasnya dicatat dan diganti mengikuti urutan undian yang sama. Tidak ada output test model yang dilihat.
+- Nama sumber `fangrong-xoc` merujuk ke manifest `@fangrong/xoc`; nama sumber dipertahankan sebagai metadata dan pemeriksaan advisory memakai nama kanonis. Versi `stream-combine@2.0.1` dalam arsip tidak berisi kode; pair tersebut tidak dinyatakan tersedia.
+- Metadata build SemVer (`+...`) tidak mengubah precedence versi; manifest aslinya tetap dicatat. Mismatch lain tidak diperbaiki dengan tebakan.
+
+**D70. Inventaris Datadog dipatok ke commit, dan kandidat belum berarti label gold.**
+
+- Snapshot sumber: `a9749c044f47563143ee10f600fee290cdeaeef0`. Tree root GitHub terpotong, sehingga inventaris memakai subtree `compromised_lib` dan `malicious_intent` yang tidak terpotong.
+- Semua 1.438 versi compromised yang memenuhi inventaris sumber diunduh. Untuk persiapan KB baru 1.000 versi awal menurut hash `name@version` yang diunduh dari 24.324 versi malicious-intent; ini **prefix kolam**, bukan 50 card final atau hasil screening seluruh kolam.
+- Pendahulu Datadog diturunkan dari packument registry yang ikut diarsipkan. Urutan prerelease numerik diperbaiki (`beta.10 > beta.2`), tanggal terbit kedua versi wajib tersedia, dan versi pendahulu yang juga tercatat compromised dikeluarkan. Tarball pendahulu tetap diambil dari registry sesuai §4.1.
+- Hasil pemeriksaan advisory, identitas, dan ketersediaan disimpan terpisah dari keputusan manusia. `source_label` tidak dipromosikan menjadi `label`; `signal_categories` tidak dipromosikan menjadi kategori HN.
+
+**D71. Dolos kampanye memakai keluaran JSON library yang dikunci versinya.**
+
+- `@dodona/dolos-lib` 3.5.1 dipasang di image preprocessing; k-gram 70 dan window 17. Adapter mengembalikan pasangan ID dan similarity sebagai JSON, sehingga tidak bergantung pada format tabel terminal CLI. Kegagalan alat adalah error, bukan similarity nol.
+- Pemeriksaan kode identik yang cukup panjang, input kosong, dan clustering 45 pair MAL Wyss telah dijalankan dengan Dolos sungguhan. Klaster ini masih parsial: gabungan sumber MAL dan kolam KB belum selesai.
+- Adapter kampanye ini **tidak** menggantikan `index.mjs` penghapus kode berulang pada smart-diff. Normalisasi §4.2 langkah 1–2 masih belum lengkap; berkas audit saat ini diberi penanda `raw_zero_context_before_normalization`.
+- Tidak ada perubahan hipotesis, prompt, decision rule, kewajiban dua anotator, atau pembekuan G2. Tidak ada inferensi test set yang dijalankan dalam akuisisi ini.
+
+**D72. Rekonstruksi preprocessing statis diberi identitas terpisah sebelum G2.**
+
+- `index.mjs` upstream tidak tersedia. Implementasi lokal bernama `static-dolos-exact-v1`; ini rekonstruksi yang dapat diaudit, **bukan klaim reproduksi identik Wyss**. Seluruh pair akan mencatat versi preprocessing dan laporan per file. Belum ada prediksi test set yang terpengaruh.
+- Minify memakai UglifyJS `compress=true, mangle=true`, lalu Webcrack unminify. `deobfuscate=false` dan `unpack=false`; sandbox yang mengeksekusi ekspresi dinonaktifkan dengan fungsi yang selalu menolak. Alasannya: aturan proyek melarang eksekusi sampel, sedangkan deobfuscation string-array Webcrack dapat mengevaluasi kode. Ini perbedaan eksplisit dari CLI default upstream.
+- Untuk file sumber yang ada di kedua versi, Dolos k=70/window=17 mengusulkan fragmen berulang. Hanya baris lengkap di fragmen dengan teks identik pada kedua sisi yang dihapus. Kemiripan token saja tidak cukup, karena normalisasi identifier/literal oleh detektor kemiripan dapat menyembunyikan perubahan perilaku. Baris batas fragmen dipertahankan. File baru tidak didedup terhadap file lain.
+- File yang byte-nya identik dilewati pada kedua sisi; file non-JS tetap mentah (TypeScript boleh didedup, tetapi tidak di-minify). Kegagalan parsing/minify/unminify mempertahankan kedua sisi mentah dan dicatat sebagai fallback. Batas 4 MiB per file sumber berlaku untuk transformasi; file yang lebih besar tetap tersedia mentah, dengan alasan fallback dicatat. Timeout proses menjadikan pair error yang harus ditangani, bukan sukses kosong.
+- Input asli tidak diubah. Transformasi bekerja pada direktori temporer di container tanpa jaringan. Capability dan prioritas file tetap dihitung dari sumber mentah.
+- Sebelum inferensi, laporan jumlah fallback, pemotongan, dan keterbatasan rekonstruksi harus tersedia. Gate G2 belum dibekukan; hipotesis, enam konfigurasi, dan aturan anotasi tidak berubah.
+
+**D73. Anggaran diff menghitung teks akhir beserta marker pemotongan.**
+
+- Penjumlahan token per hunk tidak menjamin jumlah token teks gabungan, dan marker pemotongan sebelumnya ditambahkan setelah pemeriksaan anggaran. Pemeriksaan akhir sekarang menghitung seluruh string; jika berlebih, hunk paling akhir dilepas sampai muat. Anggaran tetap 28.000 token Qwen, prioritas file dan batas hunk tetap sama. Anggaran nol menghasilkan string kosong, bukan marker yang melampaui anggaran.
+- Koreksi diterapkan sebelum batch preprocessing asli dan sebelum inferensi penelitian. Pengujian memastikan teks hasil, termasuk marker, tidak melewati anggaran.
+
+**D74. Penghapusan fragmen tidak menghitung longest-common-substring Dolos.**
+
+- Batch awal `static-dolos-exact-v1` menemukan kegagalan memori pada bundle `pm-controls`. API `Pair` Dolos juga menghitung longest-common-substring dengan biaya kuadratik, padahal normalisasi hanya memerlukan lokasi fingerprint yang cocok.
+- `static-dolos-exact-v2` membaca lokasi k-gram dari indeks Dolos langsung, mengelompokkan jendela berdasarkan teks identik, lalu menghapus interior baris lengkap yang sama. Jumlah pasangan jendela yang identik tidak diperbanyak secara Cartesian. Parameter tokenizer/winnowing dan syarat teks identik tetap sama.
+- Seluruh batch diulang ke berkas baru dengan versi v2; keluaran v1 tetap disimpan sebagai diagnostik, tidak dicampur dengan hasil v2. Ini koreksi implementasi sebelum G2, bukan perubahan berdasarkan prediksi model.
+
+**D75. Kampanye skala korpus memakai fingerprint Dolos yang dicache.**
+
+- Skor tetap rumus `Pair.similarity` Dolos 3.5.1: jumlah occurrence fingerprint bersama di kedua sisi dibagi jumlah fingerprint kedua sisi. Tidak ada ignored fingerprint atau template. Fingerprint tetap dibuat library Dolos dengan k=70/window=17; hanya perhitungan longest-common-substring yang tidak dibutuhkan dihilangkan.
+- Ekuivalensi skor diuji terhadap API `Pair` pada kode identik, rename, perubahan literal, dan kode pendek. Kegagalan fingerprint dicatat dan membuat laporan clustering tidak lengkap; kegagalan tidak boleh menjadi similarity nol.
+- Kriteria file identik memakai SHA-256 **byte mentah**, termasuk file biner. Implementasi lama membaca teks sehingga CRLF ternormalisasi dan file biner terlewat. Ini koreksi terhadap definisi §3.6, bukan penggantian kriteria.
+- Clustering gabungan saat ini mencakup MAL yang tersedia dan prefix KB yang telah diunduh. Statusnya tetap parsial sampai seluruh pool yang diperlukan serta laporan insiden selesai diverifikasi; tidak dipakai untuk mengklaim 50 card final bebas kebocoran.
+
+**D76. Cache dan pembentukan diff diperbaiki tanpa mengubah teks hasil.**
+
+- Cache normalisasi dipisah menurut isi sebelum/sesudah, jenis parser, versi normalisasi, hash adapter Node, dan lockfile dependensi. Cache menggunakan penggantian berkas atomik; hasil yang dibaca kembali memakai path pair yang sedang diproses. Antrian menyimpan setiap pair yang selesai agar pair lambat tidak menahan checkpoint pair lain.
+- Pemisahan raw diff memakai list baris lalu satu `join`, menggantikan penambahan string berulang melalui dictionary yang berbiaya kuadratik. Pemeriksaan 200.000 baris memastikan teks hasil tetap identik. Perubahan ini tidak mengubah smart-diff, anggaran, atau parameter penelitian.
+- Manifest kampanye 3,8 GB dibaca secara streaming; kode mentah tidak disimpan seluruhnya dalam RAM setelah fingerprint dihitung. Error resource tetap dilaporkan.
+
+**D77. Runner tidak lagi memilih fixture sebagai pengganti data penelitian yang hilang.**
+
+- Permintaan menjalankan data asli tidak boleh berakhir sebagai panggilan fixture karena `data/pairs.jsonl` belum ada. Runner sekarang memakai path yang diberikan secara literal; fixture hanya bisa dipakai dengan path fixture eksplisit.
+- Konfigurasi retrieval menolak KB kosong sebelum membuat hasil atau memanggil model. Ini pemeriksaan kelengkapan masukan, bukan perubahan aturan retrieval saat kandidat setelah pengecualian memang kurang.
+- UI audit memakai direktori `data/review/`, terpisah dari dataset final dan hasil model. Label sumber tidak dikirim sebagai gold ke antrean ini. UI menampilkan intent terstruktur, menyimpan evidence verbatim, dan tidak mengambil prediksi untuk pair pending.
+
+## 2026-09-29 — Penutupan batch preprocessing dan batas EA3
+
+**D78. Batas per-model D58 dicatat dari riwayat repositori resmi.**
+
+- Qwen2.5-Coder-3B-Instruct: commit pertama **6 November 2024**, pukul 07:49:38 UTC, [`b16b5ab`](https://huggingface.co/Qwen/Qwen2.5-Coder-3B-Instruct/commit/b16b5abca15f178464c9c85a8f1942f5b925d5ed).
+- Qwen3-4B-Instruct-2507: commit pertama **5 Agustus 2025**, pukul 10:58:03 UTC, [`e7974da`](https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507/commit/e7974da369bd887ad4f10a072ec4f933ac5391bf). Sufiks `2507` tidak dipakai sebagai tanggal rilis.
+- API riwayat masing-masing mengembalikan 16 dan 4 commit tanpa halaman lanjutan. Riwayat, header respons, dan model card diarsipkan dalam `data/upstream/model-release/`; tanggal dan checksum disimpan di `data/acquisition/model-release-cutoffs.json`. Kedua card tidak menyebut tanggal rilis eksplisit yang lebih awal.
+- Commit pertama adalah proksi operasional yang dipilih D58; commit awal tidak membuktikan waktu bobot pertama kali dapat diakses publik. Tanggal insiden kampanye tetap perlu diverifikasi dari sumbernya sebelum menetapkan subgroup EA3. Tanggal publikasi versi saja tidak dianggap membuktikan kampanye pasca-rilis.
+- Batch 1.157 pair selesai menggunakan `static-dolos-exact-v2`. Pemetaan kampanye 1.870 item yang tersedia ditambahkan sebagai metadata kandidat dengan penanda cakupan prefix KB. Ini tidak membekukan test set, tidak menggantikan anotasi, dan tidak menandai G1/G2 selesai.
+
+**D79. Skeleton card mempertahankan identitas paket untuk pengecualian retrieval.**
+
+- Skeleton malicious sebelumnya menyimpan ID hash card tetapi menghilangkan `name` dan `version`. Akibatnya aturan pengecualian paket sama di `runner.eligible` tidak dapat bekerja dari skeleton yang diisi anotator. Kedua field kini dipertahankan sebagai metadata dan tetap tidak dirender ke prompt.
+- Regresi menguji skeleton aktual terhadap pengecualian paket sama serta memastikan identitas tidak masuk teks card. Ini koreksi implementasi sebelum G2; tidak ada perubahan ranking, kuota, atau isi prosa card, dan belum ada hasil penelitian yang terpengaruh.
+
+**D80. Indeks relasi persis dan cache terbatas dipakai untuk pool KB penuh.**
+
+- Semua relasi laporan sama dan SHA-256 file sama digabung melalui indeks sebelum perbandingan Dolos. Penutupan transitif tetap sama; tidak ada perwakilan kampanye yang menggantikan anggota saat perbandingan kode. Cara lama membuat ulang himpunan hash pada setiap pasangan, sehingga biayanya berlebihan untuk 24.324 versi KB.
+- Cache skor similarity dibatasi 65.536 pasangan kode. Penggusuran cache hanya menyebabkan penghitungan ulang skor yang sama, bukan pengabaian pasangan atau perubahan ambang.
+- Kesetaraan diuji terhadap graf pasangan lengkap pada kasus acak berseed serta urutan terbalik. Pengulangan atas seluruh 1.870 item asli memberi pemetaan dan ringkasan yang identik dengan hasil sebelum optimasi: 714/735 klaster. Parameter Dolos dan definisi kampanye tidak berubah.
+
+**D81. Evaluasi baseline eksploratif dijalankan atas permintaan pengguna untuk memperoleh hasil sekarang.**
+
+- Setelah diberi tahu bahwa anotasi manusia belum tersedia, pengguna meminta: “Oke lanjutkan ke evaluasi untuk mendapatkan resultnya”. Evaluasi yang dapat dijalankan saat ini memakai label sumber; statusnya **eksploratif**, terpisah dari test set konfirmatori §8 dan Gate G1/G2. Kewajiban dua anotator untuk studi utama tidak dinyatakan telah terpenuhi.
+- Seluruh 873 kandidat MAL dengan predecessor tersedia/bebas advisory serta 100 TYP digunakan; 2 MAL yang gagal screening dikeluarkan. MAL memakai `source_label`; TYP memakai asumsi benign §3.2. Label sumber tidak ditulis ke paket review manusia. Semua masukan dan hasil eksploratif mencatat asal label serta `human_annotation_verified=false`.
+- DIFF dan DIFF+I dijalankan pada kedua model, greedy, seed 0, top_p 1, output maksimal 512 token. Total yang direncanakan adalah 973 × 2 × 2 = 3.892 panggilan. Tidak ada fixture sintetis, pembatasan jumlah pair, atau pemilihan berdasarkan prediksi. Empat konfigurasi retrieval menunggu card yang diverifikasi; HN tidak diberi label berdasarkan sinyal otomatis.
+- Dataset ini merupakan kumpulan kandidat yang lolos screening, bukan undian test final dengan cap kampanye dan kuota pasca-rilis. Metrik terhadap label sumber dilaporkan deskriptif. Tidak ada klaim akurasi gold, keputusan hipotesis, hasil HN, atau evidence localization tanpa anotasi. Output tidak boleh dipakai untuk menyetel prompt lalu dilaporkan sebagai hasil konfirmatori pada pair yang sama.
+- Kedua model berjalan bergantian pada RTX 5090 yang sama, BF16, konteks 32.768, `max_num_seqs=1`, alokasi GPU 0,65, prefix caching aktif, dan `generation-config=vllm`. Tidak ada request pemanasan terpisah; latency mencakup request awal dan hanya menggambarkan sesi eksploratif ini, bukan benchmark RQ4.
+- Artefak berada di `data/evaluation/source-baselines-20260929/`, termasuk snapshot masukan/kode, respons mentah, log server, dan ringkasan. `data/results.jsonl` tetap dicadangkan untuk penelitian utama.

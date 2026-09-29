@@ -1,6 +1,7 @@
 .ref/
 
 data/audit_decisions*.json
+data/review/audit_decisions*.json
 data/results.jsonl
 node_modules/
 dist/
@@ -11,3 +12,7 @@ __pycache__/
 .env
 .venv/
 figures/
+
+# Downloaded research archives and unpacked samples stay local.
+data/upstream/
+data/work/

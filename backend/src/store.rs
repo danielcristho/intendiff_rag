@@ -190,7 +190,7 @@ mod tests {
         let store = temp_store();
         fs::write(
             store.data_dir.join("results.jsonl"),
-            "{\"pair_id\":\"a\",\"config\":\"E0\"}\n             {\"pair_id\":\"b\",\"config\":\"E0\"}\n             {\"pair_id\":\"a\",\"config\":\"E4\"}\n",
+            "{\"pair_id\":\"a\",\"config\":\"DIFF+I\"}\n             {\"pair_id\":\"b\",\"config\":\"DIFF+I\"}\n             {\"pair_id\":\"a\",\"config\":\"DIFF+I+MB\"}\n",
         )
         .unwrap();
         let rows = store.results("a").unwrap();

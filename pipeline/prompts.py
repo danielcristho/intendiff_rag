@@ -3,8 +3,7 @@
     python pipeline/prompts.py     # runs the self-check
 """
 
-# §10. The -noint variants drop the intent block; E0 and E0-noint carry no cards.
-CONFIGS = ["E0-noint", "E0", "E2", "E3", "E3-k2", "E4", "E4-noint"]
+from configs import CONFIGS, spec
 
 MISSING = "not available"
 
@@ -27,14 +26,6 @@ FORMAT_INSTRUCTION = (
     '{"evidence": ["up to 3 lines copied exactly from the smart-diff"], '
     '"reason": "one or two sentences", "verdict": "malicious" or "benign"}'
 )
-
-
-def uses_intent(config):
-    return not config.endswith("-noint")
-
-
-def uses_retrieval(config):
-    return config not in ("E0", "E0-noint")
 
 
 def _as_text(value):
@@ -61,35 +52,39 @@ def intent_block(pair):
     )
 
 
+# card_block renders one card the way §6.2 shows it. The size limit in §5.1 is
+# measured against this text, so the format lives here only.
+def card_block(position, card):
+    # The label follows the card actually in this slot: §5.2 counterbalances the
+    # order, so position 1 is not always the malicious one.
+    return (
+        f"\nExample {position} (label: {str(card.get('label', '')).upper()})\n"
+        f"Package purpose: {_as_text(card.get('intent'))}\n"
+        f"Behavior: {_as_text(card.get('behavior_chain'))}\n"
+        f"Code excerpt:\n{_as_text(card.get('code_excerpt'))}\n"
+        f"Why: {_as_text(card.get('rationale'))}\n"
+    )
+
+
 def examples_block(cards):
     if not cards:
         return ""
     parts = ["Reference examples:\n"]
-    for position, card in enumerate(cards, start=1):
-        # The label follows the card actually in this slot: §5.2 counterbalances
-        # the order, so position 1 is not always the malicious one.
-        parts.append(
-            f"\nExample {position} (label: {str(card.get('label', '')).upper()})\n"
-            f"Package purpose: {_as_text(card.get('intent'))}\n"
-            f"Behavior: {_as_text(card.get('behavior_chain'))}\n"
-            f"Code excerpt:\n{_as_text(card.get('code_excerpt'))}\n"
-            f"Why: {_as_text(card.get('rationale'))}\n"
-        )
+    parts.extend(card_block(position, card) for position, card in enumerate(cards, start=1))
     parts.append("\n---\n\n")
     return "".join(parts)
 
 
 def build(config, pair, cards=()):
-    if config not in CONFIGS:
-        raise ValueError(f"unknown configuration: {config}")
+    wants = spec(config)
 
     # The package name is never shown (D26) and neither is the capability delta
     # (D25); the version change stays, as release-type context.
     user = (
-        f"{examples_block(cards) if uses_retrieval(config) else ''}"
+        f"{examples_block(cards) if wants.cards else ''}"
         "Update under review\n"
         f"Version change: {pair.get('before', '?')} -> {pair.get('after', '?')}\n"
-        f"{intent_block(pair) if uses_intent(config) else ''}"
+        f"{intent_block(pair) if wants.intent else ''}"
         f"Smart-diff:\n{pair.get('diff', '')}\n\n"
         f"{FORMAT_INSTRUCTION}"
     )
@@ -117,7 +112,7 @@ def selfcheck():
          "behavior_chain": "install -> env -> POST", "code_excerpt": "https.request(e)", "rationale": "Mismatch."},
     ]
 
-    system, user = build("E4", pair, cards)
+    system, user = build("DIFF+I+MB", pair, cards)
     assert system["content"] == SYSTEM
     assert user["role"] == "user"
 
@@ -136,29 +131,29 @@ def selfcheck():
     assert "Example 1 (label: BENIGN)" in body, body[:200]
     assert "Example 2 (label: MALICIOUS)" in body
 
-    # Ablations: -noint drops the intent block, E0 drops the examples block.
-    assert "Package intent profile" in build("E4", pair, cards)[1]["content"]
-    assert "Package intent profile" not in build("E4-noint", pair, cards)[1]["content"]
-    assert "Reference examples" not in build("E0", pair, [])[1]["content"]
-    assert "Package intent profile" in build("E0", pair, [])[1]["content"]
-    assert "Package intent profile" not in build("E0-noint", pair, [])[1]["content"]
+    # Ablations: dropping I drops the intent block, no card drops the examples.
+    assert "Package intent profile" in build("DIFF+I+MB", pair, cards)[1]["content"]
+    assert "Package intent profile" not in build("DIFF+MB", pair, cards)[1]["content"]
+    assert "Reference examples" not in build("DIFF+I", pair, [])[1]["content"]
+    assert "Package intent profile" in build("DIFF+I", pair, [])[1]["content"]
+    assert "Package intent profile" not in build("DIFF", pair, [])[1]["content"]
 
     # Every configuration carries the same system prompt and format instruction.
     for config in CONFIGS:
-        messages = build(config, pair, cards if uses_retrieval(config) else [])
+        messages = build(config, pair, cards if spec(config).cards else [])
         assert messages[0]["content"] == SYSTEM, config
         assert messages[1]["content"].endswith(FORMAT_INSTRUCTION), config
 
     # A missing intent field is stated, not silently dropped (§4.4).
     thin = dict(pair, intent={"description": "Only this"})
-    assert f"Keywords: {MISSING}" in build("E0", thin, [])[1]["content"]
+    assert f"Keywords: {MISSING}" in build("DIFF+I", thin, [])[1]["content"]
 
     try:
-        build("E1", pair, [])
+        build("E4", pair, [])
     except ValueError:
         pass
     else:
-        raise AssertionError("E1 was removed by D8 and must be rejected")
+        raise AssertionError("retired ids must be rejected, not silently accepted")
 
     print("ok")
 
