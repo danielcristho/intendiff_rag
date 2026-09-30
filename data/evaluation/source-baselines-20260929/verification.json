@@ -1,0 +1,37 @@
+{
+  "verified": true,
+  "unique_runs": 3892,
+  "groups": [
+    {
+      "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "config": "DIFF",
+      "verified_runs": 973
+    },
+    {
+      "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "config": "DIFF+I",
+      "verified_runs": 973
+    },
+    {
+      "model": "Qwen/Qwen3-4B-Instruct-2507",
+      "config": "DIFF",
+      "verified_runs": 973
+    },
+    {
+      "model": "Qwen/Qwen3-4B-Instruct-2507",
+      "config": "DIFF+I",
+      "verified_runs": 973
+    }
+  ],
+  "server_requests": {
+    "Qwen/Qwen2.5-Coder-3B-Instruct": {
+      "http_200": 1946,
+      "recorded_attempts": 1946
+    },
+    "Qwen/Qwen3-4B-Instruct-2507": {
+      "http_200": 1946,
+      "recorded_attempts": 1946
+    }
+  },
+  "human_annotation_verified": false
+}

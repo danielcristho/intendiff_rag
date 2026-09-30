@@ -1,0 +1,226 @@
+{
+  "generated_at_utc": "2026-09-30T02:00:31.564072+00:00",
+  "experiment_id": "output-budget-20260929",
+  "complete": true,
+  "unique_new_runs": 3892,
+  "historical_control": true,
+  "human_annotation_verified": false,
+  "files": [
+    {
+      "path": "data/evaluation/output-budget-20260929/analysis.py",
+      "bytes": 17015,
+      "sha256": "b365735742f671e7b86d2aeb370571d74b4d75a5313a235d5436a38421b675bf"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/compare.py",
+      "bytes": 7119,
+      "sha256": "a70ad45e94992390ceca0df119c153c723f7aa02479c40714abc2a433fdcad86"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/comparison.csv",
+      "bytes": 852,
+      "sha256": "1c0a0c8c7747fd42df36e6353b09685fcd5ab7134faf4989710aec0fe77a6cbc"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/comparison.json",
+      "bytes": 19373,
+      "sha256": "8220fae5a08d135ec559205c69f62f8c8395d45bfcbdcb2f522282ca572e3a6b"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/comparison.md",
+      "bytes": 1602,
+      "sha256": "0b9151d944f7eb314e0efd71bb52cbfa940edbc0ddda792ae41c8bf0f567f93f"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/comparison.pdf",
+      "bytes": 24372,
+      "sha256": "185a092a7c0c4e5e897ecb17121401a882acff161d492a2265bf5ae662436785"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/comparison.png",
+      "bytes": 138805,
+      "sha256": "fcde17b4845a575afbcabb197992cfacb4e8841d7fc56894c1d346ce5ca6795a"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/configs.py",
+      "bytes": 2210,
+      "sha256": "355e43eecb0654ec47b8e7d450beea5827822dc7aec73621d4c16ec7771280ba"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/diagnostics-build.log",
+      "bytes": 9553,
+      "sha256": "d15a20aceb934ffea70e8c3cfdf891d215de8cc889349da63c94562143831855"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/diagnostics.json",
+      "bytes": 9553,
+      "sha256": "d15a20aceb934ffea70e8c3cfdf891d215de8cc889349da63c94562143831855"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/environment.json",
+      "bytes": 539,
+      "sha256": "85fb49edcab7a34e6b9fe82ec6b8e2664ccdbe0988136a972bfb6ac6b11a1c65"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/evaluate.py",
+      "bytes": 6210,
+      "sha256": "e9fc77a9581a71f8f37dea1bcd906ccd906808ab6d0ad9d32f403ae967b56db0"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/evaluation.log",
+      "bytes": 125285,
+      "sha256": "8d35edb4001cad295c02ef0ed62cf5d246dfb7d8b1e20363a6db9fae1bec7089"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/execution-notes.json",
+      "bytes": 1378,
+      "sha256": "814d0e0b86897c84c0cc3244c02987778e02f11d29ba1312b467ccbc2cb913c2"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/kb.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/pairs.jsonl",
+      "bytes": 17403485,
+      "sha256": "82ad8ecf46e530469ae975be14517f42e64c65932b6b1f7bf6b03d2f143d83c8"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/preflight.json",
+      "bytes": 270,
+      "sha256": "896829385182bf747c3aa32fb20242be9ea38b8536f0d35b04e4dcaf83449970"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/preflight.py",
+      "bytes": 3281,
+      "sha256": "9a5ebad38d4a245d1626f641eff82f128a9af2e696b11a02212d0a008cf52c61"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/prompts.py",
+      "bytes": 6796,
+      "sha256": "97b7f3876a361fa51885e472951fac050e3332dc46dc4c37e275d55ea753a263"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/protocol.json",
+      "bytes": 4863,
+      "sha256": "c661c24456196233f3d01be7594d7698e37d3419c65f5e3e2adea5209ca320fd"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/qwen25.results.jsonl",
+      "bytes": 4697230,
+      "sha256": "85914572dc1c8f2a6ce4e4245d1f3ad16fac6fd131db98a955d3bc6f5403f143"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/qwen25.runner.log",
+      "bytes": 110831,
+      "sha256": "50bb75e5f571fd4a1b1032fc5c32dc024ce366cf0570e1a6d2d25585c5cf8c2e"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/qwen25.server.log",
+      "bytes": 380845,
+      "sha256": "1b312b55ba51151811ba0a1f1498df3dc047e5a2f2739d2698901f3f8a2dff82"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/qwen3.results.jsonl",
+      "bytes": 3396939,
+      "sha256": "5e3ca92d9ba36ab410577f78f44a1a951ada357ceb55addcfa28ae0d19813bb4"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/qwen3.runner.log",
+      "bytes": 109294,
+      "sha256": "733f3e5bd8cd8559cff0f894d5ebec3fb76fdf3ffcb4a0c3fbcd5b5060a022bf"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/qwen3.server.log",
+      "bytes": 304942,
+      "sha256": "5f615db3e82575a015915edc68435801f016b66eabf561624add7865f0816ff2"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/report.md",
+      "bytes": 3404,
+      "sha256": "d7a0851249ce138f7298acd170a100f580da455b17a18e65f21825323d60ad67"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/reporting.py",
+      "bytes": 6550,
+      "sha256": "c73a1778ce9d9d58730a666943a3025d87b230ae7ec10e347171b5ec495bbdb4"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/results.jsonl",
+      "bytes": 8094169,
+      "sha256": "8365d84b4e0e9f94fd521cc94bc36f6cb7c9bd5171e4fa3a6b141a6149b4b5fd"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/runner.diff",
+      "bytes": 1019,
+      "sha256": "482e0fdf2e3b8402692bd13628243483c91b454a301a0e4ae2e2d16a3be6dc71"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/runner.py",
+      "bytes": 16376,
+      "sha256": "eb0f65ba5c564f06df798235b7f5f48062ce73b170de9109a378f95e1ba92dc7"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/status.json",
+      "bytes": 163,
+      "sha256": "9ea85fd84e005e2b620a4d2cea6db745049310b3d20e81416e477c31c2f50430"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/summarize.py",
+      "bytes": 6685,
+      "sha256": "75c2bf8f592e380bdaaf366289579637ba84a867b14e016bb669bd81fdf7d399"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/summary-build.partial.log",
+      "bytes": 5001,
+      "sha256": "3acc5f45ea2545f4ce334865f0276f94ee912128bc402d3714845bf6fc5f808f"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/summary.csv",
+      "bytes": 831,
+      "sha256": "681175882517eacc4f31d524b2b5adfebf64462337a1daa17a4506843238653e"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/summary.json",
+      "bytes": 7880,
+      "sha256": "55da58856b0aeba48e146f9c816ec135ab1709e0dcfd6b8c06a7197ab98a2c68"
+    },
+    {
+      "path": "data/evaluation/output-budget-20260929/verification.json",
+      "bytes": 751,
+      "sha256": "8c0a0c65fc1d14952d84971ca201523d827a58cf9a61747f2c41868ecbbd1e42"
+    },
+    {
+      "path": "docs/output-budget-20260930.md",
+      "bytes": 7668,
+      "sha256": "2f1b596584e9bd2616eafb7765398918b94db691ad0e41dc5af265f10c9b12f0"
+    },
+    {
+      "path": "scratchpad/output-budget-20260929/diagnose.py",
+      "bytes": 3715,
+      "sha256": "6871e88fe8c4f94dd3415db95aab43d8a0bde6053aee94112076966fe061e58f"
+    },
+    {
+      "path": "scratchpad/output-budget-20260929/gpu_probe.py",
+      "bytes": 514,
+      "sha256": "6e369a01ec40b01b66751c195f60d56e7c4c88129f8515293c8532f4e92b80d7"
+    },
+    {
+      "path": "scratchpad/output-budget-20260929/plot_comparison.py",
+      "bytes": 2149,
+      "sha256": "cce856e81de90f04045328ca5c11d53c4aa9e721aa27b7d9883099a22ca475dc"
+    },
+    {
+      "path": "scratchpad/output-budget-20260929/verify_final.py",
+      "bytes": 3503,
+      "sha256": "0fa32212a5b87cf0cf52223f75b974e5a5df51c1ed977ef78b829f372233f6c4"
+    }
+  ],
+  "excluded": [
+    "artifact-manifest.json (self)",
+    "__pycache__/",
+    ".evaluation.lock"
+  ],
+  "note": "Snapshot at completion; rerunning analysis changes report timestamps. Frozen protocol hashes separately pin inference inputs and code."
+}

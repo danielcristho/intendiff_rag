@@ -1,0 +1,31 @@
+{
+  "generated_at_utc": "2026-09-29T13:49:34.657479+00:00",
+  "scope": "Explicit artifact snapshot; not a final dataset or design freeze.",
+  "files": [
+    {
+      "path": "data/evaluation/qwen25-audit-20260929/audit.json",
+      "bytes": 1928,
+      "sha256": "a91d42938d1f280c3a07cfa075eca78bc01150d4d3039dba203bdfa4597edaa0"
+    },
+    {
+      "path": "data/evaluation/qwen25-audit-20260929/audit.py",
+      "bytes": 6378,
+      "sha256": "f6c4ef7fc7ccd507e8cc1504649fb340be08fc931e9e0ab10ddda08c766d4f63"
+    },
+    {
+      "path": "data/evaluation/qwen25-audit-20260929/reconstructed-prompts.jsonl",
+      "bytes": 302537,
+      "sha256": "d7b791d4109501a93bf97823062b3c4e70857f5104580d981f19a2c01809f332"
+    },
+    {
+      "path": "docs/comparison-20260929.md",
+      "bytes": 5918,
+      "sha256": "637d05fd5553778c6c4aa26c334d1642cf31d7d1e6eafd99ddbf9d27d932ae7b"
+    },
+    {
+      "path": "docs/qwen25-audit-20260929.md",
+      "bytes": 5742,
+      "sha256": "1d4673ff19ee40993676de1bff9b195649c50e320a60010a59496093a4c1354d"
+    }
+  ]
+}

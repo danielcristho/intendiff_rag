@@ -1,12 +1,12 @@
 {
   "scope": "exploratory_source_labels",
   "human_annotation_verified": false,
-  "generated_at_utc": "2026-09-29T01:38:26.091951+00:00",
+  "generated_at_utc": "2026-09-29T12:18:38.775796+00:00",
   "expected_runs": 3892,
-  "unique_runs": 2451,
-  "attempt_records": 2451,
-  "complete": false,
-  "missing_runs": 1441,
+  "unique_runs": 3892,
+  "attempt_records": 3892,
+  "complete": true,
+  "missing_runs": 0,
   "groups": [
     {
       "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
@@ -15,6 +15,10 @@
       "transport_errors": 0,
       "json_valid": 803,
       "length_limited": 143,
+      "invalid_categories": {
+        "length_limit": 143,
+        "json_syntax": 27
+      },
       "mal_source_recall_proxy": {
         "positive": 704,
         "n": 873,
@@ -82,6 +86,10 @@
       "transport_errors": 0,
       "json_valid": 689,
       "length_limited": 234,
+      "invalid_categories": {
+        "length_limit": 234,
+        "json_syntax": 50
+      },
       "mal_source_recall_proxy": {
         "positive": 595,
         "n": 873,
@@ -145,134 +153,144 @@
     {
       "model": "Qwen/Qwen3-4B-Instruct-2507",
       "config": "DIFF",
-      "completed": 253,
+      "completed": 973,
       "transport_errors": 0,
-      "json_valid": 166,
-      "length_limited": 15,
+      "json_valid": 636,
+      "length_limited": 76,
+      "invalid_categories": {
+        "json_syntax": 249,
+        "length_limit": 76,
+        "schema_mismatch": 12
+      },
       "mal_source_recall_proxy": {
-        "positive": 107,
-        "n": 230,
-        "rate": 0.4652173913043478
+        "positive": 418,
+        "n": 873,
+        "rate": 0.47880870561282934
       },
       "typ_assumed_benign_fpr": {
-        "positive": 3,
-        "n": 23,
-        "rate": 0.13043478260869565
+        "positive": 6,
+        "n": 100,
+        "rate": 0.06
       },
       "invalid_as_malicious": {
         "mal": {
-          "positive": 193,
-          "n": 230,
-          "rate": 0.8391304347826087
+          "positive": 747,
+          "n": 873,
+          "rate": 0.8556701030927835
         },
         "typ": {
-          "positive": 4,
-          "n": 23,
-          "rate": 0.17391304347826086
+          "positive": 14,
+          "n": 100,
+          "rate": 0.14
         }
       },
-      "mal_campaigns": 66,
-      "mal_campaign_macro_recall_proxy": 0.3560606060606061,
+      "mal_campaigns": 224,
+      "mal_campaign_macro_recall_proxy": 0.3722286371303052,
       "cost": {
-        "median_latency_ms": 811.8,
-        "p95_latency_ms": 4070.9,
-        "mean_prompt_tokens": 4241.355731225296,
-        "mean_completion_tokens": 132.20158102766797
+        "median_latency_ms": 802.8,
+        "p95_latency_ms": 4026.2,
+        "mean_prompt_tokens": 4086.2929085303185,
+        "mean_completion_tokens": 139.11408016443988
       },
-      "total_prompt_tokens": 1073063,
-      "total_completion_tokens": 33447,
+      "total_prompt_tokens": 3975963,
+      "total_completion_tokens": 135358,
       "mal_subgroups": {
         "truncated": {
-          "positive": 61,
-          "n": 89,
-          "rate": 0.6853932584269663
+          "positive": 235,
+          "n": 326,
+          "rate": 0.7208588957055214
         },
         "not_truncated": {
-          "positive": 46,
-          "n": 141,
-          "rate": 0.3262411347517731
+          "positive": 183,
+          "n": 547,
+          "rate": 0.33455210237659966
         },
         "empty_delta": {
-          "positive": 4,
-          "n": 6,
-          "rate": 0.6666666666666666
+          "positive": 19,
+          "n": 25,
+          "rate": 0.76
         },
         "nonempty_delta": {
-          "positive": 103,
-          "n": 224,
-          "rate": 0.45982142857142855
+          "positive": 399,
+          "n": 848,
+          "rate": 0.4705188679245283
         }
       },
       "verbatim_evidence_check": {
-        "responses_with_evidence": 166,
-        "all_quotes_match_diff_lines": 4,
+        "responses_with_evidence": 636,
+        "all_quotes_match_diff_lines": 9,
         "gold_localization": false
       }
     },
     {
       "model": "Qwen/Qwen3-4B-Instruct-2507",
       "config": "DIFF+I",
-      "completed": 252,
+      "completed": 973,
       "transport_errors": 0,
-      "json_valid": 184,
-      "length_limited": 15,
+      "json_valid": 687,
+      "length_limited": 67,
+      "invalid_categories": {
+        "json_syntax": 199,
+        "length_limit": 67,
+        "schema_mismatch": 20
+      },
       "mal_source_recall_proxy": {
-        "positive": 129,
-        "n": 229,
-        "rate": 0.5633187772925764
+        "positive": 495,
+        "n": 873,
+        "rate": 0.5670103092783505
       },
       "typ_assumed_benign_fpr": {
-        "positive": 1,
-        "n": 23,
-        "rate": 0.043478260869565216
+        "positive": 3,
+        "n": 100,
+        "rate": 0.03
       },
       "invalid_as_malicious": {
         "mal": {
-          "positive": 194,
-          "n": 229,
-          "rate": 0.8471615720524017
+          "positive": 772,
+          "n": 873,
+          "rate": 0.8843069873997709
         },
         "typ": {
-          "positive": 4,
-          "n": 23,
-          "rate": 0.17391304347826086
+          "positive": 12,
+          "n": 100,
+          "rate": 0.12
         }
       },
-      "mal_campaigns": 65,
-      "mal_campaign_macro_recall_proxy": 0.4247863247863248,
+      "mal_campaigns": 224,
+      "mal_campaign_macro_recall_proxy": 0.49822924021338355,
       "cost": {
-        "median_latency_ms": 898.7,
-        "p95_latency_ms": 4110.6,
-        "mean_prompt_tokens": 4851.396825396825,
-        "mean_completion_tokens": 134.7420634920635
+        "median_latency_ms": 871.0,
+        "p95_latency_ms": 4082.5,
+        "mean_prompt_tokens": 4676.1932168550875,
+        "mean_completion_tokens": 137.06372045220965
       },
-      "total_prompt_tokens": 1222552,
-      "total_completion_tokens": 33955,
+      "total_prompt_tokens": 4549936,
+      "total_completion_tokens": 133363,
       "mal_subgroups": {
         "truncated": {
-          "positive": 67,
-          "n": 89,
-          "rate": 0.7528089887640449
+          "positive": 244,
+          "n": 326,
+          "rate": 0.7484662576687117
         },
         "not_truncated": {
-          "positive": 62,
-          "n": 140,
-          "rate": 0.44285714285714284
+          "positive": 251,
+          "n": 547,
+          "rate": 0.45886654478976235
         },
         "empty_delta": {
-          "positive": 4,
-          "n": 6,
-          "rate": 0.6666666666666666
+          "positive": 17,
+          "n": 25,
+          "rate": 0.68
         },
         "nonempty_delta": {
-          "positive": 125,
-          "n": 223,
-          "rate": 0.5605381165919282
+          "positive": 478,
+          "n": 848,
+          "rate": 0.5636792452830188
         }
       },
       "verbatim_evidence_check": {
-        "responses_with_evidence": 184,
-        "all_quotes_match_diff_lines": 3,
+        "responses_with_evidence": 687,
+        "all_quotes_match_diff_lines": 7,
         "gold_localization": false
       }
     }
