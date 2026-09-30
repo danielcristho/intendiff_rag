@@ -48,6 +48,48 @@ invalid-as-benign/sensitivity dan macro recall per klaster. File hasil tidak
 boleh dipromosikan menjadi hasil konfirmatori §8. Clustering penuh telah
 selesai (3.681/4.114 klaster), dan paket review sudah memakai pemetaan penuh.
 
+**Hasil D81 selesai, 29 September 2026:** 3.892 run unik lengkap; masing-masing
+model mencatat 1.946 request HTTP 200, tanpa error transport tercatat atau
+pengulangan run.
+`verification.json` memeriksa kelengkapan, identitas pair, parameter, token,
+metrik, CSV, dan konsistensi hasil dengan log server. Qwen2.5 DIFF/DIFF+I:
+recall sumber 80,64%/68,16%, FPR TYP 45%/43%; Qwen3 DIFF/DIFF+I:
+47,88%/56,70% dan 6%/3%. Output invalid dihitung benign sesuai D18;
+1.077 dari 3.892 respons invalid. Semua angka tetap eksploratif, tanpa gold
+manusia atau evaluasi retrieval. Laporan akhir: `report.md` di direktori run.
+Server evaluasi telah dihentikan oleh controller. Jangan menjalankan ulang
+untuk memperbaiki angka atau mengganti snapshot masukan/prompt.
+
+**Audit Qwen2.5:** `docs/qwen25-audit-20260929.md` dan
+`data/evaluation/qwen25-audit-20260929/audit.json` mengonfirmasi seluruh 1.946
+run dan rekonstruksi token prompt tanpa inferensi baru. Penurunan bersih 109
+deteksi MAL pada DIFF+I terdiri dari −104 lewat transisi valid/invalid dan
+−5 lewat transisi antar-verdict valid. Jangan menyamakannya dengan efek murni
+intent terhadap penalaran; batas 512 token dan evidence sebelum verdict
+menjadi hambatan keluaran. Angka primer dan snapshot tetap dipertahankan.
+
+**Eksperimen D82 selesai 30 September 2026:** pengguna meminta “Oke lanjutkan experiment tersebut”.
+`data/evaluation/output-budget-20260929/evaluate.py` menjalankan seluruh 973
+pair pada kedua model dan DIFF/DIFF+I dengan max_tokens 2.048 (3.892 panggilan
+baru); kontrol 512 memakai hasil D81 yang dibekukan. Prompt/parser tetap sama,
+run key menyertakan anggaran, dan snapshot diverifikasi oleh `preflight.py`.
+Periksa `status.json` dan `evaluation.log` sebelum memulai ulang; jangan
+menduplikasi controller atau mengganti prompt ketika batch berjalan.
+Server dikelola pada port 8101, model bergantian, proses dibersihkan oleh
+controller. Setelah selesai, `summarize.py` dan `compare.py` menulis hasil
+lengkap serta perbandingan empat kombinasi. Ini eksperimen eksploratif
+dengan kontrol historis; tidak menjawab HN/RAG atau mengesahkan G1/G2.
+
+Semua 3.892 respons baru unik dan HTTP 200; checksum 12 artefak eksperimen
+dan 12 artefak baseline lolos. Recall sumber 2.048 token: Qwen2.5 DIFF
+84,54%, DIFF+I 72,05%; Qwen3 DIFF 54,98%, DIFF+I 63,23%. FPR masing-masing
+48%, 49%, 6%, 3%. Seluruh recall naik dari baseline, tetapi FPR Qwen2.5
+memburuk. Total invalid 1.077 → 876 dan terpotong 520 → 202; masalah sintaks
+tetap besar. Tidak ada perubahan prompt atau parser. Server sudah berhenti.
+Lihat `docs/output-budget-20260930.md` untuk dekomposisi, reproduksibilitas,
+biaya, dan langkah dev/anotasi sebelum penelitian utama. Jangan menjalankan
+inferensi ulang hanya untuk memperbarui laporan; gunakan skrip analisis.
+
 ## Spesifikasi konfigurasi
 
 | ID | Isi hasil `retrieve` | Blok intent |

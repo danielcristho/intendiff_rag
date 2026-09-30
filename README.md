@@ -68,9 +68,18 @@ tidak berlaku; alasan tiap perubahan ada di [docs/decisions.md](docs/decisions.m
       clustering gabungan 25.073 item selesai (3.681/4.114 klaster pada 0,5/0,8)
 - [x] Bobot Qwen3-4B tersedia lokal; seluruh prompt baseline kandidat muat
       pada tokenizer kedua model, tanpa inferensi baru
-- [~] Baseline eksploratif data asli berjalan: 973 pair × 2 konfigurasi ×
-      2 model; label sumber, terpisah dari studi konfirmatori (D81).
-      [Protokol run](data/evaluation/source-baselines-20260929/protocol.json)
+- [x] Baseline eksploratif data asli selesai: 973 pair × 2 konfigurasi ×
+      2 model = 3.892 run terverifikasi, tanpa error transport; label sumber,
+      terpisah dari studi konfirmatori (D81).
+      [Hasil lengkap](data/evaluation/source-baselines-20260929/report.md),
+      [CSV](data/evaluation/source-baselines-20260929/summary.csv),
+      [protokol](data/evaluation/source-baselines-20260929/protocol.json)
+- [x] Eksperimen batas keluaran 512 → 2.048 token selesai (D82): 3.892
+      panggilan baru terverifikasi, kedua model pada DIFF/DIFF+I, memakai kontrol historis.
+      [Hasil dan interpretasi](docs/output-budget-20260930.md),
+      [perbandingan](data/evaluation/output-budget-20260929/comparison.md),
+      [Protokol](data/evaluation/output-budget-20260929/protocol.json),
+      [status](data/evaluation/output-budget-20260929/status.json)
 - [ ] Inferensi test set konfirmatori menunggu dataset final dan anotasi —
       [panduan review data asli](docs/annotation-20260928.md)
 
