@@ -9,6 +9,21 @@ File ini menerjemahkan keduanya ke spesifikasi yang bisa langsung dipakai saat
 menulis kode. Kalau isinya berbeda, yang benar `docs/`, dan file ini yang harus
 diperbarui.
 
+**D83 sedang disiapkan (30 September 2026):** pengguna menyetujui dua
+pembanding prioritas dari `docs/model-scale-proposal-20260930.md`:
+Qwen2.5-Coder-7B-Instruct dan Qwen3-8B non-thinking. Akuisisi, snapshot,
+dan controller ada di `data/evaluation/model-scale-20260930/`.
+Periksa `download_status.json` dan, setelah inferensi dimulai, `status.json`
+sebelum melanjutkan; jangan menggandakan proses unduhan/evaluasi.
+Urutan: `acquire.py`, `freeze.py` (audit token lokal dan checksum), lalu
+`evaluate.py` (preflight, verifikasi template server tanpa generasi, seluruh
+3.892 inferensi, ringkasan, perbandingan). Semua 973 pair memakai DIFF dan
+DIFF+I, BF16, output 2.048, konteks 32.768, alokasi GPU 0,80.
+Kontrol historis D82 tetap 3.892 respons pada output 2.048 dan alokasi 0,65.
+Model baru belum boleh diklaim selesai sebelum status lengkap dan
+`scratchpad/model-scale-20260930/verify_final.py` lulus. Tetap eksploratif;
+G1/G2, gold manusia, HN, dan retrieval belum diselesaikan oleh eksperimen ini.
+
 **Status kode (2026-09-25):** runner dan prompt builder sudah mengikuti desain revisi.
 ID konfigurasi memakai skema semantik D62; skema lama `E0`–`E4` sudah tidak dipakai.
 Sisa pekerjaan ada di `docs/experiments.md` §4.
