@@ -1,5 +1,6 @@
 """Export the exploratory metrics as a readable report and a CSV table."""
 import csv
+from collections import Counter
 
 
 def write_report(summary, directory):
@@ -59,6 +60,16 @@ def write_report(summary, directory):
                   'termasuk jika dibungkus Markdown; ini bukan persentase respons yang hanya '
                   'berisi JSON murni. Sensitivitas memakai respons yang sama, tanpa panggilan '
                   'ulang atau perubahan prompt.'])
+    invalid_counts = Counter()
+    for group in groups:
+        invalid_counts.update(group['invalid_categories'])
+    lines.extend(['', f"Total keluaran invalid: {sum(invalid_counts.values())}; "
+                  f"{invalid_counts['length_limit']} mencapai batas token, "
+                  f"{invalid_counts['json_syntax']} memiliki sintaks JSON tidak valid, "
+                  f"{invalid_counts['schema_mismatch']} gagal memenuhi skema, dan "
+                  f"{invalid_counts['missing_json_object']} tanpa objek JSON. "
+                  'Jumlah ini menunjukkan bahwa metrik deteksi juga dipengaruhi kepatuhan '
+                  'format, sehingga hasil utama perlu dibaca bersama tabel sensitivitas.'])
     (directory / 'report.md').write_text('\n'.join(lines) + '\n')
 
     columns = ['model', 'config', 'completed', 'json_valid', 'mal_source_recall_proxy',

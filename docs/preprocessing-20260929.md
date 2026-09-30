@@ -155,3 +155,9 @@ konfigurasi baseline dan dua model. Protokol dan hasilnya berada di
 [`data/evaluation/source-baselines-20260929/`](../data/evaluation/source-baselines-20260929/).
 Evaluasi ini tidak menyatakan G1/G2 selesai dan tidak memakai label HN atau
 card KB yang belum diverifikasi.
+
+Evaluasi tersebut selesai dengan **3.892/3.892 run** dan nol error transport.
+[Laporan hasil](../data/evaluation/source-baselines-20260929/report.md)
+memuat metrik terhadap label sumber, validitas keluaran, sensitivitas aturan
+invalid, macro recall kampanye, dan latency sesi. Hasil ini tidak mengubah
+status anotasi manusia atau menggantikan evaluasi test set konfirmatori.

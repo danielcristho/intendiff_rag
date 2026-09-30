@@ -1,0 +1,12 @@
+{
+  "verified": true,
+  "baseline_runs": 3892,
+  "changed_request_fields": [
+    "max_tokens"
+  ],
+  "minimum_context_headroom_tokens": 1391,
+  "same_dependency_versions": true,
+  "parser_unchanged": true,
+  "prompts_unchanged": true,
+  "network_requests_in_check": 0
+}

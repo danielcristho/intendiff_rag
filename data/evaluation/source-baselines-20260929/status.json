@@ -1,11 +1,7 @@
 {
-  "stage": "evaluating",
-  "updated_unix": 1790646378.868084,
+  "stage": "complete",
+  "updated_unix": 1790647860.957435,
   "scope": "exploratory_source_labels",
-  "model": "Qwen/Qwen3-4B-Instruct-2507",
-  "attempt": 1,
-  "completed": 818,
-  "expected": 1946,
-  "invalid": 271,
-  "runner_pid": 1044862
+  "completed": 3892,
+  "human_annotation_verified": false
 }
