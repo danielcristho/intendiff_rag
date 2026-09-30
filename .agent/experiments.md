@@ -9,7 +9,25 @@ File ini menerjemahkan keduanya ke spesifikasi yang bisa langsung dipakai saat
 menulis kode. Kalau isinya berbeda, yang benar `docs/`, dan file ini yang harus
 diperbarui.
 
-**D83 sedang disiapkan (30 September 2026):** pengguna menyetujui dua
+**D84 sedang berjalan (1 Oktober 2026):** pengguna meminta eksplorasi model
+lain. Phi-4-mini-instruct (3,836B) dan Llama-3.1-8B-Instruct (8,030B) dipilih
+melalui audit akses/tokenizer, sebelum prediksi. Input/prompt/parser sama
+dengan D83, BF16, output 2.048, server 32K. Startup Phi pertama gagal
+pada alokasi buffer KV otomatis 15,80 GiB sebelum prediksi; kedua model
+kini memakai KV eksplisit 6 GiB (menggantikan kalkulasi dari flag GPU 0,80).
+Snapshot awal dan log kegagalan tersimpan; lihat `cache-amendment.json`.
+Native
+end-of-turn token IDs dari generation_config resmi diberikan pada request;
+jangan menghapusnya karena mengubah penghentian giliran. Semua 973 pair ×
+DIFF/DIFF+I: 3.892 inferensi baru, ditambah 7.784 kontrol D82/D83.
+Direktori `data/evaluation/model-families-20261001/`: periksa
+`download_status.json` dan `status.json` sebelum membuat proses baru.
+Urutan acquire → freeze → evaluate. `probe.py` hanya audit tokenisasi
+kandidat tanpa generasi. Mistral/DeepSeek tidak muat untuk sebagian prompt;
+Granite cadangan membutuhkan konteks lebih besar. Bukan kandidat gagal
+akurasi. Tidak ada pemotongan khusus model. Detail: `docs/model-families-20261001.md`.
+
+**D83 selesai dan terverifikasi (1 Oktober 2026):** pengguna menyetujui dua
 pembanding prioritas dari `docs/model-scale-proposal-20260930.md`:
 Qwen2.5-Coder-7B-Instruct dan Qwen3-8B non-thinking. Akuisisi, snapshot,
 dan controller ada di `data/evaluation/model-scale-20260930/`.
@@ -20,8 +38,16 @@ Urutan: `acquire.py`, `freeze.py` (audit token lokal dan checksum), lalu
 3.892 inferensi, ringkasan, perbandingan). Semua 973 pair memakai DIFF dan
 DIFF+I, BF16, output 2.048, konteks 32.768, alokasi GPU 0,80.
 Kontrol historis D82 tetap 3.892 respons pada output 2.048 dan alokasi 0,65.
-Model baru belum boleh diklaim selesai sebelum status lengkap dan
-`scratchpad/model-scale-20260930/verify_final.py` lulus. Tetap eksploratif;
+Seluruh 3.892 respons baru unik selesai 1 Oktober 00:04 WIB, tanpa retry
+atau error transport; `scratchpad/model-scale-20260930/verify_final.py`
+lulus. 22 hash snapshot dan 13 hash kontrol cocok; 1.946 request HTTP 200
+per model; server berhenti normal. Jangan mengulang inferensi yang sudah
+lengkap atau mengubah snapshot. Qwen2.5-7B DIFF/DIFF+I: recall sumber
+92,90%/67,12%, FPR 65%/67%; Qwen3-8B: 50,74%/48,34%, FPR 6%/3%.
+Qwen2.5 DIFF menaikkan recall sekaligus FPR; Qwen3 lebih valid JSON-nya
+tetapi recall turun dibanding kontrol 4B. Semua model memakai dua konfigurasi.
+Hasil dan diagnosis: `docs/model-scale-20260930.md`; grafik, CSV, raw,
+dan `verification.json` berada di direktori run. Tetap eksploratif;
 G1/G2, gold manusia, HN, dan retrieval belum diselesaikan oleh eksperimen ini.
 
 **Status kode (2026-09-25):** runner dan prompt builder sudah mengikuti desain revisi.

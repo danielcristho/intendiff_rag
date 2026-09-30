@@ -80,11 +80,20 @@ tidak berlaku; alasan tiap perubahan ada di [docs/decisions.md](docs/decisions.m
       [perbandingan](data/evaluation/output-budget-20260929/comparison.md),
       [Protokol](data/evaluation/output-budget-20260929/protocol.json),
       [status](data/evaluation/output-budget-20260929/status.json)
-- [ ] Pembanding 7–8B sedang disiapkan (D83): Qwen2.5-Coder-7B dan
-      Qwen3-8B non-thinking, 973 pair × DIFF/DIFF+I, 3.892 inferensi baru.
-      Kontrol historis memakai hasil D82 pada 2.048 token.
-      [Rancangan dan sumber model](docs/model-scale-proposal-20260930.md),
-      [status unduhan](data/evaluation/model-scale-20260930/download_status.json)
+- [x] Pembanding 7–8B selesai dan terverifikasi, 1 Oktober 2026 (D83):
+      3.892 inferensi baru Qwen2.5-Coder-7B dan Qwen3-8B non-thinking,
+      seluruh 973 pair × DIFF/DIFF+I, tanpa error transport. Kontrol D82
+      memakai batas output yang sama (2.048). Kenaikan tidak merata;
+      Qwen2.5 DIFF menaikkan recall sekaligus FPR, Qwen3 recall turun.
+      [Hasil dan diagnosis](docs/model-scale-20260930.md),
+      [tabel empat model](data/evaluation/model-scale-20260930/comparison.md),
+      [protokol beku](data/evaluation/model-scale-20260930/protocol.json),
+      [verifikasi](data/evaluation/model-scale-20260930/verification.json)
+- [ ] Eksplorasi lintas keluarga sedang berjalan (D84): Phi-4-mini-instruct dan
+      Llama-3.1-8B-Instruct, semua 973 pair × DIFF/DIFF+I. Audit tokenizer
+      lulus tanpa pemotongan baru; bobot terverifikasi, protokol dibekukan.
+      [Pemilihan dan protokol](docs/model-families-20261001.md),
+      [status evaluasi](data/evaluation/model-families-20261001/status.json)
 - [ ] Inferensi test set konfirmatori menunggu dataset final dan anotasi —
       [panduan review data asli](docs/annotation-20260928.md)
 

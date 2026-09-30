@@ -1,0 +1,11 @@
+{
+  "stage": "evaluating",
+  "updated_unix": 1790808766.078005,
+  "scope": "exploratory_source_labels",
+  "model": "microsoft/Phi-4-mini-instruct",
+  "attempt": 1,
+  "completed": 63,
+  "expected": 1946,
+  "invalid": 11,
+  "runner_pid": 3855893
+}
