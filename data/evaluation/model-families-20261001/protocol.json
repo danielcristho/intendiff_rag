@@ -1,0 +1,178 @@
+{
+  "experiment_id": "model-families-20261001",
+  "decision": "D84",
+  "scope": "exploratory_source_labels",
+  "human_annotation_verified": false,
+  "pair_count": 973,
+  "subsets": {
+    "MAL": 873,
+    "TYP": 100
+  },
+  "models": [
+    {
+      "id": "microsoft/Phi-4-mini-instruct",
+      "tag": "phi4_mini",
+      "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+      "path": "~/intendiff_rag/data/upstream/models/phi4_mini",
+      "parameters_billion_nominal": 3.8,
+      "parameters_billion": 3.83602176,
+      "chat_template_kwargs": {},
+      "gated": false,
+      "max_model_len": 32768,
+      "stop_token_ids": [
+        200020,
+        199999
+      ],
+      "size_group": "A: 1<=P<5B",
+      "comparison_models": [
+        "Qwen/Qwen2.5-Coder-3B-Instruct",
+        "Qwen/Qwen3-4B-Instruct-2507"
+      ]
+    },
+    {
+      "id": "meta-llama/Llama-3.1-8B-Instruct",
+      "tag": "llama31_8b",
+      "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "path": "~/intendiff_rag/data/upstream/models/llama31_8b",
+      "parameters_billion_nominal": 8.0,
+      "parameters_billion": 8.030261248,
+      "chat_template_kwargs": {},
+      "gated": "manual",
+      "max_model_len": 32768,
+      "stop_token_ids": [
+        128001,
+        128008,
+        128009
+      ],
+      "size_group": "B: 5<=P<10B",
+      "comparison_models": [
+        "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "Qwen/Qwen3-8B"
+      ]
+    }
+  ],
+  "configs": [
+    "DIFF",
+    "DIFF+I"
+  ],
+  "expected_runs": 3892,
+  "new_llm_calls": 3892,
+  "historical_control": true,
+  "baseline_directory": "data/evaluation/model-scale-20260930",
+  "historical_runs": 7784,
+  "combined_expected_runs": 11676,
+  "seed": 0,
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "max_tokens": 2048,
+  "dtype": "bfloat16",
+  "max_model_len": 32768,
+  "gpu_memory_utilization": 0.8,
+  "max_num_seqs": 1,
+  "prefix_caching": true,
+  "generation_config": "vllm",
+  "warmup_requests": 0,
+  "tokenization_checks_per_model": 2,
+  "invalid_policy": "benign, with sensitivity treating invalid as malicious",
+  "hypothesis_testing": false,
+  "retrieval_evaluation": false,
+  "size_groups": {
+    "A": "1<=P<5B total parameters",
+    "B": "5<=P<10B total parameters"
+  },
+  "pre_registered_outputs": [
+    "MAL source recall proxy",
+    "TYP assumed-benign FPR",
+    "JSON validity",
+    "invalid categories",
+    "invalid-as-malicious sensitivity",
+    "campaign macro recall",
+    "paired transitions",
+    "tokens",
+    "observed session latency"
+  ],
+  "limitations": [
+    "Cross-family comparisons do not isolate parameter count or training.",
+    "Historical Qwen3B/4B GPU allocation was 0.65; Qwen7B/8B and new models use 0.80.",
+    "Phi and Llama requests explicitly include their native official end-of-turn token IDs.",
+    "No human gold, HN, RAG, causal latency claim, formal temporal cutoff audit, or main-study tests.",
+    "Explicit KV bytes overrides allocation inferred from gpu_memory_utilization; latency remains observational."
+  ],
+  "source_sha256": {
+    "data/evaluation/model-families-20261001/probe.py": "1bf720d686a64e5a1f1ba0ff2f1e8a36744e0865ee48c914c14c64f4e6fcd983",
+    "data/evaluation/model-families-20261001/candidate-pins.json": "13916d60aafdb5518ca083f38601e84f8268bc3754a3d7159c637a0dba6530a2",
+    "data/evaluation/model-families-20261001/candidate-audit.json": "18b4c8621ad4aa53eb5e2d0f670d15957639890a83064d5a7a99253dce7850bc",
+    "data/evaluation/model-families-20261001/acquire.py": "3fa139932c4dada57c2acdece77aa33a061eac3d387c6b0ee15c281350cbc040",
+    "data/evaluation/model-families-20261001/freeze.py": "6b73cc01178f32906ced1b3376344dfc51ba433ed6e128eb71be1f734dbe1300",
+    "data/evaluation/model-families-20261001/server_check.py": "57c92d5997d467646b917825f8d1e3362c72d3200bb2bb1c1528318a461036e6",
+    "data/evaluation/model-families-20261001/preflight.py": "e953216805bdf5e210155553f0bf383be8e2b3bfca9179519b049a6ec9936160",
+    "data/evaluation/model-families-20261001/evaluate.py": "2592d6c587a74323ef73b747f5744c3ce2e4949169e6db69f88181bfb4fa944d",
+    "data/evaluation/model-families-20261001/runner.py": "2ba9ef9c3dd241c9e503a75d0dc7dc8d444ea259483a3b63141e2098f5e06696",
+    "data/evaluation/model-families-20261001/runner.diff": "28387230955738d78eba4c17183f6c1b6dfc96af693e0dddaf85365cc55f7904",
+    "data/evaluation/model-families-20261001/prompts.py": "97b7f3876a361fa51885e472951fac050e3332dc46dc4c37e275d55ea753a263",
+    "data/evaluation/model-families-20261001/configs.py": "355e43eecb0654ec47b8e7d450beea5827822dc7aec73621d4c16ec7771280ba",
+    "data/evaluation/model-families-20261001/analysis.py": "b365735742f671e7b86d2aeb370571d74b4d75a5313a235d5436a38421b675bf",
+    "data/evaluation/model-families-20261001/summarize.py": "45885d69cd0c656d2be28d11347d771b7986de2d0cc7aa8791e496d346f2a06c",
+    "data/evaluation/model-families-20261001/reporting.py": "e15a91d0406c1929a7073c65f79148d7f4b0e115f091ebacc8de0ea05ba16718",
+    "data/evaluation/model-families-20261001/compare.py": "fa8ff8f891f699f54389986d54bd61b68c7d38ab1a068affa7a049c54001f02a",
+    "data/evaluation/model-families-20261001/compare_report.py": "c7300ff0b8b18a10027b559fc86096431638ccaca1d8ab7a217e49938567dff3",
+    "data/evaluation/model-families-20261001/pairs.jsonl": "82ad8ecf46e530469ae975be14517f42e64c65932b6b1f7bf6b03d2f143d83c8",
+    "data/evaluation/model-families-20261001/kb.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "data/evaluation/model-families-20261001/models.json": "b2b5a91d8aa59ff9a3d4dba233ab5f0c4bd83a5e921fcf00f2db9c387ade6e00",
+    "data/evaluation/model-families-20261001/context-audit.jsonl": "12ba4c9fc505c96b194a8292b790979e473288073744d36bdfeb25bad7ea0f69",
+    "data/evaluation/model-families-20261001/context-audit.json": "52c4ed54b4100e72f1d3b6e077fe9978d2eb16b00ff396b84d591bc087271068",
+    "data/evaluation/model-families-20261001/environment.json": "a8fc6b01e3938bc4922e69da328260d6ce575b7878209ff87736aa373274d7f1",
+    "data/evaluation/model-families-20261001/phi4_mini.model-manifest.json": "b00d65a6e5536f95a3da73c4c3d225e7c4c4953fbd10a36e07f631eaf7681779",
+    "data/evaluation/model-families-20261001/llama31_8b.model-manifest.json": "7dea2434f454f36ebea9a43ba3b641f7ea4fa4ad835b25eafa724c9d34a0140e",
+    "data/evaluation/model-families-20261001/phi4_mini.candidate-audit.jsonl": "f70403f3eb422a0744751f582c33783e3a6ab5c4d26b0da89987b05aff3578b3",
+    "data/evaluation/model-families-20261001/llama31_8b.candidate-audit.jsonl": "6182106f19b282c9e7711ebab140bc09e7ba4559e135c1b4cb3ad98378119a0d",
+    "data/evaluation/model-families-20261001/amend_cache.py": "8122d44e61277b664d4ba0829c310f593fc52e7f5e1d1eedd30997effc0896a8",
+    "data/evaluation/model-families-20261001/cache-amendment.json": "fb23e32f2fbe853be3d5f7be8d109fa14f7d3bb57ccdeb11979513bb0c564e12",
+    "data/evaluation/model-families-20261001/protocol.initial.json": "5f5e37a347a7aeb9a07ae82f34d4d9f1cf033d0442a164fb42e4a6e4f13d00a2"
+  },
+  "baseline_sha256": {
+    "data/evaluation/model-scale-20260930/pairs.jsonl": "82ad8ecf46e530469ae975be14517f42e64c65932b6b1f7bf6b03d2f143d83c8",
+    "data/evaluation/model-scale-20260930/kb.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "data/evaluation/model-scale-20260930/runner.py": "b3a1f14036a69f9cf010220aa44867a627b464e22bfab7b6ada179cbf5249af5",
+    "data/evaluation/model-scale-20260930/prompts.py": "97b7f3876a361fa51885e472951fac050e3332dc46dc4c37e275d55ea753a263",
+    "data/evaluation/model-scale-20260930/configs.py": "355e43eecb0654ec47b8e7d450beea5827822dc7aec73621d4c16ec7771280ba",
+    "data/evaluation/model-scale-20260930/analysis.py": "b365735742f671e7b86d2aeb370571d74b4d75a5313a235d5436a38421b675bf",
+    "data/evaluation/model-scale-20260930/results.all-models.jsonl": "5525258173396ba0826668dff49b13a91d159a04a14bc9db05ae60647642b58f",
+    "data/evaluation/model-scale-20260930/results.jsonl": "813bc4f59bf5f715e66444bb69c561966c435721a4998f272103666ea28a2432",
+    "data/evaluation/model-scale-20260930/comparison.json": "d3a1ac8209e77063b55db78601b817c8795e15a832766d79c52932805a3c6035",
+    "data/evaluation/model-scale-20260930/summary.json": "1d3f31af1e87126e3d33d064f884037a5c82e3c94954ada121bdc1d79413b9aa",
+    "data/evaluation/model-scale-20260930/protocol.json": "cd909d287b194d3d565d4aee3d9448611962d91876b7f3cc38a5a6836d7d1150",
+    "data/evaluation/model-scale-20260930/environment.json": "f300f1458f9f5bb24a610a782fb911224c89bf90a93ee4f929d048a44d5a111f",
+    "data/evaluation/model-scale-20260930/verification.json": "c59b18b35e0e5ba513569944bcfdce388fecb876ea43fb92797f14a5a6853014"
+  },
+  "kv_cache_memory_bytes": 6442450944,
+  "cache_allocation": "explicit_bytes",
+  "gpu_memory_utilization_effective_for_cache": false,
+  "amendments": [
+    {
+      "at_utc": "2026-09-30T22:48:17.248698+00:00",
+      "new_inferences_before_change": 0,
+      "reason": "Phi startup failed while allocating a single automatic 15.80 GiB KV buffer.",
+      "initial_protocol_sha256": "5f5e37a347a7aeb9a07ae82f34d4d9f1cf033d0442a164fb42e4a6e4f13d00a2",
+      "change": {
+        "kv_cache_memory_bytes": 6442450944,
+        "applies_to": [
+          "microsoft/Phi-4-mini-instruct",
+          "meta-llama/Llama-3.1-8B-Instruct"
+        ]
+      },
+      "unchanged": [
+        "weights",
+        "dtype",
+        "context length",
+        "prompt",
+        "parser",
+        "sampling",
+        "stop tokens",
+        "input"
+      ],
+      "limitation": "Explicit KV bytes overrides allocation inferred from gpu_memory_utilization; latency remains observational.",
+      "root_cause": "Large CUDA allocation failed; allocator/driver cause is not established."
+    }
+  ]
+}
