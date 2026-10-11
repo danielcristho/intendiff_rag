@@ -1,0 +1,306 @@
+{
+  "scope": "exploratory_source_labels",
+  "human_annotation_verified": false,
+  "generated_at_utc": "2026-10-01T02:24:57.483179+00:00",
+  "expected_runs": 3892,
+  "unique_runs": 3892,
+  "attempt_records": 3892,
+  "complete": true,
+  "missing_runs": 0,
+  "groups": [
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "config": "DIFF",
+      "completed": 973,
+      "transport_errors": 0,
+      "json_valid": 566,
+      "length_limited": 124,
+      "invalid_categories": {
+        "json_syntax": 281,
+        "length_limit": 124,
+        "schema_mismatch": 2
+      },
+      "mal_source_recall_proxy": {
+        "positive": 401,
+        "n": 873,
+        "rate": 0.45933562428407787
+      },
+      "typ_assumed_benign_fpr": {
+        "positive": 13,
+        "n": 100,
+        "rate": 0.13
+      },
+      "invalid_as_malicious": {
+        "mal": {
+          "positive": 789,
+          "n": 873,
+          "rate": 0.9037800687285223
+        },
+        "typ": {
+          "positive": 32,
+          "n": 100,
+          "rate": 0.32
+        }
+      },
+      "mal_campaigns": 224,
+      "mal_campaign_macro_recall_proxy": 0.3587098925237311,
+      "cost": {
+        "median_latency_ms": 1058.7,
+        "p95_latency_ms": 20167.7,
+        "mean_prompt_tokens": 3832.952723535457,
+        "mean_completion_tokens": 417.1479958890031
+      },
+      "total_prompt_tokens": 3729463,
+      "total_completion_tokens": 405885,
+      "mal_subgroups": {
+        "truncated": {
+          "positive": 216,
+          "n": 326,
+          "rate": 0.6625766871165644
+        },
+        "not_truncated": {
+          "positive": 185,
+          "n": 547,
+          "rate": 0.3382084095063985
+        },
+        "empty_delta": {
+          "positive": 15,
+          "n": 25,
+          "rate": 0.6
+        },
+        "nonempty_delta": {
+          "positive": 386,
+          "n": 848,
+          "rate": 0.455188679245283
+        }
+      },
+      "verbatim_evidence_check": {
+        "responses_with_evidence": 566,
+        "all_quotes_match_diff_lines": 23,
+        "gold_localization": false
+      }
+    },
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "config": "DIFF+I",
+      "completed": 973,
+      "transport_errors": 0,
+      "json_valid": 807,
+      "length_limited": 71,
+      "invalid_categories": {
+        "json_syntax": 95,
+        "length_limit": 71
+      },
+      "mal_source_recall_proxy": {
+        "positive": 439,
+        "n": 873,
+        "rate": 0.5028636884306987
+      },
+      "typ_assumed_benign_fpr": {
+        "positive": 13,
+        "n": 100,
+        "rate": 0.13
+      },
+      "invalid_as_malicious": {
+        "mal": {
+          "positive": 593,
+          "n": 873,
+          "rate": 0.6792668957617412
+        },
+        "typ": {
+          "positive": 25,
+          "n": 100,
+          "rate": 0.25
+        }
+      },
+      "mal_campaigns": 224,
+      "mal_campaign_macro_recall_proxy": 0.38119226582725346,
+      "cost": {
+        "median_latency_ms": 945.6,
+        "p95_latency_ms": 21062.9,
+        "mean_prompt_tokens": 4416.1973278520045,
+        "mean_completion_tokens": 275.53648509763616
+      },
+      "total_prompt_tokens": 4296960,
+      "total_completion_tokens": 268097,
+      "mal_subgroups": {
+        "truncated": {
+          "positive": 186,
+          "n": 326,
+          "rate": 0.5705521472392638
+        },
+        "not_truncated": {
+          "positive": 253,
+          "n": 547,
+          "rate": 0.4625228519195612
+        },
+        "empty_delta": {
+          "positive": 15,
+          "n": 25,
+          "rate": 0.6
+        },
+        "nonempty_delta": {
+          "positive": 424,
+          "n": 848,
+          "rate": 0.5
+        }
+      },
+      "verbatim_evidence_check": {
+        "responses_with_evidence": 807,
+        "all_quotes_match_diff_lines": 152,
+        "gold_localization": false
+      }
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "config": "DIFF",
+      "completed": 973,
+      "transport_errors": 0,
+      "json_valid": 857,
+      "length_limited": 2,
+      "invalid_categories": {
+        "json_syntax": 114,
+        "length_limit": 2
+      },
+      "mal_source_recall_proxy": {
+        "positive": 746,
+        "n": 873,
+        "rate": 0.854524627720504
+      },
+      "typ_assumed_benign_fpr": {
+        "positive": 57,
+        "n": 100,
+        "rate": 0.57
+      },
+      "invalid_as_malicious": {
+        "mal": {
+          "positive": 847,
+          "n": 873,
+          "rate": 0.9702176403207331
+        },
+        "typ": {
+          "positive": 72,
+          "n": 100,
+          "rate": 0.72
+        }
+      },
+      "mal_campaigns": 224,
+      "mal_campaign_macro_recall_proxy": 0.7644405301247353,
+      "cost": {
+        "median_latency_ms": 1342.4,
+        "p95_latency_ms": 12024.7,
+        "mean_prompt_tokens": 3828.6382322713257,
+        "mean_completion_tokens": 168.9722507708119
+      },
+      "total_prompt_tokens": 3725265,
+      "total_completion_tokens": 164410,
+      "mal_subgroups": {
+        "truncated": {
+          "positive": 264,
+          "n": 326,
+          "rate": 0.8098159509202454
+        },
+        "not_truncated": {
+          "positive": 482,
+          "n": 547,
+          "rate": 0.8811700182815356
+        },
+        "empty_delta": {
+          "positive": 22,
+          "n": 25,
+          "rate": 0.88
+        },
+        "nonempty_delta": {
+          "positive": 724,
+          "n": 848,
+          "rate": 0.8537735849056604
+        }
+      },
+      "verbatim_evidence_check": {
+        "responses_with_evidence": 857,
+        "all_quotes_match_diff_lines": 223,
+        "gold_localization": false
+      }
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "config": "DIFF+I",
+      "completed": 973,
+      "transport_errors": 0,
+      "json_valid": 872,
+      "length_limited": 22,
+      "invalid_categories": {
+        "json_syntax": 78,
+        "length_limit": 22,
+        "schema_mismatch": 1
+      },
+      "mal_source_recall_proxy": {
+        "positive": 779,
+        "n": 873,
+        "rate": 0.8923253150057274
+      },
+      "typ_assumed_benign_fpr": {
+        "positive": 69,
+        "n": 100,
+        "rate": 0.69
+      },
+      "invalid_as_malicious": {
+        "mal": {
+          "positive": 867,
+          "n": 873,
+          "rate": 0.993127147766323
+        },
+        "typ": {
+          "positive": 82,
+          "n": 100,
+          "rate": 0.82
+        }
+      },
+      "mal_campaigns": 224,
+      "mal_campaign_macro_recall_proxy": 0.8667241556836903,
+      "cost": {
+        "median_latency_ms": 1381.9,
+        "p95_latency_ms": 13325.0,
+        "mean_prompt_tokens": 4411.818088386433,
+        "mean_completion_tokens": 191.26824254881808
+      },
+      "total_prompt_tokens": 4292699,
+      "total_completion_tokens": 186104,
+      "mal_subgroups": {
+        "truncated": {
+          "positive": 289,
+          "n": 326,
+          "rate": 0.8865030674846626
+        },
+        "not_truncated": {
+          "positive": 490,
+          "n": 547,
+          "rate": 0.8957952468007313
+        },
+        "empty_delta": {
+          "positive": 23,
+          "n": 25,
+          "rate": 0.92
+        },
+        "nonempty_delta": {
+          "positive": 756,
+          "n": 848,
+          "rate": 0.8915094339622641
+        }
+      },
+      "verbatim_evidence_check": {
+        "responses_with_evidence": 872,
+        "all_quotes_match_diff_lines": 196,
+        "gold_localization": false
+      }
+    }
+  ],
+  "mal_campaigns": 224,
+  "largest_mal_campaign_count": 607,
+  "limitations": [
+    "MAL uses upstream source labels; TYP is assumed benign.",
+    "Candidate corpus, without final campaign cap or post-release quota.",
+    "No HN, retrieval configurations, gold evidence localization, or hypothesis tests.",
+    "Sequential observed latency includes initial requests and prefix caching."
+  ]
+}

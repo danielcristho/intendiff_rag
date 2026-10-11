@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-01T14:08:24.078897+00:00",
+  "removed_variable_names": [],
+  "cases": [
+    {
+      "case": "venv_absolute",
+      "returncode": -11,
+      "stdout": "loaded\n",
+      "stderr_tail": ""
+    },
+    {
+      "case": "system_python_clean",
+      "returncode": -11,
+      "stdout": "loaded\n",
+      "stderr_tail": ""
+    },
+    {
+      "case": "loader_trace",
+      "returncode": -11,
+      "stdout": "loaded\n",
+      "stderr_tail": "    608142:\t/usr/lib/wsl/lib/libdxcore.so: error: symbol lookup error: undefined symbol: D3DKMTOpenSyncObjectFromNtHandle (fatal)\n    608142:\t/usr/lib/wsl/lib/libdxcore.so: error: symbol lookup error: undefined symbol: D3DKMTAcquireKeyedMutex (fatal)\n    608142:\t/usr/lib/wsl/lib/libdxcore.so: error: symbol lookup error: undefined symbol: D3DKMTReleaseKeyedMutex (fatal)\n    608142:\t/usr/lib/wsl/lib/libdxcore.so: error: symbol lookup error: undefined symbol: D3DKMTOpenKeyedMutex (fatal)\n    608142:\t/usr/lib/wsl/lib/libdxcore.so: error: symbol lookup error: undefined symbol: D3DKMTRegisterTrimNotification (fatal)\n    608142:\t/usr/lib/wsl/lib/libdxcore.so: error: symbol lookup error: undefined symbol: D3DKMTUnregisterTrimNotification (fatal)\n    608142:\t/usr/lib/wsl/lib/libdxcore.so: error: symbol lookup error: undefined symbol: D3DKMTCreateNativeFence (fatal)\n    608142:\t/usr/lib/wsl/lib/libdxcore.so: error: symbol lookup error: undefined symbol: D3DKMTOpenNativeFenceFromNtHandle (fatal)\n"
+    },
+    {
+      "case": "wsl_version",
+      "returncode": 0,
+      "stdout": "WSL version: 2.7.14.0\r\nKernel version: 6.18.33.2-2\r\nWSLg version: 1.0.73.2\r\nMSRDC version: 1.2.7214\r\nDirect3D version: 1.611.1-81528511\r\nDXCore version: 10.0.26100.1-240331-1435.ge-release\r\nWindows version: 10.0.26200.9457\r\n",
+      "stderr_tail": ""
+    }
+  ],
+  "system_mutations": false,
+  "llm_calls": 0
+}

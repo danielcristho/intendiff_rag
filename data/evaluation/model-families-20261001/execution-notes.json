@@ -1,0 +1,60 @@
+{
+  "experiment_id": "model-families-20261001",
+  "completed": true,
+  "initial_startup_at_wib": "2026-10-01T05:45:32.617115+07:00",
+  "completed_at_wib": "2026-10-01T09:24:58.739482+07:00",
+  "new_inferences": 3892,
+  "historical_controls": 7784,
+  "combined_responses": 11676,
+  "http_generation_200_per_model": 1946,
+  "tokenize_requests_per_model": 2,
+  "transport_errors": 0,
+  "request_retries": 0,
+  "startup_failures_before_inference": 1,
+  "prompt_tokens": 16044387,
+  "completion_tokens": 1024496,
+  "kv_cache_memory_bytes": 6442450944,
+  "protocol_changes_after_first_prediction": [],
+  "servers_shutdown": true,
+  "human_annotation_verified": false,
+  "native_stopping": {
+    "microsoft/Phi-4-mini-instruct": {
+      "request_stop_token_ids": [
+        200020,
+        199999
+      ],
+      "finish_reason_counts": {
+        "stop": 1751,
+        "length": 195
+      },
+      "reported_stop_reason_counts": {
+        "200020": 1751,
+        "None": 195
+      }
+    },
+    "meta-llama/Llama-3.1-8B-Instruct": {
+      "request_stop_token_ids": [
+        128001,
+        128008,
+        128009
+      ],
+      "finish_reason_counts": {
+        "stop": 1922,
+        "length": 24
+      },
+      "reported_stop_reason_counts": {
+        "None": 1946
+      }
+    }
+  },
+  "notes": [
+    "Initial Phi startup failed allocating a 15.80 GiB automatic KV buffer before any generation request.",
+    "The initial protocol, all 27 sources, and failure log are preserved in startup-initial/.",
+    "An explicit 6 GiB KV cache was frozen for both models before first inference; this overrides automatic GPU-utilization-based cache sizing.",
+    "Active verification checked 30 source hashes, 13 historical hashes, and 27 archived source hashes.",
+    "All real prompt token counts match the audit, and every new response identifies the expected served model.",
+    "No model-specific truncation, parser repair, or outcome-driven prompt/model change was applied.",
+    "Native Phi end token 200020 stopped all 1751 non-length responses. Llama stop_reason is null when EOS ends generation.",
+    "Latency across model sessions and cache allocation policies is observational."
+  ]
+}

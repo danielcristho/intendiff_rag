@@ -1,0 +1,26 @@
+[
+  {
+    "arm": "LEGACY-I",
+    "pair_id": "node-ipc@10.1.1",
+    "tokens": 4467,
+    "match": true
+  },
+  {
+    "arm": "SCHEMA-I",
+    "pair_id": "node-ipc@10.1.1",
+    "tokens": 4467,
+    "match": true
+  },
+  {
+    "arm": "IDS-I",
+    "pair_id": "node-ipc@10.1.1",
+    "tokens": 6958,
+    "match": true
+  },
+  {
+    "arm": "IDS-D",
+    "pair_id": "node-ipc@10.1.1",
+    "tokens": 5909,
+    "match": true
+  }
+]

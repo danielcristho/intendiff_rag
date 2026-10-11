@@ -32,9 +32,9 @@ export function DecisionPanel({
         ))}
       </div>
 
-      {pair.subset === "HN" && (
+      {(pair.subset === "HN" || pair.annotation_blinded) && (
         <>
-          <h3 className="eyebrow mt-5">Kategori hard negative</h3>
+          <h3 className="eyebrow mt-5">Kategori tujuan sah (jika benign)</h3>
           <div className="space-y-1.5">
             {CATEGORY_IDS.map((category) => (
               <Button
@@ -69,7 +69,7 @@ export function DecisionPanel({
         </>
       )}
 
-      {pair.subset === "MAL" && <GoldEvidence key={pair.id} pair={pair} entry={entry} onRecord={onRecord} />}
+      {(pair.subset === "MAL" || pair.annotation_blinded) && <GoldEvidence key={pair.id} pair={pair} entry={entry} onRecord={onRecord} />}
 
       <textarea
         // Remounting per pair keeps the uncontrolled value from leaking across pairs.

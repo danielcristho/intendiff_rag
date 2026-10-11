@@ -1,0 +1,26 @@
+[
+  {
+    "arm": "LEGACY-I",
+    "pair_id": "leisurelink-hub-client@2.0.0",
+    "tokens": 13269,
+    "match": true
+  },
+  {
+    "arm": "SCHEMA-I",
+    "pair_id": "leisurelink-hub-client@2.0.0",
+    "tokens": 13269,
+    "match": true
+  },
+  {
+    "arm": "IDS-I",
+    "pair_id": "leisurelink-hub-client@2.0.0",
+    "tokens": 24639,
+    "match": true
+  },
+  {
+    "arm": "IDS-D",
+    "pair_id": "leisurelink-hub-client@2.0.0",
+    "tokens": 24559,
+    "match": true
+  }
+]

@@ -26,6 +26,7 @@ export interface Pair {
   campaign?: string;
   intent?: string | IntentProfile;
   annotation_status?: string;
+  annotation_blinded?: boolean;
   delta?: string[];
   delta_evidence?: Record<string, DeltaEvidence[]>;
   truncated?: boolean;
