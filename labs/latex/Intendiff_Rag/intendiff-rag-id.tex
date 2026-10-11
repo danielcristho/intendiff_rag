@@ -1,0 +1,1181 @@
+%% IntentDiff-RAG — Elsevier CAS double-column
+\documentclass[a4paper,fleqn]{cas-dc}
+\usepackage[authoryear,longnamesfirst]{natbib}
+
+\begin{document}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+
+\shorttitle{}
+\shortauthors{}
+
+\title[mode=title]{}
+
+\author[1]{}
+\cormark[1]
+\ead{}
+\credit{}
+
+\affiliation[1]{organization={},
+            addressline={},
+            city={},
+            postcode={},
+            country={}}
+
+\cortext[1]{Corresponding author}
+
+\begin{abstract}
+hallo
+\end{abstract}
+
+\begin{highlights}
+\item
+\item
+\item
+\end{highlights}
+
+\begin{keywords}
+\sep
+\end{keywords}
+
+\maketitle
+
+\section{Pendahuluan}\label{sec:intro}
+
+% Setiap klaim faktual di bagian ini sudah dicocokkan ke sumber aslinya
+% (lihat docs/references.md). Jangan menambah angka tanpa sumber terverifikasi.
+
+Pengembangan perangkat lunak modern bergantung pada paket pihak ketiga yang
+didistribusikan melalui repositori terpusat. Di ekosistem JavaScript, repositori
+npm menerima sekitar 15 pembaruan paket setiap menit, dan pemasangan satu paket
+dapat menarik puluhan dependensi transitif \citep{wyss2025evaluating}. Setiap
+versi baru dari paket-paket tersebut sampai ke proyek hilir melalui mekanisme
+yang sama: versi diterbitkan, lalu dipasang oleh proyek yang bergantung padanya.
+Akibatnya, kepercayaan terhadap sebuah paket pada praktiknya juga berarti
+kepercayaan terhadap setiap versi yang kelak diterbitkan atas nama paket itu.
+
+Kepercayaan inilah yang dimanfaatkan penyerang. Alih-alih menerbitkan paket baru
+yang harus lebih dulu ditemukan korbannya, penyerang menyisipkan kode berbahaya
+ke dalam pembaruan paket yang sudah digunakan secara luas, yaitu serangan yang
+oleh \citet{sofaer2024rogueone} disebut \emph{rogue update}. Rangkaian insiden
+terbaru menunjukkan besarnya risiko ini. Pada September 2025, penyerang
+memperoleh kredensial seorang pengelola (\emph{maintainer}) melalui rekayasa
+sosial, lalu memperbarui 18 paket populer, termasuk \texttt{chalk} dan
+\texttt{debug}. Muatan yang disisipkan secara diam-diam memanipulasi transaksi
+mata uang kripto, sementara paket-paket tersebut secara gabungan diunduh sekitar
+dua miliar kali per minggu \citep{aws2025chalk}. Sepekan kemudian, cacing
+\emph{Shai-Hulud} mulai mencuri token npm dan kredensial lain dari lingkungan
+pengembang. Dengan token curian itu, ia menerbitkan versi terinfeksi dari
+paket-paket lain milik pengelola yang sama, dan lebih dari 180 paket
+terkompromi dalam 24 jam pertama \citep{aws2025chalk,unit42shaihulud}. Pada Maret
+2026, akun salah satu pengelola \texttt{axios} dibajak dan dipakai untuk
+menerbitkan versi 1.14.1 dan 0.30.4. Kedua rilis itu menambahkan dependensi
+\texttt{plain-crypto-js}, yang saat instalasi mengunduh dan menjalankan
+\emph{remote access trojan} \citep{datadog2026axios}. Dalam ketiga kasus, muatan
+berbahaya tiba melalui kanal distribusi yang sah milik paket yang sudah
+dipercaya.
+
+Mekanisme pengamanan yang lazim dipakai pengembang tidak dirancang untuk
+menghadapi serangan semacam ini. Perintah \texttt{npm audit}, misalnya,
+mengirimkan deskripsi dependensi proyek ke registry dan meminta laporan
+kerentanan yang sudah diketahui \citep{npmaudit}, padahal pembaruan berbahaya
+yang baru diterbitkan belum memiliki catatan semacam itu. Deteksi karenanya
+harus dilakukan terhadap isi pembaruan itu sendiri, sebelum ada laporan publik.
+Kesulitannya, kode berbahaya dan kode yang sah menggunakan API yang sama.
+Berdasarkan evaluasi berskala besar terhadap detektor paket berbahaya npm,
+\citet{guo2026effective} menyimpulkan bahwa setiap detektor harus menyelesaikan
+ambiguitas antara kemampuan (\emph{capability}) kode dan niat (\emph{intent}) di
+baliknya. Sebagai contoh, alat bantu \emph{build} yang sah seperti
+\texttt{husky}, \texttt{patch-package}, dan \texttt{prisma} mendeklarasikan
+\emph{install hook} yang sama dengan yang dipakai malware. Ambiguitas ini mahal
+secara operasional. Karena pembaruan yang sah jauh lebih banyak daripada yang
+berbahaya, tingkat positif palsu yang kecil pun dapat menghasilkan alarm palsu
+yang jumlahnya melebihi deteksi yang benar \citep{wyss2025evaluating}.
+
+Penelitian sebelumnya menempuh dua pendekatan. Pendekatan pertama adalah analisis
+program. RogueOne membandingkan aliran data antara versi lama dan versi baru
+sebuah paket, lalu menandai aliran data baru yang melintasi \emph{trust domain}.
+Pada dataset pembaruan tunggal, pendekatan ini mendeteksi 75,6\% \emph{rogue
+update} dengan 4,7\% positif palsu \citep{sofaer2024rogueone}. Namun, analisis
+berbasis interpretasi abstrak ini membutuhkan rata-rata 226,7 detik per
+pembaruan, belum termasuk kasus yang melampaui batas waktu satu jam. Konfigurasi
+yang lebih sensitif memang menaikkan deteksi menjadi 92,7\%, tetapi dengan 40\%
+positif palsu \citep{sofaer2024rogueone}. Pendekatan kedua memanfaatkan
+\emph{large language model} (LLM). SocketAI memakai GPT-3 dan GPT-4 untuk
+meninjau kode paket npm; dengan GPT-4, sistem ini mencapai presisi 99\% dan F1
+97\% \citep{zahan2025leveraging}. \citet{wyss2025evaluating} memusatkan analisis
+LLM pada pembaruan paket. Dengan \emph{smart-diff} yang mereduksi ukuran masukan
+sebesar 95,4\%, GPT-4o mendeteksi seluruh 46 pembaruan berbahaya historis dan
+163 klon berbahaya, dengan 8 positif palsu dari 2.000 pembaruan tipikal.
+IntelGuard menambahkan \emph{retrieval-augmented generation} (RAG) dengan basis
+pengetahuan yang dibangun dari 8.024 halaman laporan intelijen ancaman, lalu
+menilai apakah semantik kode sesuai dengan fungsi yang dimaksudkan paket. Pada
+paket npm, sistem ini mencapai akurasi 98,72\% dengan 0,20\% positif palsu
+\citep{guo2026bridging}.
+
+Meskipun menjanjikan, hasil-hasil tersebut menyisakan tiga keterbatasan.
+\emph{Pertama}, keberhasilan deteksi berbasis LLM sejauh ini ditunjukkan dengan
+model tertutup: GPT-4o, GPT-4-Turbo, dan Gemini 2.0 Flash pada
+\citet{wyss2025evaluating}, serta GPT-4.1-mini pada IntelGuard
+\citep{guo2026bridging}. Model tertutup mengharuskan kode dikirim ke penyedia
+model, dan penggunaan LLM secara ekstensif menimbulkan biaya finansial maupun
+energi yang tidak kecil \citep{wyss2025evaluating}. Evaluasi model
+\emph{open-weight} yang dapat dijalankan secara lokal memang sudah ada, tetapi
+dilakukan pada tingkat paket utuh dengan model berukuran 6,7 miliar parameter
+\citep{nguyen2025taint}. Kemampuan model berukuran 3--4 miliar parameter dalam
+menilai \emph{smart-diff} pembaruan belum pernah diukur.
+
+\emph{Kedua}, \emph{retrieval} pada IntelGuard hanya mengambil contoh berbahaya
+\citep{guo2026bridging}. Padahal, literatur \emph{in-context learning}
+menunjukkan bahwa pemilihan dan urutan contoh memengaruhi prediksi model. Model
+bahasa cenderung memprediksi label yang sering muncul atau yang muncul di dekat
+akhir \emph{prompt} \citep{zhao2021calibrate}, dan contoh yang dipilih
+berdasarkan kedekatan dengan masukan menghasilkan kinerja yang lebih baik
+daripada contoh acak \citep{liu2022makes}. Karena itu, konteks yang hanya berisi
+contoh berbahaya berpotensi mendorong model menjatuhkan vonis berbahaya, termasuk
+pada pembaruan sah yang perilakunya mirip. Contoh positif dan negatif telah
+diusulkan untuk memperjelas karakteristik keluaran yang diinginkan dan yang
+harus dihindari model \citep{gao2024customizing}. Namun, sejauh penelusuran
+kami, pendekatan ini belum dievaluasi untuk deteksi paket berbahaya. Selain itu,
+temuan bahwa mengganti label contoh secara acak hampir tidak menurunkan kinerja
+\citep{min2022rethinking} menunjukkan bahwa contoh pembanding perlu membawa alasan
+yang eksplisit, bukan sekadar label.
+
+\emph{Ketiga}, gagasan membandingkan perilaku program dengan deskripsi yang
+dinyatakan pengembangnya bukanlah hal baru. CHABADA mengelompokkan aplikasi
+Android berdasarkan deskripsinya, lalu menandai penggunaan API yang menyimpang
+dari kelompoknya. Tanpa memerlukan pola malware yang sudah diketahui,
+pendekatan ini menandai 56\% malware baru \citep{gorla2014checking}. IntelGuard
+menerapkan penalaran serupa secara implisit \citep{guo2026bridging}. Efek
+profil intent yang eksplisit --- deskripsi, README, dan \emph{scripts} dari
+versi sebelumnya --- terhadap positif palsu pada pembaruan sah yang
+menambahkan perilaku sensitif belum diukur melalui ablasi yang terkontrol.
+
+Penelitian ini menempuh ketiga keterbatasan itu melalui IntentDiff-RAG,
+sebuah \emph{pipeline} analisis statis untuk menilai pembaruan paket npm dengan
+LLM \emph{open-weight} berukuran kecil. Untuk setiap pasangan versi,
+IntentDiff-RAG melakukan empat langkah:
+(i)~membentuk \emph{smart-diff} mengikuti spesifikasi \citet{wyss2025evaluating};
+(ii)~menyusun profil intent dari versi sebelumnya, karena isi versi baru berada
+di bawah kendali penyerang \citep{wyss2025evaluating};
+(iii)~mengambil satu contoh berbahaya dan satu contoh sah yang mirip
+berdasarkan kesamaan kemampuan yang ditambahkan oleh pembaruan; dan
+(iv)~meminta model menghasilkan vonis dalam format JSON beserta baris kode yang
+menjadi bukti. Pipeline ini dievaluasi pada dua model, yaitu
+Qwen3-4B-Instruct-2507 dan Qwen2.5-Coder-3B-Instruct. Himpunan datanya
+dipisahkan menjadi tiga subset: pembaruan berbahaya, pembaruan tipikal, dan
+\emph{hard negative}, yaitu pembaruan sah yang menambahkan kemampuan sensitif
+dengan tujuan yang terdokumentasi. Setiap perbandingan konfirmatori hanya
+berbeda pada satu faktor, sehingga efek contoh pembanding dan efek profil intent
+dapat dipisahkan dari efek jumlah contoh.
+
+Kontribusi penelitian ini adalah sebagai berikut.
+
+\begin{itemize}
+\item Evaluasi LLM \emph{open-weight} berukuran 3--4 miliar parameter untuk
+mendeteksi pembaruan npm berbahaya pada tingkat \emph{smart-diff}, dengan metrik
+yang dilaporkan terpisah untuk pembaruan tipikal dan \emph{hard negative}.
+\item Desain ablasi yang memisahkan efek contoh sah pembanding dari efek jumlah
+contoh, serta efek profil intent dari efek \emph{retrieval}. Aturan keputusan
+dan koreksi uji berganda ditetapkan sebelum eksperimen dijalankan.
+\item Protokol data yang dapat direplikasi, meliputi subset \emph{hard negative}
+berlabel ganda, skema \emph{knowledge card}, seleksi sampel yang deterministik,
+dan pengelompokan kampanye untuk mencegah kebocoran antara basis pengetahuan dan
+data uji.
+\item Pengukuran biaya inferensi lokal, yaitu token, latensi median dan persentil
+ke-95, serta kebutuhan memori GPU, untuk setiap komponen \emph{pipeline}.
+\end{itemize}
+
+% TODO(hasil): tambahkan satu paragraf ringkasan temuan utama setelah eksperimen
+% selesai. Jangan diisi sebelum angka hasil tersedia.
+
+Bagian selanjutnya disusun sebagai berikut. Bagian~\ref{sec:related} membahas
+penelitian terkait. Bagian~\ref{sec:method} menjelaskan IntentDiff-RAG.
+Bagian~\ref{sec:setup} memaparkan data, konfigurasi, dan prosedur evaluasi.
+Bagian~\ref{sec:results} menyajikan hasil, Bagian~\ref{sec:discussion} membahas
+implikasi dan ancaman validitas, dan Bagian~\ref{sec:conclusion} menutup artikel.
+
+\section{Penelitian Terkait}\label{sec:related}
+
+% Semua angka di bagian ini dicocokkan ke sumber aslinya (docs/references.md).
+
+Bagian ini membahas enam kelompok penelitian yang menjadi dasar IntentDiff-RAG:
+serangan rantai pasok pada ekosistem paket, deteksi paket berbahaya tanpa LLM,
+deteksi pembaruan berbahaya, deteksi berbasis LLM, penggunaan \emph{retrieval}
+dan contoh dalam \emph{prompt} untuk analisis keamanan, serta pemeriksaan
+kesesuaian antara deskripsi dan perilaku program. Bagian ini ditutup dengan
+posisi penelitian ini terhadap keenam kelompok tersebut.
+
+\subsection{Serangan rantai pasok pada ekosistem paket}
+
+Risiko rantai pasok di npm berakar pada struktur ekosistemnya.
+\citet{zimmermann2019small} menunjukkan bahwa sebuah paket npm secara implisit
+mempercayai rata-rata 79 paket pihak ketiga dan 39 pengelola. Mereka juga
+menemukan bahwa segelintir akun pengelola cukup untuk menyuntikkan kode
+berbahaya ke sebagian besar paket. \citet{ohm2020backstabber} mengumpulkan dan
+menganalisis 174 paket berbahaya yang dipakai dalam serangan nyata di npm, PyPI,
+dan RubyGems antara November 2015 dan November 2019. \citet{ladisa2023sok}
+kemudian menyusun taksonomi serangan rantai pasok perangkat lunak
+\emph{open-source} berbentuk \emph{attack tree}. Taksonomi ini memuat 107 vektor
+serangan yang dikaitkan dengan 94 insiden nyata dan 33 langkah mitigasi.
+
+Penelitian ini hanya menyasar satu kelas serangan, yaitu pembaruan berbahaya pada
+paket yang sebelumnya sah. Pembatasan yang sama dipakai RogueOne, yang
+mengecualikan paket berbahaya baru seperti \emph{typosquatting} dari cakupannya
+\citep{sofaer2024rogueone}. Karena banyak serangan bekerja saat instalasi,
+sebagian penelitian memilih mencegah alih-alih mendeteksi. Latch, misalnya,
+membuat \emph{manifest} izin yang merangkum perilaku setiap paket saat
+instalasi, lalu memeriksanya terhadap kebijakan yang ditetapkan pengguna
+\citep{wyss2022wolf}.
+
+\subsection{Deteksi paket berbahaya tanpa LLM}
+
+Detektor awal menggabungkan beberapa jenis analisis. MalOSS memadukan analisis
+metadata, statis, dan dinamis. Dari 339 paket berbahaya baru yang dilaporkan ke
+pengelola registry, 278 dikonfirmasi \citep{duan2021towards}. Amalfi
+menggabungkan \emph{classifier} berbasis \emph{machine learning}, pemeriksa
+reproduksibilitas paket, dan pendeteksi klon. Ekstraksi fitur dan klasifikasinya
+hanya membutuhkan beberapa detik per paket \citep{sejfia2022practical}.
+
+Penelitian berikutnya memodelkan perilaku sebagai urutan pemanggilan API. DONAPI
+menggabungkan analisis statis dengan urutan pemanggilan API dari eksekusi
+dinamis, lalu mencocokkannya dengan basis pengetahuan perilaku yang berjenjang
+\citep{huang2024donapi}. Cerebro memakai satu model urutan perilaku berbahaya
+untuk npm dan PyPI sekaligus, dan menemukan 196 paket berbahaya baru di npm serta
+306 di PyPI \citep{zhang2025killing}. OSCAR menjalankan paket di dalam
+\emph{sandbox}, melakukan \emph{fuzzing} terhadap fungsi dan kelas yang diekspor,
+serta memantau perilakunya melalui \emph{hook} API. Pada npm, OSCAR mencapai F1
+0,95 dan menurunkan tingkat positif palsu dari 34,63\% menjadi 2,57\%
+\citep{zheng2024towards}.
+
+Evaluasi terpadu oleh \citet{guo2026effective} membandingkan 11 alat (16 varian)
+pada 6.420 paket berbahaya dan 7.288 paket sah. Dari evaluasi tersebut, mereka
+menyimpulkan bahwa presisi dan \emph{recall} setiap alat ditentukan oleh cara
+alat itu menyelesaikan ambiguitas antara kemampuan dan niat kode.
+
+Keterbatasan kelompok penelitian ini bagi masalah yang kami teliti ada dua.
+Pertama, sebagian besar detektor di atas menilai paket secara utuh, bukan
+perubahan antarversi. Kedua, detektor dinamis memerlukan eksekusi paket, padahal
+penelitian ini membatasi diri pada analisis statis.
+
+\subsection{Deteksi pembaruan berbahaya}
+
+Kelompok penelitian ini menjadikan perubahan antarversi sebagai unit analisis.
+RogueOne menandai aliran data baru yang melintasi \emph{trust domain} antara
+versi lama dan baru. Pendekatan ini mendeteksi 75,6\% \emph{rogue update} dengan
+4,7\% positif palsu pada dataset pembaruan tunggal \citep{sofaer2024rogueone}.
+Analisis RogueOne juga menunjukkan titik buta pendekatan diferensial. Ketika
+muatan berbahaya hanya memakai API yang sudah digunakan versi sebelumnya, tidak
+muncul aliran data baru, sehingga konfigurasi bawaannya melewatkan seluruh 10
+kasus serangan tersamar dalam kategori tersebut \citep{sofaer2024rogueone}.
+
+\citet{froh2023differential} menyatakan perilaku mencurigakan sebagai kueri
+CodeQL dan membandingkan hasil kueri antarversi. Pendekatan ini mengenali semua
+versi berbahaya pada dataset paket yang memiliki riwayat kode berbahaya, dengan
+rata-rata 1,3\% alarm palsu pada paket npm populer yang sah.
+
+\citet{wyss2025evaluating} membawa unit analisis yang sama ke LLM melalui
+\emph{smart-diff}. Analisis mereka menunjukkan bahwa positif palsu terutama
+berasal dari operasi sensitif, penghapusan kode dalam jumlah besar (termasuk
+paket yang diganti dengan penanda \emph{deprecation}), dan perubahan dependensi.
+Kombinasi obfuskasi aliran data ringan dan pemecahan muatan juga dapat
+menyebabkan negatif palsu.
+
+\subsection{LLM untuk deteksi paket berbahaya}
+
+SocketAI menunjukkan bahwa GPT-4 mengungguli analisis statis berbasis CodeQL,
+dengan peningkatan presisi sebesar 16\% dan F1 sebesar 9\%, pada 5.115 paket npm
+yang 2.180 di antaranya berbahaya \citep{zahan2025leveraging}. MalPacDetector
+memanfaatkan LLM untuk membangkitkan fitur secara otomatis alih-alih mengandalkan
+fitur yang dirumuskan pakar. Hasilnya adalah tingkat positif palsu 1,3\% dan
+negatif palsu 7,5\%, serta 39 paket berbahaya baru yang dikonfirmasi tim keamanan
+npm \citep{wang2025malpacdetector}.
+
+IntelGuard mengambil contoh berbahaya yang mirip secara semantik dari basis
+pengetahuan berisi 4.420 konteks kode berbahaya, lalu menggunakan GPT-4.1-mini
+untuk menilai kesesuaian perilaku kode dengan fungsi paket
+\citep{guo2026bridging}. Dalam benchmark \citet{guo2026effective}, pendekatan
+yang mendasarkan penilaian pada bukti hasil \emph{retrieval} ini mencapai F1
+95,98\%. Sebaliknya, SocketAI yang meminta model menilai kode tanpa bukti
+tambahan hanya mencapai \emph{recall} 44,41\%.
+
+Untuk model \emph{open-weight}, \citet{nguyen2025taint} memotong kode berdasarkan
+alur \emph{taint} menuju API sensitif sebelum menganalisisnya dengan
+DeepSeek-Coder 6,7B. Pendekatan ini mencapai akurasi 87,04\% pada 2.537 paket.
+Pada ekosistem PyPI, evaluasi terhadap 13 LLM menemukan bahwa model mengenali
+pola kode yang umum, tetapi melewatkan indikator yang memerlukan konteks lebih
+luas atau pemahaman tentang niat penulis \citep{ryan2026evaluation}.
+
+\subsection{\emph{Retrieval} dan contoh dalam \emph{prompt} untuk analisis keamanan}
+
+Penelitian deteksi kerentanan memberi dua pelajaran yang relevan bagi desain
+contoh pembanding. Pelajaran pertama: membedakan kode bermasalah dari kode yang
+mirip tetapi aman merupakan tugas yang sulit bagi LLM. Vul-RAG menunjukkan bahwa
+LLM hanya mencapai akurasi 0,06--0,14 dalam membedakan kode rentan dari kode
+hasil tambalan yang mirip. Dengan pengetahuan kerentanan multidimensi, yaitu
+semantik fungsional, akar penyebab, dan cara perbaikan, akurasinya meningkat
+16--24\% \citep{du2026vulrag}. PrimeVul memperlihatkan bahwa benchmark yang kurang
+realistis melebih-lebihkan kinerja: model 7B yang mencapai F1 68,26\% pada BigVul
+hanya mencapai 3,09\% pada PrimeVul \citep{ding2025vulnerability}.
+
+Pelajaran kedua: manfaat \emph{retrieval} bagi model \emph{open-weight} tidak
+dapat diasumsikan. Replikasi Vul-RAG dengan beragam model \emph{open-weight}
+menemukan bahwa akurasi berpasangan tertahan di sekitar 0,30, dan penambahan
+kapasitas model saja tidak banyak memperbaikinya \citep{kaniewski2026revisiting}.
+
+Di luar domain keamanan, literatur \emph{in-context learning} menunjukkan bahwa
+pemilihan, urutan, dan label contoh memengaruhi prediksi
+\citep{liu2022makes,zhao2021calibrate,min2022rethinking}. Selain itu, contoh
+positif dan negatif telah diusulkan untuk memperjelas keluaran yang diinginkan
+\citep{gao2024customizing}. Temuan-temuan ini menjadi dasar keputusan kami untuk
+mengontrol jumlah dan urutan contoh, alih-alih mengasumsikan bahwa
+\emph{retrieval} pasti membantu.
+
+\subsection{Kesesuaian deskripsi dan perilaku}
+
+Gagasan memeriksa apakah perilaku program sesuai dengan deskripsinya berkembang
+di ekosistem aplikasi seluler. WHYPER menggunakan pemrosesan bahasa alami untuk
+menemukan kalimat dalam deskripsi aplikasi yang menjelaskan alasan aplikasi
+membutuhkan suatu izin \citep{pandita2013whyper}. AutoCog mengukur kesesuaian
+antara deskripsi dan izin. Pada sebelas izin, sistem ini mencapai presisi
+rata-rata 92,6\% dan \emph{recall} 92,0\%, lalu diterapkan pada 45.811 aplikasi
+\citep{qu2014autocog}. CHABADA mengelompokkan lebih dari 22.500 aplikasi Android
+berdasarkan topik deskripsinya, lalu menandai penggunaan API yang menyimpang di
+setiap kelompok \citep{gorla2014checking}. Pada paket npm, IntelGuard menerapkan
+penalaran serupa secara implisit \citep{guo2026bridging}. Namun, belum ada
+penelitian yang mengukur efek profil intent eksplisit secara terpisah dari
+komponen lain.
+
+\subsection{Posisi penelitian ini}
+
+Tabel~\ref{tab:positioning} merangkum posisi IntentDiff-RAG terhadap penelitian
+yang paling dekat. Penelitian ini mengambil unit analisis pembaruan dari RogueOne,
+\citet{froh2023differential}, dan \citet{wyss2025evaluating}, serta mengambil
+gagasan \emph{retrieval} dan penalaran berbasis fungsi paket dari IntelGuard.
+Perbedaannya terletak pada tiga aspek yang diuji secara terkontrol:
+\begin{enumerate}
+  \item penggunaan model \emph{open-weight} berukuran 3--4 miliar parameter pada
+  tingkat pembaruan;
+  \item contoh sah pembanding sebagai pasangan dari contoh berbahaya; dan
+  \item profil intent eksplisit yang diambil dari versi sebelumnya.
+\end{enumerate}
+Mengikuti pelajaran dari Vul-RAG, PrimeVul, dan replikasinya, evaluasi dilakukan
+pada \emph{hard negative}, yaitu pembaruan sah yang menambahkan kemampuan
+sensitif, bukan hanya pada pembaruan tipikal.
+
+\begin{table*}[t]
+\caption{Posisi IntentDiff-RAG terhadap penelitian terdekat. Tanda ``--''
+berarti komponen tersebut tidak digunakan atau tidak dijelaskan dalam sumber
+yang kami periksa. Kolom \emph{Retrieval} merujuk pada pengambilan contoh ke
+dalam \emph{prompt} LLM.}
+\label{tab:positioning}
+\small
+\begin{tabular}{p{3.2cm} p{1.6cm} p{3.9cm} p{3.2cm} p{2.4cm} p{1.8cm}}
+\hline
+Penelitian & Unit analisis & Pendekatan & Model bahasa & \emph{Retrieval} & Intent \\
+\hline
+MalOSS \citep{duan2021towards} & Paket & Metadata, statis, dinamis & -- & -- & -- \\
+Amalfi \citep{sejfia2022practical} & Paket & \emph{Classifier}, reproduksi, deteksi klon & -- & -- & -- \\
+DONAPI \citep{huang2024donapi} & Paket & Statis dan urutan API dinamis & -- & -- & -- \\
+OSCAR \citep{zheng2024towards} & Paket & Dinamis (\emph{sandbox}, \emph{fuzzing}) & -- & -- & -- \\
+\citet{froh2023differential} & Pembaruan & Statis diferensial (CodeQL) & -- & -- & -- \\
+RogueOne \citep{sofaer2024rogueone} & Pembaruan & Aliran data diferensial & -- & -- & -- \\
+SocketAI \citep{zahan2025leveraging} & Paket & LLM & Tertutup (GPT-3, GPT-4) & -- & -- \\
+\citet{wyss2025evaluating} & Pembaruan & \emph{Smart-diff} + LLM & Tertutup (GPT-4o, GPT-4-Turbo, Gemini 2.0 Flash) & -- & -- \\
+IntelGuard \citep{guo2026bridging} & Paket & RAG + LLM & Tertutup (GPT-4.1-mini) & Contoh berbahaya & Implisit \\
+\citet{nguyen2025taint} & Paket & \emph{Taint slicing} + LLM & \emph{Open-weight} (6,7B) & -- & -- \\
+\textbf{IntentDiff-RAG} & \textbf{Pembaruan} & \textbf{\emph{Smart-diff} + RAG + LLM} & \textbf{\emph{Open-weight} (3--4B)} & \textbf{Berbahaya + sah pembanding} & \textbf{Eksplisit} \\
+\hline
+\end{tabular}
+\end{table*}
+
+\section{Method}\label{sec:method}
+
+This section formalises the detection task, then describes the research
+workflow (Fig.~\ref{fig:workflow}) and the system architecture that implements
+it (Fig.~\ref{fig:architecture}). Not every configuration uses every
+component: without examples, the input is the \emph{smart-diff} alone or the
+\emph{smart-diff} plus the intent profile; in the ablations, retrieved examples
+are added to the prompt. The data, models, configurations, and metrics are
+specified in Section~\ref{sec:setup}.
+
+\subsection{Problem formulation}\label{sec:problem}
+
+The unit of analysis is a single update of a package, called a \emph{pair}:
+\begin{equation}
+p = \bigl(\texttt{pkg}@\mathrm{v}_{t-1},\; \texttt{pkg}@\mathrm{v}_{t}\bigr).
+\label{eq:pair}
+\end{equation}
+Let $V(\texttt{pkg})$ be the published versions of the package, $\prec$ the
+semver order, and $\tau(\mathrm{v})$ the publication time of version
+$\mathrm{v}$. The previous version is the highest semver version that is both
+lower than $\mathrm{v}_t$ and published before it:
+\begin{equation}
+\mathrm{v}_{t-1} = \max_{\prec}\,\bigl\{\mathrm{v} \in V(\texttt{pkg}) :
+\mathrm{v} \prec \mathrm{v}_t \;\wedge\; \tau(\mathrm{v}) < \tau(\mathrm{v}_t)\bigr\}.
+\label{eq:prev}
+\end{equation}
+Publication time alone is not used: a package with several release lines can
+publish versions on different lines almost simultaneously, such as
+\texttt{axios@1.14.1} and \texttt{axios@0.30.4} in the same incident
+\citep{datadog2026axios}, and a time-only rule would compare two unrelated
+lines. As in RogueOne and \citet{wyss2025evaluating}, the object under
+assessment is a change to a previously legitimate package, not a package that
+was malicious from its first release.
+
+\paragraph{Capabilities.}
+Let $\mathcal{S}$ be a fixed vocabulary of ten static signals
+(Table~\ref{tab:signals}): eight \emph{capabilities} detected on a single
+version, $C(\mathrm{v}) \subseteq \mathcal{S}_{\mathrm{cap}}$, and two
+\emph{change signals} computed from both versions,
+$G(\mathrm{v}_{t-1}, \mathrm{v}_t) \subseteq \mathcal{S}_{\mathrm{chg}}$.
+The capability delta of a pair is
+\begin{equation}
+\Delta(p) = \bigl(C(\mathrm{v}_t) \setminus C(\mathrm{v}_{t-1})\bigr)
+\;\cup\; G(\mathrm{v}_{t-1}, \mathrm{v}_t).
+\label{eq:delta}
+\end{equation}
+$\Delta(p)$ is the retrieval key only; it is never shown to the model.
+
+\paragraph{Model input.}
+For a configuration $c$, the model receives a prompt
+\begin{equation}
+x_c(p) = \Pi\bigl(\tilde{D}(p),\; \mathrm{ver}(p),\; \mathbb{1}_c^{\mathrm{int}} \cdot I(\mathrm{v}_{t-1}),\; R_c(p)\bigr),
+\label{eq:prompt}
+\end{equation}
+where $\tilde{D}(p)$ is the truncated \emph{smart-diff}
+(Section~\ref{sec:smartdiff}), $\mathrm{ver}(p)$ the version change (e.g.\
+\texttt{2.3.0}$\,\rightarrow\,$\texttt{2.4.0}), $I(\mathrm{v}_{t-1})$ the intent
+profile (Section~\ref{sec:intent}) included only when
+$\mathbb{1}_c^{\mathrm{int}} = 1$, $R_c(p)$ the ordered list of zero to two
+retrieved cards (Section~\ref{sec:retrieval}), and $\Pi$ the fixed prompt
+template. The package name, the label, the source, and the campaign are not
+part of $x_c(p)$.
+
+\paragraph{Verdict.}
+The model $f_\theta$ returns a text $o = f_\theta(x_c(p))$. A parser
+$\phi$ maps it to $\{\texttt{malicious}, \texttt{benign}, \bot\}$, where $\bot$
+denotes an invalid output (Section~\ref{sec:verdict}). The binary prediction is
+\begin{equation}
+\hat{y}_c(p) =
+\begin{cases}
+1, & \phi(o) = \texttt{malicious},\\
+0, & \phi(o) = \texttt{benign},\\
+\beta, & \phi(o) = \bot,
+\end{cases}
+\label{eq:verdict}
+\end{equation}
+with $\beta = 0$ in the main analysis and $\beta = 1$ in the sensitivity
+analysis. $\hat{y} = 1$ means the update is classified as malicious.
+
+\subsection{Research workflow}\label{sec:workflow}
+
+\begin{figure*}[t]
+\centering
+\IfFileExists{figures/workflow.pdf}{%
+  \includegraphics[width=\textwidth]{figures/workflow.pdf}%
+}{%
+  \fbox{\parbox[c][6cm][c]{0.95\textwidth}{\centering
+    Placeholder: \texttt{figures/workflow.pdf}\\(export from \texttt{figures/workflow.drawio})}}%
+}
+\caption{Research workflow. Gate G1 fixes which comparisons are tested
+inferentially from the labelled counts; Gate G2 allows a single revision of
+the output format on the dev set and then freezes the design before any run on
+the test set.}
+\label{fig:workflow}
+\end{figure*}
+
+The study proceeds in four phases separated by two gates
+(Fig.~\ref{fig:workflow}).
+
+\emph{Data and labels.} Malicious updates (MAL), typical updates (TYP),
+\emph{hard negatives} (HN), and the knowledge-base pool are collected
+(Section~\ref{sec:data}). Two annotators label every MAL and HN candidate
+independently, and Cohen's~$\kappa$ is computed. At Gate~G1, the labelled count
+of each subset is compared with its minimum to decide which comparisons are
+tested inferentially and which are reported descriptively; the decision is
+recorded before any model is run.
+
+\emph{Preprocessing.} Every pair is unpacked and turned into a
+\emph{smart-diff}, a capability delta, and an intent profile inside a container
+without network access. Annotators write the knowledge-base cards, and the
+retriever selects cards for each pair and configuration.
+
+\emph{Design freeze.} All seven configurations are run on a ten-pair dev set to
+check output validity, truncation, and retrieval exclusion. At Gate~G2, one
+revision of the output format is allowed if the outputs are not valid
+(Section~\ref{sec:verdict}); after that, the prompts, configurations, signal
+vocabulary, and decision rules are frozen. No prompt is tuned against test-set
+results.
+
+\emph{Evaluation.} Stage~1 runs the seven configurations on both models at
+temperature~0. Stage~2 repeats two configurations with three sampling seeds.
+Metrics, statistical tests, and an error analysis follow
+(Section~\ref{sec:metrics}).
+
+\subsection{System architecture}\label{sec:architecture}
+
+\begin{figure*}[t]
+\centering
+\IfFileExists{figures/architecture.pdf}{%
+  \includegraphics[width=\textwidth]{figures/architecture.pdf}%
+}{%
+  \fbox{\parbox[c][7cm][c]{0.95\textwidth}{\centering
+    Placeholder: \texttt{figures/architecture.pdf}\\(export from \texttt{figures/architecture.drawio})}}%
+}
+\caption{System architecture. The host only fetches and checksums tarballs;
+unpacking and all analysis of package content run in a container without
+network access. The capability delta reaches the model only through
+retrieval. Annotation tooling produces the gold labels and the
+knowledge-base cards, and annotators never see model output.}
+\label{fig:architecture}
+\end{figure*}
+
+The system has four parts (Fig.~\ref{fig:architecture}): acquisition, isolated
+analysis, inference, and annotation. Table~\ref{tab:components} lists the
+components. They exchange files rather than calls: each stage reads the
+previous stage's output, so every intermediate artefact can be inspected and
+every stage re-run independently.
+
+\emph{Acquisition} runs on the host. The fetcher queries the npm registry and
+OSV advisories, downloads tarballs, verifies each against the registry's
+\texttt{dist.integrity} (SHA-512) or \texttt{dist.shasum}, and records its
+SHA-256. Malicious versions come from the Datadog dataset, the Wyss et al.\
+replication package, or RogueOne artefacts.
+
+\emph{Isolated analysis} runs in a container started with
+\texttt{--network none}. Tools such as UglifyJS and Webcrack read sample code
+as data; network isolation guarantees that no request reaches an endpoint
+found in a sample, even if a tool behaves unexpectedly. Every entry point
+refuses to run if any network interface other than loopback is present.
+Malicious samples are analysed statically only: they are never installed,
+executed, imported, or opened as URLs.
+
+\emph{Inference} sends each prompt to a local vLLM server one request at a
+time, so that latency is not distorted by overlapping requests, and stores the
+raw output with the parsed verdict, token counts, latency, and the identity,
+label, score, and position of every retrieved card.
+
+\emph{Annotation} is a web application used for label audit, card writing, and
+HN verification. Each annotator's decisions are stored in a separate file and
+the interface never shows another annotator's labels or any model output, so
+the labels stay independent and are not influenced by predictions.
+
+\begin{table}[t]
+\caption{Components of the system and their responsibilities.}
+\label{tab:components}
+\small
+\begin{tabular}{p{2.3cm} p{5.3cm}}
+\hline
+Component & Responsibility \\
+\hline
+Fetcher & Downloads tarballs on the host, checks registry integrity, records SHA-256. \\
+Unpacker & Extracts both versions of a pair inside the isolated container. \\
+\emph{Smart-diff} generator & Normalises JavaScript, diffs the two trees, truncates to the token budget. \\
+Capability extractor & Detects the signals of Table~\ref{tab:signals} on raw files and computes $\Delta(p)$. \\
+Intent profiler & Builds $I(\mathrm{v}_{t-1})$ from \texttt{package.json} and the README of $\mathrm{v}_{t-1}$. \\
+Knowledge base & Approved cards written by annotators; never model output. \\
+Retriever & Ranks cards by Jaccard similarity of deltas and selects $R_c(p)$. \\
+Prompt builder & Assembles $x_c(p)$ from the fixed template (Eq.~\ref{eq:prompt}). \\
+Inference server & vLLM with \texttt{bfloat16} weights, sequential requests, temperature~0. \\
+Parser & Maps the raw output to a verdict or $\bot$ (Eq.~\ref{eq:verdict}). \\
+Evaluator & Computes metrics, tests, tables, and figures from the stored results. \\
+Annotation tool & Audit, card writing, and HN verification; one decision file per annotator. \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{\emph{Smart-diff}}\label{sec:smartdiff}
+
+The \emph{smart-diff} $D(p)$ follows the generator in the replication package
+of \citet{wyss2025evaluating}, which reduced input size by 95.4\% in the
+original study. Files whose names end in \texttt{js} are minified
+(\texttt{uglifyjs -c -m}) and then unminified with Webcrack in both versions,
+so that variable names and comments do not become spurious signals. The two
+trees are then compared with \texttt{diff -N -U 0 -r} after removing
+\texttt{*.wasm}, \texttt{*.md}, \texttt{*.map}, \texttt{.npmignore}, licence
+files, \texttt{*.tsbuildinfo}, and lock files. \texttt{package.json} is
+included; the README is not. The original pipeline also removes repeated code
+with Dolos ($k{=}70$, window 17), but the script it calls is not part of the
+replication package, so this step is currently omitted.
+
+Two additions cover what the source does not specify. First, lines longer
+than 2{,}000 characters are cut to 2{,}000 characters with a marker of the
+removed length: a single encoded payload line consumes the budget without
+adding information after its beginning, and its obfuscation signal is already
+captured by the extractor on the raw files. Second, the diff is truncated once
+per pair to $B = 28{,}000$ tokens with the Qwen2.5-Coder-3B-Instruct
+tokenizer,
+\begin{equation}
+\tilde{D}(p) = \mathrm{trunc}_B\bigl(D(p)\bigr),
+\label{eq:trunc}
+\end{equation}
+and the same truncated diff is used by both models and every configuration.
+The budget follows from the 32{,}768-token context (Table~\ref{tab:models})
+minus the output, system prompt, intent profile, two cards, and template
+margin. The mean \emph{smart-diff} in \citet{wyss2025evaluating} is 25{,}246
+tokens and 1.47\% exceed 128{,}000 tokens, so a truncation rule is required.
+$\mathrm{trunc}_B$ splits the diff per file and adds files in priority
+order---the \texttt{package.json} diff, then files that carry extractor
+signals in $\mathrm{v}_t$ (most signals first), then the remaining files by
+path---cutting the last file at a hunk boundary. A truncated pair carries a
+closing marker and the flag \texttt{truncated}, and is analysed as a subgroup.
+
+\subsubsection{Capability extractor}\label{sec:extractor}
+
+The extractor reads the \emph{raw} files of both versions, before
+minification, because the \emph{smart-diff} transformation renames
+identifiers and can erase obfuscation patterns. It scans JavaScript files and
+\texttt{package.json} with text patterns (Table~\ref{tab:signals}). The
+vocabulary describes capabilities rather than malware rules: contrastive
+retrieval must find legitimate updates with the same capability, and detector
+rules are designed to match malicious patterns only. For the eight
+capabilities, the delta holds signals detected in $\mathrm{v}_t$ but not in
+$\mathrm{v}_{t-1}$ at package level; \texttt{install\_script} also enters the
+delta when an existing hook's command changes. For a card without a previous
+version, the delta is every detected capability.
+
+\begin{table}[t]
+\caption{Signal vocabulary $\mathcal{S}$. The last two are change signals
+computed from both versions.}
+\label{tab:signals}
+\small
+\begin{tabular}{p{2.1cm} p{5.5cm}}
+\hline
+Signal & Detected when \\
+\hline
+\texttt{network} & \texttt{http}, \texttt{https}, \texttt{net}, \texttt{dgram}, \texttt{tls}, or \texttt{dns} is imported, or \texttt{fetch}, \texttt{XMLHttpRequest}, \texttt{WebSocket}, or \texttt{sendBeacon} is called \\
+\texttt{process\_exec} & \texttt{child\_process} is imported \\
+\texttt{host\_info} & \texttt{process.env} is read whole, or OS identity is read (\texttt{userInfo}, \texttt{hostname}, \texttt{homedir}, \texttt{networkInterfaces}) \\
+\texttt{fs\_sensitive} & a string literal names a credential path such as \texttt{.ssh}, \texttt{.npmrc}, \texttt{.aws}, or \texttt{/etc/passwd} \\
+\texttt{browser\_data} & cookies, forms, web storage, password fields, or submit listeners are accessed \\
+\texttt{dynamic\_code} & \texttt{eval}, \texttt{new Function}, or the \texttt{vm} module runs code \\
+\texttt{obfuscation} & a long base64 or hex literal, \texttt{\_0x} identifiers, \texttt{Buffer.from} with base64 or hex, or \texttt{atob} \\
+\texttt{install\_script} & \texttt{preinstall}, \texttt{install}, or \texttt{postinstall} in \texttt{scripts} \\
+\texttt{dependency\_change} & a new dependency, or a dependency moved to a non-registry source \\
+\texttt{large\_deletion} & at least 50\% of the text files of $\mathrm{v}_{t-1}$ are gone in $\mathrm{v}_t$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\texttt{browser\_data} is included because 33 of the 46 original incidents in
+\citet{wyss2025evaluating} are form grabbing; without it, most MAL pairs would
+have no retrieval key. \texttt{host\_info} ignores named variables such as
+\texttt{NODE\_ENV}, which are routine configuration, and targets collection of
+the whole environment or the host identity. New dependencies and large
+deletions are attack paths and false-positive sources in both
+\citet{wyss2025evaluating} and RogueOne \citep{sofaer2024rogueone}. The 50\%
+threshold for \texttt{large\_deletion} was fixed before looking at the data.
+The delta is blind to payloads that reuse a capability already present in
+$\mathrm{v}_{t-1}$; recall on MAL pairs with an empty delta is reported
+separately (Section~\ref{sec:metrics}).
+
+\subsubsection{Intent profile}\label{sec:intent}
+
+The intent profile $I(\mathrm{v}_{t-1})$ is taken from the previous version
+only: the threat model assumes that an attacker can change any file in an
+update \citep{wyss2025evaluating}, including a README that states a false
+purpose. It contains the \texttt{description} and \texttt{keywords} of
+\texttt{package.json} (up to 128 tokens), every \texttt{scripts} entry (up to
+256 tokens), and the beginning of the root README with images, badges, and
+HTML tags removed, up to a total of 1{,}024 tokens. A missing field is written
+as \texttt{not available}; a pair with neither description nor README keeps
+its place in the test set and is counted. The fixed limit keeps the
+\emph{smart-diff} budget identical across configurations, so the intent
+ablation does not change the diff the model sees.
+
+The package name and the capability delta are not shown. The prompt of
+\citet{wyss2025evaluating} also contains only the \emph{smart-diff}; hiding the
+name reduces the chance that the model recognises an incident from memorised
+training data rather than from the code. A name that appears inside the diff
+or the README is left in place, and its effect is estimated by separating
+incidents published before and after each model's release date.
+
+\subsubsection{Knowledge base and retrieval}\label{sec:retrieval}
+
+Each card carries a label, the package's purpose in one sentence, a behaviour
+chain (e.g.\ \emph{install hook} $\rightarrow$ \emph{read whole environment}
+$\rightarrow$ \emph{HTTPS POST to a hard-coded host}), a code excerpt of at
+most 15 verbatim lines from the raw files, and a rationale of at most two
+sentences covering the trigger, the data and its destination, and the
+relation to the stated purpose. Its package name, campaign, source, and delta
+are not shown to the model. IntelGuard links code fragments to behaviour
+descriptions and expert reasoning \citep{guo2026bridging}; the card fields
+follow that structure. Behaviour is written as a chain because co-occurring
+capabilities, such as collection followed by exfiltration, strengthen the
+detection signal \citep{guo2026effective}. The rationale is explicit because
+randomly replacing demonstration labels barely degrades in-context learning
+\citep{min2022rethinking}, so a card carrying only a label would not suffice.
+Cards are written in English from package content by annotator~A and checked
+by annotator~B against the source code; model output is never a source of a
+card. A card is at most 512 tokens.
+
+The pool holds 50 malicious and 25 legitimate cards. Malicious cards come from
+packages that were malicious from the start, which lie outside the update
+threat model \citep{sofaer2024rogueone} and are therefore valid as knowledge
+rather than as test items. Campaigns that also appear in the MAL test set are
+skipped, with at most two cards per campaign. Legitimate cards are the 25 HN
+pairs held out in Section~\ref{sec:data}.
+
+For a pair $p$, the candidate set excludes cards that share the package name
+or the campaign:
+\begin{equation}
+\mathcal{K}_p = \{\,k \in \mathcal{K} : \mathrm{pkg}(k) \neq \mathrm{pkg}(p)
+\;\wedge\; \mathrm{camp}(k) \neq \mathrm{camp}(p)\,\}.
+\label{eq:candidates}
+\end{equation}
+Each candidate is scored with the Jaccard similarity of the deltas,
+\begin{equation}
+J(p, k) =
+\begin{cases}
+\dfrac{|\Delta(p) \cap \Delta(k)|}{|\Delta(p) \cup \Delta(k)|}, & \Delta(p) \cup \Delta(k) \neq \emptyset,\\[1ex]
+0, & \text{otherwise}.
+\end{cases}
+\label{eq:jaccard}
+\end{equation}
+Candidates are ranked by descending $J$; ties are broken by ascending SHA-256
+of \texttt{pair\_id|card\_id}. With only ten signals, ties are frequent, and
+breaking them by knowledge-base order would select the same card for every
+common delta. Text embeddings are not used: ``similar'' here means similar
+capabilities, which embeddings of code or README text do not guarantee, and
+IntelGuard's \texttt{text-embedding-3-large} is a closed model outside the
+scope \citep{guo2026bridging}. Nearest examples are better demonstrations than
+random ones \citep{liu2022makes}.
+
+$R_c(p)$ takes the top-ranked card regardless of label (E2), the top malicious
+card (E3), the two top malicious cards (E3-k2), or the top malicious and the
+top legitimate card (E4 and E4-noint). Retrieval never reads the intent
+profile, so two configurations that differ only in the intent block always
+receive the same cards in the same order. With two cards, the top malicious
+card is placed at position
+\begin{equation}
+\mathrm{pos}(p) =
+\begin{cases}
+1, & \mathrm{crc32}(\texttt{pair\_id}) \bmod 2 = 0,\\
+2, & \text{otherwise},
+\end{cases}
+\label{eq:position}
+\end{equation}
+and the other slot holds the second card: the second-best malicious card for
+E3-k2 and the best legitimate card for E4. Example order and label frequency
+bias predictions \citep{zhao2021calibrate}; this counterbalancing keeps E3-k2
+and E4 different only in the second card, not in the position of the first.
+Combining malicious and legitimate examples in one prompt follows
+\citet{gao2024customizing}.
+
+\subsubsection{Verdict and output parsing}\label{sec:verdict}
+
+The model acts as a program analyser, following the role-play of
+\citet{wyss2025evaluating}. Security-sensitive behaviour is not malicious by
+itself: the verdict rests on the capabilities added, the execution trigger,
+the data and its destination, and---when provided---the consistency with the
+intent profile and the reference examples. The prompt does not name the
+\emph{hard-negative} categories, so that the false-positive rate on that
+subset is not made optimistic relative to the evaluation of Wyss et al.
+
+The output is one JSON object with \texttt{evidence} (up to three lines copied
+from the \emph{smart-diff}), \texttt{reason}, and \texttt{verdict}
+(\texttt{malicious} or \texttt{benign}). The parser $\phi$ reads exactly one
+JSON object starting at the first \texttt{\{}. The output is valid if
+\texttt{verdict}, stripped and lower-cased, is \texttt{malicious} or
+\texttt{benign}, \texttt{evidence} is a list of strings, and \texttt{reason}
+is a string; extra keys are ignored. An output that fails these checks, or
+that was cut by the token limit, is $\bot$. Following RogueOne's treatment of
+errors and timeouts \citep{sofaer2024rogueone}, $\bot$ counts as
+\texttt{benign} in the main analysis; the sensitivity analysis counts it as
+\texttt{malicious} (Eq.~\ref{eq:verdict}), and both are reported. The raw
+output is always stored.
+
+\section{Rancangan eksperimen}\label{sec:setup}
+
+Pengukuran dasar memakai konfigurasi tanpa contoh. Ablasi kemudian menambah
+atau menukar contoh hasil retrieval, dan memisahkan efek profil intent, pada
+pair, \emph{smart-diff}, dan system prompt yang sama. Yang dilaporkan adalah
+\emph{recall} pada pembaruan berbahaya, FPR pada pembaruan tipikal dan pada
+\emph{hard negative}, serta token, latensi, dan memori GPU. Prompt,
+implementasi \emph{smart-diff}, dan sampelnya berbeda dari
+\citet{wyss2025evaluating}, dan GPT-4o tidak dijalankan ulang, sehingga selisih
+terhadap angka mereka tidak dapat diuji. Angka penelitian lain dibahas di
+Bagian~\ref{sec:discussion} sebagai konteks, tanpa klaim lebih baik atau lebih
+buruk.
+
+\subsection{Posisi terhadap evaluasi terdahulu}
+
+Tabel~\ref{tab:eval-protocol} membandingkan rancangan, bukan hasil. Tugas yang
+diukur sama dengan \citet{wyss2025evaluating}: menilai pembaruan, bukan paket
+utuh, dari \emph{smart-diff}. Nguyen et al.\ memakai model \emph{open-weight},
+tetapi pada paket utuh dengan 6,7 miliar parameter dan masukan berupa potongan
+\emph{taint} \citep{nguyen2025taint}. IntelGuard menilai paket utuh dengan RAG
+contoh berbahaya dan model tertutup \citep{guo2026bridging}. RogueOne menilai
+pembaruan tanpa LLM \citep{sofaer2024rogueone}.
+
+Perbedaan rancangan ada tiga. Pertama, modelnya 3--4B dan dijalankan secara
+lokal. Kedua, pembaruan sah tidak diperlakukan sebagai satu kumpulan.
+PrimeVul menunjukkan bahwa benchmark yang didominasi kasus mudah
+melebih-lebihkan kinerja: model 7B yang mencapai F1 68,26\% pada BigVul hanya
+mencapai 3,09\% pada PrimeVul \citep{ding2025vulnerability}. Vul-RAG menemukan
+bahwa membedakan kode bermasalah dari kode yang mirip tetapi aman adalah tugas
+yang sulit bagi LLM \citep{du2026vulrag}. Karena itu FPR dilaporkan terpisah
+untuk pembaruan tipikal dan \emph{hard negative}. Ketiga, retrieval tidak
+hanya mengambil contoh berbahaya seperti IntelGuard
+\citep{guo2026bridging}: contoh sah pembanding dan profil intent diukur
+sebagai faktor terpisah.
+
+\begin{table*}[t]
+\caption{Rancangan evaluasi model 3--4B pada \emph{smart-diff}, dibanding
+evaluasi terdekat. Tabel ini membandingkan protokol, bukan angka hasil.
+Tanda ``--'' berarti tidak berlaku.}
+\label{tab:eval-protocol}
+\small
+\begin{tabular}{p{2.6cm} p{1.7cm} p{2.4cm} p{2.8cm} p{3.4cm} p{2.8cm}}
+\hline
+Evaluasi & Unit & Masukan & Model & Pembaruan atau paket sah & Metrik primer \\
+\hline
+RogueOne \citep{sofaer2024rogueone}
+  & Pembaruan
+  & Aliran data
+  & --
+  & 300 typical
+  & Deteksi, FPR \\
+\citet{wyss2025evaluating}
+  & Pembaruan
+  & \emph{Smart-diff}
+  & Tertutup
+  & 2.000 typical
+  & Sensitivitas, spesifisitas \\
+SocketAI \citep{zahan2025leveraging}
+  & Paket
+  & Kode paket
+  & Tertutup
+  & Paket sah campuran
+  & Presisi, F1 \\
+IntelGuard \citep{guo2026bridging}
+  & Paket
+  & Kode + RAG
+  & Tertutup
+  & Paket sah campuran
+  & Akurasi, FPR \\
+\citet{nguyen2025taint}
+  & Paket
+  & \emph{Taint slice}
+  & \emph{Open-weight} 6,7B
+  & Paket sah campuran
+  & Akurasi \\
+Penelitian ini
+  & Pembaruan
+  & \emph{Smart-diff} + RAG
+  & \emph{Open-weight} 3--4B
+  & 100 typical + 100 \emph{hard negative}
+  & Recall, FPR per subset \\
+\hline
+\end{tabular}
+\end{table*}
+
+\subsection{Data}\label{sec:data}
+
+Semua pengacakan memakai seed 2026. Urutan deterministik adalah urutan naik
+SHA-256 dari \texttt{nama@versi}. Target himpunan uji adalah sekitar 50 pair
+berbahaya (minimum 40), 100 typical, dan 100 \emph{hard negative}. Setiap
+kampanye diwakili maksimal tiga pair, agar satu insiden seperti Shai-Hulud
+tidak mendominasi \emph{recall}.
+
+\paragraph{Pembaruan berbahaya (MAL).}
+Kandidat diambil, menurut urutan ini, dari 46 pembaruan berbahaya
+\citet{wyss2025evaluating} yang berasal dari Backstabber's Knife Collection
+\citep{ohm2020backstabber}, dari entri dataset Datadog yang menandai paket
+terkompromi, dari laporan OSV \texttt{MAL-*} OpenSSF pada paket yang punya
+versi sah sebelumnya, dan dari artefak RogueOne \citep{sofaer2024rogueone}.
+Pair masuk jika $\mathrm{v}_t$ tercatat berbahaya, $\mathrm{v}_{t-1}$ ada dan
+tanpa advisory, kedua tarball tersedia, dan perubahan berbahaya berada di
+berkas teks. Duplikat \texttt{nama@versi} digabung. 163 klon berbahaya pada evaluasi Wyss et al.\ tidak masuk himpunan uji: di
+evaluasi asli seluruh klon terdeteksi, sehingga memasukkannya akan menaikkan
+\emph{recall} tanpa menambah kasus yang sebanding dengan insiden asli. Empat
+klon dipakai hanya pada \emph{dev set}.
+
+\paragraph{Pembaruan tipikal (TYP).}
+Seratus pembaruan diambil acak dari 2.000 typical updates Wyss et al.: 50 dari
+1.000 paket yang paling banyak dijadikan dependensi, dan 50 dari 1.000 paket
+acak, pada snapshot npm 15 April 2024. Pembagian 50/50 mempertahankan campuran
+paket populer dan paket biasa seperti di sumbernya. TYP diasumsikan sah,
+mengikuti asumsi yang sama; pembaruan yang ternyata punya advisory diganti
+dengan hasil undian berikutnya.
+
+\paragraph{\emph{Hard negative} (HN).}
+Subset ini adalah pembaruan sah yang menambahkan kemampuan sensitif dengan
+tujuan yang terdokumentasi. Konstruksinya mengikuti tiga temuan yang sudah ada,
+bukan kategori baru. Tabel~VI pada \citet{wyss2025evaluating} membagi positif palsu menjadi
+operasi sensitif, penghapusan besar (termasuk penanda \emph{deprecation}), dan
+perubahan dependensi; pada analisis langsung, contohnya meliputi validasi
+lisensi yang di-obfuscate dan unggahan ke S3 di skrip uji.
+\citet{guo2026effective} menunjuk \texttt{husky}, \texttt{patch-package}, dan
+\texttt{prisma} sebagai sumber positif palsu karena \emph{install hook}.
+RogueOne mencatat dependensi baru, skrip instalasi, dan API sistem baru sebagai
+sumber alarm palsu \citep{sofaer2024rogueone}.
+
+Lima kategori di Tabel~\ref{tab:hn} menyaring kandidat dari sisa typical
+updates Wyss et al.\ dan dari pencarian registry npm. Kandidat diterima jika
+tidak ada advisory, delta kemampuan tidak kosong, tujuan perilakunya
+terdokumentasi, dan penerbitnya sama dengan versi sebelumnya. Kategori
+ditentukan oleh tujuan yang terdokumentasi, bukan oleh sinyal penyaring.
+Kuota uji adalah 20 pair per kategori (minimum 15). Dua puluh lima pair
+lainnya, lima per kategori, disisihkan sebagai contoh sah di basis pengetahuan
+untuk eksperimen retrieval dan tidak masuk skor FPR.
+
+\begin{table}[t]
+\caption{Kategori \emph{hard negative}. Sinyal hanya menyaring kandidat;
+kategori mengikuti tujuan yang terdokumentasi.}
+\label{tab:hn}
+\small
+\begin{tabular}{p{2.2cm} p{2.0cm} p{3.4cm}}
+\hline
+Kategori & Sinyal & Dasar di evaluasi terdahulu \\
+\hline
+Eksekusi proses dan perkakas
+  & \texttt{install\_script}, \texttt{process\_exec}
+  & \emph{Install hook} sah \citep{guo2026effective}; skrip instalasi pada RogueOne \\
+Telemetri
+  & \texttt{network}
+  & Operasi sensitif, Tabel~VI Wyss et al. \\
+Perizinan
+  & \texttt{obfuscation}, \texttt{dynamic\_code}
+  & Validasi lisensi ter-obfuscate pada analisis langsung Wyss et al. \\
+Jaringan dan unduhan
+  & \texttt{network}, \texttt{process\_exec}
+  & Operasi sensitif; API sistem baru pada RogueOne \\
+Depresiasi dan perubahan struktur
+  & \texttt{large\_deletion}, \texttt{dependency\_change}
+  & Penghapusan besar dan perubahan dependensi, Tabel~VI Wyss et al. \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{Kampanye dan pelabelan.}
+Dua pair masuk satu kampanye jika merujuk insiden yang sama, memuat berkas
+tambahan yang identik, atau kode JavaScript tambahannya mirip menurut Dolos
+(parameter Wyss: $k{=}70$, jendela 17) pada ambang 0,5. Ambang condong ke
+penggabungan: memisahkan item yang sebenarnya satu kampanye lebih merusak
+validitas daripada menggabungkan dua kampanye yang berbeda. Dua anotator
+melabeli MAL dan HN secara independen sebelum model dijalankan pada himpunan
+uji. TYP tidak dilabeli ganda. Cohen's~$\kappa$ dilaporkan; ketidaksepakatan
+yang tidak terselesaikan dikeluarkan dan dihitung.
+
+\paragraph{\emph{Dev set}.}
+Sepuluh pair (empat klon berbahaya Wyss et al., tiga TYP sisa, tiga HN dari
+bagian yang disisihkan untuk basis pengetahuan) dipakai untuk memeriksa
+parsing, pemotongan diff, dan pengecualian retrieval. Dev set tidak dipakai
+untuk menyetel aturan keputusan berdasarkan akurasi.
+
+\subsection{Model dan inferensi}\label{sec:models}
+
+Dua model di Tabel~\ref{tab:models} mewakili satu model instruksi umum dan
+satu model khusus kode pada rentang 3--4B. Keduanya
+satu keluarga dengan ukuran kosakata yang sama, sehingga jumlah token
+sebanding; generalisasi ke keluarga lain terbatas. Qwen2.5-Coder-3B-Instruct
+memakai lisensi \texttt{qwen-research}, bukan Apache-2.0.
+
+\begin{table}[t]
+\caption{Model yang diuji. Konteks Qwen3-4B dibatasi ke 32.768 token agar
+kedua model menerima masukan identik.}
+\label{tab:models}
+\small
+\begin{tabular}{p{2.4cm} p{2.6cm} p{2.6cm}}
+\hline
+  & Qwen3-4B-Instruct-2507 & Qwen2.5-Coder-3B-Instruct \\
+\hline
+Parameter & 4,0B & 3,09B \\
+Lisensi & Apache-2.0 & \texttt{qwen-research} \\
+Konteks native & 262.144 & 32.768 \\
+Konteks yang dipakai & 32.768 & 32.768 \\
+\hline
+\end{tabular}
+\end{table}
+
+Inferensi memakai vLLM, \texttt{bfloat16}, tanpa kuantisasi, permintaan
+sekuensial, dan \emph{temperature} 0. Tiga permintaan pemanasan dari dev set
+dibuang. Qwen3-4B secara native mendukung 262.144 token, tetapi dibatasi ke
+angka Qwen2.5-Coder-3B supaya keunggulan konteks panjang tidak menjadi faktor
+pembeda.
+
+\subsection{Konfigurasi}\label{sec:configs}
+
+Tujuh konfigurasi di Tabel~\ref{tab:configs} memakai system prompt,
+\emph{smart-diff} hasil potongan, dan parameter generasi yang identik.
+E0-noint hanya berisi \emph{smart-diff} dan perubahan versi: ini kondisi
+terdekat dengan prompt \citet{wyss2025evaluating}. E0 menambahkan profil intent
+dari $\mathrm{v}_{t-1}$. E3 mengambil satu card berbahaya teratas, mengikuti
+retrieval IntelGuard yang hanya menyertakan contoh berbahaya
+\citep{guo2026bridging}. E3-k2 mengambil dua card berbahaya teratas. E4
+mengambil satu card berbahaya teratas dan satu card sah teratas. E4-noint
+identik dengan E4 kecuali blok intent dikosongkan. E2 mengambil satu card
+teratas tanpa melihat label dan tidak diuji; yang dilaporkan darinya adalah
+proporsi label card yang terambil, karena pool berbahaya lebih besar (50 vs 25)
+sehingga campuran KB lebih sering menghasilkan card berbahaya.
+
+\begin{table}[t]
+\caption{Konfigurasi. System prompt, \emph{smart-diff} hasil potongan, dan
+parameter generasi identik di semua baris.}
+\label{tab:configs}
+\small
+\begin{tabular}{lll}
+\hline
+ID & Card & Intent \\
+\hline
+E0-noint & -- & tidak \\
+E0 & -- & ya \\
+E2 & 1 teratas, label bebas & ya \\
+E3 & 1 berbahaya teratas & ya \\
+E3-k2 & 2 berbahaya teratas & ya \\
+E4 & 1 berbahaya + 1 sah & ya \\
+E4-noint & sama dengan E4 & tidak \\
+\hline
+\end{tabular}
+\end{table}
+
+Tiga perbandingan konfirmatori masing-masing hanya berbeda satu faktor, pada
+pair dan model yang sama:
+
+\begin{itemize}
+\item E0 vs E3: ada tidaknya satu card berbahaya.
+\item E3-k2 vs E4: card kedua, berbahaya terbaik kedua versus sah terbaik;
+card pertama dan posisinya sama. Tanpa E3-k2, penurunan FPR pada E4 tidak
+dapat dipisahkan dari efek jumlah contoh.
+\item E4 vs E4-noint: ada tidaknya blok intent; card dan urutannya identik
+karena retrieval tidak membaca intent.
+\end{itemize}
+
+Selisih E0 vs E0-noint, yaitu efek intent tanpa retrieval, dilaporkan
+deskriptif dan tidak diuji. E2 tidak masuk perbandingan konfirmatori.
+
+\subsection{Metrik}\label{sec:metrics}
+
+Metrik primer dihitung per subset, bukan pada gabungan himpunan uji.
+
+\begin{itemize}
+\item \emph{Recall}: proporsi pair MAL yang diberi vonis \texttt{malicious}.
+\item FPR$_{\mathrm{TYP}}$: proporsi pair TYP yang diberi vonis \texttt{malicious}.
+\item FPR$_{\mathrm{HN}}$: proporsi pair HN yang diberi vonis \texttt{malicious}.
+\end{itemize}
+
+Setiap proporsi dilaporkan dengan interval kepercayaan skor Wilson 95\%, per
+model dan per konfigurasi. \citet{wyss2025evaluating} memakai sensitivitas dan
+spesifisitas karena himpunan berbahaya dan sah terpisah serta tidak seimbang,
+sehingga presisi menjadi tidak proporsional. Alasan yang sama dipakai di sini.
+Presisi dan F1 dihitung pada gabungan uji (rasio kelas 50:200 disebutkan) dan
+bersifat sekunder.
+
+FPR tidak digabung antara TYP dan HN. TYP mendekati campuran Wyss et al.\ dan
+menjadi titik banding operasional --- npm menerima sekitar 15 pembaruan per
+menit, sehingga setiap 1\% FPR berarti sekitar 216 alarm palsu per hari.
+HN mengukur ambiguitas kemampuan versus niat yang diidentifikasi
+\citet{guo2026effective}, yaitu kasus yang membuat FPR pada typical updates
+terlihat rendah.
+
+\emph{Recall} pada pair MAL dengan delta kemampuan kosong dilaporkan terpisah.
+Pada pola itu payload memakai API yang sudah ada di $\mathrm{v}_{t-1}$;
+konfigurasi bawaan RogueOne melewatkan seluruh 10 kasus serangan tersamar
+semacam ini \citep{sofaer2024rogueone}. Subkelompok \texttt{truncated} juga
+dilaporkan.
+
+Tidak ada ambang ``cukup'' yang disepakati untuk model 3--4B. Yang dilaporkan
+pada konfigurasi tanpa contoh adalah estimasi titik beserta intervalnya, per
+model.
+
+Dengan sekitar 50 pair MAL, lebar interval Wilson pada \emph{recall} 0,9
+sekitar $\pm$8,5 poin; pada 100 pair HN dan FPR 0,2, lebarnya sekitar
+$\pm$7,8 poin. Batas ini adalah properti desain, bukan kekurangan yang ditutup
+dengan menambah sampel setelah melihat hasil.
+
+\paragraph{Ablasi.}
+Endpoint yang diuji pada tiga selisih berpasangan adalah FPR$_{\mathrm{HN}}$,
+bukan F1. F1 bergantung pada rasio kelas di himpunan data; mekanisme yang
+diukur --- contoh sah atau profil intent mengurangi kecenderungan menuduh ---
+bekerja pada pembaruan sah yang perilakunya mirip berbahaya.
+
+Uji memakai McNemar exact dua sisi pada subset HN, dengan luaran per pair:
+diberi vonis \texttt{malicious} atau tidak. Ada enam uji (tiga selisih
+$\times$ dua model), dikoreksi Holm dengan $\alpha$ keluarga 0,05. Jika tidak
+ada pair yang vonisnya berbeda, $p{=}1$.
+
+\emph{Recall} dipakai sebagai batas, bukan sebagai endpoint kedua yang diuji.
+Selisih recall dihitung berpasangan. Interval 95\% berasal dari bootstrap
+persentil 10.000 resample per kampanye, seed 2026, karena pair dalam satu
+kampanye saling berkorelasi. Penurunan estimasi titik tidak boleh melebihi
+5~poin. Dengan sekitar 50 pair MAL, batas ``tidak turun lebih dari 5~poin''
+tidak dapat dibuktikan dari interval saja; yang dilaporkan adalah estimasi
+titik ditambah CI.
+
+Label hasil untuk E3-k2 vs E4 dan untuk E4 vs E4-noint:
+
+\begin{itemize}
+\item \emph{Didukung}: FPR$_{\mathrm{HN}}$ turun, $p_{\mathrm{Holm}}{<}0{,}05$,
+estimasi titik penurunan recall $\le$ 5~poin, dan batas bawah CI selisih
+recall $\ge{-}5$~poin.
+\item \emph{Didukung sebagian}: syarat yang sama kecuali batas bawah CI
+$<{-}5$~poin (recall aman belum terbukti).
+\item \emph{Arah sesuai, tidak signifikan}: FPR$_{\mathrm{HN}}$ turun,
+$p_{\mathrm{Holm}}{\ge}0{,}05$, dan estimasi titik penurunan recall $\le$ 5~poin.
+\item \emph{Tidak didukung}: FPR$_{\mathrm{HN}}$ tidak turun, atau estimasi
+titik penurunan recall $>$ 5~poin.
+\end{itemize}
+
+Untuk E0 vs E3 tidak ada syarat recall. Labelnya \emph{Didukung} jika
+FPR$_{\mathrm{HN}}$(E3) $>$ FPR$_{\mathrm{HN}}$(E0) dengan
+$p_{\mathrm{Holm}}{<}0{,}05$; \emph{Arah sesuai, tidak signifikan}; atau
+\emph{Tidak didukung}. Klaim yang berlaku pada kedua model hanya ditulis jika
+keduanya berlabel Didukung atau Didukung sebagian. ``Tidak signifikan'' bukan
+bukti bahwa tidak ada efek.
+
+\paragraph{Biaya.}
+Token adalah \texttt{prompt\_tokens} dan \texttt{completion\_tokens} dari
+field \texttt{usage} vLLM. Latensi adalah waktu wall-clock di sisi klien,
+dari permintaan dikirim sampai respons lengkap diterima, tanpa streaming;
+dilaporkan sebagai median dan persentil ke-95 (nearest-rank). Permintaan
+sekuensial agar angka itu tidak terdistorsi oleh tumpang-tindih di peladen.
+\citet{wyss2025evaluating} melaporkan rata-rata 9,91 detik per kueri untuk
+GPT-4o.
+
+Memori GPU adalah jumlah memori bobot yang dilaporkan log vLLM saat model
+dimuat dan KV cache terhitung untuk pasangan prompt+output terpanjang yang
+benar-benar terjadi. Puncak \texttt{nvidia-smi} tidak dipakai: vLLM
+mengalokasikan sebagian besar VRAM saat start sesuai
+\texttt{--gpu-memory-utilization}. Model GPU, total VRAM, dan dtype
+dilaporkan.
+
+Tambahan per komponen dihitung sebagai selisih: E0-noint $\rightarrow$ E0
+untuk intent; E0 $\rightarrow$ E3 untuk satu card; E3 $\rightarrow$ E3-k2
+atau E4 untuk card kedua. Pareto dihitung pada
+(FPR$_{\mathrm{HN}}$, recall, median latensi).
+
+\subsection{Prosedur dan apa yang tidak dibandingkan}
+
+Urutan kerja: pelabelan selesai sebelum inferensi pada himpunan uji; dev set
+dijalankan lebih dulu untuk validitas JSON; kemudian ketujuh konfigurasi di
+kedua model, \emph{temperature} 0, permintaan sekuensial. Sampel berbahaya
+hanya dianalisis secara statis.
+
+FPR per kategori HN, persentase pair yang vonisnya berubah pada tiga seed
+(\emph{temperature} 0,7; E0 dan E4), pemisahan insiden sebelum versus sesudah
+tanggal rilis model, taksonomi kesalahan, dan kesesuaian \texttt{evidence}
+dengan baris gold dilaporkan sebagai deskripsi dan tidak diuji.
+
+Tiga perbandingan sengaja tidak dilakukan. RogueOne tidak dijalankan ulang:
+rata-rata 226,7 detik per pembaruan dengan batas waktu satu jam, dan
+membandingkan angka dari dataset berbeda tidak sah
+\citep{sofaer2024rogueone}. GPT-4o dan GPT-4.1-mini tidak dijalankan: ruang
+lingkup dibatasi model \emph{open-weight} lokal. Kalau data Wyss et al.\ di OSF
+memungkinkan subset yang sama, angka kami boleh disajikan berdampingan dengan
+angka mereka, tetap tanpa uji.
+
+\section{Results}\label{sec:results}
+
+\section{Discussion}\label{sec:discussion}
+
+\section{Conclusion}\label{sec:conclusion}
+
+\printcredits
+
+\bibliographystyle{cas-model2-names}
+\bibliography{cas-refs}
+
+\end{document}
