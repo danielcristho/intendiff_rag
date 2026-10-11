@@ -14,3 +14,131 @@
 (EngineCore pid=354920) INFO 10-12 01:08:41 [gpu_worker.py:441] Using V2 Model Runner
 (EngineCore pid=354920) WARNING 10-12 01:08:42 [buffer_utils.py:47] Pinned memory is not available on this platform; falling back to device memory for UVA buffers.
 (EngineCore pid=354920) INFO 10-12 01:08:42 [model_runner.py:396] Loading model from scratch...
+(EngineCore pid=354920) INFO 10-12 01:08:43 [cuda.py:538] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=354920) INFO 10-12 01:08:43 [flash_attn.py:1116] Using FlashAttention version 2
+(EngineCore pid=354920) INFO 10-12 01:08:43 [weight_utils.py:895] Filesystem type for checkpoints: EXT4. Checkpoint size: 7.49 GiB. Available RAM: 17.80 GiB.
+(EngineCore pid=354920) INFO 10-12 01:08:43 [weight_utils.py:918] Auto-prefetch is disabled because the filesystem (EXT4) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+(EngineCore pid=354920) Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+(EngineCore pid=354920) Loading safetensors checkpoint shards:  33% Completed | 1/3 [00:00<00:00,  2.59it/s]
+(EngineCore pid=354920) Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:00<00:00,  2.63it/s]
+(EngineCore pid=354920) Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:00<00:00,  3.87it/s]
+(EngineCore pid=354920) 
+(EngineCore pid=354920) INFO 10-12 01:08:44 [default_loader.py:430] Loading weights took 0.78 seconds
+(EngineCore pid=354920) INFO 10-12 01:08:44 [model_runner.py:428] Model loading took 7.64 GiB memory and 2.821757 seconds
+(EngineCore pid=354920) INFO 10-12 01:08:44 [topk_topp_sampler.py:62] FlashInfer top-p/top-k sampling disabled via VLLM_USE_FLASHINFER_SAMPLER=0.
+(EngineCore pid=354920) INFO 10-12 01:08:44 [utils.py:320] Using LBNHC KV cache layout.
+(EngineCore pid=354920) INFO 10-12 01:08:45 [caching.py:343] reconstructed serializable fn from standalone compile artifacts. num_artifacts=3 num_submods=37
+(EngineCore pid=354920) INFO 10-12 01:08:45 [decorators.py:313] Directly load AOT compilation from path ~/.cache/vllm/torch_compile_cache/torch_aot_compile/19b853408259b74b1254984716fb8f89157e912454666d21c2cb96ba60b3e1ff/rank_0_0/model
+(EngineCore pid=354920) INFO 10-12 01:08:45 [monitor.py:53] torch.compile took 0.23 s in total
+(EngineCore pid=354920) INFO 10-12 01:08:46 [monitor.py:81] Initial profiling/warmup run took 0.16 s
+(EngineCore pid=354920) INFO 10-12 01:08:46 [gpu_worker.py:559] Initial free memory 30.2 GiB, reserved 6.0 GiB memory for KV Cache as specified by kv_cache_memory_bytes config and skipped memory profiling. This does not respect the gpu_memory_utilization config. Only use kv_cache_memory_bytes config when you want manual control of KV cache memory size. If OOM'ed, check the difference of initial free memory between the current run and the previous run where kv_cache_memory_bytes is suggested and update it correspondingly.
+(EngineCore pid=354920) INFO 10-12 01:08:46 [kv_cache_utils.py:2395] GPU KV cache size: 43,680 tokens, Maximum concurrency for 32,768 tokens per request: 1.33x
+(EngineCore pid=354920) INFO 10-12 01:08:46 [kernel_warmup.py:172] JIT kernel warmup starting.
+(EngineCore pid=354920) INFO 10-12 01:08:46 [kernel_warmup.py:185] JIT kernel warmup finished in 0.00s.
+(EngineCore pid=354920) Capturing CUDA graphs (PIECEWISE):   0%|          | 0/2 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 2/2 [00:00<00:00, 22.38it/s]
+(EngineCore pid=354920) Capturing CUDA graphs (FULL):   0%|          | 0/1 [00:00<?, ?it/s]Capturing CUDA graphs (FULL): 100%|██████████| 1/1 [00:00<00:00,  9.65it/s]Capturing CUDA graphs (FULL): 100%|██████████| 1/1 [00:00<00:00,  9.63it/s]
+(EngineCore pid=354920) INFO 10-12 01:08:48 [model_runner.py:1066] Graph capturing finished in 1 secs, took 0.04 GiB
+(EngineCore pid=354920) INFO 10-12 01:08:48 [jit_monitor.py:85] Kernel JIT monitor activated; monitored JIT compilations during inference will use mode=warn.
+(EngineCore pid=354920) INFO 10-12 01:08:49 [torch_utils.py:287] Reducing Torch threads from 10 to 1 for serving. Set OMP_NUM_THREADS in the external environment to override.
+(EngineCore pid=354920) INFO 10-12 01:08:49 [core.py:372] init engine (profile, create kv cache, warmup model) took 4.16 s (compilation: 0.23 s)
+(EngineCore pid=354920) INFO 10-12 01:08:49 [kernel.py:416] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'], gelu_and_mul_sparse=['triton', 'native'])
+(APIServer pid=354284) INFO 10-12 01:08:49 [entry.py:135] Supported tasks: ['generate']
+(APIServer pid=354284) INFO 10-12 01:08:49 [factories.py:76] Scale-out endpoints are disabled. Set --enable-scale-out to enable them.
+(APIServer pid=354284) INFO 10-12 01:08:49 [hf.py:642] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+(APIServer pid=354284) INFO 10-12 01:08:49 [entry.py:139] Starting vLLM server on http://127.0.0.1:8101
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:61] Available routes are:
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /openapi.json, Methods: GET, HEAD
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /docs, Methods: GET, HEAD
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /docs/oauth2-redirect, Methods: GET, HEAD
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /redoc, Methods: GET, HEAD
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /load, Methods: GET
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /version, Methods: GET
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /health, Methods: GET
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /metrics, Methods: GET
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /tokenize, Methods: POST
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /detokenize, Methods: POST
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /v1/models, Methods: GET
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /ping, Methods: GET
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /ping, Methods: POST
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /invocations, Methods: POST
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /v1/chat/completions, Methods: POST
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /v1/chat/completions/batch, Methods: POST
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /v1/responses, Methods: POST
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /v1/responses/{response_id}, Methods: GET
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /v1/responses/{response_id}/cancel, Methods: POST
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /v1/completions, Methods: POST
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /v1/messages, Methods: POST
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /v1/messages/count_tokens, Methods: POST
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /generative_scoring, Methods: POST
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /scale_elastic_ep, Methods: POST
+(APIServer pid=354284) INFO 10-12 01:08:49 [launcher.py:70] Route: /is_scaling_elastic_ep, Methods: POST
+(APIServer pid=354284) INFO:     Started server process [354284]
+(APIServer pid=354284) INFO:     Waiting for application startup.
+(APIServer pid=354284) INFO:     Application startup complete.
+(APIServer pid=354284) INFO:     127.0.0.1:52898 - "GET /v1/models HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:52902 - "POST /tokenize HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:52916 - "POST /tokenize HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:52928 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:52930 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:38682 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:38686 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO 10-12 01:08:59 [loggers.py:315] Engine 000: Avg prompt throughput: 2672.8 tokens/s, Avg generation throughput: 50.3 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 32.4%, Prefix cache hit rate: 22.2%
+(APIServer pid=354284) INFO:     127.0.0.1:38700 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:38704 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:38720 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:38726 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:38742 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:33682 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:33696 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:33706 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO 10-12 01:09:09 [loggers.py:315] Engine 000: Avg prompt throughput: 4015.9 tokens/s, Avg generation throughput: 85.8 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 22.9%, Prefix cache hit rate: 37.5%
+(APIServer pid=354284) INFO:     127.0.0.1:33722 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:33730 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:33734 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:33744 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:33758 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:33764 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:42046 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:42054 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:42056 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO 10-12 01:09:19 [loggers.py:315] Engine 000: Avg prompt throughput: 3329.2 tokens/s, Avg generation throughput: 101.8 tokens/s, Running: 1 reqs, Waiting: 0 reqs, GPU KV cache usage: 11.5%, Prefix cache hit rate: 34.5%
+(APIServer pid=354284) INFO:     127.0.0.1:42070 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:42078 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:42080 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:42096 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:42106 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:42112 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:42120 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:34950 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO:     127.0.0.1:34956 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+(APIServer pid=354284) INFO 10-12 01:09:29 [loggers.py:315] Engine 000: Avg prompt throughput: 2231.9 tokens/s, Avg generation throughput: 99.4 tokens/s, Running: 0 reqs, Waiting: 0 reqs, GPU KV cache usage: 0.0%, Prefix cache hit rate: 35.6%
+(EngineCore pid=354920) INFO 10-12 01:09:33 [core.py:1342] [shutdown] EngineCore: trigger received signal=SIGTERM
+(APIServer pid=354284) INFO 10-12 01:09:33 [launcher.py:129] [shutdown] API server: shutdown triggered
+(APIServer pid=354284) INFO 10-12 01:09:33 [launcher.py:145] [shutdown] API server: stopping engine client mode=abort timeout=0s
+(EngineCore pid=354920) INFO 10-12 01:09:33 [core.py:1493] [shutdown] EngineCore: start mode=abort timeout=0s
+(EngineCore pid=354920) INFO 10-12 01:09:33 [core.py:1524] [shutdown] EngineCore: request processing complete; starting resource teardown
+(EngineCore pid=354920) INFO 10-12 01:09:33 [core.py:1355] [shutdown] EngineCore: exiting busy loop
+(APIServer pid=354284) INFO 10-12 01:09:33 [core_client.py:744] [shutdown] MPClient: start timeout=0s
+(APIServer pid=354284) INFO 10-12 01:09:33 [core_client.py:746] [shutdown] MPClient: stopping engine manager
+(APIServer pid=354284) INFO 10-12 01:09:33 [utils.py:632] [shutdown] Process manager: send sigterm to process EngineCore
+(APIServer pid=354284) WARNING 10-12 01:09:33 [utils.py:652] [shutdown] Process manager: force killing remaining processes count=1
+(APIServer pid=354284) WARNING 10-12 01:09:33 [utils.py:657] [shutdown] Process manager: force killing remaining process EngineCore pid 354920
+(APIServer pid=354284) INFO 10-12 01:09:33 [core_client.py:748] [shutdown] MPClient: engine manager stopped
+(APIServer pid=354284) INFO 10-12 01:09:33 [core_client.py:749] [shutdown] MPClient: cleaning up background resources
+(APIServer pid=354284) INFO 10-12 01:09:33 [core_client.py:751] [shutdown] MPClient: complete
+(APIServer pid=354284) ERROR 10-12 01:09:33 [async_llm.py:843] AsyncLLM output_handler failed.
+(APIServer pid=354284) ERROR 10-12 01:09:33 [async_llm.py:843] Traceback (most recent call last):
+(APIServer pid=354284) ERROR 10-12 01:09:33 [async_llm.py:843]   File "~/intendiff_rag/.venv/lib/python3.12/site-packages/vllm/v1/engine/async_llm.py", line 789, in output_handler
+(APIServer pid=354284) ERROR 10-12 01:09:33 [async_llm.py:843]     outputs = await engine_core.get_output_async()
+(APIServer pid=354284) ERROR 10-12 01:09:33 [async_llm.py:843]               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=354284) ERROR 10-12 01:09:33 [async_llm.py:843]   File "~/intendiff_rag/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 1175, in get_output_async
+(APIServer pid=354284) ERROR 10-12 01:09:33 [async_llm.py:843]     raise self._format_exception(outputs) from None
+(APIServer pid=354284) ERROR 10-12 01:09:33 [async_llm.py:843] vllm.v1.engine.exceptions.EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.
+(APIServer pid=354284) INFO 10-12 01:09:33 [launcher.py:154] [shutdown] API server: engine client stopped
+(APIServer pid=354284) INFO 10-12 01:09:33 [launcher.py:157] [shutdown] API server: signalling HTTP server shutdown
+(APIServer pid=354284) INFO 10-12 01:09:33 [launcher.py:179] [shutdown] API server: shutting down FastAPI HTTP server
+(APIServer pid=354284) INFO:     Shutting down
+(APIServer pid=354284) INFO:     Waiting for application shutdown.
+(APIServer pid=354284) INFO:     Application shutdown complete.
+~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/multiprocessing/resource_tracker.py:255: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
