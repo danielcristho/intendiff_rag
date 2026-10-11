@@ -2,8 +2,17 @@ import { describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import { IntentView } from "@/components/audit/IntentView";
 import { parseGoldEvidence } from "@/lib/goldEvidence";
+import { DecisionPanel } from "@/components/audit/DecisionPanel";
 
 describe("annotation inputs", () => {
+  it("allows evidence and legitimate-purpose review without disclosing the source subset", () => {
+    const html = renderToStaticMarkup(<DecisionPanel
+      pair={{ id: "review-001", name: "package", diff: "+code", annotation_blinded: true }}
+      entry={{}} onRecord={() => {}} />);
+    expect(html).toContain("gold-evidence");
+    expect(html).toContain("Process execution");
+    expect(html).not.toContain("Error taxonomy");
+  });
   it("renders the structured profile emitted by the real pipeline", () => {
     const html = renderToStaticMarkup(<IntentView intent={{
       description: "A tool", keywords: "npm", scripts: "postinstall: node setup.js",

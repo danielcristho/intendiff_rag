@@ -1,0 +1,535 @@
+{"stage": "server_starting", "unix": 1791719619.7309728, "pid": 17081, "command": ["~/intendiff_rag/.venv/bin/vllm", "serve", "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507", "--served-model-name", "Qwen/Qwen3-4B-Instruct-2507", "--host", "127.0.0.1", "--port", "8101", "--dtype", "bfloat16", "--max-model-len", "32768", "--seed", "0", "--generation-config", "vllm", "--max-num-seqs", "1", "--kv-cache-memory-bytes", "6442450944", "--enable-prefix-caching"]}
+{"stage": "evaluating", "unix": 1791719653.7475407}
+{"completed": 1, "expected": 160, "pair_id": "@mastra/inngest@1.5.2", "arm": "LEGACY-I", "valid": true}
+{"completed": 2, "expected": 160, "pair_id": "@mastra/inngest@1.5.2", "arm": "SCHEMA-I", "valid": true}
+{"completed": 3, "expected": 160, "pair_id": "@mastra/inngest@1.5.2", "arm": "IDS-I", "valid": true}
+{"completed": 4, "expected": 160, "pair_id": "@mastra/inngest@1.5.2", "arm": "IDS-D", "valid": true}
+{"completed": 5, "expected": 160, "pair_id": "@mastra/inngest@1.5.2", "arm": "VERIFY-I", "valid": true}
+{"completed": 6, "expected": 160, "pair_id": "@mastra/auth-firebase@1.0.1", "arm": "LEGACY-I", "valid": true}
+{"completed": 7, "expected": 160, "pair_id": "@mastra/auth-firebase@1.0.1", "arm": "SCHEMA-I", "valid": true}
+{"completed": 8, "expected": 160, "pair_id": "@mastra/auth-firebase@1.0.1", "arm": "IDS-I", "valid": true}
+{"completed": 9, "expected": 160, "pair_id": "@mastra/auth-firebase@1.0.1", "arm": "IDS-D", "valid": true}
+{"completed": 10, "expected": 160, "pair_id": "@mastra/auth-firebase@1.0.1", "arm": "VERIFY-I", "valid": true}
+{"completed": 11, "expected": 160, "pair_id": "@mastra/duckdb@1.4.3", "arm": "LEGACY-I", "valid": true}
+{"completed": 12, "expected": 160, "pair_id": "@mastra/duckdb@1.4.3", "arm": "SCHEMA-I", "valid": true}
+{"completed": 13, "expected": 160, "pair_id": "@mastra/duckdb@1.4.3", "arm": "IDS-I", "valid": true}
+{"completed": 14, "expected": 160, "pair_id": "@mastra/duckdb@1.4.3", "arm": "IDS-D", "valid": true}
+{"completed": 15, "expected": 160, "pair_id": "@mastra/duckdb@1.4.3", "arm": "VERIFY-I", "valid": true}
+{"completed": 16, "expected": 160, "pair_id": "@mastra/turbopuffer@1.0.3", "arm": "LEGACY-I", "valid": true}
+{"completed": 17, "expected": 160, "pair_id": "@mastra/turbopuffer@1.0.3", "arm": "SCHEMA-I", "valid": true}
+{"completed": 18, "expected": 160, "pair_id": "@mastra/turbopuffer@1.0.3", "arm": "IDS-I", "valid": true}
+{"completed": 19, "expected": 160, "pair_id": "@mastra/turbopuffer@1.0.3", "arm": "IDS-D", "valid": true}
+{"completed": 20, "expected": 160, "pair_id": "@mastra/turbopuffer@1.0.3", "arm": "VERIFY-I", "valid": true}
+{"completed": 21, "expected": 160, "pair_id": "@mastra/cloudflare-d1@1.0.7", "arm": "LEGACY-I", "valid": true}
+{"completed": 22, "expected": 160, "pair_id": "@mastra/cloudflare-d1@1.0.7", "arm": "SCHEMA-I", "valid": true}
+{"completed": 23, "expected": 160, "pair_id": "@mastra/cloudflare-d1@1.0.7", "arm": "IDS-I", "valid": true}
+{"completed": 24, "expected": 160, "pair_id": "@mastra/cloudflare-d1@1.0.7", "arm": "IDS-D", "valid": true}
+{"completed": 25, "expected": 160, "pair_id": "@mastra/cloudflare-d1@1.0.7", "arm": "VERIFY-I", "valid": true}
+{"completed": 26, "expected": 160, "pair_id": "ua-parser-js@0.7.29", "arm": "LEGACY-I", "valid": true}
+{"completed": 27, "expected": 160, "pair_id": "ua-parser-js@0.7.29", "arm": "SCHEMA-I", "valid": true}
+{"completed": 28, "expected": 160, "pair_id": "ua-parser-js@0.7.29", "arm": "IDS-I", "valid": true}
+{"completed": 29, "expected": 160, "pair_id": "ua-parser-js@0.7.29", "arm": "IDS-D", "valid": true}
+{"completed": 30, "expected": 160, "pair_id": "ua-parser-js@0.7.29", "arm": "VERIFY-I", "valid": true}
+{"completed": 31, "expected": 160, "pair_id": "@mastra/deployer@1.42.1", "arm": "LEGACY-I", "valid": true}
+{"completed": 32, "expected": 160, "pair_id": "@mastra/deployer@1.42.1", "arm": "SCHEMA-I", "valid": true}
+{"completed": 33, "expected": 160, "pair_id": "@mastra/deployer@1.42.1", "arm": "IDS-I", "valid": true}
+{"completed": 34, "expected": 160, "pair_id": "@mastra/deployer@1.42.1", "arm": "IDS-D", "valid": true}
+{"completed": 35, "expected": 160, "pair_id": "@mastra/deployer@1.42.1", "arm": "VERIFY-I", "valid": true}
+{"completed": 36, "expected": 160, "pair_id": "@mastra/daytona@0.4.2", "arm": "LEGACY-I", "valid": true}
+{"completed": 37, "expected": 160, "pair_id": "@mastra/daytona@0.4.2", "arm": "SCHEMA-I", "valid": true}
+{"completed": 38, "expected": 160, "pair_id": "@mastra/daytona@0.4.2", "arm": "IDS-I", "valid": true}
+{"completed": 39, "expected": 160, "pair_id": "@mastra/daytona@0.4.2", "arm": "IDS-D", "valid": true}
+{"completed": 40, "expected": 160, "pair_id": "@mastra/daytona@0.4.2", "arm": "VERIFY-I", "valid": true}
+{"completed": 41, "expected": 160, "pair_id": "@mastra/speech-google@0.2.1", "arm": "LEGACY-I", "valid": true}
+{"completed": 42, "expected": 160, "pair_id": "@mastra/speech-google@0.2.1", "arm": "SCHEMA-I", "valid": true}
+{"completed": 43, "expected": 160, "pair_id": "@mastra/speech-google@0.2.1", "arm": "IDS-I", "valid": true}
+{"completed": 44, "expected": 160, "pair_id": "@mastra/speech-google@0.2.1", "arm": "IDS-D", "valid": true}
+{"completed": 45, "expected": 160, "pair_id": "@mastra/speech-google@0.2.1", "arm": "VERIFY-I", "valid": true}
+{"completed": 46, "expected": 160, "pair_id": "@mastra/auth-cloud@1.1.4", "arm": "LEGACY-I", "valid": true}
+{"completed": 47, "expected": 160, "pair_id": "@mastra/auth-cloud@1.1.4", "arm": "SCHEMA-I", "valid": true}
+{"completed": 48, "expected": 160, "pair_id": "@mastra/auth-cloud@1.1.4", "arm": "IDS-I", "valid": true}
+{"completed": 49, "expected": 160, "pair_id": "@mastra/auth-cloud@1.1.4", "arm": "IDS-D", "valid": true}
+{"completed": 50, "expected": 160, "pair_id": "@mastra/auth-cloud@1.1.4", "arm": "VERIFY-I", "valid": true}
+{"completed": 51, "expected": 160, "pair_id": "@mastra/arthur@0.3.3", "arm": "LEGACY-I", "valid": true}
+{"completed": 52, "expected": 160, "pair_id": "@mastra/arthur@0.3.3", "arm": "SCHEMA-I", "valid": true}
+{"completed": 53, "expected": 160, "pair_id": "@mastra/arthur@0.3.3", "arm": "IDS-I", "valid": true}
+{"completed": 54, "expected": 160, "pair_id": "@mastra/arthur@0.3.3", "arm": "IDS-D", "valid": true}
+{"completed": 55, "expected": 160, "pair_id": "@mastra/arthur@0.3.3", "arm": "VERIFY-I", "valid": true}
+{"completed": 56, "expected": 160, "pair_id": "@react-native-aria/radio@0.2.14", "arm": "LEGACY-I", "valid": true}
+{"completed": 57, "expected": 160, "pair_id": "@react-native-aria/radio@0.2.14", "arm": "SCHEMA-I", "valid": true}
+{"completed": 58, "expected": 160, "pair_id": "@react-native-aria/radio@0.2.14", "arm": "IDS-I", "valid": true}
+{"completed": 59, "expected": 160, "pair_id": "@react-native-aria/radio@0.2.14", "arm": "IDS-D", "valid": true}
+{"completed": 60, "expected": 160, "pair_id": "@react-native-aria/radio@0.2.14", "arm": "VERIFY-I", "valid": true}
+{"completed": 61, "expected": 160, "pair_id": "@pkgr/core@0.2.8", "arm": "LEGACY-I", "valid": true}
+{"completed": 62, "expected": 160, "pair_id": "@pkgr/core@0.2.8", "arm": "SCHEMA-I", "valid": true}
+{"completed": 63, "expected": 160, "pair_id": "@pkgr/core@0.2.8", "arm": "IDS-I", "valid": true}
+{"completed": 64, "expected": 160, "pair_id": "@pkgr/core@0.2.8", "arm": "IDS-D", "valid": true}
+{"completed": 65, "expected": 160, "pair_id": "@pkgr/core@0.2.8", "arm": "VERIFY-I", "valid": true}
+{"completed": 66, "expected": 160, "pair_id": "leetlog@0.1.2", "arm": "LEGACY-I", "valid": true}
+{"completed": 67, "expected": 160, "pair_id": "leetlog@0.1.2", "arm": "SCHEMA-I", "valid": true}
+{"completed": 68, "expected": 160, "pair_id": "leetlog@0.1.2", "arm": "IDS-I", "valid": true}
+{"completed": 69, "expected": 160, "pair_id": "leetlog@0.1.2", "arm": "IDS-D", "valid": true}
+{"completed": 70, "expected": 160, "pair_id": "leetlog@0.1.2", "arm": "VERIFY-I", "valid": true}
+{"completed": 71, "expected": 160, "pair_id": "@react-native-aria/focus@0.2.10", "arm": "LEGACY-I", "valid": true}
+{"completed": 72, "expected": 160, "pair_id": "@react-native-aria/focus@0.2.10", "arm": "SCHEMA-I", "valid": true}
+{"completed": 73, "expected": 160, "pair_id": "@react-native-aria/focus@0.2.10", "arm": "IDS-I", "valid": true}
+{"completed": 74, "expected": 160, "pair_id": "@react-native-aria/focus@0.2.10", "arm": "IDS-D", "valid": true}
+{"completed": 75, "expected": 160, "pair_id": "@react-native-aria/focus@0.2.10", "arm": "VERIFY-I", "valid": true}
+{"completed": 76, "expected": 160, "pair_id": "@mastra/cloudflare@1.4.2", "arm": "LEGACY-I", "valid": true}
+{"completed": 77, "expected": 160, "pair_id": "@mastra/cloudflare@1.4.2", "arm": "SCHEMA-I", "valid": true}
+{"completed": 78, "expected": 160, "pair_id": "@mastra/cloudflare@1.4.2", "arm": "IDS-I", "valid": true}
+{"completed": 79, "expected": 160, "pair_id": "@mastra/cloudflare@1.4.2", "arm": "IDS-D", "valid": true}
+{"completed": 80, "expected": 160, "pair_id": "@mastra/cloudflare@1.4.2", "arm": "VERIFY-I", "valid": true}
+{"completed": 81, "expected": 160, "pair_id": "@mastra/upstash@1.1.3", "arm": "LEGACY-I", "valid": true}
+{"completed": 82, "expected": 160, "pair_id": "@mastra/upstash@1.1.3", "arm": "SCHEMA-I", "valid": true}
+{"completed": 83, "expected": 160, "pair_id": "@mastra/upstash@1.1.3", "arm": "IDS-I", "valid": true}
+{"completed": 84, "expected": 160, "pair_id": "@mastra/upstash@1.1.3", "arm": "IDS-D", "valid": true}
+{"completed": 85, "expected": 160, "pair_id": "@mastra/upstash@1.1.3", "arm": "VERIFY-I", "valid": true}
+{"completed": 86, "expected": 160, "pair_id": "@aifabrix/miso-client@4.7.2", "arm": "LEGACY-I", "valid": true}
+{"completed": 87, "expected": 160, "pair_id": "@aifabrix/miso-client@4.7.2", "arm": "SCHEMA-I", "valid": true}
+{"completed": 88, "expected": 160, "pair_id": "@aifabrix/miso-client@4.7.2", "arm": "IDS-I", "valid": true}
+{"completed": 89, "expected": 160, "pair_id": "@aifabrix/miso-client@4.7.2", "arm": "IDS-D", "valid": true}
+{"completed": 90, "expected": 160, "pair_id": "@aifabrix/miso-client@4.7.2", "arm": "VERIFY-I", "valid": true}
+{"completed": 91, "expected": 160, "pair_id": "@mastra/auth-okta@0.0.5", "arm": "LEGACY-I", "valid": true}
+{"completed": 92, "expected": 160, "pair_id": "@mastra/auth-okta@0.0.5", "arm": "SCHEMA-I", "valid": true}
+{"completed": 93, "expected": 160, "pair_id": "@mastra/auth-okta@0.0.5", "arm": "IDS-I", "valid": true}
+{"completed": 94, "expected": 160, "pair_id": "@mastra/auth-okta@0.0.5", "arm": "IDS-D", "valid": true}
+{"completed": 95, "expected": 160, "pair_id": "@mastra/auth-okta@0.0.5", "arm": "VERIFY-I", "valid": true}
+{"completed": 96, "expected": 160, "pair_id": "@mastra/agent-browser@0.3.2", "arm": "LEGACY-I", "valid": true}
+{"completed": 97, "expected": 160, "pair_id": "@mastra/agent-browser@0.3.2", "arm": "SCHEMA-I", "valid": true}
+{"completed": 98, "expected": 160, "pair_id": "@mastra/agent-browser@0.3.2", "arm": "IDS-I", "valid": true}
+{"completed": 99, "expected": 160, "pair_id": "@mastra/agent-browser@0.3.2", "arm": "IDS-D", "valid": true}
+{"completed": 100, "expected": 160, "pair_id": "@mastra/agent-browser@0.3.2", "arm": "VERIFY-I", "valid": true}
+{"completed": 101, "expected": 160, "pair_id": "@redhat-cloud-services/frontend-components-remediations@4.9.2", "arm": "LEGACY-I", "valid": true}
+{"completed": 102, "expected": 160, "pair_id": "@redhat-cloud-services/frontend-components-remediations@4.9.2", "arm": "SCHEMA-I", "valid": true}
+{"completed": 103, "expected": 160, "pair_id": "@redhat-cloud-services/frontend-components-remediations@4.9.2", "arm": "IDS-I", "valid": true}
+{"completed": 104, "expected": 160, "pair_id": "@redhat-cloud-services/frontend-components-remediations@4.9.2", "arm": "IDS-D", "valid": true}
+{"completed": 105, "expected": 160, "pair_id": "@redhat-cloud-services/frontend-components-remediations@4.9.2", "arm": "VERIFY-I", "valid": true}
+{"completed": 106, "expected": 160, "pair_id": "@mastra/speech-murf@0.2.1", "arm": "LEGACY-I", "valid": true}
+{"completed": 107, "expected": 160, "pair_id": "@mastra/speech-murf@0.2.1", "arm": "SCHEMA-I", "valid": true}
+{"completed": 108, "expected": 160, "pair_id": "@mastra/speech-murf@0.2.1", "arm": "IDS-I", "valid": true}
+{"completed": 109, "expected": 160, "pair_id": "@mastra/speech-murf@0.2.1", "arm": "IDS-D", "valid": true}
+{"completed": 110, "expected": 160, "pair_id": "@mastra/speech-murf@0.2.1", "arm": "VERIFY-I", "valid": true}
+{"completed": 111, "expected": 160, "pair_id": "node-ipc@10.1.1", "arm": "LEGACY-I", "valid": true}
+{"completed": 112, "expected": 160, "pair_id": "node-ipc@10.1.1", "arm": "SCHEMA-I", "valid": true}
+{"completed": 113, "expected": 160, "pair_id": "node-ipc@10.1.1", "arm": "IDS-I", "valid": true}
+{"completed": 114, "expected": 160, "pair_id": "node-ipc@10.1.1", "arm": "IDS-D", "valid": true}
+{"completed": 115, "expected": 160, "pair_id": "node-ipc@10.1.1", "arm": "VERIFY-I", "valid": true}
+{"completed": 116, "expected": 160, "pair_id": "@mastra/cursor@0.2.1", "arm": "LEGACY-I", "valid": false}
+{"completed": 117, "expected": 160, "pair_id": "@mastra/cursor@0.2.1", "arm": "SCHEMA-I", "valid": false}
+{"completed": 118, "expected": 160, "pair_id": "@mastra/cursor@0.2.1", "arm": "IDS-I", "valid": true}
+{"completed": 119, "expected": 160, "pair_id": "@mastra/cursor@0.2.1", "arm": "IDS-D", "valid": true}
+{"completed": 120, "expected": 160, "pair_id": "@mastra/cursor@0.2.1", "arm": "VERIFY-I", "valid": true}
+{"completed": 121, "expected": 160, "pair_id": "@mastra/google-drive@0.1.1", "arm": "LEGACY-I", "valid": true}
+{"completed": 122, "expected": 160, "pair_id": "@mastra/google-drive@0.1.1", "arm": "SCHEMA-I", "valid": true}
+{"completed": 123, "expected": 160, "pair_id": "@mastra/google-drive@0.1.1", "arm": "IDS-I", "valid": true}
+{"completed": 124, "expected": 160, "pair_id": "@mastra/google-drive@0.1.1", "arm": "IDS-D", "valid": true}
+{"completed": 125, "expected": 160, "pair_id": "@mastra/google-drive@0.1.1", "arm": "VERIFY-I", "valid": true}
+{"completed": 126, "expected": 160, "pair_id": "@redhat-cloud-services/frontend-components-testing@1.2.1", "arm": "LEGACY-I", "valid": true}
+{"completed": 127, "expected": 160, "pair_id": "@redhat-cloud-services/frontend-components-testing@1.2.1", "arm": "SCHEMA-I", "valid": true}
+{"completed": 128, "expected": 160, "pair_id": "@redhat-cloud-services/frontend-components-testing@1.2.1", "arm": "IDS-I", "valid": true}
+{"completed": 129, "expected": 160, "pair_id": "@redhat-cloud-services/frontend-components-testing@1.2.1", "arm": "IDS-D", "valid": true}
+{"completed": 130, "expected": 160, "pair_id": "@redhat-cloud-services/frontend-components-testing@1.2.1", "arm": "VERIFY-I", "valid": true}
+{"completed": 131, "expected": 160, "pair_id": "@react-native-aria/utils@0.2.13", "arm": "LEGACY-I", "valid": true}
+{"completed": 132, "expected": 160, "pair_id": "@react-native-aria/utils@0.2.13", "arm": "SCHEMA-I", "valid": true}
+{"completed": 133, "expected": 160, "pair_id": "@react-native-aria/utils@0.2.13", "arm": "IDS-I", "valid": true}
+{"completed": 134, "expected": 160, "pair_id": "@react-native-aria/utils@0.2.13", "arm": "IDS-D", "valid": true}
+{"completed": 135, "expected": 160, "pair_id": "@react-native-aria/utils@0.2.13", "arm": "VERIFY-I", "valid": true}
+{"completed": 136, "expected": 160, "pair_id": "@mastra/speech-replicate@0.2.1", "arm": "LEGACY-I", "valid": true}
+{"completed": 137, "expected": 160, "pair_id": "@mastra/speech-replicate@0.2.1", "arm": "SCHEMA-I", "valid": true}
+{"completed": 138, "expected": 160, "pair_id": "@mastra/speech-replicate@0.2.1", "arm": "IDS-I", "valid": true}
+{"completed": 139, "expected": 160, "pair_id": "@mastra/speech-replicate@0.2.1", "arm": "IDS-D", "valid": true}
+{"completed": 140, "expected": 160, "pair_id": "@mastra/speech-replicate@0.2.1", "arm": "VERIFY-I", "valid": true}
+{"completed": 141, "expected": 160, "pair_id": "@mastra/voice-xai-realtime@0.1.2", "arm": "LEGACY-I", "valid": false}
+{"completed": 142, "expected": 160, "pair_id": "@mastra/voice-xai-realtime@0.1.2", "arm": "SCHEMA-I", "valid": false}
+{"completed": 143, "expected": 160, "pair_id": "@mastra/voice-xai-realtime@0.1.2", "arm": "IDS-I", "valid": true}
+{"completed": 144, "expected": 160, "pair_id": "@mastra/voice-xai-realtime@0.1.2", "arm": "IDS-D", "valid": true}
+{"completed": 145, "expected": 160, "pair_id": "@mastra/voice-xai-realtime@0.1.2", "arm": "VERIFY-I", "valid": true}
+{"completed": 146, "expected": 160, "pair_id": "@mastra/slack@1.3.1", "arm": "LEGACY-I", "valid": true}
+{"completed": 147, "expected": 160, "pair_id": "@mastra/slack@1.3.1", "arm": "SCHEMA-I", "valid": true}
+{"completed": 148, "expected": 160, "pair_id": "@mastra/slack@1.3.1", "arm": "IDS-I", "valid": true}
+{"completed": 149, "expected": 160, "pair_id": "@mastra/slack@1.3.1", "arm": "IDS-D", "valid": true}
+{"completed": 150, "expected": 160, "pair_id": "@mastra/slack@1.3.1", "arm": "VERIFY-I", "valid": true}
+{"completed": 151, "expected": 160, "pair_id": "@redhat-cloud-services/entitlements-client@4.0.11", "arm": "LEGACY-I", "valid": true}
+{"completed": 152, "expected": 160, "pair_id": "@redhat-cloud-services/entitlements-client@4.0.11", "arm": "SCHEMA-I", "valid": true}
+{"completed": 153, "expected": 160, "pair_id": "@redhat-cloud-services/entitlements-client@4.0.11", "arm": "IDS-I", "valid": true}
+{"completed": 154, "expected": 160, "pair_id": "@redhat-cloud-services/entitlements-client@4.0.11", "arm": "IDS-D", "valid": true}
+{"completed": 155, "expected": 160, "pair_id": "@redhat-cloud-services/entitlements-client@4.0.11", "arm": "VERIFY-I", "valid": true}
+{"completed": 156, "expected": 160, "pair_id": "@redhat-cloud-services/integrations-client@6.0.4", "arm": "LEGACY-I", "valid": true}
+{"completed": 157, "expected": 160, "pair_id": "@redhat-cloud-services/integrations-client@6.0.4", "arm": "SCHEMA-I", "valid": true}
+{"completed": 158, "expected": 160, "pair_id": "@redhat-cloud-services/integrations-client@6.0.4", "arm": "IDS-I", "valid": true}
+{"completed": 159, "expected": 160, "pair_id": "@redhat-cloud-services/integrations-client@6.0.4", "arm": "IDS-D", "valid": true}
+{"completed": 160, "expected": 160, "pair_id": "@redhat-cloud-services/integrations-client@6.0.4", "arm": "VERIFY-I", "valid": true}
+{
+  "complete": true,
+  "new_generations": 160,
+  "historical_generations": 160,
+  "human_annotation_verified": false,
+  "scope": "exploratory_source_MAL_recall_and_unlabeled_HN_alarms",
+  "groups": [
+    {
+      "arm": "LEGACY-I",
+      "cohort": "MAL",
+      "n": 32,
+      "valid": 30,
+      "positive": 18,
+      "invalid": 2,
+      "length": 0,
+      "prompt_tokens": 81660,
+      "completion_tokens": 11981,
+      "median_latency_ms": 1122.8448269999944,
+      "source_recall_proxy": 0.5625,
+      "invalid_as_malicious_proxy": 0.625,
+      "citation_diagnostics": {
+        "responses": 0,
+        "unknown_ids": 0,
+        "no_content": 0,
+        "with_header_or_hunk": 0
+      }
+    },
+    {
+      "arm": "SCHEMA-I",
+      "cohort": "MAL",
+      "n": 32,
+      "valid": 30,
+      "positive": 19,
+      "invalid": 2,
+      "length": 2,
+      "prompt_tokens": 81660,
+      "completion_tokens": 14146,
+      "median_latency_ms": 1048.7830534999034,
+      "source_recall_proxy": 0.59375,
+      "invalid_as_malicious_proxy": 0.65625,
+      "citation_diagnostics": {
+        "responses": 0,
+        "unknown_ids": 0,
+        "no_content": 0,
+        "with_header_or_hunk": 0
+      }
+    },
+    {
+      "arm": "IDS-I",
+      "cohort": "MAL",
+      "n": 32,
+      "valid": 32,
+      "positive": 11,
+      "invalid": 0,
+      "length": 0,
+      "prompt_tokens": 109040,
+      "completion_tokens": 3248,
+      "median_latency_ms": 840.9437355000478,
+      "source_recall_proxy": 0.34375,
+      "invalid_as_malicious_proxy": 0.34375,
+      "citation_diagnostics": {
+        "responses": 32,
+        "unknown_ids": 0,
+        "no_content": 0,
+        "with_header_or_hunk": 2
+      }
+    },
+    {
+      "arm": "IDS-D",
+      "cohort": "MAL",
+      "n": 32,
+      "valid": 32,
+      "positive": 11,
+      "invalid": 0,
+      "length": 0,
+      "prompt_tokens": 90130,
+      "completion_tokens": 3044,
+      "median_latency_ms": 782.8689094999959,
+      "source_recall_proxy": 0.34375,
+      "invalid_as_malicious_proxy": 0.34375,
+      "citation_diagnostics": {
+        "responses": 32,
+        "unknown_ids": 0,
+        "no_content": 0,
+        "with_header_or_hunk": 2
+      }
+    },
+    {
+      "arm": "VERIFY-I",
+      "cohort": "MAL",
+      "n": 32,
+      "valid": 32,
+      "positive": 10,
+      "invalid": 0,
+      "length": 0,
+      "prompt_tokens": 118432,
+      "completion_tokens": 3681,
+      "median_latency_ms": 880.3735754999593,
+      "source_recall_proxy": 0.3125,
+      "invalid_as_malicious_proxy": 0.3125,
+      "citation_diagnostics": {
+        "responses": 32,
+        "unknown_ids": 0,
+        "no_content": 0,
+        "with_header_or_hunk": 2
+      }
+    },
+    {
+      "arm": "LEGACY-I",
+      "cohort": "HN",
+      "n": 32,
+      "valid": 29,
+      "positive": 5,
+      "invalid": 3,
+      "length": 0,
+      "prompt_tokens": 123015,
+      "completion_tokens": 3571,
+      "median_latency_ms": 1003.6932529999945,
+      "fpr": null,
+      "label_status": "unknown; alarms are not verified false positives",
+      "citation_diagnostics": {
+        "responses": 0,
+        "unknown_ids": 0,
+        "no_content": 0,
+        "with_header_or_hunk": 0
+      }
+    },
+    {
+      "arm": "SCHEMA-I",
+      "cohort": "HN",
+      "n": 32,
+      "valid": 32,
+      "positive": 6,
+      "invalid": 0,
+      "length": 0,
+      "prompt_tokens": 123015,
+      "completion_tokens": 3628,
+      "median_latency_ms": 839.1594029999965,
+      "fpr": null,
+      "label_status": "unknown; alarms are not verified false positives",
+      "citation_diagnostics": {
+        "responses": 0,
+        "unknown_ids": 0,
+        "no_content": 0,
+        "with_header_or_hunk": 0
+      }
+    },
+    {
+      "arm": "IDS-I",
+      "cohort": "HN",
+      "n": 32,
+      "valid": 32,
+      "positive": 0,
+      "invalid": 0,
+      "length": 0,
+      "prompt_tokens": 198854,
+      "completion_tokens": 3501,
+      "median_latency_ms": 975.1125900000375,
+      "fpr": null,
+      "label_status": "unknown; alarms are not verified false positives",
+      "citation_diagnostics": {
+        "responses": 32,
+        "unknown_ids": 0,
+        "no_content": 4,
+        "with_header_or_hunk": 11
+      }
+    },
+    {
+      "arm": "IDS-D",
+      "cohort": "HN",
+      "n": 32,
+      "valid": 32,
+      "positive": 0,
+      "invalid": 0,
+      "length": 0,
+      "prompt_tokens": 179819,
+      "completion_tokens": 3184,
+      "median_latency_ms": 921.4179130000275,
+      "fpr": null,
+      "label_status": "unknown; alarms are not verified false positives",
+      "citation_diagnostics": {
+        "responses": 32,
+        "unknown_ids": 0,
+        "no_content": 1,
+        "with_header_or_hunk": 7
+      }
+    },
+    {
+      "arm": "VERIFY-I",
+      "cohort": "HN",
+      "n": 32,
+      "valid": 32,
+      "positive": 0,
+      "invalid": 0,
+      "length": 0,
+      "prompt_tokens": 208503,
+      "completion_tokens": 3938,
+      "median_latency_ms": 947.1116825000081,
+      "fpr": null,
+      "label_status": "unknown; alarms are not verified false positives",
+      "citation_diagnostics": {
+        "responses": 32,
+        "unknown_ids": 0,
+        "no_content": 3,
+        "with_header_or_hunk": 9
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "cohort": "MAL",
+      "before": "LEGACY-I",
+      "after": "SCHEMA-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 11
+        },
+        {
+          "before": "benign",
+          "after": "malicious",
+          "n": 1
+        },
+        {
+          "before": "invalid",
+          "after": "invalid",
+          "n": 2
+        },
+        {
+          "before": "malicious",
+          "after": "malicious",
+          "n": 18
+        }
+      ]
+    },
+    {
+      "cohort": "MAL",
+      "before": "SCHEMA-I",
+      "after": "IDS-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 11
+        },
+        {
+          "before": "invalid",
+          "after": "benign",
+          "n": 2
+        },
+        {
+          "before": "malicious",
+          "after": "benign",
+          "n": 8
+        },
+        {
+          "before": "malicious",
+          "after": "malicious",
+          "n": 11
+        }
+      ]
+    },
+    {
+      "cohort": "MAL",
+      "before": "IDS-D",
+      "after": "IDS-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 21
+        },
+        {
+          "before": "malicious",
+          "after": "malicious",
+          "n": 11
+        }
+      ]
+    },
+    {
+      "cohort": "MAL",
+      "before": "IDS-I",
+      "after": "VERIFY-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 21
+        },
+        {
+          "before": "malicious",
+          "after": "benign",
+          "n": 1
+        },
+        {
+          "before": "malicious",
+          "after": "malicious",
+          "n": 10
+        }
+      ]
+    },
+    {
+      "cohort": "HN",
+      "before": "LEGACY-I",
+      "after": "SCHEMA-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 24
+        },
+        {
+          "before": "invalid",
+          "after": "benign",
+          "n": 2
+        },
+        {
+          "before": "invalid",
+          "after": "malicious",
+          "n": 1
+        },
+        {
+          "before": "malicious",
+          "after": "malicious",
+          "n": 5
+        }
+      ]
+    },
+    {
+      "cohort": "HN",
+      "before": "SCHEMA-I",
+      "after": "IDS-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 26
+        },
+        {
+          "before": "malicious",
+          "after": "benign",
+          "n": 6
+        }
+      ]
+    },
+    {
+      "cohort": "HN",
+      "before": "IDS-D",
+      "after": "IDS-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 32
+        }
+      ]
+    },
+    {
+      "cohort": "HN",
+      "before": "IDS-I",
+      "after": "VERIFY-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 32
+        }
+      ]
+    }
+  ]
+}
+{"stage": "complete", "unix": 1791719942.8812535, "expected_generations": 160, "accuracy_metrics_available": false}

@@ -66,6 +66,10 @@ for model in protocol['models']:
 
 result = {'verified': True, 'unique_runs': len(rows), 'attempt_records': summary['attempt_records'],
           'expected_groups': 4, 'pairs_per_group': 973, 'frozen_hash_checks': checked,
+          'archived_initial_source_hash_checks': len(initial['source_sha256']),
+          'native_stop_tokens_and_response_model_checked': True,
+          'kv_cache_memory_bytes': protocol['kv_cache_memory_bytes'],
+          'amendment_before_first_prediction_verified': True,
           'metrics_independently_recounted': True, 'output_and_context_limits_checked': True,
           'historical_control': True, 'human_annotation_verified': False, 'server_logs': logs}
 (HERE / 'verification.json').write_text(json.dumps(result, indent=2) + '\n')

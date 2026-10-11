@@ -1,0 +1,334 @@
+{
+  "complete": true,
+  "invalid_policy": "benign",
+  "contrasts": [
+    {
+      "before": {
+        "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+        "config": "DIFF"
+      },
+      "after": {
+        "model": "microsoft/Phi-4-mini-instruct",
+        "config": "DIFF"
+      },
+      "subsets": {
+        "MAL": {
+          "n": 873,
+          "net_positive_change": -337,
+          "both_valid_n": 414,
+          "both_valid_net_positive_change": -59,
+          "any_invalid_net_positive_change": -278,
+          "delta_percentage_points": -38.60252004581901
+        },
+        "TYP": {
+          "n": 100,
+          "net_positive_change": -35,
+          "both_valid_n": 62,
+          "both_valid_net_positive_change": -26,
+          "any_invalid_net_positive_change": -9,
+          "delta_percentage_points": -35.0
+        }
+      }
+    },
+    {
+      "before": {
+        "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+        "config": "DIFF+I"
+      },
+      "after": {
+        "model": "microsoft/Phi-4-mini-instruct",
+        "config": "DIFF+I"
+      },
+      "subsets": {
+        "MAL": {
+          "n": 873,
+          "net_positive_change": -190,
+          "both_valid_n": 537,
+          "both_valid_net_positive_change": -174,
+          "any_invalid_net_positive_change": -16,
+          "delta_percentage_points": -21.764032073310425
+        },
+        "TYP": {
+          "n": 100,
+          "net_positive_change": -36,
+          "both_valid_n": 65,
+          "both_valid_net_positive_change": -33,
+          "any_invalid_net_positive_change": -3,
+          "delta_percentage_points": -36.0
+        }
+      }
+    },
+    {
+      "before": {
+        "model": "Qwen/Qwen3-4B-Instruct-2507",
+        "config": "DIFF"
+      },
+      "after": {
+        "model": "microsoft/Phi-4-mini-instruct",
+        "config": "DIFF"
+      },
+      "subsets": {
+        "MAL": {
+          "n": 873,
+          "net_positive_change": -79,
+          "both_valid_n": 394,
+          "both_valid_net_positive_change": -27,
+          "any_invalid_net_positive_change": -52,
+          "delta_percentage_points": -9.049255441008018
+        },
+        "TYP": {
+          "n": 100,
+          "net_positive_change": 7,
+          "both_valid_n": 79,
+          "both_valid_net_positive_change": 7,
+          "any_invalid_net_positive_change": 0,
+          "delta_percentage_points": 7.0
+        }
+      }
+    },
+    {
+      "before": {
+        "model": "Qwen/Qwen3-4B-Instruct-2507",
+        "config": "DIFF+I"
+      },
+      "after": {
+        "model": "microsoft/Phi-4-mini-instruct",
+        "config": "DIFF+I"
+      },
+      "subsets": {
+        "MAL": {
+          "n": 873,
+          "net_positive_change": -113,
+          "both_valid_n": 540,
+          "both_valid_net_positive_change": -146,
+          "any_invalid_net_positive_change": 33,
+          "delta_percentage_points": -12.943871706758305
+        },
+        "TYP": {
+          "n": 100,
+          "net_positive_change": 10,
+          "both_valid_n": 79,
+          "both_valid_net_positive_change": 7,
+          "any_invalid_net_positive_change": 3,
+          "delta_percentage_points": 10.0
+        }
+      }
+    },
+    {
+      "before": {
+        "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "config": "DIFF"
+      },
+      "after": {
+        "model": "meta-llama/Llama-3.1-8B-Instruct",
+        "config": "DIFF"
+      },
+      "subsets": {
+        "MAL": {
+          "n": 873,
+          "net_positive_change": -65,
+          "both_valid_n": 729,
+          "both_valid_net_positive_change": -23,
+          "any_invalid_net_positive_change": -42,
+          "delta_percentage_points": -7.445589919816724
+        },
+        "TYP": {
+          "n": 100,
+          "net_positive_change": -8,
+          "both_valid_n": 85,
+          "both_valid_net_positive_change": 2,
+          "any_invalid_net_positive_change": -10,
+          "delta_percentage_points": -8.0
+        }
+      }
+    },
+    {
+      "before": {
+        "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "config": "DIFF+I"
+      },
+      "after": {
+        "model": "meta-llama/Llama-3.1-8B-Instruct",
+        "config": "DIFF+I"
+      },
+      "subsets": {
+        "MAL": {
+          "n": 873,
+          "net_positive_change": 193,
+          "both_valid_n": 525,
+          "both_valid_net_positive_change": 1,
+          "any_invalid_net_positive_change": 192,
+          "delta_percentage_points": 22.107674684994272
+        },
+        "TYP": {
+          "n": 100,
+          "net_positive_change": 2,
+          "both_valid_n": 82,
+          "both_valid_net_positive_change": 8,
+          "any_invalid_net_positive_change": -6,
+          "delta_percentage_points": 2.0
+        }
+      }
+    },
+    {
+      "before": {
+        "model": "Qwen/Qwen3-8B",
+        "config": "DIFF"
+      },
+      "after": {
+        "model": "meta-llama/Llama-3.1-8B-Instruct",
+        "config": "DIFF"
+      },
+      "subsets": {
+        "MAL": {
+          "n": 873,
+          "net_positive_change": 303,
+          "both_valid_n": 733,
+          "both_valid_net_positive_change": 307,
+          "any_invalid_net_positive_change": -4,
+          "delta_percentage_points": 34.707903780068726
+        },
+        "TYP": {
+          "n": 100,
+          "net_positive_change": 51,
+          "both_valid_n": 81,
+          "both_valid_net_positive_change": 48,
+          "any_invalid_net_positive_change": 3,
+          "delta_percentage_points": 51.0
+        }
+      }
+    },
+    {
+      "before": {
+        "model": "Qwen/Qwen3-8B",
+        "config": "DIFF+I"
+      },
+      "after": {
+        "model": "meta-llama/Llama-3.1-8B-Instruct",
+        "config": "DIFF+I"
+      },
+      "subsets": {
+        "MAL": {
+          "n": 873,
+          "net_positive_change": 357,
+          "both_valid_n": 752,
+          "both_valid_net_positive_change": 366,
+          "any_invalid_net_positive_change": -9,
+          "delta_percentage_points": 40.893470790378004
+        },
+        "TYP": {
+          "n": 100,
+          "net_positive_change": 66,
+          "both_valid_n": 81,
+          "both_valid_net_positive_change": 61,
+          "any_invalid_net_positive_change": 5,
+          "delta_percentage_points": 66.0
+        }
+      }
+    },
+    {
+      "before": {
+        "model": "microsoft/Phi-4-mini-instruct",
+        "config": "DIFF"
+      },
+      "after": {
+        "model": "microsoft/Phi-4-mini-instruct",
+        "config": "DIFF+I"
+      },
+      "subsets": {
+        "MAL": {
+          "n": 873,
+          "net_positive_change": 38,
+          "both_valid_n": 421,
+          "both_valid_net_positive_change": -101,
+          "any_invalid_net_positive_change": 139,
+          "delta_percentage_points": 4.352806414662084
+        },
+        "TYP": {
+          "n": 100,
+          "net_positive_change": 0,
+          "both_valid_n": 73,
+          "both_valid_net_positive_change": -2,
+          "any_invalid_net_positive_change": 2,
+          "delta_percentage_points": 0.0
+        }
+      }
+    },
+    {
+      "before": {
+        "model": "meta-llama/Llama-3.1-8B-Instruct",
+        "config": "DIFF"
+      },
+      "after": {
+        "model": "meta-llama/Llama-3.1-8B-Instruct",
+        "config": "DIFF+I"
+      },
+      "subsets": {
+        "MAL": {
+          "n": 873,
+          "net_positive_change": 33,
+          "both_valid_n": 719,
+          "both_valid_net_positive_change": 20,
+          "any_invalid_net_positive_change": 13,
+          "delta_percentage_points": 3.7800687285223367
+        },
+        "TYP": {
+          "n": 100,
+          "net_positive_change": 12,
+          "both_valid_n": 78,
+          "both_valid_net_positive_change": 11,
+          "any_invalid_net_positive_change": 1,
+          "delta_percentage_points": 12.0
+        }
+      }
+    }
+  ],
+  "interpretation": "Descriptive partition; not a causal effect of reasoning or size.",
+  "new_output_audit": [
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "config": "DIFF",
+      "non_length_json_decoder_errors": {
+        "Expecting ',' delimiter": 266,
+        "Invalid control character at": 13,
+        "Invalid \\escape": 1,
+        "Expecting value": 1
+      },
+      "responses_containing_think_open_tag": 0
+    },
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "config": "DIFF+I",
+      "non_length_json_decoder_errors": {
+        "Expecting ',' delimiter": 76,
+        "Invalid \\escape": 10,
+        "Invalid control character at": 7,
+        "Expecting value": 2
+      },
+      "responses_containing_think_open_tag": 0
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "config": "DIFF",
+      "non_length_json_decoder_errors": {
+        "Expecting ',' delimiter": 96,
+        "Invalid \\escape": 13,
+        "Expecting property name enclosed in double quotes": 1,
+        "Invalid control character at": 4
+      },
+      "responses_containing_think_open_tag": 0
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "config": "DIFF+I",
+      "non_length_json_decoder_errors": {
+        "Expecting ',' delimiter": 40,
+        "Invalid \\escape": 23,
+        "Expecting ':' delimiter": 6,
+        "Expecting value": 5,
+        "Invalid control character at": 4
+      },
+      "responses_containing_think_open_tag": 0
+    }
+  ]
+}

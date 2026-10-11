@@ -89,11 +89,19 @@ tidak berlaku; alasan tiap perubahan ada di [docs/decisions.md](docs/decisions.m
       [tabel empat model](data/evaluation/model-scale-20260930/comparison.md),
       [protokol beku](data/evaluation/model-scale-20260930/protocol.json),
       [verifikasi](data/evaluation/model-scale-20260930/verification.json)
-- [ ] Eksplorasi lintas keluarga sedang berjalan (D84): Phi-4-mini-instruct dan
-      Llama-3.1-8B-Instruct, semua 973 pair × DIFF/DIFF+I. Audit tokenizer
-      lulus tanpa pemotongan baru; bobot terverifikasi, protokol dibekukan.
-      [Pemilihan dan protokol](docs/model-families-20261001.md),
-      [status evaluasi](data/evaluation/model-families-20261001/status.json)
+- [x] Eksplorasi lintas keluarga selesai dan terverifikasi (D84): 3.892
+      inferensi baru Phi-4-mini dan Llama-3.1-8B, tanpa error transport.
+      Phi belum mengungguli Qwen3-4B pada recall/FPR; Llama recall tinggi
+      dengan FPR tinggi. Pembanding lengkap: enam model × dua konfigurasi.
+      [Hasil dan diagnosis](docs/model-families-20261001.md),
+      [tabel enam model](data/evaluation/model-families-20261001/comparison.md),
+      [verifikasi](data/evaluation/model-families-20261001/verification.json)
+- [x] Pengembangan verifikasi bukti D85 selesai: 160 inferensi nyata pada
+      32 kandidat HN dev, Qwen3-4B. JSON valid 29/32 menjadi 32/32 dengan
+      schema. Format ID menghasilkan nol alarm; verifier tidak mengubah
+      verdict. Ini belum bukti penurunan FPR karena gold/MAL dev belum ada.
+      [Hasil dan batas interpretasi](docs/evidence-dev-results-20261001.md),
+      [verifikasi](data/evaluation/evidence-dev-20261001/verification.json)
 - [ ] Inferensi test set konfirmatori menunggu dataset final dan anotasi —
       [panduan review data asli](docs/annotation-20260928.md)
 

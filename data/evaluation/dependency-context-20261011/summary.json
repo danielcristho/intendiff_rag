@@ -1,0 +1,51 @@
+{
+  "complete": true,
+  "generations": 40,
+  "scope": "conditional dependency-version diagnostic",
+  "human_gold_verified": false,
+  "installed_version_verified": false,
+  "independent_dependency_families": 1,
+  "groups": [
+    {
+      "arm": "CTX-1.11.21",
+      "n": 20,
+      "verdicts": {
+        "benign": 20
+      },
+      "valid": 20,
+      "length": 0,
+      "unknown_id_responses": 0,
+      "dependency_citing_responses": 1,
+      "prompt_tokens": 151615,
+      "completion_tokens": 2138,
+      "median_latency_ms": 1193.1508779998694
+    },
+    {
+      "arm": "CTX-1.11.22",
+      "n": 20,
+      "verdicts": {
+        "malicious": 20
+      },
+      "valid": 20,
+      "length": 0,
+      "unknown_id_responses": 0,
+      "dependency_citing_responses": 18,
+      "prompt_tokens": 214175,
+      "completion_tokens": 2236,
+      "median_latency_ms": 1346.1388854993857
+    }
+  ],
+  "version_transitions": [
+    {
+      "before": "benign",
+      "after": "malicious",
+      "n": 20
+    }
+  ],
+  "not_claimed": [
+    "realized-installation recall",
+    "FPR",
+    "RAG benefit",
+    "independent 20-incident evidence"
+  ]
+}

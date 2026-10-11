@@ -1,0 +1,27 @@
+{
+  "completed_inference": true,
+  "actual_generations": 160,
+  "pairs": 32,
+  "arms": [
+    "LEGACY-I",
+    "SCHEMA-I",
+    "IDS-I",
+    "IDS-D",
+    "VERIFY-I"
+  ],
+  "verified_hash_counts": {
+    "source_sha256": 14,
+    "upstream_sha256": 2,
+    "model_sha256": 13
+  },
+  "all_request_hashes_match": true,
+  "all_actual_prompt_tokens_match": true,
+  "raw_response_parsing_matches": true,
+  "citation_audits_match": true,
+  "generation_http_200": 160,
+  "tokenization_http_200": 4,
+  "human_annotation_verified": false,
+  "accuracy_metrics_available": false,
+  "prior_cuda_failure_preserved": true,
+  "post_restart_probe": "scratchpad/cuda-recovery-20261001/resume-probe-20261001T143835Z.json"
+}

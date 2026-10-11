@@ -1,0 +1,52 @@
+{
+  "scope": "Post hoc descriptive development analysis; no class labels assigned",
+  "costs": [
+    {
+      "arm": "LEGACY-I",
+      "total_tokens": 126586,
+      "median_latency_ms": 1003.6932529999945,
+      "p95_latency_ms": 1564.9654322500169,
+      "sum_request_latency_ms": 32544.526154999858
+    },
+    {
+      "arm": "SCHEMA-I",
+      "total_tokens": 126643,
+      "median_latency_ms": 839.1594029999965,
+      "p95_latency_ms": 1164.1741112499744,
+      "sum_request_latency_ms": 28190.130033999936
+    },
+    {
+      "arm": "IDS-I",
+      "total_tokens": 202355,
+      "median_latency_ms": 975.1125900000375,
+      "p95_latency_ms": 2247.264243899991,
+      "sum_request_latency_ms": 37207.63644400017
+    },
+    {
+      "arm": "IDS-D",
+      "total_tokens": 183003,
+      "median_latency_ms": 921.4179130000275,
+      "p95_latency_ms": 2202.8545574499785,
+      "sum_request_latency_ms": 34383.509597000055
+    },
+    {
+      "arm": "VERIFY-I",
+      "total_tokens": 212441,
+      "median_latency_ms": 947.1116825000081,
+      "p95_latency_ms": 1362.2109115000057,
+      "sum_request_latency_ms": 32050.3560880004
+    },
+    {
+      "arm": "IDS-I plus VERIFY-I",
+      "total_tokens": 414796,
+      "median_latency_ms": 1916.0062484999685,
+      "p95_latency_ms": 3480.300184250029,
+      "sum_request_latency_ms": 69257.99253200057
+    }
+  ],
+  "changed_states": 9,
+  "citation_issue_responses": 27,
+  "max_actual_prompt_tokens": 24934,
+  "total_prompt_tokens": 833206,
+  "total_completion_tokens": 17822
+}

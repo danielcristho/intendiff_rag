@@ -1,0 +1,13 @@
+{
+  "name": "c8t3_number_guessing_game",
+  "time": {
+    "created": "2024-04-02T08:47:11.822Z",
+    "1.0.0": "2024-04-02T08:47:11.986Z",
+    "modified": "2024-04-02T10:01:59.732Z",
+    "1.0.1": "2024-04-02T08:54:27.919Z",
+    "2.0.1": "2024-04-02T10:01:59.563Z"
+  },
+  "source": "https://registry.npmjs.org/c8t3_number_guessing_game",
+  "response_sha256": "1db05e84dd570bc1c5098de4ced0e8c91f9388c1530842e1db1a4f2d24f8b6ad",
+  "retrieved_at": "2026-10-11T17:49:29.661316+00:00"
+}

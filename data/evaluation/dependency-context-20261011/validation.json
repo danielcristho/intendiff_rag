@@ -1,0 +1,11 @@
+{
+  "focused_tests": {
+    "command": ".venv/bin/python -m unittest discover -s tests -p test_dependency_context.py -v",
+    "tests_passed": 4
+  },
+  "runner_selfcheck": {
+    "command": ".venv/bin/python pipeline/runner.py --selfcheck",
+    "passed": true
+  },
+  "note": "Checks executed before inference. Test loader emitted an unclosed-read ResourceWarning; no test failure. Server shutdown log includes a resource_tracker semaphore cleanup warning; all generations and shutdown verified."
+}

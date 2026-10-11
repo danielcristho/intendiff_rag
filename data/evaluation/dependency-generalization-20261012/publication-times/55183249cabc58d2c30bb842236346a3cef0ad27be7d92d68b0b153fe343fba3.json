@@ -1,0 +1,13 @@
+{
+  "name": "@tolicodes/picklejs",
+  "time": {
+    "created": "2018-08-27T22:02:37.847Z",
+    "0.72.0": "2018-08-27T22:02:38.654Z",
+    "modified": "2022-04-07T06:53:10.369Z",
+    "0.74.0": "2018-08-27T22:37:39.756Z",
+    "0.75.0": "2018-08-27T22:41:56.979Z"
+  },
+  "source": "https://registry.npmjs.org/@tolicodes%2Fpicklejs",
+  "response_sha256": "733cd7f218bb59b33142e5dfc4fb1d228f87e93f8e31c40503cdf969709cce7f",
+  "retrieved_at": "2026-10-11T17:49:29.473354+00:00"
+}

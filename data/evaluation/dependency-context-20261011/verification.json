@@ -1,0 +1,22 @@
+{
+  "verified": true,
+  "new_generations": 40,
+  "historical_IDS_I_controls": 20,
+  "request_hashes_prompt_tokens_parsing_citations_match": true,
+  "source_archive_metadata_and_context_bytes_match": true,
+  "pairs_match_D87_exactly": true,
+  "metrics_recounted": true,
+  "http_generation_statuses": {
+    "200": 40
+  },
+  "server_shutdown_complete": true,
+  "frozen_hash_counts": {
+    "source_sha256": 21,
+    "upstream_sha256": 3,
+    "model_sha256": 13
+  },
+  "human_annotation_verified": false,
+  "installed_versions_verified": false,
+  "FPR_available": false,
+  "RAG_evaluated": false
+}

@@ -62,6 +62,13 @@ def eligible(pair, card):
     for field in ("name", "campaign"):
         if pair.get(field) and pair.get(field) == card.get(field):
             return False
+    # A changed dependency is part of the target, even with a different cluster ID.
+    dependencies = {entry["dependency"] for entry in
+                    (pair.get("delta_evidence") or {}).get("dependency_change", [])
+                    if entry.get("dependency")}
+    dependencies.update(pair.get("retrieval_exclude_names", []))
+    if card.get("name") in dependencies:
+        return False
     return True
 
 
