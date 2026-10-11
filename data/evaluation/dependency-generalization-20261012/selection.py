@@ -60,7 +60,7 @@ def source_files(root):
         path = safe_file(root, name)
         if path.stat().st_size > 200000:
             raise ValueError('Source file exceeds 200000 bytes')
-        result[name] = path.read_text(encoding='utf-8')
+        result[name] = path.read_bytes().decode('utf-8')
     return result
 
 
