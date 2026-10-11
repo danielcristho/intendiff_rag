@@ -1,0 +1,372 @@
+{
+  "complete": true,
+  "new_generations": 160,
+  "historical_generations": 160,
+  "human_annotation_verified": false,
+  "scope": "exploratory_source_MAL_recall_and_unlabeled_HN_alarms",
+  "groups": [
+    {
+      "arm": "LEGACY-I",
+      "cohort": "MAL",
+      "n": 32,
+      "valid": 30,
+      "positive": 18,
+      "invalid": 2,
+      "length": 0,
+      "prompt_tokens": 81660,
+      "completion_tokens": 11981,
+      "median_latency_ms": 1122.8448269999944,
+      "source_recall_proxy": 0.5625,
+      "invalid_as_malicious_proxy": 0.625,
+      "citation_diagnostics": {
+        "responses": 0,
+        "unknown_ids": 0,
+        "no_content": 0,
+        "with_header_or_hunk": 0
+      }
+    },
+    {
+      "arm": "SCHEMA-I",
+      "cohort": "MAL",
+      "n": 32,
+      "valid": 30,
+      "positive": 19,
+      "invalid": 2,
+      "length": 2,
+      "prompt_tokens": 81660,
+      "completion_tokens": 14146,
+      "median_latency_ms": 1048.7830534999034,
+      "source_recall_proxy": 0.59375,
+      "invalid_as_malicious_proxy": 0.65625,
+      "citation_diagnostics": {
+        "responses": 0,
+        "unknown_ids": 0,
+        "no_content": 0,
+        "with_header_or_hunk": 0
+      }
+    },
+    {
+      "arm": "IDS-I",
+      "cohort": "MAL",
+      "n": 32,
+      "valid": 32,
+      "positive": 11,
+      "invalid": 0,
+      "length": 0,
+      "prompt_tokens": 109040,
+      "completion_tokens": 3248,
+      "median_latency_ms": 840.9437355000478,
+      "source_recall_proxy": 0.34375,
+      "invalid_as_malicious_proxy": 0.34375,
+      "citation_diagnostics": {
+        "responses": 32,
+        "unknown_ids": 0,
+        "no_content": 0,
+        "with_header_or_hunk": 2
+      }
+    },
+    {
+      "arm": "IDS-D",
+      "cohort": "MAL",
+      "n": 32,
+      "valid": 32,
+      "positive": 11,
+      "invalid": 0,
+      "length": 0,
+      "prompt_tokens": 90130,
+      "completion_tokens": 3044,
+      "median_latency_ms": 782.8689094999959,
+      "source_recall_proxy": 0.34375,
+      "invalid_as_malicious_proxy": 0.34375,
+      "citation_diagnostics": {
+        "responses": 32,
+        "unknown_ids": 0,
+        "no_content": 0,
+        "with_header_or_hunk": 2
+      }
+    },
+    {
+      "arm": "VERIFY-I",
+      "cohort": "MAL",
+      "n": 32,
+      "valid": 32,
+      "positive": 10,
+      "invalid": 0,
+      "length": 0,
+      "prompt_tokens": 118432,
+      "completion_tokens": 3681,
+      "median_latency_ms": 880.3735754999593,
+      "source_recall_proxy": 0.3125,
+      "invalid_as_malicious_proxy": 0.3125,
+      "citation_diagnostics": {
+        "responses": 32,
+        "unknown_ids": 0,
+        "no_content": 0,
+        "with_header_or_hunk": 2
+      }
+    },
+    {
+      "arm": "LEGACY-I",
+      "cohort": "HN",
+      "n": 32,
+      "valid": 29,
+      "positive": 5,
+      "invalid": 3,
+      "length": 0,
+      "prompt_tokens": 123015,
+      "completion_tokens": 3571,
+      "median_latency_ms": 1003.6932529999945,
+      "fpr": null,
+      "label_status": "unknown; alarms are not verified false positives",
+      "citation_diagnostics": {
+        "responses": 0,
+        "unknown_ids": 0,
+        "no_content": 0,
+        "with_header_or_hunk": 0
+      }
+    },
+    {
+      "arm": "SCHEMA-I",
+      "cohort": "HN",
+      "n": 32,
+      "valid": 32,
+      "positive": 6,
+      "invalid": 0,
+      "length": 0,
+      "prompt_tokens": 123015,
+      "completion_tokens": 3628,
+      "median_latency_ms": 839.1594029999965,
+      "fpr": null,
+      "label_status": "unknown; alarms are not verified false positives",
+      "citation_diagnostics": {
+        "responses": 0,
+        "unknown_ids": 0,
+        "no_content": 0,
+        "with_header_or_hunk": 0
+      }
+    },
+    {
+      "arm": "IDS-I",
+      "cohort": "HN",
+      "n": 32,
+      "valid": 32,
+      "positive": 0,
+      "invalid": 0,
+      "length": 0,
+      "prompt_tokens": 198854,
+      "completion_tokens": 3501,
+      "median_latency_ms": 975.1125900000375,
+      "fpr": null,
+      "label_status": "unknown; alarms are not verified false positives",
+      "citation_diagnostics": {
+        "responses": 32,
+        "unknown_ids": 0,
+        "no_content": 4,
+        "with_header_or_hunk": 11
+      }
+    },
+    {
+      "arm": "IDS-D",
+      "cohort": "HN",
+      "n": 32,
+      "valid": 32,
+      "positive": 0,
+      "invalid": 0,
+      "length": 0,
+      "prompt_tokens": 179819,
+      "completion_tokens": 3184,
+      "median_latency_ms": 921.4179130000275,
+      "fpr": null,
+      "label_status": "unknown; alarms are not verified false positives",
+      "citation_diagnostics": {
+        "responses": 32,
+        "unknown_ids": 0,
+        "no_content": 1,
+        "with_header_or_hunk": 7
+      }
+    },
+    {
+      "arm": "VERIFY-I",
+      "cohort": "HN",
+      "n": 32,
+      "valid": 32,
+      "positive": 0,
+      "invalid": 0,
+      "length": 0,
+      "prompt_tokens": 208503,
+      "completion_tokens": 3938,
+      "median_latency_ms": 947.1116825000081,
+      "fpr": null,
+      "label_status": "unknown; alarms are not verified false positives",
+      "citation_diagnostics": {
+        "responses": 32,
+        "unknown_ids": 0,
+        "no_content": 3,
+        "with_header_or_hunk": 9
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "cohort": "MAL",
+      "before": "LEGACY-I",
+      "after": "SCHEMA-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 11
+        },
+        {
+          "before": "benign",
+          "after": "malicious",
+          "n": 1
+        },
+        {
+          "before": "invalid",
+          "after": "invalid",
+          "n": 2
+        },
+        {
+          "before": "malicious",
+          "after": "malicious",
+          "n": 18
+        }
+      ]
+    },
+    {
+      "cohort": "MAL",
+      "before": "SCHEMA-I",
+      "after": "IDS-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 11
+        },
+        {
+          "before": "invalid",
+          "after": "benign",
+          "n": 2
+        },
+        {
+          "before": "malicious",
+          "after": "benign",
+          "n": 8
+        },
+        {
+          "before": "malicious",
+          "after": "malicious",
+          "n": 11
+        }
+      ]
+    },
+    {
+      "cohort": "MAL",
+      "before": "IDS-D",
+      "after": "IDS-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 21
+        },
+        {
+          "before": "malicious",
+          "after": "malicious",
+          "n": 11
+        }
+      ]
+    },
+    {
+      "cohort": "MAL",
+      "before": "IDS-I",
+      "after": "VERIFY-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 21
+        },
+        {
+          "before": "malicious",
+          "after": "benign",
+          "n": 1
+        },
+        {
+          "before": "malicious",
+          "after": "malicious",
+          "n": 10
+        }
+      ]
+    },
+    {
+      "cohort": "HN",
+      "before": "LEGACY-I",
+      "after": "SCHEMA-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 24
+        },
+        {
+          "before": "invalid",
+          "after": "benign",
+          "n": 2
+        },
+        {
+          "before": "invalid",
+          "after": "malicious",
+          "n": 1
+        },
+        {
+          "before": "malicious",
+          "after": "malicious",
+          "n": 5
+        }
+      ]
+    },
+    {
+      "cohort": "HN",
+      "before": "SCHEMA-I",
+      "after": "IDS-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 26
+        },
+        {
+          "before": "malicious",
+          "after": "benign",
+          "n": 6
+        }
+      ]
+    },
+    {
+      "cohort": "HN",
+      "before": "IDS-D",
+      "after": "IDS-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 32
+        }
+      ]
+    },
+    {
+      "cohort": "HN",
+      "before": "IDS-I",
+      "after": "VERIFY-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 32
+        }
+      ]
+    }
+  ]
+}

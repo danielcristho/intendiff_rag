@@ -1,0 +1,297 @@
+{
+  "scope": "Exploratory source-labeled TYP audit; not human gold or causal attribution.",
+  "new_llm_calls": 0,
+  "n_typ": 100,
+  "invalid_policy": "benign",
+  "source_sha256": {
+    "data/evaluation/model-families-20261001/pairs.jsonl": "82ad8ecf46e530469ae975be14517f42e64c65932b6b1f7bf6b03d2f143d83c8",
+    "data/evaluation/model-families-20261001/results.all-models.jsonl": "0b22bd6ff25d957bf40356fc8a22266986222da98b3e22ca27ca5e4eb5360600"
+  },
+  "intent_missing_including_sentinel": {
+    "description": 17,
+    "keywords": 45,
+    "scripts": 20,
+    "readme": 10
+  },
+  "models": [
+    {
+      "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "fp_before": 48,
+      "fp_after": 49,
+      "both_valid_net": 5,
+      "any_invalid_net": -4,
+      "transitions": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 15
+        },
+        {
+          "before": "benign",
+          "after": "invalid",
+          "n": 1
+        },
+        {
+          "before": "benign",
+          "after": "malicious",
+          "n": 12
+        },
+        {
+          "before": "invalid",
+          "after": "benign",
+          "n": 4
+        },
+        {
+          "before": "invalid",
+          "after": "invalid",
+          "n": 17
+        },
+        {
+          "before": "invalid",
+          "after": "malicious",
+          "n": 3
+        },
+        {
+          "before": "malicious",
+          "after": "benign",
+          "n": 7
+        },
+        {
+          "before": "malicious",
+          "after": "invalid",
+          "n": 7
+        },
+        {
+          "before": "malicious",
+          "after": "malicious",
+          "n": 34
+        }
+      ]
+    },
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "fp_before": 65,
+      "fp_after": 67,
+      "both_valid_net": 6,
+      "any_invalid_net": -4,
+      "transitions": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 17
+        },
+        {
+          "before": "benign",
+          "after": "invalid",
+          "n": 1
+        },
+        {
+          "before": "benign",
+          "after": "malicious",
+          "n": 17
+        },
+        {
+          "before": "malicious",
+          "after": "benign",
+          "n": 11
+        },
+        {
+          "before": "malicious",
+          "after": "invalid",
+          "n": 4
+        },
+        {
+          "before": "malicious",
+          "after": "malicious",
+          "n": 50
+        }
+      ]
+    },
+    {
+      "model": "Qwen/Qwen3-4B-Instruct-2507",
+      "fp_before": 6,
+      "fp_after": 3,
+      "both_valid_net": -3,
+      "any_invalid_net": 0,
+      "transitions": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 83
+        },
+        {
+          "before": "benign",
+          "after": "invalid",
+          "n": 3
+        },
+        {
+          "before": "benign",
+          "after": "malicious",
+          "n": 1
+        },
+        {
+          "before": "invalid",
+          "after": "benign",
+          "n": 1
+        },
+        {
+          "before": "invalid",
+          "after": "invalid",
+          "n": 6
+        },
+        {
+          "before": "malicious",
+          "after": "benign",
+          "n": 4
+        },
+        {
+          "before": "malicious",
+          "after": "malicious",
+          "n": 2
+        }
+      ]
+    },
+    {
+      "model": "Qwen/Qwen3-8B",
+      "fp_before": 6,
+      "fp_after": 3,
+      "both_valid_net": -3,
+      "any_invalid_net": 0,
+      "transitions": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 86
+        },
+        {
+          "before": "benign",
+          "after": "invalid",
+          "n": 3
+        },
+        {
+          "before": "invalid",
+          "after": "benign",
+          "n": 2
+        },
+        {
+          "before": "invalid",
+          "after": "invalid",
+          "n": 3
+        },
+        {
+          "before": "malicious",
+          "after": "benign",
+          "n": 3
+        },
+        {
+          "before": "malicious",
+          "after": "malicious",
+          "n": 3
+        }
+      ]
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "fp_before": 57,
+      "fp_after": 69,
+      "both_valid_net": 11,
+      "any_invalid_net": 1,
+      "transitions": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 11
+        },
+        {
+          "before": "benign",
+          "after": "invalid",
+          "n": 3
+        },
+        {
+          "before": "benign",
+          "after": "malicious",
+          "n": 14
+        },
+        {
+          "before": "invalid",
+          "after": "benign",
+          "n": 4
+        },
+        {
+          "before": "invalid",
+          "after": "invalid",
+          "n": 6
+        },
+        {
+          "before": "invalid",
+          "after": "malicious",
+          "n": 5
+        },
+        {
+          "before": "malicious",
+          "after": "benign",
+          "n": 3
+        },
+        {
+          "before": "malicious",
+          "after": "invalid",
+          "n": 4
+        },
+        {
+          "before": "malicious",
+          "after": "malicious",
+          "n": 50
+        }
+      ]
+    },
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "fp_before": 13,
+      "fp_after": 13,
+      "both_valid_net": -2,
+      "any_invalid_net": 2,
+      "transitions": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 51
+        },
+        {
+          "before": "benign",
+          "after": "invalid",
+          "n": 8
+        },
+        {
+          "before": "benign",
+          "after": "malicious",
+          "n": 9
+        },
+        {
+          "before": "invalid",
+          "after": "benign",
+          "n": 13
+        },
+        {
+          "before": "invalid",
+          "after": "invalid",
+          "n": 4
+        },
+        {
+          "before": "invalid",
+          "after": "malicious",
+          "n": 2
+        },
+        {
+          "before": "malicious",
+          "after": "benign",
+          "n": 11
+        },
+        {
+          "before": "malicious",
+          "after": "malicious",
+          "n": 2
+        }
+      ]
+    }
+  ]
+}

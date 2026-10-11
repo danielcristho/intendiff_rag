@@ -1,0 +1,17 @@
+{
+  "preparation_verified": true,
+  "completed_inference": false,
+  "actual_generations": 0,
+  "planned_generations": 160,
+  "blocker": "CUDA cuInit SIGSEGV on WSL; reproduced without torch; NVML works",
+  "verified_hash_counts": {
+    "source_sha256": 14,
+    "upstream_sha256": 2,
+    "model_sha256": 13
+  },
+  "pairs": 32,
+  "audited_prompts": 128,
+  "max_initial_prompt_tokens": 24639,
+  "human_annotation_verified": false,
+  "accuracy_metrics_available": false
+}

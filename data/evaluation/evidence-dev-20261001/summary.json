@@ -1,0 +1,135 @@
+{
+  "complete": true,
+  "generations": 160,
+  "scope": "real_unlabeled_development_not_accuracy_evaluation",
+  "accuracy_metrics_available": false,
+  "reason": "No independently verified human labels",
+  "arms": [
+    {
+      "arm": "LEGACY-I",
+      "n": 32,
+      "valid": 29,
+      "malicious_predictions": 5,
+      "length": 0,
+      "prompt_tokens": 123015,
+      "completion_tokens": 3571,
+      "median_latency_ms": 1003.6932529999945
+    },
+    {
+      "arm": "SCHEMA-I",
+      "n": 32,
+      "valid": 32,
+      "malicious_predictions": 6,
+      "length": 0,
+      "prompt_tokens": 123015,
+      "completion_tokens": 3628,
+      "median_latency_ms": 839.1594029999965
+    },
+    {
+      "arm": "IDS-I",
+      "n": 32,
+      "valid": 32,
+      "malicious_predictions": 0,
+      "length": 0,
+      "prompt_tokens": 198854,
+      "completion_tokens": 3501,
+      "median_latency_ms": 975.1125900000375,
+      "unknown_id_responses": 0,
+      "no_content_citation_responses": 4,
+      "malicious_without_content_citation": 0
+    },
+    {
+      "arm": "IDS-D",
+      "n": 32,
+      "valid": 32,
+      "malicious_predictions": 0,
+      "length": 0,
+      "prompt_tokens": 179819,
+      "completion_tokens": 3184,
+      "median_latency_ms": 921.4179130000275,
+      "unknown_id_responses": 0,
+      "no_content_citation_responses": 1,
+      "malicious_without_content_citation": 0
+    },
+    {
+      "arm": "VERIFY-I",
+      "n": 32,
+      "valid": 32,
+      "malicious_predictions": 0,
+      "length": 0,
+      "prompt_tokens": 208503,
+      "completion_tokens": 3938,
+      "median_latency_ms": 947.1116825000081,
+      "unknown_id_responses": 0,
+      "no_content_citation_responses": 3,
+      "malicious_without_content_citation": 0
+    }
+  ],
+  "transitions": [
+    {
+      "before": "LEGACY-I",
+      "after": "SCHEMA-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 24
+        },
+        {
+          "before": "invalid",
+          "after": "benign",
+          "n": 2
+        },
+        {
+          "before": "invalid",
+          "after": "malicious",
+          "n": 1
+        },
+        {
+          "before": "malicious",
+          "after": "malicious",
+          "n": 5
+        }
+      ]
+    },
+    {
+      "before": "SCHEMA-I",
+      "after": "IDS-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 26
+        },
+        {
+          "before": "malicious",
+          "after": "benign",
+          "n": 6
+        }
+      ]
+    },
+    {
+      "before": "IDS-D",
+      "after": "IDS-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 32
+        }
+      ]
+    },
+    {
+      "before": "IDS-I",
+      "after": "VERIFY-I",
+      "counts": [
+        {
+          "before": "benign",
+          "after": "benign",
+          "n": 32
+        }
+      ]
+    }
+  ],
+  "verifier_total_tokens": 414796
+}

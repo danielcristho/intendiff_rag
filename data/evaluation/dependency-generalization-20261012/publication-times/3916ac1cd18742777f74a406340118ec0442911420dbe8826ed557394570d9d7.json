@@ -1,0 +1,13 @@
+{
+  "name": "has-tostringtag",
+  "time": {
+    "created": "2021-08-05T14:59:41.280Z",
+    "1.0.0": "2021-08-05T14:59:41.457Z",
+    "modified": "2024-02-01T21:44:00.323Z",
+    "1.0.1": "2024-02-01T16:53:25.940Z",
+    "1.0.2": "2024-02-01T21:44:00.130Z"
+  },
+  "source": "https://registry.npmjs.org/has-tostringtag",
+  "response_sha256": "49902213e6e027c61a2f9d2a016319eca31e2f6f9ece7dd0a657ed38027ac5a9",
+  "retrieved_at": "2026-10-11T17:49:30.311208+00:00"
+}

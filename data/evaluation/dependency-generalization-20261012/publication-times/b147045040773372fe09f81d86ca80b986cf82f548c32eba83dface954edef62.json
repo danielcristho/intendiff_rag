@@ -1,0 +1,12 @@
+{
+  "name": "@imooc-cli/imooc-standard-template",
+  "time": {
+    "created": "2020-09-20T08:09:40.418Z",
+    "1.0.0": "2020-09-20T08:09:40.820Z",
+    "modified": "2022-04-05T19:59:18.154Z",
+    "1.0.1": "2020-09-20T08:38:43.094Z"
+  },
+  "source": "https://registry.npmjs.org/@imooc-cli%2Fimooc-standard-template",
+  "response_sha256": "cdc8c1198fd20a81a6a3f4e38b1924a9fe1a55afc43d94dbd5b56966fb5590cb",
+  "retrieved_at": "2026-10-11T17:49:29.258207+00:00"
+}

@@ -1,6 +1,12 @@
 # Eksplorasi lintas keluarga model — 1 Oktober 2026 (D84)
 
-**Status: bobot terverifikasi, protokol dibekukan, controller evaluasi berjalan.** Pengguna meminta
+**Selesai 1 Oktober 2026, 09:24 WIB: 3.892 respons baru unik terverifikasi,
+tanpa error transport atau pengulangan request evaluasi.** Pembanding kini
+enam model, dua konfigurasi masing-masing, total 11.676 respons pada output
+2.048 token. Llama memberi recall tinggi dengan FPR tinggi; Phi belum
+mengungguli Qwen3-4B pada kedua metrik tersebut.
+
+Pengguna meminta
 eksplorasi model lain setelah D83 selesai. Dua model dipilih berdasarkan
 akses, dukungan runtime, konteks, dan memori sebelum melihat prediksi.
 
@@ -17,6 +23,81 @@ detektor npm yang dilatih khusus. Ini bukan replikasi skor paper pada
 dataset atau metode lain, dan tidak mengisolasi efek jumlah parameter.
 Greedy digunakan sebagai kontrol bersama, bukan klaim setting optimal
 masing-masing pengembang.
+
+## Hasil baru dan perbandingan
+
+| Model baru | Konfigurasi | Recall MAL sumber | FPR TYP | JSON valid | Macro recall kampanye |
+|---|---|---:|---:|---:|---:|
+| Phi-4-mini-instruct | DIFF | 45,93% (401/873) | 13% | 58,17% (566/973) | 35,87% |
+| Phi-4-mini-instruct | DIFF+I | 50,29% (439/873) | 13% | 82,94% (807/973) | 38,12% |
+| Llama-3.1-8B-Instruct | DIFF | 85,45% (746/873) | 57% | 88,08% (857/973) | 76,44% |
+| Llama-3.1-8B-Instruct | DIFF+I | 89,23% (779/873) | 69% | 89,62% (872/973) | 86,67% |
+
+FPR memakai 100 TYP yang diasumsikan benign. Invalid dihitung benign pada
+metrik primer. Hasil lengkap dua belas baris tersedia pada
+[tabel enam model](../data/evaluation/model-families-20261001/comparison.md),
+[CSV](../data/evaluation/model-families-20261001/comparison.csv), dan
+[JSON termasuk sensitivitas/biaya](../data/evaluation/model-families-20261001/comparison.json).
+
+![Enam model pada protokol yang sebanding](../data/evaluation/model-families-20261001/comparison.png)
+
+**Phi belum memperbaiki trade-off terhadap Qwen3-4B.** Pada DIFF, recall
+turun 9,05 poin dan FPR naik 7 poin; pada DIFF+I, recall turun 12,94 poin
+dan FPR naik 10 poin. Phi DIFF memiliki 407 invalid (281 sintaks, 124
+terpotong, 2 skema), sedangkan DIFF+I 166 invalid (95 sintaks, 71 terpotong).
+
+Kenaikan Phi DIFF → DIFF+I sebesar 38 deteksi MAL terdiri dari +139 melalui
+transisi yang melibatkan invalid dan −101 pada pasangan yang kedua
+responsnya valid. Jadi kenaikan recall primer 4,35 poin tidak dapat langsung
+diartikan sebagai peningkatan penalaran akibat intent. Ini dekomposisi
+deskriptif, bukan estimasi kausal.
+
+**Llama memberi alternatif, tetapi belum menjadi pemenang menyeluruh.**
+Terhadap Qwen2.5-7B pada DIFF, recall Llama lebih rendah 7,45 poin dan FPR
+lebih rendah 8 poin. Pada DIFF+I, recall Llama lebih tinggi 22,11 poin,
+tetapi FPR lebih tinggi 2 poin. Tambahan 193 deteksi MAL pada perbandingan
+DIFF+I tersebut terdiri dari +192 melalui transisi valid/invalid dan
+hanya +1 pada pasangan yang keduanya valid. Keunggulan angka ini banyak
+terkait konsistensi format terhadap Qwen2.5-7B DIFF+I.
+
+Di dalam Llama sendiri, DIFF → DIFF+I menambah 33 deteksi MAL: +20 pada
+pasangan sama-sama valid dan +13 melalui transisi valid/invalid, disertai
+12 tambahan false positive TYP. Dibanding Qwen3-8B, Llama jauh lebih tinggi
+recall-nya, tetapi juga lebih tinggi FPR-nya. Bahkan Qwen2.5-7B DIFF masih
+memiliki recall lebih tinggi dan FPR lebih rendah daripada Llama DIFF+I
+(92,90%/65% versus 89,23%/69%). Jangan memilih model hanya dari recall.
+
+Pada kelompok kecil, Qwen3-4B DIFF+I tetap memiliki recall lebih tinggi dan
+FPR lebih rendah daripada kedua konfigurasi Phi dalam data ini. Semua
+perbandingan bersifat eksploratif; belum ada klaim signifikansi statistik
+atau generalisasi ke populasi paket npm.
+
+[Diagnosis berpasangan](../data/evaluation/model-families-20261001/diagnostics.json)
+menyimpan seluruh delapan perbandingan terhadap kontrol ukuran sebanding
+dan dua perbandingan DIFF → DIFF+I. Hasil akhir terverifikasi melalui
+[audit independen](../data/evaluation/model-families-20261001/verification.json).
+
+## Sensitivitas dan biaya
+
+Jika invalid dihitung malicious, recall/FPR Phi DIFF menjadi 90,38%/32%,
+Phi DIFF+I 67,93%/25%, Llama DIFF 97,02%/72%, dan Llama DIFF+I 99,31%/82%.
+Besarnya perubahan memperlihatkan pengaruh kebijakan invalid, terutama
+pada Phi DIFF. Nilai sensitivitas ini tidak menggantikan metrik primer.
+
+Total keluaran baru: 790 invalid dari 3.892 respons, termasuk 219 terpotong
+(195 Phi, 24 Llama), 568 kesalahan sintaks, dan 3 ketidaksesuaian skema.
+Total token: 16.044.387 prompt dan 1.024.496 completion. Median/p95 latency
+dalam ms: Phi DIFF 1.058,7/20.167,7; Phi DIFF+I 945,6/21.062,9;
+Llama DIFF 1.342,4/12.024,7; Llama DIFF+I 1.381,9/13.325,0.
+Perbedaan cache dan sesi menghalangi klaim kausal kecepatan antar model.
+
+Setiap model menyelesaikan 1.946 request generasi HTTP 200 dan dua request
+tokenisasi HTTP 200. Seluruh token prompt aktual cocok dengan audit, tanpa
+pemotongan tambahan. 30 checksum sumber aktif, 13 checksum kontrol, dan 27
+sumber pada arsip protokol awal cocok. Tidak ada perubahan protokol setelah
+prediksi pertama. Kedua server berhenti normal. Kegagalan startup sebelum
+prediksi dan amendemen cache tetap dicatat di bawah; tidak disembunyikan
+sebagai run yang dibuang.
 
 ## Audit kandidat tanpa inferensi
 
@@ -58,7 +139,7 @@ setelah kegagalan startup Phi, sebelum ada prediksi.
 Prompt/parser/aturan invalid tidak berubah. Tidak ada kuantisasi, tambahan
 pemotongan input, pemilihan pair berdasarkan hasil, atau warm-up LLM sintetis.
 
-Template native masing-masing model dipakai dan akan dicocokkan dengan
+Template native masing-masing model dipakai dan telah dicocokkan dengan
 endpoint server `/tokenize` sebelum request generasi. `generation-config=vllm`
 tetap digunakan agar default sampling model tidak mengubah kontrol bersama.
 Token akhir giliran dari `generation_config.json` resmi disertakan sebagai
@@ -68,7 +149,7 @@ tercantum dalam `config.json`. Ini bukan stop string buatan, repair JSON,
 atau perubahan format prompt. Daftar tersebut dicatat dalam metadata
 respons. Kontrol Qwen historis tidak memiliki override request ini.
 
-Target: 3.892 inferensi baru + 7.784 kontrol historis D82/D83 = 11.676
+Pelaksanaan: 3.892 inferensi baru + 7.784 kontrol historis D82/D83 = 11.676
 respons, enam model × dua konfigurasi. Artefak baru disimpan di
 [`data/evaluation/model-families-20261001/`](../data/evaluation/model-families-20261001/).
 Checksum kode, input, tokenizer/bobot, dan kontrol dibekukan sebelum inferensi.
@@ -79,7 +160,7 @@ Snapshot lama tidak diubah. Status saat ini:
 
 ## Metrik dan batas interpretasi
 
-Seluruh dua belas kelompok akan dilaporkan: recall MAL sumber, FPR TYP,
+Seluruh dua belas kelompok dilaporkan: recall MAL sumber, FPR TYP,
 validitas/jenis invalid, sensitivitas invalid-as-malicious, macro recall
 kampanye, token, dan latency. Perubahan terhadap kedua kontrol Qwen pada
 kelompok ukuran yang sama diurai menjadi transisi verdict valid dan
@@ -108,3 +189,18 @@ G1/G2, anotasi HN, card KB, dan evaluasi retrieval tetap belum selesai.
 Hasil eksploratif boleh ditulis termasuk jika negatif. Revisi format atau
 fine-tuning bukan bagian eksperimen ini dan tidak dilakukan diam-diam setelah
 melihat prediksi. Pemilihan atau penyetelan lanjutan perlu dev set terpisah.
+
+## Langkah berikutnya
+
+Eksplorasi ini menambah bukti bahwa mengganti keluarga model saja belum
+menyelesaikan kombinasi kegagalan JSON dan false positive. Hasil dapat
+ditulis sebagai pembanding eksploratif lintas ukuran/keluarga, termasuk
+hasil negatif Phi dan trade-off Llama. Perbaikan format pada dev set terpisah,
+anotasi gold/HN, serta card KB tetap menjadi prioritas sebelum evaluasi
+konfirmatori atau klaim manfaat RAG. Jangan menyetel prompt pada 973 pair
+ini lalu menyebut evaluasi ulangnya sebagai test independen.
+
+[Respons mentah baru](../data/evaluation/model-families-20261001/results.jsonl),
+[grafik PDF](../data/evaluation/model-families-20261001/comparison.pdf), dan
+[manifest checksum](../data/evaluation/model-families-20261001/artifact-manifest.json)
+tersedia untuk pelacakan dan penulisan hasil.

@@ -379,7 +379,7 @@ dipangkas lebih dulu.
 
 ### 5.2 Prosedur retrieval
 
-1. **Kandidat:** semua card, kecuali card dengan nama paket yang sama atau kampanye yang sama (§3.6) dengan pair.
+1. **Kandidat:** semua card, kecuali card dengan nama paket yang sama atau kampanye yang sama (§3.6) dengan pair. Untuk run mendatang setelah D88, nama dependency dalam `delta_evidence.dependency_change` dan nama pada `retrieval_exclude_names` juga dikecualikan: dependency target tidak boleh menjadi contoh jawaban berlabel. Field tambahan ini tidak masuk prompt dan tidak memakai intent.
 2. **Skor:** Jaccard antara delta pair dan delta card. Kalau keduanya kosong, skornya 0.
 3. **Urutan:** skor dari tertinggi. Kalau seri, urutkan naik menurut SHA-256 dari `pair_id|card_id`.
 4. **Pemilihan per konfigurasi:**
@@ -394,6 +394,13 @@ dipangkas lebih dulu.
 
 **Invarian:** retrieval tidak memakai intent. Akibatnya DIFF+I+MB dan DIFF+MB selalu
 mendapat card dan urutan yang sama.
+
+**Cakupan filter D88:** bukti otomatis dependency saat ini mencatat penambahan
+atau perpindahan ke sumber non-registry, dengan jumlah bukti dibatasi extractor.
+Ini belum menjamin semua perubahan versi, alias, dependency transitif, atau klon
+tercakup. Daftar pengecualian tambahan harus digabung ke pair sebelum menjalankan
+retrieval; sidecar audit tidak otomatis dibaca runner. Snapshot dan hasil historis
+tetap memakai aturan yang dibekukan pada run masing-masing.
 
 - [L] Dengan begitu RQ3 hanya mengukur efek intent yang tampil di prompt.
 

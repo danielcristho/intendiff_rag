@@ -1,5 +1,21 @@
 # Ringkasan eksperimen untuk agent
 
+**D85 selesai dan terverifikasi (1 Oktober 2026, 21:42 UTC+7): 160/160
+inferensi nyata pada 32 kandidat HN dev, Qwen3-4B.** CUDA pulih setelah
+restart WSL yang disetujui pengguna; startup gagal awal tetap disimpan.
+Baca `docs/evidence-dev-results-20261001.md`. LEGACY-I: JSON valid 29/32,
+alarm 5; SCHEMA-I: 32/32, alarm 6; IDS-I, IDS-D, VERIFY-I: semua 32/32,
+alarm 0. Verifier tidak mengubah verdict dan metode dua tahap memakai
+2,05 kali token IDS-I. Semua ID ditemukan, tetapi 27/96 respons format ID
+mengutip header/hunk dan klaim semantik masih perlu verifikasi manusia.
+Jangan menyebut nol alarm sebagai FPR 0%: tanpa gold dan cohort MAL dev,
+recall/FPR belum diukur. Semua 160 HTTP 200, token/hash request cocok,
+14 hash sumber, dua upstream, 13 model cocok. Server berhenti. Jangan
+mengulang atau mengubah snapshot lengkap. `dev-exclusions.jsonl` wajib
+diperhitungkan saat menyusun test/KB, termasuk klon setelah clustering HN.
+Gold/card serta G1/G2 belum selesai. Delapan test bukti/prompt dan tiga
+test launcher sudah lulus; tidak ada perubahan prompt saat batch berjalan.
+
 **Sumber kebenaran:**
 
 - [docs/methodology.md](../docs/methodology.md) untuk prosedur.
@@ -9,7 +25,7 @@ File ini menerjemahkan keduanya ke spesifikasi yang bisa langsung dipakai saat
 menulis kode. Kalau isinya berbeda, yang benar `docs/`, dan file ini yang harus
 diperbarui.
 
-**D84 sedang berjalan (1 Oktober 2026):** pengguna meminta eksplorasi model
+**D84 selesai dan terverifikasi (1 Oktober 2026, 09:24 WIB):** pengguna meminta eksplorasi model
 lain. Phi-4-mini-instruct (3,836B) dan Llama-3.1-8B-Instruct (8,030B) dipilih
 melalui audit akses/tokenizer, sebelum prediksi. Input/prompt/parser sama
 dengan D83, BF16, output 2.048, server 32K. Startup Phi pertama gagal
@@ -26,6 +42,16 @@ Urutan acquire → freeze → evaluate. `probe.py` hanya audit tokenisasi
 kandidat tanpa generasi. Mistral/DeepSeek tidak muat untuk sebagian prompt;
 Granite cadangan membutuhkan konteks lebih besar. Bukan kandidat gagal
 akurasi. Tidak ada pemotongan khusus model. Detail: `docs/model-families-20261001.md`.
+Seluruh 3.892 respons unik lengkap, tanpa retry request atau error transport;
+kedua server berhenti normal. `verify_final.py` memeriksa 30 hash aktif,
+13 kontrol, dan 27 sumber arsip awal, token aktual, native stop IDs, serta
+1.946 HTTP 200 per model. Phi DIFF/DIFF+I: recall sumber 45,93%/50,29%,
+FPR 13%/13%, JSON valid 58,17%/82,94%; Llama: 85,45%/89,23%, FPR
+57%/69%, JSON valid 88,08%/89,62%. Total invalid 790, terpotong 219.
+Perbandingan lengkap mencakup 11.676 respons enam model. Jangan menjalankan
+ulang untuk memperbaiki angka atau mengubah snapshot. Kegagalan startup
+awal terjadi sebelum generasi, bukan prediksi yang dibuang. Perbaikan
+format berikutnya perlu eksperimen/dev set tersendiri; G1/G2 tetap terbuka.
 
 **D83 selesai dan terverifikasi (1 Oktober 2026):** pengguna menyetujui dua
 pembanding prioritas dari `docs/model-scale-proposal-20260930.md`:
@@ -144,7 +170,7 @@ inferensi ulang hanya untuk memperbarui laporan; gunakan skrip analisis.
 
 **Ranking kandidat:**
 
-1. Buang card yang `name` atau `campaign`-nya sama dengan pair.
+1. Buang card yang `name` atau `campaign`-nya sama dengan pair. Setelah D88, buang pula nama dependency pada `delta_evidence.dependency_change` dan `retrieval_exclude_names`. Ini filter metadata, bukan intent; sidecar harus digabung ke pair secara eksplisit. Bukti extractor terbatas, jadi jangan mengklaim seluruh dependency transitif/alias/klon sudah terlindungi.
 2. Hitung Jaccard pada `delta`, urutkan dari tertinggi.
 3. Kalau skor seri, urutkan naik menurut `sha256(f"{pair_id}|{card_id}")`.
 

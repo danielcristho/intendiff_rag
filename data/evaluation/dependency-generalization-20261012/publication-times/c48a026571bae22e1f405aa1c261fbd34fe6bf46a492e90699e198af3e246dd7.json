@@ -1,0 +1,12 @@
+{
+  "name": "lime-cl",
+  "time": {
+    "created": "2019-07-31T09:00:24.495Z",
+    "0.1.0": "2019-07-31T09:00:24.630Z",
+    "modified": "2022-05-08T01:01:49.491Z",
+    "0.1.1": "2019-07-31T11:26:55.519Z"
+  },
+  "source": "https://registry.npmjs.org/lime-cl",
+  "response_sha256": "56b383f7ab763faf9d9ed6d40acdb367bccb4ae8818e3be208e3da3af3a2368e",
+  "retrieved_at": "2026-10-11T17:49:31.163954+00:00"
+}
