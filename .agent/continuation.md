@@ -38,3 +38,30 @@ Belum ada card nyata terverifikasi: jangan membuat label manusia atau memakai
 fixture sebagai hasil. Gold, split KB/test, dan G1/G2 tetap belum selesai.
 Semua target terpapar ini dev; jangan pindahkan ke test final atau campurkan
 hasil kondisional D88 ke recall D87. Pertahankan hasil negatif dan batas klaim.
+
+
+D89 SELESAI, kelanjutan terbaru: docs/dependency-generalization-results-20261012.md.
+Jangan ulangi D88/D89 atau mengedit snapshot beku. Direktori D89:
+data/evaluation/dependency-generalization-20261012/. 30 inferensi baru pada
+15 target (14 HN pending + satu MAL sumber zuper-cli@1.0.1), dua arm NO-SOURCE
+vs WITH-SOURCE dengan instruksi kondisional identik. Semuanya benign di kedua
+arm: tidak ada perubahan, belum ada perbaikan deteksi/FPR. Semua valid, nol
+length/unknown ID/error transport. 91 sumber +21 input/provenance +13 model pin
+cocok, lima test lulus, server berhenti. Total 196035 token; WITH-SOURCE 1.89×.
+
+Audit seleksi: 67 kombinasi semver lokal; 44 future versions dikeluarkan,
+2 self-dependency,1 versi lebih lama,5 shared-name cap;15 dipilih berdasarkanhash.
+Semua target easy-day-js dikeluarkan,15 nama dependency,versi terbaru lokal yang
+cocok dan mendahului target. 64 metadata timestamp registry berhasil diambil
+(tanpa mengunduh/menjalankan kode baru). Versi terpasang tetap belum diketahui.
+Enam target pernah masuk D86. Semua 14 HN hanya delta dependency_change; nol
+snapshot memiliki install hook. Jangan klaim telah menguji HN runtime sensitif,
+15 keluarga serangan, atau FPR 0%. Hanya2 WITH-SOURCE mengutip isi dependency.
+
+Kelanjutan konkret: lengkapi sumber dependency relevan dan HN runtime sah,
+bukan mengulang cohort mudah atau menambah model secara otomatis. Baca
+missing-dependency-sources.json D89: @antv/setup 4 target MAL untruncated,
+@opensearch/setup 2; itu daftar ketersediaan, bukan label malicious dependency.
+Perlu provenance/tanggal/semver/coverage sebelum konteks dipakai. D89dev-exclusions
+adalah sidecar yang harus diterapkan seleksi KB/test; loader belum otomatis.
+Tujuan utama tetap MM vs MB dan intent ablation dengan card A/B terverifikasi.
