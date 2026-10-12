@@ -1,0 +1,90 @@
+{
+  "decision": "D90",
+  "scope": "new_model_comparison_of_frozen_D89",
+  "frozen_at_utc": "2026-10-11T22:41:44.013930+00:00",
+  "model": {
+    "id": "ibm-granite/granite-3.3-8b-instruct",
+    "tag": "granite33_8b",
+    "revision": "51dd4bc2ade4059a6bd87649d68aa11e4fb2529b",
+    "path": "~/intendiff_rag/data/upstream/models/granite33_8b",
+    "parameters_billion_nominal": 8.0,
+    "parameters_billion": 8.17086464,
+    "chat_template_kwargs": {
+      "thinking": false
+    },
+    "gated": false
+  },
+  "pairs": 15,
+  "expected_generations": 30,
+  "arms": [
+    "NO-SOURCE",
+    "WITH-SOURCE"
+  ],
+  "max_tokens": 2048,
+  "max_model_len": 32768,
+  "kv_cache_memory_bytes": 6442450944,
+  "seed": 0,
+  "temperature": 0,
+  "top_p": 1,
+  "chat_template_kwargs": {
+    "thinking": false
+  },
+  "stop_token_ids": [
+    0
+  ],
+  "human_annotation_verified": false,
+  "actual_installed_version_verified": false,
+  "source_sha256": {
+    "data/evaluation/granite-dependency-20261012/pairs.jsonl": "1f2634ee6f08e87331b6c88d300f77eb89c59e85dc0e1e2bf87106f35a8365fb",
+    "data/evaluation/granite-dependency-20261012/context-snapshots.json": "698a5cd9918d04051f96bfe806e56c7006a8f1cccbb6346b287c22a3823845e1",
+    "data/evaluation/granite-dependency-20261012/evidence.py": "27e923259f153c917e3f3ccbaed8538257a60ef69bbe4fa457499cde6226e9d1",
+    "data/evaluation/granite-dependency-20261012/base_prompts.py": "1c698700e17cc57516dac3b26942b657d283a1f17dcd31172c59ead5319d8f35",
+    "data/evaluation/granite-dependency-20261012/decisions-through-D89.md": "bb767a6da2710b7b63f79c7874eb9a7cf1efb0911e332545e7fa353dbfbfde5d",
+    "data/evaluation/granite-dependency-20261012/model.json": "de4a973e484042e39f3c10f3450ad5f1c7b36d55c4d31565795e39146a38b300",
+    "data/evaluation/granite-dependency-20261012/selection-audit.jsonl": "d023fa6689e4d320324949a0b7852dc1b16d59273823eb76867eb7c4d61103dd",
+    "data/evaluation/granite-dependency-20261012/legacy_prompts.py": "97b7f3876a361fa51885e472951fac050e3332dc46dc4c37e275d55ea753a263",
+    "data/evaluation/granite-dependency-20261012/protocol-description.md": "de50fb2e277b82bd14abcabbe122e301ef851ac2e86d3b629f2130595ad41da4",
+    "data/evaluation/granite-dependency-20261012/tests-at-freeze.txt": "12c97feabb8a23086a5c5e7d07e858b2f1786d848a69aa6ace5d229fdc250416",
+    "data/evaluation/granite-dependency-20261012/run_batch.py": "5913f2361f3f90fcf188171b836cb99d67533beaff219dee3f0d253a260ca25f",
+    "data/evaluation/granite-dependency-20261012/selection.py": "9170a46ce6d8ae9493bac2a1d93ab656827d440ca6767c59c65e78083f3cc725",
+    "data/evaluation/granite-dependency-20261012/preflight.json": "aba21b05e230b5c9734019ebd64a7d2ad333756e77a822ea22d6023b14db2fff",
+    "data/evaluation/granite-dependency-20261012/acquire.py": "9f3f63077d973afd739eba133a694c7fff15208393f1e4612398ab28ec47090a",
+    "data/evaluation/granite-dependency-20261012/summarize.py": "0d959ef988b39d445789cfb3c93b6b948abd767c732d2c487b257a0d7bebec28",
+    "data/evaluation/granite-dependency-20261012/evaluate.py": "3ede7dc872bb3947d65b6daa6ee079b0f1b6d32c97b113a6d161a179d9d13e27",
+    "data/evaluation/granite-dependency-20261012/freeze.py": "918b22d57412adc84daaeb96796897de0639ee732b989f82a06afaefe4decd2d",
+    "data/evaluation/granite-dependency-20261012/dependency_prompt.py": "476d4a2281307b821a3643114a2fe3c696f114a902156a19d373c8ac50f5554e",
+    "data/evaluation/granite-dependency-20261012/decisions-at-freeze.md": "f4505f14cc8bd418216c98c47398fb03bee2ad9eba11da4f6287f2b1e20d9d90",
+    "data/evaluation/granite-dependency-20261012/qwen-historical-results.jsonl": "53e329a3821df783e4bf6869691b193bc822018545972e947899dcd9e7e861b8",
+    "data/evaluation/granite-dependency-20261012/model-manifest.json": "6db594dc5141b70e015a74581e76565c7c42edd2fb205137bd2368c24b825b61",
+    "data/evaluation/granite-dependency-20261012/prompts.py": "20cc6185bb14e9fae123ea4950fa8e7940a29c4eddc06f846249d222403b69ac",
+    "data/evaluation/granite-dependency-20261012/tests.log": "d2880064168d0f91c36536bf62d2d97d4f6139896fcc69f7bf3301600addc119",
+    "data/evaluation/granite-dependency-20261012/environment.json": "9e3f3a5fe4cbbfa61ce91dbfe460dae954127caf46a888d0f2f74b6f591d0699",
+    "data/evaluation/granite-dependency-20261012/preflight.py": "0a639eb130ec8e15d386d65910d740dbac7abed6f78f1bbb02f20618a7680473",
+    "data/evaluation/granite-dependency-20261012/dev-exclusions.jsonl": "96a87d941252c19308fa55f730275122926add1685ad8eea1503f3fbbf6fd6b2",
+    "data/evaluation/granite-dependency-20261012/configs.py": "355e43eecb0654ec47b8e7d450beea5827822dc7aec73621d4c16ec7771280ba"
+  },
+  "upstream_sha256": {
+    "data/evaluation/dependency-generalization-20261012/protocol.json": "c930860bee38656b6d986afbcf86e9b93e70640d62ff53822d64caa2f75ae8b7",
+    "data/evaluation/dependency-generalization-20261012/results.jsonl": "53e329a3821df783e4bf6869691b193bc822018545972e947899dcd9e7e861b8",
+    "data/evaluation/dependency-generalization-20261012/artifact-manifest.json": "a9f28acae2d2d9530d45cb7b9d7f11fc743d86fa2b4d8e15900374e0ea1ebb7f",
+    "data/evaluation/dependency-generalization-20261012/pairs.jsonl": "1f2634ee6f08e87331b6c88d300f77eb89c59e85dc0e1e2bf87106f35a8365fb",
+    "data/evaluation/dependency-generalization-20261012/context-snapshots.json": "698a5cd9918d04051f96bfe806e56c7006a8f1cccbb6346b287c22a3823845e1",
+    "data/evaluation/dependency-generalization-20261012/dev-exclusions.jsonl": "96a87d941252c19308fa55f730275122926add1685ad8eea1503f3fbbf6fd6b2"
+  },
+  "model_sha256": {
+    "data/upstream/models/granite33_8b/README.md": "827b04e8019ae72397d7303e8b30f315d4b8f5d1cd18f9f4e3f0d7808f069a35",
+    "data/upstream/models/granite33_8b/added_tokens.json": "bb33d55934aa82d29cc62f3d19cdbc60f315763f6ccee21bdfd8b3bde2f33d3b",
+    "data/upstream/models/granite33_8b/config.json": "1313edf0d39dcf7ed35a072d341ec11b516c12acc4267cfb6d248c6bdcdddcb7",
+    "data/upstream/models/granite33_8b/generation_config.json": "9c95e80167f08fbeb1feba239e0749507c25d18ffab43ffa10887821eed21c38",
+    "data/upstream/models/granite33_8b/merges.txt": "303127a244b0078878156c17229f36d11b7a3a3f8e47b7cfdbb304ff46be5030",
+    "data/upstream/models/granite33_8b/model-00001-of-00004.safetensors": "b309f7b9e116fafc27c1100629bfcccbcebdab18a4bf7df7accfa728260dc57e",
+    "data/upstream/models/granite33_8b/model-00002-of-00004.safetensors": "f2e40f157f0139e4b67bbaa4b10efa351162c062771cb543b143c6916a687266",
+    "data/upstream/models/granite33_8b/model-00003-of-00004.safetensors": "5cf5203a027b7055c995a9d4bdb3a4c9dd44849ae6c9eefa6a16852a816bea76",
+    "data/upstream/models/granite33_8b/model-00004-of-00004.safetensors": "76ac0c0dbd790a1e003d2fc098a297bfe82a422c129046e9d4e67e6ed3d820f0",
+    "data/upstream/models/granite33_8b/model.safetensors.index.json": "c3a88218300666c35343b129857d4e8583ee1b15bf68d90ab976f51744560379",
+    "data/upstream/models/granite33_8b/special_tokens_map.json": "21ce694081bb9ae1bd4bc64549e72e0799ebb74705e6b650e3585d85b71ebdc1",
+    "data/upstream/models/granite33_8b/tokenizer.json": "91168e938f05796aa6dcca7e485e4b30ab52785320c7a6391ecef86e6c84681e",
+    "data/upstream/models/granite33_8b/tokenizer_config.json": "f65a6a5a911424c85f157c40cfbdf06e025814c755480ba2e998d7fba1178664",
+    "data/upstream/models/granite33_8b/vocab.json": "80ab859339a2525fdfbda14bc39df02dffb824aefdaf86426217bbb146d17e01"
+  }
+}

@@ -1,0 +1,139 @@
+\subsection{Status evaluasi dan ruang lingkup hasil}
+\label{sec:exploratory-status}
+
+Hasil berikut berasal dari eksperimen pengembangan yang telah selesai,
+bukan evaluasi konfirmatori pada himpunan uji final. Label MAL mengikuti
+sumber akuisisi; kandidat HN belum memiliki verifikasi benign oleh anotator
+independen. Karena itu, kami melaporkan jumlah keputusan \emph{malicious},
+validitas keluaran, dan perubahan keputusan, tanpa menafsirkan alarm HN
+sebagai FPR atau menghitung akurasi terhadap gold. Card KB malicious/benign
+terverifikasi dan pemisahan final KB--test belum selesai. Perbandingan utama
+DIFF+I+MB dengan DIFF+I+MM serta ablasi intent belum memiliki hasil
+konfirmatori.
+
+\subsection{Diagnosis bersyarat pada versi dependency}
+\label{sec:dependency-diagnosis}
+
+Eksperimen D88 meninjau 20 pembaruan yang menambahkan
+\texttt{easy-day-js}. Kelompok ini dipilih setelah analisis kesalahan pada
+dev set; seluruh target berbagi satu keluarga dependency dan tidak dianggap
+sebagai 20 insiden independen. Qwen3-4B-Instruct-2507 menerima dua snapshot
+dependency secara terpisah, menghasilkan 40 inferensi baru. Instruksi
+kondisional pada kedua snapshot identik. Kontrol IDS-I tanpa konteks
+diambil dari 20 respons historis D87; terhadap kontrol tersebut, penambahan
+instruksi kondisional dan isi konteks tidak terpisahkan.
+
+\begin{table}[t]
+\caption{Keputusan Qwen3-4B pada 20 target D88. Angka merupakan jumlah
+verdict, bukan estimasi recall. Dua baris snapshot adalah inferensi baru.}
+\label{tab:dependency-versions}
+\centering
+\begin{tabular}{lrrr}
+\toprule
+Kondisi & Malicious & Benign & Invalid \\
+\midrule
+IDS-I historis & 0 & 20 & 0 \\
+Snapshot 1.11.21 & 0 & 20 & 0 \\
+Snapshot 1.11.22 & 20 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Seluruh target berubah dari benign menjadi malicious ketika snapshot
+1.11.21 diganti dengan 1.11.22 (Tabel~\ref{tab:dependency-versions}).
+Versi 1.11.22 memiliki postinstall yang menjalankan \texttt{setup.cjs};
+pembacaan statis file tersebut menunjukkan pengambilan konten jaringan,
+penulisan file, pemanggilan proses anak, dan penonaktifan verifikasi TLS.
+Sebanyak 18 dari 20 respons positif mengutip ID konteks dependency,
+tetapi hanya 14 mengutip isi \texttt{setup.cjs}. ID kutipan yang sah belum
+membuktikan bahwa seluruh alasan model didukung secara semantik.
+
+Kedua versi memenuhi rentang \texttt{\textasciicircum1.11.21} dan
+mendahului penerbitan target menurut metadata arsip. Namun, versi yang
+benar-benar terpasang tidak diketahui karena tidak tersedia lockfile.
+Hasil 20/20 malicious karenanya merupakan keputusan bersyarat pada snapshot,
+bukan recall 100\%. Tidak ada keluaran terpotong atau ID bukti tak dikenal.
+Total penggunaan 40 inferensi adalah 370.164 token prompt dan output.
+
+\subsection{Kontrol konteks pada dependency lain}
+\label{sec:dependency-generalization}
+
+D89 memakai 15 target dengan 15 nama dependency berbeda dan mengecualikan
+seluruh target \texttt{easy-day-js}. Kohort terdiri dari 14 kandidat HN dan
+satu MAL menurut sumber, yaitu \texttt{zuper-cli@1.0.1}. Dari 67 kombinasi
+target--versi lokal yang memenuhi semver, 44 dikeluarkan karena dependency
+diterbitkan setelah target. Dua kombinasi self-dependency, satu versi lokal
+lebih lama, dan lima kombinasi yang melampaui batas nama/target juga
+dikeluarkan. Versi dipilih dari arsip lokal yang tersedia dan mendahului
+target; prosedur ini tidak menetapkan versi instalasi aktual atau versi
+terbaru dari seluruh registry. Enam target pernah terpapar pada D86;
+seluruh kohort tetap merupakan data pengembangan.
+
+Kondisi NO-SOURCE dan WITH-SOURCE memakai instruksi kondisional serta
+nama/versi dependency yang sama. WITH-SOURCE menambahkan isi snapshot;
+NO-SOURCE menyatakan bahwa isi tidak tersedia. Qwen3-4B menghasilkan
+30 respons valid: seluruh 14 kandidat HN dan satu MAL dinilai benign pada
+kedua kondisi. Tidak ada perubahan keputusan. Hanya dua respons WITH-SOURCE
+mengutip isi dependency. Total token meningkat dari 67.749 pada NO-SOURCE
+menjadi 128.286 pada WITH-SOURCE (1,89 kali), tanpa perubahan verdict.
+
+Semua kandidat HN terpilih hanya memiliki sinyal perubahan dependency;
+tidak ada snapshot terpilih yang memiliki install hook. Dengan demikian,
+kohort ini belum mewakili pembaruan sah dengan penambahan perilaku runtime
+sensitif. Nol alarm tidak menunjukkan FPR 0\%, dan satu MAL yang tetap
+benign tidak mendukung klaim kenaikan deteksi. Lima belas nama dependency
+juga tidak membuktikan 15 keluarga serangan independen.
+
+\subsection{Pembanding keluarga model: Granite 3.3 8B}
+\label{sec:granite-comparison}
+
+Eksperimen D90 menjalankan IBM Granite 3.3 8B Instruct pada seluruh 15
+target dan dua kondisi D89, menghasilkan 30 inferensi baru. Teks masukan,
+snapshot, schema JSON, parser, dan urutan permintaan dipertahankan.
+Pembanding Qwen menggunakan 30 respons historis D89. Kedua model memakai
+BF16, temperature 0, top-p 1, seed 0, batas output 2.048 token, konteks
+32.768 token, dan satu permintaan pada satu waktu. Granite menggunakan
+template native dengan \texttt{thinking=false} dan token akhir native;
+prompt maksimum 24.467 token, tanpa pemotongan tambahan. Bobot model dan
+input dipin menggunakan SHA-256 sebelum inferensi. Perbedaan keluarga,
+ukuran, tokenizer, dan template berarti perbandingan ini tidak mengisolasi
+efek jumlah parameter.
+
+\begin{table*}[t]
+\caption{Perbandingan pada target dan kondisi identik: Qwen3-4B (historis
+D89) dan Granite 3.3 8B (baru D90). Sel menunjukkan malicious/benign/invalid.
+HN belum terverifikasi benign; MAL mengikuti label sumber.}
+\label{tab:granite-comparison}
+\centering
+\begin{tabular}{llrrr}
+\toprule
+Kohort & Kondisi & Target & Qwen3-4B & Granite 3.3 8B \\
+\midrule
+HN pending & NO-SOURCE & 14 & 0/14/0 & 0/14/0 \\
+HN pending & WITH-SOURCE & 14 & 0/14/0 & 0/14/0 \\
+MAL sumber & NO-SOURCE & 1 & 0/1/0 & 0/1/0 \\
+MAL sumber & WITH-SOURCE & 1 & 0/1/0 & 0/1/0 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Tidak ada satu pun verdict yang berbeda antar model
+(Tabel~\ref{tab:granite-comparison}). Seluruh respons Granite memenuhi
+schema, tanpa keluaran terpotong, ID bukti tak dikenal, atau error transport.
+Satu target MAL tetap benign, sehingga pergantian model belum memperbaiki
+deteksi pada kohort ini. Dua respons WITH-SOURCE mengutip isi dependency,
+pada \texttt{get-symbol-description@1.0.2} dan
+\texttt{@tolicodes/picklejs@0.75.0}; dukungan semantik alasan belum
+diverifikasi manusia.
+
+Granite memakai 76.964 token pada NO-SOURCE dan 146.418 token pada
+WITH-SOURCE (total 223.382), dibandingkan total 196.035 token Qwen.
+Token antar model mengikuti tokenizer masing-masing dan tidak disamakan
+dengan biaya komputasi. Median latensi pada 14 kandidat HN adalah 1.676 ms
+dan 2.422 ms untuk dua kondisi Granite; angka historis Qwen adalah
+872 ms dan 1.195 ms. Latensi merupakan observasi sesi dengan prefix caching,
+tanpa warmup generasi, bukan benchmark kecepatan terkontrol. Audit
+pasca-inferensi mencocokkan payload, jumlah token, parsing, kutipan,
+27 checksum sumber, enam artefak kontrol, dan 14 berkas model. Hasil ini
+mendukung kesamaan keputusan pada kohort yang diuji, tanpa memberikan
+peringkat umum model atau bukti penurunan FPR.
