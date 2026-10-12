@@ -1,0 +1,21 @@
+{
+  "verified": true,
+  "new_generations": 30,
+  "pairs": 15,
+  "request_hashes_tokens_parsing_citations_match": true,
+  "source_inputs_and_temporal_checks_match": true,
+  "arm_order_counterbalance_matches": true,
+  "http_generation_statuses": {
+    "200": 30
+  },
+  "server_shutdown_complete": true,
+  "frozen_hash_counts": {
+    "source_sha256": 27,
+    "upstream_sha256": 6,
+    "model_sha256": 14
+  },
+  "human_gold_verified": false,
+  "installed_versions_verified": false,
+  "FPR_available": false,
+  "RAG_evaluated": false
+}

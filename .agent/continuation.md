@@ -1,5 +1,52 @@
 # Posisi kelanjutan — 12 Oktober 2026
 
+**TUGAS AKTIF D92: pengguna meminta rerun nyata seluruh model dengan perubahan
+kode; jangan kembali hanya menjelaskan tabel historis atau membuat pilot.**
+Persiapan data/evaluation/full-method-20261012/: 973 pair asli ×7 model ×
+IDS-D/IDS-I/VERIFY-I =20433 inferensi baru. Prompt/evidence D87 byte-identik.
+Konteks dependency bersyarat terpisah; tidak tersedia lengkap untuk973pair.
+Audit sebelum run memotong prefix diff sekali per pair jika diperlukan agar
+semua tokenizer muat; semua973pair dipertahankan. Lihat docs/full-method-20261012.md.
+Periksa status.json/progress.json serta proses yang berjalan sebelum bertindak;
+jangan menjalankan controller kedua atau mengubah sumber setelah protocol.json
+dibekukan. Hasil baru harus selesai diverifikasi seluruh model sebelum tabel
+lengkap paper; jangan campurkan respons D82–D90. Gold/RAG belum selesai.
+
+**Instruksi pengguna terbaru (D91): seluruh eksperimen yang diklaim di paper
+harus benar-benar dijalankan lengkap sesuai matriks yang ditetapkan.** Jangan
+menggantikan evaluasi penuh dengan subset, fixture, simulasi, atau proyeksi.
+Bekukan cakupan sebelum inferensi; periksa kombinasi yang diharapkan terhadap
+respons mentah unik. Catat invalid/kegagalan/kekurangan dan kontrol historis
+secara terbuka. Label gold/card KB tetap harus sah; jangan membuatnya sendiri.
+D82–D84 telah diaudit: 11676 respons unik, 6 model × 2 arm × 973 pair identik.
+D88 (20 target) serta D89/D90 (15 target) hanya diagnosis subset, belum evaluasi
+penuh dependency/Granite. RAG utama belum selesai. Prioritaskan menyelesaikan
+cakupan eksperimen yang disepakati, bukan terus membuat pilot kecil sebagai
+pengganti. Tidak ada inferensi baru pada turn penegasan ini.
+
+**Terbaru: D90 selesai 05:44 UTC+7; jangan ulangi inferensi.**
+Pengguna meminta model baru lalu penulisan hasil ke LaTeX. Granite 3.3 8B
+Instruct revisi 51dd4bc2ade4059a6bd87649d68aa11e4fb2529b menjalankan seluruh
+15 target × dua arm D89 = 30 respons baru; dibandingkan 30 Qwen historis.
+Semua benign pada kedua model/arm: 14 HN pending dan satu MAL sumber.
+Tidak ada kenaikan deteksi; bukan FPR 0% atau kesetaraan model secara umum.
+Semua valid, nol length/unknown ID/transport error. Total Granite 223382 token;
+dua WITH-SOURCE mengutip isi dependency. 27 source +6 upstream +14 model pin
+cocok; payload/token/parser/kutipan diperiksa ulang; server berhenti normal.
+Tiga test lulus. Laporan docs/granite-dependency-results-20261012.md,
+artefak data/evaluation/granite-dependency-20261012/. Bobot lengkap tersedia
+lokal data/upstream/models/granite33_8b. Jangan mengubah snapshot beku.
+
+Hasil D88–D90 ditulis dalam labs/latex/results-exploratory.tex dan
+discussion-exploratory.tex, di-input naskah intendiff-rag.tex. Penulisan
+eksploratori diperbolehkan; gold/card A/B/split dan hasil MM vs MB masih belum
+selesai. Jangan mengisi abstrak/kesimpulan utama seolah hipotesis terbukti.
+Prioritas berikut tetap sumber dependency relevan, HN runtime sah, versi dan
+provenance, anotasi dan card A/B; menambah model saja belum memperbaiki hasil.
+PDF labs/latex/intendiff-rag.pdf berhasil dibangun 13 halaman; build guide
+labs/latex/BUILD.md. Sitasi/referensi terdefinisi, warning tata letak bagian
+lama masih ada. Tree dependency LaTeX sementara di /tmp/intendiff-texmf.
+
 Pengguna meminta fokus eksperimen dan validitas, bukan UI/backend.
 Tujuan utama tetap DIFF+I+MB vs DIFF+I+MM; ablation DIFF+I+MB vs DIFF+MB.
 D81 mengizinkan eksplorasi label sumber, bukan gold buatan atau FPR HN pending.
