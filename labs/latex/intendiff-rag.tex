@@ -14,7 +14,7 @@
 
 \author[1]{}
 \cormark[1]
-\ead{}
+% TODO: Add the corresponding author's email when author metadata is ready.
 \credit{}
 
 \affiliation[1]{organization={},
@@ -25,8 +25,8 @@
 
 \cortext[1]{Corresponding author}
 
-\begin{abstract}
-
+% An explicit option preserves the newline required by CAS verbatim capture.
+\begin{abstract}[]
 \end{abstract}
 
 \begin{highlights}
@@ -263,11 +263,11 @@ penelitian ini membatasi diri pada analisis statis.
 
 Kelompok penelitian ini menjadikan perubahan antarversi sebagai unit analisis.
 RogueOne menandai aliran data baru yang melintasi \emph{trust domain} antara
-versi lama dan baru. Pendekatan ini mendeteksi 75,6\% \emph{rogue update} dengan
-4,7\% positif palsu pada dataset pembaruan tunggal \citep{sofaer2024rogueone}.
-Analisis RogueOne juga menunjukkan titik buta pendekatan diferensial. Ketika
-muatan berbahaya hanya memakai API yang sudah digunakan versi sebelumnya, tidak
-muncul aliran data baru, sehingga konfigurasi bawaannya melewatkan seluruh 10
+versi lama dan baru, dengan deteksi 75,6\% dan positif palsu 4,7\% pada dataset
+pembaruan tunggal \citep{sofaer2024rogueone}. Analisis RogueOne juga
+menunjukkan titik buta pendekatan diferensial. Ketika muatan berbahaya hanya
+memakai API yang sudah digunakan versi sebelumnya, tidak muncul aliran data
+baru, sehingga konfigurasi bawaannya melewatkan seluruh 10
 kasus serangan tersamar dalam kategori tersebut \citep{sofaer2024rogueone}.
 
 \citet{froh2023differential} menyatakan perilaku mencurigakan sebagai kueri
@@ -537,14 +537,10 @@ contoh berbahaya dan model tertutup \citep{guo2026bridging}. RogueOne menilai
 pembaruan tanpa LLM \citep{sofaer2024rogueone}.
 
 Perbedaan rancangan ada tiga. Pertama, modelnya 3--4B dan dijalankan secara
-lokal. Kedua, pembaruan sah tidak diperlakukan sebagai satu kumpulan.
-PrimeVul menunjukkan bahwa benchmark yang didominasi kasus mudah
-melebih-lebihkan kinerja: model 7B yang mencapai F1 68,26\% pada BigVul hanya
-mencapai 3,09\% pada PrimeVul \citep{ding2025vulnerability}. Vul-RAG menemukan
-bahwa membedakan kode bermasalah dari kode yang mirip tetapi aman adalah tugas
-yang sulit bagi LLM \citep{du2026vulrag}. Karena itu FPR dilaporkan terpisah
-untuk pembaruan tipikal dan \emph{hard negative}. Ketiga, retrieval tidak
-hanya mengambil contoh berbahaya seperti IntelGuard
+lokal. Kedua, pembaruan sah tidak diperlakukan sebagai satu kumpulan:
+mengikuti pelajaran PrimeVul dan Vul-RAG di Bagian~\ref{sec:related}, FPR
+dilaporkan terpisah untuk pembaruan tipikal dan \emph{hard negative}.
+Ketiga, retrieval tidak hanya mengambil contoh berbahaya seperti IntelGuard
 \citep{guo2026bridging}: contoh sah pembanding dan profil intent diukur
 sebagai faktor terpisah.
 
@@ -760,9 +756,9 @@ DIFF+MB identik dengan DIFF+I+MB kecuali blok intent dikosongkan.
 
 Pool card berbahaya lebih besar daripada pool card sah (50 versus 25). Itu tidak
 memengaruhi konfigurasi mana pun, karena tiap konfigurasi meminta card menurut
-label. Sebagai properti retrieval, proporsi pair yang akan menerima card
-berbahaya seandainya basis pengetahuan diperlakukan sebagai satu kolam campuran
-dihitung langsung dari delta, tanpa memanggil model.
+label. Sebagai properti retrieval, dilaporkan pula proporsi pair yang akan
+menerima card berbahaya jika basis pengetahuan diperlakukan sebagai satu kolam
+campuran; proporsi itu dihitung dari delta kemampuan, tanpa memanggil model.
 
 \begin{table}[t]
 \caption{Konfigurasi. System prompt, \emph{smart-diff} hasil potongan, dan
@@ -841,10 +837,10 @@ Tidak ada ambang ``cukup'' yang disepakati untuk model 3--4B. Yang dilaporkan
 pada konfigurasi tanpa contoh adalah estimasi titik beserta intervalnya, per
 model.
 
-Dengan sekitar 50 pair MAL, lebar interval Wilson pada \emph{recall} 0,9
-sekitar $\pm$8,5 poin; pada 100 pair HN dan FPR 0,2, lebarnya sekitar
-$\pm$7,8 poin. Batas ini adalah properti desain, bukan kekurangan yang ditutup
-dengan menambah sampel setelah melihat hasil.
+Dengan sekitar 50 pair MAL, setengah lebar interval Wilson pada \emph{recall}
+0,9 adalah sekitar 8,5 poin; pada 100 pair HN dan FPR 0,2 sekitar 7,8 poin.
+Batas ini adalah properti desain, bukan kekurangan yang ditutup dengan
+menambah sampel setelah melihat hasil.
 
 \paragraph{Ablasi.}
 Endpoint yang diuji pada tiga selisih berpasangan adalah FPR$_{\mathrm{HN}}$,
@@ -931,11 +927,23 @@ lingkup dibatasi model \emph{open-weight} lokal. Kalau data Wyss et al.\ di OSF
 memungkinkan subset yang sama, angka kami boleh disajikan berdampingan dengan
 angka mereka, tetap tanpa uji.
 
-\section{Results}\label{sec:results}
+\section{Hasil}\label{sec:results}
 
-\section{Discussion}\label{sec:discussion}
+\begingroup
+\emergencystretch=1em
+\input{results-exploratory}
+\par
+\endgroup
 
-\section{Conclusion}\label{sec:conclusion}
+\section{Pembahasan}\label{sec:discussion}
+
+\begingroup
+\emergencystretch=1em
+\input{discussion-exploratory}
+\par
+\endgroup
+
+\section{Kesimpulan}\label{sec:conclusion}
 
 \printcredits
 

@@ -1,0 +1,10 @@
+test_current_id_prompts_match_audited_development_implementation (test_full_method.FullMethodTests.test_current_id_prompts_match_audited_development_implementation) ... ok
+test_full_cohort_not_replaced_by_diagnostic_subset (test_full_method.FullMethodTests.test_full_cohort_not_replaced_by_diagnostic_subset) ... ok
+test_length_limited_schema_shaped_output_remains_invalid (test_full_method.FullMethodTests.test_length_limited_schema_shaped_output_remains_invalid) ... ok
+test_resume_rejects_duplicate_wrong_experiment_and_failed_requests (test_full_method.FullMethodTests.test_resume_rejects_duplicate_wrong_experiment_and_failed_requests) ... ok
+test_verifier_receives_both_verdicts_and_preserves_invalid_candidate (test_full_method.FullMethodTests.test_verifier_receives_both_verdicts_and_preserves_invalid_candidate) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.362s
+
+OK

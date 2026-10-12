@@ -3,6 +3,15 @@
 Revisi 2026-09-13. Seluruh prosedur ada di [methodology.md](methodology.md). File
 ini hanya berisi jadwal, volume run, skema file, dan checklist implementasi.
 
+**Syarat hasil paper, ditegaskan pengguna 12 Oktober 2026 (D91):** seluruh
+kombinasi eksperimen yang diklaim harus benar-benar dijalankan pada cakupan
+yang ditetapkan sebelum inferensi. Jumlah pair × model × konfigurasi × seed
+harus dicocokkan dengan respons mentah unik dan log; invalid/kegagalan serta
+kombinasi belum dijalankan tetap dilaporkan. Fixture, simulasi, proyeksi, dan
+subset diagnostik tidak menggantikan evaluasi penuh. Kontrol historis harus
+nyata, terverifikasi, sesuai protokol, dan tidak dihitung sebagai inferensi baru.
+Kelengkapan panggilan tidak menggantikan gold, split data, atau card terverifikasi.
+
 ## 1. Timeline dan gate
 
 | Minggu | Pekerjaan | Keluaran | Gate |

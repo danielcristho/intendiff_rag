@@ -1,0 +1,166 @@
+{
+  "pairs": 15,
+  "generations": 30,
+  "max_prompt_tokens": 24467,
+  "max_model_len": 32768,
+  "kv_cache_memory_bytes": 6442450944,
+  "chat_template_kwargs": {
+    "thinking": false
+  },
+  "stop_token_ids": [
+    0
+  ],
+  "input_truncation_added": false,
+  "rows": [
+    {
+      "pair_id": "zuper-cli@1.0.1",
+      "arm": "NO-SOURCE",
+      "prompt_tokens": 6699
+    },
+    {
+      "pair_id": "zuper-cli@1.0.1",
+      "arm": "WITH-SOURCE",
+      "prompt_tokens": 12176
+    },
+    {
+      "pair_id": "has-tostringtag@1.0.2",
+      "arm": "NO-SOURCE",
+      "prompt_tokens": 1801
+    },
+    {
+      "pair_id": "has-tostringtag@1.0.2",
+      "arm": "WITH-SOURCE",
+      "prompt_tokens": 4190
+    },
+    {
+      "pair_id": "onlinedb@2.4.3",
+      "arm": "NO-SOURCE",
+      "prompt_tokens": 11491
+    },
+    {
+      "pair_id": "onlinedb@2.4.3",
+      "arm": "WITH-SOURCE",
+      "prompt_tokens": 16270
+    },
+    {
+      "pair_id": "iterator.prototype@1.1.2",
+      "arm": "NO-SOURCE",
+      "prompt_tokens": 1760
+    },
+    {
+      "pair_id": "iterator.prototype@1.1.2",
+      "arm": "WITH-SOURCE",
+      "prompt_tokens": 3874
+    },
+    {
+      "pair_id": "assert@2.1.0",
+      "arm": "NO-SOURCE",
+      "prompt_tokens": 22108
+    },
+    {
+      "pair_id": "assert@2.1.0",
+      "arm": "WITH-SOURCE",
+      "prompt_tokens": 24467
+    },
+    {
+      "pair_id": "c8t3_number_guessing_game@2.0.1",
+      "arm": "NO-SOURCE",
+      "prompt_tokens": 1521
+    },
+    {
+      "pair_id": "c8t3_number_guessing_game@2.0.1",
+      "arm": "WITH-SOURCE",
+      "prompt_tokens": 7171
+    },
+    {
+      "pair_id": "get-symbol-description@1.0.2",
+      "arm": "NO-SOURCE",
+      "prompt_tokens": 1575
+    },
+    {
+      "pair_id": "get-symbol-description@1.0.2",
+      "arm": "WITH-SOURCE",
+      "prompt_tokens": 11313
+    },
+    {
+      "pair_id": "jsonwebtoken@9.0.2",
+      "arm": "NO-SOURCE",
+      "prompt_tokens": 2443
+    },
+    {
+      "pair_id": "jsonwebtoken@9.0.2",
+      "arm": "WITH-SOURCE",
+      "prompt_tokens": 16219
+    },
+    {
+      "pair_id": "is-bigint@1.0.4",
+      "arm": "NO-SOURCE",
+      "prompt_tokens": 1777
+    },
+    {
+      "pair_id": "is-bigint@1.0.4",
+      "arm": "WITH-SOURCE",
+      "prompt_tokens": 3135
+    },
+    {
+      "pair_id": "@tolicodes/picklejs@0.75.0",
+      "arm": "NO-SOURCE",
+      "prompt_tokens": 2056
+    },
+    {
+      "pair_id": "@tolicodes/picklejs@0.75.0",
+      "arm": "WITH-SOURCE",
+      "prompt_tokens": 11820
+    },
+    {
+      "pair_id": "string.prototype.matchall@4.0.11",
+      "arm": "NO-SOURCE",
+      "prompt_tokens": 5601
+    },
+    {
+      "pair_id": "string.prototype.matchall@4.0.11",
+      "arm": "WITH-SOURCE",
+      "prompt_tokens": 7382
+    },
+    {
+      "pair_id": "body-parser@2.0.0-beta.2",
+      "arm": "NO-SOURCE",
+      "prompt_tokens": 6054
+    },
+    {
+      "pair_id": "body-parser@2.0.0-beta.2",
+      "arm": "WITH-SOURCE",
+      "prompt_tokens": 10288
+    },
+    {
+      "pair_id": "eslint-config-service-soft@1.3.3",
+      "arm": "NO-SOURCE",
+      "prompt_tokens": 1868
+    },
+    {
+      "pair_id": "eslint-config-service-soft@1.3.3",
+      "arm": "WITH-SOURCE",
+      "prompt_tokens": 4365
+    },
+    {
+      "pair_id": "run-parallel@1.2.0",
+      "arm": "NO-SOURCE",
+      "prompt_tokens": 3097
+    },
+    {
+      "pair_id": "run-parallel@1.2.0",
+      "arm": "WITH-SOURCE",
+      "prompt_tokens": 4293
+    },
+    {
+      "pair_id": "@babel/code-frame@8.0.0-alpha.8",
+      "arm": "NO-SOURCE",
+      "prompt_tokens": 5207
+    },
+    {
+      "pair_id": "@babel/code-frame@8.0.0-alpha.8",
+      "arm": "WITH-SOURCE",
+      "prompt_tokens": 7304
+    }
+  ]
+}
