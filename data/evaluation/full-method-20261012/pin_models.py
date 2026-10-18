@@ -1,8 +1,25 @@
 """Verify local model files against archived manifests before freezing a new run."""
 import json
+import os
 from pathlib import Path
 
 from common import HERE, ROOT, digest, write_json
+
+HEX = set('0123456789abcdef')
+
+
+# lfs_sha256 returns the digest a Hugging Face snapshot encodes in its blob link.
+# Resolving the link fully was wrong: a newer cache layout adds a second hop into a
+# content-addressed store whose filename is not the sha256 of the file.
+def lfs_sha256(path):
+    while path.is_symlink():
+        target = Path(os.readlink(path))
+        target = target if target.is_absolute() else path.parent / target
+        if len(target.name) == 64 and set(target.name) <= HEX:
+            return target.name
+        path = target
+    return None
+
 
 assert not (HERE / 'protocol.json').exists()
 models = json.loads((HERE / 'models.json').read_text())
@@ -23,8 +40,8 @@ for model in models:
             continue
         actual = digest(path)
         expected = known.get(str(path.resolve()))
-        if path.suffix == '.safetensors' and len(path.resolve().name) == 64:
-            expected = path.resolve().name
+        if path.suffix == '.safetensors':
+            expected = lfs_sha256(path) or expected
         if expected is not None:
             assert actual == expected, str(path)
         assert path.suffix != '.safetensors' or expected is not None, 'Missing prior weight provenance'

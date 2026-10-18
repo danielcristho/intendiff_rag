@@ -1,0 +1,75 @@
+{"completed": 10, "total": 250, "id": "@ariestools/actor-system@2.0.0", "error": null, "fallback_files": 0}
+{"completed": 20, "total": 250, "id": "@bli-cockpit/telemetry-core@0.1.50", "error": null, "fallback_files": 0}
+{"completed": 30, "total": 250, "id": "@electron/get@5.0.0", "error": null, "fallback_files": 0}
+{"completed": 40, "total": 250, "id": "@kandiharapan/venom1@1.1.4", "error": null, "fallback_files": 0}
+Timeout (0:01:00)!
+Thread 0x0000772a22699340 (most recent call first):
+  File "/usr/local/lib/python3.12/selectors.py", line 415 in select
+  File "/usr/local/lib/python3.12/subprocess.py", line 2115 in _communicate
+  File "/usr/local/lib/python3.12/subprocess.py", line 1209 in communicate
+  File "/usr/local/lib/python3.12/subprocess.py", line 550 in run
+  File "/workspace/pipeline/normalization.py", line 69 in normalize_jobs
+  File "/workspace/pipeline/normalization.py", line 114 in prepared_pair
+  File "/usr/local/lib/python3.12/contextlib.py", line 137 in __enter__
+  File "/workspace/pipeline/smartdiff.py", line 205 in build
+  File "/workspace/pipeline/dataset.py", line 41 in build_row
+  File "/workspace/pipeline/preprocess_corpus.py", line 31 in build
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 264 in _process_worker
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108 in run
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314 in _bootstrap
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 71 in _launch
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 19 in __init__
+  File "/usr/local/lib/python3.12/multiprocessing/context.py", line 282 in _Popen
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 121 in start
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 799 in _spawn_process
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 789 in _launch_processes
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 762 in _start_executor_manager_thread
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 823 in submit
+  File "/workspace/pipeline/preprocess_corpus.py", line 64 in main
+  File "/workspace/pipeline/preprocess_corpus.py", line 76 in <module>
+{"completed": 50, "total": 250, "id": "@metamask-previews/analytics-data-regulation-controller@0.0.0-preview-fb486948f", "error": null, "fallback_files": 0}
+{"completed": 60, "total": 250, "id": "@raftlabs/raftstack@1.6.0", "error": null, "fallback_files": 0}
+{"completed": 70, "total": 250, "id": "@sanity/presentation@1.22.1", "error": null, "fallback_files": 0}
+{"completed": 80, "total": 250, "id": "@stacksjs/gitlint@0.1.4", "error": null, "fallback_files": 0}
+{"completed": 90, "total": 250, "id": "@wsrast/airbnb-prettier-eslint@1.0.3", "error": null, "fallback_files": 0}
+{"completed": 100, "total": 250, "id": "analytics-node@3.3.0-beta.1", "error": null, "fallback_files": 0}
+{"completed": 110, "total": 250, "id": "browser-devtools-mcp@0.6.0", "error": null, "fallback_files": 0}
+{"completed": 120, "total": 250, "id": "com.microsoft.mesh.toolkit.preview@5.2404.340", "error": null, "fallback_files": 0}
+{"completed": 130, "total": 250, "id": "dsr-package-mayor-torso-gadis-potty@1.0.1", "error": null, "fallback_files": 0}
+{"completed": 140, "total": 250, "id": "estree-walker@3.0.3", "error": null, "fallback_files": 0}
+{"completed": 150, "total": 250, "id": "git-hooks-wrapper@0.3.2", "error": null, "fallback_files": 0}
+{"completed": 160, "total": 250, "id": "hylia-plugin-git-hooks@0.1.14", "error": null, "fallback_files": 0}
+{"completed": 170, "total": 250, "id": "jann-scraper@0.0.5-beta.6", "error": null, "fallback_files": 0}
+{"completed": 180, "total": 250, "id": "m@1.9.4", "error": null, "fallback_files": 0}
+{"completed": 190, "total": 250, "id": "netease-quickpass-sdk@1.3.1", "error": null, "fallback_files": 0}
+{"completed": 200, "total": 250, "id": "opencollective-postinstall@1.0.9", "error": null, "fallback_files": 1}
+Timeout (0:01:00)!
+Thread 0x0000772a22699340 (most recent call first):
+  File "/usr/local/lib/python3.12/selectors.py", line 415 in select
+  File "/usr/local/lib/python3.12/subprocess.py", line 2115 in _communicate
+  File "/usr/local/lib/python3.12/subprocess.py", line 1209 in communicate
+  File "/usr/local/lib/python3.12/subprocess.py", line 550 in run
+  File "/workspace/pipeline/normalization.py", line 69 in normalize_jobs
+  File "/workspace/pipeline/normalization.py", line 114 in prepared_pair
+  File "/usr/local/lib/python3.12/contextlib.py", line 137 in __enter__
+  File "/workspace/pipeline/smartdiff.py", line 205 in build
+  File "/workspace/pipeline/dataset.py", line 41 in build_row
+  File "/workspace/pipeline/preprocess_corpus.py", line 31 in build
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 264 in _process_worker
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108 in run
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314 in _bootstrap
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 71 in _launch
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 19 in __init__
+  File "/usr/local/lib/python3.12/multiprocessing/context.py", line 282 in _Popen
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 121 in start
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 799 in _spawn_process
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 789 in _launch_processes
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 762 in _start_executor_manager_thread
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 823 in submit
+  File "/workspace/pipeline/preprocess_corpus.py", line 64 in main
+  File "/workspace/pipeline/preprocess_corpus.py", line 76 in <module>
+{"completed": 210, "total": 250, "id": "raml-1-parser@1.1.54", "error": null, "fallback_files": 0}
+{"completed": 220, "total": 250, "id": "redux-history-sync@3.2.2", "error": null, "fallback_files": 0}
+{"completed": 230, "total": 250, "id": "set-object@1.0.0", "error": null, "fallback_files": 0}
+{"completed": 240, "total": 250, "id": "unbox-primitive@1.0.2", "error": null, "fallback_files": 0}
+{"completed": 250, "total": 250, "id": "zetago-reddit-scraper@1.1.0", "error": null, "fallback_files": 0}

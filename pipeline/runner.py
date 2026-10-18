@@ -206,6 +206,12 @@ def main(argv=None):
     if any(spec(config).cards for config in configs) and not kb:
         sys.exit(f"retrieval configurations require a nonempty KB: {kb_path}")
 
+    # Reject an incomplete contrast before writing results or sending any request.
+    from retrieval_audit import audit_retrieval
+    retrieval_issues, _ = audit_retrieval(pairs, kb, configs, retrieve)
+    if retrieval_issues:
+        sys.exit('retrieval preflight failed: ' + json.dumps(retrieval_issues[:20]))
+
     sampling = {"temperature": args.temperature, "top_p": args.top_p}
     if args.top_k is not None:
         sampling["top_k"] = args.top_k

@@ -1,0 +1,72 @@
+{
+  "input_checks_passed": false,
+  "launch_ready": false,
+  "remaining_release_checks": [
+    "human decision and card provenance",
+    "campaign split and dependency exclusions",
+    "card and prompt budgets for each model",
+    "G1/G2 and protocol/code/model/input pins"
+  ],
+  "pairs": 0,
+  "subsets": {},
+  "cards": 0,
+  "configurations": [
+    "DIFF",
+    "DIFF+I",
+    "DIFF+I+M",
+    "DIFF+I+MM",
+    "DIFF+I+MB",
+    "DIFF+MB"
+  ],
+  "contrasts": [
+    [
+      "DIFF+I",
+      "DIFF+I+M"
+    ],
+    [
+      "DIFF+I+MM",
+      "DIFF+I+MB"
+    ],
+    [
+      "DIFF+MB",
+      "DIFF+I+MB"
+    ]
+  ],
+  "primary_models": [
+    "Qwen/Qwen3-4B-Instruct-2507",
+    "Qwen/Qwen2.5-Coder-3B-Instruct"
+  ],
+  "expected_stage1_generations": 0,
+  "issues": [
+    {
+      "reason": "missing_subset",
+      "subset": "MAL"
+    },
+    {
+      "reason": "missing_subset",
+      "subset": "HN"
+    },
+    {
+      "reason": "missing_subset",
+      "subset": "TYP"
+    },
+    {
+      "reason": "missing_kb"
+    },
+    {
+      "reason": "missing_input_file",
+      "path": "~/intendiff_rag/data/pairs.jsonl"
+    },
+    {
+      "reason": "missing_input_file",
+      "path": "~/intendiff_rag/data/kb.jsonl"
+    }
+  ],
+  "retrieval_plan": [],
+  "input_pins": [
+    {
+      "path": "~/intendiff_rag/data/acquisition/expansion-full-20261013/exposure-registry.jsonl",
+      "sha256": "b77ba2409b6f09ca5c18f6a00bef2dc974746dc4767da06a298345d0f5dcc296"
+    }
+  ]
+}

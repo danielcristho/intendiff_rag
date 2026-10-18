@@ -1,0 +1,95 @@
+{
+  "status": "proposal; not a frozen test set, no gold labels",
+  "review_pairs": 2420,
+  "partition": {
+    "typ-test-candidate": 1896,
+    "dev": 274,
+    "hn-pending-annotation": 250
+  },
+  "holdout_eligible_by_subset": {
+    "TYP": {
+      "True": 2004,
+      "False": 253
+    },
+    "HN": {
+      "True": 250,
+      "False": 75
+    }
+  },
+  "pre_d96_holdout_eligible_by_subset": {
+    "TYP": {
+      "True": 1987,
+      "False": 270
+    },
+    "HN": {
+      "True": 244,
+      "False": 81
+    }
+  },
+  "dev_reasons": {
+    "pair_exposed": 140,
+    "package_exposed": 151,
+    "campaign_with_exposed_item": 91,
+    "related_dependency_exposed": 52
+  },
+  "typ_test_candidates_by_group": {
+    "random": 814,
+    "live-stream-unseen-names": 378,
+    "popular": 704
+  },
+  "typ_test_candidate_campaigns": 1893,
+  "hn_pending_campaigns": 250,
+  "eligible_sharing_campaign_with_kb": 3,
+  "largest_eligible_campaigns": [
+    [
+      "agent-base@7.1.1",
+      3
+    ],
+    [
+      "gohk-library@0.0.3",
+      2
+    ],
+    [
+      "16_why_utils@1.1.0",
+      1
+    ],
+    [
+      "@10play/popups@2.0.55",
+      1
+    ],
+    [
+      "@21epub-ui/transformer@0.1.1",
+      1
+    ],
+    [
+      "@21epub/create-storybook-react-library@0.3.3",
+      1
+    ],
+    [
+      "@3-/aes@0.1.5",
+      1
+    ],
+    [
+      "@absmach/magistrala-sdk@0.9.0",
+      1
+    ],
+    [
+      "@adobe/aio-cli-config@1.0.12",
+      1
+    ],
+    [
+      "@advisorworld/richtext-slate@1.4.3",
+      1
+    ]
+  ],
+  "campaign_clusters": {
+    "d96": {
+      "0.5": 7178,
+      "0.8": 7702
+    },
+    "pre_d96": {
+      "0.5": 5982,
+      "0.8": 6433
+    }
+  }
+}

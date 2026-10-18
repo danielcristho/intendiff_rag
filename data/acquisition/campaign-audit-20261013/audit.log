@@ -1,0 +1,1129 @@
+{"material_loaded": "data/work/audit/full-d96.campaign-items.jsonl", "items": 25073}
+{"material_loaded": "data/work/audit/expansion.campaign-items.jsonl", "items": 27493}
+{"fingerprint_files_verified": 11901}
+{"root": "02-echo@0.0.7", "indexed": 6465, "components": 1995}
+{"root": "02-echo@0.0.7", "examined": 1, "remaining_components": 1992, "comparisons": 205}
+{"root": "02-echo@0.0.7", "examined": 26, "remaining_components": 1987, "comparisons": 964}
+{"root": "02-echo@0.0.7", "examined": 51, "remaining_components": 1978, "comparisons": 3604}
+{"root": "02-echo@0.0.7", "examined": 76, "remaining_components": 1873, "comparisons": 6612}
+{"root": "02-echo@0.0.7", "examined": 101, "remaining_components": 1873, "comparisons": 10315}
+{"root": "02-echo@0.0.7", "examined": 126, "remaining_components": 1868, "comparisons": 15351}
+{"root": "02-echo@0.0.7", "examined": 151, "remaining_components": 1868, "comparisons": 21151}
+{"root": "02-echo@0.0.7", "examined": 176, "remaining_components": 1868, "comparisons": 27101}
+{"root": "02-echo@0.0.7", "examined": 201, "remaining_components": 1868, "comparisons": 32815}
+{"root": "02-echo@0.0.7", "examined": 226, "remaining_components": 1868, "comparisons": 38635}
+{"root": "02-echo@0.0.7", "examined": 251, "remaining_components": 1812, "comparisons": 43136}
+{"root": "02-echo@0.0.7", "examined": 276, "remaining_components": 1762, "comparisons": 46605}
+{"root": "02-echo@0.0.7", "examined": 301, "remaining_components": 1753, "comparisons": 50942}
+{"root": "02-echo@0.0.7", "examined": 326, "remaining_components": 1744, "comparisons": 55216}
+{"root": "02-echo@0.0.7", "examined": 351, "remaining_components": 1722, "comparisons": 59716}
+{"root": "02-echo@0.0.7", "examined": 376, "remaining_components": 1722, "comparisons": 64963}
+{"root": "02-echo@0.0.7", "examined": 401, "remaining_components": 1718, "comparisons": 70362}
+{"root": "02-echo@0.0.7", "examined": 426, "remaining_components": 1718, "comparisons": 75427}
+{"root": "02-echo@0.0.7", "examined": 451, "remaining_components": 1714, "comparisons": 80379}
+{"root": "02-echo@0.0.7", "examined": 476, "remaining_components": 1713, "comparisons": 89796}
+{"root": "02-echo@0.0.7", "examined": 501, "remaining_components": 1707, "comparisons": 94192}
+{"root": "02-echo@0.0.7", "examined": 526, "remaining_components": 1703, "comparisons": 102055}
+{"root": "02-echo@0.0.7", "examined": 551, "remaining_components": 1698, "comparisons": 131987}
+{"root": "02-echo@0.0.7", "examined": 576, "remaining_components": 1670, "comparisons": 144745}
+{"root": "02-echo@0.0.7", "examined": 601, "remaining_components": 1665, "comparisons": 155857}
+{"root": "02-echo@0.0.7", "examined": 626, "remaining_components": 1659, "comparisons": 173233}
+{"root": "02-echo@0.0.7", "examined": 651, "remaining_components": 1607, "comparisons": 185270}
+{"root": "02-echo@0.0.7", "examined": 676, "remaining_components": 1592, "comparisons": 200770}
+{"root": "02-echo@0.0.7", "examined": 701, "remaining_components": 1553, "comparisons": 222769}
+{"root": "02-echo@0.0.7", "examined": 726, "remaining_components": 1539, "comparisons": 247777}
+{"root": "02-echo@0.0.7", "examined": 751, "remaining_components": 1530, "comparisons": 270596}
+{"root": "02-echo@0.0.7", "examined": 776, "remaining_components": 1525, "comparisons": 288319}
+{"root": "02-echo@0.0.7", "examined": 801, "remaining_components": 1062, "comparisons": 317134}
+{"root": "02-echo@0.0.7", "examined": 826, "remaining_components": 1053, "comparisons": 337837}
+{"root": "02-echo@0.0.7", "examined": 851, "remaining_components": 1052, "comparisons": 360137}
+{"root": "02-echo@0.0.7", "examined": 876, "remaining_components": 1046, "comparisons": 391150}
+{"root": "02-echo@0.0.7", "examined": 901, "remaining_components": 732, "comparisons": 414214}
+{"root": "02-echo@0.0.7", "examined": 926, "remaining_components": 726, "comparisons": 437336}
+{"root": "02-echo@0.0.7", "examined": 951, "remaining_components": 722, "comparisons": 460684}
+{"root": "02-echo@0.0.7", "examined": 976, "remaining_components": 717, "comparisons": 494927}
+{"root": "02-echo@0.0.7", "examined": 1001, "remaining_components": 716, "comparisons": 530305}
+{"root": "02-echo@0.0.7", "examined": 1026, "remaining_components": 715, "comparisons": 571648}
+{"root": "02-echo@0.0.7", "examined": 1051, "remaining_components": 715, "comparisons": 616109}
+{"root": "02-echo@0.0.7", "examined": 1076, "remaining_components": 715, "comparisons": 658568}
+{"root": "02-echo@0.0.7", "examined": 1101, "remaining_components": 715, "comparisons": 703068}
+{"root": "02-echo@0.0.7", "examined": 1126, "remaining_components": 712, "comparisons": 747489}
+{"root": "02-echo@0.0.7", "examined": 1151, "remaining_components": 712, "comparisons": 791905}
+{"root": "02-echo@0.0.7", "examined": 1176, "remaining_components": 712, "comparisons": 836330}
+{"root": "02-echo@0.0.7", "examined": 1201, "remaining_components": 712, "comparisons": 880755}
+{"root": "02-echo@0.0.7", "examined": 1226, "remaining_components": 712, "comparisons": 925180}
+{"root": "02-echo@0.0.7", "examined": 1251, "remaining_components": 712, "comparisons": 969605}
+{"root": "02-echo@0.0.7", "examined": 1276, "remaining_components": 712, "comparisons": 1014030}
+{"root": "02-echo@0.0.7", "examined": 1301, "remaining_components": 712, "comparisons": 1058455}
+{"root": "02-echo@0.0.7", "examined": 1326, "remaining_components": 712, "comparisons": 1102880}
+{"root": "02-echo@0.0.7", "examined": 1351, "remaining_components": 712, "comparisons": 1147305}
+{"root": "02-echo@0.0.7", "examined": 1376, "remaining_components": 712, "comparisons": 1191702}
+{"root": "02-echo@0.0.7", "examined": 1401, "remaining_components": 712, "comparisons": 1236127}
+{"root": "02-echo@0.0.7", "examined": 1426, "remaining_components": 712, "comparisons": 1279680}
+{"root": "02-echo@0.0.7", "examined": 1451, "remaining_components": 712, "comparisons": 1324041}
+{"root": "02-echo@0.0.7", "examined": 1476, "remaining_components": 712, "comparisons": 1368466}
+{"root": "02-echo@0.0.7", "examined": 1501, "remaining_components": 712, "comparisons": 1410342}
+{"root": "02-echo@0.0.7", "examined": 1526, "remaining_components": 681, "comparisons": 1444344}
+{"root": "02-echo@0.0.7", "examined": 1551, "remaining_components": 675, "comparisons": 1476753}
+{"root": "02-echo@0.0.7", "examined": 1576, "remaining_components": 665, "comparisons": 1517682}
+{"root": "02-echo@0.0.7", "examined": 1601, "remaining_components": 665, "comparisons": 1557811}
+{"root": "02-echo@0.0.7", "examined": 1626, "remaining_components": 665, "comparisons": 1596183}
+{"root": "02-echo@0.0.7", "examined": 1651, "remaining_components": 665, "comparisons": 1634474}
+{"root": "02-echo@0.0.7", "examined": 1676, "remaining_components": 665, "comparisons": 1672334}
+{"root": "02-echo@0.0.7", "examined": 1701, "remaining_components": 638, "comparisons": 1704942}
+{"root": "02-echo@0.0.7", "examined": 1726, "remaining_components": 636, "comparisons": 1733062}
+{"root": "02-echo@0.0.7", "examined": 1751, "remaining_components": 636, "comparisons": 1776853}
+{"root": "02-echo@0.0.7", "examined": 1776, "remaining_components": 635, "comparisons": 1818895}
+{"root": "02-echo@0.0.7", "examined": 1801, "remaining_components": 630, "comparisons": 1858673}
+{"root": "02-echo@0.0.7", "examined": 1826, "remaining_components": 623, "comparisons": 1897037}
+{"root": "02-echo@0.0.7", "examined": 1851, "remaining_components": 620, "comparisons": 1938241}
+{"root": "02-echo@0.0.7", "examined": 1876, "remaining_components": 620, "comparisons": 1973651}
+{"root": "02-echo@0.0.7", "examined": 1901, "remaining_components": 620, "comparisons": 2003551}
+{"root": "02-echo@0.0.7", "examined": 1926, "remaining_components": 620, "comparisons": 2046836}
+{"root": "02-echo@0.0.7", "examined": 1951, "remaining_components": 587, "comparisons": 2089359}
+{"root": "02-echo@0.0.7", "examined": 1976, "remaining_components": 587, "comparisons": 2131569}
+{"root": "02-echo@0.0.7", "examined": 2001, "remaining_components": 587, "comparisons": 2173722}
+{"root": "02-echo@0.0.7", "examined": 2026, "remaining_components": 587, "comparisons": 2216004}
+{"root": "02-echo@0.0.7", "examined": 2051, "remaining_components": 587, "comparisons": 2258286}
+{"root": "02-echo@0.0.7", "examined": 2076, "remaining_components": 587, "comparisons": 2300496}
+{"root": "02-echo@0.0.7", "examined": 2101, "remaining_components": 587, "comparisons": 2342779}
+{"root": "02-echo@0.0.7", "examined": 2126, "remaining_components": 587, "comparisons": 2385025}
+{"root": "02-echo@0.0.7", "examined": 2151, "remaining_components": 587, "comparisons": 2427271}
+{"root": "02-echo@0.0.7", "examined": 2176, "remaining_components": 587, "comparisons": 2468097}
+{"root": "02-echo@0.0.7", "examined": 2201, "remaining_components": 586, "comparisons": 2506959}
+{"root": "02-echo@0.0.7", "examined": 2226, "remaining_components": 585, "comparisons": 2543131}
+{"root": "02-echo@0.0.7", "examined": 2251, "remaining_components": 578, "comparisons": 2577322}
+{"root": "02-echo@0.0.7", "examined": 2276, "remaining_components": 569, "comparisons": 2606581}
+{"root": "02-echo@0.0.7", "examined": 2301, "remaining_components": 546, "comparisons": 2637819}
+{"root": "02-echo@0.0.7", "examined": 2326, "remaining_components": 545, "comparisons": 2674404}
+{"root": "02-echo@0.0.7", "examined": 2351, "remaining_components": 542, "comparisons": 2702838}
+{"root": "02-echo@0.0.7", "examined": 2376, "remaining_components": 540, "comparisons": 2735054}
+{"root": "02-echo@0.0.7", "examined": 2401, "remaining_components": 539, "comparisons": 2762165}
+{"root": "02-echo@0.0.7", "examined": 2426, "remaining_components": 539, "comparisons": 2792399}
+{"root": "02-echo@0.0.7", "examined": 2451, "remaining_components": 538, "comparisons": 2827208}
+{"root": "02-echo@0.0.7", "examined": 2476, "remaining_components": 529, "comparisons": 2865199}
+{"root": "02-echo@0.0.7", "examined": 2501, "remaining_components": 517, "comparisons": 2892891}
+{"root": "02-echo@0.0.7", "examined": 2526, "remaining_components": 513, "comparisons": 2925979}
+{"root": "02-echo@0.0.7", "examined": 2551, "remaining_components": 511, "comparisons": 2957542}
+{"root": "02-echo@0.0.7", "examined": 2576, "remaining_components": 510, "comparisons": 2991953}
+{"root": "02-echo@0.0.7", "examined": 2601, "remaining_components": 504, "comparisons": 3029688}
+{"root": "02-echo@0.0.7", "examined": 2626, "remaining_components": 502, "comparisons": 3064529}
+{"root": "02-echo@0.0.7", "examined": 2651, "remaining_components": 496, "comparisons": 3104681}
+{"root": "02-echo@0.0.7", "examined": 2676, "remaining_components": 485, "comparisons": 3139219}
+{"root": "02-echo@0.0.7", "examined": 2701, "remaining_components": 483, "comparisons": 3166916}
+{"root": "02-echo@0.0.7", "examined": 2726, "remaining_components": 454, "comparisons": 3201993}
+{"root": "02-echo@0.0.7", "examined": 2751, "remaining_components": 448, "comparisons": 3235859}
+{"root": "02-echo@0.0.7", "examined": 2776, "remaining_components": 448, "comparisons": 3277866}
+{"root": "02-echo@0.0.7", "examined": 2801, "remaining_components": 447, "comparisons": 3314843}
+{"root": "02-echo@0.0.7", "examined": 2826, "remaining_components": 443, "comparisons": 3356228}
+{"root": "02-echo@0.0.7", "examined": 2851, "remaining_components": 428, "comparisons": 3395347}
+{"root": "02-echo@0.0.7", "examined": 2876, "remaining_components": 418, "comparisons": 3434880}
+{"root": "02-echo@0.0.7", "examined": 2901, "remaining_components": 409, "comparisons": 3475664}
+{"root": "02-echo@0.0.7", "examined": 2926, "remaining_components": 401, "comparisons": 3511119}
+{"root": "02-echo@0.0.7", "examined": 2951, "remaining_components": 399, "comparisons": 3546742}
+{"root": "02-echo@0.0.7", "examined": 2976, "remaining_components": 392, "comparisons": 3584154}
+{"root": "02-echo@0.0.7", "examined": 3001, "remaining_components": 385, "comparisons": 3625427}
+{"root": "02-echo@0.0.7", "examined": 3026, "remaining_components": 385, "comparisons": 3672101}
+{"root": "02-echo@0.0.7", "examined": 3051, "remaining_components": 376, "comparisons": 3704579}
+{"root": "02-echo@0.0.7", "examined": 3076, "remaining_components": 373, "comparisons": 3739255}
+{"root": "02-echo@0.0.7", "examined": 3101, "remaining_components": 373, "comparisons": 3768780}
+{"root": "02-echo@0.0.7", "examined": 3126, "remaining_components": 363, "comparisons": 3804465}
+{"root": "02-echo@0.0.7", "examined": 3151, "remaining_components": 363, "comparisons": 3832949}
+{"root": "02-echo@0.0.7", "examined": 3176, "remaining_components": 360, "comparisons": 3864205}
+{"root": "02-echo@0.0.7", "examined": 3201, "remaining_components": 356, "comparisons": 3900195}
+{"root": "02-echo@0.0.7", "examined": 3226, "remaining_components": 337, "comparisons": 3945128}
+{"root": "02-echo@0.0.7", "examined": 3251, "remaining_components": 334, "comparisons": 3976847}
+{"root": "02-echo@0.0.7", "examined": 3276, "remaining_components": 329, "comparisons": 4015463}
+{"root": "02-echo@0.0.7", "examined": 3301, "remaining_components": 324, "comparisons": 4055077}
+{"root": "02-echo@0.0.7", "examined": 3326, "remaining_components": 321, "comparisons": 4096329}
+{"root": "02-echo@0.0.7", "examined": 3351, "remaining_components": 318, "comparisons": 4140623}
+{"root": "02-echo@0.0.7", "examined": 3376, "remaining_components": 318, "comparisons": 4180599}
+{"root": "02-echo@0.0.7", "examined": 3401, "remaining_components": 312, "comparisons": 4222980}
+{"root": "02-echo@0.0.7", "examined": 3426, "remaining_components": 299, "comparisons": 4262862}
+{"root": "02-echo@0.0.7", "examined": 3451, "remaining_components": 297, "comparisons": 4298932}
+{"root": "02-echo@0.0.7", "examined": 3476, "remaining_components": 285, "comparisons": 4336890}
+{"root": "02-echo@0.0.7", "examined": 3501, "remaining_components": 281, "comparisons": 4370127}
+{"root": "02-echo@0.0.7", "examined": 3526, "remaining_components": 275, "comparisons": 4409818}
+{"root": "02-echo@0.0.7", "examined": 3551, "remaining_components": 268, "comparisons": 4447837}
+{"root": "02-echo@0.0.7", "examined": 3576, "remaining_components": 264, "comparisons": 4484233}
+{"root": "02-echo@0.0.7", "examined": 3601, "remaining_components": 264, "comparisons": 4522296}
+{"root": "02-echo@0.0.7", "examined": 3626, "remaining_components": 261, "comparisons": 4561350}
+{"root": "02-echo@0.0.7", "examined": 3651, "remaining_components": 256, "comparisons": 4598501}
+{"root": "02-echo@0.0.7", "examined": 3676, "remaining_components": 248, "comparisons": 4637650}
+{"root": "02-echo@0.0.7", "examined": 3701, "remaining_components": 247, "comparisons": 4676792}
+{"root": "02-echo@0.0.7", "examined": 3726, "remaining_components": 244, "comparisons": 4712913}
+{"root": "02-echo@0.0.7", "examined": 3751, "remaining_components": 240, "comparisons": 4753362}
+{"root": "02-echo@0.0.7", "examined": 3776, "remaining_components": 237, "comparisons": 4791462}
+{"root": "02-echo@0.0.7", "examined": 3801, "remaining_components": 236, "comparisons": 4820762}
+{"root": "02-echo@0.0.7", "examined": 3826, "remaining_components": 233, "comparisons": 4858610}
+{"root": "02-echo@0.0.7", "examined": 3851, "remaining_components": 228, "comparisons": 4897114}
+{"root": "02-echo@0.0.7", "examined": 3876, "remaining_components": 226, "comparisons": 4935024}
+{"root": "02-echo@0.0.7", "examined": 3901, "remaining_components": 220, "comparisons": 4972375}
+{"root": "02-echo@0.0.7", "examined": 3926, "remaining_components": 214, "comparisons": 5008947}
+{"root": "02-echo@0.0.7", "examined": 3951, "remaining_components": 209, "comparisons": 5042638}
+{"root": "02-echo@0.0.7", "examined": 3976, "remaining_components": 206, "comparisons": 5076093}
+{"root": "02-echo@0.0.7", "examined": 4001, "remaining_components": 197, "comparisons": 5109948}
+{"root": "02-echo@0.0.7", "examined": 4026, "remaining_components": 195, "comparisons": 5143434}
+{"root": "02-echo@0.0.7", "examined": 4051, "remaining_components": 195, "comparisons": 5177728}
+{"root": "02-echo@0.0.7", "examined": 4076, "remaining_components": 195, "comparisons": 5212026}
+{"root": "02-echo@0.0.7", "examined": 4101, "remaining_components": 190, "comparisons": 5246218}
+{"root": "02-echo@0.0.7", "examined": 4126, "remaining_components": 188, "comparisons": 5279762}
+{"root": "02-echo@0.0.7", "examined": 4151, "remaining_components": 185, "comparisons": 5312196}
+{"root": "02-echo@0.0.7", "examined": 4176, "remaining_components": 179, "comparisons": 5347217}
+{"root": "02-echo@0.0.7", "examined": 4201, "remaining_components": 178, "comparisons": 5381079}
+{"root": "02-echo@0.0.7", "examined": 4226, "remaining_components": 174, "comparisons": 5415813}
+{"root": "02-echo@0.0.7", "examined": 4251, "remaining_components": 168, "comparisons": 5447524}
+{"root": "02-echo@0.0.7", "examined": 4276, "remaining_components": 168, "comparisons": 5480406}
+{"root": "02-echo@0.0.7", "examined": 4301, "remaining_components": 162, "comparisons": 5513372}
+{"root": "02-echo@0.0.7", "examined": 4326, "remaining_components": 157, "comparisons": 5544867}
+{"root": "02-echo@0.0.7", "examined": 4351, "remaining_components": 153, "comparisons": 5575761}
+{"root": "02-echo@0.0.7", "examined": 4376, "remaining_components": 150, "comparisons": 5606621}
+{"root": "02-echo@0.0.7", "examined": 4401, "remaining_components": 144, "comparisons": 5637199}
+{"root": "02-echo@0.0.7", "examined": 4426, "remaining_components": 139, "comparisons": 5668224}
+{"root": "02-echo@0.0.7", "examined": 4451, "remaining_components": 137, "comparisons": 5698041}
+{"root": "02-echo@0.0.7", "examined": 4476, "remaining_components": 133, "comparisons": 5726265}
+{"root": "02-echo@0.0.7", "examined": 4501, "remaining_components": 127, "comparisons": 5758126}
+{"root": "02-echo@0.0.7", "examined": 4526, "remaining_components": 125, "comparisons": 5788088}
+{"root": "02-echo@0.0.7", "examined": 4551, "remaining_components": 125, "comparisons": 5813853}
+{"root": "02-echo@0.0.7", "examined": 4576, "remaining_components": 125, "comparisons": 5839633}
+{"root": "02-echo@0.0.7", "examined": 4601, "remaining_components": 124, "comparisons": 5865723}
+{"root": "02-echo@0.0.7", "examined": 4626, "remaining_components": 124, "comparisons": 5891517}
+{"root": "02-echo@0.0.7", "examined": 4651, "remaining_components": 121, "comparisons": 5920208}
+{"root": "02-echo@0.0.7", "examined": 4676, "remaining_components": 118, "comparisons": 5952119}
+{"root": "02-echo@0.0.7", "examined": 4701, "remaining_components": 116, "comparisons": 5978885}
+{"root": "02-echo@0.0.7", "examined": 4726, "remaining_components": 115, "comparisons": 6009379}
+{"root": "02-echo@0.0.7", "examined": 4751, "remaining_components": 113, "comparisons": 6038679}
+{"root": "02-echo@0.0.7", "examined": 4776, "remaining_components": 112, "comparisons": 6072175}
+{"root": "02-echo@0.0.7", "examined": 4801, "remaining_components": 111, "comparisons": 6101325}
+{"root": "02-echo@0.0.7", "examined": 4826, "remaining_components": 109, "comparisons": 6127990}
+{"root": "02-echo@0.0.7", "examined": 4851, "remaining_components": 108, "comparisons": 6159838}
+{"root": "02-echo@0.0.7", "examined": 4876, "remaining_components": 106, "comparisons": 6189330}
+{"root": "02-echo@0.0.7", "examined": 4901, "remaining_components": 100, "comparisons": 6213507}
+{"root": "02-echo@0.0.7", "examined": 4926, "remaining_components": 97, "comparisons": 6235892}
+{"root": "02-echo@0.0.7", "examined": 4951, "remaining_components": 93, "comparisons": 6256437}
+{"root": "02-echo@0.0.7", "examined": 4976, "remaining_components": 92, "comparisons": 6275083}
+{"root": "02-echo@0.0.7", "examined": 5001, "remaining_components": 89, "comparisons": 6295304}
+{"root": "02-echo@0.0.7", "examined": 5026, "remaining_components": 87, "comparisons": 6311210}
+{"root": "02-echo@0.0.7", "examined": 5051, "remaining_components": 87, "comparisons": 6326847}
+{"root": "02-echo@0.0.7", "examined": 5076, "remaining_components": 86, "comparisons": 6343108}
+{"root": "02-echo@0.0.7", "examined": 5101, "remaining_components": 86, "comparisons": 6357985}
+{"root": "02-echo@0.0.7", "examined": 5126, "remaining_components": 86, "comparisons": 6372862}
+{"root": "02-echo@0.0.7", "examined": 5151, "remaining_components": 86, "comparisons": 6387656}
+{"root": "02-echo@0.0.7", "examined": 5176, "remaining_components": 86, "comparisons": 6403183}
+{"root": "02-echo@0.0.7", "examined": 5201, "remaining_components": 86, "comparisons": 6417963}
+{"root": "02-echo@0.0.7", "examined": 5226, "remaining_components": 85, "comparisons": 6433632}
+{"root": "02-echo@0.0.7", "examined": 5251, "remaining_components": 82, "comparisons": 6449352}
+{"root": "02-echo@0.0.7", "examined": 5276, "remaining_components": 82, "comparisons": 6463893}
+{"root": "02-echo@0.0.7", "examined": 5301, "remaining_components": 76, "comparisons": 6481805}
+{"root": "02-echo@0.0.7", "examined": 5326, "remaining_components": 76, "comparisons": 6506212}
+{"root": "02-echo@0.0.7", "examined": 5351, "remaining_components": 76, "comparisons": 6522344}
+{"root": "02-echo@0.0.7", "examined": 5376, "remaining_components": 75, "comparisons": 6536195}
+{"root": "02-echo@0.0.7", "examined": 5401, "remaining_components": 73, "comparisons": 6551109}
+{"root": "02-echo@0.0.7", "examined": 5426, "remaining_components": 71, "comparisons": 6564003}
+{"root": "02-echo@0.0.7", "examined": 5451, "remaining_components": 70, "comparisons": 6575575}
+{"root": "02-echo@0.0.7", "examined": 5476, "remaining_components": 70, "comparisons": 6586750}
+{"root": "02-echo@0.0.7", "examined": 5501, "remaining_components": 68, "comparisons": 6598610}
+{"root": "02-echo@0.0.7", "examined": 5526, "remaining_components": 65, "comparisons": 6610758}
+{"root": "02-echo@0.0.7", "examined": 5551, "remaining_components": 63, "comparisons": 6622224}
+{"root": "02-echo@0.0.7", "examined": 5576, "remaining_components": 63, "comparisons": 6632699}
+{"root": "02-echo@0.0.7", "examined": 5601, "remaining_components": 61, "comparisons": 6643824}
+{"root": "02-echo@0.0.7", "examined": 5626, "remaining_components": 59, "comparisons": 6655205}
+{"root": "02-echo@0.0.7", "examined": 5651, "remaining_components": 58, "comparisons": 6665443}
+{"root": "02-echo@0.0.7", "examined": 5676, "remaining_components": 57, "comparisons": 6675500}
+{"root": "02-echo@0.0.7", "examined": 5701, "remaining_components": 55, "comparisons": 6685530}
+{"root": "02-echo@0.0.7", "examined": 5726, "remaining_components": 55, "comparisons": 6694955}
+{"root": "02-echo@0.0.7", "examined": 5751, "remaining_components": 55, "comparisons": 6704380}
+{"root": "02-echo@0.0.7", "examined": 5776, "remaining_components": 54, "comparisons": 6714035}
+{"root": "02-echo@0.0.7", "examined": 5801, "remaining_components": 51, "comparisons": 6724057}
+{"root": "02-echo@0.0.7", "examined": 5826, "remaining_components": 50, "comparisons": 6733700}
+{"root": "02-echo@0.0.7", "examined": 5851, "remaining_components": 47, "comparisons": 6743167}
+{"root": "02-echo@0.0.7", "examined": 5876, "remaining_components": 46, "comparisons": 6753666}
+{"root": "02-echo@0.0.7", "examined": 5901, "remaining_components": 45, "comparisons": 6761926}
+{"root": "02-echo@0.0.7", "examined": 5926, "remaining_components": 44, "comparisons": 6767308}
+{"root": "02-echo@0.0.7", "examined": 5951, "remaining_components": 44, "comparisons": 6771708}
+{"root": "02-echo@0.0.7", "examined": 5976, "remaining_components": 44, "comparisons": 6776108}
+{"root": "02-echo@0.0.7", "examined": 6001, "remaining_components": 41, "comparisons": 6780542}
+{"root": "02-echo@0.0.7", "examined": 6026, "remaining_components": 41, "comparisons": 6784840}
+{"root": "02-echo@0.0.7", "examined": 6051, "remaining_components": 41, "comparisons": 6789140}
+{"root": "02-echo@0.0.7", "examined": 6076, "remaining_components": 40, "comparisons": 6793565}
+{"root": "02-echo@0.0.7", "examined": 6101, "remaining_components": 38, "comparisons": 6797137}
+{"root": "02-echo@0.0.7", "examined": 6126, "remaining_components": 36, "comparisons": 6800284}
+{"root": "02-echo@0.0.7", "examined": 6151, "remaining_components": 33, "comparisons": 6803249}
+{"root": "02-echo@0.0.7", "examined": 6176, "remaining_components": 33, "comparisons": 6805699}
+{"root": "02-echo@0.0.7", "examined": 6201, "remaining_components": 27, "comparisons": 6808549}
+{"root": "02-echo@0.0.7", "examined": 6226, "remaining_components": 23, "comparisons": 6810780}
+{"root": "02-echo@0.0.7", "examined": 6251, "remaining_components": 22, "comparisons": 6812702}
+{"root": "02-echo@0.0.7", "examined": 6276, "remaining_components": 20, "comparisons": 6814596}
+{"root": "02-echo@0.0.7", "examined": 6301, "remaining_components": 19, "comparisons": 6816216}
+{"root": "02-echo@0.0.7", "examined": 6326, "remaining_components": 11, "comparisons": 6817510}
+{"root": "02-echo@0.0.7", "examined": 6351, "remaining_components": 8, "comparisons": 6818362}
+{"root": "02-echo@0.0.7", "examined": 6376, "remaining_components": 5, "comparisons": 6818935}
+{"root": "02-echo@0.0.7", "examined": 6401, "remaining_components": 3, "comparisons": 6819127}
+{"root": "02-echo@0.0.7", "examined": 6426, "remaining_components": 3, "comparisons": 6819252}
+{"root": "@common-pattern/components@8.2.9", "indexed": 4, "components": 3}
+{"root": "@common-pattern/components@8.2.9", "examined": 1, "remaining_components": 1, "comparisons": 6819326}
+{"root": "@hemanshu_patil/xcode@0.1.0", "indexed": 4, "components": 2}
+{"root": "@hemanshu_patil/xcode@0.1.0", "examined": 1, "remaining_components": 2, "comparisons": 6819326}
+{"root": "adfg-project@1.0.1", "indexed": 146, "components": 4}
+{"root": "adfg-project@1.0.1", "examined": 1, "remaining_components": 4, "comparisons": 6819330}
+{"root": "adfg-project@1.0.1", "examined": 26, "remaining_components": 4, "comparisons": 6819405}
+{"root": "@bytedanc-ad/market-ui-vue2@89.3.5", "indexed": 2, "components": 2}
+{"root": "@bytedanc-ad/market-ui-vue2@89.3.5", "examined": 1, "remaining_components": 1, "comparisons": 6819409}
+{"root": "redirect-0vaxnw@1.0.0", "indexed": 91, "components": 2}
+{"root": "redirect-0vaxnw@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6819410}
+{"root": "@flight-common/components@1.2.9213", "indexed": 44, "components": 14}
+{"root": "@flight-common/components@1.2.9213", "examined": 1, "remaining_components": 14, "comparisons": 6819423}
+{"root": "astrobot@1.0.1", "indexed": 47, "components": 17}
+{"root": "astrobot@1.0.1", "examined": 1, "remaining_components": 17, "comparisons": 6819526}
+{"root": "astrobot@1.0.1", "examined": 26, "remaining_components": 2, "comparisons": 6819925}
+{"root": "fixerpabo_jkbts@1.0.0", "indexed": 49, "components": 5}
+{"root": "fixerpabo_jkbts@1.0.0", "examined": 1, "remaining_components": 4, "comparisons": 6819967}
+{"root": "fixerpabo_jkbts@1.0.0", "examined": 26, "remaining_components": 1, "comparisons": 6820534}
+{"root": "@polystream/streaming@2.1.3", "indexed": 44, "components": 3}
+{"root": "@polystream/streaming@2.1.3", "examined": 1, "remaining_components": 1, "comparisons": 6820536}
+{"root": "all.en.js@1.0.0", "indexed": 4, "components": 2}
+{"root": "all.en.js@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6820537}
+{"root": "elf-stats-flickering-saddlebag-301@1.0.0", "indexed": 40, "components": 13}
+{"root": "elf-stats-flickering-saddlebag-301@1.0.0", "examined": 1, "remaining_components": 13, "comparisons": 6820543}
+{"root": "elf-stats-flickering-saddlebag-301@1.0.0", "examined": 26, "remaining_components": 3, "comparisons": 6820631}
+{"root": "big-nunber@5.0.4", "indexed": 26, "components": 2}
+{"root": "big-nunber@5.0.4", "examined": 1, "remaining_components": 1, "comparisons": 6820646}
+{"root": "@oneaudi/current-carline-service@3.8.4", "indexed": 30, "components": 2}
+{"root": "@oneaudi/current-carline-service@3.8.4", "examined": 1, "remaining_components": 1, "comparisons": 6820647}
+{"root": "actions-languageservice@99.0.0", "indexed": 28, "components": 19}
+{"root": "actions-languageservice@99.0.0", "examined": 1, "remaining_components": 18, "comparisons": 6820670}
+{"root": "eslint-config-i18n-scan@10.0.1", "indexed": 8, "components": 2}
+{"root": "eslint-config-i18n-scan@10.0.1", "examined": 1, "remaining_components": 2, "comparisons": 6820733}
+{"root": "@captivateiq/events@23.3.9", "indexed": 23, "components": 20}
+{"root": "@captivateiq/events@23.3.9", "examined": 1, "remaining_components": 9, "comparisons": 6820753}
+{"root": "at-authorize-paypal@1.0.0", "indexed": 20, "components": 11}
+{"root": "at-authorize-paypal@1.0.0", "examined": 1, "remaining_components": 3, "comparisons": 6820875}
+{"root": "mddriver@1.8.1", "indexed": 24, "components": 2}
+{"root": "mddriver@1.8.1", "examined": 1, "remaining_components": 1, "comparisons": 6820908}
+{"root": "bsamba@33.12.12", "indexed": 26, "components": 16}
+{"root": "bsamba@33.12.12", "examined": 1, "remaining_components": 1, "comparisons": 6820923}
+{"root": "data-transaction-generates@1.0.1", "indexed": 22, "components": 2}
+{"root": "data-transaction-generates@1.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6820924}
+{"root": "511fola@99.99.99", "indexed": 22, "components": 19}
+{"root": "511fola@99.99.99", "examined": 1, "remaining_components": 19, "comparisons": 6820944}
+{"root": "@hypervector/hypervector-tbank-test@0.2.1", "indexed": 12, "components": 3}
+{"root": "@hypervector/hypervector-tbank-test@0.2.1", "examined": 1, "remaining_components": 3, "comparisons": 6821002}
+{"root": "free-anthropic-claude@1.0.0", "indexed": 17, "components": 2}
+{"root": "free-anthropic-claude@1.0.0", "examined": 1, "remaining_components": 2, "comparisons": 6821013}
+{"root": "legoland-shared@1.0.0", "indexed": 18, "components": 2}
+{"root": "legoland-shared@1.0.0", "examined": 1, "remaining_components": 2, "comparisons": 6821016}
+{"root": "atom-keybindings@1.0.0", "indexed": 22, "components": 10}
+{"root": "atom-keybindings@1.0.0", "examined": 1, "remaining_components": 2, "comparisons": 6821042}
+{"root": "@wb-drive/icons@2.4.9", "indexed": 11, "components": 4}
+{"root": "@wb-drive/icons@2.4.9", "examined": 1, "remaining_components": 3, "comparisons": 6821046}
+{"root": "react-devkit@1.1.0", "indexed": 18, "components": 2}
+{"root": "react-devkit@1.1.0", "examined": 1, "remaining_components": 1, "comparisons": 6821055}
+{"root": "@girirajravichandran/corp-build-utils-poc@99.9.32", "indexed": 16, "components": 2}
+{"root": "@girirajravichandran/corp-build-utils-poc@99.9.32", "examined": 1, "remaining_components": 2, "comparisons": 6821055}
+{"root": "@emilgroup/account-sdk-node@1.40.1", "indexed": 3, "components": 2}
+{"root": "@emilgroup/account-sdk-node@1.40.1", "examined": 1, "remaining_components": 1, "comparisons": 6821061}
+{"root": "launch-darkly-provider@1.0.1", "indexed": 4, "components": 2}
+{"root": "launch-darkly-provider@1.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821062}
+{"root": "@add-wallet-exchange/import-type@1.0.0", "indexed": 9, "components": 6}
+{"root": "@add-wallet-exchange/import-type@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821067}
+{"root": "aiide-cur@1.9.1", "indexed": 16, "components": 2}
+{"root": "aiide-cur@1.9.1", "examined": 1, "remaining_components": 1, "comparisons": 6821068}
+{"root": "datanerd@1.0.1", "indexed": 4, "components": 2}
+{"root": "datanerd@1.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821069}
+{"root": "eslint-plugin-cdp-project@1.1.1", "indexed": 5, "components": 2}
+{"root": "eslint-plugin-cdp-project@1.1.1", "examined": 1, "remaining_components": 1, "comparisons": 6821070}
+{"root": "elf-stats-aurora-sleigh-694@1.0.0", "indexed": 13, "components": 5}
+{"root": "elf-stats-aurora-sleigh-694@1.0.0", "examined": 1, "remaining_components": 5, "comparisons": 6821072}
+{"root": "enjin-docs@15.0.0", "indexed": 11, "components": 4}
+{"root": "enjin-docs@15.0.0", "examined": 1, "remaining_components": 4, "comparisons": 6821089}
+{"root": "node-calculator-290c@7.1.1", "indexed": 9, "components": 3}
+{"root": "node-calculator-290c@7.1.1", "examined": 1, "remaining_components": 2, "comparisons": 6821099}
+{"root": "@3kali182/angular-1.6@9.1.1", "indexed": 16, "components": 15}
+{"root": "@3kali182/angular-1.6@9.1.1", "examined": 1, "remaining_components": 2, "comparisons": 6821117}
+{"root": "@chkpkit/box@99.99.89", "indexed": 8, "components": 7}
+{"root": "@chkpkit/box@99.99.89", "examined": 1, "remaining_components": 1, "comparisons": 6821131}
+{"root": "@elementor-editor-github-actions/utils@1.0.0", "indexed": 16, "components": 16}
+{"root": "@elementor-editor-github-actions/utils@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821146}
+{"root": "@merge-api/merge-javascript-shared@27.7.0", "indexed": 15, "components": 2}
+{"root": "@merge-api/merge-javascript-shared@27.7.0", "examined": 1, "remaining_components": 1, "comparisons": 6821147}
+{"root": "advanced-korean-search@1.0.0", "indexed": 10, "components": 6}
+{"root": "advanced-korean-search@1.0.0", "examined": 1, "remaining_components": 6, "comparisons": 6821147}
+{"root": "@gaia-codesearch/gaia-api-python@0.0.10", "indexed": 15, "components": 3}
+{"root": "@gaia-codesearch/gaia-api-python@0.0.10", "examined": 1, "remaining_components": 1, "comparisons": 6821154}
+{"root": "@nx/devkit@21.5.0", "indexed": 7, "components": 2}
+{"root": "@nx/devkit@21.5.0", "examined": 1, "remaining_components": 2, "comparisons": 6821154}
+{"root": "ac-sasskit-internal@100.0.10", "indexed": 3, "components": 2}
+{"root": "ac-sasskit-internal@100.0.10", "examined": 1, "remaining_components": 1, "comparisons": 6821157}
+{"root": "auth0-app@55.3.1", "indexed": 15, "components": 15}
+{"root": "auth0-app@55.3.1", "examined": 1, "remaining_components": 1, "comparisons": 6821171}
+{"root": "elf-stats-festive-snowglobe-440@1.0.0", "indexed": 7, "components": 6}
+{"root": "elf-stats-festive-snowglobe-440@1.0.0", "examined": 1, "remaining_components": 3, "comparisons": 6821176}
+{"root": "pascoresend@3.2.0", "indexed": 2, "components": 2}
+{"root": "pascoresend@3.2.0", "examined": 1, "remaining_components": 1, "comparisons": 6821185}
+{"root": "aiven-docs@1.0.0", "indexed": 13, "components": 2}
+{"root": "aiven-docs@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821186}
+{"root": "ajna-rewards-snapshot@1337.1.0", "indexed": 2, "components": 2}
+{"root": "ajna-rewards-snapshot@1337.1.0", "examined": 1, "remaining_components": 1, "comparisons": 6821187}
+{"root": "claude-skills-library@1.0.0", "indexed": 12, "components": 2}
+{"root": "claude-skills-library@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821189}
+{"root": "@hornetsecurity/angular-pew-pew@1.0.0", "indexed": 10, "components": 5}
+{"root": "@hornetsecurity/angular-pew-pew@1.0.0", "examined": 1, "remaining_components": 4, "comparisons": 6821190}
+{"root": "@speedshop/sdk-api@21.4.2", "indexed": 9, "components": 2}
+{"root": "@speedshop/sdk-api@21.4.2", "examined": 1, "remaining_components": 1, "comparisons": 6821196}
+{"root": "ai-playground@3.0.0", "indexed": 12, "components": 10}
+{"root": "ai-playground@3.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821205}
+{"root": "apple-internal-config@100.0.1", "indexed": 12, "components": 2}
+{"root": "apple-internal-config@100.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821206}
+{"root": "aragearage@99.1.3", "indexed": 6, "components": 5}
+{"root": "aragearage@99.1.3", "examined": 1, "remaining_components": 1, "comparisons": 6821210}
+{"root": "datadog-checks-base@1.0.0", "indexed": 6, "components": 3}
+{"root": "datadog-checks-base@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821212}
+{"root": "elf-stats-aurora-rocket-733@250.4.50", "indexed": 10, "components": 4}
+{"root": "elf-stats-aurora-rocket-733@250.4.50", "examined": 1, "remaining_components": 3, "comparisons": 6821213}
+{"root": "erbankbackdoor@0.30.2", "indexed": 7, "components": 2}
+{"root": "erbankbackdoor@0.30.2", "examined": 1, "remaining_components": 2, "comparisons": 6821222}
+{"root": "gpt-sdk@0.1.2", "indexed": 9, "components": 3}
+{"root": "gpt-sdk@0.1.2", "examined": 1, "remaining_components": 1, "comparisons": 6821231}
+{"root": "jenkins-for-jira@100.0.0", "indexed": 8, "components": 2}
+{"root": "jenkins-for-jira@100.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821232}
+{"root": "muenxo@99.9.11", "indexed": 12, "components": 3}
+{"root": "muenxo@99.9.11", "examined": 1, "remaining_components": 1, "comparisons": 6821234}
+{"root": "6sdgsd6s-control@9999.0.0", "indexed": 8, "components": 7}
+{"root": "6sdgsd6s-control@9999.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821240}
+{"root": "bfruitmaliciousxmlparser@0.30.1", "indexed": 9, "components": 2}
+{"root": "bfruitmaliciousxmlparser@0.30.1", "examined": 1, "remaining_components": 1, "comparisons": 6821241}
+{"root": "cdk-sagemaker-notebook-workflow@2.0.4", "indexed": 7, "components": 3}
+{"root": "cdk-sagemaker-notebook-workflow@2.0.4", "examined": 1, "remaining_components": 1, "comparisons": 6821243}
+{"root": "elf-stats-cosy-sleigh-356@99.0.0", "indexed": 10, "components": 5}
+{"root": "elf-stats-cosy-sleigh-356@99.0.0", "examined": 1, "remaining_components": 5, "comparisons": 6821246}
+{"root": "foundry-toolkit@1.0.1", "indexed": 11, "components": 4}
+{"root": "foundry-toolkit@1.0.1", "examined": 1, "remaining_components": 2, "comparisons": 6821254}
+{"root": "govoi@1.0.2", "indexed": 11, "components": 2}
+{"root": "govoi@1.0.2", "examined": 1, "remaining_components": 1, "comparisons": 6821262}
+{"root": "24712-pl3469@0.0.2", "indexed": 8, "components": 7}
+{"root": "24712-pl3469@0.0.2", "examined": 1, "remaining_components": 1, "comparisons": 6821268}
+{"root": "@kyriba/data-frontend@1.0.1", "indexed": 4, "components": 4}
+{"root": "@kyriba/data-frontend@1.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821271}
+{"root": "ace-widgets@999.0.0", "indexed": 6, "components": 5}
+{"root": "ace-widgets@999.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821275}
+{"root": "azure-postgresql-auth@1.1.2", "indexed": 3, "components": 2}
+{"root": "azure-postgresql-auth@1.1.2", "examined": 1, "remaining_components": 1, "comparisons": 6821276}
+{"root": "bank-auth@33.12.13", "indexed": 10, "components": 10}
+{"root": "bank-auth@33.12.13", "examined": 1, "remaining_components": 1, "comparisons": 6821285}
+{"root": "cloud-inquisitor@1.0.0", "indexed": 9, "components": 9}
+{"root": "cloud-inquisitor@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821293}
+{"root": "mockup-device-js@1.0.0", "indexed": 7, "components": 2}
+{"root": "mockup-device-js@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821294}
+{"root": "@blocks-shared/desktop-title@2.99.99", "indexed": 4, "components": 4}
+{"root": "@blocks-shared/desktop-title@2.99.99", "examined": 1, "remaining_components": 1, "comparisons": 6821297}
+{"root": "aes-decode-runner-pro@1.0.10", "indexed": 8, "components": 2}
+{"root": "aes-decode-runner-pro@1.0.10", "examined": 1, "remaining_components": 1, "comparisons": 6821298}
+{"root": "agent-framework-web@9.9.9", "indexed": 9, "components": 9}
+{"root": "agent-framework-web@9.9.9", "examined": 1, "remaining_components": 1, "comparisons": 6821306}
+{"root": "assetslush@27.3.1", "indexed": 9, "components": 8}
+{"root": "assetslush@27.3.1", "examined": 1, "remaining_components": 2, "comparisons": 6821313}
+{"root": "azaza@1.0.0", "indexed": 5, "components": 2}
+{"root": "azaza@1.0.0", "examined": 1, "remaining_components": 2, "comparisons": 6821318}
+{"root": "bizsignupnodeweb@99.10.9", "indexed": 9, "components": 9}
+{"root": "bizsignupnodeweb@99.10.9", "examined": 1, "remaining_components": 1, "comparisons": 6821327}
+{"root": "elf-stats-aurora-toy-659@99.9.10", "indexed": 2, "components": 2}
+{"root": "elf-stats-aurora-toy-659@99.9.10", "examined": 1, "remaining_components": 1, "comparisons": 6821328}
+{"root": "elf-stats-festive-hollyberry-475@1.0.0", "indexed": 6, "components": 2}
+{"root": "elf-stats-festive-hollyberry-475@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821329}
+{"root": "mi-account@99.0.0", "indexed": 9, "components": 5}
+{"root": "mi-account@99.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821333}
+{"root": "@maxcointech/simple-string-utils@1.0.0", "indexed": 8, "components": 2}
+{"root": "@maxcointech/simple-string-utils@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821334}
+{"root": "@me404org/test@6.24.1", "indexed": 4, "components": 2}
+{"root": "@me404org/test@6.24.1", "examined": 1, "remaining_components": 2, "comparisons": 6821335}
+{"root": "aesdecryptor@1.0.0", "indexed": 8, "components": 5}
+{"root": "aesdecryptor@1.0.0", "examined": 1, "remaining_components": 5, "comparisons": 6821336}
+{"root": "auth-validator@1.0.0", "indexed": 8, "components": 6}
+{"root": "auth-validator@1.0.0", "examined": 1, "remaining_components": 6, "comparisons": 6821347}
+{"root": "bk-card-cc-credit-limit-adjustment-ui@9.9.9", "indexed": 8, "components": 4}
+{"root": "bk-card-cc-credit-limit-adjustment-ui@9.9.9", "examined": 1, "remaining_components": 1, "comparisons": 6821360}
+{"root": "cld-ai-chatbot-web@3.0.4", "indexed": 5, "components": 3}
+{"root": "cld-ai-chatbot-web@3.0.4", "examined": 1, "remaining_components": 1, "comparisons": 6821362}
+{"root": "codecoverage-tools@1.0.3", "indexed": 5, "components": 2}
+{"root": "codecoverage-tools@1.0.3", "examined": 1, "remaining_components": 2, "comparisons": 6821362}
+{"root": "7702-eoa-implementation@1.0.0", "indexed": 3, "components": 3}
+{"root": "7702-eoa-implementation@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821365}
+{"root": "@accessibility-insights/eslint-plugin@9.9.9", "indexed": 6, "components": 4}
+{"root": "@accessibility-insights/eslint-plugin@9.9.9", "examined": 1, "remaining_components": 1, "comparisons": 6821368}
+{"root": "@brokenzzz/garfish@99.9.9", "indexed": 6, "components": 2}
+{"root": "@brokenzzz/garfish@99.9.9", "examined": 1, "remaining_components": 1, "comparisons": 6821369}
+{"root": "@depro0x/despicable-me@10.0.0", "indexed": 7, "components": 3}
+{"root": "@depro0x/despicable-me@10.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821371}
+{"root": "@evoja-web/redaction@99.0.0", "indexed": 5, "components": 2}
+{"root": "@evoja-web/redaction@99.0.0", "examined": 1, "remaining_components": 2, "comparisons": 6821372}
+{"root": "@seznam-diskuze/embed@100.4.0", "indexed": 4, "components": 2}
+{"root": "@seznam-diskuze/embed@100.4.0", "examined": 1, "remaining_components": 2, "comparisons": 6821374}
+{"root": "auth0-aspnetcore-utils@1.0.0", "indexed": 5, "components": 3}
+{"root": "auth0-aspnetcore-utils@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821377}
+{"root": "crew-toolbox@5.0.0", "indexed": 7, "components": 3}
+{"root": "crew-toolbox@5.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821379}
+{"root": "edj-shopify-theme@99.9.2", "indexed": 7, "components": 7}
+{"root": "edj-shopify-theme@99.9.2", "examined": 1, "remaining_components": 1, "comparisons": 6821385}
+{"root": "elf-stats-bright-cocoa-293@1.0.2", "indexed": 6, "components": 6}
+{"root": "elf-stats-bright-cocoa-293@1.0.2", "examined": 1, "remaining_components": 3, "comparisons": 6821390}
+{"root": "elf-stats-candystriped-bauble-740@1.0.0", "indexed": 7, "components": 2}
+{"root": "elf-stats-candystriped-bauble-740@1.0.0", "examined": 1, "remaining_components": 2, "comparisons": 6821396}
+{"root": "elf-stats-cosy-drum-671@1.0.0", "indexed": 7, "components": 7}
+{"root": "elf-stats-cosy-drum-671@1.0.0", "examined": 1, "remaining_components": 6, "comparisons": 6821407}
+{"root": "elf-stats-cosy-garland-592@1.0.0", "indexed": 7, "components": 7}
+{"root": "elf-stats-cosy-garland-592@1.0.0", "examined": 1, "remaining_components": 4, "comparisons": 6821418}
+{"root": "elf-stats-flickering-satchel-815@1.0.1", "indexed": 4, "components": 2}
+{"root": "elf-stats-flickering-satchel-815@1.0.1", "examined": 1, "remaining_components": 2, "comparisons": 6821426}
+{"root": "internal-company-sdk@999.0.0", "indexed": 7, "components": 7}
+{"root": "internal-company-sdk@999.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821433}
+{"root": "ip-checker-bg@1.0.0", "indexed": 6, "components": 3}
+{"root": "ip-checker-bg@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821435}
+{"root": "prajwal_kewat-test-package@1.0.0", "indexed": 5, "components": 4}
+{"root": "prajwal_kewat-test-package@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821438}
+{"root": "supports-validation-checkerlib@1.0.1", "indexed": 7, "components": 2}
+{"root": "supports-validation-checkerlib@1.0.1", "examined": 1, "remaining_components": 2, "comparisons": 6821440}
+{"root": "ttspc-server-sample@9.0.0", "indexed": 4, "components": 2}
+{"root": "ttspc-server-sample@9.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821442}
+{"root": "1kzr@1.0.0", "indexed": 6, "components": 6}
+{"root": "1kzr@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821447}
+{"root": "@afg-ikea/ikea-family-registration-module@99.9.9", "indexed": 5, "components": 5}
+{"root": "@afg-ikea/ikea-family-registration-module@99.9.9", "examined": 1, "remaining_components": 1, "comparisons": 6821451}
+{"root": "@ibm-org/custom-greeting@1.0.1", "indexed": 3, "components": 3}
+{"root": "@ibm-org/custom-greeting@1.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821453}
+{"root": "@pkgr/core@0.2.8", "indexed": 2, "components": 2}
+{"root": "@pkgr/core@0.2.8", "examined": 1, "remaining_components": 1, "comparisons": 6821454}
+{"root": "appinsightsnew@1.0.0", "indexed": 6, "components": 5}
+{"root": "appinsightsnew@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821458}
+{"root": "arangodb@1.0.3", "indexed": 6, "components": 2}
+{"root": "arangodb@1.0.3", "examined": 1, "remaining_components": 2, "comparisons": 6821460}
+{"root": "basic-with-react-hooks@0.0.1", "indexed": 5, "components": 5}
+{"root": "basic-with-react-hooks@0.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821468}
+{"root": "browser-client-neptune@99.99.90", "indexed": 6, "components": 3}
+{"root": "browser-client-neptune@99.99.90", "examined": 1, "remaining_components": 1, "comparisons": 6821470}
+{"root": "buffer-util-extend@1.0.10", "indexed": 5, "components": 2}
+{"root": "buffer-util-extend@1.0.10", "examined": 1, "remaining_components": 1, "comparisons": 6821471}
+{"root": "clickpy@1.0.0", "indexed": 6, "components": 5}
+{"root": "clickpy@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821475}
+{"root": "composer-bin-plugin@4.1.1", "indexed": 6, "components": 3}
+{"root": "composer-bin-plugin@4.1.1", "examined": 1, "remaining_components": 1, "comparisons": 6821477}
+{"root": "elf-stats-bright-star-581@1.0.0", "indexed": 2, "components": 2}
+{"root": "elf-stats-bright-star-581@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821478}
+{"root": "elf-stats-merry-cookiejar-139@1.0.0", "indexed": 5, "components": 3}
+{"root": "elf-stats-merry-cookiejar-139@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821480}
+{"root": "modlog-archive@1.0.2", "indexed": 6, "components": 2}
+{"root": "modlog-archive@1.0.2", "examined": 1, "remaining_components": 2, "comparisons": 6821482}
+{"root": "ng-vzbootstrap@1.0.1", "indexed": 5, "components": 2}
+{"root": "ng-vzbootstrap@1.0.1", "examined": 1, "remaining_components": 2, "comparisons": 6821483}
+{"root": "normalize-path-seq@3.8.9", "indexed": 6, "components": 4}
+{"root": "normalize-path-seq@3.8.9", "examined": 1, "remaining_components": 1, "comparisons": 6821487}
+{"root": "okfe-serverless-conf@9999.0.0", "indexed": 5, "components": 2}
+{"root": "okfe-serverless-conf@9999.0.0", "examined": 1, "remaining_components": 2, "comparisons": 6821488}
+{"root": "pulse-feature-flag@1.0.1", "indexed": 6, "components": 5}
+{"root": "pulse-feature-flag@1.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821495}
+{"root": "24712-plv2@0.0.2", "indexed": 3, "components": 2}
+{"root": "24712-plv2@0.0.2", "examined": 1, "remaining_components": 1, "comparisons": 6821496}
+{"root": "@citi-icg-158830/elemental-chameleon@0.0.0-defensive-callback", "indexed": 5, "components": 3}
+{"root": "@citi-icg-158830/elemental-chameleon@0.0.0-defensive-callback", "examined": 1, "remaining_components": 2, "comparisons": 6821499}
+{"root": "@woody-mrs-potato/utils-banking@1.0.10", "indexed": 4, "components": 2}
+{"root": "@woody-mrs-potato/utils-banking@1.0.10", "examined": 1, "remaining_components": 1, "comparisons": 6821503}
+{"root": "adobe-helix-rum-enhancer@99.99.100", "indexed": 5, "components": 4}
+{"root": "adobe-helix-rum-enhancer@99.99.100", "examined": 1, "remaining_components": 2, "comparisons": 6821507}
+{"root": "brfsddd@0.0.1", "indexed": 4, "components": 2}
+{"root": "brfsddd@0.0.1", "examined": 1, "remaining_components": 2, "comparisons": 6821508}
+{"root": "com.unity.dt.app-ui@99.0.1", "indexed": 3, "components": 2}
+{"root": "com.unity.dt.app-ui@99.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821510}
+{"root": "company-ts@1.0.1", "indexed": 3, "components": 2}
+{"root": "company-ts@1.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821511}
+{"root": "config-conventional@20.1.1", "indexed": 5, "components": 4}
+{"root": "config-conventional@20.1.1", "examined": 1, "remaining_components": 4, "comparisons": 6821511}
+{"root": "deployment-core@50.50.50", "indexed": 5, "components": 5}
+{"root": "deployment-core@50.50.50", "examined": 1, "remaining_components": 3, "comparisons": 6821518}
+{"root": "dhrunner@24.1220.12", "indexed": 4, "components": 2}
+{"root": "dhrunner@24.1220.12", "examined": 1, "remaining_components": 2, "comparisons": 6821520}
+{"root": "dot-utils-plus@0.1.0", "indexed": 5, "components": 2}
+{"root": "dot-utils-plus@0.1.0", "examined": 1, "remaining_components": 1, "comparisons": 6821522}
+{"root": "ebay-tester@999.9.9", "indexed": 4, "components": 4}
+{"root": "ebay-tester@999.9.9", "examined": 1, "remaining_components": 1, "comparisons": 6821525}
+{"root": "ecto-corsair-lwirz@101.0.0", "indexed": 2, "components": 2}
+{"root": "ecto-corsair-lwirz@101.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821526}
+{"root": "efergvthdaadgfhrgewsfqwf@9.9.9", "indexed": 4, "components": 4}
+{"root": "efergvthdaadgfhrgewsfqwf@9.9.9", "examined": 1, "remaining_components": 1, "comparisons": 6821529}
+{"root": "estree-util@1.0.0", "indexed": 4, "components": 2}
+{"root": "estree-util@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821530}
+{"root": "igshared@8.1.2", "indexed": 5, "components": 4}
+{"root": "igshared@8.1.2", "examined": 1, "remaining_components": 4, "comparisons": 6821533}
+{"root": "laserlogsink@2.1.0", "indexed": 3, "components": 3}
+{"root": "laserlogsink@2.1.0", "examined": 1, "remaining_components": 1, "comparisons": 6821538}
+{"root": "mv-fe-scss@2.1.4", "indexed": 5, "components": 2}
+{"root": "mv-fe-scss@2.1.4", "examined": 1, "remaining_components": 2, "comparisons": 6821538}
+{"root": "node-calculator-26d7@2.1.0", "indexed": 2, "components": 2}
+{"root": "node-calculator-26d7@2.1.0", "examined": 1, "remaining_components": 1, "comparisons": 6821540}
+{"root": "node-calculator-31b9@2.1.1", "indexed": 3, "components": 2}
+{"root": "node-calculator-31b9@2.1.1", "examined": 1, "remaining_components": 1, "comparisons": 6821541}
+{"root": "phantom-module@117.0.101", "indexed": 5, "components": 4}
+{"root": "phantom-module@117.0.101", "examined": 1, "remaining_components": 1, "comparisons": 6821544}
+{"root": "proleis-web-animations@10.1.0", "indexed": 5, "components": 5}
+{"root": "proleis-web-animations@10.1.0", "examined": 1, "remaining_components": 1, "comparisons": 6821548}
+{"root": "tableau-redirection-service@99.0.0", "indexed": 5, "components": 2}
+{"root": "tableau-redirection-service@99.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821549}
+{"root": "unisys-agentic-ai-playground@99.99.1", "indexed": 5, "components": 5}
+{"root": "unisys-agentic-ai-playground@99.99.1", "examined": 1, "remaining_components": 1, "comparisons": 6821553}
+{"root": "@b2b-frontend/store@1.0.0", "indexed": 4, "components": 2}
+{"root": "@b2b-frontend/store@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821554}
+{"root": "@kamotive/api-file-upload@1.0.0", "indexed": 4, "components": 2}
+{"root": "@kamotive/api-file-upload@1.0.0", "examined": 1, "remaining_components": 2, "comparisons": 6821554}
+{"root": "@komoot/kvstore@5.5.6", "indexed": 4, "components": 3}
+{"root": "@komoot/kvstore@5.5.6", "examined": 1, "remaining_components": 2, "comparisons": 6821558}
+{"root": "@wingon-wireless/crocodile-constants@11.9.0", "indexed": 3, "components": 3}
+{"root": "@wingon-wireless/crocodile-constants@11.9.0", "examined": 1, "remaining_components": 1, "comparisons": 6821561}
+{"root": "abrhide@3.1.22", "indexed": 2, "components": 2}
+{"root": "abrhide@3.1.22", "examined": 1, "remaining_components": 1, "comparisons": 6821562}
+{"root": "adril7122@41.7.2", "indexed": 4, "components": 4}
+{"root": "adril7122@41.7.2", "examined": 1, "remaining_components": 1, "comparisons": 6821565}
+{"root": "bitcoin-indexer@1.1.1", "indexed": 4, "components": 4}
+{"root": "bitcoin-indexer@1.1.1", "examined": 1, "remaining_components": 1, "comparisons": 6821568}
+{"root": "corsair-module@200.0.0", "indexed": 4, "components": 4}
+{"root": "corsair-module@200.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821571}
+{"root": "dave-common@15.0.0", "indexed": 3, "components": 2}
+{"root": "dave-common@15.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821572}
+{"root": "diacritic_remover@1.0.0", "indexed": 4, "components": 4}
+{"root": "diacritic_remover@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821575}
+{"root": "elf-stats-cheery-northstar-345@1.0.1", "indexed": 3, "components": 3}
+{"root": "elf-stats-cheery-northstar-345@1.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821577}
+{"root": "elf-stats-peppermint-fir-730@1.0.0", "indexed": 3, "components": 2}
+{"root": "elf-stats-peppermint-fir-730@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821578}
+{"root": "elf-stats-sparkly-ribbon-167@1.1.0", "indexed": 2, "components": 2}
+{"root": "elf-stats-sparkly-ribbon-167@1.1.0", "examined": 1, "remaining_components": 1, "comparisons": 6821579}
+{"root": "es-lint-builder@1.0.0", "indexed": 3, "components": 2}
+{"root": "es-lint-builder@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821580}
+{"root": "escapes@1.0.0", "indexed": 3, "components": 3}
+{"root": "escapes@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821582}
+{"root": "finn-pulse-init@1.0.2", "indexed": 3, "components": 2}
+{"root": "finn-pulse-init@1.0.2", "examined": 1, "remaining_components": 1, "comparisons": 6821583}
+{"root": "hardhta@1.0.0", "indexed": 4, "components": 4}
+{"root": "hardhta@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821586}
+{"root": "hs-locale-management@99.99.99", "indexed": 4, "components": 2}
+{"root": "hs-locale-management@99.99.99", "examined": 1, "remaining_components": 2, "comparisons": 6821587}
+{"root": "hyatt-album@999.999.999", "indexed": 4, "components": 4}
+{"root": "hyatt-album@999.999.999", "examined": 1, "remaining_components": 1, "comparisons": 6821591}
+{"root": "malwaretest@0.0.10", "indexed": 3, "components": 2}
+{"root": "malwaretest@0.0.10", "examined": 1, "remaining_components": 1, "comparisons": 6821592}
+{"root": "moduletestsimple5@1.1.0", "indexed": 3, "components": 3}
+{"root": "moduletestsimple5@1.1.0", "examined": 1, "remaining_components": 1, "comparisons": 6821594}
+{"root": "molybiz-mepage-ui@10.0.7", "indexed": 4, "components": 2}
+{"root": "molybiz-mepage-ui@10.0.7", "examined": 1, "remaining_components": 1, "comparisons": 6821595}
+{"root": "n8n-nodes-csv-parse@1.0.0", "indexed": 4, "components": 4}
+{"root": "n8n-nodes-csv-parse@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821598}
+{"root": "r4wk-book@2.1.0", "indexed": 3, "components": 2}
+{"root": "r4wk-book@2.1.0", "examined": 1, "remaining_components": 1, "comparisons": 6821599}
+{"root": "sparkling-cli@1.0.0-rc.1", "indexed": 2, "components": 2}
+{"root": "sparkling-cli@1.0.0-rc.1", "examined": 1, "remaining_components": 1, "comparisons": 6821600}
+{"root": "@app-tray-ui/stencil-component@10.1.0", "indexed": 3, "components": 2}
+{"root": "@app-tray-ui/stencil-component@10.1.0", "examined": 1, "remaining_components": 2, "comparisons": 6821601}
+{"root": "@cawraytestorg/packagetest2@9.9.9", "indexed": 2, "components": 2}
+{"root": "@cawraytestorg/packagetest2@9.9.9", "examined": 1, "remaining_components": 1, "comparisons": 6821603}
+{"root": "@challenger6/vm-pattern-library@99.0.0", "indexed": 3, "components": 3}
+{"root": "@challenger6/vm-pattern-library@99.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821605}
+{"root": "@client-innovation/librct@0.100.0", "indexed": 2, "components": 2}
+{"root": "@client-innovation/librct@0.100.0", "examined": 1, "remaining_components": 1, "comparisons": 6821606}
+{"root": "@doaction/sudo-prompt@99.99.99", "indexed": 3, "components": 3}
+{"root": "@doaction/sudo-prompt@99.99.99", "examined": 1, "remaining_components": 1, "comparisons": 6821608}
+{"root": "@hpx-core-experiences/react-my-account-commons@11.0.1", "indexed": 2, "components": 2}
+{"root": "@hpx-core-experiences/react-my-account-commons@11.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821609}
+{"root": "@klapp-login-platform/native-sdk@99.0.2", "indexed": 3, "components": 3}
+{"root": "@klapp-login-platform/native-sdk@99.0.2", "examined": 1, "remaining_components": 1, "comparisons": 6821611}
+{"root": "@kone-ds/assets@1.99.99", "indexed": 3, "components": 3}
+{"root": "@kone-ds/assets@1.99.99", "examined": 1, "remaining_components": 1, "comparisons": 6821613}
+{"root": "@kui-react/button@999.999.999", "indexed": 2, "components": 2}
+{"root": "@kui-react/button@999.999.999", "examined": 1, "remaining_components": 1, "comparisons": 6821614}
+{"root": "@one-site/europcar@2.92.10", "indexed": 3, "components": 2}
+{"root": "@one-site/europcar@2.92.10", "examined": 1, "remaining_components": 1, "comparisons": 6821615}
+{"root": "@patternfly-v5/patternfly@1.0.5", "indexed": 2, "components": 2}
+{"root": "@patternfly-v5/patternfly@1.0.5", "examined": 1, "remaining_components": 1, "comparisons": 6821616}
+{"root": "abhiktestnpm@1.0.0", "indexed": 2, "components": 2}
+{"root": "abhiktestnpm@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821617}
+{"root": "amazon-q-developer-streaming-client@99.9.12", "indexed": 3, "components": 2}
+{"root": "amazon-q-developer-streaming-client@99.9.12", "examined": 1, "remaining_components": 2, "comparisons": 6821617}
+{"root": "astro-island@1.0.0", "indexed": 2, "components": 2}
+{"root": "astro-island@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821619}
+{"root": "bffhfuruhejfhdj@3.3.0", "indexed": 2, "components": 2}
+{"root": "bffhfuruhejfhdj@3.3.0", "examined": 1, "remaining_components": 1, "comparisons": 6821620}
+{"root": "bnia-work@1.0.0", "indexed": 3, "components": 3}
+{"root": "bnia-work@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821622}
+{"root": "browserstack-electron-forge-include-package-plugin@99.0.0", "indexed": 3, "components": 3}
+{"root": "browserstack-electron-forge-include-package-plugin@99.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821624}
+{"root": "build-integrity-verify@1.0.0", "indexed": 3, "components": 3}
+{"root": "build-integrity-verify@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821626}
+{"root": "c2-ddos-del@1.0.9", "indexed": 2, "components": 2}
+{"root": "c2-ddos-del@1.0.9", "examined": 1, "remaining_components": 1, "comparisons": 6821627}
+{"root": "certain-common-library@99.99.3", "indexed": 3, "components": 2}
+{"root": "certain-common-library@99.99.3", "examined": 1, "remaining_components": 1, "comparisons": 6821628}
+{"root": "convera@9.0.0", "indexed": 3, "components": 3}
+{"root": "convera@9.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821630}
+{"root": "cro-pricing@1.0.10", "indexed": 2, "components": 2}
+{"root": "cro-pricing@1.0.10", "examined": 1, "remaining_components": 1, "comparisons": 6821631}
+{"root": "crud-respect@999.99.99", "indexed": 3, "components": 3}
+{"root": "crud-respect@999.99.99", "examined": 1, "remaining_components": 1, "comparisons": 6821633}
+{"root": "dhrunner@24.1222.12", "indexed": 2, "components": 2}
+{"root": "dhrunner@24.1222.12", "examined": 1, "remaining_components": 1, "comparisons": 6821634}
+{"root": "dhrunner@24.1229.4", "indexed": 3, "components": 3}
+{"root": "dhrunner@24.1229.4", "examined": 1, "remaining_components": 1, "comparisons": 6821636}
+{"root": "e39test@1.0.0", "indexed": 2, "components": 2}
+{"root": "e39test@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821637}
+{"root": "eb-docs@2.0.0", "indexed": 3, "components": 2}
+{"root": "eb-docs@2.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821638}
+{"root": "elf-stats-candystriped-cookiejar-799@1.9.9", "indexed": 2, "components": 2}
+{"root": "elf-stats-candystriped-cookiejar-799@1.9.9", "examined": 1, "remaining_components": 1, "comparisons": 6821639}
+{"root": "elf-stats-candystriped-snowglobe-426@1.0.0", "indexed": 2, "components": 2}
+{"root": "elf-stats-candystriped-snowglobe-426@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821640}
+{"root": "elf-stats-cosy-cocoa-331@9.9.9", "indexed": 3, "components": 2}
+{"root": "elf-stats-cosy-cocoa-331@9.9.9", "examined": 1, "remaining_components": 1, "comparisons": 6821641}
+{"root": "elf-stats-evergreen-bow-653@9.9.10", "indexed": 3, "components": 2}
+{"root": "elf-stats-evergreen-bow-653@9.9.10", "examined": 1, "remaining_components": 1, "comparisons": 6821642}
+{"root": "elf-stats-flickering-ornament-344@1.0.1", "indexed": 2, "components": 2}
+{"root": "elf-stats-flickering-ornament-344@1.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821643}
+{"root": "elf-stats-marzipan-cookie-302@1.0.0", "indexed": 2, "components": 2}
+{"root": "elf-stats-marzipan-cookie-302@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821644}
+{"root": "elf-stats-nutmeg-garland-645@1.0.0", "indexed": 3, "components": 2}
+{"root": "elf-stats-nutmeg-garland-645@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821645}
+{"root": "elf-stats-sleighing-stocking-579@1.0.1", "indexed": 3, "components": 2}
+{"root": "elf-stats-sleighing-stocking-579@1.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821646}
+{"root": "elf-stats-snowy-candy-518@1.0.0", "indexed": 3, "components": 3}
+{"root": "elf-stats-snowy-candy-518@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821648}
+{"root": "flockiali@1.2.6", "indexed": 3, "components": 3}
+{"root": "flockiali@1.2.6", "examined": 1, "remaining_components": 1, "comparisons": 6821650}
+{"root": "kn-nf-iso-properties-kn1@99.87.31", "indexed": 2, "components": 2}
+{"root": "kn-nf-iso-properties-kn1@99.87.31", "examined": 1, "remaining_components": 1, "comparisons": 6821651}
+{"root": "lint-builder-logger@1.0.4", "indexed": 2, "components": 2}
+{"root": "lint-builder-logger@1.0.4", "examined": 1, "remaining_components": 1, "comparisons": 6821652}
+{"root": "marcom-ac-console@1.0.1", "indexed": 3, "components": 2}
+{"root": "marcom-ac-console@1.0.1", "examined": 1, "remaining_components": 2, "comparisons": 6821652}
+{"root": "momentjs-poc@1.0.0", "indexed": 3, "components": 2}
+{"root": "momentjs-poc@1.0.0", "examined": 1, "remaining_components": 2, "comparisons": 6821653}
+{"root": "my-dummy-npm-package-test@1.0.0", "indexed": 3, "components": 2}
+{"root": "my-dummy-npm-package-test@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821655}
+{"root": "openmct-couch-plugin@1.0.2", "indexed": 3, "components": 2}
+{"root": "openmct-couch-plugin@1.0.2", "examined": 1, "remaining_components": 2, "comparisons": 6821656}
+{"root": "oxrvlllcaj@1.0.0", "indexed": 3, "components": 3}
+{"root": "oxrvlllcaj@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821659}
+{"root": "phantom-labs-sandbox@999.0.0", "indexed": 2, "components": 2}
+{"root": "phantom-labs-sandbox@999.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821660}
+{"root": "phantom-module@100.0.0", "indexed": 3, "components": 3}
+{"root": "phantom-module@100.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821662}
+{"root": "secguest-lib@1.0.1", "indexed": 3, "components": 2}
+{"root": "secguest-lib@1.0.1", "examined": 1, "remaining_components": 2, "comparisons": 6821662}
+{"root": "spendesk@99.99.99", "indexed": 3, "components": 3}
+{"root": "spendesk@99.99.99", "examined": 1, "remaining_components": 1, "comparisons": 6821665}
+{"root": "start-internal@0.0.1", "indexed": 2, "components": 2}
+{"root": "start-internal@0.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821666}
+{"root": "vdous@1.0.1", "indexed": 3, "components": 2}
+{"root": "vdous@1.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821667}
+{"root": "@0xzyo/confutionrce@1.0.0", "indexed": 2, "components": 2}
+{"root": "@0xzyo/confutionrce@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821668}
+{"root": "@accesshsc/access-forms-engine@0.999.999", "indexed": 2, "components": 2}
+{"root": "@accesshsc/access-forms-engine@0.999.999", "examined": 1, "remaining_components": 1, "comparisons": 6821669}
+{"root": "@b2b-portal/core@4.1.9", "indexed": 2, "components": 2}
+{"root": "@b2b-portal/core@4.1.9", "examined": 1, "remaining_components": 1, "comparisons": 6821670}
+{"root": "@ba-ui-toolkit/ba-graphics@7.1.15", "indexed": 2, "components": 2}
+{"root": "@ba-ui-toolkit/ba-graphics@7.1.15", "examined": 1, "remaining_components": 1, "comparisons": 6821671}
+{"root": "@corpweb-ui/wmkt-library@99.99.12", "indexed": 2, "components": 2}
+{"root": "@corpweb-ui/wmkt-library@99.99.12", "examined": 1, "remaining_components": 1, "comparisons": 6821672}
+{"root": "@ng-cat/common@9.89.9", "indexed": 2, "components": 2}
+{"root": "@ng-cat/common@9.89.9", "examined": 1, "remaining_components": 1, "comparisons": 6821673}
+{"root": "@one-site/europcar@2.64.123456", "indexed": 2, "components": 2}
+{"root": "@one-site/europcar@2.64.123456", "examined": 1, "remaining_components": 1, "comparisons": 6821674}
+{"root": "@sentry-browser-sdk/profiling-node@1.0.4", "indexed": 2, "components": 2}
+{"root": "@sentry-browser-sdk/profiling-node@1.0.4", "examined": 1, "remaining_components": 1, "comparisons": 6821675}
+{"root": "@seznam-diskuze/embed@100.3.0", "indexed": 2, "components": 2}
+{"root": "@seznam-diskuze/embed@100.3.0", "examined": 1, "remaining_components": 1, "comparisons": 6821676}
+{"root": "@sp4b-dev/test-utils@0.0.47", "indexed": 2, "components": 2}
+{"root": "@sp4b-dev/test-utils@0.0.47", "examined": 1, "remaining_components": 1, "comparisons": 6821677}
+{"root": "@testerconfusion/malicious-poc@1.0.0", "indexed": 2, "components": 2}
+{"root": "@testerconfusion/malicious-poc@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821678}
+{"root": "baby-electron@24.6.7", "indexed": 2, "components": 2}
+{"root": "baby-electron@24.6.7", "examined": 1, "remaining_components": 1, "comparisons": 6821679}
+{"root": "browserslist-db-sync@1.0.6", "indexed": 2, "components": 2}
+{"root": "browserslist-db-sync@1.0.6", "examined": 1, "remaining_components": 1, "comparisons": 6821680}
+{"root": "chief-proxy-out@1.0.0", "indexed": 2, "components": 2}
+{"root": "chief-proxy-out@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821681}
+{"root": "com.unity.hlod@1.0.0", "indexed": 2, "components": 2}
+{"root": "com.unity.hlod@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821682}
+{"root": "ctf3libxmljs2@0.30.2", "indexed": 2, "components": 2}
+{"root": "ctf3libxmljs2@0.30.2", "examined": 1, "remaining_components": 1, "comparisons": 6821683}
+{"root": "dns-filter-dashboard@99.1.0", "indexed": 2, "components": 2}
+{"root": "dns-filter-dashboard@99.1.0", "examined": 1, "remaining_components": 1, "comparisons": 6821684}
+{"root": "ecto-spirit@120.0.0", "indexed": 2, "components": 2}
+{"root": "ecto-spirit@120.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821685}
+{"root": "ecto-spirit@120.0.6", "indexed": 2, "components": 2}
+{"root": "ecto-spirit@120.0.6", "examined": 1, "remaining_components": 1, "comparisons": 6821686}
+{"root": "elf-stats-cheery-sparkler-521@1.0.0", "indexed": 2, "components": 2}
+{"root": "elf-stats-cheery-sparkler-521@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821687}
+{"root": "elf-stats-ginger-wreath-646@1.0.0", "indexed": 2, "components": 2}
+{"root": "elf-stats-ginger-wreath-646@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821688}
+{"root": "elf-stats-midnight-saddlebag-720@1.0.0", "indexed": 2, "components": 2}
+{"root": "elf-stats-midnight-saddlebag-720@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821689}
+{"root": "elf-stats-piney-fireplace-695@1.0.0", "indexed": 2, "components": 2}
+{"root": "elf-stats-piney-fireplace-695@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821690}
+{"root": "elf-stats-sprucey-icicle-606@999.0.0", "indexed": 2, "components": 2}
+{"root": "elf-stats-sprucey-icicle-606@999.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821691}
+{"root": "eslint-config-eslint@5.0.2", "indexed": 2, "components": 2}
+{"root": "eslint-config-eslint@5.0.2", "examined": 1, "remaining_components": 1, "comparisons": 6821692}
+{"root": "eslint-plugin-rdv-insertion@6.99.99", "indexed": 2, "components": 2}
+{"root": "eslint-plugin-rdv-insertion@6.99.99", "examined": 1, "remaining_components": 1, "comparisons": 6821693}
+{"root": "fn_js@0.2.0", "indexed": 2, "components": 2}
+{"root": "fn_js@0.2.0", "examined": 1, "remaining_components": 1, "comparisons": 6821694}
+{"root": "fooobar@1.0.14", "indexed": 2, "components": 2}
+{"root": "fooobar@1.0.14", "examined": 1, "remaining_components": 1, "comparisons": 6821695}
+{"root": "freo-design-system@1.0.6", "indexed": 2, "components": 2}
+{"root": "freo-design-system@1.0.6", "examined": 1, "remaining_components": 1, "comparisons": 6821696}
+{"root": "fuxa-proof-bkxlku@1.0.0", "indexed": 2, "components": 2}
+{"root": "fuxa-proof-bkxlku@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821697}
+{"root": "gd-flag-content@2.1.0", "indexed": 2, "components": 2}
+{"root": "gd-flag-content@2.1.0", "examined": 1, "remaining_components": 1, "comparisons": 6821698}
+{"root": "gohk-library@0.0.3", "indexed": 2, "components": 2}
+{"root": "gohk-library@0.0.3", "examined": 1, "remaining_components": 1, "comparisons": 6821699}
+{"root": "justeat-storybook@1.0.1", "indexed": 2, "components": 2}
+{"root": "justeat-storybook@1.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821700}
+{"root": "kraken-api@0.1.8", "indexed": 2, "components": 2}
+{"root": "kraken-api@0.1.8", "examined": 1, "remaining_components": 1, "comparisons": 6821701}
+{"root": "libxmljs10@0.30.1", "indexed": 2, "components": 2}
+{"root": "libxmljs10@0.30.1", "examined": 1, "remaining_components": 1, "comparisons": 6821702}
+{"root": "libxmljs8@0.30.1", "indexed": 2, "components": 2}
+{"root": "libxmljs8@0.30.1", "examined": 1, "remaining_components": 1, "comparisons": 6821703}
+{"root": "loadhs@1.0.0", "indexed": 2, "components": 2}
+{"root": "loadhs@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821704}
+{"root": "lsp-mcp@0.0.4", "indexed": 2, "components": 2}
+{"root": "lsp-mcp@0.0.4", "examined": 1, "remaining_components": 1, "comparisons": 6821705}
+{"root": "lsp-mcp@0.0.5", "indexed": 2, "components": 2}
+{"root": "lsp-mcp@0.0.5", "examined": 1, "remaining_components": 1, "comparisons": 6821706}
+{"root": "messaging-client-lite@1.0.1", "indexed": 2, "components": 2}
+{"root": "messaging-client-lite@1.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821707}
+{"root": "mobile-international@999.0.0", "indexed": 2, "components": 2}
+{"root": "mobile-international@999.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821708}
+{"root": "my-internal-util-alpha03@99.9.10", "indexed": 2, "components": 2}
+{"root": "my-internal-util-alpha03@99.9.10", "examined": 1, "remaining_components": 1, "comparisons": 6821709}
+{"root": "nabisco@0.0.1-poc", "indexed": 2, "components": 2}
+{"root": "nabisco@0.0.1-poc", "examined": 1, "remaining_components": 1, "comparisons": 6821710}
+{"root": "nitro-contracts@4.0.0", "indexed": 2, "components": 2}
+{"root": "nitro-contracts@4.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821711}
+{"root": "node-calculator-7bea@1.0.9", "indexed": 2, "components": 2}
+{"root": "node-calculator-7bea@1.0.9", "examined": 1, "remaining_components": 1, "comparisons": 6821712}
+{"root": "node-calculator-e776@4.0.0", "indexed": 2, "components": 2}
+{"root": "node-calculator-e776@4.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821713}
+{"root": "o3forms@99.1.99", "indexed": 2, "components": 2}
+{"root": "o3forms@99.1.99", "examined": 1, "remaining_components": 1, "comparisons": 6821714}
+{"root": "oxrvxxxxxaslllcaj@1.0.0", "indexed": 2, "components": 2}
+{"root": "oxrvxxxxxaslllcaj@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821715}
+{"root": "pcl-build-docroot@99.9.9", "indexed": 2, "components": 2}
+{"root": "pcl-build-docroot@99.9.9", "examined": 1, "remaining_components": 1, "comparisons": 6821716}
+{"root": "public-site-boostmoney-ui@99.9.10", "indexed": 2, "components": 2}
+{"root": "public-site-boostmoney-ui@99.9.10", "examined": 1, "remaining_components": 1, "comparisons": 6821717}
+{"root": "react-device-mockup-js@1.0.1", "indexed": 2, "components": 2}
+{"root": "react-device-mockup-js@1.0.1", "examined": 1, "remaining_components": 1, "comparisons": 6821718}
+{"root": "scr-cloud-project@1.0.0", "indexed": 2, "components": 2}
+{"root": "scr-cloud-project@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821719}
+{"root": "serverless-env-helpers@1.0.5", "indexed": 2, "components": 2}
+{"root": "serverless-env-helpers@1.0.5", "examined": 1, "remaining_components": 1, "comparisons": 6821720}
+{"root": "snitz-chief-cloud-config@1.0.0", "indexed": 2, "components": 2}
+{"root": "snitz-chief-cloud-config@1.0.0", "examined": 1, "remaining_components": 1, "comparisons": 6821721}
+{"root": "test-on-other-again@99.9.8", "indexed": 2, "components": 2}
+{"root": "test-on-other-again@99.9.8", "examined": 1, "remaining_components": 1, "comparisons": 6821722}
+{"root": "xbox-bottomnav@99.9.11", "indexed": 2, "components": 2}
+{"root": "xbox-bottomnav@99.9.11", "examined": 1, "remaining_components": 1, "comparisons": 6821723}
+{
+  "status": "diagnostic only; frozen D96 split unchanged",
+  "items": 27493,
+  "clusters": 7178,
+  "giant": "02-echo@0.0.7",
+  "giant_size": 12269,
+  "giant_roles": {
+    "mal_candidate": 600,
+    "kb_pool": 11581,
+    "review_typ": 68,
+    "review_hn": 20
+  },
+  "exact_ablations": {
+    "reports": {
+      "clusters": 18439,
+      "largest": [
+        [
+          "blocks-nextjs@9999.9999.10000",
+          370
+        ],
+        [
+          "admin10001@1.0.10",
+          317
+        ],
+        [
+          "admin1001@3.0.0",
+          117
+        ],
+        [
+          "@tushar-br/editing-pack@1.0.110",
+          79
+        ],
+        [
+          "github-badge-bot@1.0.0",
+          78
+        ],
+        [
+          "rank4222wun@1.0.1",
+          78
+        ],
+        [
+          "web3js-wallet@1.0.0",
+          77
+        ],
+        [
+          "admin0911@1.0.0",
+          70
+        ],
+        [
+          "@depro-tech/cortana-md@1.0.10",
+          54
+        ],
+        [
+          "@tushar-br/desktop@1.0.173",
+          53
+        ]
+      ],
+      "giant_components": 7900,
+      "giant_largest_components": [
+        [
+          "@tushar-br/editing-pack@1.0.110",
+          79
+        ],
+        [
+          "rank4222wun@1.0.1",
+          78
+        ],
+        [
+          "web3js-wallet@1.0.0",
+          77
+        ],
+        [
+          "admin0911@1.0.0",
+          70
+        ],
+        [
+          "@depro-tech/cortana-md@1.0.10",
+          54
+        ],
+        [
+          "@tushar-br/desktop@1.0.173",
+          53
+        ],
+        [
+          "n8n-nodes-gasdhgfuy-rejerw-ytjsadx@0.0.20",
+          51
+        ],
+        [
+          "n8n-nodes-gg-udhasudsh-hgjkhg-official@0.0.1",
+          43
+        ],
+        [
+          "coral-wraith@1.0.0",
+          41
+        ],
+        [
+          "myconfusedfunctionpoctestpackage@1.0.0",
+          38
+        ]
+      ]
+    },
+    "added_hashes": {
+      "clusters": 13901,
+      "largest": [
+        [
+          "ade-brengkes57-breki@4.1.3",
+          1870
+        ],
+        [
+          "1imit@1.0.0",
+          914
+        ],
+        [
+          "above_turtle_z3n@2.2.4",
+          377
+        ],
+        [
+          "blocks-nextjs@9999.9999.10026",
+          348
+        ],
+        [
+          "02-echo@0.0.7",
+          259
+        ],
+        [
+          "@monicfoundation/hardhat-config@1.0.3",
+          249
+        ],
+        [
+          "ads-common-components@7.3.9",
+          243
+        ],
+        [
+          "esoftplay@0.0.138-b",
+          197
+        ],
+        [
+          "async-pipeline-builder@1.0.0",
+          179
+        ],
+        [
+          "@amazon-devices/kepler-ui-components@3.1.0-rn-83",
+          167
+        ]
+      ],
+      "giant_components": 3498,
+      "giant_largest_components": [
+        [
+          "ade-brengkes57-breki@4.1.3",
+          1870
+        ],
+        [
+          "1imit@1.0.0",
+          914
+        ],
+        [
+          "above_turtle_z3n@2.2.4",
+          377
+        ],
+        [
+          "02-echo@0.0.7",
+          259
+        ],
+        [
+          "@monicfoundation/hardhat-config@1.0.3",
+          249
+        ],
+        [
+          "esoftplay@0.0.138-b",
+          197
+        ],
+        [
+          "async-pipeline-builder@1.0.0",
+          179
+        ],
+        [
+          "@amazon-devices/kepler-ui-components@3.1.0-rn-83",
+          167
+        ],
+        [
+          "n8n-nodes-gasdhgfuy-rejerw-ytjsadx@0.0.20",
+          150
+        ],
+        [
+          "@tushar-br/desktop@1.0.173",
+          135
+        ]
+      ]
+    },
+    "reports+added_hashes": {
+      "clusters": 9857,
+      "largest": [
+        [
+          "ade-brengkes57-breki@4.1.3",
+          1870
+        ],
+        [
+          "1imit@1.0.0",
+          949
+        ],
+        [
+          "above_turtle_z3n@2.2.4",
+          377
+        ],
+        [
+          "blocks-nextjs@9999.9999.10000",
+          370
+        ],
+        [
+          "admin10001@1.0.10",
+          317
+        ],
+        [
+          "@common-pattern/components@8.2.9",
+          307
+        ],
+        [
+          "@monicfoundation/hardhat-config@1.0.3",
+          286
+        ],
+        [
+          "02-echo@0.0.7",
+          259
+        ],
+        [
+          "esoftplay@0.0.138-b",
+          197
+        ],
+        [
+          "@amazon-devices/kepler-ui-components@3.1.0-rn-83",
+          196
+        ]
+      ],
+      "giant_components": 1996,
+      "giant_largest_components": [
+        [
+          "ade-brengkes57-breki@4.1.3",
+          1870
+        ],
+        [
+          "1imit@1.0.0",
+          949
+        ],
+        [
+          "above_turtle_z3n@2.2.4",
+          377
+        ],
+        [
+          "@monicfoundation/hardhat-config@1.0.3",
+          286
+        ],
+        [
+          "02-echo@0.0.7",
+          259
+        ],
+        [
+          "esoftplay@0.0.138-b",
+          197
+        ],
+        [
+          "@amazon-devices/kepler-ui-components@3.1.0-rn-83",
+          196
+        ],
+        [
+          "async-pipeline-builder@1.0.0",
+          179
+        ],
+        [
+          "n8n-nodes-gasdhgfuy-rejerw-ytjsadx@0.0.20",
+          150
+        ],
+        [
+          "@tushar-br/desktop@1.0.173",
+          135
+        ]
+      ]
+    }
+  },
+  "witness_edges": {
+    "added_hashes": 8582,
+    "reports": 9054,
+    "dolos": 2679
+  },
+  "giant_witness_edges": {
+    "added_hashes": 5904,
+    "reports": 4369,
+    "dolos": 1995
+  },
+  "dolos_comparisons": 6821723,
+  "frozen_partition_reproduced": true,
+  "certificate_limit": "Proves connectivity within frozen groups; does not recheck omitted cross-group Dolos edges.",
+  "newly_dev_paths": 79,
+  "paths_requiring_dolos": 36,
+  "gold_labels_created": 0,
+  "inferences": 0,
+  "split_changes": 0
+}

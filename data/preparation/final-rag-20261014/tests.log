@@ -1,0 +1,18 @@
+test_changed_intent_retrieval_is_detected (tests.test_final_readiness.FinalReadinessTests.test_changed_intent_retrieval_is_detected) ... ok
+test_duplicates_and_missing_campaign_cannot_pass (tests.test_final_readiness.FinalReadinessTests.test_duplicates_and_missing_campaign_cannot_pass) ... ok
+test_filtering_can_make_a_nonempty_kb_insufficient (tests.test_final_readiness.FinalReadinessTests.test_filtering_can_make_a_nonempty_kb_insufficient) ... ok
+test_full_contrasts_preserve_anchor_and_intent_independent_retrieval (tests.test_final_readiness.FinalReadinessTests.test_full_contrasts_preserve_anchor_and_intent_independent_retrieval) ... ok
+test_readiness_never_promotes_exposed_candidates_or_boolean_gold_to_release (tests.test_final_readiness.FinalReadinessTests.test_readiness_never_promotes_exposed_candidates_or_boolean_gold_to_release) ... ok
+test_runner_rejects_thin_pool_before_network_or_result_creation (tests.test_final_readiness.FinalReadinessTests.test_runner_rejects_thin_pool_before_network_or_result_creation) ... ok
+~/intendiff_rag/tests/test_dependency_context.py:28: ResourceWarning: unclosed file <_io.TextIOWrapper name='~/intendiff_rag/data/evaluation/dependency-context-20261011/pairs.jsonl' mode='r' encoding='UTF-8'>
+  cls.pairs = [json.loads(line) for line in (HERE / 'pairs.jsonl').open()]
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+test_all_real_dependency_cards_are_blocked_across_cluster_boundaries (tests.test_dependency_context.DependencyContextTests.test_all_real_dependency_cards_are_blocked_across_cluster_boundaries) ... ok
+test_context_preserves_files_and_ids_without_target_collisions (tests.test_dependency_context.DependencyContextTests.test_context_preserves_files_and_ids_without_target_collisions) ... ok
+test_labels_and_audit_metadata_cannot_enter_prompt (tests.test_dependency_context.DependencyContextTests.test_labels_and_audit_metadata_cannot_enter_prompt) ... ok
+test_target_and_related_cards_are_excluded_but_unrelated_cards_remain (tests.test_dependency_context.DependencyContextTests.test_target_and_related_cards_are_excluded_but_unrelated_cards_remain) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.373s
+
+OK

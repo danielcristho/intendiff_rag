@@ -1,0 +1,1622 @@
+[
+  {
+    "name": "ibm_db",
+    "version": "3.2.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/717a1277909b7c53a0854cb8e216308e7075c48a8f689fcedebbd19d26dceb26.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "ibm_db",
+    "version": "3.3.5",
+    "preserved": "data/upstream/expansion-20261012/tarballs/2751a2e4928e3e3cf7f542a994c14e564f4524e2f786d1215dc9daeed6e84601.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "ibm_db",
+    "version": "4.0.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/f0c2e1921fcaa535ed6461ff9ad86b31a9c007c650e94e9399481232d79ded60.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "ibm_db",
+    "version": "4.0.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/b3e9e44a40313a35bddfb38447844c21196d9cae202c0b233761ca785fe28381.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@analytics/google-analytics",
+    "version": "0.2.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/20ccf3cffb10694a205f85ec7d9c4925fe8449c66297c2d38198d4c2cc306ef6.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@analytics/google-analytics",
+    "version": "0.2.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/f4ff8b26582b91cc257352b7302c751862f49af44d54463a908613aabd559f52.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@analytics/google-analytics",
+    "version": "0.3.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/eb05e1b8fc5ab73b12f5b979c257f623223bfa296079f681a604d9aba95172f4.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@analytics/google-analytics",
+    "version": "0.3.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/6ac63df8414d7eaa87f2fa2ef865d772f02eecd694f49fe2640f93d69adc37f8.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@analytics/google-analytics",
+    "version": "0.4.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/b44d28529ee2a86006e3d3921832885e16d361962cf7ca8bb824ba60d2e5c48b.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@analytics/google-analytics",
+    "version": "0.4.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/51212d8ad1de0aebc47c9635dd019f593c0196f0cf8c4011066edacd6fa59ce1.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@analytics/google-analytics",
+    "version": "0.5.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/7530ab602c6b463bb4690ab12996dc75047caadeaf34de426bae23e6a6056fa2.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@analytics/google-analytics",
+    "version": "0.5.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/4322d9edcc8082146cdcf4a6b1b138931fe2d54e0a541a4fb670da752d405919.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@analytics/google-analytics",
+    "version": "0.5.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/4d7f5442a8a0e4cedbd3174993a7410201cdac6fd7ed53524558d22cd9b718ed.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@analytics/google-analytics",
+    "version": "1.0.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/b83ba045a0c5d4522453697894cdd41d80cc3af6cb0b232f6fe63a3a66cdc67f.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@analytics/google-analytics",
+    "version": "1.0.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/30ff0083b56b7cbc354d40389a4b44a0b7a1f183b591a8fbc8fd24543990ce22.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@analytics/google-analytics",
+    "version": "1.0.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/20de484df900c0c6ab3856a8f95d46b056d279ed6cf3eb983389627f3cdc7038.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@analytics/google-analytics",
+    "version": "1.0.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/b50a82aae448cb6f0e4358193a7fdce225fce8f24e23cd03f190c53f6b115ea0.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@analytics/google-analytics",
+    "version": "1.0.5",
+    "preserved": "data/upstream/expansion-20261012/tarballs/965f2c40660e77abafb1f7062901dada43c1b30c4fa96e0e130793463e753453.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@analytics/google-analytics",
+    "version": "1.0.6",
+    "preserved": "data/upstream/expansion-20261012/tarballs/ec667f0f251ecd47b2a3ca8ddbc1cfdd190863f258cc8ac70f30ed933956dc99.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@analytics/google-analytics",
+    "version": "1.0.7",
+    "preserved": "data/upstream/expansion-20261012/tarballs/494ff272d79e862adea7ef7e3341128d5115f6d412879a01c2706ad079184fc9.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@analytics/google-analytics",
+    "version": "1.1.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/d9604f707828585f96993f779dc15c9b82f50b40b87c6b3d46bd474f4a7685e6.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@mirror-factory/ai-dev-kit",
+    "version": "0.1.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/3d7282dc32258d046ee44e1684bf33d403d560c2ebafe3cb7bdda2cb2d64f2ab.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@mirror-factory/ai-dev-kit",
+    "version": "0.2.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/1c6f20674312316a31a9d94359edc2a33430f2794791c8ed27dae9f2b56c9188.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@mirror-factory/ai-dev-kit",
+    "version": "0.2.5",
+    "preserved": "data/upstream/expansion-20261012/tarballs/8242f4dc727fcce280776a394308ec020e4b9fd585ca5ee8b5680976ce00def9.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@mirror-factory/ai-dev-kit",
+    "version": "0.2.12",
+    "preserved": "data/upstream/expansion-20261012/tarballs/d8319b50c9c397ad5c5ed2531802373184cb2d3207d1733468d8fe8f2403bed9.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@mirror-factory/ai-dev-kit",
+    "version": "0.2.13",
+    "preserved": "data/upstream/expansion-20261012/tarballs/998502d5c3574bc906efeb3c58395bd7a6b2b4201fadc439a6c092cc67c4af19.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@mirror-factory/ai-dev-kit",
+    "version": "0.2.14",
+    "preserved": "data/upstream/expansion-20261012/tarballs/6e3755b16209a81b5b2e75af7e150eb584a006b6862b3d7c9169849463d3cd20.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@mirror-factory/ai-dev-kit",
+    "version": "0.2.15",
+    "preserved": "data/upstream/expansion-20261012/tarballs/2e1eddd0646f0077b26f06f19c03e4ce63dc2530542bfe80af6f29dddf9de78f.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@mirror-factory/ai-dev-kit",
+    "version": "0.2.16",
+    "preserved": "data/upstream/expansion-20261012/tarballs/e0a9000cd212d3dd8c8a992b5f1d63a2b5effac6036bbad35873fcd3599bad43.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@mirror-factory/ai-dev-kit",
+    "version": "0.2.21",
+    "preserved": "data/upstream/expansion-20261012/tarballs/e93d39994d8b50c0b224115b3755c194ef8348f0943081ac9248184cda013ef0.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@mirror-factory/ai-dev-kit",
+    "version": "0.2.22",
+    "preserved": "data/upstream/expansion-20261012/tarballs/98ed2a346a2e7eefa870c15e0df0f4b27085faab65707153205d73aca8e8258a.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@sometic/cli",
+    "version": "0.1.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/eeb99ed2df3aa902d3ff040ea0cbeca3502d154d1bf289fc29abba6ce2d7c39e.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@sometic/cli",
+    "version": "0.1.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/5d758d82ba6172dd1357c6eb7c491681161ab573e8aa255f1a6edb8ac3a24f59.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@sometic/cli",
+    "version": "0.1.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/bd01397ff0a288218688efcf2c2f501787b29654dfdb93e4c91395fd30fcb26e.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@sometic/cli",
+    "version": "0.1.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/fb7ac7c7ccda14eef7662840bb35f87de2e0665b4193c0bff0de84e59dc74640.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@sometic/cli",
+    "version": "0.1.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/d580d28fdfd4a42b1979a7804cab57087f8560f6338e719a39f8d6299a12b16a.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@sometic/cli",
+    "version": "0.1.5",
+    "preserved": "data/upstream/expansion-20261012/tarballs/8248c952f38a824b450ba73e4cd9101e18bb1db10a807122214536d55fd8ee95.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@sometic/cli",
+    "version": "0.1.6",
+    "preserved": "data/upstream/expansion-20261012/tarballs/5e1dd23b4f0e35d6902889d72f6219ed2c93bea14f870fa802a90bf74e5d96e3.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "ts-open-graph-scraper",
+    "version": "0.0.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/9b0915796692dd9b1d75752d4d90e9c411601540c48a53969f0e699f47eb84ea.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "ts-open-graph-scraper",
+    "version": "0.0.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/44ecc9898def53e8bbb54c5d22045294ddc56650916d2e5e75d4e747041f2c31.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "0.0.16",
+    "preserved": "data/upstream/expansion-20261012/tarballs/82120ea1e867879999b26e5873cd14b9169ff4f695448c684ec56257bff9e7e0.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "0.0.17",
+    "preserved": "data/upstream/expansion-20261012/tarballs/57c7333677f552870ca70684695742e44e916ffa30afdd81bf66aa8c6d8b0414.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "0.0.18",
+    "preserved": "data/upstream/expansion-20261012/tarballs/551e30fbc2b592d1d9b2da7f33eac0f61d6646522041ff2f6bd4c293f3bd9745.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "0.1.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/385831c2ffe7ab17111afcf928e709ae9ed95f365364b8c95318855d257b1b3a.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "0.1.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/33e0a100252dfe9d2eb2f83c26aeac5044d88fbd20579c13f8879dd36d6d9cc0.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "0.1.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/1a17b607d66566ff582e21f71d7f14f705ff5c2a41e8ac7a598c6bd0b34a56b2.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "0.1.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/789d9a33392c02aa27e6769e340b196c9053e67d3182f6e049deef397602088c.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "0.1.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/ad13b268d5a190a2cb067b271b994a9781e67cda4556acc61c13cfbde8188ec8.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "0.1.5",
+    "preserved": "data/upstream/expansion-20261012/tarballs/b6352c3fddbda3e768dae1dcd89b033be602fd6efab0c0d39e54c50a9232fa72.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "0.1.6",
+    "preserved": "data/upstream/expansion-20261012/tarballs/911afbef85ad7f384f6d8ed155f6375c80e24af8cba8f16098bf09c670fecd60.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "0.1.7",
+    "preserved": "data/upstream/expansion-20261012/tarballs/3be0a4b7b14cc805993e534164bde731a338385ed39f2b75cecb281f45f6a750.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "0.1.8",
+    "preserved": "data/upstream/expansion-20261012/tarballs/5518373e89da980749c298d8d56041a4ba5c9f1aa684819ebe1542a871230044.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "0.1.9",
+    "preserved": "data/upstream/expansion-20261012/tarballs/f263dd339dbdb3f974be9a4f18b2b99c7b4e98b09f8f3caa136c513c566c99a6.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "0.2.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/c373f127f8299466109c14a284d1cd85b77e86df2a89a2bdc0ae67718d9e5bcc.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "1.0.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/877d81db0dc7fbb8c3ae9a3d64399e11356837ff44ade6b85b4679716d06b41f.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "1.0.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/2280aa6816747d89eb2045ade9d5b7705a79b29af01eca4b4a83b727ea6edce9.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "1.0.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/51e86428420d45d81e79a4095178b19e0d8e1355aca3c9105bd36f86755adbbb.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "1.1.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/254e00952a660154933437cce4b0ade0becfc56676ee4059484a153203da7876.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "1.1.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/686413ed5588a68ef4505a6d583cb84f817bba634da9588d38bb51cafa97a36d.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "2.0.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/dcf0b0755a0f4655acd3a69fbe9c1e88dcc5d989f0c91938d47054bc7b7d5c66.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@aptos-labs/aptos-cli",
+    "version": "3.0.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/a15f37bb43b9cc6fab52c770301987b878ea65a8115898ed18aa419cc77ba52d.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "0.0.28",
+    "preserved": "data/upstream/expansion-20261012/tarballs/c35b53c6a822b9742e2554c21cadfab4cca421ccebf840b2dc5818acd9deae82.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "0.0.29",
+    "preserved": "data/upstream/expansion-20261012/tarballs/e5300c0e5a8d02de56ed712184ddd4f0dc5c1ef647821877b7847e15db994d17.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "0.0.30",
+    "preserved": "data/upstream/expansion-20261012/tarballs/c882fbace9bb0aee6010346486bd0544e33214bbaf087737a385dd216eee8cf4.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "0.0.31",
+    "preserved": "data/upstream/expansion-20261012/tarballs/0f58e274e3bc1767ee0b246e6552be1dcccfc18a588ab99e0af83f91cc5d50a8.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "0.0.32",
+    "preserved": "data/upstream/expansion-20261012/tarballs/405c72b1cac17e043db586e3dfb7f1adec1ddc126ad1e998f7eda7bf529070c2.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "0.0.33",
+    "preserved": "data/upstream/expansion-20261012/tarballs/0b4f380b8d1811d20b959a5f1635ed4a99aebfdf232fb40ad763861a097ad241.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "3.1.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/9538fcdb7145dbe0e986c05f72bdbc7ec2a109db13fbde32c6e4fb812d3e1191.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "3.1.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/4d65f19b452e624f6da0e94a908f6b1870ca550514157cb1ce6caa061d2ace73.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "3.1.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/1255e8a4cd271555c5f2391dd10bfc36ead88474aad2606c8d10422b76320d8f.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "3.1.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/8cd6685ab875088517fc9988effa3d427d0da7af928bab53f49c50a24768f8cf.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "3.1.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/559052b4c4208a403b742a34cedf662868d906961267a85f28bea2bd5295eb5c.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "3.1.5",
+    "preserved": "data/upstream/expansion-20261012/tarballs/29682b84882a2f0ba912eb5312186f86b6a66eddb8ec4b671f407ca57fa37a38.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "3.1.6",
+    "preserved": "data/upstream/expansion-20261012/tarballs/f4d463eb6cc9b6184c51f7be61acd0cdbf1fa493cf533f7d10333dc54601a79b.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "3.1.7",
+    "preserved": "data/upstream/expansion-20261012/tarballs/a5d7ea3b2ff2d95bae27a377391ae493ffbd0982bf119f732b65338fe14c52d3.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "3.1.8",
+    "preserved": "data/upstream/expansion-20261012/tarballs/db976f4552cd06d42e0ef31148a74a342308a1e469a9319f156a802e1ddaf0af.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "3.1.9",
+    "preserved": "data/upstream/expansion-20261012/tarballs/c02957241931ffba95b09a12c6cdcd93282c8b038edb9c3ed604f6a384fa8dc4.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "3.1.10",
+    "preserved": "data/upstream/expansion-20261012/tarballs/1ded809d88f86861488666be3b4346dbe6b7b23a2c3dda9d23c8573cc096addb.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "3.1.11",
+    "preserved": "data/upstream/expansion-20261012/tarballs/57aecfb891c7f3e2e2dcdd9c47a7ee2de96c081f8a4168f76d4615a3ca6d9de4.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "3.1.12",
+    "preserved": "data/upstream/expansion-20261012/tarballs/9cb438ac52ecc5bb2c4c73c741eafe1f8d2b3f7551f94df42178f914d951c518.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "3.1.13",
+    "preserved": "data/upstream/expansion-20261012/tarballs/ce5e0792389a04a48466606865b01d7c6e10d1f5483719b1735bc1123d266435.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@types/analytics-node",
+    "version": "3.1.14",
+    "preserved": "data/upstream/expansion-20261012/tarballs/1934b8ee03138090ccfc6c6236a82f61ad9f6312b6ea9242d6af00bcb478e39b.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.3.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/c6fc1b783956e2b1e696fd0552fdf9db195364da1386124d6b3c2ac674a316d9.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.3.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/05ee6463de48002ff7e0f71a8b97d08e6c13f5878ca8c258c1c2471c0c9105cb.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.3.5",
+    "preserved": "data/upstream/expansion-20261012/tarballs/4baad4ff7ed711f52c5daf3566caa19edc4fbc63ad584b80c917d41a3a2d5722.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.3.6",
+    "preserved": "data/upstream/expansion-20261012/tarballs/5374f703c39b3be8779f964da2b886ed02c55a499d67b53526e56680a9d19632.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.4.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/0314bffc6b5d5223dfeb85bfeacb860666ce590e28ceab8d3a6b0a5dcaf5d92c.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.4.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/3f6c5e2e78173c45c89912d89059c0f5e8ffb3ee24f89bc0f73c3d2d59378b85.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.4.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/cc1c660bef33e9f9762e3bf68addd73dc8e939437611b81e5166ec14dcd1b6a4.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.5.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/98b8d3420e5954363f5f5b7650c6aff8b52b0e59970fc3b842e68a90530cf902.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.6.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/6978df02b49a387b90958984cc986aae5bf0e9e05eddf7055b949fd2fabbe0be.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.7.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/43855a63325a86643cbf13252aed041075732bb4646d96e14186e12e807a4e1b.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.9.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/9534154c2d75e007a97c33270a14d15e93087ca074c022c3c5c540c56adea846.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.10.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/8d3d33b9cfe0bfae8393222d8f66a4e5c32b26500aabb7447de2e1760ece81b0.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.10.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/824084e84e2bd8cfe4c7c17a814257ce082a47c045e2a273ac0b6f8eb9bdba70.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.11.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/f8940a23907443efb95aded167a05f7d5ac747abeef4f1c1adced3eaae95fef6.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.12.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/6b7bd80bbbfbaec6c3a892aced1de94ec831e7f659ec3732eb0b9e6f027ec54d.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.12.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/2fda63415daab53e86f93447862feebdf302b629c66a8b78e5d96726ea0e5077.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.12.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/694d501824412d5865f66dcd345225df3688b8403bf1504f978bdb795780ff5d.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.17.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/e7a3889158bc9782980aca734abdfbfa90c5be551f2a44895d2ff446306c9be5.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.18.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/3f22e4fecf8c7cee3e011a5f4cd1431d0e96002124c9b75efe87a6eead671bd7.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.19.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/bdf14c2fada9f16b405d849a55f471c515168a5436d5253d56c5665a1385e0b6.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@droneey/devkit-ts-lefthook",
+    "version": "1.21.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/fefb5310058e9d441dbd3dd9d499e0fe0d8d3beb40e325acb935d0d6e628c09e.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "espn-ff-mx3",
+    "version": "0.0.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/ad85e0710570f7e9b1cd7560fa89ce6944ed5e4a20a7eb4d2d6d147b2c259efe.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "espn-ff-mx3",
+    "version": "0.0.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/1d6959437e8ceb5eaff694f1bc91dc4cb4f93ece8abca02751a26809973ceea3.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "espn-ff-mx3",
+    "version": "0.0.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/9e27409f59fe1dc9eb6fef0223ac0d3d748830d35fc0d9f5e166c7bf4cc16014.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nxgt/telemetry-logging",
+    "version": "0.2.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/a5f1af04d9df01d4b3291ce788a83d2f89c6c297110af72e617a352b79fac2a4.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nxgt/telemetry-logging",
+    "version": "0.2.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/55495d65e63be4718a4bebf603977a616529359dcf021461df6c0da7f707f29e.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nxgt/telemetry-logging",
+    "version": "0.2.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/d129a56c58e10a2fccaa3934b1525764dc8f3ae95f93d6a8bed85eae251e48a3.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@controlla/controlla-postinstall",
+    "version": "1.0.16",
+    "preserved": "data/upstream/expansion-20261012/tarballs/cc25482c7872d1e60220d1d5adbaa04b3a2c6c4de66cdff1ea58c1076f867b67.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@controlla/controlla-postinstall",
+    "version": "1.0.18",
+    "preserved": "data/upstream/expansion-20261012/tarballs/26163dbba48d26bb93fc51e1b50f8e84e4be8a15d40a7f5c0f826ebd3883c180.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@controlla/controlla-postinstall",
+    "version": "1.0.19",
+    "preserved": "data/upstream/expansion-20261012/tarballs/75eba7322c693b3c54089588d33b174b0291221d5786ccdf4175c087324d4087.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@controlla/controlla-postinstall",
+    "version": "1.0.20",
+    "preserved": "data/upstream/expansion-20261012/tarballs/429e0acf18506f2cbd68045eb47f1973976829dc1dd7c831d4d5e47a481f40b8.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@controlla/controlla-postinstall",
+    "version": "1.0.21",
+    "preserved": "data/upstream/expansion-20261012/tarballs/c46eb1a00e114d4889638b7efb07b9214fd04011e90a1b5fbf66add13c6ce006.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "1.6.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/2f03078e9d629f12ffcb9e8ff3ce01e7bb69440056be9d52e4dd78e67dbdd291.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "1.7.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/5d90cc72eaf5107c53c046c1731c3eec623741f8d172f536cf4ee1d1bd591bd3.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "1.8.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/7e2d12a59fcf60823476ac557ec828eb7300a06b1d69de5314e1e31be29dd740.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "1.9.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/13736fd4dd02b26abb706f34576135ff562c53cdfa8cc5781fbfe02e989407bf.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "1.9.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/3292c427a01c700968b1f731983ee377fdee2c3053396aa6553a7af1c067bbee.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "1.9.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/e053a9c24a00f0c3d384b0c41d4640ee6ed7f5b38ef121b5f3ea17c1f07c4dfe.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "1.10.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/0e9264d2f4d07be0218da3354c849b0bd89c6dd201e3a3217eabc69b19effba5.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "1.11.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/f3b838850ce24f4250b464d46ae8c19a84b10a6c20e60097b1b8b38ec2f2ddd1.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "1.12.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/d400f2cad7edd6e06ae81831ecf7f003bac15f0f2a8316b0967a05a8c2ee5912.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "1.13.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/86aac0dd5bcc43c52216aa5566a774f368d39c8e0cbe286fc4fcc0da54d4b6b0.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "2.0.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/2a671a645a1624a658862b7e2a28e8a0d168b779a3f1b1c4018501e6ccfebdd5.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "2.0.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/e646b3412a69d354ac92a038d5acb8141a5f193db93501d66559b6ed38347e06.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "2.1.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/457c6708051a07eca8b208f8cb0ed535b2432c7c9190d299e0cac66872f19280.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "2.2.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/4b77bdbd9c3d470d4c0d44d6e1048ffe7948aa7a17a82135902b5ec07114e649.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "2.3.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/52fb9244a7ea602c2a2021e9a5ec676b6236bec29fc3bfbaadb7a03351a2ae31.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "2.4.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/8d064fbb7ba69cf94d46e95ed09ee7c8f1b04b138325680a42c8bf37b59d3514.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "2.5.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/f1e9422503227e0dc80b6bc850add83e27c8983f09b2c1ba8d86eac99d2fe866.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "2.6.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/d69df708d9ad6d1376c4b8feae2fa34f58a881966f56b5c17aea6f38ea0d5b56.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "2.7.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/acfb118dc14517e3ee008fa94c177cee1b6d966bf21350b0eb00a12a1308c2ff.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "2.7.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/bdd95ace6e141025a185fb7e11403f9ff4335f14f6983db4d64f4bae484a7619.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@nozomiishii/postinstall",
+    "version": "2.7.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/fd3b091270c31c264c99dc1588a80f55aba7b7dd5510c33f0749c75d32b0469d.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.12.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/68d930258e5ab8e0c7903e5df7f1dda54d5676d3ae61dec021d14e12cacb7f15.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.13.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/507fb2189490a9a40ff465f95d4e6cd9423db480e425aa949420a83ee7b6fea5.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.13.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/c9bc8012bef01b90f610f8c57f15e469641beb6119ac931107cb534b73562273.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.14.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/dc6b9c6c4be1aa56b71041ca310c66e3f0841f253c44f0d17793f1066482c793.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.15.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/76dfaf7cc72046463191632ec384c19c9e0ffcc9d166de79bba89db919feae88.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.16.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/a872a405615d2105f915fe0e5bcfd927b898cb99a2d07fe819ae07e36c78a56c.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.16.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/46643a1dff185f007c86ca032c0184d1bc5f5de4f4c7f1161eeb14918907e50e.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.16.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/fbf84d93abb14f82822cb54178524f5102d5c01ae5849341e93c8b016341f25a.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.17.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/e30c59ca42f3509c656b5304f5876d932daad0e1ec59a3130a32a69149df0bfe.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.18.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/ad77456393a2a12ee4774883f41fa838a7f8753078f0a28570b9d2baffeaff19.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.19.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/597aeccbf8226f2d5d9c7e27a3e640b47bc03d5366a3a968b648b187463c170c.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.19.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/128c59fdeb51424fa9d567c2daf444d821011535b9c4ddb75c887ecf0f876401.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.20.0-beta.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/f75b7a0e518d1444cf65d428a9742e87f6b70f540950d5776489d329e53afb98.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.20.0-beta.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/080f8376e93721bcd9a54a33da6d3c55e39669db452074808de6bd98696eb3ee.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.20.0-beta.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/9fe5a0dcc7c7d54c54681f3f7577c6eff0970de7d1090b2a5c0546c5a0cda5ce.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.20.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/8245a038bf7bb824209fde220cce70dcaf721449d75b522da84da7aa9fe18505.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.21.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/0e92d5dc384f6943ced96fbef7945d8f79aa13ebdf10ab87614a80ae5f8a1950.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.22.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/4e4e6ab2556aa0c504c25c0e5ee54ebe01f7eeaec4a67e29ad4c65572634aa71.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "0.22.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/16a23ae873d377b1deabcc3ad5f18bc2483cb2e97f746ad9bda49eaba5837073.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "1.0.0-beta.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/b836824b2ef3733c0aeca6ee95bc8e16de3c908afcc554f6f2c7f02fd5f35d91.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "trucksim-telemetry",
+    "version": "1.0.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/97a4a1ce93608fccf5785387f4bb2ad0b686389deb6888916aa081f844d575b4.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.2.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/522ea61d0580182cbe218b034e2a8f66e27633538a3648e398656888f934f55c.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.3.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/38f6b2fe573ca23581e6fda127177795f8c73e25cc815e99ad7e05ac6486364f.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.3.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/2efd47fb51bb609151c8d46d4f46e1f607538cae78d89e486814c134b2267dae.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.3.6",
+    "preserved": "data/upstream/expansion-20261012/tarballs/edbc8d45f7ee9b10f2a84ccb6062d8ed03f7961a2c1a83400add8c73a0c41fbb.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.3.8",
+    "preserved": "data/upstream/expansion-20261012/tarballs/3820f1145eea6a24ba44b62adb4fa8fd2830190eb4e1eff03d16c2d3ae59f5e2.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.3.9",
+    "preserved": "data/upstream/expansion-20261012/tarballs/0ed0d3ce00f198a5a580d2f161d83f3b3bfb1449629bbf7eddf36fc8f3387cf8.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.3.10",
+    "preserved": "data/upstream/expansion-20261012/tarballs/31629f11ccd29b0fa91ce1aaae9de2c7bd7a75614f02bbf64da391407d0726a3.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.3.13",
+    "preserved": "data/upstream/expansion-20261012/tarballs/da1744cc8160f05ade1cab0c331008579563f1a674e4ee03f1a79de25eef4d40.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.3.15",
+    "preserved": "data/upstream/expansion-20261012/tarballs/9b931baa31863ea585ecd4e4e11fe2a39c3c9d4da446315f2d4cb47c67bf6620.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.3.16",
+    "preserved": "data/upstream/expansion-20261012/tarballs/1df3c0a66cb1071ebc017b64b9334863f6a0b396309e4e2a978305b4d4613f9e.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.4.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/94d6a160b0012cdc5eec71c55fff88f4a94e4fcfd8e62aa58865469b3a6a435d.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.5.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/ecc946ba67a0824986c8b41ea16bd0af960c159c81298c12bfb86826b4bfdb37.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.6.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/961983dcb9fcec5c01f12ea1592d6a97173fb4e4c456859032b775450c02de5b.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.7.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/b54c590d31114b306cb07cb8e30061e2d709e61323938f1265935dbff587c6a9.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.8.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/40947905dbd97f5cd4292d51592c693a2d8cb08f35b8081ab9b9cb34992dbcaf.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.9.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/ac410ed7cc0325e4c96a567fa391d887506570df2f2c85ea3a6e660440f05aae.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.9.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/a47c652d6560c217db8393f93fcc109ffc2f749b1a606a764e98da00be7c1ac8.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.9.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/b7794fc203339160974ddab68c1e450da222929bc546bd4bae2c6a0f288d796d.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.9.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/1ea254cf76cb6e647523dcdc620bbfcf35a481da2a129c1abbbcdab55da0f365.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.9.5",
+    "preserved": "data/upstream/expansion-20261012/tarballs/391f1f7ca6cf11ee893d70ef4e28db33269df8b564c294f6566c487c1fd10dfa.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-android",
+    "version": "2.10.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/659799125b2afe26a576f7244dbb2869dcb86a0cc8f59e8b3a8c2bb8f8d64ade.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.1.7",
+    "preserved": "data/upstream/expansion-20261012/tarballs/abb27f8b2b1a3c5a790ad97d2860cf132f8f897c27d6aa8e52535820039cfa31.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.2.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/26234323c02e1beeb5652ecbcff2d7a9558c407d5ad91ad46ad2d4b8c5992471.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.3.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/f3f29aa66de6009ed0232f5cbaa91bdb0f05842a44f67029ebad4dc140daea2e.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.3.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/c8c1c6096295bc05829964d04a8d1d344d2d25a5b30e57874fd88984e5ca40c2.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.3.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/5ff7f6768e21287ebec7b4015370c66653cc51e22ef3124d64909fce6fb20a9b.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.4.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/871eed97a7d079ce19a2426ef3df144e8ac891e9f1eccd78b8138019a1da7dc8.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.5.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/e50be91db72489e6bea43e699bc0d5d4f4fa637da22cf633a04270ab67aebcd9.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.6.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/c816519729ad8762551b5bec20ff9a476948ae1eb4c25d503caa177e6a1eedd2.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.7.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/9c8ea3eb882c43c7ab5ea6b0d2374900ced45acbb82bcfc5b24d1457fe229176.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.7.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/cdfd30dce05dfcfa7f5aaea36b778ffcc2cacba0a6b40bc498b0b5f82965771d.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.7.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/121ca10ee0165827f9bd6cf7327c63da24906eda3b91befda69909b77ed90355.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.8.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/f4b61b657db982948990118e1fa88794447d34854f822473e246b2e9fad7ea40.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.8.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/f91c0ba976290650b06d10f2f89a6c0f85cf241a11ce0686d3471af27b6b9908.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.8.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/8f3f9dad58b72df82de4749814d16a1e308e18d626d93a633aa4163bdd3e3924.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.8.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/415c90acf958ac98c52a1e535091a52dc289d1b26b60ac38b4af08998d6f95fc.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.8.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/ed46302d96e42c57b97051c095ac62535dd89192061f8d902a9e57237802bfcf.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.8.5",
+    "preserved": "data/upstream/expansion-20261012/tarballs/3a4b8c94f1516339e1f4ff7cf27a6091572593374740889fdcf36faaea953aea.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.8.6",
+    "preserved": "data/upstream/expansion-20261012/tarballs/d5c4a1143ed39b32abcf282554f1012039c3068e8a89264ceaeb463e7c82a9e5.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.8.7",
+    "preserved": "data/upstream/expansion-20261012/tarballs/015c1266fa28b779b539c6cc64fbdd77f4e75906aab68cd8c531a381ba41d460.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.9.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/52594dfb99f407e5c77044c1e3f3ac064997b59b1db41adff2a19b7ae7edb32d.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "website-scrap-engine",
+    "version": "0.9.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/a0e5713b01fb62246cc9a512d00bde3bca9f09c0e57107b90198f4860b09eac7.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.4.9",
+    "preserved": "data/upstream/expansion-20261012/tarballs/5191f20c9fe24b39d8ae4f0a58763e74827e2cefe3db74646a08b32775fce95d.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.4.10",
+    "preserved": "data/upstream/expansion-20261012/tarballs/f86f15f1788f2bd0bf9c995776d41f8ac29648c202b5dea1cadcd51160d9df2a.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.4.11",
+    "preserved": "data/upstream/expansion-20261012/tarballs/3c828b8c3053b2581df6bb1bdc633c8f957aabfa8d4ce797baaa84fccdd2a45e.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.4.12",
+    "preserved": "data/upstream/expansion-20261012/tarballs/46fa0d58b4307fbd40594bfc5c8b8e2c04129d1af3f1017700b60c854f0e5dbe.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.4.13",
+    "preserved": "data/upstream/expansion-20261012/tarballs/aeadd54df06e76168fa4d2638d182e202af908d7029f35f75b836455b7463896.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.4.14",
+    "preserved": "data/upstream/expansion-20261012/tarballs/59dcd1f67643decea103845f8e4e9fae58e521112c9249f8455b8d996e77e783.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.4.15",
+    "preserved": "data/upstream/expansion-20261012/tarballs/bca55378b85b76b2110da0e937f7eb74756ea7a80d39d85f0e78d9b9e0ba11ad.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.4.16",
+    "preserved": "data/upstream/expansion-20261012/tarballs/ed08cdb777c1b909063476e645053ac598af37917177c7fcc6a19601d274cbf7.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.5.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/64b19f0c52750136aea21ab2e27685dd6222907e3960eae81658da19976adb57.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.5.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/3e0546ab254dbec351c9974e68f6df14d12089005db34b3073b84f7dd07db732.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.5.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/971e91544d387c8b2fddb3472709091e8ac8adcfd6d5a1fd447ab87c6d5486ea.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.5.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/591c29543a9efba5713aeef097c553af213996a037be70cc5aded108013dfd28.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.5.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/e0bf219393b689e52f4f331279d34d8d8d22f34c0f34e208484b6f19d71992f3.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.5.5",
+    "preserved": "data/upstream/expansion-20261012/tarballs/9508b652b0428fee38e29728bc7ceb038b262f0b6ce8cf0acbaefd1d63b5202d.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.5.6",
+    "preserved": "data/upstream/expansion-20261012/tarballs/6110a6f622067c8ffb14ca8fdb11f39cfe6a299b0332c48a6e13bce7a81cffa4.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.5.7",
+    "preserved": "data/upstream/expansion-20261012/tarballs/804dc37ff85d8361d18e5ac2b494044b9fe4d038757dd4d9b25faae1fe81a5aa.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.5.8",
+    "preserved": "data/upstream/expansion-20261012/tarballs/1bd8486d85238e0a13e29ba881befa4c7b338adbbedf028135fef2f230725add.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.5.9",
+    "preserved": "data/upstream/expansion-20261012/tarballs/267aa3ccf2f2971021b0add07d95ea0f74428ca013cf8a23be4760bb2febbbc5.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.5.10",
+    "preserved": "data/upstream/expansion-20261012/tarballs/20171ad050c91f6489ddc0ab02bccdb691e04809ec578d420e2ee8392d88eb2f.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.5.11",
+    "preserved": "data/upstream/expansion-20261012/tarballs/a7a733766afca2bf720e5c75809207f4c5f3fdd692024b49c51badae7a5b0cce.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@customerio/cdp-analytics-core",
+    "version": "0.6.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/aae8cbbafed4b5a650c714b952fd77fe0523c8dc67a02e9243974600b6bc3638.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "x7-code-line",
+    "version": "0.1.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/219d85178eb21eb9d8f9291cd4f464776d95c0ec4ee1a308c768784fe4be3179.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "x7-code-line",
+    "version": "0.2.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/f7b2c7b6410a4aaf4c0edd42d5f21d9afda6b1d94078a148702b90c9696bc211.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "x7-code-line",
+    "version": "0.3.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/528cdb586819f421822d67286c03957cfd0d1551620e8d13d15b47aff8052602.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "x7-code-line",
+    "version": "0.4.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/31efc6dedd9368cd42c61f8d4da85acf64007f9b67c353bc20d7c06b209ec4a0.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "x7-code-line",
+    "version": "0.5.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/d94bceb2d341052fbc083faedf709270b47076ffff14f19ef851e9febf50b104.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "x7-code-line",
+    "version": "0.6.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/368948fad96e1fe189e4e56326a1b3de6bf6a1fd208e3e192248c539a71295d8.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "x7-code-line",
+    "version": "0.7.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/495b12cb795a0a46f5b6ebfe6f91bac47ea01d7f8530451b9e3d699b0d6dd276.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "x7-code-line",
+    "version": "0.8.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/11d1ebe4e72e4ebed2402a42217e31fd2790685f860bb40990b38d0af0f82735.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "x7-code-line",
+    "version": "1.0.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/2bc28ef155d5838d759c793252124e85ed4783e98d76ea6a72e9182ce64437f1.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "x7-code-line",
+    "version": "1.1.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/ab10d96389b7d179b91d5d9ba5efa90014059b21ec60b84fb8b5b237dcd0a872.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "x7-code-line",
+    "version": "1.2.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/7f84d1f2404251d2b2fa81f8189438bb49bf3d77170985735810ecf35616310f.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "x7-code-line",
+    "version": "1.2.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/5b196a0a52fef2c5bc7ad18ea5ca3505ab9091b4c53a1a2998d8749d9736d885.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "1.3.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/499d731cbb4a01bc02d44acddf6929fb2b3be1b74ec92244763a4afd7ecfc01e.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "1.3.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/b187500e25e91d3e577735cdf0bf60721ba3e1e8cabf41470ba3be9d37cd0988.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "1.4.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/baaf74f0407616f372cee120f15586b959639df138073b2945439ea51ee33fac.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "1.4.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/6b74c79b38949004bfd1b3d90beef38801053f6535dfcaaf702ee8b73b2ea0c2.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "1.5.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/1d711f32cd2dbd84e2543518972964c6f96670e7fcee218846b3102b3c960384.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "1.6.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/c3ffd96911c7dd8c68b3be32b9f9038cd5287a789257b6a62da16a920f67c97b.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "1.7.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/ff8496c798ee62aab2aa4e7d899a1ea997e655c1390553768b3d675a9d1188a3.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "1.8.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/738753140fe05dd8d7e90271e1208901ccef074e6cac7b1699509eb0f4537caf.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "1.9.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/50cf57a26bfa66e23bf53d9f895a703446710e8a7b47965da34391c614211671.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "1.10.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/8d958f1582dc9e0209e78bb40549ced2b3395cdf38bf5a4defb0992119d75ca8.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "1.11.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/05a144b15cfda438686542b9a2426b81e1f1d08bd6306558517f0ed835fee82a.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "1.12.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/42f49bbd0104e067f289bf5c84f503cd451dd21420cb06127a74bb7826b92eeb.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "1.13.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/7bbce16fe8bd6faeadb025cb45f5d0225b81df9aef75e722e239d75e2f429a46.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "1.13.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/5518e3fae9044b0877f066055ace642b41e2f58cab51185c3e18b9608923b56c.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "2.0.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/c6b6b52b6dbd7b2cbca30a7a62a866bc43c57bbf889954173946089a3a5285a7.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "2.1.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/5ca3f249c0826c63aebde5e587bf1f36c724533c6886feda134321755363f7f0.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "2.2.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/84ca85c31005eb249401ead98d76b7642fe4c96be1aa11139e45c9c68d186400.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "2.3.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/61421fc9d6567867d05e845ba03194702874bab3508baba272ea764e04587eae.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "3.0.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/28d6fb5dc41032dbbed10926be0863efb84672074cdfe589c04a5446f784fb8b.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "3.1.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/dd755835d93cae40c3f9747479b5f0e0fbfc2bc5c29ba3d18494030dd1986232.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "binary-extensions",
+    "version": "3.2.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/0c531adb4eb8b27fc928d5369176a0cd79912fc35ad1fec05cd59d782cf4575a.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "1.1.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/067cce4e71405f13ea5ff2cd47cebfbc3b0506dfeffdd25a0b481b819485c1fb.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "1.1.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/b5255bbf18ecadd4d3108797552bb6b26b63265aa2942deb62b31cacd1486665.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "1.1.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/fb1f91c51f132a14dac60616140df5c5d3c0c329a17f3c1a03bca61dee1117f7.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "1.1.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/60736793383d2d2740eff9faef528ae5882261671274caf23ec2e9a00ac5ff26.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "1.1.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/74a640a4668f226488f9683ef41ba330c532892692dbf0a39d74f829c959f2e3.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "1.1.5",
+    "preserved": "data/upstream/expansion-20261012/tarballs/8ff5eb3e680521fcdc58ca775b4fdd9311a19f04cc6a36d94c2bf6fc99452fab.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "1.1.6",
+    "preserved": "data/upstream/expansion-20261012/tarballs/d907d301310761ab42dc6b0db49e2e876ad07ccc393cfc86653df0bf417fc153.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "1.1.7",
+    "preserved": "data/upstream/expansion-20261012/tarballs/1472214ffa6779c257af404ac2049b6fa0248a7ccfc59df19176e35623c29f8b.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "1.1.8",
+    "preserved": "data/upstream/expansion-20261012/tarballs/05939fec2f07d354ec335772e6793897f981dd8cbb86a29f4fde8748951526b3.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "2.0.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/7ba7fe152a2a7f3bf2f24d128ee317203fff6fe5350f0b30ecf3c0d448a3e92d.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "2.1.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/63562e7de1a1803e4b79b54724e9eb9447c240c70cb623a72f0066fe241f5019.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "2.1.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/74d75779f79f23ad7d302b9fa458a388ec7c46146066c4de4a6d3e9c39029243.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "2.2.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/2a7207b1082df512360188cb106aaeeb1280deae7f5d40b7854bacac99f1a8dd.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "2.2.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/651795f2fb3b55ba5923da406f42c75c0304a70f18c2e92041989185d599361d.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "2.2.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/ed629373968308a265f68b1048e35bf3a453d3bbab8ce02f373dc663f34666d2.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "2.2.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/95920e0ed46a3b4d6f1d4691cb65d42daa9fcf3ddfd96a4ea403ce0ad8609f9c.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "2.2.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/1de92c9590f6040d450936d9ef772a0d7ee4570e0c4ed0de5cbd737b5a7e0643.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "2.2.5",
+    "preserved": "data/upstream/expansion-20261012/tarballs/0e95e1216a29a1027c6b7af770cb7d1eb789b194632d64817db0c99940881b29.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "2.2.6",
+    "preserved": "data/upstream/expansion-20261012/tarballs/160316b2bf7a19e2cc0418d5ef94b5a999f9092fee3023ac9b2c7d76d2934f5b.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "2.2.7",
+    "preserved": "data/upstream/expansion-20261012/tarballs/ae3008f1166feefc85b1994e89a01beb2ee0b982d02935d31f82dd1f4acdc7f0.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "w3c-keyname",
+    "version": "2.2.8",
+    "preserved": "data/upstream/expansion-20261012/tarballs/bbc0c981b06e8494232fbccc6704419d1b8ce81425070fc473980f2352755333.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "create-hookage",
+    "version": "0.0.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/09d799a3a2131916885fe03f0488107f0408d7c9b9b125f0a41659dc34316f1f.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "create-hookage",
+    "version": "0.0.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/3aa21f623f53db44ab73817e91b448c02cdeae732335172d5eb136a88408f876.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "create-hookage",
+    "version": "0.0.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/43c0f943b3c8a6312430391e59bccafd5c41c899f005ebae4a98cff7fe1f07bc.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "create-hookage",
+    "version": "0.0.5",
+    "preserved": "data/upstream/expansion-20261012/tarballs/0b14969dae814dc103fa889c9c98ccadb0937b4f4b2867fb31f9243115d3bfc4.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "create-hookage",
+    "version": "0.0.6",
+    "preserved": "data/upstream/expansion-20261012/tarballs/855332ec09c74b4077c516b77a46dc9908cd9499e720d400f7ece6ae8d792f95.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "create-hookage",
+    "version": "0.0.7",
+    "preserved": "data/upstream/expansion-20261012/tarballs/8ee68150bac86db7bd9da04547846d79a661ac13fe2da8488f9c6e8faa9f6bb0.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.3.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/d723e175238beed6ba9815e24aa6c83f4d9807d12e2c123e45854441f2109bb4.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.3.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/3e32eb46cafb5383099f27b1b1909189aac05b13b68a111a29300c3f7d4047b2.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.3.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/d913fd6a01ccbb27a40759b6cf1b06f6c61300dec2270d5c37863cfec7de6153.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.3.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/7d60cfd417a2d9d4c267d071b00eaa580483f9e3358b3ef2317a0eeba4126014.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.3.5",
+    "preserved": "data/upstream/expansion-20261012/tarballs/ee2c2d5488e0ced85e996c839226f30f488394b05da3df211462a59a2034f6ce.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.3.6",
+    "preserved": "data/upstream/expansion-20261012/tarballs/678cb4360ba63223c4615af2e0cf97892126d9ec72c0622489507c42eaa15d6e.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.3.8",
+    "preserved": "data/upstream/expansion-20261012/tarballs/49d58a36075f2e7b0d149704acae77d687d8a13cb9589325128e4aded048c1e2.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.3.13",
+    "preserved": "data/upstream/expansion-20261012/tarballs/3bf683de2c72d27f9a4a26171bfc651e674e77f435bd0d6649a508793a0bd618.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.3.15",
+    "preserved": "data/upstream/expansion-20261012/tarballs/b5e21acdbda2f8d37adde60be1b34b692835d92b54ff4a3f7b643169ad3f22c3.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.4.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/57d68545bccfdb6c96707bee08fc32fc067da6d4b17aa360ddfded51293562b3.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.5.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/340ffa68971d49ed5129c455234116775e07c54e47e31b33ca64c188c6284c7d.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.6.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/1099a3759324fc9dcdea55671240cd38c02542da1d97dab9524881dacc4dcd9b.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.6.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/f7128b4406e0ce27109f0c455d86123d774765ff7463b0a565a92096dc7fd061.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.7.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/51cb3f43bd13a538502dd4e0f1bd6b1f6e8c4543b3b9dd40f532431002fbfdcd.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.8.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/9cbb16a5f8818a3adce9c5ccd6394975bfdfea9a73ddc3bc024a567cdac5dc90.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.9.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/f04b6b347ed714cb1046ad1d6b30e3dfe2c77a0af003d705856c129dcd98223d.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.9.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/e29858d3b7c0b77b612b7694647ac20b021233ab61a27bf3ed6fde6dc84da557.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.9.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/0ebe25d7fcbf42deb6e792ac6152e1be512a989595acb0c938d8c5d380062610.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.9.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/9b738ffcffe0fcfd5bd658d2d44efcb56ed23a63640ecca3cc870eab76f7a419.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.9.5",
+    "preserved": "data/upstream/expansion-20261012/tarballs/c91903b525a0ec42f742109a2eee4c66e633ca69a03cabc349f2867ca54460ba.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@peculiar/asn1-x509",
+    "version": "2.10.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/f81436df0b91cca39da47245968ca15aee0c752d3bc121b2c055866b61e0b730.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "forexfactory-scraper",
+    "version": "1.0.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/c588ca44b0f81c601aaa202ed275e123ab1b0657f6c2a7faba81118f9d28d98f.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "forexfactory-scraper",
+    "version": "1.0.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/56b3ef9e8e66df180c4b203e249db0b7edf60c52f5536064f7d08a776a6efd98.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "forexfactory-scraper",
+    "version": "1.0.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/299c2f44f2250f7258007b6302f9713e36f156bb5ff65f9c2d4aaa41a90b0b00.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "forexfactory-scraper",
+    "version": "1.0.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/fc6b0d713d3974a0758cdf42a8e0117debcc323319880e9bb73fe97b80cc3e21.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "forexfactory-scraper",
+    "version": "1.0.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/c122d63bc2e4d92591222065bfef315b722d4bcfe813ca1cae1d4b5eb8cbf1ea.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "forexfactory-scraper",
+    "version": "1.0.5",
+    "preserved": "data/upstream/expansion-20261012/tarballs/1e98d27f9b7ea1c160d937bf22bffe4cc53ded8baf5591b9c11f1a50058e55a0.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "forexfactory-scraper",
+    "version": "1.0.6",
+    "preserved": "data/upstream/expansion-20261012/tarballs/e1e373782d9c08446989e7357a1b268928d5b44dc4ccd56baf4087be50d72080.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "forexfactory-scraper",
+    "version": "1.0.7",
+    "preserved": "data/upstream/expansion-20261012/tarballs/ed508625f4faa5721323b92483e1947d582c6d25e821ffc839076d9c881bddb0.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "forexfactory-scraper",
+    "version": "1.0.8",
+    "preserved": "data/upstream/expansion-20261012/tarballs/00f80498e7682f498eaab6a3f25beb60faa546fdf7af8c08afb6768087cc6e81.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "forexfactory-scraper",
+    "version": "1.0.9",
+    "preserved": "data/upstream/expansion-20261012/tarballs/3fccc0e9f8757a69b6888f551da514a83345aa5c9ccc02489a1b6e3974af0aea.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "forexfactory-scraper",
+    "version": "1.0.12",
+    "preserved": "data/upstream/expansion-20261012/tarballs/636b03eb74df894cbd221c07c60cef78303103147795d4e0c2ab29f3b8fc902c.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "forexfactory-scraper",
+    "version": "1.0.13",
+    "preserved": "data/upstream/expansion-20261012/tarballs/12d72df503e1e877630d01d32a8fa1db4e36b834b5dc96db12a0876c3dd3495c.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "forexfactory-scraper",
+    "version": "1.0.14",
+    "preserved": "data/upstream/expansion-20261012/tarballs/a650d8292bb024aaa662cbf715d39851462592832456d0589886ff038ec92416.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@loongsuite/otel-util-genai",
+    "version": "0.1.0-beta.0",
+    "preserved": "data/upstream/expansion-20261012/tarballs/6addadbb8a04e31593defbabe3d6f67006eac23ca5fbee859e7b29a18d8f6e61.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@loongsuite/otel-util-genai",
+    "version": "0.1.0-beta.1",
+    "preserved": "data/upstream/expansion-20261012/tarballs/3d643a2cf0f1f2b35490f72700d3d975bb642bd11a5377566a6950b9ebb2c56d.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@loongsuite/otel-util-genai",
+    "version": "0.1.0-beta.2",
+    "preserved": "data/upstream/expansion-20261012/tarballs/8b32184ef4a05645ccffa982461cd93341b1229084f74f41ad05b5b2ac71b4f8.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@loongsuite/otel-util-genai",
+    "version": "0.1.0-beta.3",
+    "preserved": "data/upstream/expansion-20261012/tarballs/d57ac0ac4447c2355a495a1d7e85292246f215ce5111e759d48a059ee762971e.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@loongsuite/otel-util-genai",
+    "version": "0.1.0-beta.4",
+    "preserved": "data/upstream/expansion-20261012/tarballs/a92c2fd8a74cb48504039c4cd3c4b87a4170a7b4cbe5e3606c7f341a30d7bf72.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@loongsuite/otel-util-genai",
+    "version": "0.1.0-beta.5",
+    "preserved": "data/upstream/expansion-20261012/tarballs/3efae9b5caaf3d9ada8ed4d0b466670b2df146388b8f729a47aefd0e6a79c63d.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@loongsuite/otel-util-genai",
+    "version": "0.1.0-beta.6",
+    "preserved": "data/upstream/expansion-20261012/tarballs/3369f6d28b0047473c95831b9f365eb640fa4357a8b2fcd4c1a00fca243002e6.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@loongsuite/otel-util-genai",
+    "version": "0.1.0-beta.7",
+    "preserved": "data/upstream/expansion-20261012/tarballs/da1081a09c965c17a3ab83855dd3df6246824aa112c7e14fe3ee44e2f2c98cc4.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@loongsuite/otel-util-genai",
+    "version": "0.1.0-beta.8",
+    "preserved": "data/upstream/expansion-20261012/tarballs/7d561296035dbf2ceadd9841ea5c132a14d230d2398bd640725d5a801747c90f.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@loongsuite/otel-util-genai",
+    "version": "0.1.0-beta.9",
+    "preserved": "data/upstream/expansion-20261012/tarballs/b2cdf9679e5244342c225b0a2f995e669ad06c7bad42b2a439b5d3f97960880a.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "@loongsuite/otel-util-genai",
+    "version": "0.1.0-beta.10",
+    "preserved": "data/upstream/expansion-20261012/tarballs/7da85d3050328b294b0f30b5d9e1dcd46b5f80e59cd19bf9ee38f96b91034050.rejected-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

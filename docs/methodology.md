@@ -1,5 +1,12 @@
 # Metodologi IntentDiff-RAG
 
+**Revisi aktif D99 (14 Oktober 2026):** eksperimen akhir memakai label sumber
+dataset dan TYP assumed-benign; anotasi dua manusia tidak menjadi prasyarat.
+[Protokol D99](source-labelled-final-20261014.md) menggantikan persyaratan
+gold, card ahli, minimum HN, dan klaim konfirmatori HN pada bagian lama di bawah.
+Aturan normalisasi, enam konfigurasi, dua model utama, dan eksklusi retrieval
+tetap berlaku. Snapshot eksperimen terdahulu tidak berubah.
+
 Status: final per 2026-09-13, dibekukan di Gate G2. Perubahan setelah itu wajib
 dicatat di [decisions.md](decisions.md); keputusan yang menyusun dokumen ini
 adalah D25–D43.
@@ -194,14 +201,14 @@ Satu-satunya pengecualian ada di §6.4.
 Dua item (pair atau card) masuk satu kampanye jika memenuhi **salah satu** syarat:
 
 - a. merujuk laporan insiden atau advisory yang sama;
-- b. memiliki file tambahan yang identik (SHA-256 isi file mentah sama);
+- b. memiliki file tambahan yang identik (SHA-256 isi file mentah sama), dengan panjang ≥ 64 byte setelah whitespace di awal dan akhir dibuang (`bytes.strip()`, D96). Whitespace di tengah tetap dihitung; hash tetap dihitung dari byte mentah. Aturan sebelum D96 tetap dilaporkan sebagai sensitivitas;
 - c. skor similarity Dolos (0–1) antara kode JS tambahannya ≥ 0,5, dihitung dengan parameter Wyss k=70 dan window 17 [R].
 
 Klaster akhir adalah penutupan transitif dari relasi di atas.
 
 **Kenapa ambang 0,5** [L]:
 
-- Kesalahan menggabungkan dua kampanye yang sebenarnya berbeda hanya mengurangi n, karena setiap kampanye dibatasi 3 pair.
+- Penggabungan berlebih mengurangi jumlah klaster efektif dan dapat mengurangi keragaman pair/KB melalui batas per kampanye. Dalam split berbasis paparan, penggabungan juga dapat memindahkan kandidat ke dev; dampaknya bukan hanya mengurangi n (audit D96: `docs/campaign-audit-20261013.md`). Keanggotaan klaster konservatif ini tidak membuktikan satu asal insiden.
 - Kesalahan memisahkan dua item yang sebenarnya satu kampanye menimbulkan kebocoran antara KB dan test, dan membuat bootstrap menganggap item yang berkorelasi sebagai independen.
 - Kesalahan kedua lebih merusak validitas, jadi ambang dibuat condong ke penggabungan.
 - Jumlah klaster pada ambang 0,5 dan 0,8 dilaporkan.
@@ -366,7 +373,7 @@ dipangkas lebih dulu.
 
 **Penulisan:**
 
-- Card ditulis dalam bahasa Inggris oleh anotator A, lalu dicek anotator B dengan membandingkannya ke kode sumber.
+- D99: card disusun deterministik dari kode dan metadata dataset, dalam bahasa Inggris. Label sumber/assumed-benign dan lokasi kutipan disimpan. Tidak mengklaim rationale ahli atau review manusia; detail format ada di protokol D99.
 - Card disusun dari isi paket, tidak pernah dari output model.
 
 **Dasar:**
@@ -391,6 +398,11 @@ dipangkas lebih dulu.
    - slot lainnya diisi card kedua: malicious terbaik kedua untuk DIFF+I+MM, benign terbaik untuk DIFF+I+MB dan DIFF+MB;
    - [L] dengan begitu DIFF+I+MM dan DIFF+I+MB hanya berbeda pada card kedua, bukan pada posisi card pertama (D42).
 6. **Log:** `id`, `label`, skor, dan posisi setiap card disimpan di baris hasil.
+
+**Pemeriksaan sebelum inferensi (D98):** seluruh pair/konfigurasi harus
+memenuhi jumlah dan label card di atas setelah eksklusi. Jika tidak cukup,
+batch berhenti sebelum request pertama; jangan diam-diam menjalankan MM/MB
+dengan satu atau tanpa card. Metadata nama/kampanye dan ID unik juga wajib.
 
 **Invarian:** retrieval tidak memakai intent. Akibatnya DIFF+I+MB dan DIFF+MB selalu
 mendapat card dan urutan yang sama.
@@ -559,26 +571,18 @@ revisi hanya pada instruksi format mencegah penyetelan aturan keputusan.
 
 ## 8. Pelabelan
 
-**Siapa dan apa yang dilabeli:**
+Label evaluasi utama diwarisi dari dataset, bukan dibuat ulang oleh dua
+anotator (D99). MAL menyimpan asal label malicious dan pin record sumber.
+TYP menyimpan dasar assumed-benign serta pemeriksaan advisory kedua versi;
+ketiadaan advisory bukan bukti mutlak aman. `label_provenance` membedakan
+keduanya. Tidak ada `human_annotation_verified` atau `gold_evidence` buatan.
 
-- Dua anotator melabeli semua kandidat MAL dan HN secara independen lewat UI audit.
-- TYP tidak dilabeli ganda. TYP diasumsikan benign seperti di Wyss et al. [R], dan hanya dicek terhadap advisory.
-
-**Isi label:**
-
-- Semua kandidat: `malicious`, `benign`, atau `skip`.
-- HN: ditambah kategori 1–5.
-- MAL: ditambah `gold_evidence`, yaitu baris smart-diff yang memuat perilaku jahat, disalin verbatim. Ditulis anotator A dan dicek anotator B.
-
-**Kesepakatan antar anotator:**
-
-- Cohen's κ dilaporkan untuk label (MAL dan HN digabung) dan untuk kategori HN [R].
-- Ketidaksepakatan diselesaikan lewat diskusi, dan alasannya ditulis di `note`.
-- Kandidat yang tetap tidak disepakati diberi label `skip`, dikeluarkan dari test set, dan jumlahnya dilaporkan.
-
-**Urutan kerja:** seluruh pelabelan selesai sebelum model dijalankan pada test set.
-
-- [L] Anotator tidak boleh melihat output model, supaya label gold tidak terpengaruh prediksi.
+250 kandidat HN yang belum berlabel dipertahankan sebagai kohort diagnostik
+tanpa label: laporkan tingkat alarm, bukan FPR/akurasi. HN tidak wajib untuk
+merilis eksperimen utama MAL+TYP. Anotasi manusia tetap boleh dilakukan sebagai
+pengayaan opsional, tetapi κ dan evidence localization gold tidak dilaporkan
+jika anotasinya tidak tersedia. Semua label, split dan pemilihan card dibekukan
+sebelum prediksi test.
 
 ## 9. Model dan inferensi
 

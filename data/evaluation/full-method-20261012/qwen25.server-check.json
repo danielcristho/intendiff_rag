@@ -1,0 +1,14 @@
+[
+  {
+    "arm": "IDS-D",
+    "pair_id": "color-name@2.0.1",
+    "token_ids_match": true,
+    "tokens": 24902
+  },
+  {
+    "arm": "IDS-I",
+    "pair_id": "color-convert@3.1.1",
+    "token_ids_match": true,
+    "tokens": 25001
+  }
+]

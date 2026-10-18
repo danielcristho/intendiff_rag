@@ -1,0 +1,10 @@
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "status": "starting server"}
+Traceback (most recent call last):
+  File "~/intendiff_rag/data/evaluation/full-method-20261012/run_all.py", line 65, in <module>
+    process = serve(model)
+              ^^^^^^^^^^^^
+  File "~/intendiff_rag/data/evaluation/full-method-20261012/run_all.py", line 46, in serve
+    ready(process, log)
+  File "~/intendiff_rag/data/evaluation/full-method-20261012/run_all.py", line 25, in ready
+    raise RuntimeError(f'server exited with {process.returncode}; see {log.name}')
+RuntimeError: server exited with 1; see qwen3.server.log

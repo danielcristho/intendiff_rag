@@ -1,0 +1,24 @@
+{
+  "reason": "Previously failed archive now matches the original frozen registry digest; rescan this version before finalizing.",
+  "previous_scan": {
+    "name": "plugged-scraper",
+    "version": "1.0.239",
+    "dist": {
+      "integrity": "sha512-kVPoZYSERlS2E+NwE0C4TWezIzWsrz7so/BTyRvCxLqsDF4hjN59HH62WuYxZ4gtxRWCFgSfsfGaZ8bS2eFNPA==",
+      "shasum": "78ae6fd209cbed780be69a89166b27634e19676f",
+      "tarball": "https://registry.npmjs.org/plugged-scraper/-/plugged-scraper-1.0.239.tgz",
+      "fileCount": 995,
+      "unpackedSize": 56613322,
+      "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJeqGrvCRA9TVsSAnZWagAADrAQAI3JITpOi7lmZMgwZapO\ne65aEze8J/nL0KHhQ0qkmU9TtI2zxyvcqrUje0tcMPcbpQ9hvIK9TVaByHb/\n4SVd4ZDnpkWYlskmQV1B/n4/Cfdr0PzWfcZgBf4brqJLGUVB/oPndqVVUo8x\nKSoOJIfx3VAXjKT8Fm6wE8wciZVw5Dmc+xEBEjgEof1uVUG6OVKw8affcWCG\nHmQrI7Hzn//85oBSxsy9VI1K6YYuU7iXuXoe1Wg40S3MzR8KWLxAYG0OgawC\n4WB528RBs2UpOMV+lEAebM1zsFvkAM+gexm7ZTSg8JhhMZ4w5uV6H6w2ll+5\ncA24ElgaC6Xpe1YeYscUKRNACdcW8z/Ow/x2rKZKvLYApAGjudrXWFmD7loe\nRAqcYIMgxlbLVnvU4/92sMmzfNILkvbK3Y+YxB+wNXkQ31PN6tKHCtZF+ich\nQJJ9bRN7poU70JVN1fO3OOE+MMzYGePgmom150kWcHTHwn48vqLOSYESoyD9\nywjcxRioTCLmus+bAAJD4t6d8PlRRBmWAzbjqVtSIl/e1Vp54CxIhmtuFfZT\nk7gSxPqd0Lzq9Of2M8bkwgXJWG3gOvF5yUj2+UHHsv9l6689VBNFvgtnZBx2\nfJcaAfCJ+N/Cu2ySwWa8fPC82jAWmdmhGiIb4cJf1PUC4j4IOla1e8pto3GZ\nNmIU\r\n=shBR\r\n-----END PGP SIGNATURE-----\r\n",
+      "signatures": [
+        {
+          "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+          "sig": "MEUCIC25fGROBb8YqWiM415dZKLXadYDqPphNJBNd4ycDoNRAiEAhi6LgugP2mftBAaowsF88ZMZS42AYj1yEmxgn6oxre4="
+        }
+      ]
+    },
+    "metadata_file": "data/upstream/expansion-20261012/metadata/017c06b6a4c4c116a81ff1ab058005184556a613a771bd22cdc65f1049047440.json",
+    "metadata_sha256": "9141a0dcaeafd8ec4a5b208ae523a3d7807e23d40b4e1511c8a135f1a8e63fe8",
+    "error": "ValueError: Archive size or integrity check failed"
+  }
+}

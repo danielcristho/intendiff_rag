@@ -1,0 +1,18 @@
+{
+  "pipeline/expansion_power.py": "709c7d7f49026035e2c8172aaf255b8ed6d9e20330949af5195b00906692a070",
+  "pipeline/expansion_report.py": "cfd346ef117f1c50d45677799503d3abee4107d077cb9bc80bc456f197402202",
+  "pipeline/expansion_inventory.py": "d5cb48dfcdfab69a32d344112a23385fd898fc7d0a93d62d4f41c0861136e8db",
+  "pipeline/expansion_screen.py": "fa30e9274374c4cbbcb61717960833004e6bbea1476f500b51b5e43db2c7a9d0",
+  "pipeline/expansion_fetch.py": "849c54e93b639c7e68d673580582932c31715836da9c920522099719746a7f6b",
+  "pipeline/expansion_mal_sources.py": "f84b996f1e3b460e8f15c5376d38c2ab0c6d06b27623b0a3fc48bcc87db600e4",
+  "pipeline/expansion_stream_scan.py": "5d569311a22d2187dfac31fa50e4c2706964b9ee44149d1ab49d0d76b832291b",
+  "pipeline/collect.py": "18486c9e940f5280ac3f2a4f859b5e57c1d0b34307c0c32c004b96e1ce2f4d71",
+  "pipeline/capability.py": "bdf4d84ae065bb313d9d45ea36c993c6000eb3a2a93d65e737b76105405eb05b",
+  "pipeline/advisories.py": "f7cc94cc3ff0fb2598ca499511e6ffe93d61d9a179beff8428a6d28f97f682eb",
+  "pipeline/registry_fetch.py": "b08b960bbd038f4996b6c286ed8d86442d39dd41597a5cbbaac7ec46c9474d37",
+  "pipeline/samples.py": "f032d636f23e4b5a6267ef42a702149d924a68e2004bacf104d3d33c0d8572e7",
+  "pipeline/typical.py": "b2cb38f5e9e9fdd4fd135042a480c9c642d4d4d25da832e9acf7be11a3301c48",
+  "pipeline/wyss.py": "173d8108f3d6490f62db84d0e3f3c152639966d719a94a7afffb1837b192220f",
+  "tests/test_dataset_expansion.py": "f553bf1a5cfefc8b6bb9dc8336fc3a79b5165eb4993db70e84a220fd79040f79",
+  "docs/dataset-expansion-20261012.md": "77ed2d9deab054e92457ebd6c3600e220246412a700261f21c504e13e58ca7d9"
+}

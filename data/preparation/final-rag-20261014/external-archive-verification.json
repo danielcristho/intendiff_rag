@@ -1,0 +1,47 @@
+[
+  {
+    "path": "data/upstream/guo-20261014/63179326-NPMStudy.zip",
+    "bytes": 87885991,
+    "expected_bytes": 87885991,
+    "md5": "be67198a63e059ec7a123c356784db6f",
+    "expected_md5": "be67198a63e059ec7a123c356784db6f",
+    "sha256": "be52e45edd976b39947db66ca75445d6d2f285f1837d2f910bb3d2b1e7f0b3bc",
+    "verified": true
+  },
+  {
+    "path": "data/upstream/guo-20261014/63260731-NPMStudy.zip",
+    "bytes": 3365075598,
+    "expected_bytes": 3365075598,
+    "md5": "758196c37d29fb8dc05d5afcb98f13a6",
+    "expected_md5": "758196c37d29fb8dc05d5afcb98f13a6",
+    "sha256": "bb22a7afff4d407244ad22951509bb2ab898d46e72a8e0c7509f65123ec50115",
+    "verified": true
+  },
+  {
+    "path": "data/upstream/guo-20261014/65055888-NPMStudy.zip",
+    "bytes": 3100552211,
+    "expected_bytes": 3100552211,
+    "md5": "8ca148bad7e184f3672b39814a9f59d5",
+    "expected_md5": "8ca148bad7e184f3672b39814a9f59d5",
+    "sha256": "83207f1e06b1cbf0161d6575e64cc4fe7f021241078ef060e4bfdc7764e9c2a1",
+    "verified": true
+  },
+  {
+    "path": "data/upstream/guo-20261014/66774704-NPMStudy.zip",
+    "bytes": 4816949651,
+    "expected_bytes": 4816949651,
+    "md5": "29fb1e5a43890c2ac05af1f6971af474",
+    "expected_md5": "29fb1e5a43890c2ac05af1f6971af474",
+    "sha256": "395cbd9ad1592e9bcf165e70522268f3068fd5f3623c879f745b3c21a94ac8ae",
+    "verified": true
+  },
+  {
+    "path": "data/upstream/rogueone-20261014/44204945-ro.tar.gz",
+    "bytes": 2080818268,
+    "expected_bytes": 2080818268,
+    "md5": "f8e1c38e12cb728f02b4bda2242e350b",
+    "expected_md5": "f8e1c38e12cb728f02b4bda2242e350b",
+    "sha256": "61b983bbf8b4cd9d5dda3594cfdde219beffb9586c6b6b40fc392902bfcb4a0e",
+    "verified": true
+  }
+]
