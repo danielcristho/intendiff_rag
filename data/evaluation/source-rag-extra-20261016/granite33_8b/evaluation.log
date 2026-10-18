@@ -1,0 +1,10 @@
+{"stage": "server_starting", "time_unix": 1792107425.0494432, "model": "ibm-granite/granite-3.3-8b-instruct", "experiment_stage": "dev", "pid": 1722888}
+{"stage": "running", "time_unix": 1792107549.0984557, "model": "ibm-granite/granite-3.3-8b-instruct", "experiment_stage": "dev"}
+{"stage": "model_complete", "time_unix": 1792107721.3527942, "model": "ibm-granite/granite-3.3-8b-instruct", "experiment_stage": "dev", "completed": 60, "json_validity": 0.9}
+{"stage": "stage_complete", "time_unix": 1792107721.354538, "experiment_stage": "dev"}
+{"model": "granite33_8b", "test_released": true, "dev_json_validity": 0.9}
+{"stage": "server_starting", "time_unix": 1792137933.5146883, "model": "ibm-granite/granite-3.3-8b-instruct", "experiment_stage": "test", "pid": 2064247}
+{"stage": "running", "time_unix": 1792138035.5537612, "model": "ibm-granite/granite-3.3-8b-instruct", "experiment_stage": "test"}
+{"stage": "model_complete", "time_unix": 1792155708.9646642, "model": "ibm-granite/granite-3.3-8b-instruct", "experiment_stage": "test", "completed": 11406, "json_validity": 0.9528318428897071}
+{"stage": "stage_complete", "time_unix": 1792155708.966344, "experiment_stage": "test"}
+data/evaluation/source-rag-extra-20261016/granite33_8b/results.md

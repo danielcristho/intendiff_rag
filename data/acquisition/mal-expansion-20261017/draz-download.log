@@ -1,0 +1,14 @@
+{"downloads": 25, "total": 318, "errors": 0}
+{"downloads": 50, "total": 318, "errors": 0}
+{"downloads": 75, "total": 318, "errors": 0}
+{"downloads": 100, "total": 318, "errors": 0}
+{"downloads": 125, "total": 318, "errors": 1}
+{"downloads": 150, "total": 318, "errors": 1}
+{"downloads": 175, "total": 318, "errors": 1}
+{"downloads": 200, "total": 318, "errors": 1}
+{"downloads": 225, "total": 318, "errors": 1}
+{"downloads": 250, "total": 318, "errors": 1}
+{"downloads": 275, "total": 318, "errors": 1}
+{"downloads": 300, "total": 318, "errors": 1}
+{"downloads": 318, "total": 318, "errors": 1}
+{"advisory_accepted_pairs": 159, "names": 80, "exclusions": {"predecessor_advisory_present": 232, "target_has_no_MAL_confirmation": 4}, "archive_requests": 318, "downloaded": 317, "archive_errors": 1}

@@ -1,0 +1,6 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/popsicle_12.0.6-->12.1.0/popsicle-12.0.6/","module.exports.fetch","",7
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/popsicle_12.0.6-->12.1.0/popsicle-12.0.6/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/popsicle_12.0.6-->12.1.0/popsicle-12.0.6/","module.exports.toFetch()","",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/popsicle_12.0.6-->12.1.0/popsicle-12.0.6/","module.exports.fetch","",51
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/popsicle_12.0.6-->12.1.0/popsicle-12.0.6/","module.exports.fetch","",52
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/popsicle_12.0.6-->12.1.0/popsicle-12.0.6/","main","",3

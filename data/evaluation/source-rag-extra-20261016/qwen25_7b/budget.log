@@ -1,0 +1,3 @@
+{"model": "qwen25_7b", "stage": "dev", "pairs": 10, "requests": 60, "max_prompt_tokens": 29800}
+{"model": "qwen25_7b", "stage": "test", "pairs": 1901, "requests": 11406, "max_prompt_tokens": 30144}
+{"ready": true, "model": "Qwen/Qwen2.5-Coder-7B-Instruct", "stages": {"dev": {"pairs": 10, "requests": 60, "max_prompt_tokens": 29800}, "test": {"pairs": 1901, "requests": 11406, "max_prompt_tokens": 30144}}, "cards_over_original_token_limit": 0, "text_policy": "Identical frozen D101 text; original construction limits use Qwen tokenizers", "max_model_len": 32768, "kv_cache_memory_bytes": 6442450944}

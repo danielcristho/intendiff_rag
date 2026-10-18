@@ -1,0 +1,873 @@
+{
+  "model": "ibm-granite/granite-3.3-8b-instruct",
+  "complete": true,
+  "pairs": 96,
+  "campaigns": 65,
+  "json_validity": 0.9600694444444444,
+  "metrics": [
+    {
+      "config": "DIFF",
+      "invalid_as": "benign",
+      "new_confusion": {
+        "FN": 55,
+        "TP": 41
+      },
+      "invalid": 5,
+      "new": {
+        "tpr": 0.4270833333333333,
+        "campaign_bootstrap_95": [
+          0.3137254901960784,
+          0.5416666666666666
+        ],
+        "macro_campaign_tpr": 0.4230769230769231,
+        "campaigns": 65,
+        "resamples": 10000,
+        "seed": 2026
+      },
+      "historical": {
+        "config": "DIFF",
+        "invalid_as": "benign",
+        "completed": 1901,
+        "expected": 1901,
+        "confusion": {
+          "TN": 1680,
+          "FN": 19,
+          "FP": 188,
+          "TP": 14
+        },
+        "tpr_source": 0.42424242424242425,
+        "cohort_accuracy": 0.891109942135718,
+        "balanced_accuracy": 0.6618000129777432,
+        "typ_strata": {
+          "live-stream-unseen-names": {
+            "n": 375,
+            "alarms": 34
+          },
+          "popular": {
+            "n": 692,
+            "alarms": 61
+          },
+          "random": {
+            "n": 801,
+            "alarms": 93
+          }
+        },
+        "invalid": 104
+      },
+      "combined": {
+        "confusion": {
+          "TP": 55,
+          "FN": 74,
+          "TN": 1680,
+          "FP": 188
+        },
+        "tpr": 0.4263565891472868,
+        "historical_typ_fpr": 0.10064239828693788,
+        "cohort_accuracy": 0.8688032048072108,
+        "balanced_accuracy": 0.6628570954301745,
+        "interpretation": "Descriptive combination; TYP reused from historical evaluation, not new holdout"
+      },
+      "cost": {
+        "median_latency_ms": 1300.8,
+        "p95_latency_ms": 6104.6,
+        "mean_prompt_tokens": 4929.3125,
+        "mean_completion_tokens": 110.35416666666667
+      }
+    },
+    {
+      "config": "DIFF",
+      "invalid_as": "malicious",
+      "new_confusion": {
+        "FN": 50,
+        "TP": 46
+      },
+      "invalid": 5,
+      "new": {
+        "tpr": 0.4791666666666667,
+        "campaign_bootstrap_95": [
+          0.36891926417986715,
+          0.5934065934065934
+        ],
+        "macro_campaign_tpr": 0.4897435897435897,
+        "campaigns": 65,
+        "resamples": 10000,
+        "seed": 2026
+      },
+      "historical": {
+        "config": "DIFF",
+        "invalid_as": "malicious",
+        "completed": 1901,
+        "expected": 1901,
+        "confusion": {
+          "TN": 1576,
+          "FP": 292,
+          "FN": 19,
+          "TP": 14
+        },
+        "tpr_source": 0.42424242424242425,
+        "cohort_accuracy": 0.8364018937401367,
+        "balanced_accuracy": 0.6339627538771008,
+        "typ_strata": {
+          "live-stream-unseen-names": {
+            "n": 375,
+            "alarms": 39
+          },
+          "popular": {
+            "n": 692,
+            "alarms": 132
+          },
+          "random": {
+            "n": 801,
+            "alarms": 121
+          }
+        },
+        "invalid": 104
+      },
+      "combined": {
+        "confusion": {
+          "TP": 60,
+          "FN": 69,
+          "TN": 1576,
+          "FP": 292
+        },
+        "tpr": 0.46511627906976744,
+        "historical_typ_fpr": 0.15631691648822266,
+        "cohort_accuracy": 0.8192288432648973,
+        "balanced_accuracy": 0.6543996812907724,
+        "interpretation": "Descriptive combination; TYP reused from historical evaluation, not new holdout"
+      },
+      "cost": {
+        "median_latency_ms": 1300.8,
+        "p95_latency_ms": 6104.6,
+        "mean_prompt_tokens": 4929.3125,
+        "mean_completion_tokens": 110.35416666666667
+      }
+    },
+    {
+      "config": "DIFF+I",
+      "invalid_as": "benign",
+      "new_confusion": {
+        "FN": 67,
+        "TP": 29
+      },
+      "invalid": 2,
+      "new": {
+        "tpr": 0.3020833333333333,
+        "campaign_bootstrap_95": [
+          0.2,
+          0.41054093567251443
+        ],
+        "macro_campaign_tpr": 0.3128205128205128,
+        "campaigns": 65,
+        "resamples": 10000,
+        "seed": 2026
+      },
+      "historical": {
+        "config": "DIFF+I",
+        "invalid_as": "benign",
+        "completed": 1901,
+        "expected": 1901,
+        "confusion": {
+          "TN": 1724,
+          "FP": 144,
+          "FN": 17,
+          "TP": 16
+        },
+        "tpr_source": 0.48484848484848486,
+        "cohort_accuracy": 0.9153077327722251,
+        "balanced_accuracy": 0.7038803452079683,
+        "typ_strata": {
+          "live-stream-unseen-names": {
+            "n": 375,
+            "alarms": 34
+          },
+          "popular": {
+            "n": 692,
+            "alarms": 36
+          },
+          "random": {
+            "n": 801,
+            "alarms": 74
+          }
+        },
+        "invalid": 93
+      },
+      "combined": {
+        "confusion": {
+          "TP": 45,
+          "FN": 84,
+          "TN": 1724,
+          "FP": 144
+        },
+        "tpr": 0.3488372093023256,
+        "historical_typ_fpr": 0.0770877944325482,
+        "cohort_accuracy": 0.885828743114672,
+        "balanced_accuracy": 0.6358747074348887,
+        "interpretation": "Descriptive combination; TYP reused from historical evaluation, not new holdout"
+      },
+      "cost": {
+        "median_latency_ms": 1188.7,
+        "p95_latency_ms": 5839.5,
+        "mean_prompt_tokens": 5490.833333333333,
+        "mean_completion_tokens": 87.65625
+      }
+    },
+    {
+      "config": "DIFF+I",
+      "invalid_as": "malicious",
+      "new_confusion": {
+        "FN": 65,
+        "TP": 31
+      },
+      "invalid": 2,
+      "new": {
+        "tpr": 0.3229166666666667,
+        "campaign_bootstrap_95": [
+          0.2169811320754717,
+          0.4347926731078903
+        ],
+        "macro_campaign_tpr": 0.3435897435897436,
+        "campaigns": 65,
+        "resamples": 10000,
+        "seed": 2026
+      },
+      "historical": {
+        "config": "DIFF+I",
+        "invalid_as": "malicious",
+        "completed": 1901,
+        "expected": 1901,
+        "confusion": {
+          "TN": 1632,
+          "FP": 236,
+          "TP": 17,
+          "FN": 16
+        },
+        "tpr_source": 0.5151515151515151,
+        "cohort_accuracy": 0.8674381904260915,
+        "balanced_accuracy": 0.6944065926935306,
+        "typ_strata": {
+          "live-stream-unseen-names": {
+            "n": 375,
+            "alarms": 45
+          },
+          "popular": {
+            "n": 692,
+            "alarms": 89
+          },
+          "random": {
+            "n": 801,
+            "alarms": 102
+          }
+        },
+        "invalid": 93
+      },
+      "combined": {
+        "confusion": {
+          "TP": 48,
+          "FN": 81,
+          "TN": 1632,
+          "FP": 236
+        },
+        "tpr": 0.37209302325581395,
+        "historical_typ_fpr": 0.12633832976445392,
+        "cohort_accuracy": 0.8412618928392589,
+        "balanced_accuracy": 0.6228773467456801,
+        "interpretation": "Descriptive combination; TYP reused from historical evaluation, not new holdout"
+      },
+      "cost": {
+        "median_latency_ms": 1188.7,
+        "p95_latency_ms": 5839.5,
+        "mean_prompt_tokens": 5490.833333333333,
+        "mean_completion_tokens": 87.65625
+      }
+    },
+    {
+      "config": "DIFF+I+M",
+      "invalid_as": "benign",
+      "new_confusion": {
+        "FN": 61,
+        "TP": 35
+      },
+      "invalid": 5,
+      "new": {
+        "tpr": 0.3645833333333333,
+        "campaign_bootstrap_95": [
+          0.24298384901551584,
+          0.49473955507325007
+        ],
+        "macro_campaign_tpr": 0.382051282051282,
+        "campaigns": 65,
+        "resamples": 10000,
+        "seed": 2026
+      },
+      "historical": {
+        "config": "DIFF+I+M",
+        "invalid_as": "benign",
+        "completed": 1901,
+        "expected": 1901,
+        "confusion": {
+          "TN": 1703,
+          "FP": 165,
+          "FN": 17,
+          "TP": 16
+        },
+        "tpr_source": 0.48484848484848486,
+        "cohort_accuracy": 0.9042609153077328,
+        "balanced_accuracy": 0.6982593601972618,
+        "typ_strata": {
+          "live-stream-unseen-names": {
+            "n": 375,
+            "alarms": 42
+          },
+          "popular": {
+            "n": 692,
+            "alarms": 32
+          },
+          "random": {
+            "n": 801,
+            "alarms": 91
+          }
+        },
+        "invalid": 95
+      },
+      "combined": {
+        "confusion": {
+          "TP": 51,
+          "FN": 78,
+          "TN": 1703,
+          "FP": 165
+        },
+        "tpr": 0.3953488372093023,
+        "historical_typ_fpr": 0.08832976445396146,
+        "cohort_accuracy": 0.8783174762143214,
+        "balanced_accuracy": 0.6535095363776704,
+        "interpretation": "Descriptive combination; TYP reused from historical evaluation, not new holdout"
+      },
+      "cost": {
+        "median_latency_ms": 1306.8,
+        "p95_latency_ms": 6141.1,
+        "mean_prompt_tokens": 5731.895833333333,
+        "mean_completion_tokens": 104.70833333333333
+      }
+    },
+    {
+      "config": "DIFF+I+M",
+      "invalid_as": "malicious",
+      "new_confusion": {
+        "FN": 56,
+        "TP": 40
+      },
+      "invalid": 5,
+      "new": {
+        "tpr": 0.4166666666666667,
+        "campaign_bootstrap_95": [
+          0.29245283018867924,
+          0.5494505494505495
+        ],
+        "macro_campaign_tpr": 0.45897435897435895,
+        "campaigns": 65,
+        "resamples": 10000,
+        "seed": 2026
+      },
+      "historical": {
+        "config": "DIFF+I+M",
+        "invalid_as": "malicious",
+        "completed": 1901,
+        "expected": 1901,
+        "confusion": {
+          "TN": 1609,
+          "FP": 259,
+          "FN": 16,
+          "TP": 17
+        },
+        "tpr_source": 0.5151515151515151,
+        "cohort_accuracy": 0.855339295107838,
+        "balanced_accuracy": 0.6882502757770423,
+        "typ_strata": {
+          "live-stream-unseen-names": {
+            "n": 375,
+            "alarms": 54
+          },
+          "popular": {
+            "n": 692,
+            "alarms": 86
+          },
+          "random": {
+            "n": 801,
+            "alarms": 119
+          }
+        },
+        "invalid": 95
+      },
+      "combined": {
+        "confusion": {
+          "TP": 57,
+          "FN": 72,
+          "TN": 1609,
+          "FP": 259
+        },
+        "tpr": 0.4418604651162791,
+        "historical_typ_fpr": 0.13865096359743045,
+        "cohort_accuracy": 0.8342513770655984,
+        "balanced_accuracy": 0.6516047507594243,
+        "interpretation": "Descriptive combination; TYP reused from historical evaluation, not new holdout"
+      },
+      "cost": {
+        "median_latency_ms": 1306.8,
+        "p95_latency_ms": 6141.1,
+        "mean_prompt_tokens": 5731.895833333333,
+        "mean_completion_tokens": 104.70833333333333
+      }
+    },
+    {
+      "config": "DIFF+I+MM",
+      "invalid_as": "benign",
+      "new_confusion": {
+        "FN": 46,
+        "TP": 50
+      },
+      "invalid": 4,
+      "new": {
+        "tpr": 0.5208333333333334,
+        "campaign_bootstrap_95": [
+          0.40205932888619367,
+          0.6381003039513676
+        ],
+        "macro_campaign_tpr": 0.5230769230769231,
+        "campaigns": 65,
+        "resamples": 10000,
+        "seed": 2026
+      },
+      "historical": {
+        "config": "DIFF+I+MM",
+        "invalid_as": "benign",
+        "completed": 1901,
+        "expected": 1901,
+        "confusion": {
+          "TN": 1571,
+          "FP": 297,
+          "TP": 20,
+          "FN": 13
+        },
+        "tpr_source": 0.6060606060606061,
+        "cohort_accuracy": 0.8369279326670174,
+        "balanced_accuracy": 0.7235335150217377,
+        "typ_strata": {
+          "live-stream-unseen-names": {
+            "n": 375,
+            "alarms": 74
+          },
+          "popular": {
+            "n": 692,
+            "alarms": 77
+          },
+          "random": {
+            "n": 801,
+            "alarms": 146
+          }
+        },
+        "invalid": 82
+      },
+      "combined": {
+        "confusion": {
+          "TP": 70,
+          "FN": 59,
+          "TN": 1571,
+          "FP": 297
+        },
+        "tpr": 0.5426356589147286,
+        "historical_typ_fpr": 0.1589935760171306,
+        "cohort_accuracy": 0.8217325988983475,
+        "balanced_accuracy": 0.6918210414487991,
+        "interpretation": "Descriptive combination; TYP reused from historical evaluation, not new holdout"
+      },
+      "cost": {
+        "median_latency_ms": 1213.2,
+        "p95_latency_ms": 6156.9,
+        "mean_prompt_tokens": 5952.427083333333,
+        "mean_completion_tokens": 100.64583333333333
+      }
+    },
+    {
+      "config": "DIFF+I+MM",
+      "invalid_as": "malicious",
+      "new_confusion": {
+        "FN": 42,
+        "TP": 54
+      },
+      "invalid": 4,
+      "new": {
+        "tpr": 0.5625,
+        "campaign_bootstrap_95": [
+          0.4444444444444444,
+          0.6777777777777778
+        ],
+        "macro_campaign_tpr": 0.5846153846153846,
+        "campaigns": 65,
+        "resamples": 10000,
+        "seed": 2026
+      },
+      "historical": {
+        "config": "DIFF+I+MM",
+        "invalid_as": "malicious",
+        "completed": 1901,
+        "expected": 1901,
+        "confusion": {
+          "TN": 1491,
+          "FP": 377,
+          "TP": 22,
+          "FN": 11
+        },
+        "tpr_source": 0.6666666666666666,
+        "cohort_accuracy": 0.7958968963703315,
+        "balanced_accuracy": 0.7324232690935046,
+        "typ_strata": {
+          "live-stream-unseen-names": {
+            "n": 375,
+            "alarms": 82
+          },
+          "popular": {
+            "n": 692,
+            "alarms": 118
+          },
+          "random": {
+            "n": 801,
+            "alarms": 177
+          }
+        },
+        "invalid": 82
+      },
+      "combined": {
+        "confusion": {
+          "TP": 76,
+          "FN": 53,
+          "TN": 1491,
+          "FP": 377
+        },
+        "tpr": 0.5891472868217055,
+        "historical_typ_fpr": 0.20182012847965736,
+        "cohort_accuracy": 0.784677015523285,
+        "balanced_accuracy": 0.6936635791710241,
+        "interpretation": "Descriptive combination; TYP reused from historical evaluation, not new holdout"
+      },
+      "cost": {
+        "median_latency_ms": 1213.2,
+        "p95_latency_ms": 6156.9,
+        "mean_prompt_tokens": 5952.427083333333,
+        "mean_completion_tokens": 100.64583333333333
+      }
+    },
+    {
+      "config": "DIFF+I+MB",
+      "invalid_as": "benign",
+      "new_confusion": {
+        "FN": 55,
+        "TP": 41
+      },
+      "invalid": 3,
+      "new": {
+        "tpr": 0.4270833333333333,
+        "campaign_bootstrap_95": [
+          0.3137254901960784,
+          0.5434782608695652
+        ],
+        "macro_campaign_tpr": 0.4205128205128205,
+        "campaigns": 65,
+        "resamples": 10000,
+        "seed": 2026
+      },
+      "historical": {
+        "config": "DIFF+I+MB",
+        "invalid_as": "benign",
+        "completed": 1901,
+        "expected": 1901,
+        "confusion": {
+          "TN": 1573,
+          "FP": 295,
+          "TP": 20,
+          "FN": 13
+        },
+        "tpr_source": 0.6060606060606061,
+        "cohort_accuracy": 0.8379800105207785,
+        "balanced_accuracy": 0.7240688469275194,
+        "typ_strata": {
+          "live-stream-unseen-names": {
+            "n": 375,
+            "alarms": 72
+          },
+          "popular": {
+            "n": 692,
+            "alarms": 80
+          },
+          "random": {
+            "n": 801,
+            "alarms": 143
+          }
+        },
+        "invalid": 72
+      },
+      "combined": {
+        "confusion": {
+          "TP": 61,
+          "FN": 68,
+          "TN": 1573,
+          "FP": 295
+        },
+        "tpr": 0.4728682170542636,
+        "historical_typ_fpr": 0.15792291220556742,
+        "cohort_accuracy": 0.8182273410115173,
+        "balanced_accuracy": 0.657472652424348,
+        "interpretation": "Descriptive combination; TYP reused from historical evaluation, not new holdout"
+      },
+      "cost": {
+        "median_latency_ms": 1212.8,
+        "p95_latency_ms": 6158.3,
+        "mean_prompt_tokens": 5945.385416666667,
+        "mean_completion_tokens": 95.28125
+      }
+    },
+    {
+      "config": "DIFF+I+MB",
+      "invalid_as": "malicious",
+      "new_confusion": {
+        "FN": 52,
+        "TP": 44
+      },
+      "invalid": 3,
+      "new": {
+        "tpr": 0.4583333333333333,
+        "campaign_bootstrap_95": [
+          0.34313025210084036,
+          0.5760869565217391
+        ],
+        "macro_campaign_tpr": 0.46666666666666673,
+        "campaigns": 65,
+        "resamples": 10000,
+        "seed": 2026
+      },
+      "historical": {
+        "config": "DIFF+I+MB",
+        "invalid_as": "malicious",
+        "completed": 1901,
+        "expected": 1901,
+        "confusion": {
+          "TN": 1503,
+          "FP": 365,
+          "TP": 22,
+          "FN": 11
+        },
+        "tpr_source": 0.6666666666666666,
+        "cohort_accuracy": 0.8022093634928985,
+        "balanced_accuracy": 0.7356352605281942,
+        "typ_strata": {
+          "live-stream-unseen-names": {
+            "n": 375,
+            "alarms": 79
+          },
+          "popular": {
+            "n": 692,
+            "alarms": 118
+          },
+          "random": {
+            "n": 801,
+            "alarms": 168
+          }
+        },
+        "invalid": 72
+      },
+      "combined": {
+        "confusion": {
+          "TP": 66,
+          "FN": 63,
+          "TN": 1503,
+          "FP": 365
+        },
+        "tpr": 0.5116279069767442,
+        "historical_typ_fpr": 0.1953961456102784,
+        "cohort_accuracy": 0.785678517776665,
+        "balanced_accuracy": 0.6581158806832329,
+        "interpretation": "Descriptive combination; TYP reused from historical evaluation, not new holdout"
+      },
+      "cost": {
+        "median_latency_ms": 1212.8,
+        "p95_latency_ms": 6158.3,
+        "mean_prompt_tokens": 5945.385416666667,
+        "mean_completion_tokens": 95.28125
+      }
+    },
+    {
+      "config": "DIFF+MB",
+      "invalid_as": "benign",
+      "new_confusion": {
+        "FN": 47,
+        "TP": 49
+      },
+      "invalid": 4,
+      "new": {
+        "tpr": 0.5104166666666666,
+        "campaign_bootstrap_95": [
+          0.3917525773195876,
+          0.63
+        ],
+        "macro_campaign_tpr": 0.5128205128205128,
+        "campaigns": 65,
+        "resamples": 10000,
+        "seed": 2026
+      },
+      "historical": {
+        "config": "DIFF+MB",
+        "invalid_as": "benign",
+        "completed": 1901,
+        "expected": 1901,
+        "confusion": {
+          "TN": 1473,
+          "FP": 395,
+          "TP": 17,
+          "FN": 16
+        },
+        "tpr_source": 0.5151515151515151,
+        "cohort_accuracy": 0.7837980010520779,
+        "balanced_accuracy": 0.6518477061838945,
+        "typ_strata": {
+          "live-stream-unseen-names": {
+            "n": 375,
+            "alarms": 92
+          },
+          "popular": {
+            "n": 692,
+            "alarms": 123
+          },
+          "random": {
+            "n": 801,
+            "alarms": 180
+          }
+        },
+        "invalid": 92
+      },
+      "combined": {
+        "confusion": {
+          "TP": 66,
+          "FN": 63,
+          "TN": 1473,
+          "FP": 395
+        },
+        "tpr": 0.5116279069767442,
+        "historical_typ_fpr": 0.21145610278372595,
+        "cohort_accuracy": 0.7706559839759639,
+        "balanced_accuracy": 0.6500859020965091,
+        "interpretation": "Descriptive combination; TYP reused from historical evaluation, not new holdout"
+      },
+      "cost": {
+        "median_latency_ms": 1355.5,
+        "p95_latency_ms": 5983.1,
+        "mean_prompt_tokens": 5383.864583333333,
+        "mean_completion_tokens": 106.91666666666667
+      }
+    },
+    {
+      "config": "DIFF+MB",
+      "invalid_as": "malicious",
+      "new_confusion": {
+        "FN": 43,
+        "TP": 53
+      },
+      "invalid": 4,
+      "new": {
+        "tpr": 0.5520833333333334,
+        "campaign_bootstrap_95": [
+          0.4326923076923077,
+          0.6702127659574468
+        ],
+        "macro_campaign_tpr": 0.5743589743589743,
+        "campaigns": 65,
+        "resamples": 10000,
+        "seed": 2026
+      },
+      "historical": {
+        "config": "DIFF+MB",
+        "invalid_as": "malicious",
+        "completed": 1901,
+        "expected": 1901,
+        "confusion": {
+          "FP": 486,
+          "TN": 1382,
+          "TP": 18,
+          "FN": 15
+        },
+        "tpr_source": 0.5454545454545454,
+        "cohort_accuracy": 0.7364544976328248,
+        "balanced_accuracy": 0.6426416196223477,
+        "typ_strata": {
+          "live-stream-unseen-names": {
+            "n": 375,
+            "alarms": 98
+          },
+          "popular": {
+            "n": 692,
+            "alarms": 177
+          },
+          "random": {
+            "n": 801,
+            "alarms": 211
+          }
+        },
+        "invalid": 92
+      },
+      "combined": {
+        "confusion": {
+          "TP": 71,
+          "FN": 58,
+          "TN": 1382,
+          "FP": 486
+        },
+        "tpr": 0.5503875968992248,
+        "historical_typ_fpr": 0.2601713062098501,
+        "cohort_accuracy": 0.7275913870806209,
+        "balanced_accuracy": 0.6451081453446874,
+        "interpretation": "Descriptive combination; TYP reused from historical evaluation, not new holdout"
+      },
+      "cost": {
+        "median_latency_ms": 1355.5,
+        "p95_latency_ms": 5983.1,
+        "mean_prompt_tokens": 5383.864583333333,
+        "mean_completion_tokens": 106.91666666666667
+      }
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "baseline": "DIFF+I",
+      "variant": "DIFF+I+M",
+      "delta_points": 6.25,
+      "campaign_bootstrap_95": [
+        -2.1505376344086056,
+        14.583333333333334
+      ],
+      "resamples": 10000,
+      "seed": 2026
+    },
+    {
+      "baseline": "DIFF+I+MM",
+      "variant": "DIFF+I+MB",
+      "delta_points": -9.375000000000005,
+      "campaign_bootstrap_95": [
+        -18.681318681318682,
+        -0.9174311926605505
+      ],
+      "resamples": 10000,
+      "seed": 2026
+    },
+    {
+      "baseline": "DIFF+MB",
+      "variant": "DIFF+I+MB",
+      "delta_points": -8.333333333333332,
+      "campaign_bootstrap_95": [
+        -19.565217391304344,
+        2.2222222222222254
+      ],
+      "resamples": 10000,
+      "seed": 2026
+    }
+  ],
+  "confirmatory_hypothesis_test": false
+}

@@ -1,0 +1,10 @@
+{"stage": "server_starting", "time_unix": 1792107086.4269872, "model": "meta-llama/Llama-3.1-8B-Instruct", "experiment_stage": "dev", "pid": 1718214}
+{"stage": "running", "time_unix": 1792107196.4541416, "model": "meta-llama/Llama-3.1-8B-Instruct", "experiment_stage": "dev"}
+{"stage": "model_complete", "time_unix": 1792107315.874909, "model": "meta-llama/Llama-3.1-8B-Instruct", "experiment_stage": "dev", "completed": 60, "json_validity": 0.9333333333333333}
+{"stage": "stage_complete", "time_unix": 1792107315.8750887, "experiment_stage": "dev"}
+{"model": "llama31_8b", "test_released": true, "dev_json_validity": 0.9333333333333333}
+{"stage": "server_starting", "time_unix": 1792125850.177988, "model": "meta-llama/Llama-3.1-8B-Instruct", "experiment_stage": "test", "pid": 1930216}
+{"stage": "running", "time_unix": 1792125948.2035615, "model": "meta-llama/Llama-3.1-8B-Instruct", "experiment_stage": "test"}
+{"stage": "model_complete", "time_unix": 1792137833.5112941, "model": "meta-llama/Llama-3.1-8B-Instruct", "experiment_stage": "test", "completed": 11406, "json_validity": 0.9779063650710152}
+{"stage": "stage_complete", "time_unix": 1792137833.5128953, "experiment_stage": "test"}
+data/evaluation/source-rag-extra-20261016/llama31_8b/results.md

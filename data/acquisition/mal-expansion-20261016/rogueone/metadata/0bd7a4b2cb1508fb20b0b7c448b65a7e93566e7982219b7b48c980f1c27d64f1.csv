@@ -1,0 +1,12 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/cordova_10.0.0-->11.0.0/cordova-11.0.0/","module.exports.track","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/cordova_10.0.0-->11.0.0/cordova-11.0.0/","module.exports.clear","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/cordova_10.0.0-->11.0.0/cordova-11.0.0/","module.exports.isCI","env",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/cordova_10.0.0-->11.0.0/cordova-11.0.0/","module.exports.isOptedIn","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/cordova_10.0.0-->11.0.0/cordova-11.0.0/","module.exports.showPrompt","",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/cordova_10.0.0-->11.0.0/cordova-11.0.0/","module.exports.isNoTelemetryFlag","args",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/cordova_10.0.0-->11.0.0/cordova-11.0.0/","module.exports.turnOff","",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/cordova_10.0.0-->11.0.0/cordova-11.0.0/","module.exports.turnOn","",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/cordova_10.0.0-->11.0.0/cordova-11.0.0/","module.exports","args",32
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/cordova_10.0.0-->11.0.0/cordova-11.0.0/","module.exports","",116
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/cordova_10.0.0-->11.0.0/cordova-11.0.0/","module.exports","inputArgs",1908
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/cordova_10.0.0-->11.0.0/cordova-11.0.0/","main","",3

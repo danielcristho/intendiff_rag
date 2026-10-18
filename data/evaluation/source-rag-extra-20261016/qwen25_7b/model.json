@@ -1,0 +1,100 @@
+{
+  "id": "Qwen/Qwen2.5-Coder-7B-Instruct",
+  "tag": "qwen25_7b",
+  "revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242",
+  "path": "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct",
+  "parameters_billion": 7.61,
+  "size_group": "B: 5<=P<10B",
+  "enable_thinking": null,
+  "comparison_model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "chat_template_kwargs": {},
+  "stop_token_ids": [
+    151645,
+    151643
+  ],
+  "max_model_len": 32768,
+  "pins": [
+    {
+      "path": "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct/LICENSE",
+      "bytes": 11343,
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct/README.md",
+      "bytes": 6392,
+      "sha256": "3c090be37f829adc1e4cdb78733667437732541470430ab2cd785d7f0d460077",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct/config.json",
+      "bytes": 663,
+      "sha256": "c0242402ad6a13b331ea320feea8c7e3776ffb7a4eff0757b9cd667e116d9a28",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct/generation_config.json",
+      "bytes": 242,
+      "sha256": "1a628a5775bc69cde01c6749a531150ca4d3189652c618a174f7077923acf3b1",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct/merges.txt",
+      "bytes": 1671839,
+      "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct/model-00001-of-00004.safetensors",
+      "bytes": 4877660776,
+      "sha256": "0b6f069918b07c064cbba8ae4f00f529aa9bbf84b7cdfcb7fc2694a40f6aa8ef",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct/model-00002-of-00004.safetensors",
+      "bytes": 4932751008,
+      "sha256": "c3d46733e7aa054ea7b063fbccd0a5a08446e7bd1814bef26936c5aa1331da62",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct/model-00003-of-00004.safetensors",
+      "bytes": 4330865200,
+      "sha256": "9fe45dacee087385b3d2d6dd27a7413a8a56d95f145772facc148fa86fc73446",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct/model-00004-of-00004.safetensors",
+      "bytes": 1089994880,
+      "sha256": "5aa6e5cbe642377fd441fb4e60e83cca96b2bcd9820e245b9ea06d94653f17f2",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct/model.safetensors.index.json",
+      "bytes": 27752,
+      "sha256": "998a078123ffc97763690de7f2a677eb89168af5eaf8a5e12e6bc24d18e25bdb",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct/tokenizer.json",
+      "bytes": 7031645,
+      "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct/tokenizer_config.json",
+      "bytes": 7305,
+      "sha256": "959e7f1d9a1b7641a6d6ce05ca97b75c7894fcb66cbe5a040406458fb1128ee4",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct/vocab.json",
+      "bytes": 2776833,
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+      "historical_sha256_match": true
+    }
+  ],
+  "manifest_pin": {
+    "path": "data/evaluation/full-method-20261012/qwen25_7b.model-manifest.json",
+    "sha256": "4959c5b7e716cec3ce9797ca68fb827eae8dadbb484b27fffa96c454b84f56d5"
+  }
+}

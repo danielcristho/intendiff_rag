@@ -1,0 +1,192 @@
+{
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "stage": "test",
+  "complete": true,
+  "completed": 576,
+  "expected": 576,
+  "transport_attempt_errors": 0,
+  "json_validity": 0.9635416666666666,
+  "label_policy": "source MAL; assumed-benign TYP; no human gold",
+  "groups": [
+    {
+      "config": "DIFF",
+      "invalid_as": "benign",
+      "completed": 96,
+      "expected": 96,
+      "confusion": {
+        "FN": 19,
+        "TP": 77
+      },
+      "tpr_source": 0.8020833333333334,
+      "cohort_accuracy": 0.8020833333333334,
+      "balanced_accuracy": null,
+      "typ_strata": {},
+      "invalid": 2
+    },
+    {
+      "config": "DIFF",
+      "invalid_as": "malicious",
+      "completed": 96,
+      "expected": 96,
+      "confusion": {
+        "FN": 17,
+        "TP": 79
+      },
+      "tpr_source": 0.8229166666666666,
+      "cohort_accuracy": 0.8229166666666666,
+      "balanced_accuracy": null,
+      "typ_strata": {},
+      "invalid": 2
+    },
+    {
+      "config": "DIFF+I",
+      "invalid_as": "benign",
+      "completed": 96,
+      "expected": 96,
+      "confusion": {
+        "FN": 12,
+        "TP": 84
+      },
+      "tpr_source": 0.875,
+      "cohort_accuracy": 0.875,
+      "balanced_accuracy": null,
+      "typ_strata": {},
+      "invalid": 4
+    },
+    {
+      "config": "DIFF+I",
+      "invalid_as": "malicious",
+      "completed": 96,
+      "expected": 96,
+      "confusion": {
+        "FN": 8,
+        "TP": 88
+      },
+      "tpr_source": 0.9166666666666666,
+      "cohort_accuracy": 0.9166666666666666,
+      "balanced_accuracy": null,
+      "typ_strata": {},
+      "invalid": 4
+    },
+    {
+      "config": "DIFF+I+M",
+      "invalid_as": "benign",
+      "completed": 96,
+      "expected": 96,
+      "confusion": {
+        "TP": 87,
+        "FN": 9
+      },
+      "tpr_source": 0.90625,
+      "cohort_accuracy": 0.90625,
+      "balanced_accuracy": null,
+      "typ_strata": {},
+      "invalid": 4
+    },
+    {
+      "config": "DIFF+I+M",
+      "invalid_as": "malicious",
+      "completed": 96,
+      "expected": 96,
+      "confusion": {
+        "TP": 91,
+        "FN": 5
+      },
+      "tpr_source": 0.9479166666666666,
+      "cohort_accuracy": 0.9479166666666666,
+      "balanced_accuracy": null,
+      "typ_strata": {},
+      "invalid": 4
+    },
+    {
+      "config": "DIFF+I+MM",
+      "invalid_as": "benign",
+      "completed": 96,
+      "expected": 96,
+      "confusion": {
+        "TP": 82,
+        "FN": 14
+      },
+      "tpr_source": 0.8541666666666666,
+      "cohort_accuracy": 0.8541666666666666,
+      "balanced_accuracy": null,
+      "typ_strata": {},
+      "invalid": 5
+    },
+    {
+      "config": "DIFF+I+MM",
+      "invalid_as": "malicious",
+      "completed": 96,
+      "expected": 96,
+      "confusion": {
+        "TP": 87,
+        "FN": 9
+      },
+      "tpr_source": 0.90625,
+      "cohort_accuracy": 0.90625,
+      "balanced_accuracy": null,
+      "typ_strata": {},
+      "invalid": 5
+    },
+    {
+      "config": "DIFF+I+MB",
+      "invalid_as": "benign",
+      "completed": 96,
+      "expected": 96,
+      "confusion": {
+        "TP": 83,
+        "FN": 13
+      },
+      "tpr_source": 0.8645833333333334,
+      "cohort_accuracy": 0.8645833333333334,
+      "balanced_accuracy": null,
+      "typ_strata": {},
+      "invalid": 4
+    },
+    {
+      "config": "DIFF+I+MB",
+      "invalid_as": "malicious",
+      "completed": 96,
+      "expected": 96,
+      "confusion": {
+        "TP": 87,
+        "FN": 9
+      },
+      "tpr_source": 0.90625,
+      "cohort_accuracy": 0.90625,
+      "balanced_accuracy": null,
+      "typ_strata": {},
+      "invalid": 4
+    },
+    {
+      "config": "DIFF+MB",
+      "invalid_as": "benign",
+      "completed": 96,
+      "expected": 96,
+      "confusion": {
+        "FN": 18,
+        "TP": 78
+      },
+      "tpr_source": 0.8125,
+      "cohort_accuracy": 0.8125,
+      "balanced_accuracy": null,
+      "typ_strata": {},
+      "invalid": 2
+    },
+    {
+      "config": "DIFF+MB",
+      "invalid_as": "malicious",
+      "completed": 96,
+      "expected": 96,
+      "confusion": {
+        "FN": 16,
+        "TP": 80
+      },
+      "tpr_source": 0.8333333333333334,
+      "cohort_accuracy": 0.8333333333333334,
+      "balanced_accuracy": null,
+      "typ_strata": {},
+      "invalid": 2
+    }
+  ]
+}

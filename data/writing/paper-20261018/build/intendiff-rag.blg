@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99e (TeX Live 2026)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: intendiff-rag.aux
+The style file: cas-model2-names.bst
+Database file #1: cas-refs.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty pages in gorla2014checking
+Warning--empty pages in guo2026bridging
+Warning--empty pages in min2022rethinking
+Warning--empty pages in sofaer2024rogueone
+Warning--empty pages in wyss2025evaluating
+Warning--empty pages in zahan2025leveraging
+You've used 10 entries,
+            2990 wiz_defined-function locations,
+            789 strings with 9067 characters,
+and the built_in function-call counts, 7973 in all, are:
+= -- 538
+> -- 484
+< -- 2
++ -- 185
+- -- 174
+* -- 965
+:= -- 1195
+add.period$ -- 28
+call.type$ -- 10
+change.case$ -- 110
+chr.to.int$ -- 9
+cite$ -- 16
+duplicate$ -- 550
+empty$ -- 480
+format.name$ -- 202
+if$ -- 1427
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 118
+newline$ -- 63
+num.names$ -- 40
+pop$ -- 230
+preamble$ -- 1
+purify$ -- 98
+quote$ -- 0
+skip$ -- 167
+stack$ -- 0
+substring$ -- 164
+swap$ -- 432
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 90
+warning$ -- 6
+while$ -- 34
+width$ -- 0
+write$ -- 151
+(There were 6 warnings)

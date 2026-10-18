@@ -1,0 +1,29 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","module.exports","name,options",27
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","(new module.exports())._coinPouch._setup","",27
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","module.exports","name,options",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","(new module.exports())._coinPouch._setup","",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","module.exports.default","options",5
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","module.exports.default","",5
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","module.exports.default","options",5
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","(new module.exports.default())._setup","",5
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","module.exports","name,options",8
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","(new module.exports())._coinPouch._setup","",8
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","module.exports","name,options",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","(new module.exports())._coinPouch._setup","",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","module.exports.default","options",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","(new module.exports.default())._setup","",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","module.exports","name,options",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","(new module.exports())._coinPouch._setup","",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","module.exports.default","options",5
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","module.exports.default","",5
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","module.exports.default","options",5
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","(new module.exports.default())._setup","",5
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","module.exports","name,options",8
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","(new module.exports())._coinPouch._setup","",8
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","module.exports","name,options",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","(new module.exports())._coinPouch._setup","",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","module.exports.default","options",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","(new module.exports.default())._setup","",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/shopkeepr_1.0.1-->1.0.2/shopkeepr-1.0.1/","main","",3

@@ -1,0 +1,27 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","module.exports.escape","input",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","module.exports.omit","obj,keys",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","module.exports.isObject","val",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","module.exports","options",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","(new module.exports()).__proto__.compile","input,options,settings",1210
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","(new module.exports()).__proto__.data","prop,value",1210
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","(new module.exports()).__proto__.render","fn,locals,options",2186
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","(new module.exports()).__proto__.helper","prop,fn",2186
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","(new module.exports()).__proto__._regex","options",2186
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","(new module.exports()).__proto__.utils","",2186
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","(new module.exports()).__proto__.helpers","helpers",2186
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","module.exports.escape","input",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","module.exports.escapeStringChar","ch",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","module.exports.omit","obj,keys",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","module.exports.baseToString","value",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","module.exports.tryCatch","fn",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","module.exports.escapeHtmlChar","ch",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","module.exports","options",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","(new module.exports()).__proto__._regex","options",8
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","(new module.exports()).__proto__.compile","input,options,settings",1093
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","(new module.exports()).__proto__.helpers","helpers",1093
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","(new module.exports()).__proto__.helper","prop,fn",1093
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","(new module.exports()).__proto__.data","prop,value",1093
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","(new module.exports()).__proto__.render","fn,locals,options",1790
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","(new module.exports()).__proto__.utils","",1790
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/engine_0.1.12-->1.0.0/engine-1.0.0/","main","",3

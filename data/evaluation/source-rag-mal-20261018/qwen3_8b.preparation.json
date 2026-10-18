@@ -1,0 +1,6 @@
+{
+  "tag": "qwen3_8b",
+  "eligible": false,
+  "reason": "historical_dev_format_gate_failed",
+  "dev_json_validity": 0.8166666666666667
+}

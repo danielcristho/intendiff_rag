@@ -1,0 +1,21 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","module.exports","resolver",19
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","module.exports._setScheduler","scheduleFn",19
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","module.exports.reject","reason",25
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","module.exports.resolve","object",29
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","module.exports._asap","callback,arg",29
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","module.exports.polyfill","",29
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","module.exports.all","entries",33
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","module.exports._setAsap","asapFn",33
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","module.exports.race","entries",35
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","(new module.exports.reject())","",35
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","(new module.exports.resolve())","",35
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","(new module.exports.all())","",35
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","(new module.exports.race())","",35
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","(new module.exports())._onerror","",35
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","(new module.exports()).__proto__.then","onFulfillment,onRejection",39
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","(new module.exports()).__proto__.finally","callback",53
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","(new module.exports()).__proto__.catch","onRejection",54
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","module.exports.reject()._onerror","",54
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","module.exports.resolve()._onerror","",54
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","module.exports.all()._onerror","",54
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/es6-promise_4.2.7-->4.2.8/es6-promise-4.2.8/","main","",3

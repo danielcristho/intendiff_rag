@@ -1,0 +1,162 @@
+IntentDi-RAG
+Table 2
+Cohort evaluasi. Klaster kampanye dihitung untuk MAL.
+Cohort
+MAL
+TYP
+Klaster MAL
+Awal
+33
+1.868
+33
+Tambahan
+96
+0
+65
+Gabungan deskriptif
+129
+1.868
+98
+(RQ2) bagaimana penambahan contoh malicious dan
+penggantian MM menjadi MB mengubah deteksi serta alarm
+palsu; (RQ3) bagaimana intent memengaruhi keputusan
+pada contoh MB yang sama; dan (RQ4) berapa biaya
+token serta latensi permintaannya. Seluruh perbandingan
+komponen berpasangan pada model dan sampel yang sama.
+Pertanyaan mengenai hard negative berlabel manusia,
+stabilitas beberapa seed, dan ketepatan evidence terhadap
+anotasi baris kode tidak dijawab oleh eksperimen ini.
+4.2. Data dan pemisahan
+Evaluasi awal berisi 33 MAL dan 1.868 TYP. MAL be-
+rasal dari kandidat benchmark Guo et al. (Guo et al., 2026a)
+yang memenuhi syarat ketersediaan pasangan, penyaringan
+pendahulu, dan pemisahan kampanye. TYP terdiri atas 692
+pembaruan paket populer, 801 pembaruan dari kelompok
+acak, dan 375 dari kelompok stream. TYP diasumsikan be-
+nign setelah pemeriksaan advisory, bukan berdasarkan gold
+label manusia. Satu kandidat TYP dikeluarkan sebelum in-
+ferensi karena dua percobaan preprocessing melewati batas
+waktu.
+Setelah hasil awal tersedia, cohort MAL diperluas un-
+tuk menambah cakupan kampanye. Identitas dari artefak
+Draz (2026) digunakan sebagai petunjuk pencarian, lalu
+versi target dikonfirmasi melalui advisory MAL pada OSV
+dan pendahulunya ditentukan kembali dari metadata reg-
+istry. Bersama pembaruan dataset Datadog, proses ini meng-
+hasilkan 96 pasangan yang lolos: 93 dari penelusuran berba-
+sis artefak Draz dan tiga dari Datadog. Tiga pasangan Data-
+dog berasal dari satu kampanye. Tidak ada prediksi model
+dari sumber luar yang dipakai sebagai label atau dasar pemil-
+ihan.
+Pemisahan mempertimbangkan nama paket, advisory,
+kemiripan kode, dan berkas tambahan identik. Berkas trivial
+di bawah 64 byte setelah whitespace tepi dibuang tidak
+digunakan sebagai penghubung kampanye. Ambang kemiri-
+pan yang digunakan untuk perluasan adalah 0,5. Kandidat
+tambahan yang terhubung ke pool historis atau paparan
+pengembangan dikeluarkan, dengan maksimum tiga pasan-
+gan per klaster kampanye. Hasilnya adalah 65 klaster tam-
+bahan, terpisah dari 33 klaster MAL awal menurut aturan
+tersebut. Klaster merupakan proksi keterkaitan kampanye,
+bukan atribusi pelaku.
+Cohort
+tambahan
+dipertahankan
+sebagai
+evaluasi
+terpisah.
+Prompt,
+KB,
+dan
+aturan
+keputusan
+tidak
+disetel berdasarkan hasil tambahannya. Jumlah 1.997
+pasangan unik pada gabungan tidak sama dengan jumlah
+respons: enam model dan enam konfigurasi menghasilkan
+71.892
+respons
+test.
+Penambahan
+model
+dan
+MAL
+dilakukan
+setelah
+hasil
+awal
+diketahui;
+keseluruhan
+studi tidak dipresentasikan sebagai satu eksperimen yang
+dipraregistrasi sebelum semua hasil tersedia.
+4.3. Model dan kondisi inferensi
+Dua model utama adalah Qwen3-4B-Instruct-2507
+dan
+Qwen2.5-Coder-3B-Instruct.
+Perluasan
+mencakup
+Qwen2.5-Coder-7B-Instruct,
+Qwen3-8B,
+Phi-4-mini-
+Instruct,
+Llama-3.1-8B-Instruct,
+dan
+Granite-3.3-8B-
+Instruct. Untuk mempersingkat tabel, kedua model Coder
+ditulis Qwen2.5-3B dan Qwen2.5-7B. Tidak ada fine-tuning;
+bobot dan tokenizer mengikuti revisi yang dibekukan.
+Setiap model harus menyelesaikan dev berisi lima MAL
+dan lima TYP pada enam konfigurasi, dengan sedikitnya
+90% respons valid. Pilot dev yang gagal format mendorong
+revisi instruksi dan penggunaan keluaran terstruktur se-
+belum test utama. Dalam kondisi final, Qwen3-8B hanya
+menghasilkan 49 dari 60 respons valid (81,67%) sehingga
+tidak masuk test. Enam model lain lolos. Pada batch MAL
+tambahan, respons dev dipakai ulang setelah identitas re-
+quest dan token diverifikasi; respons tersebut tidak dihitung
+sebagai inferensi baru.
+Inferensi memakai satu NVIDIA GeForce RTX 5090
+ber-VRAM sekitar 32 GiB, vLLM 0.30.0, bfloat16, temper-
+ature 0, seed 0, dan anggaran keluaran 512 token. Model
+dijalankan bergantian dengan satu request aktif serta pre-
+fix caching. Konteks layanan adalah 32.768 token, kecuali
+Granite: 38.912 pada cohort awal dan 36.864 pada tamba-
+han. Seluruh prompt diaudit menggunakan tokenizer model
+masing-masing, tanpa membuang pasangan yang panjang.
+KV cache dikonfigurasi 6 GiB per model; nilai ini bukan
+pengukuran keseluruhan konsumsi memori GPU.
+4.4. Metrik dan ketidakpastian
+TPR adalah proporsi MAL yang ditandai malicious.
+FPR adalah proporsi TYP yang ditandai malicious, bersyarat
+pada asumsi label benign TYP. Balanced accuracy (BA)
+merupakan rata-rata TPR dan spesifisitas. Akurasi cohort
+bergantung pada komposisi kelas: prediksi selalu benign
+sudah mencapai 98,26% pada cohort awal, meskipun TPR-
+nya nol. Karena itu, akurasi tidak digunakan sendirian untuk
+menilai kualitas deteksi.
+Respons
+dengan
+format
+invalid
+atau
+terpotong
+dihitung benign pada analisis utama. Analisis sensitivitas
+menghitungnya
+malicious.
+Error
+transport
+tidak
+diperlakukan sebagai prediksi. Seluruh matriks test yang
+dilaporkan lengkap dan telah diverifikasi dari respons
+tersimpan. Pada cohort tambahan, FPR dan BA tidak
+terdefinisi karena tidak ada sampel negatif. Metrik gabungan
+pada lampiran hanya deskriptif dan memakai ulang hasil
+TYP awal.
+Interval TPR tambahan dan selisih berpasangan dihitung
+melalui bootstrap 10.000 kali pada tingkat klaster kampa-
+nye dengan seed 2026. Semua pasangan dalam klaster ter-
+pilih ikut diambil, sehingga satu kampanye yang mempunyai
+beberapa versi tidak diperlakukan sebagai beberapa unit
+independen. Kontrasnya adalah penambahan M terhadap
+: Preprint submitted to Elsevier
+Page 3 of 8

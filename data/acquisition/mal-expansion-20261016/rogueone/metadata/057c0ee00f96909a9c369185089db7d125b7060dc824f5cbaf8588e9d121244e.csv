@@ -1,0 +1,4 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/minimist_1.2.5-->1.2.6/minimist-1.2.6/","module.exports","args,opts",433
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/minimist_1.2.5-->1.2.6/minimist-1.2.6/","module.exports()._.0.match","",433
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/minimist_1.2.5-->1.2.6/minimist-1.2.6/","module.exports()._.0.slice","",433
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/minimist_1.2.5-->1.2.6/minimist-1.2.6/","main","",3

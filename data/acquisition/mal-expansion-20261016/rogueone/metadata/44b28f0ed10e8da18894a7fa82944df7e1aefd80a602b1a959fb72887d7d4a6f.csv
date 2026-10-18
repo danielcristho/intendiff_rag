@@ -1,0 +1,5 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/stats_0.0.6-->1.0.0/stats-1.0.0/","module.exports.curry","f",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/stats_0.0.6-->1.0.0/stats-1.0.0/","module.exports.array_to_hash","a",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/stats_0.0.6-->1.0.0/stats-1.0.0/","module.exports.member","name,array",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/stats_0.0.6-->1.0.0/stats-1.0.0/","module.exports.is_alphanumeric_char","ch",7
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/stats_0.0.6-->1.0.0/stats-1.0.0/","module.exports.slice","a,start",8

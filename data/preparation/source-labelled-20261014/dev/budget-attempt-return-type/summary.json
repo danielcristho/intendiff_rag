@@ -1,0 +1,39 @@
+{
+  "ready_for_freeze_checks": true,
+  "pairs": 10,
+  "cards": 75,
+  "expected_generations": 120,
+  "models": [
+    {
+      "model": "Qwen/Qwen3-4B-Instruct-2507",
+      "max_prompt_tokens": 2,
+      "output_reserved": 512,
+      "context": 32768
+    },
+    {
+      "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "max_prompt_tokens": 2,
+      "output_reserved": 512,
+      "context": 32768
+    }
+  ],
+  "issues": [],
+  "subset_counts": {
+    "MAL": 5,
+    "TYP": 5
+  },
+  "input_pins": [
+    {
+      "path": "data/preparation/source-labelled-20261014/dev/pairs.jsonl",
+      "sha256": "6bdbf145f7e7e536c8ca309e6ff29b6528adb93f587b104012de89db0043817f"
+    },
+    {
+      "path": "data/preparation/source-labelled-20261014/cohort/kb.jsonl",
+      "sha256": "602984169755097a4480bbf8c937157d0a50492ee4398efbbcff894b44f74e4f"
+    },
+    {
+      "path": "data/evaluation/full-method-20261012/protocol.json",
+      "sha256": "b1bfe7ce13cd716642926d3f824ca0bcff7cfb145b4cee2c166a41c7f980f4a7"
+    }
+  ]
+}

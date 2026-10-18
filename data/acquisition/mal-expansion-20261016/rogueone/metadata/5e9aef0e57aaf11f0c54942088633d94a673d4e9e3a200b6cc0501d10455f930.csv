@@ -1,0 +1,16 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tf-connected_3.0.0-->3.0.1/tf-connected-3.0.1/","module.exports.name","deviceIdentifier",121
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tf-connected_3.0.0-->3.0.1/tf-connected-3.0.1/","module.exports.errorText","code",121
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tf-connected_3.0.0-->3.0.1/tf-connected-3.0.1/","module.exports.list","localhost,port,advanced,tableOutput",135
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tf-connected_3.0.0-->3.0.1/tf-connected-3.0.1/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tf-connected_3.0.0-->3.0.1/tf-connected-3.0.1/","module.exports.name","deviceIdentifier",121
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tf-connected_3.0.0-->3.0.1/tf-connected-3.0.1/","module.exports.errorText","code",121
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tf-connected_3.0.0-->3.0.1/tf-connected-3.0.1/","module.exports.list","host,port,advanced,tableOutput",135
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tf-connected_3.0.0-->3.0.1/tf-connected-3.0.1/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tf-connected_3.0.0-->3.0.1/tf-connected-3.0.1/","module.exports.name","deviceIdentifier",128
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tf-connected_3.0.0-->3.0.1/tf-connected-3.0.1/","module.exports.errorText","code",128
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tf-connected_3.0.0-->3.0.1/tf-connected-3.0.1/","module.exports.list","localhost,4223,advanced,tableOutput",152
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tf-connected_3.0.0-->3.0.1/tf-connected-3.0.1/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tf-connected_3.0.0-->3.0.1/tf-connected-3.0.1/","module.exports.name","deviceIdentifier",128
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tf-connected_3.0.0-->3.0.1/tf-connected-3.0.1/","module.exports.errorText","code",128
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tf-connected_3.0.0-->3.0.1/tf-connected-3.0.1/","module.exports.list","host,4223,advanced,tableOutput",153
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tf-connected_3.0.0-->3.0.1/tf-connected-3.0.1/","main","",3
