@@ -1,0 +1,5 @@
+{
+  "path": "pipeline/expansion_report.py",
+  "sha256": "15b0016616cd57cf7bdaeedc971b274d2d898128b7252e79175881de183570b2",
+  "change": "Require complete advisory coverage before producing final report; no cohort selection changes."
+}

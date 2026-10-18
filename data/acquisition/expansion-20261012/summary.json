@@ -1,0 +1,52 @@
+{
+  "typical_available_at_old_check": 1883,
+  "typical_after_current_check": 1876,
+  "typical_new_exclusions": 7,
+  "typical_groups": {
+    "popular": 902,
+    "random": 974
+  },
+  "typical_not_in_original_100": 1776,
+  "typical_unexposed_identity_queue": 1681,
+  "typical_overlap_original_hn": 178,
+  "path_b_source_packages": 1241,
+  "path_b_pair_packages": 229,
+  "path_b_pairs": 3192,
+  "versions": 3429,
+  "downloaded_versions": 3378,
+  "downloaded_bytes": 2246108155,
+  "scanned_versions": 3362,
+  "scan_failures": 67,
+  "scan_failure_reasons": {
+    "ValueError: Archive size or integrity check failed": 1,
+    "ValueError: Archive exceeds member count or expanded byte limit": 3,
+    "ValueError: Download exceeds byte limit": 50,
+    "ValueError: Archive member rejected: file byte limit": 6,
+    "ValueError: No unique package manifest matches the archive identity": 7
+  },
+  "available_pairs": 3127,
+  "hn_candidate_pairs": 33,
+  "hn_prefilter_passed": 28,
+  "hn_prefilter_rejection_reasons": {
+    "publisher_changed_or_missing": 5
+  },
+  "hn_signal_categories": {
+    "1": 7,
+    "2": 3,
+    "3": 5,
+    "4": 7,
+    "5": 16
+  },
+  "hn_runtime_signal_pairs": 15,
+  "hn_documentation_files_present": 27,
+  "hn_unexposed_identity_queue": 28,
+  "hn_combined_candidate_pairs": 215,
+  "hn_original_candidates": 182,
+  "human_labels_created": 0,
+  "final_holdout_pairs": 0,
+  "new_llm_inferences": 0,
+  "coverage_verified": true,
+  "advisory_check_dates": [
+    "2026-10-12"
+  ]
+}

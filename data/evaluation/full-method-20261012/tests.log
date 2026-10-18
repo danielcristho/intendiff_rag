@@ -5,6 +5,6 @@ test_resume_rejects_duplicate_wrong_experiment_and_failed_requests (test_full_me
 test_verifier_receives_both_verdicts_and_preserves_invalid_candidate (test_full_method.FullMethodTests.test_verifier_receives_both_verdicts_and_preserves_invalid_candidate) ... ok
 
 ----------------------------------------------------------------------
-Ran 5 tests in 0.362s
+Ran 5 tests in 0.451s
 
 OK

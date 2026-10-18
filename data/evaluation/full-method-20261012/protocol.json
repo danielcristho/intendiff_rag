@@ -1,0 +1,183 @@
+{
+  "decision": "D92",
+  "experiment_id": "full-method-20261012",
+  "frozen_at_utc": "2026-10-12T01:20:24.624600+00:00",
+  "scope": "complete source-labelled cohort with ID-diff, schema and verifier",
+  "models": [
+    {
+      "id": "Qwen/Qwen3-4B-Instruct-2507",
+      "tag": "qwen3",
+      "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+      "path": "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507",
+      "chat_template_kwargs": {},
+      "stop_token_ids": [
+        151645,
+        151643
+      ],
+      "max_model_len": 32768
+    },
+    {
+      "id": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "tag": "qwen25",
+      "revision": "488639f1ff808d1d3d0ba301aef8c11461451ec5",
+      "path": "~/.cache/huggingface/hub/models--Qwen--Qwen2.5-Coder-3B-Instruct/snapshots/488639f1ff808d1d3d0ba301aef8c11461451ec5",
+      "chat_template_kwargs": {},
+      "stop_token_ids": [
+        151645,
+        151643
+      ],
+      "max_model_len": 32768
+    },
+    {
+      "id": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "tag": "qwen25_7b",
+      "revision": "c03e6d358207e414f1eca0bb1891e29f1db0e242",
+      "path": "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct",
+      "parameters_billion": 7.61,
+      "size_group": "B: 5<=P<10B",
+      "enable_thinking": null,
+      "comparison_model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "chat_template_kwargs": {},
+      "stop_token_ids": [
+        151645,
+        151643
+      ],
+      "max_model_len": 32768
+    },
+    {
+      "id": "Qwen/Qwen3-8B",
+      "tag": "qwen3_8b",
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "path": "~/intendiff_rag/data/upstream/models/qwen3-8b",
+      "parameters_billion": 8.2,
+      "size_group": "B: 5<=P<10B",
+      "enable_thinking": false,
+      "comparison_model": "Qwen/Qwen3-4B-Instruct-2507",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "stop_token_ids": [
+        151645,
+        151643
+      ],
+      "max_model_len": 32768
+    },
+    {
+      "id": "microsoft/Phi-4-mini-instruct",
+      "tag": "phi4_mini",
+      "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+      "path": "~/intendiff_rag/data/upstream/models/phi4_mini",
+      "parameters_billion_nominal": 3.8,
+      "parameters_billion": 3.83602176,
+      "chat_template_kwargs": {},
+      "gated": false,
+      "max_model_len": 32768,
+      "stop_token_ids": [
+        200020,
+        199999
+      ],
+      "size_group": "A: 1<=P<5B",
+      "comparison_models": [
+        "Qwen/Qwen2.5-Coder-3B-Instruct",
+        "Qwen/Qwen3-4B-Instruct-2507"
+      ]
+    },
+    {
+      "id": "meta-llama/Llama-3.1-8B-Instruct",
+      "tag": "llama31_8b",
+      "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "path": "~/intendiff_rag/data/upstream/models/llama31_8b",
+      "parameters_billion_nominal": 8.0,
+      "parameters_billion": 8.030261248,
+      "chat_template_kwargs": {},
+      "gated": "manual",
+      "max_model_len": 32768,
+      "stop_token_ids": [
+        128001,
+        128008,
+        128009
+      ],
+      "size_group": "B: 5<=P<10B",
+      "comparison_models": [
+        "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "Qwen/Qwen3-8B"
+      ]
+    },
+    {
+      "id": "ibm-granite/granite-3.3-8b-instruct",
+      "tag": "granite33_8b",
+      "revision": "51dd4bc2ade4059a6bd87649d68aa11e4fb2529b",
+      "path": "~/intendiff_rag/data/upstream/models/granite33_8b",
+      "parameters_billion_nominal": 8.0,
+      "parameters_billion": 8.17086464,
+      "chat_template_kwargs": {
+        "thinking": false
+      },
+      "gated": false,
+      "stop_token_ids": [
+        0
+      ],
+      "max_model_len": 32768
+    }
+  ],
+  "arms": [
+    "IDS-D",
+    "IDS-I",
+    "VERIFY-I"
+  ],
+  "pair_count": 973,
+  "expected_new_generations": 20433,
+  "historical_generations_used_as_new_results": 0,
+  "seed": 0,
+  "temperature": 0,
+  "top_p": 1,
+  "max_tokens": 2048,
+  "max_model_len": 32768,
+  "kv_cache_memory_bytes": 6442450944,
+  "human_annotation_verified": false,
+  "retrieval_evaluation": false,
+  "dependency_context_included": false,
+  "warmup_generations": 0,
+  "automatic_retries": 0,
+  "input_budget_summary": {
+    "pairs": 973,
+    "models": 7,
+    "additional_truncated_pairs": 83,
+    "base_prompt_budget": 26624,
+    "verifier_reserve_tokens": 4096,
+    "output_tokens": 2048,
+    "dropped_pairs": 0,
+    "maximum_final_base_prompt_tokens": 26624
+  },
+  "source_sha256": {
+    "data/evaluation/full-method-20261012/pairs.jsonl": "066bcd339b527d211155b1a31544b8ecb37cca2779f6800fdc01d1f83cbcc133",
+    "data/evaluation/full-method-20261012/llama31_8b.model-manifest.json": "b731e10f4469d01e6d36aef5a86a0ec12cf5158806ce5ca4348713d0e373941e",
+    "data/evaluation/full-method-20261012/qwen25_7b.model-manifest.json": "4959c5b7e716cec3ce9797ca68fb827eae8dadbb484b27fffa96c454b84f56d5",
+    "data/evaluation/full-method-20261012/evidence.py": "27e923259f153c917e3f3ccbaed8538257a60ef69bbe4fa457499cde6226e9d1",
+    "data/evaluation/full-method-20261012/phi4_mini.model-manifest.json": "6346fc31cf669f2ba6cee3b6aa76e1ddf1578b8b192f9dc40447b61cb54b5640",
+    "data/evaluation/full-method-20261012/models.json": "4ca33ca502c8c10c231c5eb9f41c856ab7fcfc18797e9300a8b21bbe5f548296",
+    "data/evaluation/full-method-20261012/legacy_prompts.py": "97b7f3876a361fa51885e472951fac050e3332dc46dc4c37e275d55ea753a263",
+    "data/evaluation/full-method-20261012/common.py": "fbb22ad9ba3055fe56c0a4b77c051dbe4fab806df0edb7c4792f84e78b385612",
+    "data/evaluation/full-method-20261012/protocol-description.md": "92906d6b32b748f0b1490522b831097eb24c296070577f2b37298e3a12ab36d2",
+    "data/evaluation/full-method-20261012/tests-at-freeze.txt": "b24fc0c9c0ca396b059d6ed2ef1e27c017db63d6f78787114ccf132345b53335",
+    "data/evaluation/full-method-20261012/run_batch.py": "385944366918fee78a55b2378dd64b24d69756f5d2d2648b6e9bed9b8a236612",
+    "data/evaluation/full-method-20261012/granite33_8b.model-manifest.json": "1957217deb2cfb1653cab60b1fdbba67860c88b4ea9559a5477cf6b365c4ded0",
+    "data/evaluation/full-method-20261012/report.py": "697cd6e90a4451bc413abaedc0281179001e6d64228908b0220ac82b3024517a",
+    "data/evaluation/full-method-20261012/token-audit.jsonl": "0d0507cfa8dc30b8b924acfb46bc22fd51ba78b128df56b255a9ae14690997ef",
+    "data/evaluation/full-method-20261012/prepare_inputs.py": "4f8b9acc3ae0873cf0db92f6ba5ba5febf97075d48af18208d51da190c2edcca",
+    "data/evaluation/full-method-20261012/evaluate.py": "91c9b91907001e99a02db37806015bc55f047567af852c7e99076cc75116f568",
+    "data/evaluation/full-method-20261012/freeze.py": "0a1f7e0006bdd03fe912ffead63fe11943b1ce04ed66bd5badf78478a4500176",
+    "data/evaluation/full-method-20261012/qwen3.model-manifest.json": "4b1cffff1c755a02093643ed4795a6cf772ccb8464198c97adf41e277a1af191",
+    "data/evaluation/full-method-20261012/decisions-at-freeze.md": "1a8bcabd64a63cbef213edcd50056bfb133c56f869c99bbcd828aaae7a646799",
+    "data/evaluation/full-method-20261012/verify.py": "070a1078ed0cf481a3e0467f0d4d5bdaf9dfe3840f8ff6d856ac72a9f7ca1cb4",
+    "data/evaluation/full-method-20261012/qwen25.model-manifest.json": "c261fbef184d4c18509a0c780f0841a9e41eff41cd492736835abca6313c4706",
+    "data/evaluation/full-method-20261012/prompts.py": "1c698700e17cc57516dac3b26942b657d283a1f17dcd31172c59ead5319d8f35",
+    "data/evaluation/full-method-20261012/qwen3_8b.model-manifest.json": "95a3dff2700c90bbe01efc5afde1e464b85db9f8928ed6b78258737ead095273",
+    "data/evaluation/full-method-20261012/input-budget.jsonl": "640b01535ad2a2498baf5cafb7b47074365db3ecba7e0d35cd66b21d2b4ddc9f",
+    "data/evaluation/full-method-20261012/environment.json": "9a98d68f17aa489a1c1646aaae6e3130c54e36d913cd8bb6505d4755583182be",
+    "data/evaluation/full-method-20261012/configs.py": "355e43eecb0654ec47b8e7d450beea5827822dc7aec73621d4c16ec7771280ba",
+    "data/evaluation/full-method-20261012/input-summary.json": "e8f0105ab31a6a9cc5122a52a1a3ae13612b89535543453c00cfd02335db6137",
+    "data/evaluation/full-method-20261012/original-pairs.jsonl": "82ad8ecf46e530469ae975be14517f42e64c65932b6b1f7bf6b03d2f143d83c8",
+    "data/evaluation/full-method-20261012/pin_models.py": "ec3514b8d4dd17fabd73ebeb161a000d56eca18af1a4172c2f3daf0f32c83e70"
+  }
+}

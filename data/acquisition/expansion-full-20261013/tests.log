@@ -1,0 +1,12 @@
+test_future_and_undated_versions_cannot_enter_pair (tests.test_dataset_expansion.ExpansionTests.test_future_and_undated_versions_cannot_enter_pair) ... ok
+test_hn_requires_both_advisory_checks_and_an_unchanged_known_publisher (tests.test_dataset_expansion.ExpansionTests.test_hn_requires_both_advisory_checks_and_an_unchanged_known_publisher) ... ok
+test_missing_advisory_is_not_benign_and_hn_overlap_is_retained (tests.test_dataset_expansion.ExpansionTests.test_missing_advisory_is_not_benign_and_hn_overlap_is_retained) ... ok
+test_related_dependency_is_quarantined_without_hiding_candidate (tests.test_dataset_expansion.ExpansionTests.test_related_dependency_is_quarantined_without_hiding_candidate) ... ok
+test_search_rank_is_applied_before_any_screening (tests.test_dataset_expansion.ExpansionTests.test_search_rank_is_applied_before_any_screening) ... ok
+test_static_cache_matches_existing_delta_and_rejects_escaping_archive (tests.test_dataset_expansion.ExpansionTests.test_static_cache_matches_existing_delta_and_rejects_escaping_archive) ... ok
+test_unavailable_earlier_pair_never_becomes_clean_earliest_selection (tests.test_dataset_expansion.ExpansionTests.test_unavailable_earlier_pair_never_becomes_clean_earliest_selection) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.006s
+
+OK

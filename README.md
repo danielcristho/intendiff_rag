@@ -102,6 +102,11 @@ tidak berlaku; alasan tiap perubahan ada di [docs/decisions.md](docs/decisions.m
       verdict. Ini belum bukti penurunan FPR karena gold/MAL dev belum ada.
       [Hasil dan batas interpretasi](docs/evidence-dev-results-20261001.md),
       [verifikasi](data/evaluation/evidence-dev-20261001/verification.json)
+- [x] Penguatan pool kandidat selesai, 13 Oktober 2026: 2.257 TYP pada tiga
+      strata dan 383 kandidat HN (325 lolos penyaringan otomatis). Status masih
+      kandidat; anotasi, clustering/split final, dan MAL independen belum selesai.
+      [Hasil dan verifikasi](docs/dataset-expansion-results-20261013.md),
+      [bahan review A/B](docs/dataset-expansion-review-20261013.md).
 - [ ] Inferensi test set konfirmatori menunggu dataset final dan anotasi —
       [panduan review data asli](docs/annotation-20260928.md)
 
