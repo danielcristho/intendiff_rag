@@ -1,0 +1,4 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-rename_1.4.0-->2.0.0/gulp-rename-2.0.0/","module.exports()._transform","originalFile,unused,callback",78
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-rename_1.4.0-->2.0.0/gulp-rename-2.0.0/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-rename_1.4.0-->2.0.0/gulp-rename-2.0.0/","module.exports()._transform","originalFile,unused,callback",78
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-rename_1.4.0-->2.0.0/gulp-rename-2.0.0/","main","",3

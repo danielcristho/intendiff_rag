@@ -1,0 +1,6 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/rxjs_7.5.4-->7.5.5/rxjs-7.5.4","module.exports.createErrorClass","createImpl",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/rxjs_7.5.4-->7.5.5/rxjs-7.5.4","module.exports.UnsubscriptionError","errors",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/rxjs_7.5.4-->7.5.5/rxjs-7.5.4","module.exports.arrRemove","arr,item",7
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/rxjs_7.5.4-->7.5.5/rxjs-7.5.4","module.exports.Subscription","initialTeardown",7
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/rxjs_7.5.4-->7.5.5/rxjs-7.5.4","module.exports.isSubscription","value",7
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/rxjs_7.5.4-->7.5.5/rxjs-7.5.4","module.exports.EMPTY_SUBSCRIPTION.__proto__.add","teardown",9

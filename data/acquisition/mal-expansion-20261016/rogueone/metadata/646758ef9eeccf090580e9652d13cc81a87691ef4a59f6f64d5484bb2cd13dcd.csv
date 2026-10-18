@@ -1,0 +1,26 @@
+# identity: nodeid
+# label: %label%
+# style: shape=%shape%;fillColor=%fill%;strokeColor=%stroke%;strokeWidth=1
+# link: url
+# width: @width
+# height: @height
+# layout: verticalflow
+# ignore: nodeid,style,height,width,ref_0_0,ref_1_0,ref_2_0,ref_3_0,ref_4_0,ref_5_0,ref_6_0,ref_7_0,label_0,label_1,label_2,label_3,label_4,label_5,label_6,label_7
+# connect: {"from": "ref_0_0", "to": "nodeid", "fromlabel": "label_0", "style": "-"}
+# connect: {"from": "ref_1_0", "to": "nodeid", "fromlabel": "label_1", "style": "-"}
+# connect: {"from": "ref_2_0", "to": "nodeid", "fromlabel": "label_2", "style": "-"}
+# connect: {"from": "ref_3_0", "to": "nodeid", "fromlabel": "label_3", "style": "-"}
+# connect: {"from": "ref_4_0", "to": "nodeid", "fromlabel": "label_4", "style": "-"}
+# connect: {"from": "ref_5_0", "to": "nodeid", "fromlabel": "label_5", "style": "-"}
+# connect: {"from": "ref_6_0", "to": "nodeid", "fromlabel": "label_6", "style": "-"}
+# connect: {"from": "ref_7_0", "to": "nodeid", "fromlabel": "label_7", "style": "-"}
+nodeid,label,tags,shape,fill,stroke,width,height,link,ref_0_0,ref_1_0,ref_2_0,ref_3_0,ref_4_0,ref_5_0,ref_6_0,ref_7_0,label_0,label_1,label_2,label_3,label_4,label_5,label_6,label_7
+1552,"callback([key, currentCol])",-,rectangle,#76F76D,#000000,auto,auto,-,1432,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-
+5392,0,-,rectangle,#61F2F2,#000000,auto,auto,-,1432,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-
+5393,NaN,-,rectangle,#61F2F2,#000000,auto,auto,-,1432,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-
+132,tmp = idx.columns[key].val.length,-,rectangle,#76F76D,#000000,auto,auto,-,1432,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-
+48,idx = module.exports = {},-,rectangle,#76F76D,#000000,auto,auto,-,1432,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-
+80,"idx.init = function(cols) { idx.columns = cols; for(var key in idx.columns) {  idx.column_cnt++;  if(idx.columns[key].type == ""list"") {   var tmp = idx.columns[key].val.length   idx.columns[key].input = tmp*tmp*tmp;  } else if(idx.columns[key].type == ""select"") {   var tmp = idx.columns[key].val.length   idx.columns[key].input = -1*tmp*tmp*tmp;  } else if(idx.columns[key].type == ""search"") {   var tmp = idx.columns[key].title.length;   idx.columns[key].input = tmp*tmp*tmp;  } } idx.draw();}",-,rectangle,#76F76D,#000000,auto,auto,-,1432,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-
+1619,"callback([key, currentCol, clivas])",-,rectangle,#76F76D,#000000,auto,auto,-,1432,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-
+118,idx.columns[key].type,-,rectangle,#76F76D,#000000,auto,auto,-,1432,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-
+1432,"currentCol.val = currentCol.val.slice(0, currentCol.val.length-1)",-,rectangle,#FFFFFF,#000000,auto,auto,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-

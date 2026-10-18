@@ -45,6 +45,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--pairs', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--advisories', type=Path, required=True)
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=False)
     audit = Path('data/acquisition/campaign-audit-20261013')
@@ -52,15 +53,20 @@ def main():
     frozen = Path('data/acquisition/campaigns-20261013/combined-d96.json')
     cache = Path('data/work/audit/fingerprints')
     pins = []
-    for path in (index, frozen, args.pairs):
+    for path in (index, frozen, args.pairs, args.advisories):
         pins.append(dict(path=str(path), sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
     old = load_jsonl(index)
     assigned = json.loads(frozen.read_text())['campaigns']
     if set(assigned) != {r['id'] for r in old}:
         raise ValueError('Old campaign IDs differ from material index')
     added, fingerprints = [], {}
+    advisories = {(r['name'], r['version']): r for r in load_jsonl(args.advisories)}
     for pair in load_jsonl(args.pairs):
-        row = material(pair['id'], 'external_mal_candidate', Path(pair['before_dir']), Path(pair['after_dir']), [])
+        check = advisories[(pair['name'], pair['after'])]
+        if check.get('error') or 'advisory_ids' not in check:
+            raise ValueError('Missing target advisory check')
+        reports = [key for key in check['advisory_ids'] if key.startswith('MAL-')]
+        row = material(pair['id'], 'external_mal_candidate', Path(pair['before_dir']), Path(pair['after_dir']), reports)
         key = hashlib.sha256(row['code'].encode()).hexdigest()
         request = args.out / 'fingerprint-request.json'
         request.write_text(json.dumps(dict(code=row.pop('code'))))

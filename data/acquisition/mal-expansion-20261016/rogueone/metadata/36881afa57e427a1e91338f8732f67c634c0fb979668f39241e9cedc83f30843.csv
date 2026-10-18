@@ -1,0 +1,29 @@
+# identity: nodeid
+# label: %label%
+# style: shape=%shape%;fillColor=%fill%;strokeColor=%stroke%;strokeWidth=1
+# link: url
+# width: @width
+# height: @height
+# layout: verticalflow
+# ignore: nodeid,style,height,width,ref_0_0,ref_1_0,ref_2_0,ref_3_0,ref_4_0,ref_5_0,ref_6_0,ref_7_0,label_0,label_1,label_2,label_3,label_4,label_5,label_6,label_7
+# connect: {"from": "ref_0_0", "to": "nodeid", "fromlabel": "label_0", "style": "-"}
+# connect: {"from": "ref_1_0", "to": "nodeid", "fromlabel": "label_1", "style": "-"}
+# connect: {"from": "ref_2_0", "to": "nodeid", "fromlabel": "label_2", "style": "-"}
+# connect: {"from": "ref_3_0", "to": "nodeid", "fromlabel": "label_3", "style": "-"}
+# connect: {"from": "ref_4_0", "to": "nodeid", "fromlabel": "label_4", "style": "-"}
+# connect: {"from": "ref_5_0", "to": "nodeid", "fromlabel": "label_5", "style": "-"}
+# connect: {"from": "ref_6_0", "to": "nodeid", "fromlabel": "label_6", "style": "-"}
+# connect: {"from": "ref_7_0", "to": "nodeid", "fromlabel": "label_7", "style": "-"}
+nodeid,label,tags,shape,fill,stroke,width,height,link,ref_0_0,ref_1_0,ref_2_0,ref_3_0,ref_4_0,ref_5_0,ref_6_0,ref_7_0,label_0,label_1,label_2,label_3,label_4,label_5,label_6,label_7
+304,process.stdout.write(string),-,rectangle,#76F76D,#000000,auto,auto,-,2288,-,-,-,-,-,-,-,AST_CALL_TO_FUNC_OBJ,-,-,-,-,-,-,-
+208,self.write('SF:' + filename + '\n'),-,rectangle,#FFFFFF,#000000,auto,auto,-,304,219,-,-,-,-,-,-,OBJ_REACHES,FLOWS_TO,-,-,-,-,-,-
+2323,_SpecialValue: *,-,trapezoid,#FE913D,#000000,auto,auto,-,219,-,-,-,-,-,-,-,OBJ_TO_AST,-,-,-,-,-,-,-
+2439,_SpecialValue: *,-,ellipse,#61F2F2,#000000,auto,auto,-,304,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-
+180,"LCov.prototype.reportFile = function(filename, data) {  var self = this;  self.write('SF:' + filename + '\n');  data.source.forEach(function(line, num) {    // increase the line number, as JS arrays are zero-based    num++;    if (data[num] !== undefined) {      self.write('DA:' + num + ',' + data[num] + '\n');    }  });  self.write('end_of_record\n');}",-,rectangle,#76F76D,#000000,auto,auto,-,285,208,219,-,-,-,-,-,FLOWS_TO,OBJ_REACHES,OBJ_REACHES,-,-,-,-,-
+2288,_SpecialValue: *,-,trapezoid,#FE913D,#000000,auto,auto,-,304,-,-,-,-,-,-,-,OBJ_TO_AST,-,-,-,-,-,-,-
+256,"self.write('DA:' + num + ',' + data[num] + '\n')",-,rectangle,#76F76D,#000000,auto,auto,-,304,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-
+285,LCov.prototype.write = function(string) {    process.stdout.write(string);},-,rectangle,#FFFFFF,#000000,auto,auto,-,304,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-
+2321,_SpecialValue: *,-,ellipse,#61F2F2,#000000,auto,auto,-,219,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-
+277,self.write('end_of_record\n'),-,rectangle,#FFFFFF,#000000,auto,auto,-,304,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-
+2324,{anon},-,trapezoid,#FE913D,#000000,auto,auto,-,219,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-
+219,AST_METHOD_CALL,-,rectangle,#76F76D,#000000,auto,auto,-,2323,2324,277,-,-,-,-,-,AST_CALL_TO_FUNC_OBJ,AST_CALL_TO_FUNC_OBJ,FLOWS_TO,-,-,-,-,-

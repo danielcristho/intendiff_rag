@@ -1,0 +1,15 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/node-uuid_1.4.7-->1.4.8/node-uuid-1.4.7/","module.exports","options,buf,offset",26
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/node-uuid_1.4.7-->1.4.8/node-uuid-1.4.7/","module.exports.v1","options,buf,offset",26
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/node-uuid_1.4.7-->1.4.8/node-uuid-1.4.7/","module.exports.unparse","buf,offset",26
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/node-uuid_1.4.7-->1.4.8/node-uuid-1.4.7/","module.exports.parse","s,buf,offset",34
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/node-uuid_1.4.7-->1.4.8/node-uuid-1.4.7/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/node-uuid_1.4.7-->1.4.8/node-uuid-1.4.7/","module.exports","options,buf,offset",26
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/node-uuid_1.4.7-->1.4.8/node-uuid-1.4.7/","module.exports.parse","s,buf,offset",34
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/node-uuid_1.4.7-->1.4.8/node-uuid-1.4.7/","module.exports.v1","options,buf,offset",34
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/node-uuid_1.4.7-->1.4.8/node-uuid-1.4.7/","module.exports.unparse","buf,offset",34
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/node-uuid_1.4.7-->1.4.8/node-uuid-1.4.7/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/node-uuid_1.4.7-->1.4.8/node-uuid-1.4.7","module.exports","options,buf,offset",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/node-uuid_1.4.7-->1.4.8/node-uuid-1.4.7","module.exports.v1","options,buf,offset",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/node-uuid_1.4.7-->1.4.8/node-uuid-1.4.7","module.exports.parse","s,buf,offset",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/node-uuid_1.4.7-->1.4.8/node-uuid-1.4.7","module.exports.unparse","buf,offset",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/node-uuid_1.4.7-->1.4.8/node-uuid-1.4.7","main","",3

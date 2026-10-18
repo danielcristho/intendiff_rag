@@ -16,7 +16,7 @@ import smartdiff  # noqa: E402
 
 # §3 field order, so a hand-read line stays predictable.
 CARRIED = ("id", "name", "before", "after", "subset", "category",
-           "campaign", "source", "published_at")
+           "campaign", "source", "published_at", "group", "evaluation_scope", "label_provenance")
 VERDICTS = ("id", "label", "gold_evidence")
 
 
@@ -42,8 +42,13 @@ def build_row(entry, count, checksums=None):
     profile = intent_builder.build(before, count)
 
     row = {key: entry[key] for key in CARRIED if key in entry}
-    row["sha256_before"] = checksums.get((entry.get("name"), entry.get("before")))
-    row["sha256_after"] = checksums.get((entry.get("name"), entry.get("after")))
+    for side in ('before', 'after'):
+        field = 'sha256_' + side
+        indexed = checksums.get((entry.get('name'), entry.get(side)))
+        if indexed and entry.get(field) and indexed != entry[field]:
+            raise ValueError('Conflicting archive checksum: ' + field)
+        # Preserve acquisition hashes when no separate checksum index is supplied.
+        row[field] = indexed or entry.get(field)
     # Intent comes from v_(t-1) only: the attacker controls v_t (D14).
     row["intent"] = profile
     row["intent_available"] = intent_builder.available(profile)

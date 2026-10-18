@@ -21,11 +21,14 @@ def validate(row, cache=None):
             if hashlib.sha256(raw).hexdigest() != expected:
                 return 'label_source_hash_mismatch'
             records = [json.loads(line) for line in raw.splitlines() if line.strip()]
-            indexed = {r['id']: r for r in records}
-            if len(indexed) != len(records):
-                return 'duplicate_label_source_ids'
+            indexed = {}
+            for record in records:
+                indexed.setdefault(record['id'], []).append(record)
             cache[key] = indexed
-        source = cache[key][provenance['record_id']]
+        matches = cache[key][provenance['record_id']]
+        if len(matches) != 1:
+            return 'ambiguous_label_source_record'
+        source = matches[0]
         if source.get('name') != row.get('name') or source.get('after', source.get('version')) != row.get('after', row.get('version')):
             return 'label_source_identity_mismatch'
         basis = provenance['basis']

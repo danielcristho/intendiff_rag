@@ -1,0 +1,11 @@
+{
+  "advisory_accepted_pairs": 159,
+  "names": 80,
+  "exclusions": {
+    "predecessor_advisory_present": 232,
+    "target_has_no_MAL_confirmation": 4
+  },
+  "archive_requests": 318,
+  "downloaded": 317,
+  "archive_errors": 1
+}

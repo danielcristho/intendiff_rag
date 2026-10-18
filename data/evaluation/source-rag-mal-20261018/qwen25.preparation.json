@@ -1,0 +1,7 @@
+{
+  "tag": "qwen25",
+  "eligible": true,
+  "expected": 576,
+  "dev_json_validity": 0.9833333333333333,
+  "max_prompt_tokens": 29852
+}

@@ -1,0 +1,14 @@
+{
+  "python": "3.12.9",
+  "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "packages": {
+    "vllm": "0.30.0",
+    "torch": "2.13.0",
+    "transformers": "5.17.0",
+    "tokenizers": "0.23.2",
+    "jsonschema": "4.26.0",
+    "numpy": "2.3.5",
+    "xgrammar": "0.2.8"
+  },
+  "protocol_sha256": "e0971c33fe3f6f495e01f103777d950c6d2d7694c236dbbbb2dbe4002a27705e"
+}

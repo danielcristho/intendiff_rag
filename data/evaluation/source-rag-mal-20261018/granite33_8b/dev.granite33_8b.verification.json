@@ -1,0 +1,272 @@
+{
+  "model": "ibm-granite/granite-3.3-8b-instruct",
+  "stage": "dev",
+  "complete": true,
+  "completed": 60,
+  "expected": 60,
+  "transport_attempt_errors": 0,
+  "json_validity": 0.9,
+  "label_policy": "source MAL; assumed-benign TYP; no human gold",
+  "groups": [
+    {
+      "config": "DIFF",
+      "invalid_as": "benign",
+      "completed": 10,
+      "expected": 10,
+      "confusion": {
+        "FN": 5,
+        "TN": 5
+      },
+      "tpr_source": 0.0,
+      "cohort_accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "typ_strata": {
+        "popular": {
+          "n": 5,
+          "alarms": 0
+        }
+      },
+      "invalid": 1
+    },
+    {
+      "config": "DIFF",
+      "invalid_as": "malicious",
+      "completed": 10,
+      "expected": 10,
+      "confusion": {
+        "FN": 5,
+        "FP": 1,
+        "TN": 4
+      },
+      "tpr_source": 0.0,
+      "cohort_accuracy": 0.4,
+      "balanced_accuracy": 0.4,
+      "typ_strata": {
+        "popular": {
+          "n": 5,
+          "alarms": 1
+        }
+      },
+      "invalid": 1
+    },
+    {
+      "config": "DIFF+I",
+      "invalid_as": "benign",
+      "completed": 10,
+      "expected": 10,
+      "confusion": {
+        "FN": 4,
+        "TP": 1,
+        "TN": 4,
+        "FP": 1
+      },
+      "tpr_source": 0.2,
+      "cohort_accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "typ_strata": {
+        "popular": {
+          "n": 5,
+          "alarms": 1
+        }
+      },
+      "invalid": 1
+    },
+    {
+      "config": "DIFF+I",
+      "invalid_as": "malicious",
+      "completed": 10,
+      "expected": 10,
+      "confusion": {
+        "FN": 4,
+        "TP": 1,
+        "FP": 2,
+        "TN": 3
+      },
+      "tpr_source": 0.2,
+      "cohort_accuracy": 0.4,
+      "balanced_accuracy": 0.4,
+      "typ_strata": {
+        "popular": {
+          "n": 5,
+          "alarms": 2
+        }
+      },
+      "invalid": 1
+    },
+    {
+      "config": "DIFF+I+M",
+      "invalid_as": "benign",
+      "completed": 10,
+      "expected": 10,
+      "confusion": {
+        "FN": 4,
+        "TP": 1,
+        "TN": 5
+      },
+      "tpr_source": 0.2,
+      "cohort_accuracy": 0.6,
+      "balanced_accuracy": 0.6,
+      "typ_strata": {
+        "popular": {
+          "n": 5,
+          "alarms": 0
+        }
+      },
+      "invalid": 1
+    },
+    {
+      "config": "DIFF+I+M",
+      "invalid_as": "malicious",
+      "completed": 10,
+      "expected": 10,
+      "confusion": {
+        "FN": 4,
+        "TP": 1,
+        "FP": 1,
+        "TN": 4
+      },
+      "tpr_source": 0.2,
+      "cohort_accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "typ_strata": {
+        "popular": {
+          "n": 5,
+          "alarms": 1
+        }
+      },
+      "invalid": 1
+    },
+    {
+      "config": "DIFF+I+MM",
+      "invalid_as": "benign",
+      "completed": 10,
+      "expected": 10,
+      "confusion": {
+        "FN": 3,
+        "TP": 2,
+        "TN": 4,
+        "FP": 1
+      },
+      "tpr_source": 0.4,
+      "cohort_accuracy": 0.6,
+      "balanced_accuracy": 0.6000000000000001,
+      "typ_strata": {
+        "popular": {
+          "n": 5,
+          "alarms": 1
+        }
+      },
+      "invalid": 1
+    },
+    {
+      "config": "DIFF+I+MM",
+      "invalid_as": "malicious",
+      "completed": 10,
+      "expected": 10,
+      "confusion": {
+        "FN": 3,
+        "TP": 2,
+        "FP": 2,
+        "TN": 3
+      },
+      "tpr_source": 0.4,
+      "cohort_accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "typ_strata": {
+        "popular": {
+          "n": 5,
+          "alarms": 2
+        }
+      },
+      "invalid": 1
+    },
+    {
+      "config": "DIFF+I+MB",
+      "invalid_as": "benign",
+      "completed": 10,
+      "expected": 10,
+      "confusion": {
+        "TP": 4,
+        "FN": 1,
+        "TN": 4,
+        "FP": 1
+      },
+      "tpr_source": 0.8,
+      "cohort_accuracy": 0.8,
+      "balanced_accuracy": 0.8,
+      "typ_strata": {
+        "popular": {
+          "n": 5,
+          "alarms": 1
+        }
+      },
+      "invalid": 1
+    },
+    {
+      "config": "DIFF+I+MB",
+      "invalid_as": "malicious",
+      "completed": 10,
+      "expected": 10,
+      "confusion": {
+        "TP": 4,
+        "FN": 1,
+        "FP": 2,
+        "TN": 3
+      },
+      "tpr_source": 0.8,
+      "cohort_accuracy": 0.7,
+      "balanced_accuracy": 0.7,
+      "typ_strata": {
+        "popular": {
+          "n": 5,
+          "alarms": 2
+        }
+      },
+      "invalid": 1
+    },
+    {
+      "config": "DIFF+MB",
+      "invalid_as": "benign",
+      "completed": 10,
+      "expected": 10,
+      "confusion": {
+        "TP": 4,
+        "FN": 1,
+        "TN": 4,
+        "FP": 1
+      },
+      "tpr_source": 0.8,
+      "cohort_accuracy": 0.8,
+      "balanced_accuracy": 0.8,
+      "typ_strata": {
+        "popular": {
+          "n": 5,
+          "alarms": 1
+        }
+      },
+      "invalid": 1
+    },
+    {
+      "config": "DIFF+MB",
+      "invalid_as": "malicious",
+      "completed": 10,
+      "expected": 10,
+      "confusion": {
+        "TP": 4,
+        "FN": 1,
+        "FP": 2,
+        "TN": 3
+      },
+      "tpr_source": 0.8,
+      "cohort_accuracy": 0.7,
+      "balanced_accuracy": 0.7,
+      "typ_strata": {
+        "popular": {
+          "n": 5,
+          "alarms": 2
+        }
+      },
+      "invalid": 1
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "model": "microsoft/Phi-4-mini-instruct",
+  "options": {
+    "chat_template_kwargs": {},
+    "stop_token_ids": [
+      200020,
+      199999
+    ]
+  }
+}

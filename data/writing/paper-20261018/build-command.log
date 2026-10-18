@@ -1,0 +1,613 @@
+Rc files read (in order):
+  NONE
+Latexmk: This is Latexmk, John Collins, 9 March 2026. Version 4.88.
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  intendiff-rag.tex
+Category 'changed_user':
+  intendiff-rag.tex
+
+------------
+Run number 1 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder -output-directory="~/intendiff_rag/data/writing/paper-20261018/build"  "intendiff-rag.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./intendiff-rag.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-08-10>
+(./cas-dc.cls
+Document Class: cas-dc 2024/05/04, 2.4: Formatting class for CAS double column articles
+(~/.TinyTeX/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(~/.TinyTeX/texmf-dist/tex/latex/base/fleqn.clo) (~/.TinyTeX/texmf-dist/tex/latex/base/size10.clo)) (~/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty) (~/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/trig.sty) (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def))) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(~/.TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty) (~/.TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty (~/.TinyTeX/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)) (~/.TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty) (~/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (/tmp/intendiff-texmf/tex/latex/preprint/balance.sty) (~/.TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty) (/tmp/intendiff-texmf/tex/latex/makecell/makecell.sty (~/.TinyTeX/texmf-dist/tex/latex/tools/array.sty)) (/tmp/intendiff-texmf/tex/latex/multirow/multirow.sty) (/tmp/intendiff-texmf/tex/latex/colortbl/colortbl.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/color.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+new hooks used!!
+) (~/.TinyTeX/texmf-dist/tex/latex/tools/dcolumn.sty) (/tmp/intendiff-texmf/tex/latex/sttools/stfloats.sty) (~/.TinyTeX/texmf-dist/tex/latex/tools/xspace.sty) (/tmp/intendiff-texmf/tex/generic/xstring/xstring.sty (/tmp/intendiff-texmf/tex/generic/xstring/xstring.tex)) (/tmp/intendiff-texmf/tex/latex/footmisc/footmisc.sty) (~/.TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (~/.TinyTeX/texmf-dist/tex/latex/xcolor/svgnam.def) (~/.TinyTeX/texmf-dist/tex/latex/graphics/dvipsnam.def) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (~/.TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (~/.TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (~/.TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (~/.TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (~/.TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (~/.TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (~/.TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (~/.TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (~/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (~/.TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (~/.TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (~/.TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (~/.TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (~/.TinyTeX/texmf-dist/tex/latex/url/url.sty) (~/.TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (~/.TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (~/.TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (~/.TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))) (./cas-common.sty (/tmp/intendiff-texmf/tex/latex/moreverb/moreverb.sty (~/.TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty)) (/tmp/intendiff-texmf/tex/latex/wrapfig/wrapfig.sty)) (~/.TinyTeX/texmf-dist/tex/latex/base/fontenc.sty) (/tmp/intendiff-texmf/tex/latex/stix/stix.sty (~/.TinyTeX/texmf-dist/tex/latex/base/textcomp.sty)) (~/.TinyTeX/texmf-dist/tex/latex/inconsolata/inconsolata.sty `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (~/.TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty (~/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (~/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex)))) (~/.TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty (~/.TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty))) (~/.TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty) (/tmp/intendiff-texmf/tex/latex/placeins/placeins.sty) (/tmp/intendiff-texmf/tex/latex/stix/t1stix.fd) (~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.aux) (/tmp/intendiff-texmf/tex/latex/stix/ls1stix.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stix.fd) (~/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty (~/.TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)) (~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.out) (~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.out) (/tmp/intendiff-texmf/tex/latex/upquote/upquote.sty)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/tmp/intendiff-texmf/tex/latex/stix/ts1stix.fd) [0{/tmp/intendiff-texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/tmp/intendiff-texmf/fonts/enc/dvips/stix/stix-t1.enc}{/tmp/intendiff-texmf/fonts/enc/dvips/stix/stix-ts1.enc}]
+Overfull \hbox (123.62721pt too wide) detected at line 47
+[]
+(~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.abs)
+Underfull \hbox (badness 1009) in paragraph at lines 50--57
+\T1/stix/m/n/10 perangkat lu-nak sekali-gus jalur ma-suk kode yang tidak
+
+Underfull \hbox (badness 1776) in paragraph at lines 50--57
+\T1/stix/m/n/10 satu kom-po-nen da-pat men-jangkau banyak proyek yang
+
+Underfull \hbox (badness 3199) in paragraph at lines 50--57
+\T1/stix/m/n/10 seran-gan melalui pem-baruan, peny-erang me-man-faatkan
+
+Underfull \hbox (badness 1019) in paragraph at lines 50--57
+\T1/stix/m/n/10 itu, pe-ni-la-ian ter-hadap pe-ruba-han an-tarversi me-lengkapi
+
+Underfull \hbox (badness 1406) in paragraph at lines 88--92
+[]\T1/stix/m/n/10 Evaluasi tam-ba-han pada 96 pem-baruan ma-li-cious
+
+Underfull \hbox (badness 2503) in paragraph at lines 88--92
+\T1/stix/m/n/10 dalam 65 klaster kam-pa-nye yang tidak beririsan
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--92
+\T1/stix/m/n/10 den-gan pool pengem-ban-gan menu-rut at-u-ran
+
+Underfull \hbox (badness 1466) in paragraph at lines 88--92
+\T1/stix/m/n/10 pen-gelom-pokan yang di-gu-nakan. Hasil di-la-porkan
+
+Underfull \hbox (badness 1348) in paragraph at lines 88--92
+\T1/stix/m/n/10 ter-pisah dari eval-u-asi awal, den-gan es-ti-masi keti-
+
+Underfull \hbox (badness 3029) in paragraph at lines 95--104
+\T1/stix/m/n/10 meng-gu-nakan anal-i-sis ali-ran data difer-en-sial dan trust
+
+Underfull \hbox (badness 3364) in paragraph at lines 95--104
+\T1/stix/m/n/10 pem-baruan npm ([][]Wyss et al.[][], [][]2025[][]). Peneli-tian kami
+
+Underfull \hbox (badness 1389) in paragraph at lines 95--104
+\T1/stix/m/n/10 lokal dan memisahkan pen-garuh in-tent serta kom-po-sisi
+
+Underfull \hbox (badness 1297) in paragraph at lines 105--113
+\T1/stix/m/n/10 Nguyen et al. meng-gu-nakan pe-mo-ton-gan kode berba-sis
+
+Underfull \hbox (badness 4391) in paragraph at lines 105--113
+\T1/stix/m/n/10 mengam-bil con-toh ma-li-cious be-serta kon-teks per-i-laku
+[1]
+Underfull \hbox (badness 6691) in paragraph at lines 132--138
+\T1/stix/m/n/10 berba-haya melalui pem-baruan. Na-mun, bukti em-piris
+
+Underfull \hbox (badness 1371) in paragraph at lines 132--138
+\T1/stix/m/n/10 di-batasi oleh la-bel sum-ber: tidak se-tiap pasan-gan telah
+
+Underfull \hbox (badness 1308) in paragraph at lines 132--138
+\T1/stix/m/n/10 adalah de-teksi versi berla-bel ma-li-cious melalui kon-teks
+
+Underfull \hbox (badness 2426) in paragraph at lines 132--138
+\T1/stix/m/n/10 pe-ruba-han an-tarversi, bukan ver-i-fikasi foren-sik selu-ruh
+
+Underfull \hbox (badness 3930) in paragraph at lines 140--149
+[]\T1/stix/m/n/10 Smart-diff diben-tuk melalui nor-mal-isasi JavaScript,
+
+Underfull \hbox (badness 1142) in paragraph at lines 140--149
+\T1/stix/m/n/10 mengikuti pen-dekatan [][]Wyss et al.[][] ([][]2025[][]). Berkas yang
+
+Underfull \hbox (badness 1342) in paragraph at lines 150--156
+[]\T1/stix/m/n/10 Intent be-rasal dari deskripsi, kata kunci, skrip, dan
+
+Underfull \hbox (badness 1590) in paragraph at lines 150--156
+\T1/stix/m/n/10 versi tar-get. In-tent meru-pakan perny-ataan paket, bukan
+(/tmp/intendiff-texmf/tex/latex/stix/ls1stixscr.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixex.fd) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixfrak.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixbb.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixcal.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixsf.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixtt.fd)
+Underfull \hbox (badness 1668) in paragraph at lines 206--211
+[]\T1/stix/m/n/10 Evaluasi men-gukur TPR dan FPR pada pem-baruan
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 254--260
+[]\T1/stix/m/n/10 Cohort tam-ba-han diper-ta-hankan se-ba-gai eval-u-asi
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--260
+\T1/stix/m/n/10 ter-pisah. Prompt, KB, dan at-u-ran kepu-tu-san tidak
+
+Underfull \hbox (badness 7047) in paragraph at lines 254--260
+\T1/stix/m/n/10 dis-e-tel berdasarkan hasil tam-ba-han-nya. Jum-lah 1.997
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--260
+\T1/stix/m/n/10 71.892 re-spons test. Pe-nam-ba-han model dan MAL
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--260
+\T1/stix/m/n/10 di-lakukan sete-lah hasil awal dike-tahui; ke-selu-ruhan
+
+Underfull \hbox (badness 6284) in paragraph at lines 262--267
+[]\T1/stix/m/n/10 Dua model utama adalah Qwen3-4B-Instruct-2507
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--267
+\T1/stix/m/n/10 dan Qwen2.5-Coder-3B-Instruct. Per-lu-asan men-cakup
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--267
+\T1/stix/m/n/10 Qwen2.5-Coder-7B-Instruct, Qwen3-8B, Phi-4-mini-
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--267
+\T1/stix/m/n/10 Instruct, Llama-3.1-8B-Instruct, dan Granite-3.3-8B-
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--298
+[]\T1/stix/m/n/10 Respons den-gan for-mat in-valid atau ter-po-tong
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--298
+\T1/stix/m/n/10 menghi-tungnya ma-li-cious. Er-ror trans-port tidak
+
+Underfull \hbox (badness 3168) in paragraph at lines 292--298
+\T1/stix/m/n/10 di-la-porkan lengkap dan telah di-ver-i-fikasi dari re-spons
+
+Underfull \hbox (badness 2744) in paragraph at lines 292--298
+\T1/stix/m/n/10 ter-sim-pan. Pada co-hort tam-ba-han, FPR dan BA tidak
+[3] (./generated/main-results.tex)
+Underfull \hbox (badness 1448) in paragraph at lines 316--322
+[]\T1/stix/m/n/10 Seluruh enam model yang lo-los dev menye-le-saikan
+
+Underfull \hbox (badness 4291) in paragraph at lines 316--322
+\T1/stix/m/n/10 co-hort tam-ba-han. Tidak ter-da-pat er-ror trans-port pada
+
+Underfull \hbox (badness 3417) in paragraph at lines 323--329
+\T1/stix/m/n/10 80,21%. Perbe-daan ini dis-er-tai FPR yang juga be-sar:
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--329
+\T1/stix/m/n/10 7B meng-hasilkan 65,15%. TPR tam-ba-han ke-d-u-anya
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--329
+\T1/stix/m/n/10 masing-masing 51,04% dan 79,17%. Angka terse-but
+
+Underfull \hbox (badness 4927) in paragraph at lines 323--329
+\T1/stix/m/n/10 menggam-barkan pil-i-han an-tara banyaknya ka-sus yang
+(./generated/mb-contrast.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 352--360
+[]\T1/stix/m/n/10 Penurunan FPR juga da-pat dis-er-tai ke-hi-lan-gan
+
+Underfull \hbox (badness 4454) in paragraph at lines 352--360
+\T1/stix/m/n/10 menu-runkan FPR 5,46 poin, tetapi menu-runkan TPR
+
+Underfull \hbox (badness 6236) in paragraph at lines 352--360
+\T1/stix/m/n/10 tam-ba-han. Perny-ataan ini menggam-barkan hasil yang
+
+Underfull \hbox (badness 4967) in paragraph at lines 352--360
+\T1/stix/m/n/10 dia-mati, bukan pem-buk-tian bahwa per-baikan bersama
+
+Underfull \hbox (badness 10000) in paragraph at lines 361--367
+[]\T1/stix/m/n/10 Penambahan satu con-toh ma-li-cious juga tidak
+
+Underfull \hbox (badness 3000) in paragraph at lines 361--367
+\T1/stix/m/n/10 den-gan FPR naik dari 13,87% men-jadi 41,17%. Pada
+
+Underfull \hbox (badness 1895) in paragraph at lines 361--367
+\T1/stix/m/n/10 Qwen2.5-3B, FPR tu-run dari 59,31% men-jadi 48,55%,
+
+Underfull \hbox (badness 10000) in paragraph at lines 361--367
+\T1/stix/m/n/10 se-men-tara TPR tam-ba-han tu-run 6,25 poin. Den-gan
+
+Underfull \hbox (badness 6708) in paragraph at lines 369--376
+[]\T1/stix/m/n/10 Pada con-toh MB yang sama, pe-nam-ba-han in-tent
+
+Underfull \hbox (badness 4013) in paragraph at lines 369--376
+\T1/stix/m/n/10 menaikkan TPR tam-ba-han Qwen2.5-7B sebe-sar 10,42
+
+Underfull \hbox (badness 1867) in paragraph at lines 369--376
+\T1/stix/m/n/10 poin (in-ter-val 2,13--19,05), tetapi FPR naik 3,53 poin.
+
+Underfull \hbox (badness 1533) in paragraph at lines 369--376
+\T1/stix/m/n/10 in-ter-val yang melin-tasi nol, sedan-gkan FPR tu-run dari
+
+Underfull \hbox (badness 2591) in paragraph at lines 369--376
+\T1/stix/m/n/10 TPR tam-ba-han adalah 8,33 poin dan in-ter-val-nya juga
+[4]
+Underfull \hbox (badness 1810) in paragraph at lines 388--393
+[]\T1/stix/m/n/10 Hasil terse-but me-nun-jukkan bahwa deskripsi tu-juan
+
+Underfull \hbox (badness 4013) in paragraph at lines 388--393
+\T1/stix/m/n/10 Eksper-i-men ini belum memisahkan apakah pe-ruba-han
+
+Underfull \hbox (badness 2318) in paragraph at lines 388--393
+\T1/stix/m/n/10 dipen-garuhi kual-i-tas deskripsi, rel-e-vansi README, isi
+(./generated/sensitivity.tex)
+Underfull \hbox (badness 1910) in paragraph at lines 395--403
+[]\T1/stix/m/n/10 Validitas JSON test tam-ba-han berk-isar 95,49--100%
+
+Underfull \hbox (badness 4181) in paragraph at lines 395--403
+\T1/stix/m/n/10 di an-tara model yang lo-los. Pada Qwen3-4B den-gan
+
+Underfull \hbox (badness 10000) in paragraph at lines 395--403
+\T1/stix/m/n/10 DIFF+I+MB, menghi-tung in-valid se-ba-gai ma-li-cious
+
+Underfull \hbox (badness 5667) in paragraph at lines 395--403
+\T1/stix/m/n/10 demikian, penan-ganan in-valid meru-pakan bagian dari
+(./generated/cost.tex) [5 <./figures/paired-effects.pdf>]
+Underfull \hbox (badness 1400) in paragraph at lines 422--429
+\T1/stix/m/n/10 FPR bersama-sama. Kon-fig-urasi den-gan TPR tam-ba-han
+
+Underfull \hbox (badness 1082) in paragraph at lines 422--429
+\T1/stix/m/n/10 mendekati 90% masih da-pat menandai ham-pir seten-gah
+
+Underfull \hbox (badness 1478) in paragraph at lines 422--429
+\T1/stix/m/n/10 TYP se-ba-gai ma-li-cious. Se-ba-liknya, kon-fig-urasi den-gan
+
+Underfull \hbox (badness 2368) in paragraph at lines 422--429
+\T1/stix/m/n/10 tam-ba-han. Berdasarkan hasil ini, peng-gu-naan lang-sung
+
+Underfull \hbox (badness 6001) in paragraph at lines 422--429
+\T1/stix/m/n/10 se-ba-gai dasar pem-bloki-ran otoma-tis belum didukung.
+
+Underfull \hbox (badness 1442) in paragraph at lines 422--429
+\T1/stix/m/n/10 Pe-man-faatan se-ba-gai triage juga memer-lukan pen-gu-jian
+
+Underfull \hbox (badness 10000) in paragraph at lines 422--429
+\T1/stix/m/n/10 be-ban pen-in-jauan pada lingkun-gan sasaran; man-faat
+
+Underfull \hbox (badness 10000) in paragraph at lines 448--454
+\T1/stix/m/n/10 ke-dua ar-sip, iden-ti-tas paket, dan syarat pen-dahulu
+
+Underfull \hbox (badness 2556) in paragraph at lines 448--454
+\T1/stix/m/n/10 klaster yang tera-mati, tetapi tidak menghi-langkan bias
+
+Underfull \hbox (badness 1184) in paragraph at lines 448--454
+\T1/stix/m/n/10 se-leksi atau ke-sala-han pen-gelom-pokan. Ke-96 pasan-gan
+
+Underfull \hbox (badness 1226) in paragraph at lines 474--481
+ []\T1/stix/m/it/11 Pembanding dan bi-aya.[] \T1/stix/m/n/10 Peneli-tian tidak men-jalankan
+
+Underfull \hbox (badness 1515) in paragraph at lines 474--481
+\T1/stix/m/n/10 neg-a-tive; pen-je-lasan mekanisme ke-sala-han tetap berupa
+[6]
+Underfull \hbox (badness 1565) in paragraph at lines 483--493
+[]\T1/stix/m/n/10 Evaluasi ini me-nun-jukkan bahwa in-tent dan con-toh
+
+Underfull \hbox (badness 10000) in paragraph at lines 483--493
+\T1/stix/m/n/10 pem-band-ing men-gubah kepu-tu-san LLM lokal se-cara
+
+Underfull \hbox (badness 10000) in paragraph at lines 483--493
+\T1/stix/m/n/10 berbeda antar-model. Pada enam model dan enam
+
+Underfull \hbox (badness 5726) in paragraph at lines 483--493
+\T1/stix/m/n/10 kon-fig-urasi, peng-gan-tian con-toh ke-dua dari ma-li-cious
+
+Underfull \hbox (badness 10000) in paragraph at lines 483--493
+\T1/stix/m/n/10 alarm palsu, atau menu-runkan ke-d-u-anya. Temuan
+
+Underfull \hbox (badness 5147) in paragraph at lines 483--493
+\T1/stix/m/n/10 co-hort, dan kon-disi in-fer-ensi yang di-gu-nakan; belum
+
+Underfull \hbox (badness 1221) in paragraph at lines 483--493
+\T1/stix/m/n/10 me-nun-jukkan ke-si-a-pan de-teksi otonom atau ke-ung-gu-lan
+(./generated/full-results.tex) [7] (~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.bbl (~/.TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd)) [8{~/.TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}] (~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information) </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0900.600pk><~/.TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Bold.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Italic.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Regular.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathit.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathrm.pfb>
+Output written on ~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.pdf (9 pages, 236094 bytes).
+Transcript written on ~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.log.
+Latexmk: Getting log file '~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.log'
+Latexmk: Examining '~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.fls'
+Latexmk: Examining '~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.log'
+Latexmk: Found input bbl file '~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.bbl'
+Latexmk: References changed.
+Latexmk: Log file says output to '~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.pdf'
+Latexmk: Using bibtex to make bibliography file(s).
+  ===Source file '~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.bbl' for 'pdflatex'
+Latexmk: Found bibliography file(s):
+  ./cas-refs.bib
+Latexmk: applying rule 'bibtex ~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag'...
+Rule 'bibtex ~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag':  Reasons for rerun
+Changed files or newly in use/created:
+  ~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.aux
+
+------------
+Run number 1 of rule 'bibtex ~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag'
+------------
+Latexmk: Change directory to '~/intendiff_rag/data/writing/paper-20261018/build/'.
+To assist finding of files in document directory, I set
+  BIBINPUTS='~/intendiff_rag/labs/latex:~/intendiff_rag/data/writing/paper-20261018/build:'
+  BSTINPUTS='~/intendiff_rag/labs/latex:'.
+------------
+Running 'bibtex  "intendiff-rag.aux"'
+------------
+This is BibTeX, Version 0.99e (TeX Live 2026)
+The top-level auxiliary file: intendiff-rag.aux
+The style file: cas-model2-names.bst
+Database file #1: cas-refs.bib
+Warning--empty pages in gorla2014checking
+Warning--empty pages in guo2026bridging
+Warning--empty pages in min2022rethinking
+Warning--empty pages in sofaer2024rogueone
+Warning--empty pages in wyss2025evaluating
+Warning--empty pages in zahan2025leveraging
+(There were 6 warnings)
+Latexmk: Change directory back to '~/intendiff_rag/labs/latex'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  ~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.aux
+
+------------
+Run number 2 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder -output-directory="~/intendiff_rag/data/writing/paper-20261018/build"  "intendiff-rag.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./intendiff-rag.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-08-10>
+(./cas-dc.cls
+Document Class: cas-dc 2024/05/04, 2.4: Formatting class for CAS double column articles
+(~/.TinyTeX/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(~/.TinyTeX/texmf-dist/tex/latex/base/fleqn.clo) (~/.TinyTeX/texmf-dist/tex/latex/base/size10.clo)) (~/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty) (~/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/trig.sty) (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def))) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(~/.TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty) (~/.TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty (~/.TinyTeX/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)) (~/.TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty) (~/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (/tmp/intendiff-texmf/tex/latex/preprint/balance.sty) (~/.TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty) (/tmp/intendiff-texmf/tex/latex/makecell/makecell.sty (~/.TinyTeX/texmf-dist/tex/latex/tools/array.sty)) (/tmp/intendiff-texmf/tex/latex/multirow/multirow.sty) (/tmp/intendiff-texmf/tex/latex/colortbl/colortbl.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/color.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+new hooks used!!
+) (~/.TinyTeX/texmf-dist/tex/latex/tools/dcolumn.sty) (/tmp/intendiff-texmf/tex/latex/sttools/stfloats.sty) (~/.TinyTeX/texmf-dist/tex/latex/tools/xspace.sty) (/tmp/intendiff-texmf/tex/generic/xstring/xstring.sty (/tmp/intendiff-texmf/tex/generic/xstring/xstring.tex)) (/tmp/intendiff-texmf/tex/latex/footmisc/footmisc.sty) (~/.TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (~/.TinyTeX/texmf-dist/tex/latex/xcolor/svgnam.def) (~/.TinyTeX/texmf-dist/tex/latex/graphics/dvipsnam.def) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (~/.TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (~/.TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (~/.TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (~/.TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (~/.TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (~/.TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (~/.TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (~/.TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (~/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (~/.TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (~/.TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (~/.TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (~/.TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (~/.TinyTeX/texmf-dist/tex/latex/url/url.sty) (~/.TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (~/.TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (~/.TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (~/.TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))) (./cas-common.sty (/tmp/intendiff-texmf/tex/latex/moreverb/moreverb.sty (~/.TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty)) (/tmp/intendiff-texmf/tex/latex/wrapfig/wrapfig.sty)) (~/.TinyTeX/texmf-dist/tex/latex/base/fontenc.sty) (/tmp/intendiff-texmf/tex/latex/stix/stix.sty (~/.TinyTeX/texmf-dist/tex/latex/base/textcomp.sty)) (~/.TinyTeX/texmf-dist/tex/latex/inconsolata/inconsolata.sty `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (~/.TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty (~/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (~/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex)))) (~/.TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty (~/.TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty))) (~/.TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty) (/tmp/intendiff-texmf/tex/latex/placeins/placeins.sty) (/tmp/intendiff-texmf/tex/latex/stix/t1stix.fd) (~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.aux) (/tmp/intendiff-texmf/tex/latex/stix/ls1stix.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stix.fd) (~/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty (~/.TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)) (~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.out) (~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.out) (/tmp/intendiff-texmf/tex/latex/upquote/upquote.sty)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/tmp/intendiff-texmf/tex/latex/stix/ts1stix.fd) [0{/tmp/intendiff-texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/tmp/intendiff-texmf/fonts/enc/dvips/stix/stix-t1.enc}{/tmp/intendiff-texmf/fonts/enc/dvips/stix/stix-ts1.enc}]
+Overfull \hbox (123.62721pt too wide) detected at line 47
+[]
+(~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.abs)
+Underfull \hbox (badness 1009) in paragraph at lines 50--57
+\T1/stix/m/n/10 perangkat lu-nak sekali-gus jalur ma-suk kode yang tidak
+
+Underfull \hbox (badness 1776) in paragraph at lines 50--57
+\T1/stix/m/n/10 satu kom-po-nen da-pat men-jangkau banyak proyek yang
+
+Underfull \hbox (badness 3199) in paragraph at lines 50--57
+\T1/stix/m/n/10 seran-gan melalui pem-baruan, peny-erang me-man-faatkan
+
+Underfull \hbox (badness 1019) in paragraph at lines 50--57
+\T1/stix/m/n/10 itu, pe-ni-la-ian ter-hadap pe-ruba-han an-tarversi me-lengkapi
+
+Underfull \hbox (badness 1406) in paragraph at lines 88--92
+[]\T1/stix/m/n/10 Evaluasi tam-ba-han pada 96 pem-baruan ma-li-cious
+
+Underfull \hbox (badness 2503) in paragraph at lines 88--92
+\T1/stix/m/n/10 dalam 65 klaster kam-pa-nye yang tidak beririsan
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--92
+\T1/stix/m/n/10 den-gan pool pengem-ban-gan menu-rut at-u-ran
+
+Underfull \hbox (badness 1466) in paragraph at lines 88--92
+\T1/stix/m/n/10 pen-gelom-pokan yang di-gu-nakan. Hasil di-la-porkan
+
+Underfull \hbox (badness 1348) in paragraph at lines 88--92
+\T1/stix/m/n/10 ter-pisah dari eval-u-asi awal, den-gan es-ti-masi keti-
+
+Underfull \hbox (badness 3029) in paragraph at lines 95--104
+\T1/stix/m/n/10 meng-gu-nakan anal-i-sis ali-ran data difer-en-sial dan trust
+
+Underfull \hbox (badness 3364) in paragraph at lines 95--104
+\T1/stix/m/n/10 pem-baruan npm ([][]Wyss et al.[][], [][]2025[][]). Peneli-tian kami
+
+Underfull \hbox (badness 1389) in paragraph at lines 95--104
+\T1/stix/m/n/10 lokal dan memisahkan pen-garuh in-tent serta kom-po-sisi
+
+Underfull \hbox (badness 1297) in paragraph at lines 105--113
+\T1/stix/m/n/10 Nguyen et al. meng-gu-nakan pe-mo-ton-gan kode berba-sis
+
+Underfull \hbox (badness 4391) in paragraph at lines 105--113
+\T1/stix/m/n/10 mengam-bil con-toh ma-li-cious be-serta kon-teks per-i-laku
+[1]
+Underfull \hbox (badness 6691) in paragraph at lines 132--138
+\T1/stix/m/n/10 berba-haya melalui pem-baruan. Na-mun, bukti em-piris
+
+Underfull \hbox (badness 1371) in paragraph at lines 132--138
+\T1/stix/m/n/10 di-batasi oleh la-bel sum-ber: tidak se-tiap pasan-gan telah
+
+Underfull \hbox (badness 1308) in paragraph at lines 132--138
+\T1/stix/m/n/10 adalah de-teksi versi berla-bel ma-li-cious melalui kon-teks
+
+Underfull \hbox (badness 2426) in paragraph at lines 132--138
+\T1/stix/m/n/10 pe-ruba-han an-tarversi, bukan ver-i-fikasi foren-sik selu-ruh
+
+Underfull \hbox (badness 3930) in paragraph at lines 140--149
+[]\T1/stix/m/n/10 Smart-diff diben-tuk melalui nor-mal-isasi JavaScript,
+
+Underfull \hbox (badness 1142) in paragraph at lines 140--149
+\T1/stix/m/n/10 mengikuti pen-dekatan [][]Wyss et al.[][] ([][]2025[][]). Berkas yang
+
+Underfull \hbox (badness 1342) in paragraph at lines 150--156
+[]\T1/stix/m/n/10 Intent be-rasal dari deskripsi, kata kunci, skrip, dan
+
+Underfull \hbox (badness 1590) in paragraph at lines 150--156
+\T1/stix/m/n/10 versi tar-get. In-tent meru-pakan perny-ataan paket, bukan
+(/tmp/intendiff-texmf/tex/latex/stix/ls1stixscr.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixex.fd) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixfrak.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixbb.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixcal.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixsf.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixtt.fd)
+Underfull \hbox (badness 1668) in paragraph at lines 206--211
+[]\T1/stix/m/n/10 Evaluasi men-gukur TPR dan FPR pada pem-baruan
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 254--260
+[]\T1/stix/m/n/10 Cohort tam-ba-han diper-ta-hankan se-ba-gai eval-u-asi
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--260
+\T1/stix/m/n/10 ter-pisah. Prompt, KB, dan at-u-ran kepu-tu-san tidak
+
+Underfull \hbox (badness 7047) in paragraph at lines 254--260
+\T1/stix/m/n/10 dis-e-tel berdasarkan hasil tam-ba-han-nya. Jum-lah 1.997
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--260
+\T1/stix/m/n/10 71.892 re-spons test. Pe-nam-ba-han model dan MAL
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--260
+\T1/stix/m/n/10 di-lakukan sete-lah hasil awal dike-tahui; ke-selu-ruhan
+
+Underfull \hbox (badness 6284) in paragraph at lines 262--267
+[]\T1/stix/m/n/10 Dua model utama adalah Qwen3-4B-Instruct-2507
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--267
+\T1/stix/m/n/10 dan Qwen2.5-Coder-3B-Instruct. Per-lu-asan men-cakup
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--267
+\T1/stix/m/n/10 Qwen2.5-Coder-7B-Instruct, Qwen3-8B, Phi-4-mini-
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--267
+\T1/stix/m/n/10 Instruct, Llama-3.1-8B-Instruct, dan Granite-3.3-8B-
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--298
+[]\T1/stix/m/n/10 Respons den-gan for-mat in-valid atau ter-po-tong
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--298
+\T1/stix/m/n/10 menghi-tungnya ma-li-cious. Er-ror trans-port tidak
+
+Underfull \hbox (badness 3168) in paragraph at lines 292--298
+\T1/stix/m/n/10 di-la-porkan lengkap dan telah di-ver-i-fikasi dari re-spons
+
+Underfull \hbox (badness 2744) in paragraph at lines 292--298
+\T1/stix/m/n/10 ter-sim-pan. Pada co-hort tam-ba-han, FPR dan BA tidak
+[3] (./generated/main-results.tex)
+Underfull \hbox (badness 1448) in paragraph at lines 316--322
+[]\T1/stix/m/n/10 Seluruh enam model yang lo-los dev menye-le-saikan
+
+Underfull \hbox (badness 4291) in paragraph at lines 316--322
+\T1/stix/m/n/10 co-hort tam-ba-han. Tidak ter-da-pat er-ror trans-port pada
+
+Underfull \hbox (badness 3417) in paragraph at lines 323--329
+\T1/stix/m/n/10 80,21%. Perbe-daan ini dis-er-tai FPR yang juga be-sar:
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--329
+\T1/stix/m/n/10 7B meng-hasilkan 65,15%. TPR tam-ba-han ke-d-u-anya
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--329
+\T1/stix/m/n/10 masing-masing 51,04% dan 79,17%. Angka terse-but
+
+Underfull \hbox (badness 4927) in paragraph at lines 323--329
+\T1/stix/m/n/10 menggam-barkan pil-i-han an-tara banyaknya ka-sus yang
+(./generated/mb-contrast.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 352--360
+[]\T1/stix/m/n/10 Penurunan FPR juga da-pat dis-er-tai ke-hi-lan-gan
+
+Underfull \hbox (badness 4454) in paragraph at lines 352--360
+\T1/stix/m/n/10 menu-runkan FPR 5,46 poin, tetapi menu-runkan TPR
+
+Underfull \hbox (badness 6236) in paragraph at lines 352--360
+\T1/stix/m/n/10 tam-ba-han. Perny-ataan ini menggam-barkan hasil yang
+
+Underfull \hbox (badness 4967) in paragraph at lines 352--360
+\T1/stix/m/n/10 dia-mati, bukan pem-buk-tian bahwa per-baikan bersama
+
+Underfull \hbox (badness 10000) in paragraph at lines 361--367
+[]\T1/stix/m/n/10 Penambahan satu con-toh ma-li-cious juga tidak
+
+Underfull \hbox (badness 3000) in paragraph at lines 361--367
+\T1/stix/m/n/10 den-gan FPR naik dari 13,87% men-jadi 41,17%. Pada
+
+Underfull \hbox (badness 1895) in paragraph at lines 361--367
+\T1/stix/m/n/10 Qwen2.5-3B, FPR tu-run dari 59,31% men-jadi 48,55%,
+
+Underfull \hbox (badness 10000) in paragraph at lines 361--367
+\T1/stix/m/n/10 se-men-tara TPR tam-ba-han tu-run 6,25 poin. Den-gan
+
+Underfull \hbox (badness 6708) in paragraph at lines 369--376
+[]\T1/stix/m/n/10 Pada con-toh MB yang sama, pe-nam-ba-han in-tent
+
+Underfull \hbox (badness 4013) in paragraph at lines 369--376
+\T1/stix/m/n/10 menaikkan TPR tam-ba-han Qwen2.5-7B sebe-sar 10,42
+
+Underfull \hbox (badness 1867) in paragraph at lines 369--376
+\T1/stix/m/n/10 poin (in-ter-val 2,13--19,05), tetapi FPR naik 3,53 poin.
+
+Underfull \hbox (badness 1533) in paragraph at lines 369--376
+\T1/stix/m/n/10 in-ter-val yang melin-tasi nol, sedan-gkan FPR tu-run dari
+
+Underfull \hbox (badness 2591) in paragraph at lines 369--376
+\T1/stix/m/n/10 TPR tam-ba-han adalah 8,33 poin dan in-ter-val-nya juga
+[4]
+Underfull \hbox (badness 1810) in paragraph at lines 388--393
+[]\T1/stix/m/n/10 Hasil terse-but me-nun-jukkan bahwa deskripsi tu-juan
+
+Underfull \hbox (badness 4013) in paragraph at lines 388--393
+\T1/stix/m/n/10 Eksper-i-men ini belum memisahkan apakah pe-ruba-han
+
+Underfull \hbox (badness 2318) in paragraph at lines 388--393
+\T1/stix/m/n/10 dipen-garuhi kual-i-tas deskripsi, rel-e-vansi README, isi
+(./generated/sensitivity.tex)
+Underfull \hbox (badness 1910) in paragraph at lines 395--403
+[]\T1/stix/m/n/10 Validitas JSON test tam-ba-han berk-isar 95,49--100%
+
+Underfull \hbox (badness 4181) in paragraph at lines 395--403
+\T1/stix/m/n/10 di an-tara model yang lo-los. Pada Qwen3-4B den-gan
+
+Underfull \hbox (badness 10000) in paragraph at lines 395--403
+\T1/stix/m/n/10 DIFF+I+MB, menghi-tung in-valid se-ba-gai ma-li-cious
+
+Underfull \hbox (badness 5667) in paragraph at lines 395--403
+\T1/stix/m/n/10 demikian, penan-ganan in-valid meru-pakan bagian dari
+(./generated/cost.tex) [5 <./figures/paired-effects.pdf>]
+Underfull \hbox (badness 1400) in paragraph at lines 422--429
+\T1/stix/m/n/10 FPR bersama-sama. Kon-fig-urasi den-gan TPR tam-ba-han
+
+Underfull \hbox (badness 1082) in paragraph at lines 422--429
+\T1/stix/m/n/10 mendekati 90% masih da-pat menandai ham-pir seten-gah
+
+Underfull \hbox (badness 1478) in paragraph at lines 422--429
+\T1/stix/m/n/10 TYP se-ba-gai ma-li-cious. Se-ba-liknya, kon-fig-urasi den-gan
+
+Underfull \hbox (badness 2368) in paragraph at lines 422--429
+\T1/stix/m/n/10 tam-ba-han. Berdasarkan hasil ini, peng-gu-naan lang-sung
+
+Underfull \hbox (badness 6001) in paragraph at lines 422--429
+\T1/stix/m/n/10 se-ba-gai dasar pem-bloki-ran otoma-tis belum didukung.
+
+Underfull \hbox (badness 1442) in paragraph at lines 422--429
+\T1/stix/m/n/10 Pe-man-faatan se-ba-gai triage juga memer-lukan pen-gu-jian
+
+Underfull \hbox (badness 10000) in paragraph at lines 422--429
+\T1/stix/m/n/10 be-ban pen-in-jauan pada lingkun-gan sasaran; man-faat
+
+Underfull \hbox (badness 10000) in paragraph at lines 448--454
+\T1/stix/m/n/10 ke-dua ar-sip, iden-ti-tas paket, dan syarat pen-dahulu
+
+Underfull \hbox (badness 2556) in paragraph at lines 448--454
+\T1/stix/m/n/10 klaster yang tera-mati, tetapi tidak menghi-langkan bias
+
+Underfull \hbox (badness 1184) in paragraph at lines 448--454
+\T1/stix/m/n/10 se-leksi atau ke-sala-han pen-gelom-pokan. Ke-96 pasan-gan
+
+Underfull \hbox (badness 1226) in paragraph at lines 474--481
+ []\T1/stix/m/it/11 Pembanding dan bi-aya.[] \T1/stix/m/n/10 Peneli-tian tidak men-jalankan
+
+Underfull \hbox (badness 1515) in paragraph at lines 474--481
+\T1/stix/m/n/10 neg-a-tive; pen-je-lasan mekanisme ke-sala-han tetap berupa
+[6]
+Underfull \hbox (badness 1565) in paragraph at lines 483--493
+[]\T1/stix/m/n/10 Evaluasi ini me-nun-jukkan bahwa in-tent dan con-toh
+
+Underfull \hbox (badness 10000) in paragraph at lines 483--493
+\T1/stix/m/n/10 pem-band-ing men-gubah kepu-tu-san LLM lokal se-cara
+
+Underfull \hbox (badness 10000) in paragraph at lines 483--493
+\T1/stix/m/n/10 berbeda antar-model. Pada enam model dan enam
+
+Underfull \hbox (badness 5726) in paragraph at lines 483--493
+\T1/stix/m/n/10 kon-fig-urasi, peng-gan-tian con-toh ke-dua dari ma-li-cious
+
+Underfull \hbox (badness 10000) in paragraph at lines 483--493
+\T1/stix/m/n/10 alarm palsu, atau menu-runkan ke-d-u-anya. Temuan
+
+Underfull \hbox (badness 5147) in paragraph at lines 483--493
+\T1/stix/m/n/10 co-hort, dan kon-disi in-fer-ensi yang di-gu-nakan; belum
+
+Underfull \hbox (badness 1221) in paragraph at lines 483--493
+\T1/stix/m/n/10 me-nun-jukkan ke-si-a-pan de-teksi otonom atau ke-ung-gu-lan
+(./generated/full-results.tex) [7] (~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.bbl (~/.TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd)) [8{~/.TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}] (~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.aux) )
+(see the transcript file for additional information) </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0900.600pk><~/.TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Bold.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Italic.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Regular.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathit.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathrm.pfb>
+Output written on ~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.pdf (9 pages, 236094 bytes).
+Transcript written on ~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.log.
+Latexmk: Getting log file '~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.log'
+Latexmk: Examining '~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.fls'
+Latexmk: Examining '~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.log'
+Latexmk: Found input bbl file '~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.bbl'
+Latexmk: Log file says output to '~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.pdf'
+Latexmk: Using bibtex to make bibliography file(s).
+  ===Source file '~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.bbl' for 'pdflatex'
+Latexmk: Found bibliography file(s):
+  ./cas-refs.bib
+Latexmk: All targets (~/intendiff_rag/data/writing/paper-20261018/build/intendiff-rag.pdf) are up-to-date
+

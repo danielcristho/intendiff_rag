@@ -26,6 +26,20 @@ pelengkap `npm audit`, bukan audit tata kelola TI.
 
 ## Pertanyaan penelitian (revisi 2026-09-13)
 
+**Protokol aktif 15 Oktober 2026:** [D99–D101](docs/source-labelled-final-20261014.md)
+memakai label MAL dari dataset dan TYP assumed-benign, tanpa kewajiban dua
+anotator. RQ2/RQ3 sekarang deskriptif pada MAL+TYP; hipotesis HN pada tabel
+historis di bawah tidak diklaim teruji. Enam konfigurasi termasuk MM/MB memakai
+schema keluaran yang sama. [Laporan persiapan](docs/source-labelled-results-20261015.md)
+mencatat cakupan, kegagalan dev dan keterbatasan label. Pantau batch baru dengan
+`scripts/source-rag/status.sh`; `scripts/full-method/status.sh` khusus D92 tanpa retrieval.
+
+Perluasan [D102 ke lima model tambahan](docs/source-rag-extension-20261016.md)
+memakai test/KB/prompt D101 yang sama. Status gabungan tersedia melalui
+`scripts/source-rag/status.sh`; batch tambahan dijalankan lewat
+`scripts/source-rag/run-extra.sh`. Status D92 tersedia melalui
+`scripts/full-method/status.sh`.
+
 | | Pertanyaan | Jenis | Pembanding |
 |---|---|---|---|
 | RQ1 | Seberapa akurat model 3–4B mendeteksi update berbahaya dari smart-diff tanpa contoh, diukur dari recall dan FPR? | Deskriptif | DIFF, DIFF+I |

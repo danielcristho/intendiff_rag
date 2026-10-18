@@ -1,0 +1,14 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/strongpassword_1.1.3-->1.1.4/strongpassword-1.1.4/","module.exports","params",85
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/strongpassword_1.1.3-->1.1.4/strongpassword-1.1.4/","(new module.exports()).__proto__.check","",113
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/strongpassword_1.1.3-->1.1.4/strongpassword-1.1.4/","(new module.exports()).__proto__.isStrong","",113
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/strongpassword_1.1.3-->1.1.4/strongpassword-1.1.4/","(new module.exports()).__proto__.reason","",113
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/strongpassword_1.1.3-->1.1.4/strongpassword-1.1.4/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/strongpassword_1.1.3-->1.1.4/strongpassword-1.1.4","module.exports","params",61
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/strongpassword_1.1.3-->1.1.4/strongpassword-1.1.4","(new module.exports()).__proto__.isStrong","",61
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/strongpassword_1.1.3-->1.1.4/strongpassword-1.1.4","(new module.exports()).__proto__.reason","",61
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/strongpassword_1.1.3-->1.1.4/strongpassword-1.1.4","(new module.exports()).__proto__.check","",65
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/strongpassword_1.1.3-->1.1.4/strongpassword-1.1.4","(new module.exports()).dictionaries.match","",65
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/strongpassword_1.1.3-->1.1.4/strongpassword-1.1.4","(new module.exports()).dictionaries.split","",65
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/strongpassword_1.1.3-->1.1.4/strongpassword-1.1.4","module.exports","s",67
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/strongpassword_1.1.3-->1.1.4/strongpassword-1.1.4","(new module.exports()).check","",67
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/strongpassword_1.1.3-->1.1.4/strongpassword-1.1.4","main","",3

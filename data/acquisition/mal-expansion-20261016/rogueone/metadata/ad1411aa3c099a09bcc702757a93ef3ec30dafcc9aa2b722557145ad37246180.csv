@@ -1,0 +1,84 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.https.request_builtin_object","",63
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.https.createServer","options,cb",65
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.https.response_builtin_object","",65
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.net.request_builtin_object","",65
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.net.createServer","requestListener",67
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.net.response_builtin_object","",67
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.fs.existsSync","",67
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.child.kill","",67
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.http.createServer","requestListener,cb",71
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.http.response_builtin_object","",71
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.http.request_builtin_object","",71
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.url.parse","a",71
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global.Events","type,eventInitDict",71
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global./home/raphael/workspace/fast/fast/builtin_packages/net.js","",71
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global.Function","",71
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global.EventTarget","",71
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global./home/raphael/workspace/fast/fast/builtin_packages/http.js","",71
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global./home/raphael/workspace/fast/fast/builtin_packages/https.js","",71
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global./home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/lib.electron.js","",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global./home/raphael/workspace/fast/fast/builtin_packages/url.js","",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global./home/raphael/workspace/fast/fast/builtin_packages/events.js","",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global./home/raphael/workspace/fast/fast/builtin_packages/os.js","",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global.sink_hqbpillvul_spawn","",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global./home/raphael/workspace/fast/fast/builtin_packages/child_process.js","",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.child_process.spawnSync","command,args,nothion",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.child_process.execFileSync","command,options,dict,callback",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.child_process.exec","command,callback1,callback2",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.child_process.execSync","command,options,callback",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.child_process.spawn","command,args,nothion",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.events.EventEmitter","options",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.child.kill","",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.events.EventEmitter.on","emitter,event,options",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.events.EventEmitter.listenerCount","emitter,event",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.events.EventEmitter.getEventListener","emitter,name",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.events.EventEmitter.once","emitter,event,options",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global.process.stdout.write","",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global.module.exports.request_builtin_object","",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global.module.exports.createServer","requestListener,cb",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global.module.exports.response_builtin_object","",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.events.EventEmitter()).__proto__.off","eventName,listener",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.events.EventEmitter()).__proto__.emit","eventName",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.events.EventEmitter()).__proto__.prependOnceListener","eventName,listener",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.events.EventEmitter()).__proto__.removeAllListeners","eventName",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.events.EventEmitter()).__proto__.listenerCount","eventName",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.events.EventEmitter()).__proto__.getMaxListeners","",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.events.EventEmitter()).__proto__.removeListener","eventName,listener",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.events.EventEmitter()).__proto__.listeners","eventName",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.events.EventEmitter()).__proto__.prependListener","eventName,listener",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.events.EventEmitter()).__proto__.once","eventName,listener",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.events.EventEmitter()).__proto__.eventNames","",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.events.EventEmitter()).__proto__.setMaxListeners","n",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.events.EventEmitter()).__proto__.on","eventName,listener",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.events.EventEmitter()).__proto__.rawListeners","eventName",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.events.EventEmitter()).__proto__.addListener","eventName,listener",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.global.module.exports.request_builtin_object()).on","str,cb",94
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global.module.exports.createServer().on","key,cb",96
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.global.module.exports.response_builtin_object()).setHeader","key,value",97
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.global.module.exports.response_builtin_object()).end","value,value",98
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.global.module.exports.response_builtin_object()).send","value",99
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.global.module.exports.response_builtin_object()).write","value,value",100
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.global.stdin","",100
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.https.request_builtin_object()).on","str,cb",101
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.https.createServer().on","key,cb",103
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.https.response_builtin_object()).setHeader","key,value",104
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.https.response_builtin_object()).end","value,value",105
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.https.response_builtin_object()).send","value",106
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.https.response_builtin_object()).write","value,value",107
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.net.request_builtin_object()).on","str,cb",108
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.net.createServer().on","key,cb",110
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.net.createServer().send","value",111
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.net.createServer().write","value",112
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.net.createServer().end","value",113
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.net.createServer().setHeader","key,value",114
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.net.response_builtin_object()).end","value",115
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.net.response_builtin_object()).send","value",116
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.net.response_builtin_object()).setHeader","key,value",117
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.net.response_builtin_object()).write","value",118
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","module.exports.http.createServer().on","key,cb",118
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.http.response_builtin_object()).end","value,value",118
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.http.response_builtin_object()).send","value",118
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.http.response_builtin_object()).write","value,value",118
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.http.response_builtin_object()).setHeader","key,value",118
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","(new module.exports.http.request_builtin_object()).on","str,cb",118
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2018.9.23/","main","",3

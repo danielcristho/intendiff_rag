@@ -1,0 +1,10 @@
+{
+  "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+  "options": {
+    "chat_template_kwargs": {},
+    "stop_token_ids": [
+      151645,
+      151643
+    ]
+  }
+}

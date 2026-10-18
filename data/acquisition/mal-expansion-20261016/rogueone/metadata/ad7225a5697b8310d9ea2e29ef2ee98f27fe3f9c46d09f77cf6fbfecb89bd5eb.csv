@@ -1,0 +1,15 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp_4.0.1-->4.0.2/gulp-4.0.2/","module.exports.watch","glob,opt,task",26
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp_4.0.1-->4.0.2/gulp-4.0.2/","module.exports.__proto__.watch","glob,opt,task",28
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp_4.0.1-->4.0.2/gulp-4.0.2/","module.exports.__proto__.Gulp","",37
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp_4.0.1-->4.0.2/gulp-4.0.2/","(new module.exports.watch()).parallel","",37
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp_4.0.1-->4.0.2/gulp-4.0.2/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp_4.0.1-->4.0.2/gulp-4.0.2/","module.exports.watch","glob,opt,task",26
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp_4.0.1-->4.0.2/gulp-4.0.2/","module.exports.__proto__.watch","glob,opt,task",28
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp_4.0.1-->4.0.2/gulp-4.0.2/","module.exports.__proto__.Gulp","",37
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp_4.0.1-->4.0.2/gulp-4.0.2/","(new module.exports.watch()).parallel","",37
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp_4.0.1-->4.0.2/gulp-4.0.2/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp_4.0.1-->4.0.2/gulp-4.0.2/","module.exports.watch","glob,opt,task",26
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp_4.0.1-->4.0.2/gulp-4.0.2/","module.exports.__proto__.Gulp","",35
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp_4.0.1-->4.0.2/gulp-4.0.2/","module.exports.__proto__.symlink.bind","",35
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp_4.0.1-->4.0.2/gulp-4.0.2/","(new module.exports.watch()).parallel","",35
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp_4.0.1-->4.0.2/gulp-4.0.2/","main","",3

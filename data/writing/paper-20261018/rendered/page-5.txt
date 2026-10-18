@@ -1,0 +1,181 @@
+IntentDi-RAG
+Table 3
+Deteksi tanpa konteks tambahan (DIFF) dan dengan intent serta contoh M/B. TPR tambahan dan CI 95% bootstrap kampanye
+memakai 96 MAL; FP memakai 1.868 TYP pada evaluasi awal. Kolom terakhir memuat hitungan dan persentase. Invalid dianggap
+benign.
+Model
+Kongurasi
+TP awal
+TP tambahan
+TPR tambahan (%)
+FP TYP (%)
+Qwen3-4B
+DIFF
+13/33
+49/96
+51.04 [39.58, 62.65]
+119/1868 (6.37)
+Qwen3-4B
+DIFF+I+MB
+19/33
+46/96
+47.92 [36.84, 59.09]
+104/1868 (5.57)
+Qwen2.5-3B
+DIFF
+24/33
+74/96
+77.08 [67.68, 85.57]
+1113/1868 (59.58)
+Qwen2.5-3B
+DIFF+I+MB
+29/33
+79/96
+82.29 [73.86, 89.52]
+1056/1868 (56.53)
+Qwen2.5-7B
+DIFF
+26/33
+76/96
+79.17 [70.00, 87.23]
+1217/1868 (65.15)
+Qwen2.5-7B
+DIFF+I+MB
+27/33
+86/96
+89.58 [82.95, 95.19]
+919/1868 (49.20)
+Phi-4-mini
+DIFF
+12/33
+45/96
+46.88 [37.38, 56.67]
+319/1868 (17.08)
+Phi-4-mini
+DIFF+I+MB
+22/33
+49/96
+51.04 [42.00, 60.00]
+586/1868 (31.37)
+Llama-3.1-8B
+DIFF
+24/33
+77/96
+80.21 [71.58, 87.91]
+1125/1868 (60.22)
+Llama-3.1-8B
+DIFF+I+MB
+30/33
+83/96
+86.46 [79.07, 93.02]
+1302/1868 (69.70)
+Granite-3.3-8B
+DIFF
+14/33
+41/96
+42.71 [31.37, 54.17]
+188/1868 (10.06)
+Granite-3.3-8B
+DIFF+I+MB
+20/33
+41/96
+42.71 [31.37, 54.35]
+295/1868 (15.79)
+DIFF+I, penggantian MM menjadi MB, dan penambahan
+intent pada MB. Interval 95% dilaporkan sebagai ketidak-
+pastian deskriptif, bukan uji konfirmatori dengan koreksi
+perbandingan berganda atau bukti non-inferioritas recall.
+Biaya diukur dari token dan latensi request setelah warm-
+up. Latensi tidak mencakup akuisisi, normalisasi, retrieval
+di sisi klien, atau pemuatan model. Karena urutan konfig-
+urasi tetap dan prefix caching aktif, selisih latensi mencer-
+minkan kondisi batch ini; nilainya bukan estimasi through-
+put layanan produksi atau biaya tambahan komponen yang
+diisolasi dari pengaruh cache.
+5. Hasil
+5.1. Kemampuan deteksi dan alarm palsu
+Seluruh enam model yang lolos dev menyelesaikan
+11.406 respons pada cohort awal dan 576 respons pada
+cohort tambahan. Tidak terdapat error transport pada
+matriks akhir. Tabel 3 memperlihatkan baseline DIFF dan
+konfigurasi lengkap DIFF+I+MB; seluruh enam konfigurasi
+tersedia pada Tabel 7.
+Pada baseline DIFF, TPR tambahan berkisar 42,71–
+80,21%. Perbedaan ini disertai FPR yang juga besar:
+Qwen3-4B menghasilkan FPR 6,37%, sedangkan Qwen2.5-
+7B
+menghasilkan
+65,15%.
+TPR
+tambahan
+keduanya
+masing-masing
+51,04%
+dan
+79,17%.
+Angka
+tersebut
+menggambarkan pilihan antara banyaknya kasus yang
+terdeteksi dan beban alarm, bukan urutan kualitas model
+berdasarkan TPR saja.
+Pada DIFF+I+MB, Qwen2.5-7B mendeteksi 86 dari 96
+MAL tambahan (89,58%), tetapi menandai 919 dari 1.868
+TYP awal (49,20%). Qwen3-4B hanya mendeteksi 46 dari
+96 MAL tambahan (47,92%), dengan 104 alarm pada TYP
+(5,57%). Interval TPR tambahan Qwen3-4B adalah 36,84–
+59,09%, sehingga estimasi kemampuannya masih memiliki
+ketidakpastian yang berarti. Tidak ada dasar untuk menya-
+makan TPR tinggi dengan kesiapan pemakaian otomatis.
+TPR awal juga tidak selalu bertahan pada cohort tam-
+bahan. Sebagai contoh, DIFF+I+MB pada Granite turun
+dari 20/33 (60,61%) menjadi 41/96 (42,71%). Sebaliknya,
+Qwen2.5-7B meningkat dari 27/33 (81,82%) menjadi 86/96
+(89,58%). Karena kedua cohort berbeda sumber, periode,
+dan komposisi, perbedaan ini tidak diinterpretasikan sebagai
+pengaruh waktu semata.
+5.2. Pengaruh komposisi contoh
+Mengganti MM menjadi MB meningkatkan FPR pada
+empat dari enam model (Tabel 4). Pada Qwen3-4B, TPR
+tambahan meningkat 7,29 poin persentase dengan interval
+1,02–14,13 poin, tetapi FPR juga meningkat 2,30 poin. Pada
+Qwen2.5-3B, TPR tambahannya sama, sementara FPR naik
+8,35 poin. Kedua hasil ini tidak mendukung penjelasan
+bahwa contoh benign secara konsisten membuat keputusan
+lebih konservatif.
+Penurunan
+FPR
+juga
+dapat
+disertai
+kehilangan
+deteksi. Pada Phi-4-mini, penggantian MM menjadi MB
+menurunkan FPR 5,46 poin, tetapi menurunkan TPR
+tambahan 11,46 poin (interval −19, 54 sampai −4, 08). Pada
+Granite, penurunan FPR hanya 0,11 poin, sedangkan TPR
+turun 9,38 poin. Pada estimasi titik keenam model, tidak ada
+penggantian MM menjadi MB yang sekaligus menurunkan
+FPR TYP dan mempertahankan atau meningkatkan TPR
+tambahan. Pernyataan ini menggambarkan hasil yang
+diamati, bukan pembuktian bahwa perbaikan bersama
+mustahil pada populasi lain.
+Penambahan
+satu
+contoh
+malicious
+juga
+tidak
+menghasilkan arah yang seragam. Dari DIFF+I menjadi
+DIFF+I+M, TPR tambahan Phi-4-mini naik 15,63 poin,
+dengan FPR naik dari 13,87% menjadi 41,17%. Pada
+Qwen2.5-3B, FPR turun dari 59,31% menjadi 48,55%,
+sementara
+TPR
+tambahan
+turun
+6,25
+poin.
+Dengan
+demikian, pengaruh contoh tidak dapat dijelaskan hanya
+dengan kecenderungan mengikuti label malicious.
+: Preprint submitted to Elsevier
+Page 4 of 8

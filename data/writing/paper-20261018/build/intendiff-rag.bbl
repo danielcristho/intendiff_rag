@@ -1,0 +1,63 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Draz(2026)}]{draz2026version}
+\bibinfo{author}{Draz, M.M.}, \bibinfo{year}{2026}.
+\newblock \bibinfo{title}{Version context and control construction in machine learning detection of malicious package updates across npm and {PyPI}}.
+\newblock \bibinfo{journal}{Scientific Reports} \bibinfo{volume}{16}, \bibinfo{pages}{30912}.
+\newblock \DOIprefix\doi{10.1038/s41598-026-71750-5}.
+%Type = Inproceedings
+\bibitem[{Gorla et~al.(2014)Gorla, Tavecchia, Gross and Zeller}]{gorla2014checking}
+\bibinfo{author}{Gorla, A.}, \bibinfo{author}{Tavecchia, I.}, \bibinfo{author}{Gross, F.}, \bibinfo{author}{Zeller, A.}, \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Checking app behavior against app descriptions}, in: \bibinfo{booktitle}{Proceedings of the 36th International Conference on Software Engineering (ICSE)}.
+\newblock \DOIprefix\doi{10.1145/2568225.2568276}.
+%Type = Misc
+\bibitem[{Guo et~al.(2026a)Guo, Chen, Xu, Liu, Kang, Song, Liu, Xu, Sun and Liu}]{guo2026effective}
+\bibinfo{author}{Guo, W.}, \bibinfo{author}{Chen, Z.}, \bibinfo{author}{Xu, Z.}, \bibinfo{author}{Liu, C.}, \bibinfo{author}{Kang, M.}, \bibinfo{author}{Song, S.}, \bibinfo{author}{Liu, C.}, \bibinfo{author}{Xu, Y.}, \bibinfo{author}{Sun, W.}, \bibinfo{author}{Liu, Y.}, \bibinfo{year}{2026}a.
+\newblock \bibinfo{title}{How effective are {NPM} malicious package detectors? {A} large-scale empirical study}.
+\newblock \href{http://arxiv.org/abs/2603.27549}{\tt arXiv:2603.27549}. \bibinfo{note}{arXiv:2603.27549v2}.
+%Type = Inproceedings
+\bibitem[{Guo et~al.(2026b)Guo, Song, Guo, Xu, Liu, Ou, Ge and Liu}]{guo2026bridging}
+\bibinfo{author}{Guo, W.}, \bibinfo{author}{Song, S.}, \bibinfo{author}{Guo, J.}, \bibinfo{author}{Xu, Z.}, \bibinfo{author}{Liu, C.}, \bibinfo{author}{Ou, H.}, \bibinfo{author}{Ge, M.}, \bibinfo{author}{Liu, Y.}, \bibinfo{year}{2026}b.
+\newblock \bibinfo{title}{Bridging expert reasoning and {LLM} detection: A knowledge-driven framework for malicious packages}, in: \bibinfo{booktitle}{Proceedings of the ACM Web Conference 2026 (WWW)}.
+\newblock \DOIprefix\doi{10.1145/3774904.3792083}.
+%Type = Inproceedings
+\bibitem[{Min et~al.(2022)Min, Lyu, Holtzman, Artetxe, Lewis, Hajishirzi and Zettlemoyer}]{min2022rethinking}
+\bibinfo{author}{Min, S.}, \bibinfo{author}{Lyu, X.}, \bibinfo{author}{Holtzman, A.}, \bibinfo{author}{Artetxe, M.}, \bibinfo{author}{Lewis, M.}, \bibinfo{author}{Hajishirzi, H.}, \bibinfo{author}{Zettlemoyer, L.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Rethinking the role of demonstrations: What makes in-context learning work?}, in: \bibinfo{booktitle}{Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP)}.
+%Type = Misc
+\bibitem[{Nguyen et~al.(2025)Nguyen, Ho, Pham, Dang-Thi, Vu, Nguyen, Tran-Truong and Vu}]{nguyen2025taint}
+\bibinfo{author}{Nguyen, D.K.}, \bibinfo{author}{Ho, G.T.}, \bibinfo{author}{Pham, Q.M.}, \bibinfo{author}{Dang-Thi, T.A.}, \bibinfo{author}{Vu, M.K.}, \bibinfo{author}{Nguyen, T.C.}, \bibinfo{author}{Tran-Truong, P.T.}, \bibinfo{author}{Vu, D.L.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Taint-based code slicing for {LLMs}-based malicious {NPM} package detection}.
+\newblock \href{http://arxiv.org/abs/2512.12313}{\tt arXiv:2512.12313}. \bibinfo{note}{arXiv:2512.12313}.
+%Type = Inproceedings
+\bibitem[{Sofaer et~al.(2024)Sofaer, David, Kang, Yu, Cao, Yang and Nieh}]{sofaer2024rogueone}
+\bibinfo{author}{Sofaer, R.J.}, \bibinfo{author}{David, Y.}, \bibinfo{author}{Kang, M.}, \bibinfo{author}{Yu, J.}, \bibinfo{author}{Cao, Y.}, \bibinfo{author}{Yang, J.}, \bibinfo{author}{Nieh, J.}, \bibinfo{year}{2024}.
+\newblock \bibinfo{title}{{RogueOne}: Detecting rogue updates via differential data-flow analysis using trust domains}, in: \bibinfo{booktitle}{Proceedings of the IEEE/ACM 46th International Conference on Software Engineering (ICSE)}.
+\newblock \DOIprefix\doi{10.1145/3597503.3639199}.
+%Type = Inproceedings
+\bibitem[{Wyss et~al.(2025)Wyss, Tassio, De~Carli and Davidson}]{wyss2025evaluating}
+\bibinfo{author}{Wyss, E.}, \bibinfo{author}{Tassio, D.}, \bibinfo{author}{De~Carli, L.}, \bibinfo{author}{Davidson, D.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Evaluating {LLM}-based detection of malicious package updates in npm}, in: \bibinfo{booktitle}{Proceedings of the 28th International Symposium on Research in Attacks, Intrusions and Defenses (RAID)}.
+%Type = Inproceedings
+\bibitem[{Zahan et~al.(2025)Zahan, Burckhardt, Lysenko, Aboukhadijeh and Williams}]{zahan2025leveraging}
+\bibinfo{author}{Zahan, N.}, \bibinfo{author}{Burckhardt, P.}, \bibinfo{author}{Lysenko, M.}, \bibinfo{author}{Aboukhadijeh, F.}, \bibinfo{author}{Williams, L.}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Leveraging large language models to detect npm malicious packages}, in: \bibinfo{booktitle}{Proceedings of the IEEE/ACM 47th International Conference on Software Engineering (ICSE)}.
+\newblock \DOIprefix\doi{10.1109/ICSE55347.2025.00146}.
+%Type = Inproceedings
+\bibitem[{Zimmermann et~al.(2019)Zimmermann, Staicu, Tenny and Pradel}]{zimmermann2019small}
+\bibinfo{author}{Zimmermann, M.}, \bibinfo{author}{Staicu, C.A.}, \bibinfo{author}{Tenny, C.}, \bibinfo{author}{Pradel, M.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Small world with high risks: A study of security threats in the npm ecosystem}, in: \bibinfo{booktitle}{Proceedings of the 28th USENIX Security Symposium}, pp. \bibinfo{pages}{995--1010}.
+
+\end{thebibliography}

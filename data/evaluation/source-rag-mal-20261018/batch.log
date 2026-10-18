@@ -1,0 +1,19 @@
+{"model": "qwen3", "stage": "test_running", "time_utc": "2026-10-17T20:27:53.614575+00:00"}
+{"model": "qwen3", "stage": "report_running", "time_utc": "2026-10-17T20:36:53.502963+00:00"}
+{"model": "qwen3", "stage": "complete", "time_utc": "2026-10-17T20:37:13.502397+00:00"}
+{"model": "qwen25", "stage": "test_running", "time_utc": "2026-10-17T20:37:13.502680+00:00"}
+{"model": "qwen25", "stage": "report_running", "time_utc": "2026-10-17T20:45:11.946501+00:00"}
+{"model": "qwen25", "stage": "complete", "time_utc": "2026-10-17T20:45:31.685557+00:00"}
+{"model": "qwen25_7b", "stage": "test_running", "time_utc": "2026-10-17T20:45:31.685841+00:00"}
+{"model": "qwen25_7b", "stage": "report_running", "time_utc": "2026-10-17T20:57:48.487007+00:00"}
+{"model": "qwen25_7b", "stage": "complete", "time_utc": "2026-10-17T20:58:25.063937+00:00"}
+{"model": "phi4_mini", "stage": "test_running", "time_utc": "2026-10-17T20:58:25.064307+00:00"}
+{"model": "phi4_mini", "stage": "report_running", "time_utc": "2026-10-17T21:10:02.005235+00:00"}
+{"model": "phi4_mini", "stage": "complete", "time_utc": "2026-10-17T21:10:22.524528+00:00"}
+{"model": "llama31_8b", "stage": "test_running", "time_utc": "2026-10-17T21:10:22.524933+00:00"}
+{"model": "llama31_8b", "stage": "report_running", "time_utc": "2026-10-17T21:25:46.999039+00:00"}
+{"model": "llama31_8b", "stage": "complete", "time_utc": "2026-10-17T21:26:30.032424+00:00"}
+{"model": "granite33_8b", "stage": "test_running", "time_utc": "2026-10-17T21:26:30.033030+00:00"}
+{"model": "granite33_8b", "stage": "report_running", "time_utc": "2026-10-17T21:48:14.626397+00:00"}
+{"model": "granite33_8b", "stage": "complete", "time_utc": "2026-10-17T21:49:08.699335+00:00"}
+{"batch_finished": true, "complete": true}
