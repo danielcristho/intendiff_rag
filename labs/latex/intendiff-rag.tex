@@ -709,6 +709,61 @@ bagian yang disisihkan untuk basis pengetahuan) dipakai untuk memeriksa
 parsing, pemotongan diff, dan pengecualian retrieval. Dev set tidak dipakai
 untuk menyetel aturan keputusan berdasarkan akurasi.
 
+\subsection{Himpunan yang dijalankan}\label{sec:run-cohort}
+
+Himpunan uji Bagian~\ref{sec:data} belum tersedia utuh: card basis pengetahuan
+yang terverifikasi, subset \emph{hard negative} berlabel ganda, dan pelabelan
+oleh dua anotator belum selesai. Seluruh angka pada Bagian~\ref{sec:results}
+karena itu dijalankan pada kohort kandidat yang lolos penyaringan, bukan pada
+undian uji final, dan kohort itu sudah terpapar eksperimen pengembangan
+sehingga bukan \emph{holdout}.
+
+Tabel~\ref{tab:run-cohort} merinci komposisinya. Pembaruan berbahaya terdiri
+atas 830 pair dari dataset paket berbahaya Datadog, dengan versi berbahaya
+yang tercatat terbit antara 19 Desember 2024 dan 24 Juni 2026, serta 43 pair
+dari paket replikasi Wyss et al. Semua kandidat yang versi sebelumnya tersedia
+dan tanpa advisory dipakai tanpa undian; dua kandidat gagal penyaringan dan
+dikeluarkan. Pembaruan tipikal adalah 100 pair dari 2.000 typical updates Wyss
+et al. Label MAL mengikuti label sumber akuisisi dan label TYP mengikuti
+asumsi Bagian~\ref{sec:data}; tidak ada pair pada kohort ini yang diverifikasi
+dua anotator. Subset \emph{hard negative} tidak ada, sehingga FPR pada
+pembaruan sah yang menambahkan kemampuan sensitif tidak terukur di sini.
+
+\begin{table}[t]
+\caption{Komposisi kohort yang dijalankan. Label MAL berasal dari sumber
+akuisisi dan TYP diasumsikan sah; tidak ada verifikasi dua anotator.}
+\label{tab:run-cohort}
+\small
+\begin{tabular}{p{1.2cm} p{2.6cm} r p{2.2cm}}
+\hline
+Subset & Sumber & Pair & Label \\
+\hline
+MAL & Dataset paket berbahaya Datadog & 830 & Label sumber \\
+MAL & Replikasi Wyss et al. & 43 & Label sumber \\
+TYP & Replikasi Wyss et al. & 100 & Diasumsikan sah \\
+\hline
+Total & & 973 & \\
+\hline
+\end{tabular}
+\end{table}
+
+Kuota tiga pair per kampanye pada Bagian~\ref{sec:data} tidak berlaku bagi
+kohort ini. Delapan ratus tujuh puluh tiga pair MAL terbagi ke 224 kampanye:
+213 kampanye berisi satu pair, sedangkan kampanye terbesar memuat 607 pair.
+Satu insiden karena itu menentukan sebagian besar angka per pair, sehingga
+recall per pair hanya dapat dibaca bersama macro recall kampanye.
+
+Sifat masukannya sebagai berikut. Panjang \emph{smart-diff} bermedian 2.131
+token, dengan rata-rata 3.804 dan maksimum 27.998 token; 366 pair sudah
+terpotong pada tahap itu. Representasi ber-ID menambah panjang prompt,
+sehingga 83 pair dipotong sekali lagi dan masukan yang benar-benar dikirim
+bermedian 2.131 token, dengan rata-rata 2.841 dan maksimum 20.637 token.
+Profil intent tersedia pada 932 pair.
+Delta kemampuan kosong pada 25 pair MAL dan 91 pair TYP. Sebanyak 936 nama
+paket unik muncul pada 973 pair. Tanggal terbit tidak tersedia untuk 143 pair
+yang berasal dari paket replikasi, sehingga pemisahan insiden sebelum dan
+sesudah tanggal rilis model tidak dilaporkan untuk kohort ini.
+
 \subsection{Model dan inferensi}\label{sec:models}
 
 Dua model di Tabel~\ref{tab:models} mewakili satu model instruksi umum dan

@@ -1,0 +1,20 @@
+test_annotation_queue_excludes_dev_and_hides_selection_metadata (tests.test_campaign_audit.CampaignAuditTests.test_annotation_queue_excludes_dev_and_hides_selection_metadata) ... ok
+test_certificate_rejects_missing_ids_and_cross_group_exact_links (tests.test_campaign_audit.CampaignAuditTests.test_certificate_rejects_missing_ids_and_cross_group_exact_links) ... ok
+test_empty_code_cannot_certify_a_merge (tests.test_campaign_audit.CampaignAuditTests.test_empty_code_cannot_certify_a_merge) ... ok
+test_identical_nonempty_code_links_even_without_shared_file_hashes (tests.test_campaign_audit.CampaignAuditTests.test_identical_nonempty_code_links_even_without_shared_file_hashes) ... ok
+test_inverted_scores_equal_cached_dolos_with_repeated_tokens (tests.test_campaign_audit.CampaignAuditTests.test_inverted_scores_equal_cached_dolos_with_repeated_tokens) ... ok
+test_mixed_transitive_path_has_verifiable_edges_to_exposure (tests.test_campaign_audit.CampaignAuditTests.test_mixed_transitive_path_has_verifiable_edges_to_exposure) ... ok
+test_future_and_undated_versions_cannot_enter_pair (tests.test_dataset_expansion.ExpansionTests.test_future_and_undated_versions_cannot_enter_pair) ... ok
+test_hn_requires_both_advisory_checks_and_an_unchanged_known_publisher (tests.test_dataset_expansion.ExpansionTests.test_hn_requires_both_advisory_checks_and_an_unchanged_known_publisher) ... ok
+test_missing_advisory_is_not_benign_and_hn_overlap_is_retained (tests.test_dataset_expansion.ExpansionTests.test_missing_advisory_is_not_benign_and_hn_overlap_is_retained) ... ok
+test_related_dependency_is_quarantined_without_hiding_candidate (tests.test_dataset_expansion.ExpansionTests.test_related_dependency_is_quarantined_without_hiding_candidate) ... ok
+test_search_rank_is_applied_before_any_screening (tests.test_dataset_expansion.ExpansionTests.test_search_rank_is_applied_before_any_screening) ... ok
+test_sharing_a_campaign_with_any_evaluated_item_blocks_holdout (tests.test_dataset_expansion.ExpansionTests.test_sharing_a_campaign_with_any_evaluated_item_blocks_holdout) ... ok
+test_static_cache_matches_existing_delta_and_rejects_escaping_archive (tests.test_dataset_expansion.ExpansionTests.test_static_cache_matches_existing_delta_and_rejects_escaping_archive) ... ok
+test_stream_sampling_is_independent_of_duplicates_order_and_blocked_names (tests.test_dataset_expansion.ExpansionTests.test_stream_sampling_is_independent_of_duplicates_order_and_blocked_names) ... ok
+test_unavailable_earlier_pair_never_becomes_clean_earliest_selection (tests.test_dataset_expansion.ExpansionTests.test_unavailable_earlier_pair_never_becomes_clean_earliest_selection) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.007s
+
+OK

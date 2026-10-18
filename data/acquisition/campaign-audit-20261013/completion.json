@@ -1,0 +1,22 @@
+{
+  "status": "campaign_connectivity_audit_complete; human_annotation_and_final_smartdiff_pending",
+  "completed_at": "2026-10-13T16:54:34.209838+00:00",
+  "image": "intendiff-preprocess:campaign-v1",
+  "image_id": "sha256:08d2f416af6e34f26c127cdb7dce786d1fe0840c1ee9f39303e8f0a87a5e82ec",
+  "network": "none for source/campaign audit containers",
+  "unit_tests_passed": 15,
+  "campaign_selfcheck": "passed",
+  "runner_selfcheck": "passed",
+  "annotation_candidates": 250,
+  "annotation_forms_blank_verified": true,
+  "gold_labels_created": 0,
+  "new_inferences": 0,
+  "split_changes": 0,
+  "verification": {
+    "input_hashes_verified": 11912,
+    "witness_edges_verified": 20315,
+    "exclusion_paths_verified": 79,
+    "frozen_partition_reproduced": true,
+    "cross_partition_dolos_edges_rechecked": false
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "source_archive_sha256": "8aea1255236fb4753f903a9af165c27f7c2c5723ddcb5610a0cfbdaa82f2150a",
+  "source_member": "replication_package_evaluating_llm_mal_update_detection/data/live_analysis_update_events.txt",
+  "source_member_sha256": "44b16c14657b58fd20ebbc0830bd24cee891b009b2886407dfa2807e0dbfe52f",
+  "source_lines": 1122663,
+  "malformed_lines": 0,
+  "excluded_known_names": 16923,
+  "eligible_names": 260175,
+  "selected_names": 500,
+  "seed": 2026,
+  "source_pins": {
+    "data/acquisition/typ.draw.jsonl": "950eff882b3fc92a2f6f09db40a27ab13761416b0b82454ce0b91f688d43e524",
+    "data/acquisition/typ.pool.jsonl": "4fa633e34ad401e8f88d8a55e6c615373d8558aa76230ebbf2f72f5ac16b3d9e",
+    "data/acquisition/datadog.compromised.pool.jsonl": "926c77a74ef3e38907398e834a1abeb268b729bdf888348c6133b70e0094a14f",
+    "data/acquisition/datadog.intent-full.pool.jsonl": "62f3e18b7fe8d2c08f257474cdf2909034296ecb8c39619191ad54e115039a21",
+    "data/acquisition/expansion-full-20261013/path-b-package-queue.jsonl": "b4054a375ae4aad5b5c392acd1bb12557961ba7f38d8db8d6a9cbd913cdbe460"
+  }
+}

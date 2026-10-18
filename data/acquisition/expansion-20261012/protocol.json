@@ -1,0 +1,10 @@
+{
+  "cutoff": "2026-10-12T15:11:56.884716+00:00",
+  "wave_rank": 50,
+  "search_rank_limit": 250,
+  "recent_versions": 20,
+  "cache": "data/upstream/expansion-20261012",
+  "gold_labels_created": 0,
+  "final_holdout": false,
+  "protocol_sha256": "3eff68bdb1b556b44b6e4291b69dbdc5bfaf5432198a46be43a40f9c75bf08fa"
+}

@@ -1,0 +1,165 @@
+{
+  "files": [
+    {
+      "path": "data/preparation/final-rag-20261014/annotation/README.md",
+      "sha256": "e5ac7e2c89e3f14fba9f3b04dd5de07d9f7c421e8093c9da4ce79dfa1c5d5a9b",
+      "bytes": 1919
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/annotation/annotation.A.jsonl",
+      "sha256": "52e4b98961e86732195fe07662926a91d3c52b0d5b1fc6215437e552b241ac04",
+      "bytes": 63818
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/annotation/annotation.B.jsonl",
+      "sha256": "24f7cfa77d6016c65d7593d5e0803f5fe9640e8257ca1d97404a67617232532c",
+      "bytes": 63818
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/annotation/materials.jsonl",
+      "sha256": "a38fc39d675eeec324edee3eb0e498c0f28465c3fb31f7f6eb032e6ac1a91986",
+      "bytes": 9182595
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/completion.json",
+      "sha256": "b9a753b8f2317870c76e0197c643fda2c17a7ad408b19b6b8610817d49d63ccc",
+      "bytes": 480
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/configs-selfcheck.log",
+      "sha256": "dc51b8c96c2d745df3bd5590d990230a482fd247123599548e0632fdbf97fc22",
+      "bytes": 3
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/external-archive-verification.json",
+      "sha256": "9492e417e170b4009d7b55d3395fcb52da099b8cb8c2553a16f878c8f412a73f",
+      "bytes": 1691
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/hn.manifest.jsonl",
+      "sha256": "3fa5954bf336ebec618145965a2a95cad0e5d1d89f964ec7fb9c13d39c6b76b1",
+      "bytes": 547233
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/hn.preprocessed.jsonl",
+      "sha256": "a757f10fbc86de79fb840d2a8d281805618574593c210521400ca85f0f49e2ea",
+      "bytes": 9253264
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/normalization-review-flags.jsonl",
+      "sha256": "8c53cea76acd9013938c658263b46cc3b0dc33f4be2edea3413398bcea17df34",
+      "bytes": 18717
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/preprocess.log",
+      "sha256": "4219064c04969367d836c4a80c7835e6d82a0f884345eab9b952743d2fa0cbc8",
+      "bytes": 6432
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/preprocessing-input-pins.json",
+      "sha256": "10f9199fbced59475650827502abf7db279a93a0e193948e314bcff8dc76100a",
+      "bytes": 1416
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/preprocessing-verification.json",
+      "sha256": "c1e1d225776ec7dd7d5b2a254799f6ec12b0f76fa4249014eee8e9d6691a43f9",
+      "bytes": 399
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/readiness.json",
+      "sha256": "5a0cbee58b59679869bf04831ebddf9ee6ece75dd1249d9f48a72c15b49b90c9",
+      "bytes": 1466
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/runner-selfcheck.log",
+      "sha256": "dc51b8c96c2d745df3bd5590d990230a482fd247123599548e0632fdbf97fc22",
+      "bytes": 3
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/source-snapshot/.agent/continuation.md",
+      "sha256": "2cef21b95c61e151720a0816f83ab3d9b12db6d43f1d5e0517dcb5e87dd148c3",
+      "bytes": 14769
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/source-snapshot/docs/decisions.md",
+      "sha256": "1b197e4050beff14a88994053ba584de389eeb06ba7259856b4aa4751abe87b0",
+      "bytes": 100928
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/source-snapshot/docs/final-rag-preparation-20261014.md",
+      "sha256": "3ce751607b91da62383588a13166a3768a03d07bb00778dce5f9c64f9f303a2d",
+      "bytes": 5571
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/source-snapshot/docs/methodology.md",
+      "sha256": "c913d91dd28e5ddfc52c9405b4f6b1920a09fb2e319dc1acd31a4808f90c4255",
+      "bytes": 46276
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/source-snapshot/pipeline/capability.py",
+      "sha256": "bdf4d84ae065bb313d9d45ea36c993c6000eb3a2a93d65e737b76105405eb05b",
+      "bytes": 18636
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/source-snapshot/pipeline/configs.py",
+      "sha256": "355e43eecb0654ec47b8e7d450beea5827822dc7aec73621d4c16ec7771280ba",
+      "bytes": 2210
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/source-snapshot/pipeline/dataset.py",
+      "sha256": "b1fc341138d88c6d870e6c3a783cd1c1d992a7e1539ba3ec8a3ac692e02ca1cd",
+      "bytes": 7342
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/source-snapshot/pipeline/final_readiness.py",
+      "sha256": "973733ebaf18b57cc1634718aa19160c893258a8c6c31dbfe6b654ce0dc2676d",
+      "bytes": 4843
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/source-snapshot/pipeline/intent.py",
+      "sha256": "05eb7116f31f4de33f27bf9f9d02328fb8867eb1801b333d87e9530f683a8921",
+      "bytes": 9061
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/source-snapshot/pipeline/normalization.py",
+      "sha256": "ad691d580c9a9a29df2a2213e0c9bcb55e6c14f522a50d6e8d51026d76ed8f3e",
+      "bytes": 7407
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/source-snapshot/pipeline/preprocess_corpus.py",
+      "sha256": "bc37d4f3ae15e8e633df93ed9016c3448594e8d39a546d2ad7c2f35b08c07383",
+      "bytes": 3113
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/source-snapshot/pipeline/prompts.py",
+      "sha256": "97b7f3876a361fa51885e472951fac050e3332dc46dc4c37e275d55ea753a263",
+      "bytes": 6796
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/source-snapshot/pipeline/retrieval_audit.py",
+      "sha256": "01769bd801134e3cc49028eecf6c99ddb76e858714ce368a6b8d26f5d5c1413c",
+      "bytes": 2175
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/source-snapshot/pipeline/runner.py",
+      "sha256": "c8beef31ff8be722e3d5ceeb2f26f09e06af426f179b17e49025bcd92bc0dca4",
+      "bytes": 16982
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/source-snapshot/pipeline/smartdiff.py",
+      "sha256": "2f0eba35dc67deb85bbaba5fbd0d1e5dc8c36e52e55c7cd419418f7e45d23c6a",
+      "bytes": 14756
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/source-snapshot/tests/test_final_readiness.py",
+      "sha256": "1b43d12b554df3c7e2420d1f18669cd48867061cd7979d3749de0af3038ada98",
+      "bytes": 3801
+    },
+    {
+      "path": "data/preparation/final-rag-20261014/tests.log",
+      "sha256": "e1ec5e2c011fc2c5392ef1ca0d8386c0e56a437fc0b08a26162ec0aaab23ad2d",
+      "bytes": 2264
+    }
+  ],
+  "annotation_note": "Pins record initial blank forms; future human decisions must be retained as new artifacts."
+}

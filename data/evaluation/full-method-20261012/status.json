@@ -1,0 +1,6 @@
+{
+  "stage": "error",
+  "updated_unix": 1791960902.7149408,
+  "model": "Qwen/Qwen3-8B",
+  "error": "KeyboardInterrupt()"
+}

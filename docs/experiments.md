@@ -1,5 +1,11 @@
 # Pelaksanaan eksperimen
 
+**Cakupan aktif D99 (14 Oktober 2026):** lihat
+[protokol eksperimen berbasis dataset](source-labelled-final-20261014.md).
+Label sumber menggantikan kewajiban anotasi ganda; RQ2/RQ3 dilaporkan sebagai
+perbandingan MAL+TYP. Hipotesis konfirmatori FPR_HN, minimum HN, κ dan gold
+evidence di rancangan lama di bawah tidak diklaim terpenuhi oleh D99.
+
 Revisi 2026-09-13. Seluruh prosedur ada di [methodology.md](methodology.md). File
 ini hanya berisi jadwal, volume run, skema file, dan checklist implementasi.
 

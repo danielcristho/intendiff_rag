@@ -16,6 +16,9 @@ MERGE_THRESHOLD = 0.5
 REPORTED_THRESHOLDS = (0.5, 0.8)
 DOLOS_KGRAM = 70
 DOLOS_WINDOW = 17
+# TRIVIAL_FILE_BYTES keeps empty .env files and one-line module stubs from
+# linking unrelated updates through criterion (b) (D96).
+TRIVIAL_FILE_BYTES = 64
 
 
 # sha256_text returns the hex digest of a file's raw contents.
@@ -69,6 +72,10 @@ def dolos_similarity(left, right):
         return 0.0
     from dolos import score_lookup
     return score_lookup([{"code": left}, {"code": right}])(left, right)
+
+
+def is_trivial_file(raw):
+    return len(raw.strip()) < TRIVIAL_FILE_BYTES
 
 
 # Union-find with path compression.
@@ -240,6 +247,11 @@ def selfcheck():
     assert hashlib.sha256(b"first\r\nsecond\r\n").hexdigest() in hashes
     assert hashlib.sha256(b"\x00\xff").hexdigest() in hashes
     assert hashlib.sha256(b"first\nsecond\n").hexdigest() not in hashes
+
+    # --- an empty file or a one-line stub is trivial; real code is not
+    assert is_trivial_file(b"") and is_trivial_file(b" \n\t\n")
+    assert is_trivial_file(b'{\n  "type": "module"\n}\n')
+    assert not is_trivial_file(b"x" * TRIVIAL_FILE_BYTES)
 
     # --- an empty excerpt scores zero rather than invoking Dolos
     assert dolos_similarity("", "anything") == 0.0

@@ -1,5 +1,11 @@
 # Desain penelitian
 
+**Cakupan aktif D99 (14 Oktober 2026):** lihat
+[protokol eksperimen berbasis dataset](source-labelled-final-20261014.md).
+Label sumber menggantikan kewajiban anotasi ganda; RQ2/RQ3 dilaporkan sebagai
+perbandingan MAL+TYP. Hipotesis konfirmatori FPR_HN, minimum HN, κ dan gold
+evidence di rancangan lama di bawah tidak diklaim terpenuhi oleh D99.
+
 Revisi 2026-09-13. Dokumen ini menggantikan research gap dan RQ di proposal P1
 (slide 8–10 dan 15). Alasan tiap perubahan ada di [decisions.md](decisions.md);
 prosedur lengkap (data, prompt, konfigurasi, statistik) ada di [methodology.md](methodology.md).

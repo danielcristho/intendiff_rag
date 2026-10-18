@@ -1,0 +1,27 @@
+{
+  "source_pairs": 2000,
+  "available_typical_candidates": 1883,
+  "exclusions": 117,
+  "exclusion_reasons": {
+    "advisory_present": 95,
+    "version_unavailable_or_invalid": 23
+  },
+  "groups": {
+    "popular": 909,
+    "random": 974
+  },
+  "already_inferred_pairs": 140,
+  "hn_overlap": 178,
+  "unexposed_by_identity_review_queue": 1687,
+  "final_holdout_pairs": 0,
+  "human_labels_created": 0,
+  "advisory_check_dates": [
+    "2026-09-28"
+  ],
+  "mal_preprocessed": 875,
+  "mal_evaluated": 873,
+  "mal_clusters": 224,
+  "largest_mal_cluster": 607,
+  "mal_capacity_with_cap3": 241,
+  "note": "Cached advisory checks; all candidates require final split and review."
+}

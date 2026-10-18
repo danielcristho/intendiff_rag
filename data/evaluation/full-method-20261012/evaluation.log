@@ -1,0 +1,263 @@
+{"stage": "server_starting", "updated_unix": 1791768046.204057, "model": "Qwen/Qwen3-4B-Instruct-2507", "pid": 720072, "command": ["~/intendiff_rag/.venv/bin/vllm", "serve", "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507", "--served-model-name", "Qwen/Qwen3-4B-Instruct-2507", "--host", "127.0.0.1", "--port", "8101", "--dtype", "bfloat16", "--max-model-len", "32768", "--seed", "0", "--generation-config", "vllm", "--max-num-seqs", "1", "--kv-cache-memory-bytes", "6442450944", "--enable-prefix-caching"]}
+{"stage": "evaluating", "updated_unix": 1791768070.2173016, "model": "Qwen/Qwen3-4B-Instruct-2507", "expected_per_model": 2919, "total_expected": 20433}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 30, "expected": 2919, "pair_id": "vue-backbone@0.1.2", "arm": "VERIFY-I", "updated_unix": 1791768106.8293982}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 60, "expected": 2919, "pair_id": "@ctrl/tinycolor@4.1.1", "arm": "VERIFY-I", "updated_unix": 1791768134.1392403}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 90, "expected": 2919, "pair_id": "@squawk/notams@0.3.6", "arm": "VERIFY-I", "updated_unix": 1791768170.951368}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 120, "expected": 2919, "pair_id": "@operato/headroom@9.0.35", "arm": "VERIFY-I", "updated_unix": 1791768200.734572}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 150, "expected": 2919, "pair_id": "@squawk/flight-math@0.5.4", "arm": "VERIFY-I", "updated_unix": 1791768232.448326}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 180, "expected": 2919, "pair_id": "@tallyui/database@1.0.1", "arm": "VERIFY-I", "updated_unix": 1791768259.2816918}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 210, "expected": 2919, "pair_id": "path-scurry@1.10.2", "arm": "VERIFY-I", "updated_unix": 1791768291.9439416}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 240, "expected": 2919, "pair_id": "@rxap/ngx-bootstrap@19.0.3", "arm": "VERIFY-I", "updated_unix": 1791768325.9848433}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 270, "expected": 2919, "pair_id": "monorepo-next@13.0.1", "arm": "VERIFY-I", "updated_unix": 1791768358.650889}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 300, "expected": 2919, "pair_id": "@mastra/tavily@1.0.3", "arm": "VERIFY-I", "updated_unix": 1791768387.1786814}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 330, "expected": 2919, "pair_id": "@asyncapi/parser@3.4.1", "arm": "VERIFY-I", "updated_unix": 1791768417.6593513}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 360, "expected": 2919, "pair_id": "@mastra/auth-better-auth@1.0.4", "arm": "VERIFY-I", "updated_unix": 1791768448.4765038}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 390, "expected": 2919, "pair_id": "react-library-setup@0.0.6", "arm": "VERIFY-I", "updated_unix": 1791768477.8875468}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 420, "expected": 2919, "pair_id": "@tanstack/start-static-server-functions@1.166.44", "arm": "VERIFY-I", "updated_unix": 1791768507.0069842}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 450, "expected": 2919, "pair_id": "email-deliverability-tester@1.1.1", "arm": "VERIFY-I", "updated_unix": 1791768533.0645616}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 480, "expected": 2919, "pair_id": "@mastra/opensearch@1.0.3", "arm": "VERIFY-I", "updated_unix": 1791768570.6714537}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 510, "expected": 2919, "pair_id": "rc@1.3.9", "arm": "VERIFY-I", "updated_unix": 1791768597.120274}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 540, "expected": 2919, "pair_id": "node-ipc@10.1.1", "arm": "VERIFY-I", "updated_unix": 1791768623.685103}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 570, "expected": 2919, "pair_id": "@posthog/filter-out-plugin@0.0.8", "arm": "VERIFY-I", "updated_unix": 1791768655.054892}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 600, "expected": 2919, "pair_id": "@nexe/config-manager@0.1.1", "arm": "VERIFY-I", "updated_unix": 1791768684.817895}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 630, "expected": 2919, "pair_id": "@operato/styles@9.0.35", "arm": "VERIFY-I", "updated_unix": 1791768712.355698}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 660, "expected": 2919, "pair_id": "@antv/li-aiearth-assets@0.5.7", "arm": "VERIFY-I", "updated_unix": 1791768742.1697254}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 690, "expected": 2919, "pair_id": "@redhat-cloud-services/hcc-pf-mcp@0.6.1", "arm": "VERIFY-I", "updated_unix": 1791768771.9509056}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 720, "expected": 2919, "pair_id": "@art-ws/di@2.0.28", "arm": "VERIFY-I", "updated_unix": 1791768799.8178768}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 750, "expected": 2919, "pair_id": "grunt-radic@0.1.1", "arm": "VERIFY-I", "updated_unix": 1791768829.2949731}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 780, "expected": 2919, "pair_id": "@uipath/data-fabric-tool@1.0.2", "arm": "VERIFY-I", "updated_unix": 1791768856.2582564}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 810, "expected": 2919, "pair_id": "@teselagen/sequence-utils@0.3.33", "arm": "VERIFY-I", "updated_unix": 1791768883.7334077}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 840, "expected": 2919, "pair_id": "@tanstack/start-plugin-core@1.169.23", "arm": "VERIFY-I", "updated_unix": 1791768912.0591114}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 870, "expected": 2919, "pair_id": "@mastra/pg@1.13.1", "arm": "VERIFY-I", "updated_unix": 1791768944.239786}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 900, "expected": 2919, "pair_id": "executable-stories-playwright@7.0.3", "arm": "VERIFY-I", "updated_unix": 1791768969.6589246}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 930, "expected": 2919, "pair_id": "@ctrl/magnet-link@4.0.3", "arm": "VERIFY-I", "updated_unix": 1791768995.079403}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 960, "expected": 2919, "pair_id": "@mastra/auth-supabase@1.0.2", "arm": "VERIFY-I", "updated_unix": 1791769029.3382866}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 990, "expected": 2919, "pair_id": "mongular-schema@0.0.3", "arm": "VERIFY-I", "updated_unix": 1791769059.297202}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1020, "expected": 2919, "pair_id": "@orbitgtbelgium/orbit-components@1.2.9", "arm": "VERIFY-I", "updated_unix": 1791769094.3150718}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1050, "expected": 2919, "pair_id": "mbt@1.2.48", "arm": "VERIFY-I", "updated_unix": 1791769121.41616}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1080, "expected": 2919, "pair_id": "@emilgroup/tenant-sdk@1.34.1", "arm": "VERIFY-I", "updated_unix": 1791769159.5137644}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1110, "expected": 2919, "pair_id": "autotel-mcp@4.0.1", "arm": "VERIFY-I", "updated_unix": 1791769190.4958987}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1140, "expected": 2919, "pair_id": "jest-canvas-mock@2.5.3", "arm": "VERIFY-I", "updated_unix": 1791769218.6232035}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1170, "expected": 2919, "pair_id": "@hestjs/validation@0.1.6", "arm": "VERIFY-I", "updated_unix": 1791769242.270435}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1200, "expected": 2919, "pair_id": "autotel-terminal@23.0.3", "arm": "VERIFY-I", "updated_unix": 1791769273.2159004}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1230, "expected": 2919, "pair_id": "@yaoxfly/cli@1.0.5", "arm": "VERIFY-I", "updated_unix": 1791769303.516275}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1260, "expected": 2919, "pair_id": "@tanstack/react-router@1.169.5", "arm": "VERIFY-I", "updated_unix": 1791769331.3410504}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1290, "expected": 2919, "pair_id": "@tanbo/ui-mobile@0.0.6", "arm": "VERIFY-I", "updated_unix": 1791769366.4321842}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1320, "expected": 2919, "pair_id": "manual-billing-system-miniapp-api@1.3.1", "arm": "VERIFY-I", "updated_unix": 1791769393.785381}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1350, "expected": 2919, "pair_id": "node-red-contrib-salesforce-chatter@1.0.6", "arm": "VERIFY-I", "updated_unix": 1791769422.8669105}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1380, "expected": 2919, "pair_id": "git-branch-selector@1.3.3", "arm": "VERIFY-I", "updated_unix": 1791769449.2608838}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1410, "expected": 2919, "pair_id": "@tanstack/router-cli@1.166.46", "arm": "VERIFY-I", "updated_unix": 1791769478.6319857}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1440, "expected": 2919, "pair_id": "last-match@0.0.3", "arm": "VERIFY-I", "updated_unix": 1791769507.643979}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1470, "expected": 2919, "pair_id": "@tnf-dev/react@1.0.8", "arm": "VERIFY-I", "updated_unix": 1791769534.8252528}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1500, "expected": 2919, "pair_id": "@aqueduct/otc-sdk-ts@1.0.63", "arm": "VERIFY-I", "updated_unix": 1791769564.0295408}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1530, "expected": 2919, "pair_id": "@things-factory/integration-marketplace@9.0.42", "arm": "VERIFY-I", "updated_unix": 1791769592.8887258}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1560, "expected": 2919, "pair_id": "@mastra/memory@1.20.4", "arm": "VERIFY-I", "updated_unix": 1791769619.3813725}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1590, "expected": 2919, "pair_id": "miniapp-bc-sdk@1.1.2", "arm": "VERIFY-I", "updated_unix": 1791769654.8244092}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1620, "expected": 2919, "pair_id": "@nx/enterprise-cloud@3.2.0", "arm": "VERIFY-I", "updated_unix": 1791769679.7956622}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1650, "expected": 2919, "pair_id": "@asyncapi/modelina@5.10.2", "arm": "VERIFY-I", "updated_unix": 1791769711.1871462}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1680, "expected": 2919, "pair_id": "@nx/key@3.2.0", "arm": "VERIFY-I", "updated_unix": 1791769738.820475}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1710, "expected": 2919, "pair_id": "@emilgroup/document-sdk-node@1.43.1", "arm": "VERIFY-I", "updated_unix": 1791769770.733499}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1740, "expected": 2919, "pair_id": "fn_js@0.2.0", "arm": "VERIFY-I", "updated_unix": 1791769799.80967}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1770, "expected": 2919, "pair_id": "@asyncapi/studio@1.0.2", "arm": "VERIFY-I", "updated_unix": 1791769831.0754542}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1800, "expected": 2919, "pair_id": "@norniras/hive-agent@2.0.4", "arm": "VERIFY-I", "updated_unix": 1791769856.6291122}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1830, "expected": 2919, "pair_id": "ve-bamreader@0.2.6", "arm": "VERIFY-I", "updated_unix": 1791769884.564037}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1860, "expected": 2919, "pair_id": "axobject-query@4.0.0", "arm": "VERIFY-I", "updated_unix": 1791769918.89962}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1890, "expected": 2919, "pair_id": "radicjs@0.2.1", "arm": "VERIFY-I", "updated_unix": 1791769952.772261}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1920, "expected": 2919, "pair_id": "@xene/core@0.4.1", "arm": "VERIFY-I", "updated_unix": 1791769981.31688}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1950, "expected": 2919, "pair_id": "@nativescript-community/sentry@4.6.43", "arm": "VERIFY-I", "updated_unix": 1791770009.5477538}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 1980, "expected": 2919, "pair_id": "@actbase/react-absolute@0.8.3", "arm": "VERIFY-I", "updated_unix": 1791770041.0504568}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2010, "expected": 2919, "pair_id": "@antstackio/json-to-graphql@1.0.3", "arm": "VERIFY-I", "updated_unix": 1791770070.1697185}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2040, "expected": 2919, "pair_id": "@faq-component/react@1.0.1", "arm": "VERIFY-I", "updated_unix": 1791770108.0512476}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2070, "expected": 2919, "pair_id": "@ensdomains/thorin@0.6.51", "arm": "VERIFY-I", "updated_unix": 1791770137.7868292}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2100, "expected": 2919, "pair_id": "debug@4.4.2", "arm": "VERIFY-I", "updated_unix": 1791770176.5614924}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2130, "expected": 2919, "pair_id": "nginxbeautifier@1.0.14", "arm": "VERIFY-I", "updated_unix": 1791770204.3150582}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2160, "expected": 2919, "pair_id": "@tanstack/react-start-rsc@0.0.47", "arm": "VERIFY-I", "updated_unix": 1791770228.3216612}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2190, "expected": 2919, "pair_id": "react-jsonschema-form-conditionals@0.3.18", "arm": "VERIFY-I", "updated_unix": 1791770258.6493986}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2220, "expected": 2919, "pair_id": "@antv/narrative-text-editor@0.3.20", "arm": "VERIFY-I", "updated_unix": 1791770288.6529367}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2250, "expected": 2919, "pair_id": "@trpc-rate-limiter/hono@0.1.4", "arm": "VERIFY-I", "updated_unix": 1791770320.277362}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2280, "expected": 2919, "pair_id": "@ensdomains/address-encoder@1.1.5", "arm": "VERIFY-I", "updated_unix": 1791770346.7256577}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2310, "expected": 2919, "pair_id": "capacitorandroidpermissions@0.0.4", "arm": "VERIFY-I", "updated_unix": 1791770383.851581}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2340, "expected": 2919, "pair_id": "scroool@0.1.7", "arm": "VERIFY-I", "updated_unix": 1791770413.4135053}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2370, "expected": 2919, "pair_id": "autotel-terminal@22.0.2", "arm": "VERIFY-I", "updated_unix": 1791770442.6609197}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2400, "expected": 2919, "pair_id": "@coveops/abi@2.0.1", "arm": "VERIFY-I", "updated_unix": 1791770476.8734443}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2430, "expected": 2919, "pair_id": "@mastra/twilio@1.0.2", "arm": "VERIFY-I", "updated_unix": 1791770507.5355678}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2460, "expected": 2919, "pair_id": "dir-glob@3.0.1", "arm": "VERIFY-I", "updated_unix": 1791770533.947287}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2490, "expected": 2919, "pair_id": "@uipath/apollo-react@4.24.5", "arm": "VERIFY-I", "updated_unix": 1791770568.2791624}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2520, "expected": 2919, "pair_id": "@mastra/browser-viewer@0.1.3", "arm": "VERIFY-I", "updated_unix": 1791770599.4288507}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2550, "expected": 2919, "pair_id": "@mcp-use/inspector@0.6.2", "arm": "VERIFY-I", "updated_unix": 1791770625.0304601}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2580, "expected": 2919, "pair_id": "@mastra/libsql@1.13.1", "arm": "VERIFY-I", "updated_unix": 1791770655.334805}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2610, "expected": 2919, "pair_id": "color-convert@3.1.1", "arm": "VERIFY-I", "updated_unix": 1791770691.794535}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2640, "expected": 2919, "pair_id": "@posthog/rrweb-record@0.0.31", "arm": "VERIFY-I", "updated_unix": 1791770723.4262712}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2670, "expected": 2919, "pair_id": "ngx-trend@8.0.1", "arm": "VERIFY-I", "updated_unix": 1791770748.88363}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2700, "expected": 2919, "pair_id": "@ensdomains/hardhat-chai-matchers-viem@0.1.15", "arm": "VERIFY-I", "updated_unix": 1791770779.5518029}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2730, "expected": 2919, "pair_id": "ember-power-timepicker@1.0.8", "arm": "VERIFY-I", "updated_unix": 1791770806.6737657}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2760, "expected": 2919, "pair_id": "tcsp-test-vd@2.4.4", "arm": "VERIFY-I", "updated_unix": 1791770835.047649}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2790, "expected": 2919, "pair_id": "ove-auto-annotate@0.0.9", "arm": "VERIFY-I", "updated_unix": 1791770864.4972186}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2820, "expected": 2919, "pair_id": "@vishadtyagi/full-year-calendar@0.1.11", "arm": "VERIFY-I", "updated_unix": 1791770889.7973888}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2850, "expected": 2919, "pair_id": "zuper-sdk@1.0.57", "arm": "VERIFY-I", "updated_unix": 1791770921.4527488}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2880, "expected": 2919, "pair_id": "@redhat-cloud-services/types@3.6.1", "arm": "VERIFY-I", "updated_unix": 1791770947.7790072}
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2910, "expected": 2919, "pair_id": "@toptal/picasso-tailwind@3.1.0", "arm": "VERIFY-I", "updated_unix": 1791770977.7118156}
+{"stage": "model_complete", "updated_unix": 1791771027.254029, "model": "Qwen/Qwen3-4B-Instruct-2507", "completed": 2919}
+{"stage": "server_starting", "updated_unix": 1791771040.185282, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "pid": 765376, "command": ["~/intendiff_rag/.venv/bin/vllm", "serve", "~/.cache/huggingface/hub/models--Qwen--Qwen2.5-Coder-3B-Instruct/snapshots/488639f1ff808d1d3d0ba301aef8c11461451ec5", "--served-model-name", "Qwen/Qwen2.5-Coder-3B-Instruct", "--host", "127.0.0.1", "--port", "8101", "--dtype", "bfloat16", "--max-model-len", "32768", "--seed", "0", "--generation-config", "vllm", "--max-num-seqs", "1", "--kv-cache-memory-bytes", "6442450944", "--enable-prefix-caching"]}
+{"stage": "evaluating", "updated_unix": 1791771074.203768, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "expected_per_model": 2919, "total_expected": 20433}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 30, "expected": 2919, "pair_id": "vue-backbone@0.1.2", "arm": "VERIFY-I", "updated_unix": 1791771103.747779}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 60, "expected": 2919, "pair_id": "@ctrl/tinycolor@4.1.1", "arm": "VERIFY-I", "updated_unix": 1791771126.965917}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 90, "expected": 2919, "pair_id": "@squawk/notams@0.3.6", "arm": "VERIFY-I", "updated_unix": 1791771153.2114527}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 120, "expected": 2919, "pair_id": "@operato/headroom@9.0.35", "arm": "VERIFY-I", "updated_unix": 1791771176.9962783}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 150, "expected": 2919, "pair_id": "@squawk/flight-math@0.5.4", "arm": "VERIFY-I", "updated_unix": 1791771202.8900108}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 180, "expected": 2919, "pair_id": "@tallyui/database@1.0.1", "arm": "VERIFY-I", "updated_unix": 1791771225.6550884}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 210, "expected": 2919, "pair_id": "path-scurry@1.10.2", "arm": "VERIFY-I", "updated_unix": 1791771250.1981885}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 240, "expected": 2919, "pair_id": "@rxap/ngx-bootstrap@19.0.3", "arm": "VERIFY-I", "updated_unix": 1791771275.912385}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 270, "expected": 2919, "pair_id": "monorepo-next@13.0.1", "arm": "VERIFY-I", "updated_unix": 1791771303.7785068}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 300, "expected": 2919, "pair_id": "@mastra/tavily@1.0.3", "arm": "VERIFY-I", "updated_unix": 1791771327.5587006}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 330, "expected": 2919, "pair_id": "@asyncapi/parser@3.4.1", "arm": "VERIFY-I", "updated_unix": 1791771352.404171}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 360, "expected": 2919, "pair_id": "@mastra/auth-better-auth@1.0.4", "arm": "VERIFY-I", "updated_unix": 1791771377.038105}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 390, "expected": 2919, "pair_id": "react-library-setup@0.0.6", "arm": "VERIFY-I", "updated_unix": 1791771399.5314143}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 420, "expected": 2919, "pair_id": "@tanstack/start-static-server-functions@1.166.44", "arm": "VERIFY-I", "updated_unix": 1791771422.4906554}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 450, "expected": 2919, "pair_id": "email-deliverability-tester@1.1.1", "arm": "VERIFY-I", "updated_unix": 1791771444.8220882}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 480, "expected": 2919, "pair_id": "@mastra/opensearch@1.0.3", "arm": "VERIFY-I", "updated_unix": 1791771472.0370834}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 510, "expected": 2919, "pair_id": "rc@1.3.9", "arm": "VERIFY-I", "updated_unix": 1791771493.5957727}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 540, "expected": 2919, "pair_id": "node-ipc@10.1.1", "arm": "VERIFY-I", "updated_unix": 1791771518.0141635}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 570, "expected": 2919, "pair_id": "@posthog/filter-out-plugin@0.0.8", "arm": "VERIFY-I", "updated_unix": 1791771544.5017788}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 600, "expected": 2919, "pair_id": "@nexe/config-manager@0.1.1", "arm": "VERIFY-I", "updated_unix": 1791771568.3943262}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 630, "expected": 2919, "pair_id": "@operato/styles@9.0.35", "arm": "VERIFY-I", "updated_unix": 1791771590.168787}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 660, "expected": 2919, "pair_id": "@antv/li-aiearth-assets@0.5.7", "arm": "VERIFY-I", "updated_unix": 1791771613.508717}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 690, "expected": 2919, "pair_id": "@redhat-cloud-services/hcc-pf-mcp@0.6.1", "arm": "VERIFY-I", "updated_unix": 1791771637.188597}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 720, "expected": 2919, "pair_id": "@art-ws/di@2.0.28", "arm": "VERIFY-I", "updated_unix": 1791771659.0109563}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 750, "expected": 2919, "pair_id": "grunt-radic@0.1.1", "arm": "VERIFY-I", "updated_unix": 1791771684.045718}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 780, "expected": 2919, "pair_id": "@uipath/data-fabric-tool@1.0.2", "arm": "VERIFY-I", "updated_unix": 1791771705.248006}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 810, "expected": 2919, "pair_id": "@teselagen/sequence-utils@0.3.33", "arm": "VERIFY-I", "updated_unix": 1791771727.0924134}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 840, "expected": 2919, "pair_id": "@tanstack/start-plugin-core@1.169.23", "arm": "VERIFY-I", "updated_unix": 1791771775.4181273}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 870, "expected": 2919, "pair_id": "@mastra/pg@1.13.1", "arm": "VERIFY-I", "updated_unix": 1791771801.041184}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 900, "expected": 2919, "pair_id": "executable-stories-playwright@7.0.3", "arm": "VERIFY-I", "updated_unix": 1791771821.5683606}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 930, "expected": 2919, "pair_id": "@ctrl/magnet-link@4.0.3", "arm": "VERIFY-I", "updated_unix": 1791771844.42536}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 960, "expected": 2919, "pair_id": "@mastra/auth-supabase@1.0.2", "arm": "VERIFY-I", "updated_unix": 1791771870.9368558}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 990, "expected": 2919, "pair_id": "mongular-schema@0.0.3", "arm": "VERIFY-I", "updated_unix": 1791771895.0640554}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1020, "expected": 2919, "pair_id": "@orbitgtbelgium/orbit-components@1.2.9", "arm": "VERIFY-I", "updated_unix": 1791771923.3867483}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1050, "expected": 2919, "pair_id": "mbt@1.2.48", "arm": "VERIFY-I", "updated_unix": 1791771945.6550758}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1080, "expected": 2919, "pair_id": "@emilgroup/tenant-sdk@1.34.1", "arm": "VERIFY-I", "updated_unix": 1791771976.2465591}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1110, "expected": 2919, "pair_id": "autotel-mcp@4.0.1", "arm": "VERIFY-I", "updated_unix": 1791772000.882485}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1140, "expected": 2919, "pair_id": "jest-canvas-mock@2.5.3", "arm": "VERIFY-I", "updated_unix": 1791772024.6167028}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1170, "expected": 2919, "pair_id": "@hestjs/validation@0.1.6", "arm": "VERIFY-I", "updated_unix": 1791772045.9837532}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1200, "expected": 2919, "pair_id": "autotel-terminal@23.0.3", "arm": "VERIFY-I", "updated_unix": 1791772068.33153}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1230, "expected": 2919, "pair_id": "@yaoxfly/cli@1.0.5", "arm": "VERIFY-I", "updated_unix": 1791772093.124481}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1260, "expected": 2919, "pair_id": "@tanstack/react-router@1.169.5", "arm": "VERIFY-I", "updated_unix": 1791772117.3372471}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1290, "expected": 2919, "pair_id": "@tanbo/ui-mobile@0.0.6", "arm": "VERIFY-I", "updated_unix": 1791772144.6429913}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1320, "expected": 2919, "pair_id": "manual-billing-system-miniapp-api@1.3.1", "arm": "VERIFY-I", "updated_unix": 1791772167.1508915}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1350, "expected": 2919, "pair_id": "node-red-contrib-salesforce-chatter@1.0.6", "arm": "VERIFY-I", "updated_unix": 1791772190.6691852}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1380, "expected": 2919, "pair_id": "git-branch-selector@1.3.3", "arm": "VERIFY-I", "updated_unix": 1791772212.7857044}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1410, "expected": 2919, "pair_id": "@tanstack/router-cli@1.166.46", "arm": "VERIFY-I", "updated_unix": 1791772247.724215}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1440, "expected": 2919, "pair_id": "last-match@0.0.3", "arm": "VERIFY-I", "updated_unix": 1791772270.5034008}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1470, "expected": 2919, "pair_id": "@tnf-dev/react@1.0.8", "arm": "VERIFY-I", "updated_unix": 1791772291.3802211}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1500, "expected": 2919, "pair_id": "@aqueduct/otc-sdk-ts@1.0.63", "arm": "VERIFY-I", "updated_unix": 1791772314.5207024}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1530, "expected": 2919, "pair_id": "@things-factory/integration-marketplace@9.0.42", "arm": "VERIFY-I", "updated_unix": 1791772351.5622795}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1560, "expected": 2919, "pair_id": "@mastra/memory@1.20.4", "arm": "VERIFY-I", "updated_unix": 1791772376.797842}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1590, "expected": 2919, "pair_id": "miniapp-bc-sdk@1.1.2", "arm": "VERIFY-I", "updated_unix": 1791772403.3908947}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1620, "expected": 2919, "pair_id": "@nx/enterprise-cloud@3.2.0", "arm": "VERIFY-I", "updated_unix": 1791772426.8922966}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1650, "expected": 2919, "pair_id": "@asyncapi/modelina@5.10.2", "arm": "VERIFY-I", "updated_unix": 1791772451.8337767}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1680, "expected": 2919, "pair_id": "@nx/key@3.2.0", "arm": "VERIFY-I", "updated_unix": 1791772474.680772}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1710, "expected": 2919, "pair_id": "@emilgroup/document-sdk-node@1.43.1", "arm": "VERIFY-I", "updated_unix": 1791772500.0041533}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1740, "expected": 2919, "pair_id": "fn_js@0.2.0", "arm": "VERIFY-I", "updated_unix": 1791772523.3394387}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1770, "expected": 2919, "pair_id": "@asyncapi/studio@1.0.2", "arm": "VERIFY-I", "updated_unix": 1791772548.7306623}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1800, "expected": 2919, "pair_id": "@norniras/hive-agent@2.0.4", "arm": "VERIFY-I", "updated_unix": 1791772570.3253899}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1830, "expected": 2919, "pair_id": "ve-bamreader@0.2.6", "arm": "VERIFY-I", "updated_unix": 1791772591.5709026}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1860, "expected": 2919, "pair_id": "axobject-query@4.0.0", "arm": "VERIFY-I", "updated_unix": 1791772617.3905656}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1890, "expected": 2919, "pair_id": "radicjs@0.2.1", "arm": "VERIFY-I", "updated_unix": 1791772643.3060577}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1920, "expected": 2919, "pair_id": "@xene/core@0.4.1", "arm": "VERIFY-I", "updated_unix": 1791772667.4488077}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1950, "expected": 2919, "pair_id": "@nativescript-community/sentry@4.6.43", "arm": "VERIFY-I", "updated_unix": 1791772690.2181945}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 1980, "expected": 2919, "pair_id": "@actbase/react-absolute@0.8.3", "arm": "VERIFY-I", "updated_unix": 1791772714.795528}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2010, "expected": 2919, "pair_id": "@antstackio/json-to-graphql@1.0.3", "arm": "VERIFY-I", "updated_unix": 1791772739.1522362}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2040, "expected": 2919, "pair_id": "@faq-component/react@1.0.1", "arm": "VERIFY-I", "updated_unix": 1791772780.1843498}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2070, "expected": 2919, "pair_id": "@ensdomains/thorin@0.6.51", "arm": "VERIFY-I", "updated_unix": 1791772806.313444}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2100, "expected": 2919, "pair_id": "debug@4.4.2", "arm": "VERIFY-I", "updated_unix": 1791772835.6748476}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2130, "expected": 2919, "pair_id": "nginxbeautifier@1.0.14", "arm": "VERIFY-I", "updated_unix": 1791772858.6706188}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2160, "expected": 2919, "pair_id": "@tanstack/react-start-rsc@0.0.47", "arm": "VERIFY-I", "updated_unix": 1791772880.0359058}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2190, "expected": 2919, "pair_id": "react-jsonschema-form-conditionals@0.3.18", "arm": "VERIFY-I", "updated_unix": 1791772903.9215574}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2220, "expected": 2919, "pair_id": "@antv/narrative-text-editor@0.3.20", "arm": "VERIFY-I", "updated_unix": 1791772926.9843304}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2250, "expected": 2919, "pair_id": "@trpc-rate-limiter/hono@0.1.4", "arm": "VERIFY-I", "updated_unix": 1791772952.6187265}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2280, "expected": 2919, "pair_id": "@ensdomains/address-encoder@1.1.5", "arm": "VERIFY-I", "updated_unix": 1791772974.5393462}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2310, "expected": 2919, "pair_id": "capacitorandroidpermissions@0.0.4", "arm": "VERIFY-I", "updated_unix": 1791773005.1516292}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2340, "expected": 2919, "pair_id": "scroool@0.1.7", "arm": "VERIFY-I", "updated_unix": 1791773028.3466737}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2370, "expected": 2919, "pair_id": "autotel-terminal@22.0.2", "arm": "VERIFY-I", "updated_unix": 1791773052.6636734}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2400, "expected": 2919, "pair_id": "@coveops/abi@2.0.1", "arm": "VERIFY-I", "updated_unix": 1791773080.304802}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2430, "expected": 2919, "pair_id": "@mastra/twilio@1.0.2", "arm": "VERIFY-I", "updated_unix": 1791773105.188481}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2460, "expected": 2919, "pair_id": "dir-glob@3.0.1", "arm": "VERIFY-I", "updated_unix": 1791773128.7226694}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2490, "expected": 2919, "pair_id": "@uipath/apollo-react@4.24.5", "arm": "VERIFY-I", "updated_unix": 1791773156.2071908}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2520, "expected": 2919, "pair_id": "@mastra/browser-viewer@0.1.3", "arm": "VERIFY-I", "updated_unix": 1791773182.3224869}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2550, "expected": 2919, "pair_id": "@mcp-use/inspector@0.6.2", "arm": "VERIFY-I", "updated_unix": 1791773204.3603084}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2580, "expected": 2919, "pair_id": "@mastra/libsql@1.13.1", "arm": "VERIFY-I", "updated_unix": 1791773227.875602}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2610, "expected": 2919, "pair_id": "color-convert@3.1.1", "arm": "VERIFY-I", "updated_unix": 1791773255.1469066}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2640, "expected": 2919, "pair_id": "@posthog/rrweb-record@0.0.31", "arm": "VERIFY-I", "updated_unix": 1791773280.0852084}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2670, "expected": 2919, "pair_id": "ngx-trend@8.0.1", "arm": "VERIFY-I", "updated_unix": 1791773300.9294717}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2700, "expected": 2919, "pair_id": "@ensdomains/hardhat-chai-matchers-viem@0.1.15", "arm": "VERIFY-I", "updated_unix": 1791773325.9190538}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2730, "expected": 2919, "pair_id": "ember-power-timepicker@1.0.8", "arm": "VERIFY-I", "updated_unix": 1791773348.2179902}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2760, "expected": 2919, "pair_id": "tcsp-test-vd@2.4.4", "arm": "VERIFY-I", "updated_unix": 1791773371.226663}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2790, "expected": 2919, "pair_id": "ove-auto-annotate@0.0.9", "arm": "VERIFY-I", "updated_unix": 1791773395.4931457}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2820, "expected": 2919, "pair_id": "@vishadtyagi/full-year-calendar@0.1.11", "arm": "VERIFY-I", "updated_unix": 1791773416.8028233}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2850, "expected": 2919, "pair_id": "zuper-sdk@1.0.57", "arm": "VERIFY-I", "updated_unix": 1791773441.4195328}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2880, "expected": 2919, "pair_id": "@redhat-cloud-services/types@3.6.1", "arm": "VERIFY-I", "updated_unix": 1791773466.7516508}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2910, "expected": 2919, "pair_id": "@toptal/picasso-tailwind@3.1.0", "arm": "VERIFY-I", "updated_unix": 1791773491.2954998}
+{"stage": "model_complete", "updated_unix": 1791773524.1019356, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "completed": 2919}
+{"stage": "server_starting", "updated_unix": 1791773545.1542466, "model": "Qwen/Qwen2.5-Coder-7B-Instruct", "pid": 798822, "command": ["~/intendiff_rag/.venv/bin/vllm", "serve", "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct", "--served-model-name", "Qwen/Qwen2.5-Coder-7B-Instruct", "--host", "127.0.0.1", "--port", "8101", "--dtype", "bfloat16", "--max-model-len", "32768", "--seed", "0", "--generation-config", "vllm", "--max-num-seqs", "1", "--kv-cache-memory-bytes", "6442450944", "--enable-prefix-caching"]}
+{"stage": "server_starting", "updated_unix": 1791773696.8776066, "model": "Qwen/Qwen2.5-Coder-7B-Instruct", "pid": 801691, "command": ["~/intendiff_rag/.venv/bin/vllm", "serve", "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct", "--served-model-name", "Qwen/Qwen2.5-Coder-7B-Instruct", "--host", "127.0.0.1", "--port", "8101", "--dtype", "bfloat16", "--max-model-len", "32768", "--seed", "0", "--generation-config", "vllm", "--max-num-seqs", "1", "--kv-cache-memory-bytes", "6442450944", "--enable-prefix-caching"]}
+{"stage": "error", "updated_unix": 1791773715.8940923, "error": "KeyboardInterrupt(15)"}
+Traceback (most recent call last):
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 1344, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/http/client.py", line 1338, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/http/client.py", line 1384, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/http/client.py", line 1003, in connect
+    self.sock = self._create_connection(
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/socket.py", line 865, in create_connection
+    raise exceptions[0]
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/socket.py", line 850, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "~/intendiff_rag/data/evaluation/full-method-20261012/evaluate.py", line 62, in run_model
+    with urllib.request.urlopen('http://127.0.0.1:8101/v1/models', timeout=2) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 1373, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 1347, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 111] Connection refused>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "~/intendiff_rag/data/evaluation/full-method-20261012/evaluate.py", line 99, in <module>
+    main()
+  File "~/intendiff_rag/data/evaluation/full-method-20261012/evaluate.py", line 84, in main
+    run_model(protocol, model)
+  File "~/intendiff_rag/data/evaluation/full-method-20261012/evaluate.py", line 66, in run_model
+    time.sleep(2)
+  File "~/intendiff_rag/data/evaluation/full-method-20261012/evaluate.py", line 97, in interrupted
+    raise KeyboardInterrupt(signum)
+KeyboardInterrupt: 15
+{"stage": "server_starting", "updated_unix": 1791773854.3440568, "model": "Qwen/Qwen2.5-Coder-7B-Instruct", "pid": 804810, "command": ["~/intendiff_rag/.venv/bin/vllm", "serve", "~/intendiff_rag/data/upstream/models/qwen2.5-coder-7b-instruct", "--served-model-name", "Qwen/Qwen2.5-Coder-7B-Instruct", "--host", "127.0.0.1", "--port", "8101", "--dtype", "bfloat16", "--max-model-len", "32768", "--seed", "0", "--generation-config", "vllm", "--max-num-seqs", "1", "--kv-cache-memory-bytes", "6442450944", "--enable-prefix-caching"]}

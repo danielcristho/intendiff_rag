@@ -1,0 +1,6 @@
+[2026-10-14T07:06:26+07:00] start qwen3
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "model_complete": true, "verification": "qwen3.verification.json", "all_models_complete": false}
+[2026-10-14T07:07:28+07:00] end qwen3
+[2026-10-14T12:38:14+07:00] start qwen3
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "model_complete": true, "verification": "qwen3.verification.json", "all_models_complete": false}
+[2026-10-14T12:39:29+07:00] end qwen3
