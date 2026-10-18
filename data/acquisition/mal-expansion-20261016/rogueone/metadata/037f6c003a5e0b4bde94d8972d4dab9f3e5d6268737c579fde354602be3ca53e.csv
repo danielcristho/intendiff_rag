@@ -1,0 +1,12 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/angular2-suite-flipper_3.0.0-->3.0.1/angular2-suite-flipper-3.0.0/","module.exports.FlipperService","flippers",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/angular2-suite-flipper_3.0.0-->3.0.1/angular2-suite-flipper-3.0.0/","module.exports.FlipperIsOffPipe","flipperService",30
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/angular2-suite-flipper_3.0.0-->3.0.1/angular2-suite-flipper-3.0.0/","module.exports.FlipperIsOnPipe","flipperService",43
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/angular2-suite-flipper_3.0.0-->3.0.1/angular2-suite-flipper-3.0.0/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/angular2-suite-flipper_3.0.0-->3.0.1/angular2-suite-flipper-3.0.0/","module.exports.FlipperService","flippers",7
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/angular2-suite-flipper_3.0.0-->3.0.1/angular2-suite-flipper-3.0.0/","module.exports.FlipperIsOffPipe","flipperService",14
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/angular2-suite-flipper_3.0.0-->3.0.1/angular2-suite-flipper-3.0.0/","module.exports.FlipperIsOnPipe","flipperService",25
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/angular2-suite-flipper_3.0.0-->3.0.1/angular2-suite-flipper-3.0.0/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/angular2-suite-flipper_3.0.0-->3.0.1/angular2-suite-flipper-3.0.0/","module.exports.FlipperService","flippers",7
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/angular2-suite-flipper_3.0.0-->3.0.1/angular2-suite-flipper-3.0.0/","module.exports.FlipperIsOffPipe","flipperService",14
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/angular2-suite-flipper_3.0.0-->3.0.1/angular2-suite-flipper-3.0.0/","module.exports.FlipperIsOnPipe","flipperService",25
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/angular2-suite-flipper_3.0.0-->3.0.1/angular2-suite-flipper-3.0.0/","main","",3

@@ -1,0 +1,122 @@
+IntentDi-RAG
+dan penalaran dari laporan ancaman (Guo et al., 2026b).
+IntentDiff-RAG tidak mereplikasi basis pengetahuan ahli
+tersebut: contoh dibentuk secara otomatis dari label sumber
+dan cuplikan kode. Perbedaan representasi ini membatasi
+perbandingan dengan IntelGuard.
+Penggunaan deskripsi untuk menilai kesesuaian peri-
+laku telah diteliti, antara lain pada aplikasi Android melalui
+CHABADA (Gorla et al., 2014). Karena itu, intent mis-
+match tidak diposisikan sebagai gagasan baru. Demikian
+pula, penelitian in-context learning menunjukkan bahwa
+pengaruh demonstrasi tidak hanya bergantung pada labelnya
+(Min et al., 2022). Sumbangan yang diuji di sini adalah
+pengaruh kedua komponen tersebut dalam kondisi deteksi
+pembaruan npm yang dikendalikan, bukan kebaruan konsep
+intent atau contoh pembanding itu sendiri.
+3. Metode
+3.1. Unit analisis dan batas tugas
+Satu sampel merupakan pasangan versi dari paket yang
+sama. Versi target adalah versi yang dinilai, sedangkan pen-
+dahulunya dipilih berdasarkan urutan semver dan waktu
+publikasi: versi tertinggi yang lebih rendah dan sudah terbit
+sebelum target. Kedua arsip harus tersedia dan identitas
+paketnya sesuai. Model menerima perubahan kode, dengan
+tambahan intent dan contoh sesuai konfigurasi. Seluruh pe-
+meriksaan paket dilakukan secara statis, tanpa menjalankan
+skripnya.
+Motivasi tugas adalah mendeteksi penyisipan perilaku
+berbahaya melalui pembaruan. Namun, bukti empiris
+dibatasi oleh label sumber: tidak setiap pasangan telah
+dibuktikan sebagai pengambilalihan paket sah, dan tidak
+adanya advisory pada pendahulu tidak membuktikan bahwa
+pendahulu tersebut benign. Dengan batas ini, yang diukur
+adalah deteksi versi berlabel malicious melalui konteks
+perubahan antarversi, bukan verifikasi forensik seluruh
+riwayat serangan.
+3.2. Representasi perubahan dan intent
+Smart-diff dibentuk melalui normalisasi JavaScript,
+pengurangan kode berulang, dan perbandingan direktori,
+mengikuti pendekatan Wyss et al. (2025). Berkas yang
+gagal dinormalisasi tetap menggunakan teks mentah dan
+diberi penanda. Agar dapat diproses model lokal, panjang
+baris dibatasi 2.000 karakter dan diff dibatasi 28.000 token
+menggunakan tokenizer Qwen2.5-Coder-3B. Potongan teks
+yang sama digunakan pada semua model dan konfigurasi.
+Prioritas diberikan pada manifest paket dan berkas dengan
+sinyal kemampuan yang relevan; pemotongan bukan bukti
+bahwa semua muatan berbahaya masih tercakup.
+Intent berasal dari deskripsi, kata kunci, skrip, dan
+bagian awal README versi pendahulu, dengan anggaran
+1.024 token pada tokenizer yang sama. Tujuannya memberi
+konteks fungsi paket tanpa bergantung pada dokumentasi
+versi target. Intent merupakan pernyataan paket, bukan
+validasi independen terhadap fungsi yang sah. Nama paket
+tidak diberikan sebagai field identitas tersendiri, tetapi nama
+Table 1
+Kongurasi yang diuji. Semua menggunakan smart-di yang
+sama.
+Kongurasi
+Intent
+Contoh rujukan
+DIFF
+Tidak
+Tidak ada
+DIFF+I
+Ya
+Tidak ada
+DIFF+I+M
+Ya
+Satu malicious
+DIFF+I+MM
+Ya
+Dua malicious
+DIFF+I+MB
+Ya
+Satu malicious, satu benign
+DIFF+MB
+Tidak
+Satu malicious, satu benign
+yang muncul dalam kode atau dokumentasi tidak dihapus
+seluruhnya.
+3.3. Contoh rujukan dan retrieval
+Basis pengetahuan memuat 50 contoh malicious dan 25
+contoh assumed-benign. Contoh benign berasal dari TYP
+yang direservasi, bukan hard negative yang sudah diveri-
+fikasi manusia. Setiap contoh menggunakan struktur yang
+sama: deskripsi paket, temuan kemampuan statis, cuplikan
+kode verbatim, dan pernyataan tetap mengenai label sumber.
+Temuan statis tidak diperlakukan sebagai rantai eksekusi
+yang sudah dibuktikan. Batas konstruksi adalah 15 baris
+dan 512 token per contoh, dengan deskripsi tujuan paling
+banyak 64 token pada tokenizer konstruksi. Teks contoh
+tidak dipangkas ulang untuk tokenizer model lain.
+Retrieval menggunakan kesamaan Jaccard antara him-
+punan perubahan kemampuan target dan kemampuan con-
+toh. Seri dipecahkan secara deterministik. Contoh dari nama
+paket, kampanye, atau dependensi target yang dikecualikan
+tidak boleh terambil. Retrieval tidak membaca profil intent,
+sehingga penambahan intent tidak mengubah contoh yang
+ditampilkan.
+Pada MM dan MB, contoh malicious utama diperta-
+hankan di posisi yang sama. Slot kedua berisi contoh ma-
+licious lain atau contoh benign. Posisi utama ditentukan
+dari identitas sampel dan dapat berada di urutan pertama
+atau kedua. Kontrol ini menjaga jumlah contoh dan posisi
+anchor, tetapi tidak menyamakan seluruh panjang maupun
+isi semantik kedua prompt.
+3.4. Konfigurasi dan keputusan model
+Enam konfigurasi pada Tabel 1 menggunakan instruksi
+keputusan yang sama: perilaku sensitif tidak otomatis mali-
+cious; model mempertimbangkan pemicu, data, tujuan pen-
+giriman, dan konteks yang tersedia. Keluaran berisi verdict,
+alasan singkat, dan cuplikan bukti. JSON Schema mem-
+batasi bentuk keluaran, termasuk paling banyak satu string
+evidence. Validitas format tidak menjamin kebenaran kepu-
+tusan atau ketepatan bukti.
+4. Rancangan evaluasi
+4.1. Pertanyaan penelitian
+Evaluasi menjawab empat pertanyaan: (RQ1) berapa
+TPR dan FPR model pada pembaruan berlabel sumber;
+: Preprint submitted to Elsevier
+Page 2 of 8

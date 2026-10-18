@@ -1,0 +1,7 @@
+{
+  "tag": "phi4_mini",
+  "eligible": true,
+  "expected": 576,
+  "dev_json_validity": 1.0,
+  "max_prompt_tokens": 29665
+}

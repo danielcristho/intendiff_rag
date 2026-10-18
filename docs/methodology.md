@@ -532,7 +532,14 @@ README excerpt:
 - [L] Model menghasilkan token secara berurutan, jadi verdict yang ditulis terakhir dipengaruhi oleh bukti dan alasan yang sudah ditulis sebelumnya.
 - [R] Wyss et al. menolak jawaban ya/tidak karena penalaran model jadi hilang.
 
-**Tanpa constrained decoding** (JSON mode atau guided decoding).
+**Desain lama D99/D100: tanpa constrained decoding** (JSON mode atau guided decoding).
+
+**D101 aktif:** semua arm/model memakai JSON Schema sama, setelah dua dev
+gagal format. Lihat protokol D99 bagian kondisi inferensi D101 dan
+`pipeline/output_schema.py`. Validitas JSON sekarang pemeriksaan teknis, bukan
+ukuran kemampuan format intrinsik; hasil dengan/tanpa constraint tidak
+digabung untuk mengestimasi efek retrieval. Dasar rancangan lama berikut
+dipertahankan sebagai riwayat trade-off, bukan aturan aktif batch D101.
 
 - [R] Tam et al. (2024): pembatasan format yang ketat menurunkan kemampuan penalaran.
 - [L] Validitas JSON adalah salah satu metrik yang diukur. Dengan constrained decoding, nilainya selalu 100%.
@@ -543,6 +550,13 @@ README excerpt:
 - [L] Dengan 2 model × 7 konfigurasi, classifier terlatih menambah sumber galat yang bisa berbeda antar konfigurasi. Galat itu akan ikut masuk ke selisih yang diuji.
 
 ### 6.4 Satu-satunya revisi prompt yang diizinkan
+
+**D100, 15 Oktober 2026:** satu revisi di bagian ini sudah digunakan setelah
+dev awal memberi validitas 75% (Qwen3) dan 78,33% (Qwen2.5). Instruksi format
+menambahkan JSON escaping tepat sekali, evidence paling banyak satu baris
+pendek atau array kosong, dan reason <30 kata. Teks aktif ada di
+`pipeline/prompts.py`; system prompt dan aturan keputusan tetap. Kedua model
+dan enam konfigurasi diuji ulang dalam snapshot terpisah sebelum test.
 
 Kalau validitas JSON di dev set di bawah 90% untuk salah satu model:
 

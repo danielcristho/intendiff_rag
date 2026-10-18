@@ -1,0 +1,15 @@
+# identity: nodeid
+# label: %label%
+# style: shape=%shape%;fillColor=%fill%;strokeColor=%stroke%;strokeWidth=1
+# link: url
+# width: @width
+# height: @height
+# layout: verticalflow
+# ignore: nodeid,style,height,width,ref_0_0,ref_1_0,label_0,label_1
+# connect: {"from": "ref_0_0", "to": "nodeid", "fromlabel": "label_0", "style": "-"}
+# connect: {"from": "ref_1_0", "to": "nodeid", "fromlabel": "label_1", "style": "-"}
+nodeid,label,tags,shape,fill,stroke,width,height,link,ref_0_0,ref_1_0,label_0,label_1
+9029,sink_hqbpillvul_execFile,-,trapezoid,#FE913D,#000000,auto,auto,-,-,-,-,-
+3418,"execFile(""git"",[""rev-parse"",""--verify"",git.head.id],err=>{if(err){git.head.author_name=git.head.author_name||""Unknown Author"";git.head.author_email=git.head.author_email||"""";git.head.committer_name=git.head.committer_name||""Unknown Committer"";git.head.committer_email=git.head.committer_email||"""";git.head.message=git.head.message||""Unknown Commit Message"";return cb(null,git)}fetchHeadDetails(git,cb)});
+",-,rectangle,#76F76D,#000000,auto,auto,-,4494,-,,-
+4494,sink_hqbpillvul_execFile(sink),-,rectangle,#76F76D,#000000,auto,auto,-,9029,-,,-

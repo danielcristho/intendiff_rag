@@ -1,0 +1,8 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/v2_0.0.2-->0.0.3/v2-0.0.3/","(new module.exports()).__proto__.angle","",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/v2_0.0.2-->0.0.3/v2-0.0.3/","(new module.exports()).__proto__.cross","other",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/v2_0.0.2-->0.0.3/v2-0.0.3/","(new module.exports()).__proto__.add","other",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/v2_0.0.2-->0.0.3/v2-0.0.3/","(new module.exports()).__proto__.magnitude","",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/v2_0.0.2-->0.0.3/v2-0.0.3/","(new module.exports()).__proto__.magnitudeSquared","",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/v2_0.0.2-->0.0.3/v2-0.0.3/","(new module.exports()).__proto__.multiply","scalar",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/v2_0.0.2-->0.0.3/v2-0.0.3/","(new module.exports()).__proto__.normalize","",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/v2_0.0.2-->0.0.3/v2-0.0.3/","main","",3

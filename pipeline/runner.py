@@ -18,6 +18,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from configs import CONFIGS, spec  # noqa: E402
 from prompts import build  # noqa: E402
+from output_schema import RESPONSE_FORMAT  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -154,14 +155,23 @@ def parse_verdict(text):
 
 
 # call_llm sends one chat completion request, retrying with a backoff.
-def call_llm(base_url, model, messages, seed, timeout, sampling, retries=3):
-    payload = json.dumps({
+def request_payload(model, messages, seed, sampling):
+    return {
         "model": model,
         "messages": messages,
         "seed": seed,
         "max_tokens": 512,
+        "response_format": RESPONSE_FORMAT,
         **sampling,
-    }).encode()
+    }
+
+
+def request_hash(model, messages, seed, sampling):
+    return hashlib.sha256(json.dumps(request_payload(model, messages, seed, sampling), sort_keys=True).encode()).hexdigest()
+
+
+def call_llm(base_url, model, messages, seed, timeout, sampling, retries=3):
+    payload = json.dumps(request_payload(model, messages, seed, sampling)).encode()
     req = urllib.request.Request(
         f"{base_url.rstrip('/')}/v1/chat/completions",
         data=payload,
@@ -246,6 +256,7 @@ def main(argv=None):
             "label": pair.get("label"),
             "truncated": pair.get("truncated"),
             "cards": retrieval_log(pair, cards),
+            "request_sha256": request_hash(args.model, messages, args.seed, sampling),
         }
         for field in ("evaluation_scope", "label_origin", "human_annotation_verified", "diff_sha256"):
             if field in pair:
@@ -267,6 +278,8 @@ def main(argv=None):
                 "json_valid": valid,
                 "finish_reason": finish_reason,
                 "raw": text,
+                "response_id": res.get('id'),
+                "response_model": res.get('model'),
                 "prompt_tokens": usage.get("prompt_tokens"),
                 "completion_tokens": usage.get("completion_tokens"),
             })

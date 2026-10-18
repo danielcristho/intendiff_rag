@@ -1,0 +1,4 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/gulp-babel_7.0.1-->8.0.0/gulp-babel-7.0.1/","module.exports","opts",43
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/gulp-babel_7.0.1-->8.0.0/gulp-babel-7.0.1/","(new module.exports()).push","",43
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/gulp-babel_7.0.1-->8.0.0/gulp-babel-7.0.1/","(new module.exports()).emit","",43
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/gulp-babel_7.0.1-->8.0.0/gulp-babel-7.0.1/","main","",3

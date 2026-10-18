@@ -1,0 +1,5 @@
+{"name": "@subql/common", "version": "5.8.3", "advisory_ids": ["MAL-2026-17571"], "has_advisory": true, "checked_at": "2026-10-16T12:10:44.084885+00:00", "source": "https://api.osv.dev/v1/querybatch"}
+{"name": "tensorlake", "version": "0.5.144", "advisory_ids": ["MAL-2026-17650"], "has_advisory": true, "checked_at": "2026-10-16T12:10:44.084885+00:00", "source": "https://api.osv.dev/v1/querybatch"}
+{"name": "@memtensor/memos-cloud-openclaw-plugin", "version": "0.1.23", "advisory_ids": ["MAL-2026-16476"], "has_advisory": true, "checked_at": "2026-10-16T12:10:44.084885+00:00", "source": "https://api.osv.dev/v1/querybatch"}
+{"name": "@memtensor/memos-cloud-openclaw-plugin", "version": "0.1.21", "advisory_ids": ["MAL-2026-16476"], "has_advisory": true, "checked_at": "2026-10-16T12:10:44.084885+00:00", "source": "https://api.osv.dev/v1/querybatch"}
+{"name": "@memtensor/memos-cloud-openclaw-plugin", "version": "0.1.25", "advisory_ids": ["MAL-2026-16476"], "has_advisory": true, "checked_at": "2026-10-16T12:10:44.084885+00:00", "source": "https://api.osv.dev/v1/querybatch"}

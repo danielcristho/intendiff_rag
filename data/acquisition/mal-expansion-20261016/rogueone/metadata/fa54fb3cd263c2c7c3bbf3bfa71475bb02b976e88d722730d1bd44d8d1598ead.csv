@@ -1,0 +1,5 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/karma-phantomjs-launcher_1.0.3-->1.0.4/karma-phantomjs-launcher-1.0.3","module.exports.launcher:PhantomJS.1","baseBrowserDecorator,config,args,logger",7
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/karma-phantomjs-launcher_1.0.3-->1.0.4/karma-phantomjs-launcher-1.0.3","(new module.exports.launcher:PhantomJS.1())._start","url",48
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/karma-phantomjs-launcher_1.0.3-->1.0.4/karma-phantomjs-launcher-1.0.3","(new (new module.exports.launcher:PhantomJS.1())._start())._getCommand","",48
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/karma-phantomjs-launcher_1.0.3-->1.0.4/karma-phantomjs-launcher-1.0.3","(new (new module.exports.launcher:PhantomJS.1())._start())._execCommand","",48
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/karma-phantomjs-launcher_1.0.3-->1.0.4/karma-phantomjs-launcher-1.0.3","main","",3

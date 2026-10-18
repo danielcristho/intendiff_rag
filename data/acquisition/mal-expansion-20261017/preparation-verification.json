@@ -1,0 +1,94 @@
+{
+  "verified": true,
+  "prepared_candidate_pairs": 96,
+  "candidate_campaigns": 65,
+  "previous_batch_pairs": 3,
+  "new_batch_pairs": 93,
+  "historical_test_mal_pairs": 33,
+  "historical_test_campaigns": 33,
+  "combined_mal_pairs": 129,
+  "combined_campaigns": 98,
+  "publication_years": {
+    "2026": 75,
+    "2021": 7,
+    "2023": 5,
+    "2024": 8,
+    "2025": 1
+  },
+  "preprocessing_failures": 0,
+  "raw_fallback_files": 2,
+  "truncated_diffs": 8,
+  "source_trees_unchanged": true,
+  "human_labels_created": 0,
+  "inferences": 0,
+  "test_released": false,
+  "pending_checks": [
+    "separate_evaluation_protocol_and_per_model_context_audit"
+  ],
+  "input_pins": [
+    {
+      "path": "data/acquisition/mal-expansion-20261017/pairs.manifest.jsonl",
+      "sha256": "00a6eb30035c35b783cface091caad9a5cc71356df96e5f454d53b7f4dc55156"
+    },
+    {
+      "path": "data/acquisition/mal-expansion-20261017/pairs.preprocessed.jsonl",
+      "sha256": "917ec3aa37a118a8f0c509048051c889ce4904cd72c1d2f10a5c8b56ef6b5faa"
+    },
+    {
+      "path": "data/acquisition/mal-expansion-20261017/pairs.prepared.jsonl",
+      "sha256": "64846df999dfb78bea1f0abfd9db8d0ff32dbee3279f9dd4f2aad2700c2bff13"
+    },
+    {
+      "path": "data/acquisition/mal-expansion-20261017/acquisition-verification.json",
+      "sha256": "29e9a2601c0cde707fe615b06987c11433cf5666f9d6b42c19c18646f97f932f"
+    },
+    {
+      "path": "data/acquisition/mal-expansion-20261017/campaigns-with-exposure/combined.json",
+      "sha256": "7fdbe1a5bb7bfa5c83ca29a3f702d5e94c8000ba94628f34eff98503e79f0549"
+    },
+    {
+      "path": "pipeline/mal_leads.py",
+      "sha256": "2b980165139923af9ef45471fe748a130dc8979d3312f911066f1fb10e531669"
+    },
+    {
+      "path": "pipeline/mal_lead_archives.py",
+      "sha256": "01ced19ce4bcc7e12b30199b4989868a2d9bfa64308b4c5fbe92ebc2675e5766"
+    },
+    {
+      "path": "pipeline/mal_holdout_verify.py",
+      "sha256": "febfacc4cb7b3f974553cc2a647e307852dab79591b438604415f37032fa048f"
+    },
+    {
+      "path": "pipeline/mal_preparation_verify.py",
+      "sha256": "22bbd3cf6b7b0f925b3df5c20a42761a9dcd525cc26e6c16e0273e1795efbe1a"
+    },
+    {
+      "path": "pipeline/mal_expansion_campaign.py",
+      "sha256": "ebd05b1c3a736dd4fba0842930f4612c330f5457f58cf1aba037cddb5dff83eb"
+    },
+    {
+      "path": "pipeline/preprocess_corpus.py",
+      "sha256": "bc37d4f3ae15e8e633df93ed9016c3448594e8d39a546d2ad7c2f35b08c07383"
+    },
+    {
+      "path": "pipeline/dataset.py",
+      "sha256": "4a6995feb378f639ab19f15d3caa524966543ecf36dc3ed04aca72d5899cbd8d"
+    },
+    {
+      "path": "pipeline/normalization.py",
+      "sha256": "ad691d580c9a9a29df2a2213e0c9bcb55e6c14f522a50d6e8d51026d76ed8f3e"
+    },
+    {
+      "path": "pipeline/smartdiff.py",
+      "sha256": "2f0eba35dc67deb85bbaba5fbd0d1e5dc8c36e52e55c7cd419418f7e45d23c6a"
+    },
+    {
+      "path": "pipeline/intent.py",
+      "sha256": "05eb7116f31f4de33f27bf9f9d02328fb8867eb1801b333d87e9530f683a8921"
+    },
+    {
+      "path": "pipeline/capability.py",
+      "sha256": "bdf4d84ae065bb313d9d45ea36c993c6000eb3a2a93d65e737b76105405eb05b"
+    }
+  ]
+}

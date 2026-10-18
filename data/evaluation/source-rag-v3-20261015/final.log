@@ -1,0 +1,8 @@
+{"stage": "server_starting", "time_unix": 1792059305.3492126, "model": "Qwen/Qwen3-4B-Instruct-2507", "experiment_stage": "test", "pid": 1174804}
+{"stage": "running", "time_unix": 1792059353.365893, "model": "Qwen/Qwen3-4B-Instruct-2507", "experiment_stage": "test"}
+{"stage": "model_complete", "time_unix": 1792066979.9459274, "model": "Qwen/Qwen3-4B-Instruct-2507", "experiment_stage": "test", "completed": 11406, "json_validity": 0.9563387690689111}
+{"stage": "server_starting", "time_unix": 1792066999.8636084, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "experiment_stage": "test", "pid": 1261926}
+{"stage": "running", "time_unix": 1792067053.8791409, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "experiment_stage": "test"}
+{"stage": "model_complete", "time_unix": 1792074088.514223, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "experiment_stage": "test", "completed": 11406, "json_validity": 0.9950903033491145}
+{"stage": "stage_complete", "time_unix": 1792074088.514619, "experiment_stage": "test"}
+data/evaluation/source-rag-v3-20261015/results.md

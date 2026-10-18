@@ -1,0 +1,26 @@
+Timeout (0:01:00)!
+Thread 0x00007be18b56c340 (most recent call first):
+  File "/usr/local/lib/python3.12/selectors.py", line 415 in select
+  File "/usr/local/lib/python3.12/subprocess.py", line 2115 in _communicate
+  File "/usr/local/lib/python3.12/subprocess.py", line 1209 in communicate
+  File "/usr/local/lib/python3.12/subprocess.py", line 550 in run
+  File "/workspace/pipeline/normalization.py", line 69 in normalize_jobs
+  File "/workspace/pipeline/normalization.py", line 114 in prepared_pair
+  File "/usr/local/lib/python3.12/contextlib.py", line 137 in __enter__
+  File "/workspace/pipeline/smartdiff.py", line 205 in build
+  File "/workspace/pipeline/dataset.py", line 41 in build_row
+  File "/workspace/pipeline/preprocess_corpus.py", line 31 in build
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 264 in _process_worker
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108 in run
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314 in _bootstrap
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 71 in _launch
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 19 in __init__
+  File "/usr/local/lib/python3.12/multiprocessing/context.py", line 282 in _Popen
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 121 in start
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 799 in _spawn_process
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 789 in _launch_processes
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 762 in _start_executor_manager_thread
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 823 in submit
+  File "/workspace/pipeline/preprocess_corpus.py", line 64 in main
+  File "/workspace/pipeline/preprocess_corpus.py", line 76 in <module>
+{"completed": 1902, "total": 1902, "id": "@libav.js/variant-vp9-opus@6.5.7", "error": "TimeoutExpired: Command '['normalize-pair', '/tmp/intendiff-normalize-k3l74w59/jobs.json']' timed out after 300 seconds", "fallback_files": null}

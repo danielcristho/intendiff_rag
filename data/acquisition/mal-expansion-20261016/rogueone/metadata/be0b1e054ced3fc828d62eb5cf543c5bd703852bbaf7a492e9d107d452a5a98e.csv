@@ -1,0 +1,15 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/admin_1.4.0-->1.4.1/admin-1.4.0/","module.exports.applyUserConfig","config",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/admin_1.4.0-->1.4.1/admin-1.4.0/","module.exports.start","",282
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/admin_1.4.0-->1.4.1/admin-1.4.0/","module.exports.configure","userConfig",295
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/admin_1.4.0-->1.4.1/admin-1.4.0/","module.exports.start","",558
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/admin_1.4.0-->1.4.1/admin-1.4.0/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/admin_1.4.0-->1.4.1/admin-1.4.0/","module.exports.applyUserConfig","config",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/admin_1.4.0-->1.4.1/admin-1.4.0/","module.exports.start","",386
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/admin_1.4.0-->1.4.1/admin-1.4.0/","module.exports.configure","userConfig",399
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/admin_1.4.0-->1.4.1/admin-1.4.0/","module.exports.start","",739
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/admin_1.4.0-->1.4.1/admin-1.4.0/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/admin_1.4.0-->1.4.1/admin-1.4.0/","module.exports.applyUserConfig","config",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/admin_1.4.0-->1.4.1/admin-1.4.0/","module.exports.start","",386
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/admin_1.4.0-->1.4.1/admin-1.4.0/","module.exports.configure","userConfig",399
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/admin_1.4.0-->1.4.1/admin-1.4.0/","module.exports.start","",739
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/admin_1.4.0-->1.4.1/admin-1.4.0/","main","",3

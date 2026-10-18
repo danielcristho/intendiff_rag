@@ -1,0 +1,12 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.4/","module.exports.filename","filepath",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.4/","module.exports.normolize_url","url,current_path",32
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.4/","module.exports.filepath_2_url","filepath,webroot",39
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.4/","module.exports","grunt",251
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.4/","(new module.exports()).options","",251
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.4/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.4/","module.exports.filepath_2_url","filepath,webroot",7
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.4/","module.exports.filename","filepath",13
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.4/","module.exports.normolize_url","url,current_path",39
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.4/","module.exports","grunt",251
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.4/","(new module.exports()).options","",251
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.4/","main","",3

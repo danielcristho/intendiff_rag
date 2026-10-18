@@ -76,3 +76,34 @@ hash sebelum inferensi. Gunakan direktori baru; D92 tetap eksperimen tanpa RAG.
 Seluruh kombinasi yang dilaporkan harus benar-benar berjalan dan diverifikasi.
 Anotasi manusia opsional untuk memperkaya penelitian, bukan pekerjaan wajib
 yang dilempar kembali ke pengguna.
+
+## Pemeriksaan format dev (D100, 15 Oktober)
+
+Qwen3 pada dev awal hanya 45/60 JSON valid. Sesuai §6.4, satu revisi instruksi
+format diterapkan untuk kedua model/seluruh konfigurasi: evidence paling banyak
+satu baris pendek verbatim atau `[]`, JSON escaping tepat sekali, reason <30
+kata. System prompt dan aturan keputusan tidak berubah. Snapshot dev pertama
+utuh; hasil dev revisi disimpan terpisah. Test tidak dijalankan sebelum audit
+format dan input selesai.
+
+Untuk D99, capability card memakai temuan statis pada versi contoh, dengan
+pembuat sama untuk M dan B; delta target tetap perubahan antarversi. M dipilih
+round-robin capability/hash, B mengikuti hash-order TYP eligible dan syarat
+kutipan. FPR TYP dilaporkan terpisah untuk popular, random dan stream. Akurasi
+cohort bergantung pada rasio kelas dan bukan estimasi prevalence dunia nyata.
+
+## Kondisi inferensi aktif D101
+
+Dev satu revisi D100 tetap gagal ambang: Qwen3 50/60, Qwen2.5 42/60. D101
+mengganti ketentuan tanpa constrained decoding untuk batch baru. Seluruh
+konfigurasi/model memakai JSON Schema identik melalui vLLM: evidence 0–1
+string ≤200 karakter, reason ≤240 karakter, verdict enum, tanpa field tambahan.
+Budget 512, system prompt, teks D100, sampling, dataset dan KB tetap. Ini
+perubahan metode, bukan jaminan kualitas prediksi; validitas JSON tidak lagi
+menjadi ukuran kemampuan format intrinsik. Efek constraint menjadi batasan
+interpretasi dan seluruh perbandingan dilakukan di dalam protokol yang sama.
+
+Dev harus diulang pada snapshot `source-rag-v3-20261015`. Hash request mencakup
+schema; response ID/model, token, card dan raw output diverifikasi. Hasil
+D99/D100 tetap disimpan, tidak digabung sebagai baseline bagi D101. Rilis
+test tetap memerlukan pemeriksaan sumber, split, budget dan gate dev.

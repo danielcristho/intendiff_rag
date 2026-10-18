@@ -25,6 +25,11 @@ FORMAT_INSTRUCTION = (
     "Respond with JSON only, using exactly these keys in this order:\n"
     '{"evidence": ["up to 3 lines copied exactly from the smart-diff"], '
     '"reason": "one or two sentences", "verdict": "malicious" or "benign"}'
+    '\nThe response must be syntactically valid JSON. The evidence array contains only '
+    'JSON strings, never objects or unquoted fragments of package.json. Escape quotation '
+    'marks and backslashes exactly once as required by JSON. Use at most one short '
+    'complete smart-diff line as evidence; use [] if no short line can be copied. '
+    'Keep the reason under 30 words and close all strings, arrays, and the object.'
 )
 
 

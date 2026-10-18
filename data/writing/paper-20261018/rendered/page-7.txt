@@ -1,0 +1,137 @@
+IntentDi-RAG
+Table 5
+Validitas JSON seluruh kongurasi (awal/tambahan) dan sensitivitas DIFF+I+MB. Dua angka pada kolom TPR/FPR menghitung
+invalid sebagai benign/malicious; semuanya dalam persen.
+Model
+JSON valid awal/tambahan
+TPR tambahan
+FPR TYP
+Qwen3-4B
+95.63 / 95.49
+47.92 / 52.08
+5.57 / 8.46
+Qwen2.5-3B
+99.51 / 100.00
+82.29 / 82.29
+56.53 / 56.96
+Qwen2.5-7B
+99.81 / 100.00
+89.58 / 89.58
+49.20 / 49.41
+Phi-4-mini
+99.17 / 97.92
+51.04 / 54.17
+31.37 / 32.12
+Llama-3.1-8B
+97.79 / 96.35
+86.46 / 90.62
+69.70 / 72.48
+Granite-3.3-8B
+95.28 / 96.01
+42.71 / 45.83
+15.79 / 19.54
+Table 6
+Biaya permintaan pada 1.901 pasangan evaluasi awal. Setiap sel menunjukkan DIFF / DIFF+I+MB. Latensi dalam detik, setelah
+warm-up, dengan prex caching; tidak mencakup preprocessing atau startup.
+Model
+Token input rata-rata
+Latensi median
+Latensi p95
+Qwen3-4B
+3356 / 4230
+0.328 / 0.358
+3.538 / 2.885
+Qwen2.5-3B
+3356 / 4230
+0.465 / 0.515
+1.940 / 1.977
+Qwen2.5-7B
+3356 / 4230
+0.569 / 0.587
+2.808 / 2.828
+Phi-4-mini
+3214 / 4076
+0.405 / 0.474
+2.990 / 3.109
+Llama-3.1-8B
+3193 / 4055
+0.645 / 0.840
+3.260 / 3.471
+Granite-3.3-8B
+3853 / 4846
+1.018 / 1.063
+5.495 / 5.591
+Eksperimen tidak mengisolasi mekanisme penalaran inter-
+nal model.
+Implikasi praktisnya adalah perlunya menilai TPR dan
+FPR bersama-sama. Konfigurasi dengan TPR tambahan
+mendekati 90% masih dapat menandai hampir setengah
+TYP sebagai malicious. Sebaliknya, konfigurasi dengan
+FPR lebih rendah dapat melewatkan sekitar separuh MAL
+tambahan. Berdasarkan hasil ini, penggunaan langsung
+sebagai dasar pemblokiran otomatis belum didukung.
+Pemanfaatan sebagai triage juga memerlukan pengujian
+beban
+peninjauan
+pada
+lingkungan
+sasaran;
+manfaat
+operasional tersebut tidak diukur di sini.
+Hasil negatif pada sebagian konfigurasi tidak membat-
+alkan kegunaan retrieval secara umum. Basis pengetahuan
+penelitian ini kecil, berbasis label sumber, dan menggunakan
+kemiripan kemampuan statis. Karena tidak ada kontrol re-
+trieval acak atau pemilihan contoh ideal, hasil hanya berlaku
+pada kebijakan retrieval yang diuji. Hasil juga tidak menun-
+jukkan bahwa model telah memahami atau gagal memahami
+intent secara kausal. Analisis alasan yang dihasilkan model
+saja tidak cukup untuk menetapkan mekanisme itu.
+7. Keterbatasan dan validitas
+Label dan cakupan ancaman. Label MAL berasal dari
+sumber publik, sedangkan TYP diasumsikan benign. Pen-
+yaringan advisory bukan pembuktian keamanan; label sum-
+ber dapat pula mencakup kasus proof-of-concept atau per-
+ilaku yang penilaiannya bergantung konteks. Karena itu,
+TPR, FPR, dan BA bersyarat pada konstruksi label terse-
+but. Tidak tersedia gold evidence maupun hard negative
+yang diverifikasi manusia, sehingga tidak ada klaim akurasi
+lokalisasi bukti atau FPR khusus hard negative.
+Pemilihan sampel dan pengelompokan. Ketersediaan
+kedua
+arsip,
+identitas
+paket,
+dan
+syarat
+pendahulu
+membatasi sampel yang dapat dimasukkan. Pengelompokan
+kode dapat menggabungkan kasus yang sebenarnya berbeda
+atau memisahkan kasus terkait. Bootstrap memperhitungkan
+klaster yang teramati, tetapi tidak menghilangkan bias
+seleksi atau kesalahan pengelompokan. Ke-96 pasangan
+tambahan hanya mewakili 65 klaster; hasilnya tidak boleh
+dibaca sebagai 96 observasi kampanye independen.
+Urutan penelitian dan kontaminasi. Model tambahan
+dan perluasan MAL ditetapkan setelah hasil awal diketahui.
+Pemisahan cohort dan pembekuan prompt sebelum inferensi
+tambahan mengurangi peluang penyesuaian terhadap hasil
+baru, tetapi tidak menjadikan seluruh studi konfirmatori.
+Sebanyak 75 dari 96 target tambahan diterbitkan pada 2026;
+fakta itu sendiri tidak membuktikan bahwa sampel berada
+di luar paparan pretraining masing-masing model. Tidak
+dilakukan eksperimen temporal terkontrol atau audit data
+pelatihan model.
+Representasi dan kondisi inferensi. Diff terpotong pada
+enam MAL dan 90 TYP awal serta delapan MAL tam-
+bahan. Dua berkas tambahan memakai teks mentah sete-
+lah normalisasi gagal. Informasi penting dapat hilang atau
+menjadi lebih sulit dibaca. Dokumentasi pendahulu juga
+dapat tidak lengkap. Penggunaan schema, output 512 token,
+satu seed, dan urutan request tetap membatasi generalisasi
+hasil; temperature nol tidak membuktikan stabilitas lintas
+run. Qwen3-8B gagal pada kondisi ini, tanpa menyimpulkan
+bahwa model tersebut selalu tidak mampu menjalankan tu-
+gas.
+: Preprint submitted to Elsevier
+Page 6 of 8

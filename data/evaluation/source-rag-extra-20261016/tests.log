@@ -1,0 +1,7 @@
+~/intendiff_rag/tests/test_dependency_context.py:28: ResourceWarning: unclosed file <_io.TextIOWrapper name='~/intendiff_rag/data/evaluation/dependency-context-20261011/pairs.jsonl' mode='r' encoding='UTF-8'>
+  cls.pairs = [json.loads(line) for line in (HERE / 'pairs.jsonl').open()]
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+----------------------------------------------------------------------
+Ran 30 tests in 31.578s
+
+OK

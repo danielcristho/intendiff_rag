@@ -1,0 +1,65 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:Chrome.1","baseBrowserDecorator,args",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.test.canaryGetOptions","url,args,parent",34
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.test.headlessGetOptions","url,args,parent",45
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.test.sanitizeJSFlags","flag",55
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.test.isJSFlags","flag",57
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:Dartium.1","",82
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:Chromium.1","baseBrowserDecorator,args",82
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:ChromeHeadless.1","baseBrowserDecorator,args",82
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:ChromeCanaryHeadless.1","baseBrowserDecorator,args",82
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:ChromeCanary.1","baseBrowserDecorator,args",82
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:ChromiumHeadless.1","baseBrowserDecorator,args",82
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:Chrome.1())._getOptions","url",108
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:Dartium.1())._getOptions","url",137
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:Chromium.1())._getOptions","url",179
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromeHeadless.1())._getOptions","url",227
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:ChromeHeadless.1","baseBrowserDecorator,args",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:Chromium.1","baseBrowserDecorator,args",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:ChromeCanary.1","baseBrowserDecorator,args",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:ChromiumHeadless.1","baseBrowserDecorator,args",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:Chrome.1","baseBrowserDecorator,args",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:Dartium.1","",43
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.test.canaryGetOptions","url,args,parent",76
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.test.isJSFlags","flag",77
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.test.sanitizeJSFlags","flag",84
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.test.headlessGetOptions","url,args,parent",99
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:ChromeCanaryHeadless.1","baseBrowserDecorator,args",99
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromeHeadless.1())._getOptions","url",162
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:Chromium.1())._getOptions","url",201
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromeCanary.1())._getOptions","url",317
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromiumHeadless.1())._getOptions","url",404
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:Chrome.1())._getOptions","url",469
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:Dartium.1())._getOptions","url",530
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromeCanaryHeadless.1())._getOptions","url",769
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromeHeadless.1())._getOptions().some","",769
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromeHeadless.1())._getOptions().some","",769
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromiumHeadless.1())._getOptions().some","",769
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromiumHeadless.1())._getOptions().some","",769
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromeCanaryHeadless.1())._getOptions().some","",769
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromeCanaryHeadless.1())._getOptions().some","",769
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:Chrome.1","baseBrowserDecorator,args",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:ChromeCanaryHeadless.1","baseBrowserDecorator,args",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:ChromeCanary.1","baseBrowserDecorator,args",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:Dartium.1","",43
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:ChromiumHeadless.1","baseBrowserDecorator,args",43
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.test.sanitizeJSFlags","flag",53
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.test.isJSFlags","flag",55
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.test.canaryGetOptions","url,args,parent",84
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.test.headlessGetOptions","url,args,parent",99
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:Chromium.1","baseBrowserDecorator,args",99
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","module.exports.launcher:ChromeHeadless.1","baseBrowserDecorator,args",99
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:Chrome.1())._getOptions","url",130
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromeCanaryHeadless.1())._getOptions","url",287
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromeCanary.1())._getOptions","url",378
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:Dartium.1())._getOptions","url",423
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromiumHeadless.1())._getOptions","url",518
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:Chromium.1())._getOptions","url",589
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromeHeadless.1())._getOptions","url",729
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromeCanaryHeadless.1())._getOptions().some","",729
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromeCanaryHeadless.1())._getOptions().some","",729
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromiumHeadless.1())._getOptions().some","",729
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromiumHeadless.1())._getOptions().some","",729
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromeHeadless.1())._getOptions().some","",729
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","(new module.exports.launcher:ChromeHeadless.1())._getOptions().some","",729
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/karma-chrome-launcher_3.1.0-->3.1.1/karma-chrome-launcher-3.1.0/","main","",3

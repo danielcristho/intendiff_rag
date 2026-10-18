@@ -1,0 +1,13 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/grunt-contrib-concat_2.0.0-->2.1.0/grunt-contrib-concat-2.0.0/","module.exports.init().stripBanner","src,options",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/grunt-contrib-concat_2.0.0-->2.1.0/grunt-contrib-concat-2.0.0/","module.exports.init","grunt",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/grunt-contrib-concat_2.0.0-->2.1.0/grunt-contrib-concat-2.0.0/","module.exports.init().helper","files,options",38
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/grunt-contrib-concat_2.0.0-->2.1.0/grunt-contrib-concat-2.0.0/","module.exports.init().helper().addMapping","genLine,genCol,orgLine,orgCol,source,name",41
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/grunt-contrib-concat_2.0.0-->2.1.0/grunt-contrib-concat-2.0.0/","module.exports.init().helper().__proto__._forEachTokenPosition","src,filename,callback",43
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/grunt-contrib-concat_2.0.0-->2.1.0/grunt-contrib-concat-2.0.0/","module.exports.init().helper().__proto__.addlines","src,filename",160
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/grunt-contrib-concat_2.0.0-->2.1.0/grunt-contrib-concat-2.0.0/","module.exports.init().helper().__proto__.add","src",162
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/grunt-contrib-concat_2.0.0-->2.1.0/grunt-contrib-concat-2.0.0/","module.exports.init().helper().__proto__.write","",238
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/grunt-contrib-concat_2.0.0-->2.1.0/grunt-contrib-concat-2.0.0/","module.exports.init().helper().__proto__.url","",269
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/grunt-contrib-concat_2.0.0-->2.1.0/grunt-contrib-concat-2.0.0/","module.exports.init().helper().__proto__._write","",279
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/grunt-contrib-concat_2.0.0-->2.1.0/grunt-contrib-concat-2.0.0/","module.exports","grunt",2083
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/grunt-contrib-concat_2.0.0-->2.1.0/grunt-contrib-concat-2.0.0/","(new module.exports()).options","",2083
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/grunt-contrib-concat_2.0.0-->2.1.0/grunt-contrib-concat-2.0.0/","main","",3

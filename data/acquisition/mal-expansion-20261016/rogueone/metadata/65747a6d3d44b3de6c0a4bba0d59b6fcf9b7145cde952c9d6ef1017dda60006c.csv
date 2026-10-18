@@ -1,0 +1,15 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/saber-rand_1.0.8-->1.0.9/saber-rand-1.0.9/","module.exports.rand","max,min",9
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/saber-rand_1.0.8-->1.0.9/saber-rand-1.0.9/","module.exports.random","max,min",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/saber-rand_1.0.8-->1.0.9/saber-rand-1.0.9/","module.exports.randVec","x,y",14
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/saber-rand_1.0.8-->1.0.9/saber-rand-1.0.9/","module.exports.uuid","",24
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/saber-rand_1.0.8-->1.0.9/saber-rand-1.0.9/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/saber-rand_1.0.8-->1.0.9/saber-rand-1.0.9/","module.exports.uuid","",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/saber-rand_1.0.8-->1.0.9/saber-rand-1.0.9/","module.exports.randVec","x,y",18
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/saber-rand_1.0.8-->1.0.9/saber-rand-1.0.9/","module.exports.rand","max,min",19
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/saber-rand_1.0.8-->1.0.9/saber-rand-1.0.9/","module.exports.random","max,min",20
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/saber-rand_1.0.8-->1.0.9/saber-rand-1.0.9/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/saber-rand_1.0.8-->1.0.9/saber-rand-1.0.9/","module.exports.random","max,min",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/saber-rand_1.0.8-->1.0.9/saber-rand-1.0.9/","module.exports.randVec","x,y",9
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/saber-rand_1.0.8-->1.0.9/saber-rand-1.0.9/","module.exports.uuid","",19
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/saber-rand_1.0.8-->1.0.9/saber-rand-1.0.9/","module.exports.rand","max,min",20
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/saber-rand_1.0.8-->1.0.9/saber-rand-1.0.9/","main","",3

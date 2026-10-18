@@ -1,0 +1,9 @@
+{
+  "screened_pairs": 4,
+  "inherited_items": 27536,
+  "candidate_holdout_pairs": 3,
+  "candidate_holdout_campaigns": 1,
+  "excluded": 1,
+  "test_released": false,
+  "inferences": 0
+}

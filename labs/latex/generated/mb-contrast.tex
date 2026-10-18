@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering\small
+\caption{Mengganti contoh kedua dari malicious menjadi benign (DIFF+I+MB dikurangi DIFF+I+MM). Selisih dalam poin persentase; CI 95\% berkelompok memakai 65 kampanye MAL tambahan. Selisih FPR adalah estimasi titik pada TYP awal.}
+\label{tab:contrast}
+\begin{tabular}{lrr}
+\toprule
+Model & $\Delta$TPR tambahan [CI95\%] & $\Delta$FPR TYP \\
+\midrule
+Qwen3-4B & +7.29 [+1.02, +14.13] & +2.30 \\
+Qwen2.5-3B & +0.00 [-6.52, +6.45] & +8.35 \\
+Qwen2.5-7B & +5.21 [+0.00, +11.00] & +4.01 \\
+Phi-4-mini & -11.46 [-19.54, -4.08] & -5.46 \\
+Llama-3.1-8B & +1.04 [-6.25, +8.49] & +1.12 \\
+Granite-3.3-8B & -9.38 [-18.68, -0.92] & -0.11 \\
+\bottomrule
+\end{tabular}
+\end{table*}

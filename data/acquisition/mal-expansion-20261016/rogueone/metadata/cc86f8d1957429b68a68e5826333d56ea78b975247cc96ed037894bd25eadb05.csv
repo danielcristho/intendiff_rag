@@ -1,0 +1,17 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/downloader_0.1.1-->0.1.2/downloader-0.1.1/","module.exports.download","theUrl,outputDir,maxFileSize",62
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/downloader_0.1.1-->0.1.2/downloader-0.1.1/","module.exports.__proto__.listeners","eventName",62
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/downloader_0.1.1-->0.1.2/downloader-0.1.1/","module.exports.__proto__.removeAllListeners","eventName",62
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/downloader_0.1.1-->0.1.2/downloader-0.1.1/","module.exports.__proto__.removeListener","eventName,listener",62
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/downloader_0.1.1-->0.1.2/downloader-0.1.1/","module.exports.__proto__.once","eventName,listener",62
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/downloader_0.1.1-->0.1.2/downloader-0.1.1/","module.exports.__proto__.eventNames","",62
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/downloader_0.1.1-->0.1.2/downloader-0.1.1/","module.exports.__proto__.off","eventName,listener",62
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/downloader_0.1.1-->0.1.2/downloader-0.1.1/","module.exports.__proto__.addListener","eventName,listener",62
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/downloader_0.1.1-->0.1.2/downloader-0.1.1/","module.exports.__proto__.prependListener","eventName,listener",62
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/downloader_0.1.1-->0.1.2/downloader-0.1.1/","module.exports.__proto__.getMaxListeners","",62
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/downloader_0.1.1-->0.1.2/downloader-0.1.1/","module.exports.__proto__.prependOnceListener","eventName,listener",62
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/downloader_0.1.1-->0.1.2/downloader-0.1.1/","module.exports.__proto__.rawListeners","eventName",62
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/downloader_0.1.1-->0.1.2/downloader-0.1.1/","module.exports.__proto__.setMaxListeners","n",62
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/downloader_0.1.1-->0.1.2/downloader-0.1.1/","module.exports.__proto__.emit","eventName",62
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/downloader_0.1.1-->0.1.2/downloader-0.1.1/","module.exports.__proto__.on","eventName,listener",62
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/downloader_0.1.1-->0.1.2/downloader-0.1.1/","module.exports.__proto__.listenerCount","eventName",62
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/downloader_0.1.1-->0.1.2/downloader-0.1.1/","main","",3

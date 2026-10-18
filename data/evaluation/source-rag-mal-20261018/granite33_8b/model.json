@@ -1,0 +1,107 @@
+{
+  "id": "ibm-granite/granite-3.3-8b-instruct",
+  "tag": "granite33_8b",
+  "revision": "51dd4bc2ade4059a6bd87649d68aa11e4fb2529b",
+  "path": "~/intendiff_rag/data/upstream/models/granite33_8b",
+  "parameters_billion_nominal": 8.0,
+  "parameters_billion": 8.17086464,
+  "chat_template_kwargs": {
+    "thinking": false
+  },
+  "gated": false,
+  "stop_token_ids": [
+    0
+  ],
+  "max_model_len": 38912,
+  "pins": [
+    {
+      "path": "~/intendiff_rag/data/upstream/models/granite33_8b/README.md",
+      "bytes": 27608,
+      "sha256": "827b04e8019ae72397d7303e8b30f315d4b8f5d1cd18f9f4e3f0d7808f069a35",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/granite33_8b/added_tokens.json",
+      "bytes": 207,
+      "sha256": "bb33d55934aa82d29cc62f3d19cdbc60f315763f6ccee21bdfd8b3bde2f33d3b",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/granite33_8b/config.json",
+      "bytes": 790,
+      "sha256": "1313edf0d39dcf7ed35a072d341ec11b516c12acc4267cfb6d248c6bdcdddcb7",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/granite33_8b/generation_config.json",
+      "bytes": 132,
+      "sha256": "9c95e80167f08fbeb1feba239e0749507c25d18ffab43ffa10887821eed21c38",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/granite33_8b/merges.txt",
+      "bytes": 441810,
+      "sha256": "303127a244b0078878156c17229f36d11b7a3a3f8e47b7cfdbb304ff46be5030",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/granite33_8b/model-00001-of-00004.safetensors",
+      "bytes": 4974694288,
+      "sha256": "b309f7b9e116fafc27c1100629bfcccbcebdab18a4bf7df7accfa728260dc57e",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/granite33_8b/model-00002-of-00004.safetensors",
+      "bytes": 4991447808,
+      "sha256": "f2e40f157f0139e4b67bbaa4b10efa351162c062771cb543b143c6916a687266",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/granite33_8b/model-00003-of-00004.safetensors",
+      "bytes": 4970460032,
+      "sha256": "5cf5203a027b7055c995a9d4bdb3a4c9dd44849ae6c9eefa6a16852a816bea76",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/granite33_8b/model-00004-of-00004.safetensors",
+      "bytes": 1405169256,
+      "sha256": "76ac0c0dbd790a1e003d2fc098a297bfe82a422c129046e9d4e67e6ed3d820f0",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/granite33_8b/model.safetensors.index.json",
+      "bytes": 29836,
+      "sha256": "c3a88218300666c35343b129857d4e8583ee1b15bf68d90ab976f51744560379",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/granite33_8b/special_tokens_map.json",
+      "bytes": 801,
+      "sha256": "21ce694081bb9ae1bd4bc64549e72e0799ebb74705e6b650e3585d85b71ebdc1",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/granite33_8b/tokenizer.json",
+      "bytes": 3476578,
+      "sha256": "91168e938f05796aa6dcca7e485e4b30ab52785320c7a6391ecef86e6c84681e",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/granite33_8b/tokenizer_config.json",
+      "bytes": 9930,
+      "sha256": "f65a6a5a911424c85f157c40cfbdf06e025814c755480ba2e998d7fba1178664",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/granite33_8b/vocab.json",
+      "bytes": 776995,
+      "sha256": "80ab859339a2525fdfbda14bc39df02dffb824aefdaf86426217bbb146d17e01",
+      "historical_sha256_match": true
+    }
+  ],
+  "manifest_pin": {
+    "path": "data/evaluation/full-method-20261012/granite33_8b.model-manifest.json",
+    "sha256": "1957217deb2cfb1653cab60b1fdbba67860c88b4ea9559a5477cf6b365c4ded0"
+  },
+  "kv_cache_memory_bytes": 6442450944
+}

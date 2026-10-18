@@ -1,0 +1,102 @@
+IntentDiff-RAG: Pengaruh Intent dan Contoh Pembanding pada
+Deteksi Pembaruan npm dengan LLM Lokal
+A R T I C L E I N F O
+Keywords:
+malicious package updates
+npm
+retrieval-augmented generation
+open-weight language models
+false positives
+A B S T R A C T
+Pembaruan paket dapat menyisipkan perilaku berbahaya yang menyerupai aktivitas perangkat lunak
+sah. Penelitian ini mengevaluasi apakah profil tujuan paket (intent) dan contoh hasil retrieval
+membantu LLM lokal membedakan keduanya. Enam konfigurasi dibandingkan pada enam model
+open-weight, menggunakan 33 pembaruan berlabel malicious dan 1.868 pembaruan typical pada
+evaluasi awal, serta 96 pembaruan malicious dari 65 klaster kampanye pada evaluasi tambahan. Label
+malicious berasal dari sumber dataset; pembaruan typical diasumsikan benign setelah penyaringan
+advisory. Pada data tambahan, mengganti satu dari dua contoh malicious dengan contoh benign
+meningkatkan TPR Qwen3-4B sebesar 7,29 poin persentase, tetapi FPR pada data typical awal
+juga meningkat 2,30 poin. Pada Phi-4-mini, penggantian yang sama menurunkan FPR 5,46 poin,
+disertai penurunan TPR tambahan 11,46 poin. Efek intent juga berbeda antar-model. Hasil ini
+tidak mendukung anggapan bahwa contoh benign secara umum mengurangi alarm palsu tanpa
+mengorbankan deteksi. Kontribusi penelitian adalah pengukuran terkontrol atas pengaruh intent dan
+komposisi contoh pada level pembaruan, dengan pelaporan terpisah antar-cohort dan ketidakpastian
+berbasis kampanye. Temuan mendukung evaluasi manfaat retrieval secara spesifik pada model dan
+kondisi data, bukan penggunaannya sebagai perbaikan yang diasumsikan berlaku umum.
+1. Pendahuluan
+Pembaruan dependensi merupakan jalur pemeliharaan
+perangkat lunak sekaligus jalur masuk kode yang tidak
+diinginkan. Hubungan antarpaket membuat perubahan pada
+satu komponen dapat menjangkau banyak proyek yang
+bergantung padanya (Zimmermann et al., 2019). Dalam
+serangan melalui pembaruan, penyerang memanfaatkan
+kepercayaan terhadap paket yang sudah digunakan. Karena
+itu, penilaian terhadap perubahan antarversi melengkapi
+pemeriksaan paket secara utuh (Sofaer et al., 2024).
+Tantangan utamanya adalah membedakan kemampuan
+teknis dari tujuan penggunaan. Akses jaringan, pembacaan
+variabel lingkungan, dan eksekusi proses dapat muncul pada
+kode berbahaya maupun alat pengembangan yang sah. Eval-
+uasi detektor npm oleh Guo et al. (2026a) menunjukkan
+pentingnya ambiguitas ini. Meningkatkan jumlah deteksi
+dengan menandai lebih banyak perilaku sensitif belum tentu
+menghasilkan detektor yang lebih berguna apabila alarm
+palsu juga meningkat.
+LLM menawarkan cara untuk menilai kode bersama
+konteksnya. Wyss et al. (2025) mengevaluasi model komer-
+sial pada perubahan kode yang diringkas menjadi smart-diff,
+sedangkan IntelGuard menghubungkan kode dengan contoh
+dan penalaran dari laporan ancaman (Guo et al., 2026b). Ke-
+dua pendekatan memotivasi pertanyaan yang lebih spesifik:
+apakah model lokal berukuran kecil memperoleh manfaat
+dari tujuan paket yang dinyatakan secara eksplisit dan dari
+contoh benign yang menyertai contoh malicious?
+Kami
+mengevaluasi
+pertanyaan
+tersebut
+melalui
+IntentDiff-RAG,
+sebuah
+kerangka
+perbandingan
+yang
+menggabungkan smart-diff, intent dari versi pendahulu,
+dan retrieval contoh berlabel. Perbandingan dua contoh
+malicious (MM) dengan satu malicious dan satu benign
+ORCID(s):
+(MB) mempertahankan jumlah contoh serta identitas
+dan posisi contoh malicious utama. Dengan demikian,
+perbandingan tidak sekadar mengukur penambahan panjang
+prompt. Meski demikian, isi kedua contoh berbeda; hasilnya
+merupakan efek penggantian contoh secara keseluruhan,
+bukan efek label benign yang dipisahkan dari isi kode.
+Kontribusi penelitian meliputi evaluasi enam konfig-
+urasi pada enam model lokal, pengukuran berpasangan atas
+komposisi contoh dan intent, serta evaluasi tambahan pada
+kampanye MAL yang tidak beririsan dengan pool pengem-
+bangan menurut aturan pengelompokan yang digunakan.
+Fokusnya adalah bukti empiris tentang manfaat dan batas
+konteks tambahan. Kami tidak mengasumsikan bahwa RAG
+akan mengungguli masukan diff saja, dan tidak mengklaim
+detektor siap digunakan secara otonom.
+2. Penelitian terkait
+Deteksi berbasis perubahan memanfaatkan perbedaan
+antara versi paket untuk memusatkan analisis. RogueOne
+menggunakan analisis aliran data diferensial dan trust
+domain untuk mengidentifikasi perubahan interaksi paket
+dengan API (Sofaer et al., 2024). Wyss et al. mengurangi
+masukan LLM melalui smart-diff dan mengevaluasi deteksi
+pembaruan npm (Wyss et al., 2025). Penelitian kami
+mengikuti unit analisis pembaruan, tetapi menilai model
+lokal dan memisahkan pengaruh intent serta komposisi
+contoh. Angka dari studi terdahulu tidak dijadikan baseline
+langsung karena dataset dan kondisi inferensinya berbeda.
+Pada level paket, SocketAI mengevaluasi LLM untuk
+mengidentifikasi paket npm berbahaya (Zahan et al., 2025).
+Nguyen et al. menggunakan pemotongan kode berbasis
+taint untuk memusatkan masukan model pada aliran yang
+relevan dengan keamanan (Nguyen et al., 2025). IntelGuard
+mengambil contoh malicious beserta konteks perilaku
+: Preprint submitted to Elsevier
+Page 1 of 8

@@ -1,0 +1,6 @@
+Highlights
+IntentDiff-RAG: Pengaruh Intent dan Contoh Pembanding pada Deteksi Pembaruan npm dengan
+LLM Lokal
+• Enam konfigurasi diuji pada enam LLM lokal dengan bobot tetap.
+• Tambahan 96 pembaruan malicious dievaluasi terpisah dari cohort awal.
+• Contoh benign tidak konsisten menurunkan alarm palsu tanpa kehilangan deteksi.

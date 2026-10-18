@@ -1,0 +1,3 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/d_1.0.0-->1.0.1/d-1.0.1/","module.exports","dscr,value",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/d_1.0.0-->1.0.1/d-1.0.1/","module.exports.gs","dscr,get,set",33
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/d_1.0.0-->1.0.1/d-1.0.1/","main","",3
