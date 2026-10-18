@@ -754,3 +754,40 @@ Konteks: GPU yang tersedia dicek terhadap kebutuhan memori di
 - Verifikasi ulang hasil dan pin lama; dev10pair/60respons per model dipakai ulang hanya jika hash request/token identik dan gate>=90% tetap lolos. Tidak mengulang test historis lengkap11.406/model. Pemakaian ulang ini dicatat eksplisit dan tidak dihitung sebagai inferensi baru.
 - TPR baru dan lama dilaporkan terpisah; CI tambahan memakai bootstrap kampanye10.000resample seed2026. Seluruh tambahan MAL sehingga FPR/BA tidak terdefinisi pada cohort itu. Gabungan129MAL+1.868TYP hanya deskriptif, memakai ulang FPR TYP lama. Invalid benign utama/malicious sensitivitas dan kontras paired tetap.
 - Rincian pra-inferensi di `docs/mal-evaluation-20261018.md`. Snapshot tiap model dipin sebelum test, dijalankan berurutan, resumable, memiliki log/PID/status/verifikasi hasil. Sampel dianalisis statis saja.
+
+**D106. Naskah melaporkan 129 MAL sebagai satu himpunan, menggantikan pemisahan TPR lama/baru D105, 18 Oktober 2026.**
+
+- Pengguna meminta 33 MAL D101 dan 96 MAL D105 tidak dipisah agar naskah lebih mudah dipahami. Opsi melaporkan 96 MAL saja ditolak karena menyembunyikan test set awal setelah hasilnya diketahui; pengguna memilih penggabungan.
+- TPR utama memakai 129 MAL dari 98 klaster (33 + 65, tidak beririsan). CI dan kontras berpasangan memakai bootstrap kampanye yang sama dengan D105 (10.000 resample, seed 2026), kini atas 98 klaster. FPR tetap 1.868 TYP. Validitas JSON digabung berbobot respons (11.406 + 576 per model).
+- Keputusan ini diambil setelah hasil kedua tahap diketahui; naskah menyatakannya di bagian data dan keterbatasan. Tidak ada inferensi baru, perubahan label, prompt, KB, atau aturan keputusan. Arah temuan MM→MB sama: FPR naik pada empat dari enam model, dan tidak ada model yang menurunkan FPR sambil mempertahankan TPR (estimasi titik).
+- `pipeline/paper_results.py` menghitung angka gabungan dan memeriksanya terhadap hitungan TP per tahap; kolom 33/96 tetap disimpan di `metrics.csv` dan `contrasts.csv` sebagai rincian per tahap.
+- Lanjutan: atas permintaan pengguna, naskah tidak lagi menyebut tahap pengumpulan, contoh TPR per tahap, atau pernyataan bahwa penggabungan diputuskan setelah hasil. Sumber MAL disebut per asal (33 Guo, 93 Draz, 3 Datadog). Satu kalimat di bagian keterbatasan tetap menyatakan bahwa sebagian model dan MAL ditambahkan setelah hasil awal diketahui; rincian per tahap dan keputusan pelaporan ini tercatat di sini dan di `metrics.csv`.
+
+**D107. Dataset dipindah ke Bab Metode; pengungkapan dan analisis deskriptif pasangan tanpa perubahan kemampuan, 18 Oktober 2026.**
+
+- Pengguna meminta penjelasan dataset di Bab 3. Subbagian `sec:data` kini memuat MAL (33 Guo, 93 Draz/OSV, 3 Datadog; terbit Juli 2016–September 2026), TYP (arsip Wyss: 692 populer, 801 acak, 375 stream), KB (50 Datadog malicious-intent, 25 TYP Wyss yang disisihkan), dev (5 Datadog MAL, 5 TYP Wyss), dan aturan kampanye. Semua angka dicocokkan ke file pasangan, KB, dan sumber TYP.
+- Ditemukan saat review: 87/129 MAL dan 1.837/1.868 TYP tidak memiliki perubahan kemampuan, sehingga semua card berskor Jaccard nol dan pemilihan ditentukan pemecah seri hash (`runner.rank`). Simulasi retrieval cocok dengan card yang tercatat pada 7.988 respons Qwen3-4B. Naskah sebelumnya menulis "tidak ada kontrol retrieval acak" tanpa menyebut ini.
+- Pengguna memilih pengungkapan plus analisis terpisah. `paper_results.py` menambah TP per subset (42 dengan delta, 87 tanpa); tabel `tab:delta` deskriptif tanpa interval. Arah MM→MB sama di kedua subset untuk lima model; Qwen2.5-7B sudah 100% pada subset dengan delta. Tidak ada inferensi baru, perubahan prompt, KB, retrieval, atau aturan keputusan.
+- Naskah juga menyebut bahwa pengurangan kode berulang smart-diff direkonstruksi lokal (D56, D72) dan bahwa perubahan kemampuan tidak ditampilkan ke model (D25).
+
+**D108. RQ deskriptif ditulis di naskah; interval FPR ditambahkan; klaim MM→MB dikoreksi, 18 Oktober 2026.**
+
+- Review Bab 4 menemukan ΔFPR dilaporkan tanpa interval, sementara naskah (dan D106) menyatakan MM→MB menaikkan FPR pada empat dari enam model. Bootstrap berpasangan per klaster TYP (1.865 klaster, 10.000 resample, seed 2026) menunjukkan interval di atas nol hanya pada Qwen3-4B, Qwen2.5-3B, dan Qwen2.5-7B; Llama (+1,12) dan Granite (−0,11) melintasi nol. Klaim di Bab 1 dan Bab 5 dikoreksi menjadi tiga model. Abstrak tidak berubah karena kedua angkanya (Qwen3 +2,30, Phi −5,46) memiliki interval yang tidak melintasi nol.
+- `paired_rate_delta` (vektorisasi numpy) ditambahkan ke `mal_eval_metrics.py` untuk ΔFPR; FPR per konfigurasi memakai `campaign_recall` yang sama atas TYP. Tabel utama dan tabel kontras kini memuat interval FPR.
+- RQ1–RQ4 versi D99 ditulis di Bab 1 dan dipetakan ke kontras di Bab 4; `docs/research.md` §4 diperbarui. Bab 4 menyatakan bahwa dua model ditetapkan sejak rancangan awal dan lima ditambahkan kemudian, serta bahwa analisis subset delta (D107) eksploratif pasca-hasil.
+- Tidak ada inferensi baru, perubahan label, prompt, KB, atau aturan keputusan.
+
+**D109. Naskah disesuaikan untuk Journal of Systems and Software; Hasil disusun per RQ, 18 Oktober 2026.**
+
+- Pengguna meminta format penulisan jurnal Q1. Target pertama, Computers & Security, dibatalkan karena halaman resmi Elsevier menyatakan moratorium untuk naskah yang menerapkan AI/ML pada keamanan; pengguna memilih JSS. Guide for Authors JSS tidak dapat diakses langsung (HTTP 403); aturan yang terkonfirmasi lewat pencarian: abstrak ≤250 kata, highlights 3–5 butir ≤85 karakter, dan JSS Open Science Initiative. Naskah tetap berbahasa Indonesia.
+- Hasil disusun per RQ1–RQ4 dengan kotak jawaban, ditambah analisis eksploratif di akhir. Tabel utama kini menjawab RQ1 (DIFF, DIFF+I); tabel kontras memuat ketiga kontras dengan interval TPR dan FPR. Tabel memakai koma desimal dan titik ribuan.
+- Review Bab 5 menemukan pelaporan intent tidak seimbang: FPR turun dengan jelas pada Qwen3-4B, Phi-4-mini, dan Granite, sedangkan teks hanya menonjolkan kenaikan pada Qwen2.5-7B dan Llama. Kesimpulan "intent menurunkan keduanya" tidak didukung dan diganti. Abstrak dan highlights diperbarui.
+- Keterbatasan disusun ulang menjadi ancaman validitas konstruk, internal, eksternal, dan kesimpulan. Ditambahkan bagian ketersediaan data, CRediT, deklarasi kepentingan, deklarasi AI generatif, dan pendanaan sebagai isian penulis.
+- Tidak ada inferensi baru, perubahan label, prompt, KB, retrieval, atau aturan keputusan.
+
+**D110. Naskah tidak memakai RQ; menggantikan bagian RQ pada D108 dan D109, 18 Oktober 2026.**
+
+- Pengguna menegaskan bahwa naskah sudah tidak memakai RQ. Penambahan RQ1–RQ4 pada D108 dan struktur Hasil per RQ pada D109 adalah kesalahan karena mengikuti `docs/research.md` §4 yang sudah tidak berlaku untuk naskah.
+- Daftar RQ di Pendahuluan dihapus. Bab Rancangan evaluasi kini menyebut empat analisis: kemampuan dasar (DIFF, DIFF+I), pengaruh contoh rujukan (DIFF+I → DIFF+I+M, DIFF+I+MM → DIFF+I+MB), pengaruh intent (DIFF+MB → DIFF+I+MB), serta format dan biaya. Subjudul Hasil, caption tabel, Pembahasan, dan Kesimpulan tidak lagi menyebut RQ; kotak ringkasan di Hasil berlabel "Temuan".
+- `docs/research.md` §4 kini mencatat bahwa naskah tidak memakai RQ dan bahwa RQ/hipotesis lama hanya riwayat. Jangan menambahkan RQ kembali ke naskah.
+- Interval FPR, koreksi klaim MM→MB, penyeimbangan pelaporan intent, dan format JSS dari D108–D109 tetap berlaku.
