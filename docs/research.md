@@ -77,6 +77,11 @@ knowledge card, dan protokol label yang dapat direplikasi.
 
 ## 4. Pertanyaan penelitian
 
+**Naskah tidak memakai RQ (D110).** Hasil dilaporkan per analisis: kemampuan
+dasar, pengaruh contoh rujukan, pengaruh intent, serta format dan biaya. RQ dan
+hipotesis HN di bawah adalah rancangan lama dan dipertahankan sebagai riwayat;
+jangan memasukkannya kembali ke naskah.
+
 ### Notasi
 
 - **MAL, HN, TYP**: subset update malicious, hard negative, dan typical ([methodology.md §3](methodology.md#3-data)).

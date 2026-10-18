@@ -42,6 +42,8 @@
   "unique_pairs": 1997,
   "new_pairs": 96,
   "new_campaigns": 65,
+  "pooled_mal": 129,
+  "pooled_campaigns": 98,
   "inference_performed": false,
   "verification_scope": "Complete saved verifications plus raw-response coverage, identities, confusion counts and summary consistency; no new model execution",
   "input_pins": [
