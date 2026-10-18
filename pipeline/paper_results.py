@@ -6,7 +6,8 @@ import math
 from collections import Counter
 from pathlib import Path
 
-from analysis import cost_summary
+from analysis import cost_summary, recall_delta_bootstrap
+from mal_eval_metrics import campaign_recall, paired_rate_delta
 from paper_tables import render
 
 ROOT = Path('data/evaluation/source-rag-mal-20261018')
@@ -70,6 +71,17 @@ def main():
         new_pairs, new_rows, new_verify = checked_rows(release, tag, model['id'])
         if len(old_pairs) != 1901 or len(new_pairs) != 96 or set(old_pairs) & set(new_pairs):
             raise ValueError('Unexpected cohort size or overlap')
+        mal_pairs = [p for p in old_pairs.values() if p['label'] == 'malicious'] + list(new_pairs.values())
+        mal_ids = {p['id'] for p in mal_pairs}
+        mal_rows = [r for r in old_rows + new_rows if r['pair_id'] in mal_ids]
+        typ_pairs = [p for p in old_pairs.values() if p['label'] == 'benign']
+        typ_rows = [r for r in old_rows if r['label'] == 'benign']
+        if len(mal_pairs) != 129 or len({p['campaign'] for p in mal_pairs}) != 98:
+            raise ValueError('Expected 129 MAL in 98 campaigns')
+        # Empty-delta pairs score zero against every card, so their examples come from the hash tie-break.
+        with_delta = {p['id'] for p in mal_pairs if p['delta']}
+        if len(with_delta) != 42:
+            raise ValueError('Expected 42 MAL with a non-empty capability delta')
         summary = read(release / 'summary.json')
         old_summary = read(parent / 'summary.json')
         old_cost = {(m['config'], m['invalid_as']): m['cost'] for m in old_summary['metrics']
@@ -104,6 +116,20 @@ def main():
                        new_invalid=metric['invalid'], **old_cost[config, policy])
             if not math.isclose(row['new_tpr'], metric['new']['tpr']):
                 raise ValueError('TPR differs from raw counts')
+            pooled = campaign_recall(mal_pairs, [r for r in mal_rows if r['config'] == config], policy)
+            if not math.isclose(pooled['tpr'], (old['TP'] + new['TP']) / 129):
+                raise ValueError('Pooled TPR differs from cohort counts')
+            positives = {r['pair_id'] for r in mal_rows if r['config'] == config
+                         and (r['verdict'] if r['json_valid'] else policy) == 'malicious'}
+            if len(positives) != old['TP'] + new['TP']:
+                raise ValueError('Subset positives differ from cohort counts')
+            row.update(tp_with_delta=len(positives & with_delta), tp_empty_delta=len(positives - with_delta))
+            typ = campaign_recall(typ_pairs, [r for r in typ_rows if r['config'] == config], policy)
+            if not math.isclose(typ['tpr'], old['FP'] / 1868):
+                raise ValueError('FPR differs from TYP counts')
+            row.update(fpr_low=typ['campaign_bootstrap_95'][0], fpr_high=typ['campaign_bootstrap_95'][1])
+            row.update(tpr=pooled['tpr'], tpr_low=pooled['campaign_bootstrap_95'][0],
+                       tpr_high=pooled['campaign_bootstrap_95'][1], pooled_macro_campaign_tpr=pooled['macro_campaign_tpr'])
             records.append(row)
         for contrast in summary['paired_comparisons']:
             baseline, variant = contrast['baseline'], contrast['variant']
@@ -111,7 +137,18 @@ def main():
                          and r['invalid_as'] == 'benign') for c in (baseline, variant))
             if not math.isclose((b['new_tpr']-a['new_tpr'])*100, contrast['delta_points'], abs_tol=1e-10):
                 raise ValueError('Paired point estimate differs from counts')
-            effects.append(dict(tag=tag, model=NAMES[tag], fpr_delta_points=(b['fpr']-a['fpr'])*100, **contrast))
+            delta, interval = recall_delta_bootstrap(*(([r for r in mal_rows if r['config'] == c])
+                                                       for c in (variant, baseline)), mal_pairs)
+            if not math.isclose(delta, (b['tpr']-a['tpr'])*100, abs_tol=1e-10):
+                raise ValueError('Pooled paired estimate differs from counts')
+            fpr_delta, fpr_interval = paired_rate_delta(
+                typ_pairs, *([r for r in typ_rows if r['config'] == c] for c in (baseline, variant)))
+            if not math.isclose(fpr_delta, (b['fpr']-a['fpr'])*100, abs_tol=1e-10):
+                raise ValueError('Paired FPR estimate differs from counts')
+            effects.append(dict(tag=tag, model=NAMES[tag], fpr_delta_points=fpr_delta,
+                                fpr_campaign_bootstrap_95=fpr_interval,
+                                pooled_delta_points=float(delta),
+                                pooled_campaign_bootstrap_95=list(map(float, interval)), **contrast))
         checks.append(dict(tag=tag, historical_responses=len(old_rows), supplemental_responses=len(new_rows),
                            transport_attempt_errors=old_verify['transport_attempt_errors']+new_verify['transport_attempt_errors']))
     for name, rows in (('metrics.csv', records), ('contrasts.csv', effects)):
@@ -121,7 +158,7 @@ def main():
     render(records, effects, NAMES)
     result = dict(verified=True, checks=checks, total_test_responses=sum(r['historical_responses']+
                   r['supplemental_responses'] for r in checks), unique_pairs=1997,
-                  new_pairs=96, new_campaigns=65, inference_performed=False,
+                  new_pairs=96, new_campaigns=65, pooled_mal=129, pooled_campaigns=98, inference_performed=False,
                   verification_scope='Complete saved verifications plus raw-response coverage, identities, confusion counts and summary consistency; no new model execution',
                   input_pins=[dict(path=k, sha256=v) for k, v in sorted(PINS.items())])
     (OUT / 'verification.json').write_text(json.dumps(result, indent=2)+'\n')

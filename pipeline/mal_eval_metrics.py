@@ -30,3 +30,21 @@ def combined_metrics(old, new):
                 cohort_accuracy=(tp + tn) / (tp + fn + tn + fp),
                 balanced_accuracy=(tpr + specificity) / 2,
                 interpretation='Descriptive combination; TYP reused from historical evaluation, not new holdout')
+
+
+def paired_rate_delta(pairs, baseline_rows, variant_rows, resamples=10000, seed=2026):
+    """Campaign-resampled change in the share called malicious; vectorised for the 1.868-pair TYP set."""
+    def called(rows):
+        return {r['pair_id']: (r['verdict'] if r['json_valid'] else 'benign') == 'malicious' for r in rows}
+    base, variant = called(baseline_rows), called(variant_rows)
+    if set(base) != {p['id'] for p in pairs} or set(variant) != set(base):
+        raise ValueError('Paired rate requires complete predictions for both configurations')
+    campaigns = sorted({p['campaign'] for p in pairs})
+    index = {c: i for i, c in enumerate(campaigns)}
+    totals, diffs = np.zeros(len(campaigns)), np.zeros(len(campaigns))
+    for p in pairs:
+        totals[index[p['campaign']]] += 1
+        diffs[index[p['campaign']]] += variant[p['id']] - base[p['id']]
+    draws = np.random.default_rng(seed).integers(0, len(campaigns), size=(resamples, len(campaigns)))
+    deltas = diffs[draws].sum(axis=1) / totals[draws].sum(axis=1) * 100
+    return float(diffs.sum() / totals.sum() * 100), np.percentile(deltas, [2.5, 97.5]).tolist()
