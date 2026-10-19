@@ -1,0 +1,20 @@
+Pembaruan dependensi dapat menyisipkan kode berbahaya yang menyerupai aktivitas
+perangkat lunak sah. Penelitian ini mengukur apakah konteks tujuan paket
+(intent) dan contoh rujukan membantu model bahasa lokal mendeteksi pembaruan
+berbahaya dengan tetap membatasi alarm palsu. Enam konfigurasi masukan diuji
+pada enam model open-weight berukuran 3--8 miliar parameter, menggunakan
+129 pembaruan berlabel malicious dari 98 kelompok kampanye dan 1.868 pembaruan
+typical yang diasumsikan benign setelah penyaringan advisory. Perbandingan
+berpasangan mengontrol jumlah dan posisi contoh untuk mengukur penggantian
+contoh malicious dengan benign; ketidakpastian dihitung melalui bootstrap
+per kampanye. Tanpa contoh, tingkat deteksi mencapai 42,64--79,07\%, dengan
+tingkat alarm palsu 6,37--65,15\% antarmodel. Mengganti satu dari dua contoh
+malicious dengan benign meningkatkan deteksi Qwen3-4B sebesar 8,53 poin
+persentase sekaligus menaikkan alarm palsu 2,30 poin. Pada Phi-4-mini,
+penggantian yang sama menurunkan alarm palsu 5,46 poin, disertai penurunan
+deteksi 8,53 poin. Intent menurunkan alarm palsu pada tiga model tanpa
+perubahan deteksi yang jelas, tetapi menaikkan keduanya pada dua model lain.
+Kontribusi penelitian ini adalah bukti empiris bahwa manfaat intent dan
+komposisi contoh pada deteksi pembaruan bergantung pada model dan kondisi
+retrieval. Hasilnya belum mendukung penggunaan langsung untuk pemblokiran
+otomatis; evaluasi harus menilai deteksi dan alarm palsu bersama.
