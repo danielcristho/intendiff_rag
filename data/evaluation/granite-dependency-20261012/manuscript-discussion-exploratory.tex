@@ -1,0 +1,32 @@
+\subsection{Kecukupan konteks dan batas generalisasi}
+
+Diagnosis dependency menunjukkan bahwa keputusan model dapat bergantung
+pada kode yang tidak terlihat dalam diff target. Namun, hasil D88 dan D89
+tidak mendukung anggapan bahwa penambahan konteks selalu memperbaiki deteksi.
+Pada satu keluarga dependency, perubahan snapshot mengubah seluruh verdict;
+pada kohort dependency lain, tambahan isi tidak mengubah keputusan dan
+menambah penggunaan token. Temuan ini memotivasi pemeriksaan relevansi sumber,
+versi yang terpasang, dan cakupan kode sebelum memperluas konteks.
+
+Granite 3.3 8B juga tidak mengubah keputusan pada kohort D89. Model yang
+lebih besar dari keluarga lain tidak otomatis mengatasi keterbatasan
+informasi dalam masukan. Namun, hanya satu target MAL dan 14 kandidat HN
+yang diuji, sehingga hasil ini tidak menunjukkan bahwa Granite dan Qwen
+setara pada populasi pembaruan npm. Perluasan model harus disertai kohort
+yang cukup beragam dan label yang dapat dipertanggungjawabkan.
+
+Batas validitas utama adalah seleksi post-hoc D88, keterpaparan dev,
+ketergantungan antartarget yang berbagi dependency, ketiadaan gold manusia,
+serta cakupan HN D89 yang belum mencakup perilaku runtime sensitif.
+Kedua studi menggunakan konteks kode dependency, bukan retrieval contoh KB
+berlabel. Hasilnya tidak menjawab hipotesis keunggulan contoh benign sebagai
+pembanding malicious, maupun efek intent terhadap FPR pada studi utama.
+
+Evaluasi berikutnya perlu mencakup beberapa keluarga dependency dengan
+provenance temporal, memisahkan versi resolved dari versi bersyarat, dan
+menyertakan pembaruan sah dengan perilaku network, process, atau lifecycle
+yang diverifikasi independen. Card KB harus ditulis dan diperiksa oleh dua
+anotator; target, dependency terkait, dan klon yang telah terpapar perlu
+dikecualikan dari KB dan test final. Audit ID bukti perlu dilengkapi penilaian
+apakah kutipan mendukung alasan, karena format yang valid tidak menjamin
+ketepatan penalaran.

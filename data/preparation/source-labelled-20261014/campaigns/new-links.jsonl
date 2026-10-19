@@ -1,0 +1,9 @@
+{"left": "gnache-cli@6.12.2", "right": "eslint-config-airbnb-standard@2.0.0", "criterion": "added_hashes", "value": "00ed5475b08b4a239836bc5d667bfaf343f4f2412cd7616d2aaf37bddd8582c2"}
+{"left": "isarray@2.0.5", "right": "eslint-config-airbnb-standard@2.0.0", "criterion": "added_hashes", "value": "68f12f6e2c33688699249c01d8f9623c534da20aa71989c57b061b7bc1676d14"}
+{"left": "for-each@0.3.3", "right": "eslint-config-airbnb-standard@2.0.0", "criterion": "added_hashes", "value": "aa897018d852d9779a9006be21c269d556d1af2d3da23762da46a11580bd9cd1"}
+{"left": "eslint-scope@3.7.2", "right": "eslint-config-airbnb-standard@2.0.0", "criterion": "added_hashes", "value": "e44f3836aa26756e6168bbd2756460c509911c110c19d5ab1314b9dc643f4487"}
+{"left": "techghoshal555@1.5.0", "right": "mangeto@20.0.0", "criterion": "dolos", "score": 0.5}
+{"left": "apl-viewhost-web@2023.1.0", "right": "awaitly-libsql@12.0.1", "criterion": "dolos", "score": 0.875404519110035}
+{"left": "rpc-websocket@0.7.8", "right": "kraken-api@0.1.8", "criterion": "dolos", "score": 0.6153846153846154}
+{"left": "rpc-websocket@0.7.9", "right": "kraken-api@0.1.8", "criterion": "dolos", "score": 0.6153846153846154}
+{"left": "rpc-websocket@0.7.10", "right": "kraken-api@0.1.8", "criterion": "dolos", "score": 0.8235294117647058}

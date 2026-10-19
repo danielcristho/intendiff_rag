@@ -1,0 +1,12 @@
+{
+  "candidates": 959,
+  "available_clear_predecessor": 830,
+  "excluded": 129,
+  "overlapping_exclusion_counts": {
+    "predecessor_unavailable_or_invalid": 107,
+    "predecessor_advisory_present": 97
+  },
+  "overlap_with_wyss_audit": 0,
+  "gold_labels_assigned": 0,
+  "note": "Availability and advisory screening only; not a final MAL test set."
+}

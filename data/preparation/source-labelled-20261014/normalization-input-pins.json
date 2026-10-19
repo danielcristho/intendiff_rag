@@ -1,0 +1,34 @@
+[
+  {
+    "path": "pipeline/dataset.py",
+    "sha256": "4a6995feb378f639ab19f15d3caa524966543ecf36dc3ed04aca72d5899cbd8d"
+  },
+  {
+    "path": "pipeline/preprocess_corpus.py",
+    "sha256": "bc37d4f3ae15e8e633df93ed9016c3448594e8d39a546d2ad7c2f35b08c07383"
+  },
+  {
+    "path": "pipeline/normalization.py",
+    "sha256": "ad691d580c9a9a29df2a2213e0c9bcb55e6c14f522a50d6e8d51026d76ed8f3e"
+  },
+  {
+    "path": "pipeline/smartdiff.py",
+    "sha256": "2f0eba35dc67deb85bbaba5fbd0d1e5dc8c36e52e55c7cd419418f7e45d23c6a"
+  },
+  {
+    "path": "pipeline/capability.py",
+    "sha256": "bdf4d84ae065bb313d9d45ea36c993c6000eb3a2a93d65e737b76105405eb05b"
+  },
+  {
+    "path": "pipeline/intent.py",
+    "sha256": "05eb7116f31f4de33f27bf9f9d02328fb8867eb1801b333d87e9530f683a8921"
+  },
+  {
+    "path": "data/upstream/tokenizer-qwen25/tokenizer.json",
+    "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+  },
+  {
+    "path": "data/preparation/source-labelled-20261014/cohort/pairs.manifest.jsonl",
+    "sha256": "1d14c37f264939eeaaf64d14b912ad1bee80a81dd82a070657e833ad0fa7e1b9"
+  }
+]

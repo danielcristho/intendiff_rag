@@ -1,0 +1,190 @@
+{
+  "passed": true,
+  "generations": 160,
+  "reconstructed_requests": 160,
+  "retokenized_prompts": 160,
+  "raw_parsing_and_citations_match": true,
+  "frozen_hash_checks": [
+    {
+      "section": "source_sha256",
+      "pinned": "data/evaluation/evidence-dev-20261001/evidence.py",
+      "verified_path": "data/evaluation/evidence-dev-20261001/evidence.py"
+    },
+    {
+      "section": "source_sha256",
+      "pinned": "data/evaluation/evidence-dev-20261001/legacy_prompts.py",
+      "verified_path": "data/evaluation/evidence-dev-20261001/legacy_prompts.py"
+    },
+    {
+      "section": "source_sha256",
+      "pinned": "data/evaluation/evidence-dev-20261001/run_batch.py",
+      "verified_path": "data/evaluation/evidence-dev-20261001/run_batch.py"
+    },
+    {
+      "section": "source_sha256",
+      "pinned": "data/evaluation/evidence-dev-20261001/summarize.py",
+      "verified_path": "data/evaluation/evidence-dev-20261001/summarize.py"
+    },
+    {
+      "section": "source_sha256",
+      "pinned": "data/evaluation/evidence-dev-20261001/evaluate.py",
+      "verified_path": "data/evaluation/evidence-dev-20261001/evaluate.py"
+    },
+    {
+      "section": "source_sha256",
+      "pinned": "data/evaluation/evidence-dev-20261001/prompts.py",
+      "verified_path": "data/evaluation/evidence-dev-20261001/prompts.py"
+    },
+    {
+      "section": "source_sha256",
+      "pinned": "data/evaluation/evidence-dev-20261001/prepare.py",
+      "verified_path": "data/evaluation/evidence-dev-20261001/prepare.py"
+    },
+    {
+      "section": "source_sha256",
+      "pinned": "data/evaluation/evidence-dev-20261001/configs.py",
+      "verified_path": "data/evaluation/evidence-dev-20261001/configs.py"
+    },
+    {
+      "section": "source_sha256",
+      "pinned": "data/evaluation/evidence-dev-20261001/pairs.jsonl",
+      "verified_path": "data/evaluation/evidence-dev-20261001/pairs.jsonl"
+    },
+    {
+      "section": "source_sha256",
+      "pinned": "data/evaluation/evidence-dev-20261001/annotation-input.jsonl",
+      "verified_path": "data/evaluation/evidence-dev-20261001/annotation-input.jsonl"
+    },
+    {
+      "section": "source_sha256",
+      "pinned": "data/evaluation/evidence-dev-20261001/context-audit.jsonl",
+      "verified_path": "data/evaluation/evidence-dev-20261001/context-audit.jsonl"
+    },
+    {
+      "section": "source_sha256",
+      "pinned": "data/evaluation/evidence-dev-20261001/dev-exclusions.jsonl",
+      "verified_path": "data/evaluation/evidence-dev-20261001/dev-exclusions.jsonl"
+    },
+    {
+      "section": "source_sha256",
+      "pinned": "docs/decisions.md",
+      "verified_path": "data/evaluation/mixed-dev-20261002/decisions-through-D85.md"
+    },
+    {
+      "section": "source_sha256",
+      "pinned": "docs/evidence-dev-20261001.md",
+      "verified_path": "docs/evidence-dev-20261001.md"
+    },
+    {
+      "section": "upstream_sha256",
+      "pinned": "data/review/pairs.jsonl",
+      "verified_path": "data/review/pairs.jsonl"
+    },
+    {
+      "section": "upstream_sha256",
+      "pinned": "data/evaluation/model-families-20261001/pairs.jsonl",
+      "verified_path": "data/evaluation/model-families-20261001/pairs.jsonl"
+    },
+    {
+      "section": "model_sha256",
+      "pinned": "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/vocab.json",
+      "verified_path": "data/upstream/models/qwen3-4b-instruct-2507/vocab.json"
+    },
+    {
+      "section": "model_sha256",
+      "pinned": "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/generation_config.json",
+      "verified_path": "data/upstream/models/qwen3-4b-instruct-2507/generation_config.json"
+    },
+    {
+      "section": "model_sha256",
+      "pinned": "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/tokenizer.json",
+      "verified_path": "data/upstream/models/qwen3-4b-instruct-2507/tokenizer.json"
+    },
+    {
+      "section": "model_sha256",
+      "pinned": "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/model-00002-of-00003.safetensors",
+      "verified_path": "data/upstream/models/qwen3-4b-instruct-2507/model-00002-of-00003.safetensors"
+    },
+    {
+      "section": "model_sha256",
+      "pinned": "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/LICENSE",
+      "verified_path": "data/upstream/models/qwen3-4b-instruct-2507/LICENSE"
+    },
+    {
+      "section": "model_sha256",
+      "pinned": "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/model.safetensors.index.json",
+      "verified_path": "data/upstream/models/qwen3-4b-instruct-2507/model.safetensors.index.json"
+    },
+    {
+      "section": "model_sha256",
+      "pinned": "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/model-00003-of-00003.safetensors",
+      "verified_path": "data/upstream/models/qwen3-4b-instruct-2507/model-00003-of-00003.safetensors"
+    },
+    {
+      "section": "model_sha256",
+      "pinned": "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/merges.txt",
+      "verified_path": "data/upstream/models/qwen3-4b-instruct-2507/merges.txt"
+    },
+    {
+      "section": "model_sha256",
+      "pinned": "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/tokenizer_config.json",
+      "verified_path": "data/upstream/models/qwen3-4b-instruct-2507/tokenizer_config.json"
+    },
+    {
+      "section": "model_sha256",
+      "pinned": "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/README.md",
+      "verified_path": "data/upstream/models/qwen3-4b-instruct-2507/README.md"
+    },
+    {
+      "section": "model_sha256",
+      "pinned": "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/config.json",
+      "verified_path": "data/upstream/models/qwen3-4b-instruct-2507/config.json"
+    },
+    {
+      "section": "model_sha256",
+      "pinned": "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/model-00001-of-00003.safetensors",
+      "verified_path": "data/upstream/models/qwen3-4b-instruct-2507/model-00001-of-00003.safetensors"
+    },
+    {
+      "section": "model_sha256",
+      "pinned": "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/.gitattributes",
+      "verified_path": "data/upstream/models/qwen3-4b-instruct-2507/.gitattributes"
+    }
+  ],
+  "arms": {
+    "LEGACY-I": {
+      "n": 32,
+      "valid": 29,
+      "malicious": 5
+    },
+    "SCHEMA-I": {
+      "n": 32,
+      "valid": 32,
+      "malicious": 6
+    },
+    "IDS-I": {
+      "n": 32,
+      "valid": 32,
+      "malicious": 0,
+      "header_or_hunk_citations": 11,
+      "no_content_citations": 4
+    },
+    "IDS-D": {
+      "n": 32,
+      "valid": 32,
+      "malicious": 0,
+      "header_or_hunk_citations": 7,
+      "no_content_citations": 1
+    },
+    "VERIFY-I": {
+      "n": 32,
+      "valid": 32,
+      "malicious": 0,
+      "header_or_hunk_citations": 9,
+      "no_content_citations": 3
+    }
+  },
+  "human_gold_verified": false,
+  "accuracy_claim_supported": false,
+  "source_results_unchanged": true
+}

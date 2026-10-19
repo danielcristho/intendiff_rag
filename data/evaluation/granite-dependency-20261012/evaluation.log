@@ -1,0 +1,124 @@
+{"stage": "server_starting", "unix": 1791758532.1791737, "pid": 573202, "command": ["~/intendiff_rag/.venv/bin/vllm", "serve", "~/intendiff_rag/data/upstream/models/granite33_8b", "--served-model-name", "ibm-granite/granite-3.3-8b-instruct", "--host", "127.0.0.1", "--port", "8101", "--dtype", "bfloat16", "--max-model-len", "32768", "--seed", "0", "--generation-config", "vllm", "--max-num-seqs", "1", "--kv-cache-memory-bytes", "6442450944", "--enable-prefix-caching"]}
+{"stage": "evaluating", "unix": 1791758606.2102752}
+{"completed": 1, "expected": 30, "pair_id": "zuper-cli@1.0.1", "arm": "WITH-SOURCE"}
+{"completed": 2, "expected": 30, "pair_id": "zuper-cli@1.0.1", "arm": "NO-SOURCE"}
+{"completed": 3, "expected": 30, "pair_id": "has-tostringtag@1.0.2", "arm": "WITH-SOURCE"}
+{"completed": 4, "expected": 30, "pair_id": "has-tostringtag@1.0.2", "arm": "NO-SOURCE"}
+{"completed": 5, "expected": 30, "pair_id": "onlinedb@2.4.3", "arm": "WITH-SOURCE"}
+{"completed": 6, "expected": 30, "pair_id": "onlinedb@2.4.3", "arm": "NO-SOURCE"}
+{"completed": 7, "expected": 30, "pair_id": "iterator.prototype@1.1.2", "arm": "NO-SOURCE"}
+{"completed": 8, "expected": 30, "pair_id": "iterator.prototype@1.1.2", "arm": "WITH-SOURCE"}
+{"completed": 9, "expected": 30, "pair_id": "assert@2.1.0", "arm": "WITH-SOURCE"}
+{"completed": 10, "expected": 30, "pair_id": "assert@2.1.0", "arm": "NO-SOURCE"}
+{"completed": 11, "expected": 30, "pair_id": "c8t3_number_guessing_game@2.0.1", "arm": "NO-SOURCE"}
+{"completed": 12, "expected": 30, "pair_id": "c8t3_number_guessing_game@2.0.1", "arm": "WITH-SOURCE"}
+{"completed": 13, "expected": 30, "pair_id": "get-symbol-description@1.0.2", "arm": "WITH-SOURCE"}
+{"completed": 14, "expected": 30, "pair_id": "get-symbol-description@1.0.2", "arm": "NO-SOURCE"}
+{"completed": 15, "expected": 30, "pair_id": "jsonwebtoken@9.0.2", "arm": "NO-SOURCE"}
+{"completed": 16, "expected": 30, "pair_id": "jsonwebtoken@9.0.2", "arm": "WITH-SOURCE"}
+{"completed": 17, "expected": 30, "pair_id": "is-bigint@1.0.4", "arm": "WITH-SOURCE"}
+{"completed": 18, "expected": 30, "pair_id": "is-bigint@1.0.4", "arm": "NO-SOURCE"}
+{"completed": 19, "expected": 30, "pair_id": "@tolicodes/picklejs@0.75.0", "arm": "WITH-SOURCE"}
+{"completed": 20, "expected": 30, "pair_id": "@tolicodes/picklejs@0.75.0", "arm": "NO-SOURCE"}
+{"completed": 21, "expected": 30, "pair_id": "string.prototype.matchall@4.0.11", "arm": "WITH-SOURCE"}
+{"completed": 22, "expected": 30, "pair_id": "string.prototype.matchall@4.0.11", "arm": "NO-SOURCE"}
+{"completed": 23, "expected": 30, "pair_id": "body-parser@2.0.0-beta.2", "arm": "NO-SOURCE"}
+{"completed": 24, "expected": 30, "pair_id": "body-parser@2.0.0-beta.2", "arm": "WITH-SOURCE"}
+{"completed": 25, "expected": 30, "pair_id": "eslint-config-service-soft@1.3.3", "arm": "NO-SOURCE"}
+{"completed": 26, "expected": 30, "pair_id": "eslint-config-service-soft@1.3.3", "arm": "WITH-SOURCE"}
+{"completed": 27, "expected": 30, "pair_id": "run-parallel@1.2.0", "arm": "NO-SOURCE"}
+{"completed": 28, "expected": 30, "pair_id": "run-parallel@1.2.0", "arm": "WITH-SOURCE"}
+{"completed": 29, "expected": 30, "pair_id": "@babel/code-frame@8.0.0-alpha.8", "arm": "WITH-SOURCE"}
+{"completed": 30, "expected": 30, "pair_id": "@babel/code-frame@8.0.0-alpha.8", "arm": "NO-SOURCE"}
+{
+  "complete": true,
+  "generations": 30,
+  "groups": [
+    {
+      "cohort": "HN",
+      "arm": "NO-SOURCE",
+      "n": 14,
+      "verdicts": {
+        "benign": 14
+      },
+      "valid": 14,
+      "length": 0,
+      "unknown_id_responses": 0,
+      "dependency_content_citing_responses": 0,
+      "prompt_tokens": 68359,
+      "completion_tokens": 1761,
+      "median_latency_ms": 1676.3868220004952,
+      "FPR": null,
+      "gold_accuracy": null
+    },
+    {
+      "cohort": "HN",
+      "arm": "WITH-SOURCE",
+      "n": 14,
+      "verdicts": {
+        "benign": 14
+      },
+      "valid": 14,
+      "length": 0,
+      "unknown_id_responses": 0,
+      "dependency_content_citing_responses": 2,
+      "prompt_tokens": 132091,
+      "completion_tokens": 2022,
+      "median_latency_ms": 2421.9005739978456,
+      "FPR": null,
+      "gold_accuracy": null
+    },
+    {
+      "cohort": "MAL",
+      "arm": "NO-SOURCE",
+      "n": 1,
+      "verdicts": {
+        "benign": 1
+      },
+      "valid": 1,
+      "length": 0,
+      "unknown_id_responses": 0,
+      "dependency_content_citing_responses": 0,
+      "prompt_tokens": 6699,
+      "completion_tokens": 145,
+      "median_latency_ms": 1858.7517729974934,
+      "FPR": null,
+      "gold_accuracy": null
+    },
+    {
+      "cohort": "MAL",
+      "arm": "WITH-SOURCE",
+      "n": 1,
+      "verdicts": {
+        "benign": 1
+      },
+      "valid": 1,
+      "length": 0,
+      "unknown_id_responses": 0,
+      "dependency_content_citing_responses": 0,
+      "prompt_tokens": 12176,
+      "completion_tokens": 129,
+      "median_latency_ms": 3256.9807399995625,
+      "FPR": null,
+      "gold_accuracy": null
+    }
+  ],
+  "transitions": [
+    {
+      "cohort": "HN",
+      "without": "benign",
+      "with": "benign",
+      "n": 14
+    },
+    {
+      "cohort": "MAL",
+      "without": "benign",
+      "with": "benign",
+      "n": 1
+    }
+  ],
+  "human_gold_verified": false,
+  "installed_versions_verified": false,
+  "RAG_evaluated": false
+}
+{"stage": "complete", "unix": 1791758696.6148787, "expected_generations": 30, "accuracy_metrics_available": false}

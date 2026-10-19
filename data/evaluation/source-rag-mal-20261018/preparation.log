@@ -1,0 +1,7 @@
+{"tag": "qwen3", "eligible": true, "expected": 576, "dev_json_validity": 1.0, "max_prompt_tokens": 29852}
+{"tag": "qwen25", "eligible": true, "expected": 576, "dev_json_validity": 0.9833333333333333, "max_prompt_tokens": 29852}
+{"tag": "qwen25_7b", "eligible": true, "expected": 576, "dev_json_validity": 1.0, "max_prompt_tokens": 29852}
+{"tag": "qwen3_8b", "eligible": false, "reason": "historical_dev_format_gate_failed", "dev_json_validity": 0.8166666666666667}
+{"tag": "phi4_mini", "eligible": true, "expected": 576, "dev_json_validity": 1.0, "max_prompt_tokens": 29665}
+{"tag": "llama31_8b", "eligible": true, "expected": 576, "dev_json_validity": 0.9333333333333333, "max_prompt_tokens": 29505}
+{"tag": "granite33_8b", "eligible": true, "expected": 576, "dev_json_validity": 0.9, "max_prompt_tokens": 35438}

@@ -1,0 +1,28 @@
+{
+  "checked_at_utc": "2026-10-11T22:56:50.583325+00:00",
+  "pdf_pages": 13,
+  "latex_build_passed": true,
+  "undefined_references_or_citations": false,
+  "new_results_overfull_boxes": false,
+  "existing_manuscript_layout_warnings_remain": true,
+  "D89_D90_tokens_recounted": {
+    "D89": {
+      "NO-SOURCE": 67749,
+      "WITH-SOURCE": 128286
+    },
+    "D90": {
+      "NO-SOURCE": 76964,
+      "WITH-SOURCE": 146418
+    }
+  },
+  "D88_generations": 40,
+  "D88_total_tokens": 370164,
+  "claim_scope": "exploratory only; gold FPR and RAG outcomes unavailable",
+  "result_sources_sha256": {
+    "data/evaluation/dependency-context-20261011/results.jsonl": "371d7de20dd5ee5f00926f6d500cafb31bdb733fb14db2d2ae762448bb6feecd",
+    "data/evaluation/dependency-context-20261011/summary.json": "7c1246f9f5c1e97ae23e70e929248a11ae6e8cb6623c74bbbdf06840296c4559",
+    "data/evaluation/dependency-generalization-20261012/results.jsonl": "53e329a3821df783e4bf6869691b193bc822018545972e947899dcd9e7e861b8",
+    "data/evaluation/granite-dependency-20261012/results.jsonl": "3f0e008b40d7362066311343917476fb0c175382b8773b4563f7e0415472bb0a",
+    "data/evaluation/granite-dependency-20261012/verification.json": "4021b3664154bcae91915549895531c0aab7c9c63aa019c3f70958e059913423"
+  }
+}

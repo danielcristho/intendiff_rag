@@ -1,0 +1,42 @@
+[
+  {
+    "path": "data/acquisition/expansion-full-20261013/review.hn-combined.jsonl",
+    "sha256": "905a35001b11df2e44875ad2b6da74a64946ad74de1240602ee3a1e3ebf715a1"
+  },
+  {
+    "path": "data/acquisition/campaigns-20261013/split-proposal.jsonl",
+    "sha256": "a010778282ec39267dce3575667b264d62ee7ea303607c00773851118d84512e"
+  },
+  {
+    "path": "data/preparation/final-rag-20261014/hn.manifest.jsonl",
+    "sha256": "3fa5954bf336ebec618145965a2a95cad0e5d1d89f964ec7fb9c13d39c6b76b1"
+  },
+  {
+    "path": "data/upstream/tokenizer-qwen25/tokenizer.json",
+    "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+  },
+  {
+    "path": "pipeline/preprocess_corpus.py",
+    "sha256": "bc37d4f3ae15e8e633df93ed9016c3448594e8d39a546d2ad7c2f35b08c07383"
+  },
+  {
+    "path": "pipeline/dataset.py",
+    "sha256": "b1fc341138d88c6d870e6c3a783cd1c1d992a7e1539ba3ec8a3ac692e02ca1cd"
+  },
+  {
+    "path": "pipeline/normalization.py",
+    "sha256": "ad691d580c9a9a29df2a2213e0c9bcb55e6c14f522a50d6e8d51026d76ed8f3e"
+  },
+  {
+    "path": "pipeline/smartdiff.py",
+    "sha256": "2f0eba35dc67deb85bbaba5fbd0d1e5dc8c36e52e55c7cd419418f7e45d23c6a"
+  },
+  {
+    "path": "pipeline/capability.py",
+    "sha256": "bdf4d84ae065bb313d9d45ea36c993c6000eb3a2a93d65e737b76105405eb05b"
+  },
+  {
+    "path": "pipeline/intent.py",
+    "sha256": "05eb7116f31f4de33f27bf9f9d02328fb8867eb1801b333d87e9530f683a8921"
+  }
+]

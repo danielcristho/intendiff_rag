@@ -3,8 +3,6 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { AnnotatorGate } from "@/components/AnnotatorGate";
 import { AppLayout } from "@/components/AppLayout";
 import { AuditPage } from "@/pages/AuditPage";
-import { CardsPage } from "@/pages/CardsPage";
-import { HnPage } from "@/pages/HnPage";
 import { OverviewPage } from "@/pages/OverviewPage";
 
 const queryClient = new QueryClient({
@@ -20,8 +18,6 @@ export function App() {
             <Route element={<AppLayout />}>
               <Route path="/overview" element={<OverviewPage />} />
               <Route path="/audit" element={<AuditPage />} />
-              <Route path="/cards" element={<CardsPage />} />
-              <Route path="/hn" element={<HnPage />} />
             </Route>
             <Route path="*" element={<Navigate to="/audit" replace />} />
           </Routes>

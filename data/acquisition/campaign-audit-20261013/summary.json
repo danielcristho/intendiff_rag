@@ -1,0 +1,297 @@
+{
+  "status": "diagnostic only; frozen D96 split unchanged",
+  "items": 27493,
+  "clusters": 7178,
+  "giant": "02-echo@0.0.7",
+  "giant_size": 12269,
+  "giant_roles": {
+    "mal_candidate": 600,
+    "kb_pool": 11581,
+    "review_typ": 68,
+    "review_hn": 20
+  },
+  "exact_ablations": {
+    "reports": {
+      "clusters": 18439,
+      "largest": [
+        [
+          "blocks-nextjs@9999.9999.10000",
+          370
+        ],
+        [
+          "admin10001@1.0.10",
+          317
+        ],
+        [
+          "admin1001@3.0.0",
+          117
+        ],
+        [
+          "@tushar-br/editing-pack@1.0.110",
+          79
+        ],
+        [
+          "github-badge-bot@1.0.0",
+          78
+        ],
+        [
+          "rank4222wun@1.0.1",
+          78
+        ],
+        [
+          "web3js-wallet@1.0.0",
+          77
+        ],
+        [
+          "admin0911@1.0.0",
+          70
+        ],
+        [
+          "@depro-tech/cortana-md@1.0.10",
+          54
+        ],
+        [
+          "@tushar-br/desktop@1.0.173",
+          53
+        ]
+      ],
+      "giant_components": 7900,
+      "giant_largest_components": [
+        [
+          "@tushar-br/editing-pack@1.0.110",
+          79
+        ],
+        [
+          "rank4222wun@1.0.1",
+          78
+        ],
+        [
+          "web3js-wallet@1.0.0",
+          77
+        ],
+        [
+          "admin0911@1.0.0",
+          70
+        ],
+        [
+          "@depro-tech/cortana-md@1.0.10",
+          54
+        ],
+        [
+          "@tushar-br/desktop@1.0.173",
+          53
+        ],
+        [
+          "n8n-nodes-gasdhgfuy-rejerw-ytjsadx@0.0.20",
+          51
+        ],
+        [
+          "n8n-nodes-gg-udhasudsh-hgjkhg-official@0.0.1",
+          43
+        ],
+        [
+          "coral-wraith@1.0.0",
+          41
+        ],
+        [
+          "myconfusedfunctionpoctestpackage@1.0.0",
+          38
+        ]
+      ]
+    },
+    "added_hashes": {
+      "clusters": 13901,
+      "largest": [
+        [
+          "ade-brengkes57-breki@4.1.3",
+          1870
+        ],
+        [
+          "1imit@1.0.0",
+          914
+        ],
+        [
+          "above_turtle_z3n@2.2.4",
+          377
+        ],
+        [
+          "blocks-nextjs@9999.9999.10026",
+          348
+        ],
+        [
+          "02-echo@0.0.7",
+          259
+        ],
+        [
+          "@monicfoundation/hardhat-config@1.0.3",
+          249
+        ],
+        [
+          "ads-common-components@7.3.9",
+          243
+        ],
+        [
+          "esoftplay@0.0.138-b",
+          197
+        ],
+        [
+          "async-pipeline-builder@1.0.0",
+          179
+        ],
+        [
+          "@amazon-devices/kepler-ui-components@3.1.0-rn-83",
+          167
+        ]
+      ],
+      "giant_components": 3498,
+      "giant_largest_components": [
+        [
+          "ade-brengkes57-breki@4.1.3",
+          1870
+        ],
+        [
+          "1imit@1.0.0",
+          914
+        ],
+        [
+          "above_turtle_z3n@2.2.4",
+          377
+        ],
+        [
+          "02-echo@0.0.7",
+          259
+        ],
+        [
+          "@monicfoundation/hardhat-config@1.0.3",
+          249
+        ],
+        [
+          "esoftplay@0.0.138-b",
+          197
+        ],
+        [
+          "async-pipeline-builder@1.0.0",
+          179
+        ],
+        [
+          "@amazon-devices/kepler-ui-components@3.1.0-rn-83",
+          167
+        ],
+        [
+          "n8n-nodes-gasdhgfuy-rejerw-ytjsadx@0.0.20",
+          150
+        ],
+        [
+          "@tushar-br/desktop@1.0.173",
+          135
+        ]
+      ]
+    },
+    "reports+added_hashes": {
+      "clusters": 9857,
+      "largest": [
+        [
+          "ade-brengkes57-breki@4.1.3",
+          1870
+        ],
+        [
+          "1imit@1.0.0",
+          949
+        ],
+        [
+          "above_turtle_z3n@2.2.4",
+          377
+        ],
+        [
+          "blocks-nextjs@9999.9999.10000",
+          370
+        ],
+        [
+          "admin10001@1.0.10",
+          317
+        ],
+        [
+          "@common-pattern/components@8.2.9",
+          307
+        ],
+        [
+          "@monicfoundation/hardhat-config@1.0.3",
+          286
+        ],
+        [
+          "02-echo@0.0.7",
+          259
+        ],
+        [
+          "esoftplay@0.0.138-b",
+          197
+        ],
+        [
+          "@amazon-devices/kepler-ui-components@3.1.0-rn-83",
+          196
+        ]
+      ],
+      "giant_components": 1996,
+      "giant_largest_components": [
+        [
+          "ade-brengkes57-breki@4.1.3",
+          1870
+        ],
+        [
+          "1imit@1.0.0",
+          949
+        ],
+        [
+          "above_turtle_z3n@2.2.4",
+          377
+        ],
+        [
+          "@monicfoundation/hardhat-config@1.0.3",
+          286
+        ],
+        [
+          "02-echo@0.0.7",
+          259
+        ],
+        [
+          "esoftplay@0.0.138-b",
+          197
+        ],
+        [
+          "@amazon-devices/kepler-ui-components@3.1.0-rn-83",
+          196
+        ],
+        [
+          "async-pipeline-builder@1.0.0",
+          179
+        ],
+        [
+          "n8n-nodes-gasdhgfuy-rejerw-ytjsadx@0.0.20",
+          150
+        ],
+        [
+          "@tushar-br/desktop@1.0.173",
+          135
+        ]
+      ]
+    }
+  },
+  "witness_edges": {
+    "added_hashes": 8582,
+    "reports": 9054,
+    "dolos": 2679
+  },
+  "giant_witness_edges": {
+    "added_hashes": 5904,
+    "reports": 4369,
+    "dolos": 1995
+  },
+  "dolos_comparisons": 6821723,
+  "frozen_partition_reproduced": true,
+  "certificate_limit": "Proves connectivity within frozen groups; does not recheck omitted cross-group Dolos edges.",
+  "newly_dev_paths": 79,
+  "paths_requiring_dolos": 36,
+  "gold_labels_created": 0,
+  "inferences": 0,
+  "split_changes": 0
+}

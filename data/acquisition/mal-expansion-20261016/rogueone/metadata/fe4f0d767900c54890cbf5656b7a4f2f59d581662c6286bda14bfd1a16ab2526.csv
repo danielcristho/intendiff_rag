@@ -1,0 +1,124 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Types.isDate","d",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Types.isRegExp","re",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Types.isString","str",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Types.isFunction","fn",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Types.isUndefined","val",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Types.isObject","obj",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Types.isArray","ar",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Types.typeOf","obj",20
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isNull","value,message",219
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isBoolean","value,message",418
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isNumber","value,message",617
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isArray","value,message",816
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isDate","value,message",1015
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.guard","value,types,message",1016
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isRegExp","value,message",1215
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isInstanceOf","obj1,obj2,message",1232
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isUndefined","value,message",1431
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isObject","value,message",1642
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isFunction","value,message",1841
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isString","value,message",2040
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.EventDispatcher","",2040
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.EventDispatcher()).__proto__.hasEventListener","type",2040
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.EventDispatcher()).__proto__.removeAllEventListeners","type",2040
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.EventDispatcher()).__proto__.removeEventListener","type,callbackFunction",2042
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.EventDispatcher()).__proto__.addEventListener","type,callbackFunction,context",2043
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.EventDispatcher()).__proto__.dispatchEvent","e",2049
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Headers","headers,normalize",2050
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Headers()).__proto__.removeHeader","name",2051
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Headers()).__proto__.getHeaders","",2051
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Headers()).__proto__.getHeader","name",2053
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Headers()).__proto__.normalize","headers",2053
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Headers()).__proto__.getRawHeader","name",2053
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Headers()).__proto__.setHeader","name,value,overwrite",2054
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Headers()).__proto__.removeHeaders","",2054
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Message","params",2054
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.removeHeader","name",2055
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.setHeader","name,value,overwrite",2056
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.getHttpVersion","",2056
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.getBody","",2056
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.removeHeaders","",2056
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.init","params",2070
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.getHeaders","",2070
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.setHttpVersion","httpVersion",2070
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.getHeader","name",2072
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.setBody","body",2072
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.setHeaders","headers,normalize",2187
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.BinaryData","data,encoding,characterEncoding",2187
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.BinaryData()).__proto__.getCharacterEncoding","",2187
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.BinaryData()).__proto__.toBuffer","",2208
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.BinaryData()).__proto__.toString","",2252
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.BinaryData()).__proto__.getEncoding","",2252
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.BinaryData()).__proto__.setData","data,encoding,characterEncoding",2252
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.BinaryData()).__proto__.toUTF8String","",2278
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.BinaryData()).__proto__.length","",2307
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.BinaryData())._data.__proto__.convertTo","encoding,characterEncoding",2342
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.FormData","",2342
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.FormData()).__proto__.getBoundary","",2342
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.FormData()).__proto__.addField","fieldName,fieldValue",2342
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Types.isRegExp","re",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Types.isNull","val",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Types.isString","str",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Types.typeOf","obj",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Types.isBoolean","bool",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Types.isDate","d",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Types.isInstanceOf","cls1,cls2",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Types.isUndefined","val",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Types.isObject","obj",20
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isInstanceOf","obj1,obj2,message",29
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isNull","value,message",180
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isBoolean","value,message",331
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isString","value,message",482
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isArray","value,message",633
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isRegExp","value,message",784
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isUndefined","value,message",935
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.guard","value,types,message",936
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isObject","value,message",1093
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isDate","value,message",1244
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isNumber","value,message",1395
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Assertions.isFunction","value,message",1546
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.EventDispatcher","",1546
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.EventDispatcher()).__proto__.addEventListener","type,callbackFunction,context",1547
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.EventDispatcher()).__proto__.removeEventListener","type,callbackFunction",1549
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.EventDispatcher()).__proto__.hasEventListener","type",1549
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.EventDispatcher()).__proto__.dispatchEvent","e",1555
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.EventDispatcher()).__proto__.removeAllEventListeners","type",1555
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Headers","headers,normalize",1555
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Headers()).__proto__.getHeaders","",1555
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Headers()).__proto__.removeHeaders","",1555
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Headers()).__proto__.normalize","headers",1555
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Headers()).__proto__.removeHeader","name",1556
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Headers()).__proto__.getRawHeader","name",1557
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Headers()).__proto__.setHeader","name,value,overwrite",1559
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Headers()).__proto__.getHeader","name",1560
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Message","params",1560
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.getHeaders","",1560
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.getHeader","name",1562
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.setHeader","name,value,overwrite",1563
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.setBody","body",1563
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.init","params",1577
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.getBody","",1577
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.setHttpVersion","httpVersion",1577
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.getHttpVersion","",1577
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.removeHeader","name",1578
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.setHeaders","headers,normalize",1639
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.Message()).__proto__.removeHeaders","",1639
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.BinaryData","data,encoding,characterEncoding",1639
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.BinaryData()).__proto__.length","",1647
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.BinaryData()).__proto__.setData","data,encoding,characterEncoding",1647
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.BinaryData()).__proto__.getCharacterEncoding","",1647
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.BinaryData()).__proto__.toString","",1649
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.BinaryData()).__proto__.toBuffer","",1650
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.BinaryData()).__proto__.toUTF8String","",1652
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.BinaryData()).__proto__.getEncoding","",1652
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.BinaryData())._data.__proto__.convertTo","encoding,characterEncoding",1652
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.FormData","",1652
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.FormData()).__proto__.toUTF8String","",1652
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.FormData()).__proto__.addFile","fieldName,fieldValue,fileName,fileType",1652
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.FormData()).__proto__.getBoundary","",1652
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.FormData()).__proto__.addField","fieldName,fieldValue",1652
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.FormData()).__proto__._getFieldAsBuffer","field",1704
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.FormData()).__proto__.toBuffer","",1747
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.FormData()).__proto__._getFieldAsBuffer().write","",1747
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","(new module.exports.FormData()).__proto__._getFieldAsBuffer().copy","",1747
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/core_1.0.112-->1.0.113/core-1.0.113/","module.exports.Request","params",6380

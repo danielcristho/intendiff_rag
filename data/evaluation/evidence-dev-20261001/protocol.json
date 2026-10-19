@@ -1,0 +1,77 @@
+{
+  "decision": "D85",
+  "scope": "real_unlabeled_development_not_accuracy_evaluation",
+  "model": {
+    "id": "Qwen/Qwen3-4B-Instruct-2507",
+    "tag": "qwen3",
+    "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "path": "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507"
+  },
+  "arms": [
+    "LEGACY-I",
+    "SCHEMA-I",
+    "IDS-I",
+    "IDS-D",
+    "VERIFY-I"
+  ],
+  "pairs": 32,
+  "expected_generations": 160,
+  "selection": "SHA256 D85-dev|id; distinct package/diff/archive hashes; untruncated <=16000 prior tokens",
+  "eligible_count": 126,
+  "human_annotation_verified": false,
+  "clustering_limit": "HN clone/campaign mapping unavailable; package/hash separation is not campaign independence",
+  "max_tokens": 2048,
+  "max_model_len": 32768,
+  "seed": 0,
+  "temperature": 0,
+  "top_p": 1,
+  "kv_cache_memory_bytes": 6442450944,
+  "source_sha256": {
+    "data/evaluation/evidence-dev-20261001/evidence.py": "27e923259f153c917e3f3ccbaed8538257a60ef69bbe4fa457499cde6226e9d1",
+    "data/evaluation/evidence-dev-20261001/legacy_prompts.py": "97b7f3876a361fa51885e472951fac050e3332dc46dc4c37e275d55ea753a263",
+    "data/evaluation/evidence-dev-20261001/run_batch.py": "5cb7d91cf54eb277421fa79f20ce235653da8e05c5bdfacadcf160d595e1269a",
+    "data/evaluation/evidence-dev-20261001/summarize.py": "72853c1a8591080f70b9175726db2b6ffa929513566a1db3c4da14b5bc66e858",
+    "data/evaluation/evidence-dev-20261001/evaluate.py": "b565ce4357b0621991b469ad268c02a1e906d290ab7e8e0d36b0756d3f162c7c",
+    "data/evaluation/evidence-dev-20261001/prompts.py": "1c698700e17cc57516dac3b26942b657d283a1f17dcd31172c59ead5319d8f35",
+    "data/evaluation/evidence-dev-20261001/prepare.py": "cb6b0868698279637fcbe142a9c838e5df44efe26392fced6776f2770a2a6512",
+    "data/evaluation/evidence-dev-20261001/configs.py": "355e43eecb0654ec47b8e7d450beea5827822dc7aec73621d4c16ec7771280ba",
+    "data/evaluation/evidence-dev-20261001/pairs.jsonl": "158021bf354e92cdea51c9b09005639050d43f7febdb5221b5e8cfa42ddecf62",
+    "data/evaluation/evidence-dev-20261001/annotation-input.jsonl": "158021bf354e92cdea51c9b09005639050d43f7febdb5221b5e8cfa42ddecf62",
+    "data/evaluation/evidence-dev-20261001/context-audit.jsonl": "79625c314964b6818d9556cb6a3df5aa96a3d4d7d37f9eda867fa11495de0827",
+    "data/evaluation/evidence-dev-20261001/dev-exclusions.jsonl": "eccf30073151016820da14aa66174d68a8251d8cee0a5ac0a2f482a54bbbf1a9",
+    "docs/decisions.md": "3f72c6c75474410dc3662de03792154172596c462fbebaff5e3cb3e661a41ae7",
+    "docs/evidence-dev-20261001.md": "b05771d31a1f57ffde49a5e4838dab6fcedf08e1106fc9f08cdfbcbb5562cae4"
+  },
+  "upstream_sha256": {
+    "data/review/pairs.jsonl": "14476d3b3dc154d2841baebae09b3f18493ab2209cf04105f5b8bc675f9d0aa2",
+    "data/evaluation/model-families-20261001/pairs.jsonl": "82ad8ecf46e530469ae975be14517f42e64c65932b6b1f7bf6b03d2f143d83c8"
+  },
+  "model_sha256": {
+    "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+    "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/generation_config.json": "835fffe355c9438e7a25be099b3fccaa98350b83451f9fd2d99512e74f1ade48",
+    "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/model-00002-of-00003.safetensors": "0b48adbb1f60e901153d91907ba11ce63bd4b8b584482e730f48808d055dfba1",
+    "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/LICENSE": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+    "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/model.safetensors.index.json": "d6c42883a895dfef5b0080ed2116a1bcd764f558406b98923d675978a1abf29c",
+    "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/model-00003-of-00003.safetensors": "7dd39ccca5e4de123c74c14af44c9bf2eb75df33b4614382af0134528e060d5d",
+    "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/merges.txt": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+    "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/tokenizer_config.json": "a62ff0a2472a0fa1b8eaabcb57c59b58afa42a22831dc141400b6e0cf2b65ce3",
+    "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/README.md": "8e3dd0c3b5b11897cc71092ccfe517bb7a9783479baa3665aad73c8d1a2041cd",
+    "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/config.json": "5beea1a4a34c62782bfb2f911c606741a3bab8f92d80a118fa053c28af12e8ba",
+    "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/model-00001-of-00003.safetensors": "75311d91bb08cf0b882913da464a1e722a31fb44db35208663487efb7a3d8ed6",
+    "~/intendiff_rag/data/upstream/models/qwen3-4b-instruct-2507/.gitattributes": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930"
+  },
+  "metrics": [
+    "JSON validity",
+    "citation existence/type",
+    "verdict transitions",
+    "tokens",
+    "latency"
+  ],
+  "not_measured": [
+    "FPR",
+    "recall",
+    "semantic correctness",
+    "RAG benefit"
+  ]
+}

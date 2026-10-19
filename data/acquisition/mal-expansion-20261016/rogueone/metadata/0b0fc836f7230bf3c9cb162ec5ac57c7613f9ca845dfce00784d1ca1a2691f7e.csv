@@ -1,0 +1,15 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/base64-decode-utils_0.0.1-->0.0.2/base64-decode-utils-0.0.1/","module.exports.decodeToHex","str",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/base64-decode-utils_0.0.1-->0.0.2/base64-decode-utils-0.0.1/","module.exports.decodeToString","str",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/base64-decode-utils_0.0.1-->0.0.2/base64-decode-utils-0.0.1/","module.exports.decodeToUtf8FromHex","str",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/base64-decode-utils_0.0.1-->0.0.2/base64-decode-utils-0.0.1/","module.exports.decodeToIntFromByte","str",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/base64-decode-utils_0.0.1-->0.0.2/base64-decode-utils-0.0.1/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/base64-decode-utils_0.0.1-->0.0.2/base64-decode-utils-0.0.1/","module.exports.decodeToHex","str",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/base64-decode-utils_0.0.1-->0.0.2/base64-decode-utils-0.0.1/","module.exports.decodeToIntFromByte","str",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/base64-decode-utils_0.0.1-->0.0.2/base64-decode-utils-0.0.1/","module.exports.decodeToUtf8FromHex","str",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/base64-decode-utils_0.0.1-->0.0.2/base64-decode-utils-0.0.1/","module.exports.decodeToString","str",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/base64-decode-utils_0.0.1-->0.0.2/base64-decode-utils-0.0.1/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/base64-decode-utils_0.0.1-->0.0.2/base64-decode-utils-0.0.1/","module.exports.decodeToUtf8FromHex","str",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/base64-decode-utils_0.0.1-->0.0.2/base64-decode-utils-0.0.1/","module.exports.decodeToHex","str",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/base64-decode-utils_0.0.1-->0.0.2/base64-decode-utils-0.0.1/","module.exports.decodeToString","str",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/base64-decode-utils_0.0.1-->0.0.2/base64-decode-utils-0.0.1/","module.exports.decodeToIntFromByte","str",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/base64-decode-utils_0.0.1-->0.0.2/base64-decode-utils-0.0.1/","main","",3

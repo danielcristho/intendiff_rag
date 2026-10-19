@@ -1,0 +1,47 @@
+{
+  "new_mal_generations": 160,
+  "costs": [
+    {
+      "arm": "LEGACY-I",
+      "input_tokens": 81660,
+      "output_tokens": 11981,
+      "median_latency_ms": 1122.8448269999944,
+      "p95_nearest_rank_latency_ms": 14892.997423999986
+    },
+    {
+      "arm": "SCHEMA-I",
+      "input_tokens": 81660,
+      "output_tokens": 14146,
+      "median_latency_ms": 1048.7830534999034,
+      "p95_nearest_rank_latency_ms": 15200.121942999998
+    },
+    {
+      "arm": "IDS-I",
+      "input_tokens": 109040,
+      "output_tokens": 3248,
+      "median_latency_ms": 840.9437355000478,
+      "p95_nearest_rank_latency_ms": 1279.4648709999592
+    },
+    {
+      "arm": "IDS-D",
+      "input_tokens": 90130,
+      "output_tokens": 3044,
+      "median_latency_ms": 782.8689094999959,
+      "p95_nearest_rank_latency_ms": 1114.3724519999978
+    },
+    {
+      "arm": "VERIFY-I",
+      "input_tokens": 118432,
+      "output_tokens": 3681,
+      "median_latency_ms": 880.3735754999593,
+      "p95_nearest_rank_latency_ms": 1050.1926379999986
+    }
+  ],
+  "token_total": 517022,
+  "two_stage_tokens": 234401,
+  "two_stage_relative_to_ids_i": 2.0874982188657736,
+  "two_stage_median_latency_ms": 1706.4887364999208,
+  "max_actual_prompt_tokens": 12159,
+  "citation_issue_responses": 6,
+  "human_gold": false
+}

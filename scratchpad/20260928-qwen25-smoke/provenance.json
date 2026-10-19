@@ -1,0 +1,57 @@
+{
+  "kind": "synthetic-fixture-smoke-test",
+  "created_at": "2026-09-28T00:59:01.017915+00:00",
+  "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "model_revision": "488639f1ff808d1d3d0ba301aef8c11461451ec5",
+  "python": "3.12.9",
+  "packages": {
+    "vllm": "0.30.0",
+    "torch": "2.13.0",
+    "transformers": "5.17.0",
+    "flashinfer-python": "0.6.18.post1",
+    "statsmodels": "0.15.0",
+    "matplotlib": "3.11.2"
+  },
+  "git_head": "2adc36ba5968464af358ee69c9ed12fd19669911",
+  "git_dirty": true,
+  "source_sha256": {
+    "data/pairs.sample.jsonl": "c368ec70da744f8017219a639957077a9700e09b43222d3dfe6cbc5915e60d83",
+    "data/kb.sample.jsonl": "f2269cdfab82d89a006a38405985c63479e4f9da12ce19609faa4e2bd4da950f",
+    "pipeline/runner.py": "da6ff8e270d52bd53d02c6834c0751983805c25a408e03a0c9277c7e4491fe9a",
+    "pipeline/prompts.py": "97b7f3876a361fa51885e472951fac050e3332dc46dc4c37e275d55ea753a263",
+    "pipeline/configs.py": "355e43eecb0654ec47b8e7d450beea5827822dc7aec73621d4c16ec7771280ba"
+  },
+  "server_env": {
+    "VLLM_USE_FLASHINFER_SAMPLER": "0",
+    "HF_HUB_OFFLINE": "1"
+  },
+  "server_args": [
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8101",
+    "--dtype",
+    "bfloat16",
+    "--max-model-len",
+    "32768",
+    "--seed",
+    "0",
+    "--generation-config",
+    "vllm",
+    "--gpu-memory-utilization",
+    "0.4"
+  ],
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 512,
+    "seed": 0
+  },
+  "pipeline_selfchecks": {
+    "passed": 15,
+    "total": 15
+  },
+  "expected_measured_requests": 24,
+  "warmup_requests": 3,
+  "caveat": "Fixtures only. This is not the development or test dataset and does not satisfy Gate G2."
+}

@@ -1,0 +1,5 @@
+{"stage": "server_starting", "time_unix": 1792272445.2996616, "model": "ibm-granite/granite-3.3-8b-instruct", "experiment_stage": "test", "pid": 3612538}
+{"stage": "running", "time_unix": 1792272569.3506503, "model": "ibm-granite/granite-3.3-8b-instruct", "experiment_stage": "test"}
+{"stage": "model_complete", "time_unix": 1792273694.61144, "model": "ibm-granite/granite-3.3-8b-instruct", "experiment_stage": "test", "completed": 576, "json_validity": 0.9600694444444444}
+{"stage": "stage_complete", "time_unix": 1792273694.612502, "experiment_stage": "test"}
+data/evaluation/source-rag-mal-20261018/granite33_8b/results.md

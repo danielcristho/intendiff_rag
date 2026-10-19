@@ -1,0 +1,37 @@
+{
+  "decision": "D86",
+  "scope": "exploratory_development_annotation_only",
+  "candidate_counts": {
+    "MAL": 32,
+    "HN": 32
+  },
+  "eligible_mal_candidates": 527,
+  "selected_mal_campaigns": 32,
+  "selection": "SHA256 D86|campaign then D86|id; unique campaign/name/diff/archive; untruncated <=16000 prior tokens",
+  "order": "SHA256 D86|review-order|id; neutral sequential review IDs",
+  "hn_selection": "All 32 D85 candidates, unchanged",
+  "human_annotation_verified": false,
+  "new_generations": 0,
+  "limitations": [
+    "All samples previously exposed; not a fresh holdout",
+    "HN campaign/clone mapping unavailable",
+    "Source labels and predictions hidden; package identity and code remain visible",
+    "No replacement based on annotation outcome; skip stays in attrition accounting",
+    "Full prompt context audit required before future inference"
+  ],
+  "input_sha256": {
+    "data/review/pairs.jsonl": "14476d3b3dc154d2841baebae09b3f18493ab2209cf04105f5b8bc675f9d0aa2",
+    "data/evaluation/evidence-dev-20261001/pairs.jsonl": "158021bf354e92cdea51c9b09005639050d43f7febdb5221b5e8cfa42ddecf62"
+  },
+  "artifact_sha256": {
+    "pairs.jsonl": "a05316e92f34af5b1f20e55dba8ceaf2c61a6eed8636c97c6592757cb0537782",
+    "mapping.jsonl": "596295f41c4d8397646fa2ba8c725db34fe31f72c2597c755b53769fbf1a4ce4",
+    "dev-exclusions.jsonl": "0f6a93da94227ef93c7cac3682b2b7a0c1a1abf70256a4fd111d1e5f07648856",
+    "annotation/pairs.jsonl": "469355f1fa9117c25c02e8f28ff8b67b08ab7bd6d38a38d90900919320fb3f5b"
+  },
+  "source_sha256": {
+    "scratchpad/mixed-dev-20261002/prepare.py": "700a68649e5f7db324e662bb90cb96158c60cec584d677603e0afaa23f5f4c74",
+    "pipeline/mixed_dev.py": "3cd54725662f5517e85ce518e6dfcf846f2d340b4344669986ad46cf24f5b89d",
+    "docs/decisions.md": "13c85bbc0bb3c96c97a8e7d0730f64a7716a8fa5c8208cf4aacac1e9367dc1c4"
+  }
+}

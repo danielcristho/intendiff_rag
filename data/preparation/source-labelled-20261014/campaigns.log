@@ -1,0 +1,12 @@
+{"old_fingerprints_compared": 1000}
+{"old_fingerprints_compared": 2000}
+{"old_fingerprints_compared": 3000}
+{"old_fingerprints_compared": 4000}
+{"old_fingerprints_compared": 5000}
+{"old_fingerprints_compared": 6000}
+{"old_fingerprints_compared": 7000}
+{"old_fingerprints_compared": 8000}
+{"old_fingerprints_compared": 9000}
+{"old_fingerprints_compared": 10000}
+{"old_fingerprints_compared": 11000}
+{"added": 43, "items": 27536, "threshold": 0.5, "inherited_old_closure": "data/acquisition/campaigns-20261013/combined-d96.json", "all_new_comparisons_checked": true, "old_old_comparisons_rerun": false, "clusters": 7212}

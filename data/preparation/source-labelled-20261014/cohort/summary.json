@@ -1,0 +1,30 @@
+{
+  "status": "source-labelled preparation; not frozen for inference",
+  "pairs": 1902,
+  "subsets": {
+    "MAL": 33,
+    "TYP": 1869
+  },
+  "typ_strata": {
+    "live-stream-unseen-names": 376,
+    "popular": 692,
+    "random": 801
+  },
+  "mal_campaigns": 33,
+  "cards": {
+    "malicious": 50,
+    "benign": 25
+  },
+  "card_attrition": 67,
+  "exclusions": {
+    "development_exposure": 265,
+    "pending_hn_diagnostic_overlap": 108,
+    "reserved_kb_name_or_campaign": 25
+  },
+  "human_labels_created": 0,
+  "inferences": 0,
+  "card_budgets_checked": [
+    "qwen25"
+  ],
+  "final_launch_ready": false
+}

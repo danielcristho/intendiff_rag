@@ -1,0 +1,25 @@
+{
+  "at_utc": "2026-09-30T22:48:17.248698+00:00",
+  "new_inferences_before_change": 0,
+  "reason": "Phi startup failed while allocating a single automatic 15.80 GiB KV buffer.",
+  "initial_protocol_sha256": "5f5e37a347a7aeb9a07ae82f34d4d9f1cf033d0442a164fb42e4a6e4f13d00a2",
+  "change": {
+    "kv_cache_memory_bytes": 6442450944,
+    "applies_to": [
+      "microsoft/Phi-4-mini-instruct",
+      "meta-llama/Llama-3.1-8B-Instruct"
+    ]
+  },
+  "unchanged": [
+    "weights",
+    "dtype",
+    "context length",
+    "prompt",
+    "parser",
+    "sampling",
+    "stop tokens",
+    "input"
+  ],
+  "limitation": "Explicit KV bytes overrides allocation inferred from gpu_memory_utilization; latency remains observational.",
+  "root_cause": "Large CUDA allocation failed; allocator/driver cause is not established."
+}

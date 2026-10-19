@@ -1,0 +1,1359 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.9.13)  12 OCT 2026 05:56
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**intendiff-rag.tex
+(./intendiff-rag.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-08-10>
+(./cas-dc.cls
+Document Class: cas-dc 2024/05/04, 2.4: Formatting class for CAS double column articles
+\c@blind=\count276
+\@bls=\dimen150
+(~/.TinyTeX/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(~/.TinyTeX/texmf-dist/tex/latex/base/fleqn.clo
+File: fleqn.clo 2016/12/29 v1.2b Standard LaTeX option (flush left equations)
+\mathindent=\skip49
+Applying: [2015/01/01] Make \[ robust on input line 50.
+LaTeX Info: Redefining \[ on input line 51.
+Already applied: [0000/00/00] Make \[ robust on input line 62.
+Applying: [2015/01/01] Make \] robust on input line 74.
+LaTeX Info: Redefining \] on input line 75.
+Already applied: [0000/00/00] Make \] robust on input line 83.
+) (~/.TinyTeX/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count277
+\c@section=\count278
+\c@subsection=\count279
+\c@subsubsection=\count280
+\c@paragraph=\count281
+\c@subparagraph=\count282
+\c@figure=\count283
+\c@table=\count284
+\abovecaptionskip=\skip50
+\belowcaptionskip=\skip51
+\bibindent=\dimen151
+) (~/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2026-05-17 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+ (~/.TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2026-05-17 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (~/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2026-05-17 v1.4h Standard LaTeX Graphics (DPC,SPQR)
+ (~/.TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+ (~/.TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen152
+\Gin@req@width=\dimen153
+) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2026/05/19 v2.18d AMS math features
+\@mathmargin=\skip52
+
+For additional information on amsmath, use the `?' option.
+(~/.TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+ (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks18
+\ex@=\dimen154
+)) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen155
+) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count285
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count286
+\leftroot@=\count287
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count288
+\DOTSCASE@=\count289
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box53
+\strutbox@=\box54
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen156
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count290
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count291
+\dotsspace@=\muskip17
+\c@parentequation=\count292
+\dspbrk@lvl=\count293
+\tag@help=\toks19
+\row@=\count294
+\column@=\count295
+\maxfields@=\count296
+\andhelp@=\toks20
+\eqnshift@=\dimen157
+\alignsep@=\dimen158
+\tagshift@=\dimen159
+\tagwidth@=\dimen160
+\totwidth@=\dimen161
+\lineht@=\dimen162
+\@envbody=\toks21
+\multlinegap=\skip53
+\multlinetaggap=\skip54
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2965.
+LaTeX Info: Redefining \] on input line 2966.
+) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+) (~/.TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2026-08-10 L3 programming layer (loader) 
+ (~/.TinyTeX/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def
+File: l3backend-pdftex.def 2026-08-10 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count297
+)) (~/.TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2025-10-09 L3 Experimental document command parser
+) (~/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count298
+) (/tmp/intendiff-texmf/tex/latex/preprint/balance.sty
+Package: balance 1999/02/23 4.3 (PWD)
+\oldvsize=\dimen163
+) (~/.TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen164
+\lightrulewidth=\dimen165
+\cmidrulewidth=\dimen166
+\belowrulesep=\dimen167
+\belowbottomsep=\dimen168
+\aboverulesep=\dimen169
+\abovetopsep=\dimen170
+\cmidrulesep=\dimen171
+\cmidrulekern=\dimen172
+\defaultaddspace=\dimen173
+\@cmidla=\count299
+\@cmidlb=\count300
+\@aboverulesep=\dimen174
+\@belowrulesep=\dimen175
+\@thisruleclass=\count301
+\@lastruleclass=\count302
+\@thisrulewidth=\dimen176
+) (/tmp/intendiff-texmf/tex/latex/makecell/makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+ (~/.TinyTeX/texmf-dist/tex/latex/tools/array.sty
+Package: array 2026/02/24 v2.7b Tabular extension package (FMi)
+\col@sep=\dimen177
+\ar@mcellbox=\box55
+\extrarowheight=\dimen178
+\NC@list=\toks23
+\extratabsurround=\skip55
+\backup@length=\skip56
+\ar@cellbox=\box56
+)
+\rotheadsize=\dimen179
+\c@nlinenum=\count303
+\TeXr@lab=\toks24
+) (/tmp/intendiff-texmf/tex/latex/multirow/multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip57
+\multirow@cntb=\count304
+\multirow@dima=\skip58
+\bigstrutjot=\dimen180
+) (/tmp/intendiff-texmf/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2026/05/01 v1.0l Color table columns (DPC)
+ (~/.TinyTeX/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2026-05-17 v1.3f Standard LaTeX Color (DPC)
+ (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+ (~/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+new hooks used!!
+\minrowclearance=\skip59
+\rownum=\count305
+) (~/.TinyTeX/texmf-dist/tex/latex/tools/dcolumn.sty
+Package: dcolumn 2025/10/21 v1.06 decimal alignment package (DPC)
+) (/tmp/intendiff-texmf/tex/latex/sttools/stfloats.sty
+Package: stfloats 2025/06/18 v3.4 Improve float mechanism and baselineskip settings
+\@dblbotnum=\count306
+\c@dblbotnumber=\count307
+) (~/.TinyTeX/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+) (/tmp/intendiff-texmf/tex/generic/xstring/xstring.sty (/tmp/intendiff-texmf/tex/generic/xstring/xstring.tex
+\xs_counta=\count308
+\xs_countb=\count309
+)
+Package: xstring 2023/08/22 v1.86 String manipulations (CT)
+) (/tmp/intendiff-texmf/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2025/05/09 v7.0b a miscellany of footnote facilities
+\FN@temptoken=\toks25
+\footnotemargin=\dimen181
+Package footmisc Info: Declaring symbol style bringhurst on input line 549.
+Package footmisc Info: Declaring symbol style chicago on input line 557.
+Package footmisc Info: Declaring symbol style wiley on input line 566.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 577.
+Package footmisc Info: Declaring symbol style lamport* on input line 597.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 618.
+) (~/.TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+ (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+LaTeX Info: Redefining \color on input line 762.
+ (~/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+) (~/.TinyTeX/texmf-dist/tex/latex/xcolor/svgnam.def
+File: svgnam.def 2024/09/29 v3.02 Predefined colors according to SVG 1.1 (UK)
+) (~/.TinyTeX/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2026-05-17 v3.0m Driver-dependent file (DPC,SPQR)
+) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2026-06-17 v7.01r Hypertext links for LaTeX
+ (~/.TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+) (~/.TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (~/.TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (~/.TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (~/.TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (~/.TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (~/.TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (~/.TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
+ (~/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (~/.TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (~/.TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count310
+) (~/.TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+\@linkdim=\dimen182
+\Hy@linkcounter=\count311
+\Hy@pagecounter=\count312
+ (~/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2026-06-17 v7.01r Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (~/.TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count313
+ (~/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2026-06-17 v7.01r Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 4070.
+Package hyperref Info: Hyper figures OFF on input line 4199.
+Package hyperref Info: Link nesting OFF on input line 4204.
+Package hyperref Info: Hyper index ON on input line 4207.
+Package hyperref Info: Plain pages OFF on input line 4214.
+Package hyperref Info: Backreferencing OFF on input line 4219.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4466.
+\c@Hy@tempcnt=\count314
+ (~/.TinyTeX/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4805.
+\XeTeXLinkMargin=\dimen183
+ (~/.TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (~/.TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count315
+\Field@Width=\dimen184
+\Fld@charsize=\dimen185
+Package hyperref Info: Hyper figures OFF on input line 6091.
+Package hyperref Info: Link nesting OFF on input line 6096.
+Package hyperref Info: Hyper index ON on input line 6099.
+Package hyperref Info: backreferencing OFF on input line 6106.
+Package hyperref Info: Link coloring ON on input line 6109.
+Package hyperref Info: Link coloring with OCG OFF on input line 6116.
+Package hyperref Info: PDF/A mode OFF on input line 6121.
+\Hy@abspage=\count316
+\c@Item=\count317
+\c@Hfootnote=\count318
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (~/.TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2026-06-17 v7.01r Hyperref driver for pdfTeX
+\Fld@listcount=\count319
+\c@bookmark@seq@number=\count320
+ (~/.TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+ (~/.TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
+)
+\Hy@SectionHShift=\skip60
+) (./cas-common.sty
+\l_stm_title_before_dim=\dimen186
+\l_stm_title_after_dim=\dimen187
+\g_ead_int=\count321
+\g_uad_int=\count322
+\@eadauthor=\toks26
+\g_stm_tnote_int=\count323
+\g_stm_fnote_int=\count324
+\g_stm_cor_int=\count325
+\g_stm_au_int=\count326
+\g_stm_aau_int=\count327
+\l_autype_int=\count328
+\l_stm_augroup_before_dim=\dimen188
+\l_stm_augroup_after_dim=\dimen189
+\l_stm_augroup_lskip_tl=\dimen190
+\l_stm_augroup_rskip_tl=\dimen191
+\g_stm_aff_int=\count329
+\g_stm_aff_ext_int=\count330
+\g_stm_aff_int_int=\count331
+\g_stm_fn_aff_ext_int=\count332
+\g_stm_fn_aff_int_int=\count333
+\l_stm_aff_before_dim=\dimen192
+\l_stm_aff_after_dim=\dimen193
+\l_stm_aff_lskip_dim=\dimen194
+\l_stm_aff_rskip_dim=\dimen195
+\g_stm_augr_int=\count334
+\g_stm_aaugr_int=\count335
+ (/tmp/intendiff-texmf/tex/latex/moreverb/moreverb.sty
+Package: moreverb 2008/06/03 v2.3a `more' verbatim facilities
+ (~/.TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks27
+\verbatim@line=\toks28
+\verbatim@in@stream=\read2
+)
+\tab@position=\count336
+\tab@size=\count337
+\listing@line=\count338
+)
+\g_stm_abs_box=\box57
+\casgrabsbox=\box58
+\casauhlbox=\box59
+\g_stm_key_box=\box60
+\g_stm_jtype_int=\count339
+\g_stm_blind_int=\count340
+\c@au=\count341
+\c@cnote=\count342
+\c@tnote=\count343
+\c@fnote=\count344
+\c@aff=\count345
+\g_stm_notes_box=\box61
+\g_stm_front_box=\box62
+\paraindent=\dimen196
+\subparaindent=\dimen197
+\FullWidth=\dimen198
+\l_tbl_width_dim=\dimen199
+\l_tbl_abovecap_skip=\skip61
+\l_tbl_belowcap_skip=\skip62
+\l_tbl_abovetbl_skip=\skip63
+\l_tbl_belowtbl_skip=\skip64
+\l_fig_width_dim=\dimen256
+\cascaptionbox=\box63
+\l_fig_abovecap_skip=\skip65
+\l_fig_belowcap_skip=\skip66
+\l_fig_abovefig_skip=\skip67
+\l_fig_belowfig_skip=\skip68
+ (/tmp/intendiff-texmf/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen257
+\WF@size=\dimen258
+\c@WF@wrappedlines=\count346
+\WF@box=\box64
+\WF@everypar=\toks29
+Package: wrapfig 2003/01/31  v 3.6
+)
+\l_wrap_figwidth_dim=\dimen259
+\l_wrap_fighspace_dim=\dimen260
+\l_wrap_figvspace_dim=\dimen261
+\l_wrap_fighcorr_dim=\dimen262
+\l_wrap_figvcorr_dim=\dimen263
+\l_above_bio_dim=\dimen264
+\l_wrap_figlcorr_int=\count347
+\l_wrap_figlines_int=\count348
+\l_bio_text_box=\box65
+\c@ca_biography_ctr=\count349
+\l_ca_temp_inta=\count350
+\leftMargin=\dimen265
+\@enLab=\toks30
+\@sep=\skip69
+\@@sep=\skip70
+) (~/.TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+) (/tmp/intendiff-texmf/tex/latex/stix/stix.sty
+Package: stix 2018/04/17 v1.1.3-latex STIX fonts support package
+ (~/.TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+LaTeX Font Info:    Changing ? sub-encoding to TS1/0 on input line 75.
+)
+LaTeX Encoding Info:    Text command \textpertenthousand (encoding T1) is not declared on input line 51.
+LaTeX Encoding Info:    Redeclaring text command \textpertenthousand (encoding ?) on input line 52.
+Now handling font encoding LS1 ...
+... no UTF-8 mapping file for font encoding LS1
+Now handling font encoding LS2 ...
+... no UTF-8 mapping file for font encoding LS2
+LaTeX Font Info:    Redeclaring symbol font `letters' on input line 76.
+LaTeX Font Info:    Encoding `OML' has changed to `LS1' for symbol font
+(Font)              `letters' in the math version `normal' on input line 76.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> LS1/stix/m/it on input line 76.
+LaTeX Font Info:    Encoding `OML' has changed to `LS1' for symbol font
+(Font)              `letters' in the math version `bold' on input line 76.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> LS1/stix/m/it on input line 76.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 77.
+LaTeX Font Info:    Encoding `OT1' has changed to `LS1' for symbol font
+(Font)              `operators' in the math version `normal' on input line 77.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> LS1/stix/m/n on input line 77.
+LaTeX Font Info:    Encoding `OT1' has changed to `LS1' for symbol font
+(Font)              `operators' in the math version `bold' on input line 77.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> LS1/stix/m/n on input line 77.
+\symbold-operators=\mathgroup6
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 79.
+LaTeX Font Info:    Encoding `OMS' has changed to `LS1' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 79.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> LS1/stixscr/m/n on input line 79.
+LaTeX Font Info:    Encoding `OMS' has changed to `LS1' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 79.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> LS1/stixscr/m/n on input line 79.
+\symsymbols2=\mathgroup7
+\symsymbols3=\mathgroup8
+\symsymbols4=\mathgroup9
+\symintegrals=\mathgroup10
+LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 84.
+LaTeX Font Info:    Encoding `OMX' has changed to `LS2' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 84.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> LS2/stixex/m/n on input line 84.
+LaTeX Font Info:    Encoding `OMX' has changed to `LS2' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 84.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> LS2/stixex/m/n on input line 84.
+\symarrows1=\mathgroup11
+\symarrows2=\mathgroup12
+\symarrows3=\mathgroup13
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  LS1/stix/m/it --> LS1/stix/b/it on input line 88.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  LS1/stix/m/n --> LS1/stix/b/n on input line 89.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  LS1/stixscr/m/n --> LS1/stixscr/b/n on input line 90.
+LaTeX Font Info:    Overwriting symbol font `symbols2' in version `bold'
+(Font)                  LS1/stixfrak/m/n --> LS1/stixfrak/b/n on input line 91.
+LaTeX Font Info:    Overwriting symbol font `symbols3' in version `bold'
+(Font)                  LS1/stixbb/m/n --> LS1/stixbb/b/n on input line 92.
+LaTeX Font Info:    Overwriting symbol font `symbols4' in version `bold'
+(Font)                  LS1/stixbb/m/it --> LS1/stixbb/b/it on input line 93.
+LaTeX Font Info:    Overwriting symbol font `integrals' in version `bold'
+(Font)                  LS2/stixcal/m/n --> LS2/stixcal/b/n on input line 94.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  LS2/stixex/m/n --> LS2/stixex/b/n on input line 95.
+LaTeX Font Info:    Overwriting symbol font `arrows1' in version `bold'
+(Font)                  LS1/stixsf/m/n --> LS1/stixsf/b/n on input line 96.
+LaTeX Font Info:    Overwriting symbol font `arrows2' in version `bold'
+(Font)                  LS1/stixsf/m/it --> LS1/stixsf/b/it on input line 97.
+LaTeX Font Info:    Overwriting symbol font `arrows3' in version `bold'
+(Font)                  LS2/stixtt/m/n --> LS2/stixtt/b/n on input line 98.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 99.
+LaTeX Font Info:    Redeclaring math alphabet \mathfrak on input line 102.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 106.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 108.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 109.
+LaTeX Info: Redefining \yen on input line 456.
+LaTeX Info: Redefining \circledR on input line 458.
+LaTeX Info: Redefining \checkmark on input line 460.
+LaTeX Info: Redefining \maltese on input line 461.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 698.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 699.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 700.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 701.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 702.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 703.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 704.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 705.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 707.
+LaTeX Font Info:    Redeclaring math accent \check on input line 708.
+LaTeX Font Info:    Redeclaring math accent \vec on input line 716.
+LaTeX Font Info:    Redeclaring math accent \widehat on input line 728.
+LaTeX Font Info:    Redeclaring math accent \widetilde on input line 729.
+LaTeX Info: Redefining \vdots on input line 1518.
+LaTeX Info: Redefining \cdots on input line 1522.
+LaTeX Font Info:    Redeclaring math symbol \mathsterling on input line 1978.
+LaTeX Info: Redefining \not on input line 2144.
+) (~/.TinyTeX/texmf-dist/tex/latex/inconsolata/inconsolata.sty
+Package: inconsolata 2019/05/17 v1.12
+ `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (~/.TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2025/11/04 v2.10 package option processing (HA)
+ (~/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (~/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks31
+\XKV@tempa@toks=\toks32
+\XKV@tempb@toks=\toks33
+)
+\XKV@depth=\count351
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\zifour@ocount=\count352
+) (~/.TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2026/03/07 v6.0 Page Geometry
+ (~/.TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count353
+\Gm@cntv=\count354
+\c@Gm@tempcnt=\count355
+\Gm@bindingoffset=\dimen266
+\Gm@wd@mp=\dimen267
+\Gm@odd@mp=\dimen268
+\Gm@even@mp=\dimen269
+\Gm@layoutwidth=\dimen270
+\Gm@layoutheight=\dimen271
+\Gm@layouthoffset=\dimen272
+\Gm@layoutvoffset=\dimen273
+\Gm@dimlist=\toks34
+)) (~/.TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip71
+\bibsep=\skip72
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count356
+)
+LaTeX Font Info:    Trying to load font information for T1+stix on input line 5.
+ (/tmp/intendiff-texmf/tex/latex/stix/t1stix.fd
+File: t1stix.fd 2015/04/17 v1.1.2-latex STIX T1 font definitions
+) (/tmp/intendiff-latex-d90-final/intendiff-rag.aux)
+\openout1 = `intendiff-rag.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for LS1/stix/m/n on input line 5.
+LaTeX Font Info:    Trying to load font information for LS1+stix on input line 5.
+ (/tmp/intendiff-texmf/tex/latex/stix/ls1stix.fd
+File: ls1stix.fd 2015/04/17 v1.1.2-latex STIX LS1 font definitions
+)
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for LS2/stix/m/n on input line 5.
+LaTeX Font Info:    Trying to load font information for LS2+stix on input line 5.
+ (/tmp/intendiff-texmf/tex/latex/stix/ls2stix.fd
+File: ls2stix.fd 2015/04/17 v1.1.2-latex STIX LS2 font definitions
+)
+LaTeX Font Info:    ... okay on input line 5.
+ (~/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+ (/tmp/intendiff-texmf/tex/latex/grfext/grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+ (~/.TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+LaTeX Info: Command `\dddot' is already robust on input line 5.
+LaTeX Info: Command `\ddddot' is already robust on input line 5.
+Package hyperref Info: Link coloring ON on input line 5.
+ (/tmp/intendiff-latex-d90-final/intendiff-rag.out) (/tmp/intendiff-latex-d90-final/intendiff-rag.out)
+\@outlinefile=\write3
+\openout3 = `intendiff-rag.out'.
+
+ (/tmp/intendiff-texmf/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(51.4995pt, 494.50888pt, 51.4995pt)
+* v-part:(T,H,B)=(55.48286pt, 689.4103pt, 51.784pt)
+* \paperwidth=597.50787pt
+* \paperheight=796.67715pt
+* \textwidth=494.50888pt
+* \textheight=689.4103pt
+* \oddsidemargin=-20.7705pt
+* \evensidemargin=-20.7705pt
+* \topmargin=-40.78712pt
+* \headheight=12.0pt
+* \headsep=12.0pt
+* \topskip=10.0pt
+* \footskip=12.0pt
+* \marginparwidth=57.0pt
+* \marginparsep=11.0pt
+* \columnsep=18.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\verbatim@out=\write4
+\openout4 = `intendiff-rag.abs'.
+
+LaTeX Font Info:    Trying to load font information for TS1+stix on input line 34.
+(/tmp/intendiff-texmf/tex/latex/stix/ts1stix.fd
+File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
+) [0
+
+{/tmp/intendiff-texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/tmp/intendiff-texmf/fonts/enc/dvips/stix/stix-t1.enc}{/tmp/intendiff-texmf/fonts/enc/dvips/stix/stix-ts1.enc}]
+LaTeX Font Info:    Trying to load font information for LS1+stixscr on input line 42.
+ (/tmp/intendiff-texmf/tex/latex/stix/ls1stixscr.fd
+File: ls1stixscr.fd 2015/04/17 v1.1.2-latex STIX script LS1 font definitions
+)
+LaTeX Font Info:    Trying to load font information for LS2+stixex on input line 42.
+ (/tmp/intendiff-texmf/tex/latex/stix/ls2stixex.fd
+File: ls2stixex.fd 2015/04/17 v1.1.2-latex STIX extentions LS2 font definitions
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
+ (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
+ (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for LS1+stixfrak on input line 42.
+ (/tmp/intendiff-texmf/tex/latex/stix/ls1stixfrak.fd
+File: ls1stixfrak.fd 2015/04/17 v1.1.2-latex STIX fraktur LS1 font definitions
+)
+LaTeX Font Info:    Trying to load font information for LS1+stixbb on input line 42.
+ (/tmp/intendiff-texmf/tex/latex/stix/ls1stixbb.fd
+File: ls1stixbb.fd 2015/04/17 v1.1.2-latex STIX blackboard LS1 font definitions
+)
+LaTeX Font Info:    Trying to load font information for LS2+stixcal on input line 42.
+ (/tmp/intendiff-texmf/tex/latex/stix/ls2stixcal.fd
+File: ls2stixcal.fd 2015/04/17 v1.1.2-latex STIX calligraphic LS2 font definitions
+)
+LaTeX Font Info:    Trying to load font information for LS1+stixsf on input line 42.
+ (/tmp/intendiff-texmf/tex/latex/stix/ls1stixsf.fd
+File: ls1stixsf.fd 2015/04/17 v1.1.2-latex STIX sans-serif LS1 font definitions
+)
+LaTeX Font Info:    Trying to load font information for LS2+stixtt on input line 42.
+ (/tmp/intendiff-texmf/tex/latex/stix/ls2stixtt.fd
+File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
+)
+Overfull \hbox (123.62721pt too wide) detected at line 42
+[]
+ []
+
+(/tmp/intendiff-latex-d90-final/intendiff-rag.abs)
+
+Package hyperref Warning: Ignoring empty anchor on input line 42.
+
+
+Package hyperref Warning: Ignoring empty anchor on input line 42.
+
+
+Overfull \hbox (1.80554pt too wide) in paragraph at lines 49--57
+[]\T1/stix/m/n/10 Pengembangan perangkat lu-nak mod-ern bergan-tung pada
+ []
+
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 64.
+(~/.TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd
+File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
+)
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 8.50006pt on input line 64.
+
+Underfull \hbox (badness 1424) in paragraph at lines 117--128
+[][]\T1/stix/m/n/10 2026b[][]). Model ter-tutup meng-haruskan kode dikirim ke
+ []
+
+
+Underfull \hbox (badness 1237) in paragraph at lines 117--128
+\T1/stix/m/n/10 pa-ram-e-ter ([][]Nguyen, Ho, Pham, Dang-Thi, Vu, Nguyen,
+ []
+
+[1
+
+{~/.TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+Underfull \hbox (badness 1082) in paragraph at lines 129--144
+\T1/stix/m/n/10 and Singh[][], [][]2021[][]), dan con-toh yang dip-ilih berdasarkan
+ []
+
+
+Underfull \hbox (badness 1215) in paragraph at lines 129--144
+\T1/stix/m/n/10 dan yang harus di-hin-dari model ([][]Gao and Das[][], [][]2024[][]).
+ []
+
+
+Underfull \hbox (badness 2181) in paragraph at lines 129--144
+\T1/stix/m/n/10 Ha-jishirzi and Zettle-moyer[][], [][]2022[][]) me-nun-jukkan bahwa
+ []
+
+
+Overfull \hbox (2.09636pt too wide) in paragraph at lines 145--154
+\T1/stix/m/n/10 pola mal-ware yang su-dah dike-tahui, pen-dekatan ini menandai
+ []
+
+
+Underfull \hbox (badness 2229) in paragraph at lines 145--154
+[][]\T1/stix/m/n/10 2014[][]). In-tel-Guard men-er-ap-kan pe-nalaran serupa se-cara
+ []
+
+
+Underfull \hbox (badness 1442) in paragraph at lines 155--172
+\T1/stix/m/n/10 ran ke-cil. Un-tuk se-tiap pasan-gan versi, IntentDiff-RAG
+ []
+
+
+Overfull \hbox (12.768pt too wide) in paragraph at lines 155--172
+\T1/stix/m/n/10 melakukan em-pat langkah: (i) mem-ben-tuk \T1/stix/m/it/10 smart-diff \T1/stix/m/n/10 mengikuti
+ []
+
+
+Underfull \hbox (badness 1184) in paragraph at lines 155--172
+\T1/stix/m/n/10 kendali peny-erang ([][]Wyss et al.[][], [][]2025[][]); (iii) mengam-bil
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 155--172
+\T1/stix/m/n/10 satu con-toh berba-haya dan satu con-toh sah yang mirip
+ []
+
+
+Underfull \hbox (badness 1728) in paragraph at lines 176--179
+[]\T1/stix/m/n/10 Evaluasi LLM \T1/stix/m/it/10 open-weight \T1/stix/m/n/10 beruku-ran 3--4 mil-iar
+ []
+
+
+Underfull \hbox (badness 1173) in paragraph at lines 176--179
+\T1/stix/m/n/10 haya pada tingkat \T1/stix/m/it/10 smart-diff\T1/stix/m/n/10 , den-gan metrik yang
+ []
+
+
+Overfull \hbox (8.0105pt too wide) in paragraph at lines 193--198
+\T1/stix/m/n/10 mem-ba-has peneli-tian terkait. Bagian [][]3[][] men-je-laskan IntentDiff-
+ []
+
+
+Overfull \hbox (16.42215pt too wide) in paragraph at lines 212--222
+\T1/stix/m/n/10 sar paket. [][]Ohm, Plate, Sykosch and Meier[][] ([][]2020[][]) mengumpulkan
+ []
+
+
+Underfull \hbox (badness 1721) in paragraph at lines 212--222
+\T1/stix/m/n/10 Barais[][] ([][]2023[][]) ke-mu-dian menyusun tak-sonomi seran-gan
+ []
+
+
+Underfull \hbox (badness 1292) in paragraph at lines 212--222
+\T1/stix/m/it/10 tree\T1/stix/m/n/10 . Tak-sonomi ini memuat 107 vek-tor seran-gan yang
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[2]
+Underfull \hbox (badness 1546) in paragraph at lines 241--251
+\T1/stix/m/n/10 namis, lalu men-co-cokkan-nya den-gan ba-sis penge-tahuan
+ []
+
+
+Underfull \hbox (badness 2150) in paragraph at lines 264--272
+[]\T1/stix/m/n/10 Kelompok peneli-tian ini men-jadikan pe-ruba-han an-
+ []
+
+
+Overfull \hbox (2.33469pt too wide) in paragraph at lines 287--294
+[]\T1/stix/m/n/10 SocketAI me-nun-jukkan bahwa GPT-4 men-gung-guli anal-
+ []
+
+
+Underfull \hbox (badness 2050) in paragraph at lines 287--294
+\T1/stix/m/n/10 Mal-PacDe-tec-tor me-man-faatkan LLM un-tuk mem-bangk-
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[3]
+Underfull \hbox (badness 1838) in paragraph at lines 327--334
+\T1/stix/m/n/10 diusulkan un-tuk mem-per-je-las kelu-aran yang di-inginkan
+ []
+
+
+Overfull \hbox (7.40549pt too wide) in paragraph at lines 337--349
+\T1/stix/m/n/10 den-gan deskripsinya berkem-bang di eko-sis-tem ap-likasi seluler.
+ []
+
+
+Underfull \hbox (badness 1742) in paragraph at lines 337--349
+\T1/stix/m/n/10 je-laskan alasan ap-likasi mem-bu-tuhkan su-atu izin ([][]Pan-
+ []
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 337--349
+\T1/stix/m/n/10 pokkan lebih dari 22.500 ap-likasi An-droid berdasarkan
+ []
+
+
+Underfull \hbox (badness 1158) in paragraph at lines 352--358
+[]\T1/stix/m/n/10 Tabel [][]1[][] merangkum po-sisi IntentDiff-RAG ter-hadap
+ []
+
+
+Underfull \hbox (badness 1033) in paragraph at lines 363--366
+\T1/stix/m/n/10 Mengikuti pela-jaran dari Vul-RAG, Prime-Vul, dan rep-
+ []
+
+
+Underfull \hbox (badness 1838) in paragraph at lines 363--366
+\T1/stix/m/n/10 likasinya, eval-u-asi di-lakukan pada \T1/stix/m/it/10 hard neg-a-tive\T1/stix/m/n/10 , yaitu
+ []
+
+
+Underfull \hbox (badness 2644) in paragraph at lines 376--376
+[]|\T1/cmss/m/n/9 Unit anal-i-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 379--379
+[]|\T1/cmss/m/n/9 Amalfi ([][]Se-j-fia and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 383--383
+[]|\T1/cmss/m/n/9 RogueOne ([][]So-faer
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 384--384
+[]|\T1/cmss/m/n/9 Tertutup (GPT-3,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 385--385
+[]|\T1/cmss/m/n/9 Tertutup (GPT-4o,
+ []
+
+
+Underfull \hbox (badness 6658) in paragraph at lines 385--385
+\T1/cmss/m/n/9 GPT-4-Turbo, Gem-ini
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
+[]|\T1/cmss/m/n/9 Tertutup (GPT-4.1-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
+[]|\T1/cmss/m/n/9 Contoh
+ []
+
+
+Overfull \hbox (35.58018pt too wide) in paragraph at lines 374--391
+ [][] 
+ []
+
+
+Overfull \hbox (0.92926pt too wide) in paragraph at lines 403--411
+[]\T1/stix/m/n/10 Unit anal-i-sis adalah satu pem-baruan \T1/zi4/m/n/10 pkg\T1/stix/m/n/10 @$\LS1/stix/m/n/10 v[]  \LS1/stixsf/m/n/10 ™$\T1/zi4/m/n/10 pkg\T1/stix/m/n/10 @$\LS1/stix/m/n/10 v[]$\T1/stix/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[4]
+Underfull \hbox (badness 1270) in paragraph at lines 453--466
+\T1/stix/m/n/10 di-ta-mpilkan. In-tel-Guard menghubungkan po-ton-gan kode
+ []
+
+
+Overfull \hbox (2.72638pt too wide) in paragraph at lines 500--507
+[]\T1/stix/m/n/10 Model berperan se-ba-gai pen-ganal-i-sis pro-gram, mengikuti
+ []
+
+
+Underfull \hbox (badness 1577) in paragraph at lines 500--507
+\T1/stix/m/n/10 otoma-tis berba-haya: vo-nis di-dasarkan pada ke-mam-puan
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[5]
+Overfull \hbox (12.38786pt too wide) in paragraph at lines 508--515
+\T1/stix/m/n/10 tiga baris dis-alin dari \T1/stix/m/it/10 smart-diff\T1/stix/m/n/10 ), \T1/zi4/m/n/10 reason\T1/stix/m/n/10 , dan \T1/zi4/m/n/10 verdict \T1/stix/m/n/10 (\T1/zi4/m/n/10 malicious
+ []
+
+
+Underfull \hbox (badness 1082) in paragraph at lines 539--550
+\T1/stix/m/n/10 4B dan di-jalankan se-cara lokal. Ke-dua, pem-baruan sah
+ []
+
+
+Underfull \hbox (badness 1320) in paragraph at lines 539--550
+\T1/stix/m/n/10 melebih-lebihkan kin-erja: model 7B yang men-ca-pai F1
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 539--550
+\T1/stix/m/it/10 hard neg-a-tive\T1/stix/m/n/10 . Ketiga, re-trieval tidak hanya mengam-bil
+ []
+
+
+Underfull \hbox (badness 2837) in paragraph at lines 559--559
+[]|\T1/cmss/m/n/9 Pembaruan atau paket
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 572--573
+[]|\T1/cmss/m/n/9 Sensitivitas,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 573--574
+[]|\T1/cmss/m/n/9 SocketAI ([][]Za-han
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 579--580
+[]|\T1/cmss/m/n/9 IntelGuard ([][]Guo
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 585--586
+[]|[][]\T1/cmss/m/n/9 Nguyen et al.[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 593--594
+[]|\T1/cmss/m/it/9 Smart-diff \T1/cmss/m/n/9 +
+ []
+
+
+Overfull \hbox (24.19925pt too wide) in paragraph at lines 557--599
+ [][] 
+ []
+
+
+Underfull \hbox (badness 1648) in paragraph at lines 626--630
+\T1/stix/m/n/10 se-hingga mema-sukkan-nya akan menaikkan \T1/stix/m/it/10 re-call \T1/stix/m/n/10 tanpa
+ []
+
+
+Overfull \hbox (5.20546pt too wide) in paragraph at lines 631--636
+\T1/stix/m/n/10 kam-pa-nye yang ter-bit sete-lah tang-gal rilis model dikumpulkan
+ []
+
+
+Underfull \hbox (badness 1924) in paragraph at lines 646--656
+\T1/stix/m/n/10 yang menam-bahkan ke-mam-puan sen-si-tif den-gan tu-juan
+ []
+
+
+Underfull \hbox (badness 1769) in paragraph at lines 646--656
+\T1/zi4/m/n/10 patch-package\T1/stix/m/n/10 , dan \T1/zi4/m/n/10 prisma \T1/stix/m/n/10 se-ba-gai sum-ber posi-tif palsu
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[6]
+Underfull \hbox (badness 3271) in paragraph at lines 679--680
+[]|\T1/cmss/m/n/9 Dasar di eval-u-asi ter-
+ []
+
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 7.65005pt on input line 682.
+
+Underfull \hbox (badness 10000) in paragraph at lines 682--683
+[]|\T1/zi4/m/n/9 install_script\T1/cmss/m/n/9 ,
+ []
+
+
+Underfull \hbox (badness 2173) in paragraph at lines 683--684
+[]|\T1/cmss/m/it/9 Install hook \T1/cmss/m/n/9 sah ([][]Guo
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 688--689
+[]|\T1/zi4/m/n/9 obfuscation\T1/cmss/m/n/9 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 689--690
+[]|\T1/cmss/m/n/9 Validasi lisensi ter-
+ []
+
+
+Underfull \hbox (badness 1881) in paragraph at lines 689--690
+\T1/cmss/m/n/9 obfuscate pada anal-i-sis
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 690--691
+[]|\T1/cmss/m/n/9 Jaringan dan
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
+[]|\T1/zi4/m/n/9 network\T1/cmss/m/n/9 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 693--694
+[]|\T1/cmss/m/n/9 Depresiasi dan
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 693--694
+\T1/cmss/m/n/9 pe-ruba-han
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 694--695
+[]|\T1/zi4/m/n/9 large_deletion\T1/cmss/m/n/9 ,
+ []
+
+
+Overfull \hbox (8.11996pt too wide) in paragraph at lines 694--695
+\T1/zi4/m/n/9 dependency_change| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 695--696
+\T1/cmss/m/n/9 pe-ruba-han de-pen-densi,
+ []
+
+
+Overfull \hbox (13.9862pt too wide) in paragraph at lines 677--698
+ [][] 
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 701--709
+\T1/stix/m/n/10 pa-nye jika meru-juk in-si-den yang sama, memuat berkas
+ []
+
+
+Underfull \hbox (badness 1527) in paragraph at lines 701--709
+\T1/stix/m/n/10 pada am-bang 0,5. Am-bang con-dong ke peng-gabun-gan:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 731--731
+[]|\T1/cmss/m/n/9 Qwen3-4B-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 731--732
+[]|\T1/cmss/m/n/9 Qwen2.5-Coder-
+ []
+
+
+Overfull \hbox (13.98665pt too wide) in paragraph at lines 729--739
+ [][] 
+ []
+
+
+Underfull \hbox (badness 1048) in paragraph at lines 741--746
+\T1/stix/m/n/10 pe-m-anasan dari dev set dibuang. Qwen3-4B se-cara na-
+ []
+
+
+Underfull \hbox (badness 1789) in paragraph at lines 741--746
+\T1/stix/m/n/10 Qwen2.5-Coder-3B su-paya ke-ung-gu-lan kon-teks pan-jang
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[7]
+Underfull \hbox (badness 1237) in paragraph at lines 749--760
+\T1/stix/m/it/10 smart-diff \T1/stix/m/n/10 hasil po-ton-gan, dan pa-ram-e-ter gen-erasi yang
+ []
+
+
+Overfull \hbox (9.55966pt too wide) in paragraph at lines 749--760
+\T1/stix/m/n/10 mengam-bil dua card berba-haya ter-atas. DIFF+I+MB mengam-
+ []
+
+
+Overfull \hbox (2.62749pt too wide) in paragraph at lines 806--807
+[]\T1/stix/m/it/10 Recall\T1/stix/m/n/10 : pro-porsi pair MAL yang diberi vo-nis \T1/zi4/m/n/10 malicious\T1/stix/m/n/10 . 
+ []
+
+
+Overfull \hbox (6.54744pt too wide) in paragraph at lines 807--808
+[]\T1/stix/m/n/10 FPR$[]$: pro-porsi pair TYP yang diberi vo-nis \T1/zi4/m/n/10 malicious\T1/stix/m/n/10 . 
+ []
+
+
+Overfull \hbox (0.44302pt too wide) in paragraph at lines 825--831
+[]\T1/stix/m/n/10 FPR tidak di-ga-bung an-tara TYP dan HN. TYP mendekati
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[8]
+Overfull \hbox (8.12465pt too wide) in paragraph at lines 880--882
+[]\T1/stix/m/it/10 Arah sesuai, tidak sig-nifikan\T1/stix/m/n/10 : FPR$[]$ tu-run, $\LS1/stix/m/it/10 p[][]\LS1/stix/m/n/10 0[]05$\T1/stix/m/n/10 ,
+ []
+
+
+Overfull \hbox (8.76463pt too wide) in paragraph at lines 886--892
+\T1/stix/m/n/10 bel-nya \T1/stix/m/it/10 Didukung \T1/stix/m/n/10 jika FPR$[]$(DIFF+I+M) $\LS1/stix/m/it/10 >$ \T1/stix/m/n/10 FPR$[]$(DIFF+I)
+ []
+
+
+Underfull \hbox (badness 1635) in paragraph at lines 886--892
+\T1/stix/m/n/10 den-gan $\LS1/stix/m/it/10 p[][]\LS1/stix/m/n/10 0[]05$\T1/stix/m/n/10 ; \T1/stix/m/it/10 Arah sesuai, tidak sig-nifikan\T1/stix/m/n/10 ; atau
+ []
+
+
+Overfull \hbox (3.9255pt too wide) in paragraph at lines 886--892
+\T1/stix/m/n/10 hanya di-t-ulis jika ke-d-u-anya berla-bel Didukung atau Didukung
+ []
+
+
+Underfull \hbox (badness 1490) in paragraph at lines 902--908
+\T1/stix/m/n/10 la-porkan log vLLM saat model dimuat dan KV cache
+ []
+
+
+Overfull \hbox (32.35634pt too wide) in paragraph at lines 921--925
+\T1/stix/m/n/10 berubah pada tiga seed (\T1/stix/m/it/10 tem-per-a-ture \T1/stix/m/n/10 0,7; DIFF+I dan DIFF+I+MB),
+ []
+
+(./results-exploratory.tex
+Underfull \hbox (badness 10000) in paragraph at lines 42--50
+\T1/stix/m/n/10 Versi 1.11.22 memi-liki postin-stall yang men-jalankan
+ []
+
+
+Underfull \hbox (badness 3396) in paragraph at lines 42--50
+\T1/zi4/m/n/10 setup.cjs\T1/stix/m/n/10 ; pem-ba-caan statis file terse-but me-nun-jukkan
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[9]
+Underfull \hbox (badness 1762) in paragraph at lines 51--57
+\T1/stix/m/n/10 pakan kepu-tu-san bersyarat pada snap-shot, bukan re-call
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 51--57
+\T1/stix/m/n/10 100%. Tidak ada kelu-aran ter-po-tong atau ID bukti tak
+ []
+
+
+Underfull \hbox (badness 1308) in paragraph at lines 72--79
+\T1/stix/m/n/10 in-struksi kon-di-sional serta nama/versi de-pen-dency yang
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--128
+[]\T1/stix/m/n/10 Tidak ada satu pun ver-dict yang berbeda an-tar
+ []
+
+
+Underfull \hbox (badness 4981) in paragraph at lines 120--128
+\T1/stix/m/n/10 model (Tabel [][]7[][]). Selu-ruh re-spons Gran-ite memenuhi
+ []
+
+
+Underfull \hbox (badness 6078) in paragraph at lines 120--128
+\T1/stix/m/n/10 atau er-ror trans-port. Satu tar-get MAL tetap be-nign,
+ []
+
+
+Underfull \hbox (badness 2134) in paragraph at lines 120--128
+\T1/stix/m/n/10 se-hingga per-gan-tian model belum mem-per-baiki de-teksi
+ []
+
+
+Underfull \hbox (badness 3746) in paragraph at lines 120--128
+\T1/stix/m/n/10 isi de-pen-dency, pada \T1/zi4/m/n/10 get-symbol-description@1.0.2 \T1/stix/m/n/10 dan
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--128
+\T1/zi4/m/n/10 @tolicodes/picklejs@0.75.0\T1/stix/m/n/10 ; dukun-gan se-man-tik alasan
+ []
+
+)
+Underfull \hbox (badness 2717) in paragraph at lines 129--939
+[]\T1/stix/m/n/10 Granite memakai 76.964 to-ken pada NO-SOURCE
+ []
+
+
+Underfull \hbox (badness 3713) in paragraph at lines 129--939
+\T1/stix/m/n/10 diband-ingkan to-tal 196.035 to-ken Qwen. To-ken an-tar
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--939
+\T1/stix/m/n/10 model mengikuti to-k-enizer masing-masing dan tidak
+ []
+
+
+Underfull \hbox (badness 1122) in paragraph at lines 129--939
+\T1/stix/m/n/10 14 kan-di-dat HN adalah 1.676 ms dan 2.422 ms un-tuk
+ []
+
+
+Underfull \hbox (badness 2856) in paragraph at lines 129--939
+\T1/stix/m/n/10 pay-load, jum-lah to-ken, pars-ing, ku-ti-pan, 27 check-sum
+ []
+
+
+Underfull \hbox (badness 2293) in paragraph at lines 129--939
+\T1/stix/m/n/10 ini men-dukung ke-samaan kepu-tu-san pada ko-hort yang
+ []
+
+(./discussion-exploratory.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[10]) (/tmp/intendiff-latex-d90-final/intendiff-rag.bbl
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 6.80005pt on input line 19.
+
+Underfull \hbox (badness 7133) in paragraph at lines 16--21
+[]\T1/stix/m/n/8 Amazon Web Ser-vices, 2025.  De-fend-ing against sup-ply chain
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--21
+\T1/stix/m/n/8 at-tacks like chalk/debug and the shai-hulud worm.  AWS
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--21
+\T1/stix/m/n/8 Se-cu-rity Blog.  URL: [][]$\T1/zi4/m/n/8 https : / / aws . amazon . com / blogs / security /
+ []
+
+
+Overfull \hbox (48.34505pt too wide) in paragraph at lines 16--21
+\T1/zi4/m/n/8 defending-[]against-[]supply-[]chain-[]attacks-[]like-[]chalk-[]debug-[]and-[]the-[]shai-[]hulud-[]worm$[][]\T1/stix/m/n/8 .
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[11])
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+[12
+
+] (/tmp/intendiff-latex-d90-final/intendiff-rag.aux)
+ ***********
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-08-10>
+ ***********
+Package rerunfilecheck Info: File `intendiff-rag.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+ ) 
+Here is how much of TeX's memory you used:
+ 16786 strings out of 469089
+ 253494 string characters out of 5459054
+ 685043 words of memory out of 5000000
+ 45473 multiletter control sequences out of 15000+600000
+ 736036 words of font info for 168 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 89i,10n,98p,414b,632s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecso0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0900.600pk><~/.TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Bold.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Italic.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Regular.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathcal.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathit.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathrm.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathsf.pfb>
+Output written on /tmp/intendiff-latex-d90-final/intendiff-rag.pdf (13 pages, 319465 bytes).
+PDF statistics:
+ 718 PDF objects out of 1000 (max. 8388607)
+ 516 compressed objects within 6 object streams
+ 98 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,0 +1,56 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  50.18kB
+Step 1/17 : FROM node:24-bookworm-slim AS node
+ ---> 0e0ff40c39bc
+Step 2/17 : FROM python:3.12-slim-trixie
+ ---> f77ac9e44ae9
+Step 3/17 : RUN apt-get update && apt-get install -y --no-install-recommends libstdc++6 diffutils build-essential     && rm -rf /var/lib/apt/lists/*
+ ---> Using cache
+ ---> e6ee72151373
+Step 4/17 : COPY --from=node /usr/local/bin/node /usr/local/bin/node
+ ---> Using cache
+ ---> 211942119e5f
+Step 5/17 : COPY --from=node /usr/local/lib/node_modules/npm /opt/npm
+ ---> Using cache
+ ---> fafb9459152a
+Step 6/17 : WORKDIR /opt/tools
+ ---> Using cache
+ ---> 39473db7c8d8
+Step 7/17 : COPY package.json package-lock.json ./
+ ---> Using cache
+ ---> 1232f83dd075
+Step 8/17 : RUN node /opt/npm/bin/npm-cli.js ci --ignore-scripts --omit=dev
+ ---> Using cache
+ ---> 2a2e65c7bca9
+Step 9/17 : RUN node /opt/npm/bin/npm-cli.js rebuild @dodona/dolos-parsers
+ ---> Using cache
+ ---> e8cd5c374bac
+Step 10/17 : ENV PATH="/opt/tools/node_modules/.bin:${PATH}"
+ ---> Using cache
+ ---> f058217ac514
+Step 11/17 : ENV PYTHONDONTWRITEBYTECODE=1
+ ---> Using cache
+ ---> 8203e5b1597f
+Step 12/17 : WORKDIR /workspace
+ ---> Using cache
+ ---> 2c0d8177ab2a
+Step 13/17 : RUN apt-get update && apt-get install -y --no-install-recommends unzip     && rm -rf /var/lib/apt/lists/*
+ ---> Using cache
+ ---> b5ceb6b4d3cb
+Step 14/17 : COPY dolos_pairs.mjs /opt/tools/dolos_pairs.mjs
+ ---> Using cache
+ ---> e6b9463b3680
+Step 15/17 : RUN chmod +x /opt/tools/dolos_pairs.mjs     && ln -s /opt/tools/dolos_pairs.mjs /usr/local/bin/dolos-pairs
+ ---> Using cache
+ ---> 6bb0ed86af01
+Step 16/17 : COPY normalize_pair.mjs /opt/tools/normalize_pair.mjs
+ ---> d09ad58aff89
+Step 17/17 : RUN chmod +x /opt/tools/normalize_pair.mjs     && ln -s /opt/tools/normalize_pair.mjs /usr/local/bin/normalize-pair
+ ---> Running in 9877c0258799
+ ---> Removed intermediate container 9877c0258799
+ ---> 43d3cfe14092
+Successfully built 43d3cfe14092
+Successfully tagged intendiff-preprocess:static-v2

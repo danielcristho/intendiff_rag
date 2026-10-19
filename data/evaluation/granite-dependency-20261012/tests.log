@@ -1,0 +1,8 @@
+test_inputs_prompt_and_schema_are_byte_identical_to_control (test_granite_dependency.GraniteDependencyTests.test_inputs_prompt_and_schema_are_byte_identical_to_control) ... ok
+test_parser_logic_is_unchanged (test_granite_dependency.GraniteDependencyTests.test_parser_logic_is_unchanged) ... ok
+test_payload_only_changes_model_and_native_template_eos (test_granite_dependency.GraniteDependencyTests.test_payload_only_changes_model_and_native_template_eos) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.076s
+
+OK

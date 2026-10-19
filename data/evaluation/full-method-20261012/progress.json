@@ -1,0 +1,8 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "completed": 59,
+  "expected": 2919,
+  "pair_id": "@ctrl/tinycolor@4.1.1",
+  "arm": "IDS-I",
+  "updated_unix": 1791960899.834201
+}

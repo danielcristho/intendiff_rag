@@ -1,0 +1,6 @@
+tlmgr: package repository https://mirrors.mit.edu/CTAN/systems/texlive/tlnet (verified)
+[1/1, ??:??/??:??] install: placeins [3k]
+running mktexlsr ...
+done running mktexlsr.
+tlmgr: package log updated: /tmp/intendiff-texmf-var/web2c/tlmgr.log
+tlmgr: command log updated: /tmp/intendiff-texmf-var/web2c/tlmgr-commands.log

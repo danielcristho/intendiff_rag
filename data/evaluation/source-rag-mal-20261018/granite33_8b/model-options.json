@@ -1,0 +1,11 @@
+{
+  "model": "ibm-granite/granite-3.3-8b-instruct",
+  "options": {
+    "chat_template_kwargs": {
+      "thinking": false
+    },
+    "stop_token_ids": [
+      0
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+Pembaruan paket dapat menyisipkan perilaku berbahaya yang menyerupai aktivitas
+perangkat lunak sah. Penelitian ini mengevaluasi apakah profil tujuan paket
+(intent) dan contoh hasil retrieval membantu LLM lokal membedakan keduanya.
+Enam konfigurasi dibandingkan pada enam model open-weight, menggunakan
+129 pembaruan berlabel malicious dari 98 klaster kampanye dan 1.868 pembaruan
+typical. Label malicious berasal dari sumber dataset; pembaruan typical
+diasumsikan benign setelah penyaringan advisory. Mengganti satu dari dua contoh
+malicious dengan contoh benign meningkatkan TPR Qwen3-4B sebesar 8,53 poin
+persentase, tetapi FPR juga meningkat 2,30 poin. Pada Phi-4-mini, penggantian
+yang sama menurunkan FPR 5,46 poin, disertai penurunan TPR 8,53 poin. Intent
+menurunkan FPR pada tiga model tanpa perubahan TPR yang jelas, tetapi menaikkan
+TPR sekaligus FPR pada dua model lain.
+Hasil ini tidak mendukung anggapan bahwa contoh benign secara umum mengurangi
+alarm palsu tanpa mengorbankan deteksi. Kontribusi penelitian adalah pengukuran
+terkontrol atas pengaruh intent dan komposisi contoh pada level pembaruan,
+dengan estimasi ketidakpastian berbasis kampanye.
+Temuan mendukung evaluasi manfaat retrieval secara spesifik pada model dan
+kondisi data, bukan penggunaannya sebagai perbaikan yang diasumsikan berlaku umum.

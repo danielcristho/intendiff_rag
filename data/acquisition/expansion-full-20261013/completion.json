@@ -1,0 +1,32 @@
+{
+  "status": "acquisition_complete_gold_and_final_split_pending",
+  "completed_at": "2026-10-13T09:43:01.842448+00:00",
+  "python": "3.12.9 (main, Mar 17 2025, 21:01:58) [Clang 20.1.0 ]",
+  "numpy": "2.3.5",
+  "scipy": "1.18.1",
+  "offline_image": "sha256:43d3cfe140925f347616b3884fc859f210e381f459b89ba38fbd7c9e0bb53c07",
+  "summary": {
+    "typical_candidate_pairs": 2257,
+    "typical_strata": {
+      "popular": 902,
+      "random": 974,
+      "live-stream-unseen-names": 381
+    },
+    "typical_unexposed_by_identity": 2062,
+    "hn_original_prefilter_passed": 162,
+    "hn_new_prefilter_passed": 163,
+    "hn_combined_prefilter_passed": 325,
+    "hn_total_raw_candidates": 383,
+    "hn_unexposed_by_identity": 281,
+    "typical_hn_overlap": 162,
+    "distinct_typical_hn_review_pairs": 2420,
+    "gold_labels_created": 0,
+    "final_holdout_pairs": 0,
+    "new_mal_pairs": 0,
+    "new_inferences": 0
+  },
+  "focused_tests": 8,
+  "fixture_predictions_used_as_real_results": false,
+  "new_llm_inferences": 0,
+  "coverage_assertions_passed": true
+}

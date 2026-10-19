@@ -1,0 +1,74 @@
+[
+  {
+    "path": "labs/latex/intendiff-rag.tex",
+    "sha256": "958d250ad7d26098459b9aa8ec4e7435c0b0dd9fa1c5bee1d42ac53711ad5cd6"
+  },
+  {
+    "path": "labs/latex/intendiff-rag.pdf",
+    "sha256": "2b38c2fa587419707f89284c0b77476362ced92a264068a0ee766d8104e360f7"
+  },
+  {
+    "path": "labs/latex/cas-refs.bib",
+    "sha256": "90855f366a7beac746167f87c79d3801c61ad85cc54babcefbe8dd5d5bc2671e"
+  },
+  {
+    "path": "labs/latex/BUILD.md",
+    "sha256": "3c6d69ca4ac4c1e58738be095ac547499ae4e6d50dbd8762db50014b1763c5a6"
+  },
+  {
+    "path": "docs/manuscript-audit-20261018.md",
+    "sha256": "27d27a9140870f078e2e890e5f9028876761d087a02b2853173a80333acf5c86"
+  },
+  {
+    "path": "pipeline/paper_results.py",
+    "sha256": "8a236cc247415fd27d0acd44af2f8d6e2f9fc34767e0c77e9b7e076bc27ee242"
+  },
+  {
+    "path": "pipeline/paper_tables.py",
+    "sha256": "f0035061a54ae829cb08bda652df8221fbf4f28f73d7c840d4305ba6df6eb5dd"
+  },
+  {
+    "path": "tests/test_paper_results.py",
+    "sha256": "c027168507f166e73e9f7c83a731d85486535840b0a09d0b6dd86fc4e19337f2"
+  },
+  {
+    "path": "labs/latex/generated/mb-contrast.tex",
+    "sha256": "8fc2b117522c14d45e21a45971ab91dbccdb39ffab5ea44e4ce4a2726b949e07"
+  },
+  {
+    "path": "labs/latex/generated/main-results.tex",
+    "sha256": "581eb4633609b0fb659f7aaab70642f28a565c91ea6d9e9a6a01ba6b1ad1080a"
+  },
+  {
+    "path": "labs/latex/generated/cost.tex",
+    "sha256": "bb0596ccc0c889d4814ddaa64009d2a82a51d8ea268d5b74566961bfe2ff4a98"
+  },
+  {
+    "path": "labs/latex/generated/full-results.tex",
+    "sha256": "db8ab365d1c9774b4a7a2f0174e353156f92b42f7ada4bdb862531255bce2faa"
+  },
+  {
+    "path": "labs/latex/generated/sensitivity.tex",
+    "sha256": "e6f6faf23823cd7fcee720125bf51c943d640373bd7c024b745f9694fe11f4c1"
+  },
+  {
+    "path": "labs/latex/figures/paired-effects.png",
+    "sha256": "e1f107d7645fc171038a05d64ca4a89e14cbaf2874b12dd1e7c77dde06cc27a0"
+  },
+  {
+    "path": "labs/latex/figures/paired-effects.pdf",
+    "sha256": "1e1987cb58ab8b2746862dcd887010b39dac6fdf6e42b373ba70707f59285222"
+  },
+  {
+    "path": "data/writing/paper-20261018/metrics.csv",
+    "sha256": "255eba47976aead1f7796fd94f9a477c595ef5999fc19f45deb08ffaf2604234"
+  },
+  {
+    "path": "data/writing/paper-20261018/contrasts.csv",
+    "sha256": "d818024daa5419aee6d9134de9a5570af931b14140c04be1de9e12e2800764bd"
+  },
+  {
+    "path": "data/writing/paper-20261018/verification.json",
+    "sha256": "90b11c7865e73455d812844692a48aab47ff242619c5b0e8951d4f83f09ceba8"
+  }
+]

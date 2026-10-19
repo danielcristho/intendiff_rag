@@ -1,0 +1,74 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports","collection,wrapper",7
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.Number","collection",11
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.contains","item",11
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.addAll","items",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.remove","item",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.add","item",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.toSortedArray","fn",15
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.toArray","",15
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.length","",15
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.parseAnd","field,atom,minValue,maxValue,aliases",262
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports","collection,wrapper",7
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.Number","collection",11
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.add","item",11
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.toSortedArray","fn",14
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.toArray","",14
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.addAll","items",15
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.contains","item",15
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.remove","item",15
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.length","",15
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports","collection,wrapper",7
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.Number","collection",11
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.addAll","items",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.remove","item",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.toArray","",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.length","",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.toSortedArray","fn",15
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.add","item",15
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.contains","item",15
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.toSortedArray","fn",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.add","item",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.contains","item",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.toArray","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.remove","item",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.length","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.parseRange","field,atom,minValue,maxValue,aliases",175
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.parseLiteral","field,atom,minValue,maxValue,aliases",201
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.literalSet","atom,minValue,maxValue,aliases",212
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.andSet","values,minValue,maxValue",241
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.repeatSet","offset,step,minValue,maxValue",259
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.rangeSet","start,end,minValue,maxValue",282
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.parseRepeat","field,atom,minValue,maxValue,aliases",726
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports","collection,wrapper",7
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.Number","collection",11
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.toSortedArray","fn",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.length","",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.add","item",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.toArray","",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.addAll","items",18
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.contains","item",18
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.remove","item",18
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.literalSet","atom,minValue,maxValue,aliases",62
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.toSortedArray","fn",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.addAll","items",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.length","",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.toArray","",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.contains","item",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.add","item",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.remove","item",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.andSet","values,minValue,maxValue",38
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports","collection,wrapper",7
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.Number","collection",11
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.addAll","items",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.add","item",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.length","",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.remove","item",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.toSortedArray","fn",18
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.toArray","",18
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.contains","item",18
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","(new module.exports()).__proto__.toSortedArray","fn",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.parseLiteral","field,atom,minValue,maxValue,aliases",69
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.parseRepeat","field,atom,minValue,maxValue,aliases",511
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.andSet","values,minValue,maxValue",540
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.parseRange","field,atom,minValue,maxValue,aliases",667
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/tron_0.2.3-->0.2.4/tron-0.2.3/","module.exports.literalSet","atom,minValue,maxValue,aliases",682

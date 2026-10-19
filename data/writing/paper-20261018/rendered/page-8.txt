@@ -1,0 +1,58 @@
+IntentDi-RAG
+Pembanding dan biaya. Penelitian tidak menjalankan
+ulang detektor non-LLM, model komersial, atau model fine-
+tuned pada cohort yang sama. Hasil studi lain karena itu
+hanya menjadi konteks, bukan perbandingan superioritas.
+Biaya preprocessing, energi, beban peninjauan manusia, dan
+throughput produksi belum diukur. Tidak dilakukan audit
+semantik menyeluruh atas seluruh false positive dan false
+negative; penjelasan mekanisme kesalahan tetap berupa
+kemungkinan, bukan taksonomi yang sudah divalidasi.
+8. Kesimpulan
+Evaluasi ini menunjukkan bahwa intent dan contoh
+pembanding
+mengubah
+keputusan
+LLM
+lokal
+secara
+berbeda
+antar-model.
+Pada
+enam
+model
+dan
+enam
+konfigurasi, penggantian contoh kedua dari malicious
+menjadi benign tidak menghasilkan perbaikan bersama pada
+estimasi TPR tambahan dan FPR TYP. Penambahan intent
+juga dapat meningkatkan deteksi sekaligus meningkatkan
+alarm
+palsu,
+atau
+menurunkan
+keduanya.
+Temuan
+mendukung pelaporan kedua jenis kesalahan, ketidakpastian
+kampanye, dan sensitivitas format sebelum menilai manfaat
+RAG. Kesimpulan dibatasi pada label sumber, pemilihan
+cohort, dan kondisi inferensi yang digunakan; belum
+menunjukkan kesiapan deteksi otonom atau keunggulan
+atas pendekatan yang tidak diuji pada data yang sama.
+Ketersediaan artefak
+Workspace penelitian menyimpan manifest pasangan,
+provenance label, hash arsip, pembagian kampanye, revisi
+model, prompt, respons mentah, dan skrip analisis. Tabel
+dan gambar naskah dibentuk otomatis dari hasil yang diver-
+ifikasi, tanpa menjalankan inferensi baru. Tautan repositori
+publik belum ditetapkan; ketersediaan lokal ini tidak diklaim
+sebagai rilis publik.
+A. Hasil seluruh konfigurasi
+Tabel 7 memuat semua konfigurasi tanpa memilih hanya
+yang menguntungkan. TPR awal dan tambahan memakai
+penyebut yang berbeda, yaitu 33 dan 96 MAL. Akurasi
+dan BA gabungan menggunakan 129 MAL dan 1.868 TYP;
+angka tersebut bukan evaluasi baru dengan distribusi kelas
+alami npm.
+: Preprint submitted to Elsevier
+Page 7 of 8

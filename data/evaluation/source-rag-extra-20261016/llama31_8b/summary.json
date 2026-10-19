@@ -1,0 +1,846 @@
+{
+  "metrics": [
+    {
+      "config": "DIFF",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 743,
+        "FP": 1125,
+        "TP": 24,
+        "FN": 9
+      },
+      "tpr_source": 0.7272727272727273,
+      "cohort_accuracy": 0.4034718569174119,
+      "balanced_accuracy": 0.5625121666342223,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 206,
+          "fpr": 0.5493333333333333,
+          "wilson_95": [
+            0.49872744476089487,
+            0.5989387402315773
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 441,
+          "fpr": 0.6372832369942196,
+          "wilson_95": [
+            0.6007947180247446,
+            0.6722559856829797
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 478,
+          "fpr": 0.5967540574282147,
+          "wilson_95": [
+            0.5623987943603378,
+            0.6301857181560976
+          ]
+        }
+      },
+      "invalid": 22,
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "tpr_wilson_95": [
+        0.5578244099712737,
+        0.8493255911457935
+      ],
+      "cost": {
+        "median_latency_ms": 644.9,
+        "p95_latency_ms": 3259.6,
+        "mean_prompt_tokens": 3193.4313519200423,
+        "mean_completion_tokens": 58.31194108364019
+      }
+    },
+    {
+      "config": "DIFF",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 721,
+        "FP": 1147,
+        "TP": 24,
+        "FN": 9
+      },
+      "tpr_source": 0.7272727272727273,
+      "cohort_accuracy": 0.39189900052603893,
+      "balanced_accuracy": 0.556623515670625,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 208,
+          "fpr": 0.5546666666666666,
+          "wilson_95": [
+            0.5040622844367915,
+            0.6041624070413536
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 459,
+          "fpr": 0.6632947976878613,
+          "wilson_95": [
+            0.6272684832108057,
+            0.697518143304698
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 480,
+          "fpr": 0.599250936329588,
+          "wilson_95": [
+            0.5649180678564417,
+            0.6326363675636436
+          ]
+        }
+      },
+      "invalid": 22,
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "tpr_wilson_95": [
+        0.5578244099712737,
+        0.8493255911457935
+      ],
+      "cost": {
+        "median_latency_ms": 644.9,
+        "p95_latency_ms": 3259.6,
+        "mean_prompt_tokens": 3193.4313519200423,
+        "mean_completion_tokens": 58.31194108364019
+      }
+    },
+    {
+      "config": "DIFF+I",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 561,
+        "FP": 1307,
+        "TP": 25,
+        "FN": 8
+      },
+      "tpr_source": 0.7575757575757576,
+      "cohort_accuracy": 0.30825881115202525,
+      "balanced_accuracy": 0.5289484783596132,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 237,
+          "fpr": 0.632,
+          "wilson_95": [
+            0.582080491411438,
+            0.679242544108961
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 509,
+          "fpr": 0.7355491329479769,
+          "wilson_95": [
+            0.7014533602193923,
+            0.7670441629843873
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 561,
+          "fpr": 0.700374531835206,
+          "wilson_95": [
+            0.6677556229474573,
+            0.7310806900704507
+          ]
+        }
+      },
+      "invalid": 48,
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "tpr_wilson_95": [
+        0.5897538017044264,
+        0.8716828662282499
+      ],
+      "cost": {
+        "median_latency_ms": 801.5,
+        "p95_latency_ms": 3457.1,
+        "mean_prompt_tokens": 3694.0389268805893,
+        "mean_completion_tokens": 67.43450815360336
+      }
+    },
+    {
+      "config": "DIFF+I",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 514,
+        "FP": 1354,
+        "TP": 26,
+        "FN": 7
+      },
+      "tpr_source": 0.7878787878787878,
+      "cohort_accuracy": 0.2840610205155181,
+      "balanced_accuracy": 0.5315196937252612,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 242,
+          "fpr": 0.6453333333333333,
+          "wilson_95": [
+            0.5956621322901657,
+            0.692057169444415
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 542,
+          "fpr": 0.7832369942196532,
+          "wilson_95": [
+            0.751018603765524,
+            0.8123281112525178
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 570,
+          "fpr": 0.7116104868913857,
+          "wilson_95": [
+            0.6792871099005726,
+            0.7419138561837599
+          ]
+        }
+      },
+      "invalid": 48,
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "tpr_wilson_95": [
+        0.6224835500784931,
+        0.8932397846697919
+      ],
+      "cost": {
+        "median_latency_ms": 801.5,
+        "p95_latency_ms": 3457.1,
+        "mean_prompt_tokens": 3694.0389268805893,
+        "mean_completion_tokens": 67.43450815360336
+      }
+    },
+    {
+      "config": "DIFF+I+M",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 388,
+        "FP": 1480,
+        "TP": 28,
+        "FN": 5
+      },
+      "tpr_source": 0.8484848484848485,
+      "cohort_accuracy": 0.21883219358232509,
+      "balanced_accuracy": 0.5280968139640516,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 279,
+          "fpr": 0.744,
+          "wilson_95": [
+            0.6975095924941437,
+            0.7855420792253816
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 564,
+          "fpr": 0.815028901734104,
+          "wilson_95": [
+            0.7843883394752608,
+            0.8421911700856223
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 637,
+          "fpr": 0.7952559300873908,
+          "wilson_95": [
+            0.765933709183982,
+            0.8217596741726239
+          ]
+        }
+      },
+      "invalid": 44,
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "tpr_wilson_95": [
+        0.6908012411955788,
+        0.9334954271839244
+      ],
+      "cost": {
+        "median_latency_ms": 810.4,
+        "p95_latency_ms": 3426.7,
+        "mean_prompt_tokens": 3879.2451341399264,
+        "mean_completion_tokens": 65.86112572330353
+      }
+    },
+    {
+      "config": "DIFF+I+M",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 345,
+        "FP": 1523,
+        "TP": 29,
+        "FN": 4
+      },
+      "tpr_source": 0.8787878787878788,
+      "cohort_accuracy": 0.19673855865334033,
+      "balanced_accuracy": 0.5317386931412628,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 284,
+          "fpr": 0.7573333333333333,
+          "wilson_95": [
+            0.7114765806741942,
+            0.7979713572595127
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 594,
+          "fpr": 0.8583815028901735,
+          "wilson_95": [
+            0.8304220154464962,
+            0.8823840321273525
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 645,
+          "fpr": 0.8052434456928839,
+          "wilson_95": [
+            0.7763886263188651,
+            0.8311844486523403
+          ]
+        }
+      },
+      "invalid": 44,
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "tpr_wilson_95": [
+        0.7267449482892476,
+        0.9518383869058644
+      ],
+      "cost": {
+        "median_latency_ms": 810.4,
+        "p95_latency_ms": 3426.7,
+        "mean_prompt_tokens": 3879.2451341399264,
+        "mean_completion_tokens": 65.86112572330353
+      }
+    },
+    {
+      "config": "DIFF+I+MM",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 587,
+        "FP": 1281,
+        "TP": 24,
+        "FN": 9
+      },
+      "tpr_source": 0.7272727272727273,
+      "cohort_accuracy": 0.32140978432404,
+      "balanced_accuracy": 0.5207562779832587,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 236,
+          "fpr": 0.6293333333333333,
+          "wilson_95": [
+            0.5793689268695744,
+            0.6766748554079881
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 501,
+          "fpr": 0.7239884393063584,
+          "wilson_95": [
+            0.689514787034099,
+            0.7559889926995564
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 544,
+          "fpr": 0.6791510611735331,
+          "wilson_95": [
+            0.6460348955342656,
+            0.7105570728026178
+          ]
+        }
+      },
+      "invalid": 55,
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "tpr_wilson_95": [
+        0.5578244099712737,
+        0.8493255911457935
+      ],
+      "cost": {
+        "median_latency_ms": 844.4,
+        "p95_latency_ms": 3302.8,
+        "mean_prompt_tokens": 4063.0084166228303,
+        "mean_completion_tokens": 66.73540241977906
+      }
+    },
+    {
+      "config": "DIFF+I+MM",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 533,
+        "FP": 1335,
+        "TP": 25,
+        "FN": 8
+      },
+      "tpr_source": 0.7575757575757576,
+      "cohort_accuracy": 0.29352972119936876,
+      "balanced_accuracy": 0.5214538316786711,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 242,
+          "fpr": 0.6453333333333333,
+          "wilson_95": [
+            0.5956621322901657,
+            0.692057169444415
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 540,
+          "fpr": 0.7803468208092486,
+          "wilson_95": [
+            0.7479988711850526,
+            0.8095994079654582
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 553,
+          "fpr": 0.6903870162297129,
+          "wilson_95": [
+            0.6575243649727945,
+            0.7214322564305137
+          ]
+        }
+      },
+      "invalid": 55,
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "tpr_wilson_95": [
+        0.5897538017044264,
+        0.8716828662282499
+      ],
+      "cost": {
+        "median_latency_ms": 844.4,
+        "p95_latency_ms": 3302.8,
+        "mean_prompt_tokens": 4063.0084166228303,
+        "mean_completion_tokens": 66.73540241977906
+      }
+    },
+    {
+      "config": "DIFF+I+MB",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 566,
+        "FP": 1302,
+        "TP": 30,
+        "FN": 3
+      },
+      "tpr_source": 0.9090909090909091,
+      "cohort_accuracy": 0.31351920042083115,
+      "balanced_accuracy": 0.606044383881643,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 238,
+          "fpr": 0.6346666666666667,
+          "wilson_95": [
+            0.5847936340479505,
+            0.6818086547152848
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 497,
+          "fpr": 0.7182080924855492,
+          "wilson_95": [
+            0.6835559127302389,
+            0.7504509952683547
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 567,
+          "fpr": 0.7078651685393258,
+          "wilson_95": [
+            0.675440729988627,
+            0.7383053517402306
+          ]
+        }
+      },
+      "invalid": 52,
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "tpr_wilson_95": [
+        0.7642739435353026,
+        0.9685960584754184
+      ],
+      "cost": {
+        "median_latency_ms": 840.0,
+        "p95_latency_ms": 3471.2,
+        "mean_prompt_tokens": 4054.743293003682,
+        "mean_completion_tokens": 67.66017885323514
+      }
+    },
+    {
+      "config": "DIFF+I+MB",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 514,
+        "FP": 1354,
+        "TP": 30,
+        "FN": 3
+      },
+      "tpr_source": 0.9090909090909091,
+      "cohort_accuracy": 0.2861651762230405,
+      "balanced_accuracy": 0.5921257543313218,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 247,
+          "fpr": 0.6586666666666666,
+          "wilson_95": [
+            0.6092841857037739,
+            0.7048313822449885
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 531,
+          "fpr": 0.7673410404624278,
+          "wilson_95": [
+            0.7344364580392997,
+            0.7972938597073214
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 576,
+          "fpr": 0.7191011235955056,
+          "wilson_95": [
+            0.6869876689941375,
+            0.7491230658011448
+          ]
+        }
+      },
+      "invalid": 52,
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "tpr_wilson_95": [
+        0.7642739435353026,
+        0.9685960584754184
+      ],
+      "cost": {
+        "median_latency_ms": 840.0,
+        "p95_latency_ms": 3471.2,
+        "mean_prompt_tokens": 4054.743293003682,
+        "mean_completion_tokens": 67.66017885323514
+      }
+    },
+    {
+      "config": "DIFF+MB",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 790,
+        "FP": 1078,
+        "TP": 24,
+        "FN": 9
+      },
+      "tpr_source": 0.7272727272727273,
+      "cohort_accuracy": 0.4281956864807996,
+      "balanced_accuracy": 0.5750924664200896,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 207,
+          "fpr": 0.552,
+          "wilson_95": [
+            0.501394144244827,
+            0.6015512939904818
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 414,
+          "fpr": 0.5982658959537572,
+          "wilson_95": [
+            0.5612935438751283,
+            0.6341532756209269
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 457,
+          "fpr": 0.5705368289637952,
+          "wilson_95": [
+            0.5360007386250042,
+            0.6043995834031065
+          ]
+        }
+      },
+      "invalid": 31,
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "tpr_wilson_95": [
+        0.5578244099712737,
+        0.8493255911457935
+      ],
+      "cost": {
+        "median_latency_ms": 694.8,
+        "p95_latency_ms": 3348.4,
+        "mean_prompt_tokens": 3554.135718043135,
+        "mean_completion_tokens": 60.32298790110468
+      }
+    },
+    {
+      "config": "DIFF+MB",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 759,
+        "FP": 1109,
+        "TP": 24,
+        "FN": 9
+      },
+      "tpr_source": 0.7272727272727273,
+      "cohort_accuracy": 0.4118884797475013,
+      "balanced_accuracy": 0.566794821880475,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 210,
+          "fpr": 0.56,
+          "wilson_95": [
+            0.5094028969307473,
+            0.6093803010330706
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 439,
+          "fpr": 0.634393063583815,
+          "wilson_95": [
+            0.5978602274152638,
+            0.6694420404249293
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 460,
+          "fpr": 0.5742821473158551,
+          "wilson_95": [
+            0.5397658696481467,
+            0.608089336735439
+          ]
+        }
+      },
+      "invalid": 31,
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "tpr_wilson_95": [
+        0.5578244099712737,
+        0.8493255911457935
+      ],
+      "cost": {
+        "median_latency_ms": 694.8,
+        "p95_latency_ms": 3348.4,
+        "mean_prompt_tokens": 3554.135718043135,
+        "mean_completion_tokens": 60.32298790110468
+      }
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "baseline": "DIFF+I",
+      "variant": "DIFF+I+M",
+      "subset": "MAL",
+      "alarm_rate_delta_points": 9.090909090909093,
+      "campaign_bootstrap_95": [
+        -3.0303030303030276,
+        21.212121212121215
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "baseline": "DIFF+I",
+      "variant": "DIFF+I+M",
+      "subset": "TYP:live-stream-unseen-names",
+      "alarm_rate_delta_points": 11.2,
+      "campaign_bootstrap_95": [
+        6.400000000000006,
+        16.000000000000004
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "baseline": "DIFF+I",
+      "variant": "DIFF+I+M",
+      "subset": "TYP:popular",
+      "alarm_rate_delta_points": 7.947976878612717,
+      "campaign_bootstrap_95": [
+        4.7687861271676235,
+        11.15942028985507
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "baseline": "DIFF+I",
+      "variant": "DIFF+I+M",
+      "subset": "TYP:random",
+      "alarm_rate_delta_points": 9.488139825218479,
+      "campaign_bootstrap_95": [
+        6.242197253433213,
+        12.734082397003743
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "baseline": "DIFF+I+MM",
+      "variant": "DIFF+I+MB",
+      "subset": "MAL",
+      "alarm_rate_delta_points": 18.181818181818176,
+      "campaign_bootstrap_95": [
+        6.060606060606055,
+        33.33333333333333
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "baseline": "DIFF+I+MM",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:live-stream-unseen-names",
+      "alarm_rate_delta_points": 0.5333333333333412,
+      "campaign_bootstrap_95": [
+        -3.4666666666666623,
+        4.539999999999903
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "baseline": "DIFF+I+MM",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:popular",
+      "alarm_rate_delta_points": -0.578034682080919,
+      "campaign_bootstrap_95": [
+        -3.6023054755043304,
+        2.4566473988439363
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "baseline": "DIFF+I+MM",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:random",
+      "alarm_rate_delta_points": 2.871410736579272,
+      "campaign_bootstrap_95": [
+        0.0,
+        5.867665418227208
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "baseline": "DIFF+MB",
+      "variant": "DIFF+I+MB",
+      "subset": "MAL",
+      "alarm_rate_delta_points": 18.181818181818176,
+      "campaign_bootstrap_95": [
+        6.060606060606055,
+        33.33333333333333
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "baseline": "DIFF+MB",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:live-stream-unseen-names",
+      "alarm_rate_delta_points": 8.266666666666666,
+      "campaign_bootstrap_95": [
+        3.733333333333333,
+        12.8
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "baseline": "DIFF+MB",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:popular",
+      "alarm_rate_delta_points": 11.994219653179194,
+      "campaign_bootstrap_95": [
+        8.526011560693636,
+        15.508614208745758
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "meta-llama/Llama-3.1-8B-Instruct",
+      "baseline": "DIFF+MB",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:random",
+      "alarm_rate_delta_points": 13.732833957553058,
+      "campaign_bootstrap_95": [
+        10.36204744069913,
+        17.103620474406988
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    }
+  ]
+}

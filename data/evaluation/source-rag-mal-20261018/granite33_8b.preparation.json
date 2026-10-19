@@ -1,0 +1,7 @@
+{
+  "tag": "granite33_8b",
+  "eligible": true,
+  "expected": 576,
+  "dev_json_validity": 0.9,
+  "max_prompt_tokens": 35438
+}

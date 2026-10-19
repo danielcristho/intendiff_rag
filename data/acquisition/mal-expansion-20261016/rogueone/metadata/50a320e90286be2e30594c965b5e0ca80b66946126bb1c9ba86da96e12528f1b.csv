@@ -1,0 +1,72 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.Component","props,context,updater",34
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useCallback","callback,deps",52
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useImperativeHandle","ref,create,deps",64
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useDeferredValue","value",76
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useSyncExternalStore","subscribe,getSnapshot,getServerSnapshot",88
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useReducer","reducer,initialArg,init",100
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.forwardRef","render",139
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.memo","type,compare",152
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.unstable_act","",24
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createRef","",24
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useTransition","",24
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.cloneElement","a,b,e",28
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useState","a",29
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createFactory","a",30
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createContext","a",30
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.forwardRef","a",30
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.isValidElement","a",30
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useCallback","a,b",31
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.PureComponent","a,b,e",31
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useInsertionEffect","a,b",32
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useLayoutEffect","a,b",33
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useEffect","a,b",34
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useImperativeHandle","a,b,e",35
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.startTransition","a",35
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.Component","a,b,e",35
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.lazy","a",35
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useDeferredValue","a",36
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useId","",36
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useSyncExternalStore","a,b,e",37
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.memo","a,b",37
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useReducer","a,b,e",38
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useMemo","a,b",39
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useRef","a",40
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createElement","a,b,e",42
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useDebugValue","",42
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useContext","a",43
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createFactory()","a,b,e",43
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.Children.forEach","a,b,e",130
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.Children.toArray","a",198
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.Children.only","a",198
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.Children.map","a,b,e",268
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.Children.count","a",336
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","(new module.exports.Component()).__proto__.forceUpdate","a",340
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","(new module.exports.Component()).__proto__.setState","a,b",344
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.lazy()._init","a",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createRef().current.useCallback","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createRef().current.useSyncExternalStore","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createRef().current.useId","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createRef().current.useEffect","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createRef().current.useRef","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createRef().current.useContext","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createRef().current.useLayoutEffect","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createRef().current.useTransition","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createRef().current.useDeferredValue","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createRef().current.useReducer","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createRef().current.useMemo","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createRef().current.useImperativeHandle","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createRef().current.useInsertionEffect","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createRef().current.useState","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","(new module.exports.PureComponent()).updater.enqueueSetState","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","(new module.exports.PureComponent()).updater.enqueueForceUpdate","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","(new module.exports.PureComponent()).updater.isMounted","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","(new module.exports.PureComponent()).updater.enqueueReplaceState","",347
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useCallback","callback,deps",386
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useTransition","",388
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createFactory","type",392
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.Component","props,context,updater",392
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.createContext","defaultValue",394
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useDeferredValue","value",397
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useLayoutEffect","create,deps",400
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useContext","Context",407
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/react_18.0.0-->18.1.0/react-18.1.0/","module.exports.useState","initialState",410

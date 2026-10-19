@@ -1,0 +1,21 @@
+{
+  "analysis_scope": "post_hoc_descriptive",
+  "tokens": {
+    "NO-SOURCE": 67749,
+    "WITH-SOURCE": 128286
+  },
+  "total_new_tokens": 196035,
+  "context_token_ratio": 1.8935482442545277,
+  "HN_delta_patterns": {
+    "dependency_change": 14
+  },
+  "dependency_snapshots_with_install_hook": 0,
+  "selected_prior_D86_dev": 6,
+  "future_version_exclusions": 44,
+  "missing_timestamp_exclusions": 0,
+  "semantic_support_verified": false,
+  "dependency_content_citing_pairs": [
+    "has-tostringtag@1.0.2",
+    "@tolicodes/picklejs@0.75.0"
+  ]
+}

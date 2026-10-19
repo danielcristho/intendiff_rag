@@ -1,0 +1,105 @@
+{"cards": 1, "label": "malicious"}
+{"cards": 2, "label": "malicious"}
+{"cards": 3, "label": "malicious"}
+{"cards": 4, "label": "malicious"}
+{"cards": 5, "label": "malicious"}
+{"cards": 6, "label": "malicious"}
+{"cards": 7, "label": "malicious"}
+{"cards": 8, "label": "malicious"}
+{"cards": 9, "label": "malicious"}
+{"cards": 10, "label": "malicious"}
+{"cards": 11, "label": "malicious"}
+{"cards": 12, "label": "malicious"}
+{"cards": 13, "label": "malicious"}
+{"cards": 14, "label": "malicious"}
+{"cards": 15, "label": "malicious"}
+{"cards": 16, "label": "malicious"}
+{"cards": 17, "label": "malicious"}
+{"cards": 18, "label": "malicious"}
+{"cards": 19, "label": "malicious"}
+{"cards": 20, "label": "malicious"}
+{"cards": 21, "label": "malicious"}
+{"cards": 22, "label": "malicious"}
+{"cards": 23, "label": "malicious"}
+{"cards": 24, "label": "malicious"}
+{"cards": 25, "label": "malicious"}
+{"cards": 26, "label": "malicious"}
+{"cards": 27, "label": "malicious"}
+{"cards": 28, "label": "malicious"}
+{"cards": 29, "label": "malicious"}
+{"cards": 30, "label": "malicious"}
+{"cards": 31, "label": "malicious"}
+{"cards": 32, "label": "malicious"}
+{"cards": 33, "label": "malicious"}
+{"cards": 34, "label": "malicious"}
+{"cards": 35, "label": "malicious"}
+{"cards": 36, "label": "malicious"}
+{"cards": 37, "label": "malicious"}
+{"cards": 38, "label": "malicious"}
+{"cards": 39, "label": "malicious"}
+{"cards": 40, "label": "malicious"}
+{"cards": 41, "label": "malicious"}
+{"cards": 42, "label": "malicious"}
+{"cards": 43, "label": "malicious"}
+{"cards": 44, "label": "malicious"}
+{"cards": 45, "label": "malicious"}
+{"cards": 46, "label": "malicious"}
+{"cards": 47, "label": "malicious"}
+{"cards": 48, "label": "malicious"}
+{"cards": 49, "label": "malicious"}
+{"cards": 50, "label": "malicious"}
+{"cards": 51, "label": "benign"}
+{"cards": 52, "label": "benign"}
+{"cards": 53, "label": "benign"}
+{"cards": 54, "label": "benign"}
+{"cards": 55, "label": "benign"}
+{"cards": 56, "label": "benign"}
+{"cards": 57, "label": "benign"}
+{"cards": 58, "label": "benign"}
+{"cards": 59, "label": "benign"}
+{"cards": 60, "label": "benign"}
+{"cards": 61, "label": "benign"}
+{"cards": 62, "label": "benign"}
+{"cards": 63, "label": "benign"}
+{"cards": 64, "label": "benign"}
+{"cards": 65, "label": "benign"}
+{"cards": 66, "label": "benign"}
+{"cards": 67, "label": "benign"}
+{"cards": 68, "label": "benign"}
+{"cards": 69, "label": "benign"}
+{"cards": 70, "label": "benign"}
+{"cards": 71, "label": "benign"}
+{"cards": 72, "label": "benign"}
+{"cards": 73, "label": "benign"}
+{"cards": 74, "label": "benign"}
+{"cards": 75, "label": "benign"}
+{
+  "status": "source-labelled preparation; not frozen for inference",
+  "pairs": 1902,
+  "subsets": {
+    "MAL": 33,
+    "TYP": 1869
+  },
+  "typ_strata": {
+    "live-stream-unseen-names": 376,
+    "popular": 692,
+    "random": 801
+  },
+  "mal_campaigns": 33,
+  "cards": {
+    "malicious": 50,
+    "benign": 25
+  },
+  "card_attrition": 67,
+  "exclusions": {
+    "development_exposure": 265,
+    "pending_hn_diagnostic_overlap": 108,
+    "reserved_kb_name_or_campaign": 25
+  },
+  "human_labels_created": 0,
+  "inferences": 0,
+  "card_budgets_checked": [
+    "qwen25"
+  ],
+  "final_launch_ready": false
+}

@@ -1,0 +1,2 @@
+{"name": "@fangrong/xoc", "version": "1.0.5", "advisory_ids": [], "has_advisory": false, "checked_at": "2026-09-28T02:14:52.202441+00:00", "source": "https://api.osv.dev/v1/querybatch"}
+{"name": "@fangrong/xoc", "version": "1.0.6", "advisory_ids": ["GHSA-pjxp-f379-6284"], "has_advisory": true, "checked_at": "2026-09-28T02:14:52.202441+00:00", "source": "https://api.osv.dev/v1/querybatch"}

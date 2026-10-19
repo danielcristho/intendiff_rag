@@ -1,0 +1,26 @@
+Waiting for preparation to exit before starting the additional-model batch.
+{"preparation_errors": []}
+{"model": "qwen25_7b", "stage": "dev_running", "time_utc": "2026-10-15T23:18:42.889358+00:00"}
+{"model": "qwen25_7b", "stage": "test_ready", "time_utc": "2026-10-15T23:20:29.323298+00:00"}
+{"model": "qwen3_8b", "stage": "dev_running", "time_utc": "2026-10-15T23:20:29.406578+00:00"}
+{"model": "qwen3_8b", "stage": "dev_or_release_failed", "time_utc": "2026-10-15T23:27:29.761119+00:00", "error": "Command '['~/intendiff_rag/.venv/bin/python', '-u', 'pipeline/extension_release.py', '--release', 'data/evaluation/source-rag-extra-20261016/qwen3_8b']' returned non-zero exit status 1."}
+{"model": "phi4_mini", "stage": "dev_running", "time_utc": "2026-10-15T23:27:29.851129+00:00"}
+{"model": "phi4_mini", "stage": "test_ready", "time_utc": "2026-10-15T23:30:27.272512+00:00"}
+{"model": "llama31_8b", "stage": "dev_running", "time_utc": "2026-10-15T23:30:27.344271+00:00"}
+{"model": "llama31_8b", "stage": "test_ready", "time_utc": "2026-10-15T23:36:01.635901+00:00"}
+{"model": "granite33_8b", "stage": "dev_running", "time_utc": "2026-10-15T23:36:01.718901+00:00"}
+{"model": "granite33_8b", "stage": "test_ready", "time_utc": "2026-10-15T23:42:40.332468+00:00"}
+{"model": "qwen25_7b", "stage": "test_running", "time_utc": "2026-10-15T23:42:40.335129+00:00"}
+{"model": "qwen25_7b", "stage": "complete", "time_utc": "2026-10-16T02:17:02.003133+00:00", "report": "data/evaluation/source-rag-extra-20261016/qwen25_7b/results.md"}
+data/evaluation/source-rag-extra-20261016/comparison.md
+{"model": "phi4_mini", "stage": "test_running", "time_utc": "2026-10-16T02:17:02.059782+00:00"}
+{"model": "phi4_mini", "stage": "complete", "time_utc": "2026-10-16T04:43:18.332195+00:00", "report": "data/evaluation/source-rag-extra-20261016/phi4_mini/results.md"}
+data/evaluation/source-rag-extra-20261016/comparison.md
+{"model": "llama31_8b", "stage": "test_running", "time_utc": "2026-10-16T04:43:18.398172+00:00"}
+{"model": "llama31_8b", "stage": "complete", "time_utc": "2026-10-16T08:04:24.403501+00:00", "report": "data/evaluation/source-rag-extra-20261016/llama31_8b/results.md"}
+data/evaluation/source-rag-extra-20261016/comparison.md
+{"model": "granite33_8b", "stage": "test_running", "time_utc": "2026-10-16T08:04:24.516605+00:00"}
+{"model": "granite33_8b", "stage": "complete", "time_utc": "2026-10-16T13:02:18.062630+00:00", "report": "data/evaluation/source-rag-extra-20261016/granite33_8b/results.md"}
+data/evaluation/source-rag-extra-20261016/comparison.md
+data/evaluation/source-rag-extra-20261016/comparison.md
+{"batch_finished": true, "complete": false}

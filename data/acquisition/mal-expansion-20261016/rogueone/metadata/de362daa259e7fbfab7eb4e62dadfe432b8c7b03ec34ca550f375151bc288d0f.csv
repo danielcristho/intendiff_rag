@@ -1,0 +1,5 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/enums_1.0.2-->1.0.3/enums-1.0.2/","module.exports","items",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/enums_1.0.2-->1.0.3/enums-1.0.2/","(new module.exports()).__proto__.values","",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/enums_1.0.2-->1.0.3/enums-1.0.2/","(new module.exports()).__proto__.getByCode","code",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/enums_1.0.2-->1.0.3/enums-1.0.2/","(new module.exports()).__proto__.getBy","name,val",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/enums_1.0.2-->1.0.3/enums-1.0.2/","main","",3

@@ -1,0 +1,215 @@
+{"id": "wizard-youssef@0.0.1", "name": "wizard-youssef", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "angular-module-starter-test1@1.0.9", "name": "angular-module-starter-test1", "delta": ["dynamic_code", "dependency_change", "large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "neoan3-cli@2.4.6", "name": "neoan3-cli", "delta": ["network", "dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "eslint-plugin-jsx-a11y@6.8.0", "name": "eslint-plugin-jsx-a11y", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "hello-explosion@1.0.2", "name": "hello-explosion", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "is-generator-function@1.0.10", "name": "is-generator-function", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "run-parallel@1.2.0", "name": "run-parallel", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "unbox-primitive@1.0.2", "name": "unbox-primitive", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "tough-cookie@5.0.0-rc.1", "name": "tough-cookie", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "onlinedb@2.4.3", "name": "onlinedb", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "string.prototype.trimstart@1.0.8", "name": "string.prototype.trimstart", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "safe-regex-test@1.0.3", "name": "safe-regex-test", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "mxik@0.4.6", "name": "mxik", "delta": ["network", "browser_data"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@next-core/utils@1.7.0", "name": "@next-core/utils", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "arraybuffer.prototype.slice@1.0.3", "name": "arraybuffer.prototype.slice", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "isexe@3.1.1", "name": "isexe", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@kandiharapan/venom1@1.1.4", "name": "@kandiharapan/venom1", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "eslint-config-airbnb-base@15.0.0", "name": "eslint-config-airbnb-base", "delta": ["process_exec", "dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@shencom/utils-userinfo@0.3.1", "name": "@shencom/utils-userinfo", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "minimatch@9.0.4", "name": "minimatch", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "travultr@1.0.0", "name": "travultr", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "egg-role@0.0.5", "name": "egg-role", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "ovcode@2.0.0", "name": "ovcode", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "tar-fs@3.0.5", "name": "tar-fs", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "iterator.prototype@1.1.2", "name": "iterator.prototype", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "data-uri-to-buffer@6.0.2", "name": "data-uri-to-buffer", "delta": ["obfuscation"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "win-wifi-password@2.0.0", "name": "win-wifi-password", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "dsr-package-mayor-torso-gadis-potty@1.0.1", "name": "dsr-package-mayor-torso-gadis-potty", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "lime-cl@0.1.1", "name": "lime-cl", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@types/react-webcam@3.0.0", "name": "@types/react-webcam", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "less-loader@12.2.0", "name": "less-loader", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "typed-array-byte-length@1.0.1", "name": "typed-array-byte-length", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@yawarakaijs/yawarakai-flight@1.2.2", "name": "@yawarakaijs/yawarakai-flight", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "object.entries@1.1.8", "name": "object.entries", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "define-properties@1.2.1", "name": "define-properties", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "mindstudios-uikit@1.0.2", "name": "mindstudios-uikit", "delta": ["host_info"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "string.prototype.trim@1.2.9", "name": "string.prototype.trim", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "jsonwebtoken@9.0.2", "name": "jsonwebtoken", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "is-fullwidth-code-point@5.0.0", "name": "is-fullwidth-code-point", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "is-wsl@3.1.0", "name": "is-wsl", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@bautrukevich/preload@0.2.0", "name": "@bautrukevich/preload", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "redux-history-sync@3.2.2", "name": "redux-history-sync", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "ts-node@11.0.0-beta.1", "name": "ts-node", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "ev8enlan-ner@2.5.7", "name": "ev8enlan-ner", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "react-native-debug-url@0.0.2", "name": "react-native-debug-url", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "has-property-descriptors@1.0.2", "name": "has-property-descriptors", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "react-custom-scroll@7.0.0", "name": "react-custom-scroll", "delta": ["host_info", "dependency_change", "large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "sample-jk@1.0.1", "name": "sample-jk", "delta": ["network"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "path@0.12.7", "name": "path", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "is-async-function@2.0.0", "name": "is-async-function", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "spawn-promise@0.1.8", "name": "spawn-promise", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "com.microsoft.mesh.toolkit.preview@5.2404.340", "name": "com.microsoft.mesh.toolkit.preview", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "yallist@5.0.0", "name": "yallist", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "is-arguments@1.1.1", "name": "is-arguments", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "html-webpack-plugin@5.6.0", "name": "html-webpack-plugin", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "is-date-object@1.0.5", "name": "is-date-object", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "is-finalizationregistry@1.0.2", "name": "is-finalizationregistry", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@aws-crypto/sha256-js@5.2.0", "name": "@aws-crypto/sha256-js", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "regexp.prototype.flags@1.5.2", "name": "regexp.prototype.flags", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "debounce@2.0.0", "name": "debounce", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@znode/websocket@0.3.5", "name": "@znode/websocket", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "is-domain-valid@1.2.0", "name": "is-domain-valid", "delta": ["obfuscation"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "array.prototype.findlastindex@1.2.5", "name": "array.prototype.findlastindex", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "muzovano@0.1.4", "name": "muzovano", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "clone-deep@4.0.1", "name": "clone-deep", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "component-emitter@2.0.0", "name": "component-emitter", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "body-parser@2.0.0-beta.2", "name": "body-parser", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@tolicodes/picklejs@0.75.0", "name": "@tolicodes/picklejs", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "idropsss@1.0.0", "name": "idropsss", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "meenle@0.0.4", "name": "meenle", "delta": ["network"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "eslint-config-service-soft@1.3.3", "name": "eslint-config-service-soft", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@hyperledgendary/weftility@1.0.1-beta.0", "name": "@hyperledgendary/weftility", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "rogerio-mattos-npm-teste@1.0.5", "name": "rogerio-mattos-npm-teste", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "zimic@0.4.0-canary.1", "name": "zimic", "delta": ["network", "dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "minipass@7.0.4", "name": "minipass", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "multer@2.0.0-rc.4", "name": "multer", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "kinda-mysql-store@0.2.4", "name": "kinda-mysql-store", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "is-plain-object@5.0.0", "name": "is-plain-object", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "string.prototype.matchall@4.0.11", "name": "string.prototype.matchall", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "cosmiconfig@9.0.0", "name": "cosmiconfig", "delta": ["dynamic_code"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "sixue-table@1.0.8", "name": "sixue-table", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "babel-core@7.0.0-bridge.0", "name": "babel-core", "delta": ["dependency_change", "large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@gejoy/gj-count@0.0.2", "name": "@gejoy/gj-count", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "jsdom@24.0.0", "name": "jsdom", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@sassoftware/vi-solution-extension-angular-schematics@0.1.9", "name": "@sassoftware/vi-solution-extension-angular-schematics", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "openmusic-slider@2.1.0", "name": "openmusic-slider", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "pkg-dir@8.0.0", "name": "pkg-dir", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "jt-webpack@4.0.1", "name": "jt-webpack", "delta": ["dependency_change", "large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@coya/logger@0.2.0", "name": "@coya/logger", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@babel/code-frame@8.0.0-alpha.8", "name": "@babel/code-frame", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@dollarshaveclub/react-runtime@1.1.0", "name": "@dollarshaveclub/react-runtime", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "vue-pdf-dd@1.0.7", "name": "vue-pdf-dd", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@ariuscompany/nest-utils@1.0.1", "name": "@ariuscompany/nest-utils", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "is-core-module@2.13.1", "name": "is-core-module", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "react-datasheet1@1.3.15", "name": "react-datasheet1", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@zero-tech/ztoken-sdk@0.1.0", "name": "@zero-tech/ztoken-sdk", "delta": ["obfuscation", "dependency_change", "large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "chownr@3.0.0", "name": "chownr", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@babel/highlight@8.0.0-alpha.8", "name": "@babel/highlight", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "call-bind@1.0.7", "name": "call-bind", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "sc-compression@2.1.0", "name": "sc-compression", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "source-map@0.8.0-beta.0", "name": "source-map", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "nd-events@3.0.0", "name": "nd-events", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "geomodel@0.2.2", "name": "geomodel", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "is-boolean-object@1.1.2", "name": "is-boolean-object", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@truco/core@3.0.0-alpha.0", "name": "@truco/core", "delta": ["dependency_change", "large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "for-each@0.3.3", "name": "for-each", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "object.fromentries@2.0.8", "name": "object.fromentries", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "estree-walker@3.0.3", "name": "estree-walker", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@geotrekce/geotrek-rando-widget@0.14.0", "name": "@geotrekce/geotrek-rando-widget", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@dinfridman/cyco-logger-package-last-test@1.3.0", "name": "@dinfridman/cyco-logger-package-last-test", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "redis-script-templates@2.0.0", "name": "redis-script-templates", "delta": ["network", "host_info", "browser_data", "dynamic_code"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "retry@0.13.1", "name": "retry", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "rollup@4.14.3", "name": "rollup", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "react-chunkable@2.0.1", "name": "react-chunkable", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "leisurelink-hub-client@2.0.0", "name": "leisurelink-hub-client", "delta": ["dependency_change", "large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "nw-chromedriver-installer@1.1.0", "name": "nw-chromedriver-installer", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@segment/stub@1.0.2", "name": "@segment/stub", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "merge-descriptors@2.0.0", "name": "merge-descriptors", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "c8t3_number_guessing_game@2.0.1", "name": "c8t3_number_guessing_game", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "ant-svelte@0.0.9", "name": "ant-svelte", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "yg-sc-date-time@1.1.6", "name": "yg-sc-date-time", "delta": ["install_script", "large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@chriscodesthings/css-hex-color-to-rgba@1.1.0", "name": "@chriscodesthings/css-hex-color-to-rgba", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "define-data-property@1.1.4", "name": "define-data-property", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@babel/preset-env@8.0.0-alpha.8", "name": "@babel/preset-env", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@lupine-software/scrolliris-readability-tracker@0.0.7", "name": "@lupine-software/scrolliris-readability-tracker", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "json-buffer@3.0.1", "name": "json-buffer", "delta": ["obfuscation"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "ie8linter@0.0.3", "name": "ie8linter", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "available-typed-arrays@1.0.7", "name": "available-typed-arrays", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "extend-shallow@3.0.2", "name": "extend-shallow", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@azure/iot-device-update@1.0.0-beta.1", "name": "@azure/iot-device-update", "delta": ["dependency_change", "large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@imooc-cli/imooc-standard-template@1.0.1", "name": "@imooc-cli/imooc-standard-template", "delta": ["process_exec", "dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@szgc/plt-request@0.2.2", "name": "@szgc/plt-request", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "read-or-fetch@0.2.1", "name": "read-or-fetch", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "commsec@0.2.0", "name": "commsec", "delta": ["network", "dependency_change", "large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "is-regex@1.1.4", "name": "is-regex", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "colony-hono-bindings@1.0.9", "name": "colony-hono-bindings", "delta": ["dependency_change", "large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "assert@2.1.0", "name": "assert", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "hylia-plugin-git-hooks@0.1.14", "name": "hylia-plugin-git-hooks", "delta": ["install_script"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "find-up@7.0.0", "name": "find-up", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "bman-mike-proj-auto@0.0.3", "name": "bman-mike-proj-auto", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "netease-quickpass-sdk@1.3.1", "name": "netease-quickpass-sdk", "delta": ["obfuscation"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "angular-stripe@5.0.0", "name": "angular-stripe", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "hello-charlie@1.0.2", "name": "hello-charlie", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "jest-environment-jsdom@30.0.0-alpha.3", "name": "jest-environment-jsdom", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "inquirer@9.2.18", "name": "inquirer", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "amazon-autocomplete@1.0.2", "name": "amazon-autocomplete", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "fast-levenshtein@3.0.0", "name": "fast-levenshtein", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "dsr-package-pesky-rebit-divot-crans@1.0.1", "name": "dsr-package-pesky-rebit-divot-crans", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "array-includes@3.1.8", "name": "array-includes", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "npm-demo-pkg-for-domclick@1.0.1", "name": "npm-demo-pkg-for-domclick", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "dotease@0.0.3", "name": "dotease", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "webpack-jscrush@0.0.5", "name": "webpack-jscrush", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "perpetuum-analytics@2.0.20", "name": "perpetuum-analytics", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@dplus/base@4.0.3", "name": "@dplus/base", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "cors@2.8.5", "name": "cors", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "search-scrape@0.0.10", "name": "search-scrape", "delta": ["network", "dynamic_code"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "object.values@1.2.0", "name": "object.values", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "dictionary-cs-cz@2.0.0", "name": "dictionary-cs-cz", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "natural-compare@1.4.0", "name": "natural-compare", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "object.hasown@1.1.4", "name": "object.hasown", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "react-duoshuo@0.0.2", "name": "react-duoshuo", "delta": ["network", "host_info", "browser_data", "dynamic_code"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "editmode-react@4.0.0-canary.6.2572a8f.0", "name": "editmode-react", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "url-join@5.0.0", "name": "url-join", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "cordova-plugin-esptouch@2.0.0", "name": "cordova-plugin-esptouch", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "has-tostringtag@1.0.2", "name": "has-tostringtag", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@compiled/parcel-config@0.4.0", "name": "@compiled/parcel-config", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "optimus-y@2.0.0", "name": "optimus-y", "delta": ["dynamic_code", "dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "q@2.0.3", "name": "q", "delta": ["dependency_change", "large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@seekingmini/lrn-cli@0.0.5", "name": "@seekingmini/lrn-cli", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "regexpu-core@6.0.0", "name": "regexpu-core", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "is-bigint@1.0.4", "name": "is-bigint", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "get-symbol-description@1.0.2", "name": "get-symbol-description", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "onetime@7.0.0", "name": "onetime", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@amrc-factoryplus/sparkplug-app@0.0.6", "name": "@amrc-factoryplus/sparkplug-app", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "is-arrayish@0.3.2", "name": "is-arrayish", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "string.prototype.trimend@1.0.8", "name": "string.prototype.trimend", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@rishivikram/wdcli@0.0.1", "name": "@rishivikram/wdcli", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@strong-roots-capital/record-context@1.0.1", "name": "@strong-roots-capital/record-context", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "set-function-name@2.0.2", "name": "set-function-name", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "schema-utils@4.2.0", "name": "schema-utils", "delta": ["host_info"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@nptickets/common@1.0.6", "name": "@nptickets/common", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "unvired@1.0.0", "name": "unvired", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "original-path-a"}
+{"id": "@siberiacancode/lefthook@1.0.2", "name": "@siberiacancode/lefthook", "delta": ["process_exec"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "comwit@2.0.0", "name": "comwit", "delta": ["dependency_change", "large_deletion"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "n8n-nodes-serpapi@0.1.8", "name": "n8n-nodes-serpapi", "delta": ["obfuscation"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@elastic/ebt@1.1.1", "name": "@elastic/ebt", "delta": ["network"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@wilsoon/eslint-config@0.3.1", "name": "@wilsoon/eslint-config", "delta": ["process_exec"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@scoir/date@2.0.4-0", "name": "@scoir/date", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@inlang/plugin-json@5.1.56", "name": "@inlang/plugin-json", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@backstage/plugin-catalog-graphql@0.3.20-next.0", "name": "@backstage/plugin-catalog-graphql", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "stripe-experiment-sync@1.0.15-beta.1766078819", "name": "stripe-experiment-sync", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@chatie/git-scripts@0.1.1", "name": "@chatie/git-scripts", "delta": ["install_script"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "aws-r@0.0.3", "name": "aws-r", "delta": ["install_script"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "cose-kit@2.0.0", "name": "cose-kit", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "d-scrape@1.1.9", "name": "d-scrape", "delta": ["network"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@socketsecurity/socket-patch@1.0.0", "name": "@socketsecurity/socket-patch", "delta": ["process_exec"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "telemetry@0.1.0", "name": "telemetry", "delta": ["network", "dependency_change"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@nlib/githooks@0.0.4", "name": "@nlib/githooks", "delta": ["install_script"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "npm-run-path@3.1.0", "name": "npm-run-path", "delta": ["process_exec"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "test-postinstall-o@1.1.2-beta6", "name": "test-postinstall-o", "delta": ["install_script"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@47ng/cloak@0.13.0", "name": "@47ng/cloak", "delta": ["obfuscation"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@ethersproject/wallet@6.0.0-beta.1", "name": "@ethersproject/wallet", "delta": ["obfuscation", "dependency_change"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "liwi@1.0.0", "name": "liwi", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "keyv@6.0.0-alpha.3", "name": "keyv", "delta": ["obfuscation"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "dappbase@0.6.0", "name": "dappbase", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@jaypie/core@1.1.17", "name": "@jaypie/core", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "nest.js@1.0.0-beta-1", "name": "nest.js", "delta": ["network", "dependency_change"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@phantom/wallet-sdk@0.0.23", "name": "@phantom/wallet-sdk", "delta": ["large_deletion"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@mapbox/hast-util-table-cell-style@0.1.1", "name": "@mapbox/hast-util-table-cell-style", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@amritk/generate-parsers@0.25.0", "name": "@amritk/generate-parsers", "delta": ["dependency_change", "large_deletion"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@shelf/deprecated-browser-shim@2.1.0", "name": "@shelf/deprecated-browser-shim", "delta": ["dynamic_code", "dependency_change"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@xemahq/storage-driver-docker-swarm-csi@0.3.0", "name": "@xemahq/storage-driver-docker-swarm-csi", "delta": ["dependency_change", "large_deletion"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@mcp-b/webmcp-polyfill@6.0.0-beta.20261001010549", "name": "@mcp-b/webmcp-polyfill", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "fastify-passport@0.1.0", "name": "fastify-passport", "delta": ["network", "dependency_change"], "annotation_status": "pending", "provenance": "path-b-expansion"}
+{"id": "@solana/kit-plugin-payer@0.2.0", "name": "@solana/kit-plugin-payer", "delta": ["dependency_change"], "annotation_status": "pending", "provenance": "path-b-expansion"}

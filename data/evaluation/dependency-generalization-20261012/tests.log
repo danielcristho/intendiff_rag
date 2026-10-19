@@ -1,0 +1,10 @@
+test_context_files_cannot_escape_root_or_invoke_shell (test_dependency_generalization.DependencyGeneralizationTests.test_context_files_cannot_escape_root_or_invoke_shell) ... ok
+test_future_or_missing_versions_cannot_enter_historical_context (test_dependency_generalization.DependencyGeneralizationTests.test_future_or_missing_versions_cannot_enter_historical_context) ... ok
+test_only_context_body_changes_and_hidden_ids_remain_invalid (test_dependency_generalization.DependencyGeneralizationTests.test_only_context_body_changes_and_hidden_ids_remain_invalid) ... ok
+test_pending_labels_never_become_false_positive_rates (test_dependency_generalization.DependencyGeneralizationTests.test_pending_labels_never_become_false_positive_rates) ... ok
+test_selection_is_order_invariant_and_never_repeats_dependency_or_target (test_dependency_generalization.DependencyGeneralizationTests.test_selection_is_order_invariant_and_never_repeats_dependency_or_target) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.033s
+
+OK

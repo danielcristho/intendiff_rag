@@ -1,0 +1,10 @@
+{"stage": "server_starting", "time_unix": 1792106487.0683217, "model": "Qwen/Qwen3-8B", "experiment_stage": "dev", "pid": 1710251}
+{"stage": "running", "time_unix": 1792106595.1730783, "model": "Qwen/Qwen3-8B", "experiment_stage": "dev"}
+{"stage": "model_complete", "time_unix": 1792106789.130906, "model": "Qwen/Qwen3-8B", "experiment_stage": "dev", "completed": 60, "json_validity": 0.8166666666666667}
+{"stage": "stage_complete", "time_unix": 1792106789.132253, "experiment_stage": "dev"}
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/extension_release.py", line 41, in <module>
+    main()
+  File "~/intendiff_rag/pipeline/extension_release.py", line 22, in main
+    raise ValueError('Development JSON gate failed; no test inference permitted')
+ValueError: Development JSON gate failed; no test inference permitted

@@ -1,0 +1,91 @@
+Fetching 14 files:   0%|          | 0/14 [00:00<?, ?it/s]'[Errno -3] Temporary failure in name resolution' thrown while requesting HEAD https://huggingface.co/ibm-granite/granite-3.3-8b-instruct/resolve/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b/model-00001-of-00004.safetensors
+Retrying in 1s [Retry 1/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+Retrying in 1s [Retry 1/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting HEAD https://huggingface.co/ibm-granite/granite-3.3-8b-instruct/resolve/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b/model-00001-of-00004.safetensors
+Retrying in 2s [Retry 2/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+Retrying in 2s [Retry 2/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting HEAD https://huggingface.co/ibm-granite/granite-3.3-8b-instruct/resolve/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b/model-00001-of-00004.safetensors
+Retrying in 4s [Retry 3/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+Retrying in 4s [Retry 3/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting HEAD https://huggingface.co/ibm-granite/granite-3.3-8b-instruct/resolve/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b/model-00001-of-00004.safetensors
+Retrying in 8s [Retry 4/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+Retrying in 8s [Retry 4/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting HEAD https://huggingface.co/ibm-granite/granite-3.3-8b-instruct/resolve/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b/model-00001-of-00004.safetensors
+Retrying in 8s [Retry 5/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+Retrying in 8s [Retry 5/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting HEAD https://huggingface.co/ibm-granite/granite-3.3-8b-instruct/resolve/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b/model-00001-of-00004.safetensors
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+Retrying in 1s [Retry 1/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+Retrying in 2s [Retry 2/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+Retrying in 4s [Retry 3/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+Retrying in 8s [Retry 4/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+Retrying in 8s [Retry 5/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+Retrying in 1s [Retry 1/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+Retrying in 2s [Retry 2/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+Retrying in 4s [Retry 3/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+Retrying in 8s [Retry 4/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+Retrying in 8s [Retry 5/5].
+'[Errno -3] Temporary failure in name resolution' thrown while requesting GET https://huggingface.co/api/models/ibm-granite/granite-3.3-8b-instruct/xet-read-token/51dd4bc2ade4059a6bd87649d68aa11e4fb2529b
+Fetching 14 files:  36%|███▌      | 5/14 [01:09<02:04, 13.86s/it]
+httpcore.ConnectError: [Errno -3] Temporary failure in name resolution
+
+The above exception was the direct cause of the following exception:
+
+httpx.ConnectError: [Errno -3] Temporary failure in name resolution
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "~/intendiff_rag/data/evaluation/granite-dependency-20261012/acquire.py", line 17, in <module>
+    snapshot_download(model['id'],revision=model['revision'],local_dir=model['path'],allow_patterns=allowed,max_workers=4)
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 266, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/huggingface_hub/_snapshot_download.py", line 532, in snapshot_download
+    hf_thread_map(
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/huggingface_hub/utils/tqdm.py", line 441, in hf_thread_map
+    results[future_to_index[future]] = future.result()
+                                       ^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "~/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/huggingface_hub/_snapshot_download.py", line 512, in _inner_hf_hub_download
+    hf_hub_download(  # type: ignore
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 266, in _inner
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1026, in hf_hub_download
+    return _hf_hub_download_to_local_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1421, in _hf_hub_download_to_local_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1961, in _raise_on_head_call_error
+    raise LocalEntryNotFoundError(
+huggingface_hub.errors.LocalEntryNotFoundError: An error happened while trying to locate the file on the Hub and we cannot find the requested files in the local cache. Please check your connection and try again or make sure your Internet connection is on.

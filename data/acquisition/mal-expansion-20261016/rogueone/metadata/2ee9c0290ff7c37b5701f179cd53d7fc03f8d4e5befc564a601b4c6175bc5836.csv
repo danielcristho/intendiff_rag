@@ -1,0 +1,13 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/sfx_0.1.0-->0.1.1/sfx-0.1.0/","module.exports.say","message,_voice,_callback",71
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/sfx_0.1.0-->0.1.1/sfx-0.1.0/","module.exports.init","",84
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/sfx_0.1.0-->0.1.1/sfx-0.1.0/","module.exports.getSound","path,callback",89
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/sfx_0.1.0-->0.1.1/sfx-0.1.0/","module.exports.format","string,values",92
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/sfx_0.1.0-->0.1.1/sfx-0.1.0/","module.exports.verifyConfig","config",92
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/sfx_0.1.0-->0.1.1/sfx-0.1.0/","module.exports.play","sound,_volume,_rate,_callback",213
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/sfx_0.1.0-->0.1.1/sfx-0.1.0/","module.exports.random","sound,_volume,_rate,_callback",278
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/sfx_0.1.0-->0.1.1/sfx-0.1.0/","module.exports.run","command,callback",280
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/sfx_0.1.0-->0.1.1/sfx-0.1.0/","module.exports.stop","",281
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/sfx_0.1.0-->0.1.1/sfx-0.1.0/","module.exports.proc.kill","",281
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/sfx_0.1.0-->0.1.1/sfx-0.1.0/","module.exports.proc.on","",281
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/sfx_0.1.0-->0.1.1/sfx-0.1.0/","module.exports.init().random","sound,_volume,_rate,_callback",346
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/sfx_0.1.0-->0.1.1/sfx-0.1.0/","main","",3

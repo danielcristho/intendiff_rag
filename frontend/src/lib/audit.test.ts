@@ -1,12 +1,5 @@
 import { describe, expect, it } from "vitest";
-import {
-  NO_FILTER,
-  describeEvidence,
-  intentSections,
-  keep,
-  summarize,
-  type Filters,
-} from "@/lib/audit";
+import { NO_FILTER, describeEvidence, keep, summarize, type Filters } from "@/lib/audit";
 import { validAnnotator } from "@/lib/annotator";
 import type { Decisions, Pair } from "@/types/api";
 
@@ -85,7 +78,7 @@ describe("summarize", () => {
 
 describe("validAnnotator", () => {
   it("rejects annotator names that escape the data directory", () => {
-    // Must match valid_annotator in backend/src/shared/files.rs exactly.
+    // Must match valid_annotator in backend/src/store.rs exactly.
     for (const bad of ["", "../etc", "a/b", "a.b", "a b", "..", "x".repeat(33)]) {
       expect(validAnnotator(bad), bad).toBe(false);
     }
@@ -123,28 +116,5 @@ describe("describeEvidence", () => {
 
   it("reports counts for a large deletion", () => {
     expect(describeEvidence({ removed: 3, of: 4 })).toBe("3 dari 4 file teks hilang");
-  });
-});
-
-describe("intentSections", () => {
-  // Rendering the profile object itself as a React child blanked the audit page.
-  it("turns a structured profile into labelled strings", () => {
-    const sections = intentSections({
-      description: "CLI parser",
-      keywords: "not available",
-      scripts: "test: mocha",
-      readme: "# coa",
-    });
-    expect(sections.map(([label]) => label)).toEqual([
-      "Description",
-      "Keywords",
-      "Scripts",
-      "README excerpt",
-    ]);
-    expect(sections.every(([, text]) => typeof text === "string")).toBe(true);
-  });
-
-  it("still accepts the bare string of the sample pairs", () => {
-    expect(intentSections("A formatter")).toEqual([["Description", "A formatter"]]);
   });
 });

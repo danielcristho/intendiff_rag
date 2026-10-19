@@ -1,0 +1,31 @@
+{
+  "checked_on": "2026-09-29",
+  "rule": "D58: earliest repository commit or explicit earlier model-card release date",
+  "models": [
+    {
+      "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+      "cutoff_date_utc": "2024-11-06",
+      "first_commit": "b16b5abca15f178464c9c85a8f1942f5b925d5ed",
+      "first_commit_timestamp": "2024-11-06T07:49:38.000Z",
+      "commit_url": "https://huggingface.co/Qwen/Qwen2.5-Coder-3B-Instruct/commit/b16b5abca15f178464c9c85a8f1942f5b925d5ed",
+      "history_url": "https://huggingface.co/api/models/Qwen/Qwen2.5-Coder-3B-Instruct/commits/main",
+      "history_entries": 16,
+      "history_sha256": "5e1ac8972a487026d44ea825636aa50b201d4a1999b3b64ad20e429fef53f635",
+      "model_card_explicit_release_date": null,
+      "model_card_sha256": "eb21b99af3631b35f79edc886755aa3358098ab72b97d018f1978a3f04e4a362"
+    },
+    {
+      "model": "Qwen/Qwen3-4B-Instruct-2507",
+      "cutoff_date_utc": "2025-08-05",
+      "first_commit": "e7974da369bd887ad4f10a072ec4f933ac5391bf",
+      "first_commit_timestamp": "2025-08-05T10:58:03.000Z",
+      "commit_url": "https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507/commit/e7974da369bd887ad4f10a072ec4f933ac5391bf",
+      "history_url": "https://huggingface.co/api/models/Qwen/Qwen3-4B-Instruct-2507/commits/main",
+      "history_entries": 4,
+      "history_sha256": "004606e5782081a33909691cc0055c3188015ff184a91ee070e169e59ce4c17d",
+      "model_card_explicit_release_date": null,
+      "model_card_sha256": "8e3dd0c3b5b11897cc71092ccfe517bb7a9783479baa3665aad73c8d1a2041cd"
+    }
+  ],
+  "limitation": "First commit is the protocol proxy; it does not prove when model weights first became publicly accessible. No explicit release date was found in either cached model card. Model name 2507 is not used as a release date."
+}

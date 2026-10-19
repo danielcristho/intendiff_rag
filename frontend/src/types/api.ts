@@ -2,19 +2,18 @@ export type Verdict = "malicious" | "benign" | "skip";
 export type ErrorClass = "capability" | "intent" | "retrieval";
 export type Subset = "MAL" | "HN" | "TYP";
 
-export type DeltaEvidence =
-  | { file: string; line: number; match: string }
-  | { file: string; hook: string; match: string }
-  | { dependency: string; before: string | null; after: string }
-  | { removed: number; of: number };
-
-// IntentProfile is pipeline/intent.py's output; "not available" marks an empty field.
 export interface IntentProfile {
   description: string;
   keywords: string;
   scripts: string;
   readme: string;
 }
+
+export type DeltaEvidence =
+  | { file: string; line: number; match: string }
+  | { file: string; hook: string; match: string }
+  | { dependency: string; before: string | null; after: string }
+  | { removed: number; of: number };
 
 export interface Pair {
   id: string;
@@ -25,7 +24,9 @@ export interface Pair {
   subset?: Subset;
   category?: number;
   campaign?: string;
-  intent?: IntentProfile | string;
+  intent?: string | IntentProfile;
+  annotation_status?: string;
+  annotation_blinded?: boolean;
   delta?: string[];
   delta_evidence?: Record<string, DeltaEvidence[]>;
   truncated?: boolean;
@@ -38,6 +39,7 @@ export interface Decision {
   category?: number;
   error?: ErrorClass;
   note?: string;
+  gold_evidence?: string[];
   at?: string;
 }
 
@@ -77,100 +79,4 @@ export interface ModelResult {
   prompt_tokens?: number | null;
   completion_tokens?: number | null;
   latency_ms?: number;
-}
-
-export type CardStage = "draft" | "submitted" | "approved";
-
-export interface CardText {
-  intent: string;
-  behavior_chain: string;
-  code_excerpt: string;
-  rationale: string;
-}
-
-// KbCard is one row of kb.skeleton.jsonl: chosen by pipeline/kb.py, text still to write.
-export interface KbCard {
-  id: string;
-  name: string;
-  label: string;
-  campaign: string;
-  source: string;
-  delta: string[];
-  selected_for?: string;
-  root?: string;
-  delta_evidence?: Record<string, DeltaEvidence[]>;
-}
-
-export interface CardEntry extends Partial<CardText> {
-  stage?: CardStage;
-  author?: string;
-  reviewer?: string;
-  note?: string;
-  at?: string;
-}
-
-export interface CardsResponse {
-  cards: KbCard[];
-  entries: Record<string, CardEntry>;
-}
-
-export interface SampleFile {
-  path: string;
-  size: number;
-}
-
-export interface SampleText {
-  path: string;
-  text: string;
-  truncated: boolean;
-}
-
-// Session is who holds the session cookie and when it expires, in Unix seconds.
-export interface Session {
-  annotator: string;
-  expires_at: number;
-}
-
-export interface HnSummary {
-  id: string;
-  name: string;
-  before: string;
-  after: string;
-  source: string;
-  queue_position: number;
-  delta: string[];
-  categories: number[];
-}
-
-export type HnDocSource = "readme" | "changelog" | "commit" | "issue";
-
-export interface HnVerification {
-  decision: "accept" | "reject";
-  category?: number;
-  doc_source?: HnDocSource;
-  doc_ref?: string;
-  reason?: string;
-  by?: string;
-  at?: string;
-}
-
-export interface HnQueueResponse {
-  candidates: HnSummary[];
-  verifications: Record<string, HnVerification>;
-}
-
-export interface HnVerifyRequest {
-  accept: boolean;
-  category?: number;
-  doc_source?: HnDocSource;
-  doc_ref?: string;
-  reason?: string;
-}
-
-// HnCandidate is one queue row: a pair plus what the screening found.
-export interface HnCandidate extends Pair {
-  source: string;
-  publisher?: string;
-  categories?: number[];
-  queue_position: number;
 }

@@ -1,0 +1,79 @@
+{"id": "@amazon-devices/kepler-ui-components@3.1.0-rn-83", "exposed_item": "@antv/ava@3.6.1", "edge_indices": [17635]}
+{"id": "@aws-crypto/sha256-js@5.2.0", "exposed_item": "@aws-crypto/sha256-browser@5.2.0", "edge_indices": [17579]}
+{"id": "@bridgebooks/middlewares@1.1.0", "exposed_item": "@antv/ava@3.6.1", "edge_indices": [19255, 17633]}
+{"id": "@d-zero/beholder@3.1.0", "exposed_item": "is-domain-valid@1.2.0", "edge_indices": [19441]}
+{"id": "@datadog/datadog-ci@5.13.0", "exposed_item": "is-domain-valid@1.2.0", "edge_indices": [19610, 19046, 10704, 9060, 18951, 18518, 18357, 16584, 19120]}
+{"id": "@effect-aws/lib-dynamodb@1.9.0", "exposed_item": "@mastra/react@1.0.1", "edge_indices": [19467, 19445]}
+{"id": "@elastic/ebt@1.1.1", "exposed_item": "xrpl@2.14.2", "edge_indices": [19527, 19522]}
+{"id": "@entva/react-local@2.0.0", "exposed_item": "is-domain-valid@1.2.0", "edge_indices": [19473, 19011, 19009]}
+{"id": "@graasp/epub@0.1.4", "exposed_item": "pino@8.20.0", "edge_indices": [17616, 3739, 17619, 17618, 5894, 5028, 17575]}
+{"id": "@huggingface/blake3-jit@0.0.2", "exposed_item": "@redhat-cloud-services/frontend-components-config@6.11.3", "edge_indices": [19572]}
+{"id": "@imagemarker/kveditor@0.6.5", "exposed_item": "@rspack/cli@1.1.7", "edge_indices": [19404, 17656, 17661, 19590, 19588]}
+{"id": "@jbooker/common@1.0.19", "exposed_item": "@antv/ava@3.6.1", "edge_indices": [17625]}
+{"id": "@ms-ticketing/common@1.0.12", "exposed_item": "@antv/ava@3.6.1", "edge_indices": [17613]}
+{"id": "@mui/x-telemetry@8.29.0", "exposed_item": "is-domain-valid@1.2.0", "edge_indices": [19396]}
+{"id": "@nptickets/common@1.0.6", "exposed_item": "@antv/ava@3.6.1", "edge_indices": [17626]}
+{"id": "@pepperi-addons/ngx-lib@0.4.1", "exposed_item": "is@3.3.1", "edge_indices": [19480, 19458, 19459]}
+{"id": "@rockdev/telemetry@0.5.0", "exposed_item": "is-domain-valid@1.2.0", "edge_indices": [19432]}
+{"id": "@sriticketing/common@1.0.7", "exposed_item": "@antv/ava@3.6.1", "edge_indices": [17617]}
+{"id": "@tedcryptoorg/cosmos-signer@2.0.0-beta.0", "exposed_item": "@antv/ava@3.6.1", "edge_indices": [17629]}
+{"id": "@tkeron/commands@0.2.0", "exposed_item": "@antv/ava@3.6.1", "edge_indices": [17624]}
+{"id": "@vaimee/my3sec-contracts@0.6.0", "exposed_item": "@antv/ava@3.6.1", "edge_indices": [17614]}
+{"id": "@vintickets/common@1.0.19", "exposed_item": "@antv/ava@3.6.1", "edge_indices": [17623]}
+{"id": "@vjticketing/common@1.0.10", "exposed_item": "@antv/ava@3.6.1", "edge_indices": [17820, 17613]}
+{"id": "@workflow/builders@5.0.2", "exposed_item": "is-domain-valid@1.2.0", "edge_indices": [19502, 19011, 19009]}
+{"id": "@z0mt3c/f1-telemetry-client@2.0.0-beta.12", "exposed_item": "body-parser@2.0.0-beta.2", "edge_indices": [17632, 10261, 17605]}
+{"id": "@zero-tech/ztoken-sdk@0.1.0", "exposed_item": "@mastra/react@1.0.1", "edge_indices": [19447, 19445]}
+{"id": "apg-lib@3.0.0", "exposed_item": "@rspack/cli@1.1.7", "edge_indices": [19557, 19590, 19588]}
+{"id": "array-buffer-byte-length@1.0.1", "exposed_item": "is-typed-array@1.1.13", "edge_indices": [17602, 17607]}
+{"id": "asynckit@0.4.0", "exposed_item": "body-parser@2.0.0-beta.2", "edge_indices": [17585, 17605]}
+{"id": "cdk-ec2-key-pair@2.0.0", "exposed_item": "@redhat-cloud-services/frontend-components-config@6.11.3", "edge_indices": [19600]}
+{"id": "check-is-deprecated@2.0.0-beta.1", "exposed_item": "@antv/ava@3.6.1", "edge_indices": [17633]}
+{"id": "combined-stream@1.0.8", "exposed_item": "body-parser@2.0.0-beta.2", "edge_indices": [17600, 17605]}
+{"id": "conlaoch-ngx-chips@1.5.4", "exposed_item": "@rspack/cli@1.1.7", "edge_indices": [19561, 19590, 19588]}
+{"id": "create-glusman-app@1.2.3", "exposed_item": "@mastra/react@1.0.1", "edge_indices": [19234, 19445]}
+{"id": "deepmerge@4.3.1", "exposed_item": "body-parser@2.0.0-beta.2", "edge_indices": [17583, 2498, 10261, 17605]}
+{"id": "domelementtype@2.3.0", "exposed_item": "body-parser@2.0.0-beta.2", "edge_indices": [17589, 2498, 10261, 17605]}
+{"id": "encoding@0.1.13", "exposed_item": "pino@8.20.0", "edge_indices": [17578, 684, 933, 17575]}
+{"id": "es-set-tostringtag@2.0.3", "exposed_item": "is-typed-array@1.1.13", "edge_indices": [17580, 17662]}
+{"id": "function-bind@1.1.2", "exposed_item": "body-parser@2.0.0-beta.2", "edge_indices": [17603, 17605]}
+{"id": "google_subscriptions@2.0.3", "exposed_item": "@rspack/cli@1.1.7", "edge_indices": [19061, 11487, 1045, 17655, 17661, 19590, 19588]}
+{"id": "highlight.js@11.9.0", "exposed_item": "body-parser@2.0.0-beta.2", "edge_indices": [17598, 2498, 10261, 17605]}
+{"id": "iconv-lite@0.6.3", "exposed_item": "pino@8.20.0", "edge_indices": [17610, 17619, 17618, 5894, 5028, 17575]}
+{"id": "idropsss@1.0.0", "exposed_item": "is-domain-valid@1.2.0", "edge_indices": [17620, 3432, 19346]}
+{"id": "is-array-buffer@3.0.4", "exposed_item": "is-typed-array@1.1.13", "edge_indices": [17607]}
+{"id": "is-async-function@2.0.0", "exposed_item": "body-parser@2.0.0-beta.2", "edge_indices": [17581, 17605]}
+{"id": "is-map@2.0.3", "exposed_item": "is-typed-array@1.1.13", "edge_indices": [17586, 17607]}
+{"id": "is-negative-zero@2.0.3", "exposed_item": "is-typed-array@1.1.13", "edge_indices": [17582, 17607]}
+{"id": "is-set@2.0.3", "exposed_item": "is-typed-array@1.1.13", "edge_indices": [17604, 17607]}
+{"id": "is-shared-array-buffer@1.0.3", "exposed_item": "is-typed-array@1.1.13", "edge_indices": [17588, 17607]}
+{"id": "is-symbol@1.0.4", "exposed_item": "body-parser@2.0.0-beta.2", "edge_indices": [17584, 17605]}
+{"id": "is-weakmap@2.0.2", "exposed_item": "body-parser@2.0.0-beta.2", "edge_indices": [17591, 17605]}
+{"id": "is-weakset@2.0.3", "exposed_item": "is-typed-array@1.1.13", "edge_indices": [17597, 17607]}
+{"id": "jsencrypt@3.0.0-rc.2", "exposed_item": "@redhat-cloud-services/frontend-components-config@6.11.3", "edge_indices": [19579]}
+{"id": "metronic-test@0.2.2", "exposed_item": "@rspack/cli@1.1.7", "edge_indices": [19583, 19590, 19588]}
+{"id": "minipass@7.0.4", "exposed_item": "xrpl@2.14.2", "edge_indices": [19519, 19522]}
+{"id": "nd-events@3.0.0", "exposed_item": "pino@8.20.0", "edge_indices": [17615, 5158, 1207, 1208, 5896, 5894, 5028, 17575]}
+{"id": "neso-job-common@0.1.7", "exposed_item": "@antv/ava@3.6.1", "edge_indices": [19254, 19255, 17633]}
+{"id": "nest.js@1.0.0-beta-1", "exposed_item": "@antv/ava@3.6.1", "edge_indices": [17630, 17622, 17820, 17613]}
+{"id": "ngsignal1@0.0.2", "exposed_item": "@rspack/cli@1.1.7", "edge_indices": [19437, 17656, 17661, 19590, 19588]}
+{"id": "node-rsa@0.4.1", "exposed_item": "@redhat-cloud-services/frontend-components-config@6.11.3", "edge_indices": [19598]}
+{"id": "open-graph-scraper@6.6.0", "exposed_item": "@antv/ava@3.6.1", "edge_indices": [17631]}
+{"id": "optimus-y@2.0.0", "exposed_item": "@redhat-cloud-services/frontend-components-config@6.11.3", "edge_indices": [19578]}
+{"id": "proxy-from-env@1.1.0", "exposed_item": "body-parser@2.0.0-beta.2", "edge_indices": [17596, 17605]}
+{"id": "quantimodo-sdk-javascript@5.8.725", "exposed_item": "fn_js@0.2.0", "edge_indices": [20285]}
+{"id": "recyclejs@1.2.2", "exposed_item": "@redhat-cloud-services/frontend-components-config@6.11.3", "edge_indices": [19625]}
+{"id": "redis-script-templates@2.0.0", "exposed_item": "pino@8.20.0", "edge_indices": [17627, 17619, 17618, 5894, 5028, 17575]}
+{"id": "sedona-components@4.10.3", "exposed_item": "is@3.3.1", "edge_indices": [19465, 19458, 19459]}
+{"id": "send@1.0.0-beta.2", "exposed_item": "body-parser@2.0.0-beta.2", "edge_indices": [17590, 17605]}
+{"id": "simple-web-worker@1.2.0", "exposed_item": "pino@8.20.0", "edge_indices": [17628, 17615, 5158, 1207, 1208, 5896, 5894, 5028, 17575]}
+{"id": "stripe-experiment-sync@1.0.15-beta.1766078819", "exposed_item": "@rspack/cli@1.1.7", "edge_indices": [19552, 19590, 19588]}
+{"id": "toidentifier@1.0.1", "exposed_item": "body-parser@2.0.0-beta.2", "edge_indices": [17577, 17605]}
+{"id": "ton@13.0.0", "exposed_item": "@antv/ava@3.6.1", "edge_indices": [17634]}
+{"id": "tough-cookie@5.0.0-rc.1", "exposed_item": "@rspack/cli@1.1.7", "edge_indices": [19525, 19590, 19588]}
+{"id": "typed-array-buffer@1.0.2", "exposed_item": "is-typed-array@1.1.13", "edge_indices": [17662]}
+{"id": "typed-array-byte-offset@1.0.2", "exposed_item": "is-typed-array@1.1.13", "edge_indices": [17595, 17607]}
+{"id": "which-boxed-primitive@1.0.2", "exposed_item": "body-parser@2.0.0-beta.2", "edge_indices": [17601, 17605]}
+{"id": "which-collection@1.0.2", "exposed_item": "body-parser@2.0.0-beta.2", "edge_indices": [17599, 17605]}
+{"id": "whtml@1.2.8", "exposed_item": "pino@8.20.0", "edge_indices": [17618, 5894, 5028, 17575]}
+{"id": "zimic@0.4.0-canary.1", "exposed_item": "@mastra/react@1.0.1", "edge_indices": [19391, 19445]}
