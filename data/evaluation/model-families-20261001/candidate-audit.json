@@ -1,0 +1,100 @@
+{
+  "new_llm_calls": 0,
+  "candidates": [
+    {
+      "id": "microsoft/Phi-4-mini-instruct",
+      "tag": "phi4_mini",
+      "revision": "cfbefacb99257ffa30c83adab238a50856ac3083",
+      "parameters_billion": 3.83602176,
+      "gated": false,
+      "accessible": true,
+      "audited_prompts": 1946,
+      "architecture": [
+        "Phi3ForCausalLM"
+      ],
+      "native_context": 131072,
+      "maximum_prompt_tokens": 29919,
+      "required_context": 31967,
+      "proposed_server_context": 32768,
+      "prompts_exceeding_native_context": 0,
+      "weight_bf16_gib_estimate": 7.145147323608398,
+      "kv_bf16_gib_at_proposed_context": 4.0
+    },
+    {
+      "id": "meta-llama/Llama-3.1-8B-Instruct",
+      "tag": "llama31_8b",
+      "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "parameters_billion": 8.030261248,
+      "gated": "manual",
+      "accessible": true,
+      "audited_prompts": 1946,
+      "architecture": [
+        "LlamaForCausalLM"
+      ],
+      "native_context": 131072,
+      "maximum_prompt_tokens": 29186,
+      "required_context": 31234,
+      "proposed_server_context": 32768,
+      "prompts_exceeding_native_context": 0,
+      "weight_bf16_gib_estimate": 14.957527160644531,
+      "kv_bf16_gib_at_proposed_context": 4.0
+    },
+    {
+      "id": "mistralai/Mistral-7B-Instruct-v0.3",
+      "tag": "mistral7b_v03",
+      "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+      "parameters_billion": 7.248023552,
+      "gated": false,
+      "accessible": true,
+      "audited_prompts": 1946,
+      "architecture": [
+        "MistralForCausalLM"
+      ],
+      "native_context": 32768,
+      "maximum_prompt_tokens": 39236,
+      "required_context": 41284,
+      "proposed_server_context": null,
+      "prompts_exceeding_native_context": 109,
+      "weight_bf16_gib_estimate": 13.500495910644531,
+      "kv_bf16_gib_at_proposed_context": 4.0
+    },
+    {
+      "id": "ibm-granite/granite-3.3-8b-instruct",
+      "tag": "granite33_8b",
+      "revision": "51dd4bc2ade4059a6bd87649d68aa11e4fb2529b",
+      "parameters_billion": 8.17086464,
+      "gated": false,
+      "accessible": true,
+      "audited_prompts": 1946,
+      "architecture": [
+        "GraniteForCausalLM"
+      ],
+      "native_context": 131072,
+      "maximum_prompt_tokens": 36617,
+      "required_context": 38665,
+      "proposed_server_context": 49152,
+      "prompts_exceeding_native_context": 0,
+      "weight_bf16_gib_estimate": 15.21942138671875,
+      "kv_bf16_gib_at_proposed_context": 7.5
+    },
+    {
+      "id": "deepseek-ai/deepseek-coder-6.7b-instruct",
+      "tag": "deepseek67b",
+      "revision": "e5d64addd26a6a1db0f9b863abf6ee3141936807",
+      "parameters_billion": 6.740512768,
+      "gated": false,
+      "accessible": true,
+      "audited_prompts": 1946,
+      "architecture": [
+        "LlamaForCausalLM"
+      ],
+      "native_context": 16384,
+      "maximum_prompt_tokens": 37312,
+      "required_context": 39360,
+      "proposed_server_context": null,
+      "prompts_exceeding_native_context": 167,
+      "weight_bf16_gib_estimate": 12.555183410644531,
+      "kv_bf16_gib_at_proposed_context": 8.0
+    }
+  ]
+}

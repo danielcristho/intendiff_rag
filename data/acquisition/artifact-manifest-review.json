@@ -1,0 +1,221 @@
+{
+  "generated_at_utc": "2026-09-28T21:44:57.759023+00:00",
+  "scope": "Explicit artifact snapshot; not a final dataset or design freeze.",
+  "files": [
+    {
+      "path": "~/intendiff_rag/pipeline/advisories.py",
+      "bytes": 4121,
+      "sha256": "f7cc94cc3ff0fb2598ca499511e6ffe93d61d9a179beff8428a6d28f97f682eb"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/analysis.py",
+      "bytes": 17015,
+      "sha256": "b365735742f671e7b86d2aeb370571d74b4d75a5313a235d5436a38421b675bf"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/archives.py",
+      "bytes": 5104,
+      "sha256": "00a97eba122b0a8781fabd73f310ebec8f4df3fe60ac47a44d6ae611f9ddfa26"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/artifact_manifest.py",
+      "bytes": 1342,
+      "sha256": "3a2a6d5a82c837bf23b9b1ac17b0c00a40b4b7583aac96e46ef53f5dd88dd835"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/audit_materials.py",
+      "bytes": 5400,
+      "sha256": "dec5b40390059991a5f72a626eb1af9aee00f8f298585624cadd3b6fde129739"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/campaign.py",
+      "bytes": 10876,
+      "sha256": "9a248a8c37ddf896cef8a1f9915c10f70e2a1aa7ade07f56f0798f407de48f27"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/campaign_fingerprints.py",
+      "bytes": 3782,
+      "sha256": "202f1ed996d6e634512da99ab032e05ec4f2403779d354c146d5ebb3c638abbc"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/campaign_materials.py",
+      "bytes": 2682,
+      "sha256": "3380e1c0dc4a5840ed01886ae4b797b152973ab84fcae7963771c92c9b46665b"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/capability.py",
+      "bytes": 18636,
+      "sha256": "bdf4d84ae065bb313d9d45ea36c993c6000eb3a2a93d65e737b76105405eb05b"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/collect.py",
+      "bytes": 9840,
+      "sha256": "18486c9e940f5280ac3f2a4f859b5e57c1d0b34307c0c32c004b96e1ce2f4d71"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/configs.py",
+      "bytes": 2210,
+      "sha256": "355e43eecb0654ec47b8e7d450beea5827822dc7aec73621d4c16ec7771280ba"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/corpus.py",
+      "bytes": 7190,
+      "sha256": "6efb99961f7b6b537693c4afc5a5f8c2765ba0e7fb24995aab4ea185bbd2f32b"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/datadog_corpus.py",
+      "bytes": 2884,
+      "sha256": "20c294c8e37483d263a8e04a96537962eba7f082eb6e5139acf38cc23a5e0560"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/datadog_fetch.py",
+      "bytes": 3847,
+      "sha256": "5569cbc827c4cff32db273f2524415058f74cc2f8873d4bb0a1b945a8b41c64b"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/datadog_pairs.py",
+      "bytes": 2888,
+      "sha256": "7a281b4b7dae125c04cb2af9715ae823814979c3a69bdba63be40268ca25b3cf"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/datadog_screen.py",
+      "bytes": 3022,
+      "sha256": "ec344ba52f751defc0557977b98c1de46cec04c955016f546e25006cfe8d5e5d"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/dataset.py",
+      "bytes": 7342,
+      "sha256": "b1fc341138d88c6d870e6c3a783cd1c1d992a7e1539ba3ec8a3ac692e02ca1cd"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/dolos.py",
+      "bytes": 1408,
+      "sha256": "022fbc2bd4e2b6e922f0da2b8d31ef3e1b0fa4ff41f5b0169fd5e1f7bc7f959f"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/hardnegative.py",
+      "bytes": 6808,
+      "sha256": "5db29eb6b8b708aabf360f8c143567729967db9e3d2559382fa961ebda730b2b"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/intent.py",
+      "bytes": 9061,
+      "sha256": "05eb7116f31f4de33f27bf9f9d02328fb8867eb1801b333d87e9530f683a8921"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/kb.py",
+      "bytes": 9852,
+      "sha256": "756ac013477d2284509243760589a5441b27e43e8ab2b6bee1d410319b540f3e"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/normalization.py",
+      "bytes": 7407,
+      "sha256": "ad691d580c9a9a29df2a2213e0c9bcb55e6c14f522a50d6e8d51026d76ed8f3e"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/path_b_search.py",
+      "bytes": 2092,
+      "sha256": "067c2b2bb8c783f93c583f10f09bc54de7eed9ab311856957472197968adca56"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/plots.py",
+      "bytes": 8901,
+      "sha256": "5a1d86fd183924775ac409593544a0076336ef9fc0fa1990947d184e5aa29fe1"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/preprocess_corpus.py",
+      "bytes": 3113,
+      "sha256": "bc37d4f3ae15e8e633df93ed9016c3448594e8d39a546d2ad7c2f35b08c07383"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/prompts.py",
+      "bytes": 6796,
+      "sha256": "97b7f3876a361fa51885e472951fac050e3332dc46dc4c37e275d55ea753a263"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/registry_fetch.py",
+      "bytes": 5681,
+      "sha256": "b08b960bbd038f4996b6c286ed8d86442d39dd41597a5cbbaac7ec46c9474d37"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/review_package.py",
+      "bytes": 5241,
+      "sha256": "ba9672cbf9d36b8ee9acf7baf5ae36a986b4bc1f48ff347b6bf459718fc44bdc"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/runner.py",
+      "bytes": 16095,
+      "sha256": "b4000de8f746c2477e6678e361b883d7e333976fdce87bf39f7a7af75a16dc44"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/samples.py",
+      "bytes": 8151,
+      "sha256": "f032d636f23e4b5a6267ef42a702149d924a68e2004bacf104d3d33c0d8572e7"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/smartdiff.py",
+      "bytes": 14756,
+      "sha256": "2f0eba35dc67deb85bbaba5fbd0d1e5dc8c36e52e55c7cd419418f7e45d23c6a"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/test_runner_inputs.py",
+      "bytes": 1182,
+      "sha256": "1f620e5432897c572f27ff9baa85948482fb1853430183e5829ce6e318956b40"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/typical.py",
+      "bytes": 8795,
+      "sha256": "b2cb38f5e9e9fdd4fd135042a480c9c642d4d4d25da832e9acf7be11a3301c48"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/verify_corpus.py",
+      "bytes": 3593,
+      "sha256": "e4556d4b5d9675bba42aa014c250bd3e13b0162168ae697f4f112d45cf1d9cf4"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/verify_kb_pool.py",
+      "bytes": 3694,
+      "sha256": "b67fc988476d4dd08d81c1b7bfe9e141a9655b4a456f29410aed4cec2563fc67"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/wyss.py",
+      "bytes": 3528,
+      "sha256": "173d8108f3d6490f62db84d0e3f3c152639966d719a94a7afffb1837b192220f"
+    },
+    {
+      "path": "data/acquisition/combined-campaigns-full.json",
+      "bytes": 1373409,
+      "sha256": "3f87778c16f3b2dd60df31964aba67bd84c32bf2427e3da6a7471f8d42bd62a5"
+    },
+    {
+      "path": "data/acquisition/pairs.prepared.jsonl",
+      "bytes": 22279383,
+      "sha256": "c5387329596df8387c0eab679d073d098c72eb7913a6265b97ebeda2c54e2602"
+    },
+    {
+      "path": "data/acquisition/pairs.preprocessed-v2.jsonl",
+      "bytes": 21997364,
+      "sha256": "ea24acfee9ca9e9c1708ab70d0c355999882a4fbc107e3ccabed6012b955d0b1"
+    },
+    {
+      "path": "data/acquisition/preprocess.manifest.jsonl",
+      "bytes": 1653455,
+      "sha256": "9a1610f4a520e2b338a26430b56a5b1136b728b70c1442b9291ee4e0442b4c12"
+    },
+    {
+      "path": "data/acquisition/preprocessing-summary.json",
+      "bytes": 807,
+      "sha256": "031c235ea32fd885867532d49b7c1ca68baf07aec378700144b89af42666cbf7"
+    },
+    {
+      "path": "data/acquisition/review-exclusions.jsonl",
+      "bytes": 1586,
+      "sha256": "a62d217d92ff3bd2e59ee24f6607448dd8c1a4658a3df282665380f125646b02"
+    },
+    {
+      "path": "data/review/pairs.jsonl",
+      "bytes": 19244726,
+      "sha256": "14476d3b3dc154d2841baebae09b3f18493ab2209cf04105f5b8bc675f9d0aa2"
+    }
+  ]
+}

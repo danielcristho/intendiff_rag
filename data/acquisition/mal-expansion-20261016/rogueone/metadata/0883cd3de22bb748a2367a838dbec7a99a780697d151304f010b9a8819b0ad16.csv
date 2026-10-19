@@ -1,0 +1,4 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/ember-cli-inject-live-reload_2.0.2-->2.1.0/ember-cli-inject-live-reload-2.1.0/","module.exports.serverMiddleware","config",65
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/ember-cli-inject-live-reload_2.0.2-->2.1.0/ember-cli-inject-live-reload-2.1.0/","module.exports.dynamicScript","options",177
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/ember-cli-inject-live-reload_2.0.2-->2.1.0/ember-cli-inject-live-reload-2.1.0/","(new module.exports.serverMiddleware()).dynamicScript","",177
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/ember-cli-inject-live-reload_2.0.2-->2.1.0/ember-cli-inject-live-reload-2.1.0/","main","",3

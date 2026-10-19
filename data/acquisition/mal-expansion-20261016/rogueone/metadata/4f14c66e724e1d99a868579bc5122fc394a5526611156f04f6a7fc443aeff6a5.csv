@@ -1,0 +1,12 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.5/","module.exports.filename","filepath",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.5/","module.exports.filepath_2_url","filepath,webroot",13
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.5/","module.exports.normolize_url","url,current_path",39
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.5/","module.exports","grunt",251
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.5/","(new module.exports()).options","",251
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.5/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.5/","module.exports.normolize_url","url,current_path",26
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.5/","module.exports.filepath_2_url","filepath,webroot",33
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.5/","module.exports.filename","filepath",39
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.5/","module.exports","grunt",251
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.5/","(new module.exports()).options","",251
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/grunt-asserts-processor_0.0.4-->0.0.5/grunt-asserts-processor-0.0.5/","main","",3

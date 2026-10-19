@@ -1,0 +1,216 @@
+{
+  "complete": true,
+  "invalid_policy": "benign",
+  "contrasts": [
+    {
+      "before": {
+        "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+        "config": "DIFF"
+      },
+      "after": {
+        "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "config": "DIFF"
+      },
+      "subsets": {
+        "MAL": {
+          "n": 873,
+          "net_positive_change": 73,
+          "both_valid_n": 713,
+          "both_valid_net_positive_change": 27,
+          "any_invalid_net_positive_change": 46,
+          "delta_percentage_points": 8.361970217640321
+        },
+        "TYP": {
+          "n": 100,
+          "net_positive_change": 17,
+          "both_valid_n": 76,
+          "both_valid_net_positive_change": 0,
+          "any_invalid_net_positive_change": 17,
+          "delta_percentage_points": 17.0
+        }
+      }
+    },
+    {
+      "before": {
+        "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+        "config": "DIFF+I"
+      },
+      "after": {
+        "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "config": "DIFF+I"
+      },
+      "subsets": {
+        "MAL": {
+          "n": 873,
+          "net_positive_change": -43,
+          "both_valid_n": 448,
+          "both_valid_net_positive_change": 13,
+          "any_invalid_net_positive_change": -56,
+          "delta_percentage_points": -4.925544100801833
+        },
+        "TYP": {
+          "n": 100,
+          "net_positive_change": 18,
+          "both_valid_n": 71,
+          "both_valid_net_positive_change": 3,
+          "any_invalid_net_positive_change": 15,
+          "delta_percentage_points": 18.0
+        }
+      }
+    },
+    {
+      "before": {
+        "model": "Qwen/Qwen3-4B-Instruct-2507",
+        "config": "DIFF"
+      },
+      "after": {
+        "model": "Qwen/Qwen3-8B",
+        "config": "DIFF"
+      },
+      "subsets": {
+        "MAL": {
+          "n": 873,
+          "net_positive_change": -37,
+          "both_valid_n": 568,
+          "both_valid_net_positive_change": -178,
+          "any_invalid_net_positive_change": 141,
+          "delta_percentage_points": -4.238258877434135
+        },
+        "TYP": {
+          "n": 100,
+          "net_positive_change": 0,
+          "both_valid_n": 89,
+          "both_valid_net_positive_change": -1,
+          "any_invalid_net_positive_change": 1,
+          "delta_percentage_points": 0.0
+        }
+      }
+    },
+    {
+      "before": {
+        "model": "Qwen/Qwen3-4B-Instruct-2507",
+        "config": "DIFF+I"
+      },
+      "after": {
+        "model": "Qwen/Qwen3-8B",
+        "config": "DIFF+I"
+      },
+      "subsets": {
+        "MAL": {
+          "n": 873,
+          "net_positive_change": -130,
+          "both_valid_n": 621,
+          "both_valid_net_positive_change": -226,
+          "any_invalid_net_positive_change": 96,
+          "delta_percentage_points": -14.891179839633448
+        },
+        "TYP": {
+          "n": 100,
+          "net_positive_change": 0,
+          "both_valid_n": 87,
+          "both_valid_net_positive_change": -1,
+          "any_invalid_net_positive_change": 1,
+          "delta_percentage_points": 0.0
+        }
+      }
+    },
+    {
+      "before": {
+        "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "config": "DIFF"
+      },
+      "after": {
+        "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "config": "DIFF+I"
+      },
+      "subsets": {
+        "MAL": {
+          "n": 873,
+          "net_positive_change": -225,
+          "both_valid_n": 584,
+          "both_valid_net_positive_change": -5,
+          "any_invalid_net_positive_change": -220,
+          "delta_percentage_points": -25.77319587628866
+        },
+        "TYP": {
+          "n": 100,
+          "net_positive_change": 2,
+          "both_valid_n": 95,
+          "both_valid_net_positive_change": 6,
+          "any_invalid_net_positive_change": -4,
+          "delta_percentage_points": 2.0
+        }
+      }
+    },
+    {
+      "before": {
+        "model": "Qwen/Qwen3-8B",
+        "config": "DIFF"
+      },
+      "after": {
+        "model": "Qwen/Qwen3-8B",
+        "config": "DIFF+I"
+      },
+      "subsets": {
+        "MAL": {
+          "n": 873,
+          "net_positive_change": -21,
+          "both_valid_n": 803,
+          "both_valid_net_positive_change": -26,
+          "any_invalid_net_positive_change": 5,
+          "delta_percentage_points": -2.4054982817869415
+        },
+        "TYP": {
+          "n": 100,
+          "net_positive_change": -3,
+          "both_valid_n": 92,
+          "both_valid_net_positive_change": -3,
+          "any_invalid_net_positive_change": 0,
+          "delta_percentage_points": -3.0
+        }
+      }
+    }
+  ],
+  "interpretation": "Descriptive partition; not a causal effect of reasoning or size.",
+  "new_output_audit": [
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "config": "DIFF",
+      "non_length_json_decoder_errors": {
+        "Expecting ',' delimiter": 55
+      },
+      "responses_containing_think_open_tag": 0
+    },
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "config": "DIFF+I",
+      "non_length_json_decoder_errors": {
+        "Expecting ',' delimiter": 263
+      },
+      "responses_containing_think_open_tag": 0
+    },
+    {
+      "model": "Qwen/Qwen3-8B",
+      "config": "DIFF",
+      "non_length_json_decoder_errors": {
+        "Expecting ',' delimiter": 31,
+        "Expecting ':' delimiter": 3,
+        "Invalid control character at": 4,
+        "Invalid \\escape": 1
+      },
+      "responses_containing_think_open_tag": 0
+    },
+    {
+      "model": "Qwen/Qwen3-8B",
+      "config": "DIFF+I",
+      "non_length_json_decoder_errors": {
+        "Expecting ',' delimiter": 22,
+        "Invalid control character at": 5,
+        "Invalid \\escape": 2,
+        "Expecting ':' delimiter": 2,
+        "Expecting value": 1
+      },
+      "responses_containing_think_open_tag": 0
+    }
+  ]
+}

@@ -1,0 +1,846 @@
+{
+  "metrics": [
+    {
+      "config": "DIFF",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1680,
+        "FN": 19,
+        "FP": 188,
+        "TP": 14
+      },
+      "tpr_source": 0.42424242424242425,
+      "cohort_accuracy": 0.891109942135718,
+      "balanced_accuracy": 0.6618000129777432,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 34,
+          "fpr": 0.09066666666666667,
+          "wilson_95": [
+            0.06560714479452505,
+            0.1240274824300965
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 61,
+          "fpr": 0.08815028901734104,
+          "wilson_95": [
+            0.06923635584948933,
+            0.11161153302733771
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 93,
+          "fpr": 0.11610486891385768,
+          "wilson_95": [
+            0.09572956729885951,
+            0.1401447862649618
+          ]
+        }
+      },
+      "invalid": 104,
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "tpr_wilson_95": [
+        0.27235596633410203,
+        0.5919273666268756
+      ],
+      "cost": {
+        "median_latency_ms": 1018.5,
+        "p95_latency_ms": 5494.7,
+        "mean_prompt_tokens": 3852.9500263019463,
+        "mean_completion_tokens": 90.31088900578642
+      }
+    },
+    {
+      "config": "DIFF",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1576,
+        "FP": 292,
+        "FN": 19,
+        "TP": 14
+      },
+      "tpr_source": 0.42424242424242425,
+      "cohort_accuracy": 0.8364018937401367,
+      "balanced_accuracy": 0.6339627538771008,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 39,
+          "fpr": 0.104,
+          "wilson_95": [
+            0.07701526682444317,
+            0.13901562661436004
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 132,
+          "fpr": 0.1907514450867052,
+          "wilson_95": [
+            0.1632165348247368,
+            0.22170082734944208
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 121,
+          "fpr": 0.15106117353308365,
+          "wilson_95": [
+            0.12793019583505286,
+            0.1775230783798676
+          ]
+        }
+      },
+      "invalid": 104,
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "tpr_wilson_95": [
+        0.27235596633410203,
+        0.5919273666268756
+      ],
+      "cost": {
+        "median_latency_ms": 1018.5,
+        "p95_latency_ms": 5494.7,
+        "mean_prompt_tokens": 3852.9500263019463,
+        "mean_completion_tokens": 90.31088900578642
+      }
+    },
+    {
+      "config": "DIFF+I",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1724,
+        "FP": 144,
+        "FN": 17,
+        "TP": 16
+      },
+      "tpr_source": 0.48484848484848486,
+      "cohort_accuracy": 0.9153077327722251,
+      "balanced_accuracy": 0.7038803452079683,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 34,
+          "fpr": 0.09066666666666667,
+          "wilson_95": [
+            0.06560714479452505,
+            0.1240274824300965
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 36,
+          "fpr": 0.05202312138728324,
+          "wilson_95": [
+            0.03781168158510671,
+            0.07118075894758237
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 74,
+          "fpr": 0.09238451935081149,
+          "wilson_95": [
+            0.07423043739330817,
+            0.11442964858583865
+          ]
+        }
+      },
+      "invalid": 93,
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "tpr_wilson_95": [
+        0.3250404210813369,
+        0.6478162455108586
+      ],
+      "cost": {
+        "median_latency_ms": 1027.3,
+        "p95_latency_ms": 5659.2,
+        "mean_prompt_tokens": 4422.739610731194,
+        "mean_completion_tokens": 86.18779589689638
+      }
+    },
+    {
+      "config": "DIFF+I",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1632,
+        "FP": 236,
+        "TP": 17,
+        "FN": 16
+      },
+      "tpr_source": 0.5151515151515151,
+      "cohort_accuracy": 0.8674381904260915,
+      "balanced_accuracy": 0.6944065926935306,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 45,
+          "fpr": 0.12,
+          "wilson_95": [
+            0.09090426121789383,
+            0.15680215167792746
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 89,
+          "fpr": 0.12861271676300579,
+          "wilson_95": [
+            0.10570493232339694,
+            0.1556210586988647
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 102,
+          "fpr": 0.12734082397003746,
+          "wilson_95": [
+            0.1060206471296693,
+            0.15221835950057672
+          ]
+        }
+      },
+      "invalid": 93,
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "tpr_wilson_95": [
+        0.3521837544891414,
+        0.674959578918663
+      ],
+      "cost": {
+        "median_latency_ms": 1027.3,
+        "p95_latency_ms": 5659.2,
+        "mean_prompt_tokens": 4422.739610731194,
+        "mean_completion_tokens": 86.18779589689638
+      }
+    },
+    {
+      "config": "DIFF+I+M",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1703,
+        "FP": 165,
+        "FN": 17,
+        "TP": 16
+      },
+      "tpr_source": 0.48484848484848486,
+      "cohort_accuracy": 0.9042609153077328,
+      "balanced_accuracy": 0.6982593601972618,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 42,
+          "fpr": 0.112,
+          "wilson_95": [
+            0.08393488200637078,
+            0.1479337711609415
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 32,
+          "fpr": 0.046242774566473986,
+          "wilson_95": [
+            0.03294406672427133,
+            0.06455150207335567
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 91,
+          "fpr": 0.1136079900124844,
+          "wilson_95": [
+            0.09345126363001148,
+            0.13745316703015986
+          ]
+        }
+      },
+      "invalid": 95,
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "tpr_wilson_95": [
+        0.3250404210813369,
+        0.6478162455108586
+      ],
+      "cost": {
+        "median_latency_ms": 1051.4,
+        "p95_latency_ms": 5711.6,
+        "mean_prompt_tokens": 4644.314045239348,
+        "mean_completion_tokens": 86.50762756443977
+      }
+    },
+    {
+      "config": "DIFF+I+M",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1609,
+        "FP": 259,
+        "FN": 16,
+        "TP": 17
+      },
+      "tpr_source": 0.5151515151515151,
+      "cohort_accuracy": 0.855339295107838,
+      "balanced_accuracy": 0.6882502757770423,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 54,
+          "fpr": 0.144,
+          "wilson_95": [
+            0.11207211904521434,
+            0.183147573036134
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 86,
+          "fpr": 0.12427745664739884,
+          "wilson_95": [
+            0.10175242288366787,
+            0.15095091433729718
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 119,
+          "fpr": 0.14856429463171036,
+          "wilson_95": [
+            0.12561330462120168,
+            0.17487004669006884
+          ]
+        }
+      },
+      "invalid": 95,
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "tpr_wilson_95": [
+        0.3521837544891414,
+        0.674959578918663
+      ],
+      "cost": {
+        "median_latency_ms": 1051.4,
+        "p95_latency_ms": 5711.6,
+        "mean_prompt_tokens": 4644.314045239348,
+        "mean_completion_tokens": 86.50762756443977
+      }
+    },
+    {
+      "config": "DIFF+I+MM",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1571,
+        "FP": 297,
+        "TP": 20,
+        "FN": 13
+      },
+      "tpr_source": 0.6060606060606061,
+      "cohort_accuracy": 0.8369279326670174,
+      "balanced_accuracy": 0.7235335150217377,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 74,
+          "fpr": 0.19733333333333333,
+          "wilson_95": [
+            0.16020877675162115,
+            0.24059598018645406
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 77,
+          "fpr": 0.11127167630057803,
+          "wilson_95": [
+            0.08995412892652384,
+            0.1368812468905515
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 146,
+          "fpr": 0.1822721598002497,
+          "wilson_95": [
+            0.15707346165887964,
+            0.21050384885166512
+          ]
+        }
+      },
+      "invalid": 82,
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "tpr_wilson_95": [
+        0.4368344081994022,
+        0.7531689256552292
+      ],
+      "cost": {
+        "median_latency_ms": 1048.2,
+        "p95_latency_ms": 5512.5,
+        "mean_prompt_tokens": 4860.9042609153075,
+        "mean_completion_tokens": 84.612309310889
+      }
+    },
+    {
+      "config": "DIFF+I+MM",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1491,
+        "FP": 377,
+        "TP": 22,
+        "FN": 11
+      },
+      "tpr_source": 0.6666666666666666,
+      "cohort_accuracy": 0.7958968963703315,
+      "balanced_accuracy": 0.7324232690935046,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 82,
+          "fpr": 0.21866666666666668,
+          "wilson_95": [
+            0.1797991839743497,
+            0.2632395989064163
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 118,
+          "fpr": 0.17052023121387283,
+          "wilson_95": [
+            0.14433632631726973,
+            0.2003419847841919
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 177,
+          "fpr": 0.2209737827715356,
+          "wilson_95": [
+            0.19361046891374062,
+            0.2510006466033783
+          ]
+        }
+      },
+      "invalid": 82,
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "tpr_wilson_95": [
+        0.49607894427805604,
+        0.8024977232077932
+      ],
+      "cost": {
+        "median_latency_ms": 1048.2,
+        "p95_latency_ms": 5512.5,
+        "mean_prompt_tokens": 4860.9042609153075,
+        "mean_completion_tokens": 84.612309310889
+      }
+    },
+    {
+      "config": "DIFF+I+MB",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1573,
+        "FP": 295,
+        "TP": 20,
+        "FN": 13
+      },
+      "tpr_source": 0.6060606060606061,
+      "cohort_accuracy": 0.8379800105207785,
+      "balanced_accuracy": 0.7240688469275194,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 72,
+          "fpr": 0.192,
+          "wilson_95": [
+            0.15533825896332415,
+            0.23490799148907843
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 80,
+          "fpr": 0.11560693641618497,
+          "wilson_95": [
+            0.09387655725576033,
+            0.14158147236261157
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 143,
+          "fpr": 0.17852684144818975,
+          "wilson_95": [
+            0.15355971051175954,
+            0.2065627156433103
+          ]
+        }
+      },
+      "invalid": 72,
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "tpr_wilson_95": [
+        0.4368344081994022,
+        0.7531689256552292
+      ],
+      "cost": {
+        "median_latency_ms": 1063.2,
+        "p95_latency_ms": 5590.8,
+        "mean_prompt_tokens": 4846.177275118359,
+        "mean_completion_tokens": 84.2845870594424
+      }
+    },
+    {
+      "config": "DIFF+I+MB",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1503,
+        "FP": 365,
+        "TP": 22,
+        "FN": 11
+      },
+      "tpr_source": 0.6666666666666666,
+      "cohort_accuracy": 0.8022093634928985,
+      "balanced_accuracy": 0.7356352605281942,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 79,
+          "fpr": 0.21066666666666667,
+          "wilson_95": [
+            0.17243313904809804,
+            0.2547678841041589
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 118,
+          "fpr": 0.17052023121387283,
+          "wilson_95": [
+            0.14433632631726973,
+            0.2003419847841919
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 168,
+          "fpr": 0.20973782771535582,
+          "wilson_95": [
+            0.18296255391443356,
+            0.23928390853626058
+          ]
+        }
+      },
+      "invalid": 72,
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "tpr_wilson_95": [
+        0.49607894427805604,
+        0.8024977232077932
+      ],
+      "cost": {
+        "median_latency_ms": 1063.2,
+        "p95_latency_ms": 5590.8,
+        "mean_prompt_tokens": 4846.177275118359,
+        "mean_completion_tokens": 84.2845870594424
+      }
+    },
+    {
+      "config": "DIFF+MB",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1473,
+        "FP": 395,
+        "TP": 17,
+        "FN": 16
+      },
+      "tpr_source": 0.5151515151515151,
+      "cohort_accuracy": 0.7837980010520779,
+      "balanced_accuracy": 0.6518477061838945,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 92,
+          "fpr": 0.24533333333333332,
+          "wilson_95": [
+            0.20451011983038556,
+            0.2913211954787438
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 123,
+          "fpr": 0.1777456647398844,
+          "wilson_95": [
+            0.15106399505582574,
+            0.2079854057144635
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 180,
+          "fpr": 0.2247191011235955,
+          "wilson_95": [
+            0.19716658831445383,
+            0.25489941155813994
+          ]
+        }
+      },
+      "invalid": 92,
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "tpr_wilson_95": [
+        0.3521837544891414,
+        0.674959578918663
+      ],
+      "cost": {
+        "median_latency_ms": 1038.5,
+        "p95_latency_ms": 5579.3,
+        "mean_prompt_tokens": 4276.387690689111,
+        "mean_completion_tokens": 91.44555497106786
+      }
+    },
+    {
+      "config": "DIFF+MB",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "FP": 486,
+        "TN": 1382,
+        "TP": 18,
+        "FN": 15
+      },
+      "tpr_source": 0.5454545454545454,
+      "cohort_accuracy": 0.7364544976328248,
+      "balanced_accuracy": 0.6426416196223477,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 98,
+          "fpr": 0.2613333333333333,
+          "wilson_95": [
+            0.21944464110060818,
+            0.30806219366553916
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 177,
+          "fpr": 0.25578034682080925,
+          "wilson_95": [
+            0.2246832411354728,
+            0.2895739280581544
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 211,
+          "fpr": 0.2634207240948814,
+          "wilson_95": [
+            0.23409716061554758,
+            0.2950026442636203
+          ]
+        }
+      },
+      "invalid": 92,
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "tpr_wilson_95": [
+        0.3798593853621745,
+        0.7015706148612388
+      ],
+      "cost": {
+        "median_latency_ms": 1038.5,
+        "p95_latency_ms": 5579.3,
+        "mean_prompt_tokens": 4276.387690689111,
+        "mean_completion_tokens": 91.44555497106786
+      }
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "baseline": "DIFF+I",
+      "variant": "DIFF+I+M",
+      "subset": "MAL",
+      "alarm_rate_delta_points": 0.0,
+      "campaign_bootstrap_95": [
+        -9.090909090909093,
+        9.090909090909088
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "baseline": "DIFF+I",
+      "variant": "DIFF+I+M",
+      "subset": "TYP:live-stream-unseen-names",
+      "alarm_rate_delta_points": 2.133333333333333,
+      "campaign_bootstrap_95": [
+        -1.3333333333333321,
+        5.599999999999998
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "baseline": "DIFF+I",
+      "variant": "DIFF+I+M",
+      "subset": "TYP:popular",
+      "alarm_rate_delta_points": -0.5780346820809252,
+      "campaign_bootstrap_95": [
+        -2.4495677233429394,
+        1.300578034682081
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "baseline": "DIFF+I",
+      "variant": "DIFF+I+M",
+      "subset": "TYP:random",
+      "alarm_rate_delta_points": 2.1223470661672907,
+      "campaign_bootstrap_95": [
+        -0.12484394506866447,
+        4.369538077403247
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "baseline": "DIFF+I+MM",
+      "variant": "DIFF+I+MB",
+      "subset": "MAL",
+      "alarm_rate_delta_points": 0.0,
+      "campaign_bootstrap_95": [
+        -12.121212121212121,
+        12.121212121212121
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "baseline": "DIFF+I+MM",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:live-stream-unseen-names",
+      "alarm_rate_delta_points": -0.5333333333333329,
+      "campaign_bootstrap_95": [
+        -4.533333333333333,
+        3.2
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "baseline": "DIFF+I+MM",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:popular",
+      "alarm_rate_delta_points": 0.4335260115606934,
+      "campaign_bootstrap_95": [
+        -1.878612716763005,
+        2.7536231884057973
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "baseline": "DIFF+I+MM",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:random",
+      "alarm_rate_delta_points": -0.3745318352059934,
+      "campaign_bootstrap_95": [
+        -2.996254681647942,
+        2.3720349563046197
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "baseline": "DIFF+MB",
+      "variant": "DIFF+I+MB",
+      "subset": "MAL",
+      "alarm_rate_delta_points": 9.090909090909093,
+      "campaign_bootstrap_95": [
+        -6.060606060606066,
+        24.24242424242425
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "baseline": "DIFF+MB",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:live-stream-unseen-names",
+      "alarm_rate_delta_points": -5.333333333333331,
+      "campaign_bootstrap_95": [
+        -9.333333333333336,
+        -1.5999999999999988
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "baseline": "DIFF+MB",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:popular",
+      "alarm_rate_delta_points": -6.213872832369943,
+      "campaign_bootstrap_95": [
+        -9.104046242774567,
+        -3.3333333333333326
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "ibm-granite/granite-3.3-8b-instruct",
+      "baseline": "DIFF+MB",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:random",
+      "alarm_rate_delta_points": -4.619225967540574,
+      "campaign_bootstrap_95": [
+        -7.615480649188513,
+        -1.6229712858926355
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    }
+  ]
+}

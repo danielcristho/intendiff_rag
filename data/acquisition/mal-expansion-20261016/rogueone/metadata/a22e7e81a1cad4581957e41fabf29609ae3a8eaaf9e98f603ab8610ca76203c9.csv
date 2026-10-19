@@ -1,0 +1,183 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.process","tmpl,options",105
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.setDelimiters","name",113
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.addDelimiters","name,opener,closer",199
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.today","format",205
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.report","",229
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.fatal","e,errcode",239
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.warn","e,errcode",273
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports","key,value",277
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.init","obj",277
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.keys","",277
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.flags","",282
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create","",282
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().Task","",282
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.mark","",290
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.requires","",293
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.parseArgs","args",294
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__._taskPlusArgs","name",385
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.renameTask","oldname,newname",385
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.start","opts",397
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.clearQueue","options",401
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__._throwIfRunning","obj",407
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.splitArgs","str",475
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__._push","things",483
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.run","",901
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.runTaskFn","context,fn,done,asyncDone",923
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.options","options",925
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.exists","name",925
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.registerTask","name,info,fn",965
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.isTaskAlias","name",965
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__._taskPlusArgs().args.length","",965
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.mark()._queue.*.args.length","",965
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.mark()._queue.*.args.length","",965
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.mark()._queue.*.args.length","",965
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.mark()._queue.*.args.length","",965
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports","prop,value",1100
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.set","prop,value",1100
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.get","prop",1105
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.getRaw","prop",1105
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.merge","obj",1114
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.requires","",1459
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.init","obj",1477
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.getPropString","prop",1477
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.process","raw",1512
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.escape","str",1515
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.registerTask","name",1530
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.runAllTargets","taskname,args",1704
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.addDelimiters","name,opener,closer",15
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.today","format",21
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.setDelimiters","name",39
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.process","tmpl,options",197
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.report","",221
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.fatal","e,errcode",231
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.warn","e,errcode",265
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports","key,value",269
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.keys","",269
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.flags","",271
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.init","obj",271
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create","",271
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().Task","",271
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.registerTask","name,info,fn",273
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__._push","things",281
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.runTaskFn","context,fn,done,asyncDone",300
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.run","",573
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.options","options",575
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.mark","",599
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.splitArgs","str",667
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.parseArgs","args",683
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.isTaskAlias","name",683
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.exists","name",683
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.clearQueue","options",701
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__._taskPlusArgs","name",770
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.requires","",798
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.renameTask","oldname,newname",798
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.start","opts",812
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__._throwIfRunning","obj",813
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__._taskPlusArgs().args.length","",813
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports","prop,value",948
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.escape","str",951
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.requires","",1296
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.init","obj",1314
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.get","prop",1377
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.set","prop,value",2243
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.getPropString","prop",2243
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.merge","obj",2342
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.process","raw",2496
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.getRaw","prop",2496
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.registerTask","name",2511
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.registerMultiTask","name,info,fn",2511
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.registerInitTask","name,info,fn",2511
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.runAllTargets","taskname,args",2570
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.normalizeMultiTaskFiles","data,target",3033
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.loadTasks","tasksdir",3353
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.loadNpmTasks","name",9170
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.setDelimiters","name",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.process","tmpl,options",105
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.today","format",111
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.addDelimiters","name,opener,closer",197
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.fatal","e,errcode",211
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.warn","e,errcode",247
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.report","",263
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports","key,value",265
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.keys","",265
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.init","obj",265
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.flags","",270
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().Task","",270
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create","",270
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","(new module.exports().Task()).__proto__.exists","name",270
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","(new module.exports().Task()).__proto__.options","options",272
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","(new module.exports().Task()).__proto__.runTaskFn","context,fn,done,asyncDone",286
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","(new module.exports().Task()).__proto__.requires","",289
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","(new module.exports().Task()).__proto__._throwIfRunning","obj",295
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","(new module.exports().Task()).__proto__.isTaskAlias","name",295
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","(new module.exports().Task()).__proto__.parseArgs","args",296
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","(new module.exports().Task()).__proto__.run","",570
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","(new module.exports().Task()).__proto__._taskPlusArgs","name",639
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","(new module.exports().Task()).__proto__.start","opts",653
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","(new module.exports().Task()).__proto__.mark","",667
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","(new module.exports().Task()).__proto__._push","things",693
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","(new module.exports().Task()).__proto__.splitArgs","str",761
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","(new module.exports().Task()).__proto__.renameTask","oldname,newname",761
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","(new module.exports().Task()).__proto__.clearQueue","options",779
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","(new module.exports().Task()).__proto__.registerTask","name,info,fn",812
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","(new module.exports().Task()).__proto__._taskPlusArgs().args.length","",812
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports","prop,value",946
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.requires","",1291
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.set","prop,value",1291
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.process","raw",1301
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.getRaw","prop",1301
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.get","prop",1306
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.init","obj",1324
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.getPropString","prop",1324
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.escape","str",1327
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.merge","obj",1338
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.renameTask","oldname,newname",1353
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.registerMultiTask","name,info,fn",1369
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.registerInitTask","name,info,fn",1369
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.today","format",7
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.setDelimiters","name",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.addDelimiters","name,opener,closer",39
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.process","tmpl,options",197
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.fatal","e,errcode",211
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.warn","e,errcode",247
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.report","",263
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports","key,value",265
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.init","obj",265
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.keys","",265
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.flags","",270
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create","",270
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().Task","",270
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__._throwIfRunning","obj",271
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.renameTask","oldname,newname",271
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.mark","",279
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.parseArgs","args",280
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.run","",549
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.requires","",570
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.splitArgs","str",638
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.runTaskFn","context,fn,done,asyncDone",659
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.registerTask","name,info,fn",689
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.start","opts",701
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.clearQueue","options",725
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.isTaskAlias","name",725
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__._push","things",742
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__._taskPlusArgs","name",811
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.exists","name",811
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__.options","options",813
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports().create().__proto__._taskPlusArgs().args.length","",813
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports","prop,value",947
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.init","obj",965
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.getPropString","prop",965
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.requires","",1376
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.merge","obj",1437
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.process","raw",1509
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.escape","str",1512
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.get","prop",1520
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.set","prop,value",2534
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.getRaw","prop",2534
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.registerMultiTask","name,info,fn",2548
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.normalizeMultiTaskFiles","data,target",3052
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.loadTasks","tasksdir",3370
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.runAllTargets","taskname,args",3499
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.registerTask","name",3499
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.registerInitTask","name,info,fn",3499
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/grunt_1.5.1-->1.5.2/grunt-1.5.2/","module.exports.renameTask","oldname,newname",3516

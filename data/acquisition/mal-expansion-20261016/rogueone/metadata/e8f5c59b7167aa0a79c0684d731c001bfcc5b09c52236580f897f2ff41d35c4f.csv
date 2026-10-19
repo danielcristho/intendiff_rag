@@ -1,0 +1,11 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/extract-text-webpack-plugin_3.0.1-->3.0.2/extract-text-webpack-plugin-3.0.1/","module.exports.default","module",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/extract-text-webpack-plugin_3.0.1-->3.0.2/extract-text-webpack-plugin-3.0.1/","module.exports.isInvalidOrder","a,b",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/extract-text-webpack-plugin_3.0.1-->3.0.2/extract-text-webpack-plugin-3.0.1/","module.exports.mergeOptions","a,b",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/extract-text-webpack-plugin_3.0.1-->3.0.2/extract-text-webpack-plugin-3.0.1/","module.exports.getLoaderObject","loader",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/extract-text-webpack-plugin_3.0.1-->3.0.2/extract-text-webpack-plugin-3.0.1/","module.exports.getOrder","a,b",24
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/extract-text-webpack-plugin_3.0.1-->3.0.2/extract-text-webpack-plugin-3.0.1/","module.exports.isFunction","a",24
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/extract-text-webpack-plugin_3.0.1-->3.0.2/extract-text-webpack-plugin-3.0.1/","module.exports.isInitialOrHasNoParents","chunk",25
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/extract-text-webpack-plugin_3.0.1-->3.0.2/extract-text-webpack-plugin-3.0.1/","module.exports.isType","type,obj",28
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/extract-text-webpack-plugin_3.0.1-->3.0.2/extract-text-webpack-plugin-3.0.1/","module.exports.isString","a",28
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/extract-text-webpack-plugin_3.0.1-->3.0.2/extract-text-webpack-plugin-3.0.1/","module.exports.default","options",55
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/extract-text-webpack-plugin_3.0.1-->3.0.2/extract-text-webpack-plugin-3.0.1/","main","",3

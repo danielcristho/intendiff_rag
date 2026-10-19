@@ -1,0 +1,4 @@
+{"stage": "server_starting", "time_unix": 1792106054.039987, "model": "Qwen/Qwen2.5-Coder-7B-Instruct", "experiment_stage": "dev", "pid": 1702773}
+{"stage": "running", "time_unix": 1792106200.0997813, "model": "Qwen/Qwen2.5-Coder-7B-Instruct", "experiment_stage": "dev"}
+{"stage": "model_complete", "time_unix": 1792106322.647527, "model": "Qwen/Qwen2.5-Coder-7B-Instruct", "experiment_stage": "dev", "completed": 60, "json_validity": 1.0}
+{"stage": "stage_complete", "time_unix": 1792106322.6493618, "experiment_stage": "dev"}

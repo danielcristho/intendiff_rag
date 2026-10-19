@@ -1,0 +1,81 @@
+    608142:	find library=libpthread.so.0 [0]; searching
+    608142:	 search cache=/etc/ld.so.cache
+    608142:	  trying file=/usr/lib/x86_64-linux-gnu/libpthread.so.0
+    608142:	
+    608142:	find library=libdl.so.2 [0]; searching
+    608142:	 search cache=/etc/ld.so.cache
+    608142:	  trying file=/usr/lib/x86_64-linux-gnu/libdl.so.2
+    608142:	
+    608142:	find library=libutil.so.1 [0]; searching
+    608142:	 search cache=/etc/ld.so.cache
+    608142:	  trying file=/usr/lib/x86_64-linux-gnu/libutil.so.1
+    608142:	
+    608142:	find library=libm.so.6 [0]; searching
+    608142:	 search cache=/etc/ld.so.cache
+    608142:	  trying file=/usr/lib/x86_64-linux-gnu/libm.so.6
+    608142:	
+    608142:	find library=librt.so.1 [0]; searching
+    608142:	 search cache=/etc/ld.so.cache
+    608142:	  trying file=/usr/lib/x86_64-linux-gnu/librt.so.1
+    608142:	
+    608142:	find library=libc.so.6 [0]; searching
+    608142:	 search cache=/etc/ld.so.cache
+    608142:	  trying file=/usr/lib/x86_64-linux-gnu/libc.so.6
+    608142:	
+    608142:	
+    608142:	calling init: /lib64/ld-linux-x86-64.so.2
+    608142:	
+    608142:	
+    608142:	calling init: /usr/lib/x86_64-linux-gnu/libc.so.6
+    608142:	
+    608142:	
+    608142:	calling init: /usr/lib/x86_64-linux-gnu/librt.so.1
+    608142:	
+    608142:	
+    608142:	calling init: /usr/lib/x86_64-linux-gnu/libm.so.6
+    608142:	
+    608142:	
+    608142:	calling init: /usr/lib/x86_64-linux-gnu/libutil.so.1
+    608142:	
+    608142:	
+    608142:	calling init: /usr/lib/x86_64-linux-gnu/libdl.so.2
+    608142:	
+    608142:	
+    608142:	calling init: /usr/lib/x86_64-linux-gnu/libpthread.so.0
+    608142:	
+    608142:	
+    608142:	calling init: ~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/bin/../lib/libpython3.12.so.1.0
+    608142:	
+    608142:	
+    608142:	initialize program: ~/intendiff_rag/.venv/bin/python
+    608142:	
+    608142:	
+    608142:	transferring control: ~/intendiff_rag/.venv/bin/python
+    608142:	
+    608142:	
+    608142:	calling init: /usr/lib/wsl/lib/libcuda.so.1
+    608142:	
+    608142:	find library=libdxcore.so [0]; searching
+    608142:	 search cache=/etc/ld.so.cache
+    608142:	  trying file=/usr/lib/wsl/lib/libdxcore.so
+    608142:	
+    608142:	
+    608142:	calling init: /usr/lib/wsl/lib/libdxcore.so
+    608142:	
+    608142:	
+    608142:	calling init: /usr/lib/wsl/drivers/nv_dispi.inf_amd64_a3944b54ff18b284/libcuda.so.1.1
+    608142:	
+    608142:	
+    608142:	calling init: /usr/lib/wsl/drivers/nv_dispi.inf_amd64_a3944b54ff18b284/libnvdxgdmal.so.1
+    608142:	
+    608142:	
+    608142:	calling init: /usr/lib/wsl/drivers/nv_dispi.inf_amd64_a3944b54ff18b284/libnvdiagclt.so.1
+    608142:	
+    608142:	/usr/lib/wsl/lib/libdxcore.so: error: symbol lookup error: undefined symbol: D3DKMTOpenSyncObjectFromNtHandle (fatal)
+    608142:	/usr/lib/wsl/lib/libdxcore.so: error: symbol lookup error: undefined symbol: D3DKMTAcquireKeyedMutex (fatal)
+    608142:	/usr/lib/wsl/lib/libdxcore.so: error: symbol lookup error: undefined symbol: D3DKMTReleaseKeyedMutex (fatal)
+    608142:	/usr/lib/wsl/lib/libdxcore.so: error: symbol lookup error: undefined symbol: D3DKMTOpenKeyedMutex (fatal)
+    608142:	/usr/lib/wsl/lib/libdxcore.so: error: symbol lookup error: undefined symbol: D3DKMTRegisterTrimNotification (fatal)
+    608142:	/usr/lib/wsl/lib/libdxcore.so: error: symbol lookup error: undefined symbol: D3DKMTUnregisterTrimNotification (fatal)
+    608142:	/usr/lib/wsl/lib/libdxcore.so: error: symbol lookup error: undefined symbol: D3DKMTCreateNativeFence (fatal)
+    608142:	/usr/lib/wsl/lib/libdxcore.so: error: symbol lookup error: undefined symbol: D3DKMTOpenNativeFenceFromNtHandle (fatal)

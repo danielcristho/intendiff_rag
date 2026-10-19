@@ -1,6 +1,7 @@
 .ref/
 
 data/audit_decisions*.json
+data/review/audit_decisions*.json
 data/results.jsonl
 node_modules/
 dist/
@@ -10,14 +11,8 @@ __pycache__/
 # Salinan lokal .env.example; APP_UID/HF_TOKEN spesifik per mesin.
 .env
 .venv/
-data/figures/
-# Tarball yang diunduh ulang oleh collect.py; 2 GB, bukan sumber kebenaran.
-data/wyss/
-data/typ/
-data/hn/
-data/datadog/
-# Downloaded tarballs; data/samples.jsonl keeps their checksums in git.
-data/tarballs/
-data/*.log
-# Password hashes; accounts are created per machine with `user-add`.
-data/users.json
+figures/
+
+# Downloaded research archives and unpacked samples stay local.
+data/upstream/
+data/work/

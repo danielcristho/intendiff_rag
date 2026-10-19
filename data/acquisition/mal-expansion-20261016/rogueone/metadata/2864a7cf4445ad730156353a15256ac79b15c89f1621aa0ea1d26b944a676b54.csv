@@ -1,0 +1,15 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/shelljs_0.8.4-->0.8.5/shelljs-0.8.5/","module.exports.ShellString","stdout,stderr,code",5
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/shelljs_0.8.4-->0.8.5/shelljs-0.8.5/","module.exports.readFromPipe","",5
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/shelljs_0.8.4-->0.8.5/shelljs-0.8.5/","module.exports.buffer","len",5
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/shelljs_0.8.4-->0.8.5/shelljs-0.8.5/","module.exports.register","name,implementation,wrapOptions",18
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/shelljs_0.8.4-->0.8.5/shelljs-0.8.5/","module.exports.log","",19
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/shelljs_0.8.4-->0.8.5/shelljs-0.8.5/","module.exports.unlinkSync","file",23
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/shelljs_0.8.4-->0.8.5/shelljs-0.8.5/","module.exports.parseOptions","opt,map,errorOptions",75
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/shelljs_0.8.4-->0.8.5/shelljs-0.8.5/","module.exports.statFollowLinks","",76
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/shelljs_0.8.4-->0.8.5/shelljs-0.8.5/","module.exports.wrap","cmd,fn,options",76
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/shelljs_0.8.4-->0.8.5/shelljs-0.8.5/","module.exports.isObject","a",76
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/shelljs_0.8.4-->0.8.5/shelljs-0.8.5/","module.exports.error","msg,_code,options",79
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/shelljs_0.8.4-->0.8.5/shelljs-0.8.5/","module.exports.expand","list",84
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/shelljs_0.8.4-->0.8.5/shelljs-0.8.5/","module.exports.convertErrorOutput","msg",109
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/shelljs_0.8.4-->0.8.5/shelljs-0.8.5/","module.exports.statNoFollowLinks","",110
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/shelljs_0.8.4-->0.8.5/shelljs-0.8.5/","module.exports.randomFileName","",288

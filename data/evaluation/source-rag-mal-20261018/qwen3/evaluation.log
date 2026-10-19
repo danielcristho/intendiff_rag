@@ -1,0 +1,5 @@
+{"stage": "server_starting", "time_unix": 1792268901.0189433, "model": "Qwen/Qwen3-4B-Instruct-2507", "experiment_stage": "test", "pid": 3571208}
+{"stage": "running", "time_unix": 1792268941.038037, "model": "Qwen/Qwen3-4B-Instruct-2507", "experiment_stage": "test"}
+{"stage": "model_complete", "time_unix": 1792269413.4893465, "model": "Qwen/Qwen3-4B-Instruct-2507", "experiment_stage": "test", "completed": 576, "json_validity": 0.9548611111111112}
+{"stage": "stage_complete", "time_unix": 1792269413.4895127, "experiment_stage": "test"}
+data/evaluation/source-rag-mal-20261018/qwen3/results.md

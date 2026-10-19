@@ -1,0 +1,89 @@
+{
+  "id": "ibm-granite/granite-3.3-8b-instruct",
+  "tag": "granite33_8b",
+  "revision": "51dd4bc2ade4059a6bd87649d68aa11e4fb2529b",
+  "path": "~/intendiff_rag/data/upstream/models/granite33_8b",
+  "parameters_billion_nominal": 8.0,
+  "parameters_billion": 8.17086464,
+  "chat_template_kwargs": {
+    "thinking": false
+  },
+  "gated": false,
+  "repository_files": [
+    {
+      "name": ".gitattributes",
+      "size": 1519,
+      "sha256": null
+    },
+    {
+      "name": "README.md",
+      "size": 27608,
+      "sha256": null
+    },
+    {
+      "name": "added_tokens.json",
+      "size": 207,
+      "sha256": null
+    },
+    {
+      "name": "config.json",
+      "size": 790,
+      "sha256": null
+    },
+    {
+      "name": "generation_config.json",
+      "size": 132,
+      "sha256": null
+    },
+    {
+      "name": "merges.txt",
+      "size": 441810,
+      "sha256": null
+    },
+    {
+      "name": "model-00001-of-00004.safetensors",
+      "size": 4974694288,
+      "sha256": "b309f7b9e116fafc27c1100629bfcccbcebdab18a4bf7df7accfa728260dc57e"
+    },
+    {
+      "name": "model-00002-of-00004.safetensors",
+      "size": 4991447808,
+      "sha256": "f2e40f157f0139e4b67bbaa4b10efa351162c062771cb543b143c6916a687266"
+    },
+    {
+      "name": "model-00003-of-00004.safetensors",
+      "size": 4970460032,
+      "sha256": "5cf5203a027b7055c995a9d4bdb3a4c9dd44849ae6c9eefa6a16852a816bea76"
+    },
+    {
+      "name": "model-00004-of-00004.safetensors",
+      "size": 1405169256,
+      "sha256": "76ac0c0dbd790a1e003d2fc098a297bfe82a422c129046e9d4e67e6ed3d820f0"
+    },
+    {
+      "name": "model.safetensors.index.json",
+      "size": 29836,
+      "sha256": null
+    },
+    {
+      "name": "special_tokens_map.json",
+      "size": 801,
+      "sha256": null
+    },
+    {
+      "name": "tokenizer.json",
+      "size": 3476578,
+      "sha256": null
+    },
+    {
+      "name": "tokenizer_config.json",
+      "size": 9930,
+      "sha256": null
+    },
+    {
+      "name": "vocab.json",
+      "size": 776995,
+      "sha256": null
+    }
+  ]
+}

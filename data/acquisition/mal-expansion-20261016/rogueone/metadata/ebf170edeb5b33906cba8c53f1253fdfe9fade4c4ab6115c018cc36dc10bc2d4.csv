@@ -1,0 +1,8 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/plugin_0.3.2-->0.3.3/plugin-0.3.3/","module.exports.test","source",5
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/plugin_0.3.2-->0.3.3/plugin-0.3.3/","module.exports.test","source",8
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/plugin_0.3.2-->0.3.3/plugin-0.3.3/","module.exports.test","source,loader",18
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/plugin_0.3.2-->0.3.3/plugin-0.3.3/","module.exports","args,fs,loaders",33
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/plugin_0.3.2-->0.3.3/plugin-0.3.3/","module.exports.isDirectory","fullPath",37
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/plugin_0.3.2-->0.3.3/plugin-0.3.3/","module.exports.test","source,loader",45
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/plugin_0.3.2-->0.3.3/plugin-0.3.3/","module.exports","",48
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/plugin_0.3.2-->0.3.3/plugin-0.3.3/","main","",3

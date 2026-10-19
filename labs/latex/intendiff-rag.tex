@@ -1,0 +1,1280 @@
+%% IntentDiff-RAG: source-labelled evaluation, D101/D102/D105-D110. Target: Journal of Systems and Software.
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[a4paper,fleqn,doubleblind]{cas-dc}
+\usepackage[authoryear]{natbib}
+\usepackage{placeins}
+\setlength{\emergencystretch}{2em}
+\newcommand{\temuan}[1]{\par\medskip\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\small\textbf{Temuan.} #1}}\par\medskip}
+\ExplSyntaxOn
+\cs_set:Npn \__first_footerline: { \small\itshape Draf~penelitian }
+\ExplSyntaxOff
+\begin{document}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+\shorttitle{IntentDiff-RAG}
+\shortauthors{}
+\title[mode=title]{IntentDiff-RAG: Tujuan Paket dan Contoh Rujukan untuk Deteksi Pembaruan npm Berbahaya dengan Model Bahasa Lokal}
+% Author identities and declarations must be supplied by the authors.
+\author{}
+\begin{abstract}[]
+Pembaruan dependensi dapat menyisipkan kode berbahaya yang menyerupai aktivitas
+perangkat lunak sah. Penelitian ini mengukur apakah konteks tujuan paket
+(intent) dan contoh rujukan membantu model bahasa lokal mendeteksi pembaruan
+berbahaya dengan tetap membatasi alarm palsu. Enam konfigurasi masukan diuji
+pada enam model open-weight berukuran 3--8 miliar parameter, menggunakan
+129 pembaruan berlabel malicious dari 98 kelompok kampanye dan 1.868 pembaruan
+typical yang diasumsikan benign setelah penyaringan advisory. Perbandingan
+berpasangan mengontrol jumlah dan posisi contoh untuk mengukur penggantian
+contoh malicious dengan benign; ketidakpastian dihitung melalui bootstrap
+per kampanye. Tanpa contoh, tingkat deteksi mencapai 42,64--79,07\%, dengan
+tingkat alarm palsu 6,37--65,15\% antarmodel. Mengganti satu dari dua contoh
+malicious dengan benign meningkatkan deteksi Qwen3-4B sebesar 8,53 poin
+persentase sekaligus menaikkan alarm palsu 2,30 poin. Pada Phi-4-mini,
+penggantian yang sama menurunkan alarm palsu 5,46 poin, disertai penurunan
+deteksi 8,53 poin. Intent menurunkan alarm palsu pada tiga model tanpa
+perubahan deteksi yang jelas, tetapi menaikkan keduanya pada dua model lain.
+Kontribusi penelitian ini adalah bukti empiris bahwa manfaat intent dan
+komposisi contoh pada deteksi pembaruan bergantung pada model dan kondisi
+retrieval. Hasilnya belum mendukung penggunaan langsung untuk pemblokiran
+otomatis; evaluasi harus menilai deteksi dan alarm palsu bersama.
+\end{abstract}
+\begin{highlights}
+\item Enam model lokal diuji pada 129 pembaruan malicious dan 1.868 typical.
+\item Contoh benign menaikkan alarm palsu pada tiga dari enam model.
+\item Pada Phi-4-mini, contoh benign menurunkan alarm palsu sekaligus deteksi.
+\item Intent menurunkan alarm palsu pada tiga model dan menaikkannya pada dua model.
+\item Retrieval tidak membedakan relevansi contoh pada 87 dari 129 sampel malicious.
+\end{highlights}
+\begin{keywords}
+malicious package updates \sep npm \sep retrieval-augmented generation \sep
+open-weight language models \sep false positives
+\end{keywords}
+\maketitle
+
+\section{Pendahuluan}\label{sec:intro}
+Pembaruan dependensi merupakan bagian dari pemeliharaan perangkat lunak.
+Pengembang perlu menerima perbaikan dan fitur baru, sekaligus memeriksa apakah
+perubahan tersebut memperkenalkan perilaku berbahaya. Karena keterkaitan antarpaket,
+perubahan pada satu paket dapat menjangkau banyak proyek yang bergantung
+padanya \citep{zimmermann2019small}. Risiko ini telah berulang kali terjadi di
+ekosistem npm. Pada September 2025, penyerang memperoleh kredensial pengelola
+chalk, debug, dan 16 paket lain melalui rekayasa sosial, lalu menerbitkan versi
+yang diam-diam memanipulasi transaksi kripto. Gabungan unduhan paket-paket
+tersebut sekitar dua miliar per minggu \citep{aws2025chalk}. Sepekan kemudian,
+worm Shai-Hulud mencuri token npm dan menerbitkan versi terinfeksi dari paket
+lain milik pengelola yang sama \citep{aws2025chalk,unit42shaihulud}. Pada Maret
+2026, dua versi axios menambahkan dependensi yang mengunduh dan menjalankan
+trojan akses jarak jauh saat instalasi \citep{datadog2026axios}.
+
+Ketiga kasus tersebut memiliki pola yang sama: kode berbahaya disisipkan ke
+paket yang sudah dipercaya dan dipakai penggunanya. Pemeriksaan berbasis
+advisory seperti \texttt{npm audit} hanya mengenali masalah yang sudah
+dilaporkan \citep{npmaudit}, sehingga pengguna tidak terlindungi selama jeda
+antara terbitnya versi berbahaya dan terbitnya advisory. Jejak serangan semacam
+ini paling jelas terlihat pada selisih antarversi. Karena itu, penilaian
+terhadap perubahan antarversi melengkapi pemeriksaan paket secara utuh
+\citep{sofaer2024rogueone}.
+
+Tantangan utamanya adalah menilai tujuan di balik kemampuan teknis yang sama.
+Akses jaringan, pembacaan variabel lingkungan, dan eksekusi proses dapat muncul
+pada kode berbahaya maupun pada alat pengembangan yang sah. Evaluasi detektor
+npm oleh \citet{guo2026effective} menunjukkan bahwa presisi dan \emph{recall}
+setiap alat sangat ditentukan oleh cara alat tersebut menyelesaikan ambiguitas
+ini. Peningkatan jumlah deteksi melalui penandaan lebih banyak perilaku sensitif
+belum tentu menghasilkan detektor yang lebih berguna bila alarm palsu ikut
+meningkat. Pada ekosistem yang menerima banyak pembaruan setiap hari, tingkat
+alarm palsu yang kecil pun dapat menghasilkan beban pemeriksaan yang besar.
+
+LLM memungkinkan kode dinilai beserta konteksnya. \citet{wyss2025evaluating}
+meringkas perubahan antarversi menjadi \emph{smart-diff} dan mengevaluasi
+GPT-4o, GPT-4-Turbo, serta Gemini-2.0-Flash. Ketiga model mendeteksi seluruh
+46 pembaruan malicious, dan GPT-4o hanya menghasilkan 8 alarm palsu dari 2.000
+pembaruan typical. Namun, model komersial mengharuskan kode dikirim ke pihak
+ketiga dan menimbulkan biaya untuk setiap kueri. Model \emph{open-weight}
+berukuran kecil dapat dijalankan pada perangkat keras sendiri, tetapi
+kemampuannya pada tugas yang sama belum diketahui. \citet{nguyen2025taint}
+menggunakan model 6,7 miliar parameter, tetapi pada paket utuh, bukan pada
+pembaruan.
+
+Salah satu cara memperkaya konteks model adalah melalui contoh hasil retrieval.
+IntelGuard menghubungkan kode dengan contoh dan penalaran dari laporan ancaman
+\citep{guo2026bridging}, tetapi menilai paket utuh dan hanya menggunakan contoh
+\emph{malicious}. Salah satu dugaan yang perlu diuji adalah apakah contoh
+benign dapat membantu model membedakan penggunaan kemampuan sensitif yang
+sah dari penyalahgunaannya. Contoh positif dan negatif telah digunakan untuk
+mengarahkan keluaran LLM pada domain lain \citep{gao2024customizing}, tetapi
+hasil tersebut belum menjawab pengaruhnya terhadap deteksi pembaruan npm.
+Dengan demikian, ada dua unsur yang belum diuji bersama dalam rancangan
+perbandingan pada model lokal berukuran kecil untuk menilai pembaruan:
+(i) tujuan paket yang dinyatakan secara eksplisit, selanjutnya disebut
+\emph{intent}, dan (ii) contoh \emph{benign} yang menyertai contoh malicious.
+
+Kami menguji kedua unsur tersebut melalui IntentDiff-RAG, sebuah kerangka
+perbandingan yang menggabungkan smart-diff, intent yang diturunkan dari versi
+sebelumnya, dan \emph{retrieval} contoh berlabel. Konfigurasi MM berisi dua
+contoh malicious, sedangkan konfigurasi MB berisi satu contoh malicious dan
+satu contoh benign. Keduanya mempertahankan jumlah contoh serta identitas dan
+posisi contoh malicious utama, sehingga perbedaan hasil tidak dapat dijelaskan
+oleh bertambahnya jumlah contoh. Namun, isi kedua contoh tetap berbeda.
+Hasilnya merupakan efek penggantian contoh secara keseluruhan, bukan efek label
+benign yang dipisahkan dari isi kode.
+
+Hasil evaluasi tidak mendukung anggapan bahwa contoh benign secara umum
+mengurangi alarm palsu. Penggantian MM menjadi MB justru menaikkan alarm palsu
+pada tiga dari enam model, dengan interval yang tidak melintasi nol. Satu-satunya
+penurunan alarm palsu yang jelas, pada Phi-4-mini, disertai penurunan deteksi.
+Pengaruh intent juga berbeda antarmodel. Kontribusi penelitian ini adalah
+sebagai berikut.
+\begin{enumerate}
+\item Bukti empiris tentang kemampuan deteksi dan alarm palsu enam model lokal
+berukuran 3--8 miliar parameter pada pembaruan npm, melalui enam konfigurasi
+masukan yang menggunakan smart-diff sama.
+\item Pengukuran berpasangan atas pengaruh intent dan penggantian MM menjadi
+MB, dengan jumlah contoh serta identitas dan posisi contoh malicious utama
+dipertahankan pada perbandingan MM--MB.
+\item Pelaporan hasil pada 129 pembaruan malicious dari 98 kelompok kampanye
+dan 1.868 pembaruan typical, beserta ketidakpastian per kampanye, sensitivitas
+terhadap keluaran invalid, dan biaya inferensi. Pemisahan dari data
+pengembangan diperiksa menurut aturan pengelompokan yang digunakan.
+\end{enumerate}
+
+Tujuan spesifik penelitian ini adalah mengukur perubahan deteksi, alarm palsu,
+dan biaya ketika intent atau komposisi contoh diubah pada pasangan versi yang
+sama. Celah yang diisi adalah bukti empiris tentang penggunaan konteks pada
+model lokal untuk pemeriksaan pembaruan dependensi, yang belum dijawab oleh
+evaluasi paket utuh maupun smart-diff dengan model komersial. Bagi rekayasa
+perangkat lunak, hasil ini membantu menilai apakah tambahan konteks layak
+digunakan dalam proses peninjauan pembaruan sebelum integrasi.
+
+Bagian~\ref{sec:related} membahas penelitian terkait.
+Bagian~\ref{sec:method} menjelaskan IntentDiff-RAG beserta dataset, dan
+Bagian~\ref{sec:setup} menjelaskan rancangan evaluasi.
+Bagian~\ref{sec:results} menyajikan hasil, yang dibahas pada
+Bagian~\ref{sec:discussion}. Bagian~\ref{sec:limitations} menguraikan
+ancaman terhadap validitas, dan Bagian~\ref{sec:conclusion} menutup naskah.
+
+\section{Penelitian terkait}\label{sec:related}
+Bagian ini membahas enam kelompok penelitian yang menjadi dasar IntentDiff-RAG:
+serangan rantai pasok pada ekosistem paket, deteksi paket malicious tanpa LLM,
+deteksi pembaruan malicious, deteksi berbasis LLM, penggunaan \emph{retrieval}
+dan contoh dalam \emph{prompt}, serta pemeriksaan kesesuaian antara deskripsi
+dan perilaku program. Bagian ini ditutup dengan ringkasan kondisi mutakhir
+(\emph{state of the art}) dan posisi penelitian ini.
+
+\subsection{Serangan rantai pasok pada ekosistem paket}
+Risiko rantai pasok di npm berakar pada struktur ekosistemnya.
+\citet{zimmermann2019small} menunjukkan bahwa sebuah paket npm secara implisit
+mempercayai rata-rata 79 paket pihak ketiga dan 39 pengelola. Mereka juga
+menemukan bahwa segelintir akun pengelola cukup untuk menyuntikkan kode ke
+sebagian besar paket. \citet{ohm2020backstabber} mengumpulkan 174 paket
+malicious dari npm, PyPI, dan RubyGems yang muncul antara November 2015 dan
+November 2019. \citet{ladisa2023sok} kemudian menyusun taksonomi serangan rantai
+pasok perangkat lunak \emph{open-source} berbentuk \emph{attack tree} yang
+memuat 107 vektor serangan, 94 insiden nyata, dan 33 langkah pengamanan.
+
+Penelitian ini dimotivasi oleh pembaruan malicious pada paket yang sebelumnya
+benign; status benign pendahulu tidak dibuktikan secara forensik untuk seluruh
+sampel (Bagian~\ref{sec:method}). RogueOne juga menargetkan pembaruan dan
+menempatkan paket malicious sejak awal, seperti \emph{typosquatting}, di luar
+cakupannya \citep{sofaer2024rogueone}. Di luar deteksi, sebagian penelitian
+memilih pencegahan. Latch mencegah serangan saat instalasi dengan membuat
+\emph{manifest} izin yang merangkum perilaku paket, lalu memeriksanya terhadap
+kebijakan pengguna \citep{wyss2022wolf}.
+
+\subsection{Deteksi paket malicious tanpa LLM}
+Sebagian detektor menggabungkan beberapa jenis analisis. MalOSS memadukan
+analisis metadata, statis, dan dinamis; dari 339 paket malicious baru yang
+dilaporkan, 278 dikonfirmasi \citep{duan2021towards}. Amalfi menggabungkan
+\emph{classifier}, pemeriksa reproduksibilitas, dan pendeteksi klon, dengan
+waktu analisis beberapa detik per paket \citep{sejfia2022practical}.
+
+Penelitian lain memodelkan perilaku sebagai urutan pemanggilan API. DONAPI
+menggabungkan analisis statis dengan urutan API dari eksekusi dinamis, lalu
+mencocokkannya dengan basis pengetahuan perilaku berjenjang
+\citep{huang2024donapi}. Cerebro menggunakan satu model urutan perilaku
+malicious untuk npm dan PyPI, dan menemukan 196 paket malicious baru di npm
+serta 306 di PyPI \citep{zhang2025killing}. OSCAR menjalankan paket dalam
+\emph{sandbox}, melakukan \emph{fuzzing} terhadap fungsi yang diekspor, dan
+memantau perilakunya melalui \emph{hook} API. Pada npm, OSCAR mencapai F1 0,95
+dengan tingkat alarm palsu 2,57\% \citep{zheng2024towards}.
+
+Bagi masalah yang diteliti di sini, kelompok penelitian ini memiliki dua
+keterbatasan. Pertama, sebagian besar detektor menilai paket secara utuh, bukan
+perubahan antarversi. Kedua, detektor dinamis memerlukan eksekusi paket,
+sehingga tidak dapat diterapkan dalam batasan analisis statis yang digunakan
+di sini.
+
+\subsection{Deteksi pembaruan malicious}
+Kelompok penelitian ini menjadikan perubahan antarversi sebagai unit analisis.
+RogueOne menandai aliran data baru yang melintasi \emph{trust domain} antara
+versi lama dan baru. Pada dataset pembaruan tunggal berisi 41 pembaruan
+malicious dan 300 pembaruan benign, konfigurasi bawaannya mendeteksi 31
+pembaruan malicious (75,6\%) dengan 14 alarm palsu (4,7\%)
+\citep{sofaer2024rogueone}. Penelitian yang sama memperlihatkan titik buta
+pendekatan diferensial. Pada serangan tersamar yang muatannya hanya memakai API
+yang sudah digunakan versi sebelumnya, tidak muncul aliran data baru, sehingga
+konfigurasi bawaan RogueOne melewatkan seluruh 10 kasus uji tersebut.
+
+\citet{froh2023differential} merumuskan perilaku mencurigakan sebagai kueri
+CodeQL dan membandingkan hasil kueri antarversi. Pendekatan ini mengenali semua
+versi malicious pada dataset paket yang memiliki riwayat kode malicious.
+Pada paket npm populer, rata-rata tingkat alarm palsunya 1,3\%. \citet{draz2026version}
+meneliti deteksi pembaruan malicious berbasis \emph{machine learning} pada npm
+dan PyPI; artefaknya digunakan dalam penelitian ini sebagai petunjuk pencarian
+identitas pembaruan MAL (Bagian~\ref{sec:data}).
+
+\citet{wyss2025evaluating} membawa unit analisis yang sama ke LLM melalui
+\emph{smart-diff}. Mereka menemukan bahwa alarm palsu terutama berasal dari
+operasi sensitif, penghapusan kode dalam jumlah besar (termasuk paket yang
+diganti penanda \emph{deprecation}), dan perubahan dependensi. Ketiga model
+yang diuji juga rentan terhadap obfuskasi aliran data ringan dan muatan yang
+dipecah. Penelitian ini mengikuti tugas dan representasi smart-diff tersebut.
+Sejauh penelusuran kami, penelitian pada kelompok ini belum mengevaluasi model
+\emph{open-weight} berukuran kecil maupun penambahan konteks berupa intent atau
+contoh hasil \emph{retrieval}.
+
+\subsection{LLM untuk deteksi paket malicious}
+SocketAI mengevaluasi GPT-3 dan GPT-4 pada 5.115 paket npm, 2.180 di antaranya
+malicious. GPT-4 mencapai presisi 99\% dan F1 97\%, sedangkan GPT-3 mencapai
+presisi 91\% dan F1 94\% \citep{zahan2025leveraging}. MalPacDetector
+menggunakan LLM untuk membangkitkan fitur secara otomatis, dengan tingkat
+alarm palsu 1,3\% dan tingkat negatif palsu 7,5\%. Detektor ini juga menemukan 39 paket
+malicious baru yang dikonfirmasi npm \citep{wang2025malpacdetector}.
+
+IntelGuard membangun basis pengetahuan berisi 4.420 konteks kode malicious dari
+8.024 halaman laporan ancaman. Contoh yang mirip diambil, lalu GPT-4.1-mini
+menilai kesesuaian perilaku kode dengan fungsi paket. Pada npm, IntelGuard
+melaporkan akurasi 98,72\% dengan tingkat alarm palsu 0,20\%
+\citep{guo2026bridging}. Kedua sistem ini menggunakan model tertutup. Untuk model
+\emph{open-weight}, \citet{nguyen2025taint} memotong kode berdasarkan alur
+\emph{taint} sebelum menganalisisnya dengan DeepSeek-Coder 6,7B, dan mencapai
+akurasi 87,04\% pada 2.537 paket.
+
+Evaluasi lintas alat menguji detektor-detektor tersebut pada data yang sama.
+Pada benchmark \citet{guo2026effective} yang berisi 6.420 paket malicious dan
+7.288 paket benign, IntelGuard mencapai F1 95,98\%, sedangkan \emph{recall}
+SocketAI 44,41\%. Benchmark ini berbeda dari dataset evaluasi asli SocketAI,
+sehingga angka tersebut tidak dapat disandingkan langsung dengan presisi dan F1
+yang dilaporkan sebelumnya. Pada PyPI, evaluasi terhadap 13 LLM dan 4.070 paket
+menemukan bahwa model melewatkan indikator yang memerlukan konteks atau
+pemahaman tentang tujuan penulis \citep{ryan2026evaluation}. Penelitian dalam
+kelompok ini menilai paket secara utuh, bukan pembaruan.
+
+\subsection{\emph{Retrieval} dan contoh dalam \emph{prompt}}
+Penelitian deteksi kerentanan menunjukkan bahwa membedakan kode bermasalah dari
+kode yang mirip tetapi aman sulit bagi LLM. Vul-RAG melaporkan akurasi hanya
+0,06--0,14 dalam membedakan kode rentan dari kode tambalan yang mirip, dan
+penambahan pengetahuan kerentanan multidimensi meningkatkan akurasi tersebut
+\citep{du2026vulrag}. PrimeVul memperlihatkan bahwa benchmark yang kurang
+realistis melebih-lebihkan kinerja: model 7B dengan F1 68,26\% pada BigVul hanya
+mencapai 3,09\% pada PrimeVul \citep{ding2025vulnerability}. Manfaat
+\emph{retrieval} bagi model \emph{open-weight} juga tidak dapat diasumsikan.
+Replikasi Vul-RAG dengan model \emph{open-weight} menemukan bahwa akurasi pada
+pasangan kode rentan dan tambalannya tertahan di sekitar 0,30, dan penambahan
+kapasitas model saja tidak banyak membantu \citep{kaniewski2026revisiting}.
+
+Di luar domain keamanan, literatur \emph{in-context learning} menunjukkan bahwa
+pemilihan dan urutan contoh memengaruhi prediksi, sedangkan kebenaran label
+contoh berpengaruh kecil. Contoh yang dipilih berdasarkan kemiripan
+mengungguli contoh acak \citep{liu2022makes}. Urutan contoh dapat mengubah
+akurasi dari mendekati acak hingga mendekati \emph{state of the art}
+\citep{zhao2021calibrate}. Sebaliknya, mengganti label demonstrasi secara acak
+hampir tidak menurunkan kinerja \citep{min2022rethinking}. Contoh positif dan
+negatif juga telah digunakan untuk memperjelas keluaran yang diinginkan
+\citep{gao2024customizing}. Temuan ini menjadi dasar dua keputusan desain:
+jumlah dan posisi contoh dikontrol, dan efek penggantian MM menjadi MB
+ditafsirkan sebagai efek isi contoh secara keseluruhan, bukan efek label saja.
+
+\subsection{Kesesuaian deskripsi dan perilaku}
+Gagasan memeriksa kesesuaian perilaku program dengan deskripsinya berkembang di
+ekosistem aplikasi seluler. WHYPER menggunakan pemrosesan bahasa alami untuk
+menemukan kalimat dalam deskripsi aplikasi yang menjelaskan kebutuhan suatu izin
+\citep{pandita2013whyper}. AutoCog mengukur kesesuaian deskripsi dan izin,
+dengan presisi rata-rata 92,6\% dan \emph{recall} 92,0\% pada sebelas izin, lalu
+diterapkan pada 45.811 aplikasi \citep{qu2014autocog}. CHABADA memeriksa lebih
+dari 22.500 aplikasi Android dan menandai 56\% malware baru tanpa mengetahui pola
+malware sebelumnya \citep{gorla2014checking}. Pada paket npm, IntelGuard menilai
+kesesuaian perilaku dengan fungsi paket secara implisit \citep{guo2026bridging}.
+Karena itu, \emph{intent mismatch} tidak diposisikan sebagai gagasan baru; yang
+belum diukur adalah efek intent eksplisit secara terpisah dari komponen lain.
+
+\subsection{Kondisi mutakhir dan posisi penelitian}
+Tabel~\ref{tab:sota} merangkum hasil yang dilaporkan oleh penelitian terdekat.
+Angka-angka tersebut berasal dari dataset, unit analisis, dan definisi metrik
+yang berbeda, sehingga tidak dapat dibandingkan secara langsung dan tidak
+dijadikan \emph{baseline} penelitian ini. Meski demikian, tabel tersebut
+memperlihatkan tiga pola. Pertama, sebagian besar detektor menilai paket secara
+utuh; hanya tiga penelitian dalam tabel yang menilai pembaruan. Kedua, sebagian besar
+penelitian berbasis LLM dalam tabel menggunakan model tertutup, baik pada
+tingkat paket (IntelGuard, SocketAI) maupun pembaruan \citep{wyss2025evaluating}. Ketiga,
+satu-satunya penelitian dalam tabel yang menyebut penggunaan model
+\emph{open-weight} menilai paket utuh
+\citep{nguyen2025taint}. Dengan demikian, kombinasi tingkat pembaruan, model
+\emph{open-weight} berukuran kecil, dan contoh hasil \emph{retrieval} belum
+dievaluasi dalam penelitian yang kami telusuri.
+
+\begin{table*}[t]
+\centering\small
+\caption{Hasil yang dilaporkan penelitian terdekat. Setiap angka berasal dari
+dataset dan definisi metrik penelitian masing-masing, sehingga tidak dapat
+dibandingkan langsung antarbaris. MAL: malicious; FP: alarm palsu;
+FPR: tingkat alarm palsu; FNR: tingkat negatif palsu.}
+\label{tab:sota}
+\begin{tabular}{p{2.9cm} p{1.6cm} p{3.1cm} p{3.1cm} p{4.4cm}}
+\toprule
+Penelitian & Unit & Pendekatan & Data evaluasi & Hasil yang dilaporkan \\
+\midrule
+OSCAR \citep{zheng2024towards} & Paket & Dinamis (\emph{sandbox}, \emph{fuzzing}) & Paket npm & F1 0,95; FPR 2,57\% \\
+MalPacDetector \citep{wang2025malpacdetector} & Paket & Fitur dibangkitkan LLM & Paket npm & FPR 1,3\%; FNR 7,5\% \\
+SocketAI \citep{zahan2025leveraging} & Paket & GPT-4 & 5.115 paket (2.180 MAL) & Presisi 99\%; F1 97\% \\
+IntelGuard \citep{guo2026bridging} & Paket & RAG + GPT-4.1-mini & Paket npm & Akurasi 98,72\%; FPR 0,20\% \\
+\citet{nguyen2025taint} & Paket & \emph{Taint slicing} + DeepSeek-Coder 6,7B & 2.537 paket & Akurasi 87,04\% \\
+\citet{froh2023differential} & Pembaruan & Statis diferensial (CodeQL) & Riwayat malicious; paket npm populer & Semua versi malicious terdeteksi; rata-rata 1,3\% alarm palsu \\
+RogueOne \citep{sofaer2024rogueone} & Pembaruan & Aliran data diferensial & 41 MAL, 300 benign & Deteksi 31/41 (75,6\%); FP 14/300 (4,7\%) \\
+\citet{wyss2025evaluating} & Pembaruan & \emph{Smart-diff} + GPT-4o & 46 MAL, 2.000 typical & Deteksi 46/46; FP 8/2.000 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Tabel~\ref{tab:positioning} merangkum posisi IntentDiff-RAG. Penelitian ini
+mengambil unit analisis pembaruan dari RogueOne, \citet{froh2023differential},
+dan \citet{wyss2025evaluating}, serta gagasan \emph{retrieval} dan penilaian
+berbasis fungsi paket dari IntelGuard. Perbedaannya terletak pada tiga aspek:
+\begin{enumerate}
+\item model \emph{open-weight} berukuran 3--8 miliar parameter yang dijalankan
+secara lokal pada tingkat pembaruan;
+\item contoh benign sebagai pendamping contoh malicious dalam \emph{prompt}; dan
+\item intent eksplisit yang diturunkan dari versi sebelumnya.
+\end{enumerate}
+IntentDiff-RAG tidak mereplikasi basis pengetahuan ahli IntelGuard: contoh
+dibentuk secara otomatis dari label sumber dan cuplikan kode, sehingga
+perbandingan dengan IntelGuard terbatas. Sumbangan yang diuji adalah pengaruh
+intent dan komposisi contoh dalam kondisi yang dikendalikan, bukan kebaruan
+konsep intent atau contoh pembanding itu sendiri.
+
+\begin{table*}[t]
+\centering\small
+\caption{Posisi IntentDiff-RAG terhadap penelitian terdekat. Tanda ``--''
+berarti komponen tersebut tidak digunakan atau tidak dijelaskan dalam sumber
+yang diperiksa. Kolom \emph{Retrieval} merujuk pada pengambilan contoh ke
+dalam \emph{prompt} LLM.}
+\label{tab:positioning}
+\begin{tabular}{p{2.9cm} p{1.6cm} p{3.2cm} p{3.3cm} p{2.4cm} p{1.4cm}}
+\toprule
+Penelitian & Unit & Pendekatan & Model bahasa & \emph{Retrieval} & Intent \\
+\midrule
+MalOSS \citep{duan2021towards} & Paket & Metadata, statis, dinamis & -- & -- & -- \\
+Amalfi \citep{sejfia2022practical} & Paket & \emph{Classifier}, reproduksi, deteksi klon & -- & -- & -- \\
+DONAPI \citep{huang2024donapi} & Paket & Statis dan urutan API dinamis & -- & -- & -- \\
+OSCAR \citep{zheng2024towards} & Paket & Dinamis (\emph{sandbox}, \emph{fuzzing}) & -- & -- & -- \\
+\citet{froh2023differential} & Pembaruan & Statis diferensial (CodeQL) & -- & -- & -- \\
+RogueOne \citep{sofaer2024rogueone} & Pembaruan & Aliran data diferensial & -- & -- & -- \\
+SocketAI \citep{zahan2025leveraging} & Paket & LLM & Tertutup (GPT-3, GPT-4) & -- & -- \\
+MalPacDetector \citep{wang2025malpacdetector} & Paket & Fitur dibangkitkan LLM & LLM (tidak dirinci) & -- & -- \\
+\citet{wyss2025evaluating} & Pembaruan & \emph{Smart-diff} + LLM & Tertutup (GPT-4o, GPT-4-Turbo, Gemini-2.0-Flash) & -- & -- \\
+IntelGuard \citep{guo2026bridging} & Paket & RAG + LLM & Tertutup (GPT-4.1-mini) & Contoh malicious & Implisit \\
+\citet{nguyen2025taint} & Paket & \emph{Taint slicing} + LLM & \emph{Open-weight} (6,7B) & -- & -- \\
+\textbf{IntentDiff-RAG} & \textbf{Pembaruan} & \textbf{\emph{Smart-diff} + RAG + LLM} & \textbf{\emph{Open-weight} (3--8B)} & \textbf{Contoh malicious dan benign} & \textbf{Eksplisit} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\section{Metode}\label{sec:method}
+IntentDiff-RAG menilai satu pembaruan paket melalui empat langkah. Pertama,
+arsip versi target dan versi pendahulunya diambil, lalu perubahan kodenya
+diringkas menjadi smart-diff. Kedua, intent disusun dari dokumentasi versi
+pendahulu. Ketiga, contoh berlabel diambil dari basis pengetahuan berdasarkan
+kesamaan perubahan kemampuan. Keempat, LLM lokal menerima masukan sesuai
+konfigurasi dan mengembalikan verdict malicious atau benign. Seluruh langkah
+bersifat statis; kode paket tidak pernah dijalankan.
+
+Gambar~\ref{fig:pipeline} memperlihatkan hubungan antarbagian metode.
+Pasangan versi menghasilkan smart-diff dan himpunan perubahan kemampuan,
+sedangkan profil intent hanya menggunakan dokumentasi versi pendahulu.
+Perubahan kemampuan menjadi kueri untuk memilih contoh dari KB; intent
+tidak digunakan untuk pemilihan tersebut. Smart-diff selalu diberikan kepada
+model, sementara intent dan contoh rujukan ditambahkan sesuai konfigurasi
+pada Tabel~\ref{tab:configs}. Pemisahan jalur ini memungkinkan pengaruh
+masing-masing tambahan konteks diperiksa pada perubahan kode yang sama.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/pipeline.pdf}
+\caption{Alur utama IntentDiff-RAG untuk menilai satu pembaruan paket.
+Arsip pendahulu dan target diproses secara statis untuk membentuk smart-diff
+dan perubahan kemampuan; intent berasal dari versi pendahulu.
+Retrieval memilih contoh dari KB yang dipisahkan dari data uji.
+Garis putus-putus menunjukkan konteks opsional sesuai konfigurasi.
+M: contoh malicious; B: contoh benign. Himpunan perubahan kemampuan dipakai
+untuk retrieval, sedangkan model menerima teks perubahan kode, konteks yang
+diaktifkan, dan instruksi keputusan. Keluaran terstruktur memuat verdict,
+alasan singkat, dan bukti; validitas format tidak menjamin kebenaran keputusan.}
+\label{fig:pipeline}
+\end{figure*}
+
+\subsection{Unit analisis dan batas tugas}
+Satu sampel merupakan pasangan versi dari paket yang sama. Versi target adalah
+versi yang dinilai, sedangkan pendahulunya dipilih berdasarkan urutan semver
+dan waktu publikasi: versi tertinggi yang lebih rendah dan sudah terbit sebelum
+target. Kedua arsip harus tersedia dan identitas paketnya sesuai.
+
+Motivasi tugas adalah mendeteksi penyisipan perilaku berbahaya melalui
+pembaruan. Namun, bukti empiris dibatasi oleh label sumber: tidak setiap pasangan
+telah dibuktikan sebagai pengambilalihan paket sah, dan tidak adanya advisory
+pada pendahulu tidak membuktikan bahwa pendahulu tersebut benign. Dengan batas
+ini, yang diukur adalah deteksi versi berlabel malicious melalui konteks
+perubahan antarversi, bukan verifikasi forensik seluruh riwayat serangan.
+
+\subsection{Dataset}\label{sec:data}
+Dataset terdiri atas empat bagian yang terpisah: MAL dan TYP untuk pengujian,
+basis pengetahuan (KB) untuk contoh rujukan, serta dev untuk pemeriksaan format
+(Tabel~\ref{tab:data}). Label MAL berasal dari sumbernya, sedangkan TYP
+diasumsikan benign; tidak ada label yang dibuat ulang oleh anotator manusia.
+
+\paragraph{MAL.} Sebanyak 129 MAL berasal dari tiga sumber. Sebanyak 33 MAL
+berasal dari kandidat benchmark \citet{guo2026effective} yang memenuhi syarat
+ketersediaan pasangan, penyaringan pendahulu, dan pemisahan kampanye. Sebanyak
+93 MAL berasal dari penelusuran berbasis artefak \citet{draz2026version}:
+identitas dalam artefak digunakan sebagai petunjuk pencarian, lalu versi target
+dikonfirmasi melalui advisory MAL pada OSV dan pendahulunya ditentukan kembali
+dari metadata registry. Tiga MAL lainnya berasal dari dataset Datadog dan
+ketiganya termasuk dalam satu kampanye. Versi target MAL diterbitkan antara
+Juli 2016 dan September 2026. Tidak ada prediksi model dari sumber luar yang
+dipakai sebagai label atau dasar pemilihan.
+
+\paragraph{TYP.} Seluruh 1.868 TYP berasal dari paket replikasi
+\citet{wyss2025evaluating}: 692 pembaruan dari paket yang paling banyak
+dijadikan dependensi, 801 dari paket acak, dan 375 dari rekaman aliran
+pembaruan (\emph{update stream}) dalam arsip yang sama. TYP diasumsikan benign
+setelah pemeriksaan advisory pada kedua versi, bukan berdasarkan label manusia.
+Satu kandidat TYP dikeluarkan sebelum inferensi karena dua percobaan
+preprocessing melewati batas waktu.
+
+\paragraph{Basis pengetahuan.} KB memuat 50 contoh malicious dan 25 contoh
+benign. Contoh malicious berasal dari paket berkategori \emph{malicious intent}
+dalam dataset Datadog, yaitu paket yang sudah jahat sejak versi pertamanya.
+Paket semacam ini berada di luar unit analisis pembaruan, sehingga hanya
+digunakan sebagai contoh dan tidak sebagai sampel uji. Contoh benign berasal
+dari TYP arsip Wyss yang disisihkan; nama paket dan kampanyenya dikeluarkan
+dari data uji. Pemilihan kandidat diurutkan secara deterministik menggunakan
+SHA-256 atas identitas dengan awalan \texttt{D99|}. Contoh malicious diambil
+bergiliran dari delapan kelompok kemampuan sampai mencapai 50 contoh;
+contoh benign diambil dari urutan kandidat TYP yang memenuhi syarat sampai
+mencapai 25 contoh. Maksimum dua contoh per kampanye diperbolehkan, dan
+kandidat yang tidak menghasilkan cuplikan valid dalam anggaran token dilewati.
+
+\paragraph{Dev.} Dev berisi lima MAL dari dataset Datadog dan lima TYP dari
+arsip Wyss. Dev hanya dipakai untuk memeriksa validitas format keluaran
+(Bagian~\ref{sec:setup}), bukan untuk menyetel prompt berdasarkan akurasi.
+
+\paragraph{Pemisahan kampanye.} Dua sampel dianggap satu kampanye jika merujuk
+laporan atau advisory yang sama, memiliki berkas baru yang identik, atau
+memiliki kemiripan kode Dolos minimal 0,5; klaster akhir adalah penutupan
+transitif relasi tersebut. Berkas trivial di bawah 64 byte setelah whitespace
+tepi dibuang tidak digunakan sebagai penghubung. Nama paket dan kampanye pada
+KB, dev, atau catatan paparan pengembangan dikeluarkan dari data uji.
+Pada perluasan kandidat, kampanye yang terhubung ke kumpulan historis juga
+dikeluarkan. Batas maksimum tiga pasangan berlaku di dalam setiap kampanye
+yang masih memenuhi syarat, bukan untuk menerima kembali kampanye yang
+dikecualikan. Pemilihan mengikuti urutan hash identitas, bukan prediksi model.
+Hasilnya, 129 MAL terbagi ke dalam 98 klaster.
+Klaster merupakan proksi keterkaitan kampanye, bukan atribusi pelaku.
+
+\begin{table*}[t]
+\centering\small
+\caption{Komposisi dataset. MAL: pembaruan berlabel malicious; TYP: pembaruan
+typical yang diasumsikan benign; KB: basis contoh rujukan; dev: data pemeriksaan
+format. Jumlah menyatakan pasangan versi untuk data uji dan dev, serta contoh
+untuk KB.}
+\label{tab:data}
+\begin{tabular}{p{2.6cm} p{9.2cm} r}
+\toprule
+Bagian & Sumber & Jumlah \\
+\midrule
+MAL uji & Benchmark Guo et al.\ (33); penelusuran artefak Draz dengan konfirmasi OSV (93); Datadog (3) & 129 \\
+TYP uji & Paket replikasi Wyss et al.: paket populer (692), paket acak (801), \emph{update stream} (375) & 1.868 \\
+KB malicious & Datadog, paket \emph{malicious intent} & 50 \\
+KB benign & TYP arsip Wyss yang disisihkan dari data uji & 25 \\
+Dev & Datadog (5 MAL); arsip Wyss (5 TYP) & 10 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Representasi perubahan dan intent}
+Smart-diff dibentuk melalui normalisasi JavaScript, pengurangan kode berulang,
+dan perbandingan direktori, mengikuti pendekatan \citet{wyss2025evaluating}.
+Skrip pengurangan kode berulang tidak tersedia lengkap dalam paket
+replikasinya, sehingga langkah tersebut direkonstruksi secara lokal dan tidak
+diklaim identik dengan implementasi aslinya. Berkas yang gagal dinormalisasi
+tetap menggunakan teks mentah dan diberi penanda. Agar dapat diproses model
+lokal, panjang baris dibatasi 2.000 karakter dan diff dibatasi 28.000 token
+menggunakan tokenizer Qwen2.5-Coder-3B. Potongan teks yang sama digunakan pada
+semua model dan konfigurasi. Prioritas diberikan pada manifest paket dan berkas
+dengan sinyal kemampuan yang relevan; pemotongan bukan bukti bahwa semua muatan
+berbahaya masih tercakup.
+
+Normalisasi menggunakan UglifyJS 3.19.3 dan webcrack 2.16.0, dengan
+deobfuscation dan unpacking dinonaktifkan. Dolos 3.5.1 memakai panjang
+k-gram 70 dan jendela 17; pengurangan kode hanya menghapus baris interior
+fragmen yang teks lengkapnya identik pada kedua versi. Berkas identik
+dilewati, sedangkan Markdown, source map, WebAssembly, berkas lisensi, dan
+lockfile yang tercantum dalam aturan eksklusi tidak dimasukkan ke diff.
+Perbandingan direktori memakai \texttt{diff -N -U 0 -r}, sehingga tidak
+menambahkan baris konteks. Jika anggaran terlampaui, manifest didahulukan,
+diikuti berkas dengan jumlah jenis sinyal kemampuan terbanyak dan urutan
+path sebagai pemecah seri; pemotongan dilakukan pada batas hunk. Berkas
+sumber di atas 4 MiB memakai teks mentah. Daftar eksklusi dan versi
+implementasi tersimpan bersama artefak reproduksi.
+
+Perubahan kemampuan diekstrak dari arsip mentah kedua versi melalui pencocokan
+pola teks. Terdapat delapan sinyal kemampuan, yaitu akses jaringan, eksekusi
+proses, pengumpulan informasi host, akses berkas sensitif, akses data peramban,
+eksekusi kode dinamis, obfuskasi, dan skrip instalasi, serta dua sinyal
+perubahan, yaitu perubahan dependensi dan penghapusan berkas dalam jumlah
+besar. Untuk kemampuan umum, himpunan perubahan memuat sinyal yang ada pada
+target tetapi tidak pada pendahulu. Skrip instalasi juga masuk ketika perintah
+hook berubah meskipun hook sudah ada sebelumnya. Sinyal dependensi aktif
+ketika ada dependensi baru atau spesifikasi dependensi berubah menuju sumber
+non-registry. Sinyal penghapusan aktif ketika sedikitnya separuh berkas teks
+pendahulu hilang. Himpunan perubahan digunakan sebagai kueri retrieval dan
+tidak ditampilkan sebagai field kepada model; temuan kemampuan per berkas
+juga menentukan prioritas pemotongan smart-diff.
+
+Intent berasal dari deskripsi, kata kunci, skrip, dan bagian awal README versi
+pendahulu, dengan anggaran 1.024 token pada tokenizer yang sama. Deskripsi dan
+kata kunci berbagi anggaran 128 token, skrip dibatasi 256 token, dan README
+mengisi sisa anggaran setelah tag HTML serta baris gambar dibersihkan.
+Field yang tidak tersedia diberi penanda \texttt{not available}. Tujuannya
+memberi konteks fungsi paket tanpa bergantung pada dokumentasi versi target.
+Intent merupakan pernyataan paket, bukan validasi independen terhadap fungsi
+yang sah. Nama paket tidak diberikan sebagai field identitas tersendiri,
+tetapi nama yang muncul dalam kode atau dokumentasi tidak dihapus seluruhnya.
+
+\subsection{Contoh rujukan dan retrieval}
+Setiap contoh dalam KB menggunakan struktur yang sama: deskripsi paket, temuan
+kemampuan statis, cuplikan kode verbatim, dan pernyataan tetap mengenai label
+sumber. Contoh dibentuk secara otomatis dengan metode yang sama untuk kedua
+label, bukan disusun oleh pakar. Temuan statis tidak diperlakukan sebagai
+rantai eksekusi yang sudah dibuktikan. Cuplikan kode dibatasi 15 baris dan
+seluruh contoh dibatasi 512 token, dengan deskripsi tujuan paling banyak 64 token pada tokenizer
+Qwen2.5. Teks contoh tidak dipangkas ulang untuk tokenizer model lain.
+
+Retrieval menggunakan kesamaan Jaccard antara himpunan perubahan kemampuan
+pasangan $D$ dan kemampuan contoh $C$:
+\begin{equation}
+s(D,C)=\begin{cases}
+\dfrac{|D\cap C|}{|D\cup C|}, & |D\cup C|>0,\\
+0, & |D\cup C|=0.
+\end{cases}
+\end{equation}
+Kemampuan contoh diekstrak dari versi paket yang menjadi sumber cuplikan,
+bukan dari perubahan antarversinya. Jika skor sama, urutan ditentukan oleh
+SHA-256 atas identitas pasangan dan contoh yang dipisahkan karakter
+\texttt{|}. M mengambil contoh malicious teratas, MM mengambil dua contoh
+malicious teratas yang berbeda, dan MB mengambil contoh malicious serta
+benign teratas. Contoh dengan nama paket atau kampanye yang sama dengan
+target dikecualikan. Pengecualian juga mencakup nama dependensi yang berubah
+dan nama yang tercatat pada daftar eksklusi retrieval setiap pasangan.
+Retrieval tidak
+membaca intent, sehingga penambahan intent tidak mengubah contoh yang
+ditampilkan.
+
+Skor yang sama merupakan kasus mayoritas. Sebanyak 87 dari 129 MAL dan 1.837
+dari 1.868 TYP tidak memiliki perubahan kemampuan, sehingga semua contoh
+berskor nol dan contoh dipilih secara deterministik oleh hash, tanpa
+pembedaan relevansi berdasarkan skor Jaccard.
+Dari 42 MAL yang memiliki perubahan kemampuan, kedua contoh MB berskor positif
+pada 29 pasangan. Hasil menurut kedua kelompok ini dilaporkan pada
+Bagian~\ref{sec:results}.
+
+Pada MM dan MB, contoh malicious utama dipertahankan di posisi yang sama,
+sedangkan slot lainnya berisi contoh malicious kedua atau contoh benign. Posisi
+contoh utama ditentukan oleh hash identitas pasangan, sehingga contoh tersebut
+berada di urutan pertama pada 987 dari 1.997 pasangan. Kontrol ini menjaga
+jumlah dan posisi contoh, tetapi tidak menyamakan seluruh panjang maupun isi
+semantik kedua prompt.
+
+\subsection{Konfigurasi dan keputusan model}
+Enam konfigurasi pada Tabel~\ref{tab:configs} menggunakan instruksi keputusan
+yang sama: perilaku sensitif tidak otomatis malicious; model mempertimbangkan
+pemicu, data, tujuan pengiriman, dan konteks yang tersedia. Keluaran berisi
+verdict, alasan singkat, dan cuplikan bukti. JSON Schema membatasi bentuk
+keluaran: evidence merupakan array berisi nol atau satu string, masing-masing
+maksimum 200 karakter; reason berupa string maksimum 240 karakter; verdict
+hanya menerima malicious atau benign. Ketiga field wajib dan field tambahan
+tidak diperbolehkan. Prompt disusun dalam urutan contoh rujukan, pasangan
+versi yang dinilai, profil intent bila digunakan, smart-diff, dan instruksi
+format. Instruksi sistem meminta model memperlakukan komentar, string, dan
+README sebagai data, bukan perintah. Validitas format tidak menjamin
+kebenaran keputusan atau ketepatan bukti. Prompt lengkap, schema, serta
+revisi model disertakan dalam berkas pendamping reproduksi.
+
+\begin{table}[t]
+\centering\small
+\caption{Konfigurasi yang diuji. Semua menggunakan smart-diff yang sama.}
+\label{tab:configs}
+\begin{tabular}{lcl}
+\toprule
+Konfigurasi & Intent & Contoh rujukan \\
+\midrule
+DIFF & Tidak & Tidak ada \\
+DIFF+I & Ya & Tidak ada \\
+DIFF+I+M & Ya & Satu malicious \\
+DIFF+I+MM & Ya & Dua malicious \\
+DIFF+I+MB & Ya & Satu malicious, satu benign \\
+DIFF+MB & Tidak & Satu malicious, satu benign \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Rancangan evaluasi}\label{sec:setup}
+Evaluasi terdiri atas empat analisis. Kemampuan dasar diukur dengan DIFF dan
+DIFF+I. Pengaruh contoh rujukan diukur dengan dua kontras: DIFF+I menjadi
+DIFF+I+M untuk penambahan satu contoh malicious, dan DIFF+I+MM menjadi DIFF+I+MB
+untuk penggantian contoh kedua. Pengaruh intent diukur dengan DIFF+MB menjadi
+DIFF+I+MB. Biaya diukur dengan jumlah token dan latensi permintaan. Setiap
+kontras dibandingkan secara berpasangan pada model dan sampel yang sama, sehingga
+hanya satu faktor yang berbeda.
+
+Data dijelaskan pada Bagian~\ref{sec:data}. Prompt, KB, dan aturan keputusan
+dibekukan sebelum inferensi test dan tidak disetel berdasarkan hasilnya. Enam
+model dan enam konfigurasi menghasilkan 71.892 respons test dari 1.997 pasangan
+unik.
+
+\subsection{Model dan kondisi inferensi}
+Dua model, yaitu Qwen3-4B-Instruct-2507 dan Qwen2.5-Coder-3B-Instruct, ditetapkan
+sejak rancangan awal. Lima model lain ditambahkan kemudian
+(Bagian~\ref{sec:limitations}): Qwen2.5-Coder-7B-Instruct, Qwen3-8B,
+Phi-4-mini-Instruct, Llama-3.1-8B-Instruct, dan Granite-3.3-8B-Instruct. Untuk
+mempersingkat tabel, kedua model Coder ditulis Qwen2.5-3B dan Qwen2.5-7B. Tidak
+ada fine-tuning; bobot dan tokenizer mengikuti revisi yang dibekukan.
+
+Setiap model harus menyelesaikan dev berisi lima MAL dan lima TYP pada enam
+konfigurasi, dengan sedikitnya 90\% respons valid. Pilot dev yang gagal format
+mendorong revisi instruksi dan penggunaan keluaran terstruktur sebelum test
+utama. Dalam kondisi final, Qwen3-8B hanya menghasilkan 49 dari 60 respons
+valid (81,67\%) sehingga tidak masuk test. Enam model lain lolos. Respons dev
+yang sudah ada dipakai ulang bila identitas request dan tokennya identik;
+respons tersebut tidak dihitung sebagai inferensi baru.
+
+Inferensi memakai satu NVIDIA GeForce RTX 5090 ber-VRAM sekitar 32 GiB,
+vLLM 0.30.0, bfloat16, temperature 0, seed 0, dan anggaran keluaran 512 token.
+Model dijalankan bergantian dengan satu request aktif serta prefix caching.
+Konteks layanan adalah 32.768 token, kecuali Granite (36.864--38.912 token).
+Seluruh prompt diaudit menggunakan tokenizer model masing-masing, tanpa membuang
+pasangan yang panjang. KV cache dikonfigurasi 6 GiB per model; nilai ini bukan
+pengukuran keseluruhan konsumsi memori GPU.
+
+\subsection{Metrik}
+\emph{True positive rate} (TPR) adalah proporsi MAL yang ditandai malicious dan
+dihitung pada 129 MAL. \emph{False positive rate} (FPR) adalah proporsi TYP yang
+ditandai malicious dan dihitung pada 1.868 TYP, bersyarat pada asumsi label
+benign TYP. TP dan FP adalah jumlah absolut keduanya. \emph{Balanced accuracy}
+(BA) merupakan rata-rata TPR dan spesifisitas. Akurasi bergantung pada komposisi
+kelas: prediksi selalu benign sudah mencapai 93,54\% pada data ini, meskipun
+TPR-nya nol. Karena itu, akurasi pada tabel perbandingan penelitian dan
+akurasi serta BA pada lampiran dilaporkan secara deskriptif, dengan TPR dan
+FPR sebagai ukuran utama efektivitas deteksi.
+
+Untuk memperjelas penyebut, metrik dihitung sebagai
+\begin{align}
+\mathrm{TPR} &= 100\,\frac{\mathrm{TP}}{129},\\
+\mathrm{FPR} &= 100\,\frac{\mathrm{FP}}{1\,868},\\
+\mathrm{Akurasi} &= 100\,\frac{\mathrm{TP}+\mathrm{TN}}{1\,997},\\
+\mathrm{BA} &= \frac{\mathrm{TPR}+(100-\mathrm{FPR})}{2}.
+\end{align}
+TN adalah jumlah TYP yang diprediksi benign. Selisih antarkonfigurasi dihitung
+sebagai metrik konfigurasi tujuan dikurangi metrik konfigurasi awal, dalam
+poin persentase.
+
+Respons dengan format invalid atau terpotong dihitung benign pada analisis
+utama dan malicious pada analisis sensitivitas. Error transport tidak
+diperlakukan sebagai prediksi. Seluruh matriks test yang dilaporkan lengkap dan
+telah diverifikasi dari respons tersimpan.
+
+\subsection{Ketidakpastian}
+Interval 95\% untuk TPR, FPR, dan selisih berpasangan dihitung melalui bootstrap
+10.000 kali pada tingkat klaster kampanye dengan seed 2026: 98 klaster untuk MAL
+dan 1.865 klaster untuk TYP. Semua pasangan dalam klaster terpilih ikut diambil,
+sehingga satu kampanye yang mempunyai beberapa versi tidak diperlakukan sebagai
+beberapa unit independen. Interval dilaporkan sebagai ketidakpastian
+deskriptif, bukan uji konfirmatori dengan koreksi perbandingan berganda, dan
+tidak dimaksudkan untuk menyatakan bahwa TPR tidak menurun. Resampling untuk
+selisih memakai klaster yang sama pada kedua konfigurasi, dengan batas
+interval pada persentil 2,5 dan 97,5. Tabel utama menampilkan estimasi titik
+agar mudah dibaca; interval tetap disajikan pada gambar dan berkas hasil
+pendamping. Tidak melintasinya nol dipakai sebagai deskripsi interval, bukan
+sebagai jaminan manfaat operasional.
+
+Pemisahan MAL menurut ada atau tidaknya perubahan kemampuan
+(Bagian~\ref{sec:results}) merupakan analisis eksploratif yang ditetapkan setelah
+hasil diketahui. Analisis ini hanya melaporkan estimasi titik.
+
+\subsection{Biaya}
+Biaya diukur dari token input dan latensi request setelah tiga request
+warm-up per sesi model. Latensi tidak mencakup akuisisi, normalisasi, retrieval
+di sisi klien, atau pemuatan model. Karena urutan konfigurasi tetap dan prefix
+caching aktif, selisih latensi mencerminkan kondisi batch ini; nilainya bukan
+estimasi throughput layanan produksi atau biaya setiap komponen yang diisolasi
+dari pengaruh cache.
+
+\subsection{Perbandingan hasil dengan penelitian sebelumnya}
+Tabel~\ref{tab:cross-study} menyandingkan hasil IntentDiff-RAG dengan
+penelitian terdahulu yang dibahas pada Bagian~\ref{sec:related}. Akurasi
+menunjukkan persentase seluruh prediksi yang benar; TPR menunjukkan persentase
+sampel malicious yang terdeteksi, sedangkan FPR menunjukkan persentase sampel
+benign yang keliru ditandai malicious. Akurasi dan TPR yang lebih tinggi serta
+FPR yang lebih rendah merupakan arah hasil yang diinginkan.
+Seluruh model IntentDiff-RAG ditampilkan dengan konfigurasi DIFF+I+MB,
+yaitu smart-diff, intent, satu contoh malicious, dan satu contoh benign.
+Angka penelitian terdahulu berasal dari evaluasi masing-masing penulis;
+sistem tersebut tidak dijalankan ulang pada dataset penelitian ini.
+
+\begin{table*}[t]
+\centering\small
+\caption{Perbandingan hasil dengan penelitian sebelumnya, dalam persen.
+Semua model IntentDiff-RAG menggunakan DIFF+I+MB pada 129 MAL dan 1.868 TYP.
+Dataset antarpenelitian berbeda, sehingga tabel ini merupakan perbandingan
+deskriptif. Tanda * menunjukkan akurasi yang dihitung dari jumlah prediksi
+benar pada paper sumber.}
+\label{tab:cross-study}
+\begin{tabular}{p{6.5cm} l r r r}
+\toprule
+Penelitian / model & Unit analisis & Akurasi (\%) & TPR (\%) & FPR (\%) \\
+\midrule
+Wyss et al.\ / GPT-4o \citep{wyss2025evaluating} & Pembaruan & 99,61* & 100,00 & 0,40 \\
+RogueOne \citep{sofaer2024rogueone} & Pembaruan & 92,96* & 75,60 & 4,70 \\
+IntelGuard \citep{guo2026bridging} & Paket & 98,72 & 97,67 & 0,20 \\
+Nguyen et al.\ / DeepSeek-Coder 6,7B \citep{nguyen2025taint} & Paket & 87,04 & 96,23 & -- \\
+\midrule
+\multicolumn{5}{l}{\textbf{IntentDiff-RAG (penelitian ini), konfigurasi DIFF+I+MB}} \\
+Qwen3-4B & Pembaruan & 91,59 & 50,39 & 5,57 \\
+Qwen2.5-3B & Pembaruan & 46,07 & 83,72 & 56,53 \\
+Qwen2.5-7B & Pembaruan & 53,18 & 87,60 & 49,20 \\
+Phi-4-mini & Pembaruan & 67,75 & 55,04 & 31,37 \\
+Llama-3.1-8B & Pembaruan & 34,00 & 87,60 & 69,70 \\
+Granite-3.3-8B & Pembaruan & 81,82 & 47,29 & 15,79 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Akurasi Wyss et al.\ dihitung dari 46 deteksi benar dan 1.992 prediksi benign
+benar pada 2.046 pembaruan; FPR 0,40\% dihitung dari 8 alarm palsu pada
+2.000 pembaruan typical. Angka ini menggunakan hitungan seluruh sampel pada
+tabel sumber, bukan komplemen spesifisitas yang dihitung penulis setelah
+mengecualikan data pelatihan pemroses keluaran. Akurasi RogueOne dihitung dari
+31 deteksi benar dan 286 prediksi benign benar pada 341 pembaruan dalam
+evaluasi pembaruan tunggal. TPR dan FPR RogueOne mengikuti pembulatan yang
+dilaporkan paper. Nilai recall IntelGuard dan Nguyen et al.\ ditampilkan
+sebagai TPR; tanda ``--'' berarti FPR tidak tersedia pada tabel hasil
+Nguyen et al.\ yang dirujuk.
+
+Di antara enam model pada konfigurasi lengkap, Qwen3-4B memiliki akurasi
+tertinggi (91,59\%) dan FPR terendah (5,57\%), tetapi hanya mendeteksi
+50,39\% MAL. Qwen2.5-7B dan Llama-3.1-8B mencapai TPR 87,60\%, dengan
+FPR masing-masing 49,20\% dan 69,70\%. Dengan demikian, hasil penelitian ini
+masih memperlihatkan kompromi antara jumlah serangan yang terdeteksi dan
+beban alarm palsu. Akurasi Qwen3-4B yang secara numerik melebihi 87,04\%
+pada Nguyen et al.\ belum menunjukkan keunggulan metode: komposisi kelas
+berbeda, dan prediksi selalu benign pada data penelitian ini sudah mencapai
+akurasi 93,54\%. Tabel ini belum menunjukkan bahwa IntentDiff-RAG lebih
+efektif daripada metode terdahulu; pembuktian tersebut memerlukan evaluasi
+pada dataset yang sama. Hasil setiap konfigurasi diuraikan pada
+Bagian~\ref{sec:results}, dan perbedaan metode dibahas pada
+Bagian~\ref{sec:discussion}.
+
+\section{Hasil}\label{sec:results}
+Keenam model yang lolos dev menyelesaikan 11.982 respons test per model, tanpa
+error transport pada matriks akhir. Hasil disajikan menurut jenis analisis;
+seluruh kombinasi model dan konfigurasi tersedia pada Tabel~\ref{tab:full}.
+
+\subsection{Kemampuan dasar tanpa contoh rujukan}
+Tabel~\ref{tab:main} memperlihatkan DIFF dan DIFF+I. Pada DIFF, TPR berkisar
+42,64--79,07\% dan FPR berkisar 6,37--65,15\%. Model terbagi ke dalam dua pola.
+Qwen3-4B, Phi-4-mini, dan Granite bersikap konservatif: FPR-nya 6,37--17,08\%,
+tetapi TPR-nya hanya 42,64--48,06\%. Qwen2.5-3B, Qwen2.5-7B, dan Llama-3.1-8B
+mendeteksi lebih banyak MAL (TPR 75,97--79,07\%), tetapi menandai 59,58--65,15\%
+TYP sebagai malicious. Perbedaan TPR antarmodel dengan demikian disertai
+perbedaan FPR yang besar, sehingga urutan model menurut TPR saja menyesatkan.
+
+Penambahan intent tanpa contoh (DIFF+I) menurunkan estimasi FPR pada ketiga
+model konservatif, misalnya Qwen3-4B dari 6,37\% menjadi 4,12\%, tetapi
+menaikkan FPR Llama-3.1-8B dari 60,22\% menjadi 69,97\%. Perbandingan ini
+deskriptif karena tidak termasuk kontras yang ditetapkan pada
+Bagian~\ref{sec:setup}.
+\begin{table*}[t]
+\centering\small
+\caption{Kemampuan dasar tanpa contoh rujukan: smart-diff saja (DIFF) dan smart-diff dengan intent (DIFF+I). TP adalah jumlah MAL yang terdeteksi dari 129 sampel; FP adalah jumlah alarm palsu dari 1.868 TYP. TPR dan FPR disajikan sebagai persentase. Respons invalid dianggap benign.}
+\label{tab:main}
+\begin{tabular}{llrrrr}
+\toprule
+Model & Konfigurasi & TP & TPR (\%) & FP & FPR (\%) \\
+\midrule
+Qwen3-4B & DIFF & 62 & 48,06 & 119 & 6,37 \\
+Qwen3-4B & DIFF+I & 58 & 44,96 & 77 & 4,12 \\
+Qwen2.5-3B & DIFF & 98 & 75,97 & 1.113 & 59,58 \\
+Qwen2.5-3B & DIFF+I & 107 & 82,95 & 1.108 & 59,31 \\
+Qwen2.5-7B & DIFF & 102 & 79,07 & 1.217 & 65,15 \\
+Qwen2.5-7B & DIFF+I & 110 & 85,27 & 1.185 & 63,44 \\
+Phi-4-mini & DIFF & 57 & 44,19 & 319 & 17,08 \\
+Phi-4-mini & DIFF+I & 59 & 45,74 & 259 & 13,87 \\
+Llama-3.1-8B & DIFF & 101 & 78,29 & 1.125 & 60,22 \\
+Llama-3.1-8B & DIFF+I & 109 & 84,50 & 1.307 & 69,97 \\
+Granite-3.3-8B & DIFF & 55 & 42,64 & 188 & 10,06 \\
+Granite-3.3-8B & DIFF+I & 45 & 34,88 & 144 & 7,71 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\temuan{Tanpa contoh rujukan, keenam model mendeteksi 42,64--79,07\% MAL.
+Model yang mendeteksi lebih banyak MAL juga menandai 59,58--65,15\% TYP, sedangkan
+model dengan FPR di bawah 18\% melewatkan lebih dari separuh MAL.}
+
+\subsection{Pengaruh contoh rujukan}
+Tabel~\ref{tab:contrast} dan Gambar~\ref{fig:effects} memuat seluruh kontras.
+Penambahan satu contoh malicious (DIFF+I menjadi DIFF+I+M) tidak menghasilkan
+arah yang seragam. FPR naik dengan jelas pada Phi-4-mini (27,30 poin) dan
+Llama-3.1-8B (9,26 poin); pada Phi-4-mini, TPR juga naik 18,60 poin. Sebaliknya,
+FPR turun dengan jelas pada Qwen2.5-7B (16,65 poin) dan Qwen2.5-3B (10,76 poin),
+tanpa perubahan TPR yang jelas. Contoh malicious dengan demikian tidak selalu
+membuat model lebih mudah menandai pembaruan sebagai malicious.
+
+Penggantian contoh kedua dari malicious menjadi benign (DIFF+I+MM menjadi
+DIFF+I+MB) menaikkan FPR pada Qwen3-4B (2,30 poin), Qwen2.5-3B (8,35 poin), dan
+Qwen2.5-7B (4,01 poin), dengan interval di atas nol. Pada Qwen3-4B, TPR juga naik
+8,53 poin (interval 2,99--14,63). Satu-satunya penurunan FPR yang jelas terjadi
+pada Phi-4-mini (5,46 poin), tetapi TPR-nya ikut turun 8,53 poin (interval
+$-16,53$ sampai $-0,79$). Pada Llama-3.1-8B dan Granite, interval selisih FPR
+melintasi nol. Pada estimasi titik, dari keenam model, tidak ada penggantian
+MM menjadi MB yang sekaligus menurunkan FPR dan mempertahankan atau meningkatkan
+TPR. Pernyataan ini menggambarkan hasil yang diamati, bukan pembuktian bahwa
+perbaikan bersama mustahil pada populasi lain.
+\begin{table*}[t]
+\centering\small
+\caption{Perubahan TPR dan FPR setelah penambahan atau penggantian konteks, dalam poin persentase. Tanda positif berarti naik; tanda negatif berarti turun. Tambah M: DIFF+I ke DIFF+I+M; MM ke MB: DIFF+I+MM ke DIFF+I+MB; tambah intent: DIFF+MB ke DIFF+I+MB.}
+\label{tab:contrast}
+\begin{tabular}{llrr}
+\toprule
+Model & Kontras & $\Delta$TPR & $\Delta$FPR \\
+\midrule
+Qwen3-4B & Tambah M & +0,78 & +0,70 \\
+ & MM ke MB & +8,53 & +2,30 \\
+ & Tambah intent & $-$0,78 & $-$2,36 \\
+Qwen2.5-3B & Tambah M & $-$4,65 & $-$10,76 \\
+ & MM ke MB & +3,10 & +8,35 \\
+ & Tambah intent & +5,43 & +2,19 \\
+Qwen2.5-7B & Tambah M & $-$1,55 & $-$16,65 \\
+ & MM ke MB & +3,88 & +4,01 \\
+ & Tambah intent & +10,85 & +3,53 \\
+Phi-4-mini & Tambah M & +18,60 & +27,30 \\
+ & MM ke MB & $-$8,53 & $-$5,46 \\
+ & Tambah intent & $-$3,10 & $-$2,57 \\
+Llama-3.1-8B & Tambah M & +4,65 & +9,26 \\
+ & MM ke MB & +5,43 & +1,12 \\
+ & Tambah intent & +8,53 & +11,99 \\
+Granite-3.3-8B & Tambah M & +4,65 & +1,12 \\
+ & MM ke MB & $-$6,98 & $-$0,11 \\
+ & Tambah intent & $-$3,88 & $-$5,35 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/paired-effects.pdf}
+\caption{Perubahan tingkat deteksi (TPR) pada 129 pembaruan malicious.
+(a) Penambahan satu contoh malicious; (b) penggantian contoh malicious kedua
+dengan benign; (c) penambahan intent pada konfigurasi satu malicious dan satu
+benign. Titik menunjukkan selisih berpasangan dalam poin persentase; garis
+horizontal menunjukkan interval bootstrap 95\% dari 98 kelompok kampanye.
+Nilai positif berarti deteksi meningkat, sedangkan garis vertikal putus-putus
+menandai tidak ada perubahan. I: intent; M: contoh malicious; B: contoh benign.
+Interval tidak dikoreksi untuk perbandingan berganda. Gambar hanya memuat TPR;
+alarm palsu perlu dibaca bersama Tabel~\ref{tab:contrast}.}
+\label{fig:effects}
+\end{figure*}
+
+\temuan{Contoh rujukan mengubah keputusan, tetapi arahnya bergantung pada
+model. Contoh benign tidak secara umum menurunkan alarm palsu: FPR naik dengan
+jelas pada tiga model, dan satu-satunya penurunan FPR yang jelas disertai
+penurunan TPR.}
+
+\subsection{Pengaruh intent}
+Dengan contoh MB yang sama (DIFF+MB menjadi DIFF+I+MB), intent menghasilkan dua
+pola yang berlawanan. Pada Qwen3-4B, Phi-4-mini, dan Granite, FPR turun dengan
+jelas, masing-masing 2,36; 2,57; dan 5,35 poin, sementara interval selisih TPR
+melintasi nol. Pada Qwen2.5-7B dan Llama-3.1-8B, TPR naik dengan jelas (10,85 dan
+8,53 poin), tetapi FPR juga naik dengan jelas (3,53 dan 11,99 poin). Pada
+Qwen2.5-3B, kedua selisih melintasi nol. Pola ini sejalan dengan kemampuan dasar model: intent
+menurunkan alarm palsu pada model yang sudah konservatif dan menaikkan deteksi
+sekaligus alarm palsu pada sebagian model yang agresif. Eksperimen ini belum
+memisahkan apakah perubahan dipengaruhi kualitas deskripsi, relevansi README,
+isi skrip, atau cara model menafsirkan konteks tersebut.
+
+\temuan{Intent menurunkan FPR pada tiga model tanpa perubahan TPR yang jelas,
+tetapi menaikkan TPR sekaligus FPR pada dua model lain. Manfaat intent karena itu
+bergantung pada model.}
+
+\subsection{Format keluaran dan biaya}
+Validitas JSON test berkisar 95,32--99,82\% di antara model yang lolos. Pada
+Qwen3-4B dengan DIFF+I+MB, menghitung invalid sebagai malicious mengubah TPR dari
+50,39\% menjadi 55,81\%, dan FPR dari 5,57\% menjadi 8,46\%
+(Tabel~\ref{tab:sensitivity}). Penanganan invalid dengan demikian merupakan
+bagian dari definisi kinerja. Model yang gagal gate dev tetap dilaporkan sebagai
+kegagalan teknis protokol, bukan sebagai detektor dengan TPR nol.
+\begin{table*}[t]
+\centering\small
+\caption{Validitas JSON pada 11.982 respons test per model dan sensitivitas DIFF+I+MB. Dua angka pada kolom TPR/FPR menghitung invalid sebagai benign/malicious; TPR memakai 129 MAL. Semuanya dalam persen.}
+\label{tab:sensitivity}
+\begin{tabular}{lrrr}
+\toprule
+Model & JSON valid & TPR & FPR TYP \\
+\midrule
+Qwen3-4B & 95,63 & 50,39 / 55,81 & 5,57 / 8,46 \\
+Qwen2.5-3B & 99,53 & 83,72 / 84,50 & 56,53 / 56,96 \\
+Qwen2.5-7B & 99,82 & 87,60 / 87,60 & 49,20 / 49,41 \\
+Phi-4-mini & 99,11 & 55,04 / 57,36 & 31,37 / 32,12 \\
+Llama-3.1-8B & 97,72 & 87,60 / 90,70 & 69,70 / 72,48 \\
+Granite-3.3-8B & 95,32 & 47,29 / 51,16 & 15,79 / 19,54 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Biaya diukur pada 1.901 pasangan, termasuk seluruh 1.868 TYP, yang dijalankan
+dalam sesi inferensi yang sama untuk setiap model, sehingga latensi tidak
+tercampur antarsesi. DIFF+I+MB menambah sekitar 861--993 token input rata-rata
+terhadap DIFF, bergantung pada tokenizer. Median latensinya berkisar
+0,358--1,063 detik dan p95 berkisar 1,977--5,591 detik (Tabel~\ref{tab:cost}).
+Konteks yang lebih panjang tidak selalu meningkatkan latensi p95, karena panjang
+jawaban dan penggunaan cache juga berperan. Angka ini menggambarkan biaya
+request pada perangkat dan urutan batch yang dipakai, tanpa klaim kemampuan
+pemrosesan seluruh registry.
+\begin{table*}[t]
+\centering\small
+\caption{Biaya permintaan pada 1.901 pasangan dari sesi inferensi yang sama. Setiap sel menunjukkan DIFF / DIFF+I+MB. Latensi dalam detik, setelah warm-up, dengan prefix caching; tidak mencakup preprocessing atau startup.}
+\label{tab:cost}
+\begin{tabular}{lrrr}
+\toprule
+Model & Token input rata-rata & Latensi median & Latensi p95 \\
+\midrule
+Qwen3-4B & 3.356 / 4.230 & 0,328 / 0,358 & 3,538 / 2,885 \\
+Qwen2.5-3B & 3.356 / 4.230 & 0,465 / 0,515 & 1,940 / 1,977 \\
+Qwen2.5-7B & 3.356 / 4.230 & 0,569 / 0,587 & 2,808 / 2,828 \\
+Phi-4-mini & 3.214 / 4.076 & 0,405 / 0,474 & 2,990 / 3,109 \\
+Llama-3.1-8B & 3.193 / 4.055 & 0,645 / 0,840 & 3,260 / 3,471 \\
+Granite-3.3-8B & 3.853 / 4.846 & 1,018 / 1,063 & 5,495 / 5,591 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\temuan{Konfigurasi terlengkap menambah sekitar 861--993 token input per
+pembaruan dengan median latensi di bawah 1,1 detik pada satu GPU. Validitas
+format di atas 95\%, tetapi cara menghitung respons invalid dapat mengubah TPR
+sekitar 5,4 poin.}
+
+\subsection{Analisis eksploratif: pasangan dengan dan tanpa perubahan kemampuan}
+Tabel~\ref{tab:delta} memisahkan 42 MAL yang memiliki perubahan kemampuan dari
+87 MAL yang tidak memilikinya. Pada DIFF, yang tidak memakai contoh, TPR kelompok
+pertama berkisar 73,81--100\%, sedangkan kelompok kedua 26,44--68,97\%. Pembaruan
+yang menambahkan kemampuan teramati dengan demikian lebih mudah dideteksi,
+terlepas dari retrieval.
+
+Arah selisih MM menjadi MB sama pada kedua kelompok untuk lima model. Pada
+Qwen3-4B, TPR naik 9,52 poin pada kelompok pertama dan 8,05 poin pada kelompok
+kedua. Pada Phi-4-mini, TPR turun 4,76 dan 10,34 poin, dan pada Granite turun
+7,14 dan 6,90 poin. Qwen2.5-7B sudah mendeteksi seluruh MAL kelompok pertama
+pada kedua konfigurasi. Karena pada kelompok kedua contoh dipilih oleh hash,
+efek penggantian contoh tidak tampak bergantung pada kemiripan kemampuan antara
+pasangan dan contoh. Ukuran kelompok kecil dan selisih ini tidak disertai
+interval, sehingga hasilnya bersifat deskriptif.
+\begin{table*}[t]
+\centering\small
+\caption{TPR menurut ada atau tidaknya perubahan kemampuan pada MAL, dalam persen. Pada 87 MAL tanpa perubahan kemampuan, semua contoh berskor nol dan contoh dipilih oleh pemecah seri berbasis hash. Invalid dianggap benign.}
+\label{tab:delta}
+\begin{tabular}{lrrrrrr}
+\toprule
+Model & \multicolumn{3}{c}{Ada perubahan (42)} & \multicolumn{3}{c}{Tanpa perubahan (87)} \\
+ & DIFF & MM & MB & DIFF & MM & MB \\
+\midrule
+Qwen3-4B & 80,95 & 71,43 & 80,95 & 32,18 & 27,59 & 35,63 \\
+Qwen2.5-3B & 97,62 & 92,86 & 95,24 & 65,52 & 74,71 & 78,16 \\
+Qwen2.5-7B & 100,00 & 100,00 & 100,00 & 68,97 & 75,86 & 81,61 \\
+Phi-4-mini & 73,81 & 83,33 & 78,57 & 29,89 & 54,02 & 43,68 \\
+Llama-3.1-8B & 97,62 & 90,48 & 95,24 & 68,97 & 78,16 & 83,91 \\
+Granite-3.3-8B & 76,19 & 78,57 & 71,43 & 26,44 & 42,53 & 35,63 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\section{Pembahasan}\label{sec:discussion}
+\paragraph{Manfaat konteks bergantung pada model.}
+Ketiga jenis konteks yang diuji, yaitu contoh malicious, contoh benign, dan
+intent, mengubah keputusan model, tetapi arah perubahannya tidak seragam.
+Pola dasar model tanpa contoh membantu membaca perbedaan ini. Pada ketiga model
+yang cenderung konservatif, intent menurunkan alarm palsu tanpa perubahan
+deteksi yang jelas. Pada model yang cenderung agresif, intent menaikkan deteksi
+sekaligus alarm palsu pada dua dari tiga model, dan contoh benign menaikkan
+alarm palsu pada dua dari tiga model tanpa kenaikan deteksi yang jelas. Karena MM dan MB sama-sama
+berisi dua contoh dan mempertahankan contoh malicious utama, efek penggantian
+contoh tidak dapat dijelaskan hanya oleh bertambahnya jumlah contoh. Namun,
+perubahan isi, panjang, dan relevansi contoh tetap berpotensi berkontribusi,
+dan eksperimen ini tidak mengisolasi mekanisme penalaran internal model.
+
+\paragraph{Contoh benign bukan perbaikan otomatis.}
+Gagasan bahwa contoh benign membuat model lebih berhati-hati tidak didukung
+secara umum: FPR naik dengan jelas pada tiga model, dan satu-satunya penurunan
+FPR yang jelas disertai penurunan TPR. Temuan ini sejalan dengan literatur
+\emph{in-context learning} yang menunjukkan bahwa isi dan urutan contoh
+memengaruhi prediksi tidak hanya melalui labelnya
+\citep{min2022rethinking,zhao2021calibrate}. Analisis eksploratif menunjukkan
+bahwa arah efek tersebut juga muncul pada pasangan dengan skor retrieval
+nol, ketika contoh ditentukan oleh hash. Pengamatan ini belum membuktikan
+bahwa kemiripan tidak berpengaruh: kelompok pasangan berbeda, dan tidak ada
+perbandingan retrieval berbasis kemiripan dengan pemilihan acak pada pasangan
+yang sama. Penjelasan yang dapat didukung adalah bahwa perubahan keputusan
+tetap terjadi meskipun skor retrieval tidak membedakan relevansi contoh.
+
+\paragraph{Implikasi bagi praktik.}
+TPR dan FPR perlu dinilai bersama. Konfigurasi dengan TPR mendekati 90\% masih
+dapat menandai hampir setengah TYP sebagai malicious, sedangkan konfigurasi
+dengan FPR rendah dapat melewatkan sekitar separuh MAL. Dengan hasil ini,
+penggunaan langsung sebagai dasar pemblokiran otomatis belum didukung.
+Sebagai contoh, Qwen3-4B pada DIFF+I+MB menandai 104 dari 1.868 TYP sebagai
+malicious, sekaligus melewatkan 64 dari 129 MAL. Angka tersebut memperjelas
+bahwa akurasi 91,59\% belum berarti pemeriksaan pembaruan sudah efektif:
+sebagian pembaruan typical tetap memerlukan pemeriksaan lanjutan, sementara
+hampir separuh MAL tidak terdeteksi. Pemanfaatan sebagai alat triase masih
+memerlukan pengukuran beban peninjauan dan kerugian akibat kasus terlewat pada
+lingkungan sasaran. Bagi peneliti, hasil ini menunjukkan bahwa manfaat
+retrieval perlu diuji per model dengan melaporkan kedua jenis kesalahan.
+
+\subsection{Perbandingan hasil dengan penelitian sebelumnya}
+Perbandingan hasil pada Tabel~\ref{tab:cross-study} memberi konteks untuk
+menilai kemampuan IntentDiff-RAG. Perbandingan berikut membahas tingkat
+deteksi, alarm palsu, dan manfaat konteks. Setiap penelitian menggunakan data
+dan prosedur evaluasinya sendiri; angka lintas penelitian tidak membentuk
+peringkat kinerja pada benchmark yang sama. Untuk membahas konfigurasi lengkap
+IntentDiff-RAG, digunakan DIFF+I+MB secara konsisten, tanpa memilih konfigurasi
+berbeda untuk memperoleh TPR tertinggi dan FPR terendah.
+
+\paragraph{Deteksi pembaruan dengan smart-diff dan LLM.}
+\citet{wyss2025evaluating} merupakan pembanding terdekat dari sisi unit
+analisis dan representasi masukan. Dengan GPT-4o, mereka melaporkan deteksi
+46 dari 46 pembaruan malicious dan 8 alarm palsu dari 2.000 pembaruan typical.
+Dalam penelitian ini, smart-diff tanpa konteks tambahan (DIFF) menghasilkan
+TPR 42,64--79,07\% dan FPR 6,37--65,15\% pada enam model lokal.
+Pada konfigurasi lengkap DIFF+I+MB, TPR berada pada 47,29--87,60\% dan FPR
+pada 5,57--69,70\%. Rentang tersebut menunjukkan variasi antarmodel, bukan
+hasil satu detektor. Dengan demikian, penggunaan smart-diff dan penambahan
+konteks pada model lokal belum menghasilkan pola deteksi tinggi dengan alarm
+palsu rendah seperti yang dilaporkan Wyss et al. Perbedaan ini belum dapat
+diatribusikan pada ukuran model: komposisi data, rekonstruksi preprocessing,
+prompt, dan pemrosesan keluaran juga berbeda.
+
+\paragraph{Deteksi pembaruan tanpa LLM.}
+Pada evaluasi pembaruan tunggal, RogueOne mendeteksi 31 dari 41 pembaruan
+malicious (75,6\%) dengan 14 alarm palsu dari 300 pembaruan benign (4,7\%)
+\citep{sofaer2024rogueone}. Sebagai konteks, Qwen2.5-7B pada DIFF+I+MB
+mencapai TPR 87,60\%, tetapi FPR-nya 49,20\%. Qwen3-4B pada konfigurasi
+yang sama menghasilkan FPR 5,57\%, dengan TPR 50,39\%. Kedua contoh ini
+memperlihatkan kompromi yang berbeda: peningkatan deteksi pada model lokal
+dapat disertai banyak alarm palsu, sedangkan alarm palsu yang lebih rendah
+dapat disertai banyak kasus terlewat. Angka tersebut tidak membuktikan
+keunggulan atas RogueOne karena alat itu belum dijalankan pada dataset
+penelitian ini. Perbandingan ini memperkuat perlunya menilai TPR dan FPR
+bersama, bukan menjadikan TPR saja sebagai ukuran keberhasilan.
+
+\paragraph{Retrieval dan konteks tujuan paket.}
+IntelGuard melaporkan akurasi 98,72\% dan FPR 0,20\% pada paket npm
+\citep{guo2026bridging}. Sistem tersebut memakai GPT-4.1-mini serta basis
+pengetahuan berisi 4.420 konteks kode malicious yang memuat penalaran dari
+laporan ancaman. IntentDiff-RAG memakai model lokal, menilai pembaruan, dan
+menggunakan 75 contoh otomatis berbasis label sumber. Selain itu, skor
+retrieval bernilai nol untuk seluruh contoh pada sebagian besar pasangan uji.
+Perbedaan ini membatasi penerapan hasil IntelGuard pada rancangan di sini.
+Penambahan satu contoh malicious dalam penelitian ini tidak selalu
+meningkatkan deteksi atau menurunkan alarm palsu. Mengganti contoh malicious
+kedua dengan benign bahkan menaikkan FPR pada tiga model, sedangkan penurunan
+FPR pada Phi-4-mini disertai penurunan TPR. Temuan tersebut menunjukkan bahwa
+manfaat retrieval bergantung pada model, isi contoh, dan kebijakan pemilihan
+yang digunakan; hasilnya tidak membatalkan manfaat retrieval pada IntelGuard.
+
+\paragraph{Model open-weight dan arti metrik yang dilaporkan.}
+\citet{nguyen2025taint} melaporkan akurasi 87,04\% menggunakan
+DeepSeek-Coder 6,7B dengan taint-based slicing pada paket utuh. Penelitian
+tersebut menunjukkan penggunaan model open-weight untuk analisis keamanan
+paket, tetapi angka akurasinya tidak dapat dijadikan target langsung untuk
+evaluasi pembaruan di sini. Pada komposisi data IntentDiff-RAG, prediksi yang
+selalu benign sudah mencapai akurasi 93,54\%, meskipun tidak mendeteksi satu
+pun MAL. Karena itu, akurasi yang secara numerik lebih tinggi dari penelitian
+lain belum menunjukkan detektor yang lebih baik. TPR dan FPR diperlukan
+untuk memperlihatkan kedua jenis kesalahan secara terpisah.
+
+Perbandingan ini menempatkan kontribusi IntentDiff-RAG pada pengukuran
+pengaruh intent dan komposisi contoh terhadap model lokal pada tingkat
+pembaruan. Hasilnya memperlihatkan bahwa komponen konteks yang menjanjikan
+dalam penelitian terdahulu perlu diuji kembali pada kondisi tersebut.
+Keunggulan deteksi atas sistem terdahulu belum dapat disimpulkan tanpa
+evaluasi pada pasangan versi, label, dan kebijakan penanganan kegagalan yang
+sama.
+
+\section{Ancaman terhadap validitas}\label{sec:limitations}
+\paragraph{Validitas konstruk.}
+Label MAL berasal dari sumber publik, sedangkan TYP diasumsikan benign.
+Penyaringan advisory bukan pembuktian keamanan; label sumber dapat pula
+mencakup kasus proof-of-concept atau perilaku yang penilaiannya bergantung
+konteks. Karena itu, TPR, FPR, dan BA bersyarat pada konstruksi label tersebut.
+Tidak tersedia gold evidence maupun hard negative yang diverifikasi manusia,
+sehingga tidak ada klaim akurasi lokalisasi bukti atau FPR khusus hard negative.
+Ekstraksi kemampuan berbasis pola teks tidak menemukan perubahan kemampuan pada
+87 MAL, sehingga retrieval untuk pasangan tersebut tidak memanfaatkan kemiripan.
+Smart-diff merupakan rekonstruksi lokal dari pendekatan Wyss et al. Diff
+terpotong pada 14 MAL dan 90 TYP, dan tujuh berkas pada lima MAL serta 48 berkas
+pada 35 TYP memakai teks mentah karena normalisasi gagal atau berkas melebihi
+batas ukuran. Informasi penting dapat hilang atau menjadi lebih sulit dibaca,
+dan dokumentasi pendahulu yang menjadi sumber intent dapat tidak lengkap.
+
+\paragraph{Validitas internal.}
+Sebagian model dan MAL ditambahkan setelah hasil awal diketahui, dan analisis
+subset perubahan kemampuan ditetapkan setelah hasil tersedia. Pembekuan
+prompt, KB, dan aturan keputusan sebelum inferensi mengurangi peluang
+penyesuaian terhadap hasil, tetapi tidak menjadikan studi ini konfirmatori.
+Setiap konfigurasi dijalankan sekali dengan temperature nol dan satu seed;
+nilai ini tidak membuktikan stabilitas lintas run. Urutan request tetap dan
+prefix caching aktif dapat memengaruhi latensi.
+
+\paragraph{Validitas eksternal.}
+Ketersediaan kedua arsip, identitas paket, dan syarat pendahulu membatasi sampel
+yang dapat dimasukkan, sehingga data tidak mewakili seluruh pembaruan npm.
+Hasil berlaku untuk npm, enam model \emph{open-weight} berukuran 3--8 miliar
+parameter, satu format keluaran terstruktur, dan satu kebijakan retrieval.
+Sebanyak 75 dari 129 target MAL diterbitkan pada 2026, tetapi fakta itu tidak
+membuktikan bahwa sampel berada di luar paparan pretraining masing-masing model;
+tidak dilakukan eksperimen temporal terkontrol atau audit data pelatihan.
+Qwen3-8B gagal pada kondisi ini, tanpa menyimpulkan bahwa model tersebut selalu
+tidak mampu menjalankan tugas. Penelitian tidak menjalankan ulang detektor
+non-LLM, model komersial, atau model fine-tuned pada data yang sama, sehingga
+hasil studi lain hanya menjadi konteks.
+
+\paragraph{Validitas kesimpulan.}
+Ke-129 MAL hanya mewakili 98 klaster; hasilnya tidak boleh dibaca sebagai 129
+observasi kampanye independen. Bootstrap memperhitungkan klaster yang teramati,
+tetapi tidak menghilangkan bias seleksi atau kesalahan pengelompokan. Interval
+95\% bersifat deskriptif dan tidak dikoreksi untuk perbandingan berganda,
+sehingga sebagian interval yang tidak melintasi nol dapat muncul secara
+kebetulan. Analisis subset hanya melaporkan estimasi titik pada kelompok kecil.
+Tidak dilakukan audit semantik atas seluruh positif palsu dan negatif palsu;
+penjelasan mekanisme kesalahan tetap berupa kemungkinan.
+
+\section{Kesimpulan}\label{sec:conclusion}
+Penelitian ini mengevaluasi pengaruh intent dan contoh rujukan terhadap deteksi
+pembaruan npm malicious oleh enam LLM lokal. Tanpa contoh, model terbagi ke dalam
+pola konservatif dengan FPR rendah tetapi TPR di bawah 50\%, dan pola agresif
+dengan TPR sekitar 76--79\% tetapi FPR di atas 59\%. Contoh rujukan
+mengubah keputusan dengan arah yang bergantung pada model, dan contoh benign
+tidak secara umum menurunkan alarm palsu. Intent menurunkan FPR pada tiga
+model tanpa perubahan TPR yang jelas, tetapi menaikkan TPR sekaligus FPR pada
+dua model lain. Konfigurasi terlengkap menambah sekitar 861--993 token
+input dengan median latensi di bawah 1,1 detik per pembaruan.
+
+Temuan ini mendukung pelaporan kedua jenis kesalahan, ketidakpastian per
+kampanye, dan sensitivitas format sebelum menilai manfaat retrieval.
+Kesimpulan dibatasi pada label sumber, pemilihan sampel, dan kondisi inferensi
+yang digunakan; hasil belum menunjukkan kesiapan deteksi otonom atau keunggulan
+atas pendekatan yang tidak diuji pada data yang sama. Penelitian lanjutan perlu
+menguji retrieval yang memiliki sinyal kemiripan untuk lebih banyak pasangan,
+membandingkannya dengan pemilihan contoh acak secara eksplisit, dan
+mengevaluasi hard negative yang diverifikasi manusia.
+
+\section*{Ketersediaan data}
+Workspace penelitian menyimpan manifest pasangan, provenance label, hash arsip,
+pembagian kampanye, revisi model, prompt, respons mentah, dan skrip analisis.
+Tabel dan gambar naskah dihasilkan dari respons tersimpan tanpa menjalankan
+inferensi baru. Paket replikasi publik belum diterbitkan; sampel malicious hanya
+dapat dibagikan sebagai identitas paket dan hash, bukan sebagai arsip yang dapat
+dijalankan. [Tautan repositori diisi penulis sebelum pengiriman.]
+
+\section*{Etika dan penanganan artefak}
+Penelitian ini menganalisis arsip paket dan metadata sumber publik, tanpa
+merekrut partisipan manusia atau menggunakan hewan. Kode sampel tidak
+dijalankan; pemeriksaan dilakukan secara statis. Penelitian tidak melakukan
+eksploitasi terhadap layanan aktif. Rilis artefak perlu mematuhi ketentuan
+sumber dan membatasi materi malicious pada identitas, hash, serta informasi
+yang diperlukan untuk reproduksi. Pernyataan ini menjelaskan kegiatan yang
+dilakukan dan bukan klaim adanya persetujuan atau pengecualian dari komite etik.
+
+\section*{Kontribusi penulis (CRediT)}
+[Diisi penulis.]
+
+\section*{Deklarasi kepentingan yang bersaing}
+[Diisi penulis.]
+
+\section*{Deklarasi penggunaan AI generatif dalam penulisan}
+ChatGPT (OpenAI) digunakan untuk membantu peninjauan struktur, penyuntingan
+bahasa, pemeriksaan konsistensi pelaporan, serta penyusunan kode visualisasi
+dan berkas pendamping. Penggunaan tersebut tidak menggantikan verifikasi
+sumber dan hasil eksperimen. [Penulis perlu melengkapi riwayat penggunaan
+alat lain, meninjau seluruh isi, dan mengesahkan deklarasi sebelum pengiriman.]
+
+\section*{Pendanaan}
+[Diisi penulis.]
+
+\FloatBarrier
+\appendix
+\section{Hasil seluruh konfigurasi}\label{sec:appendix}
+Tabel~\ref{tab:full} memuat semua konfigurasi tanpa memilih hanya yang
+menguntungkan. TPR memakai 129 MAL dan FPR memakai 1.868 TYP. Akurasi dan BA
+menggunakan keduanya; angka tersebut bukan evaluasi dengan distribusi kelas
+alami npm.
+\begin{table*}[t]
+\centering\small
+\caption{Seluruh konfigurasi, dalam persen. TPR memakai 129 MAL; FPR memakai 1.868 TYP. Akurasi dan BA memakai keduanya dan bersifat deskriptif. BA: balanced accuracy.}
+\label{tab:full}
+\begin{tabular}{llrrrr}
+\toprule
+Model & Konfigurasi & TPR & FPR TYP & Akurasi & BA \\
+\midrule
+Qwen3-4B & DIFF & 48,06 & 6,37 & 90,69 & 70,85 \\
+Qwen3-4B & DIFF+I & 44,96 & 4,12 & 92,59 & 70,42 \\
+Qwen3-4B & DIFF+I+M & 45,74 & 4,82 & 91,99 & 70,46 \\
+Qwen3-4B & DIFF+I+MM & 41,86 & 3,27 & 93,19 & 69,30 \\
+Qwen3-4B & DIFF+I+MB & 50,39 & 5,57 & 91,59 & 72,41 \\
+Qwen3-4B & DIFF+MB & 51,16 & 7,92 & 89,43 & 71,62 \\
+Qwen2.5-3B & DIFF & 75,97 & 59,58 & 42,71 & 58,19 \\
+Qwen2.5-3B & DIFF+I & 82,95 & 59,31 & 43,42 & 61,82 \\
+Qwen2.5-3B & DIFF+I+M & 78,29 & 48,55 & 53,18 & 64,87 \\
+Qwen2.5-3B & DIFF+I+MM & 80,62 & 48,18 & 53,68 & 66,22 \\
+Qwen2.5-3B & DIFF+I+MB & 83,72 & 56,53 & 46,07 & 63,59 \\
+Qwen2.5-3B & DIFF+MB & 78,29 & 54,34 & 47,77 & 61,98 \\
+Qwen2.5-7B & DIFF & 79,07 & 65,15 & 37,71 & 56,96 \\
+Qwen2.5-7B & DIFF+I & 85,27 & 63,44 & 39,71 & 60,92 \\
+Qwen2.5-7B & DIFF+I+M & 83,72 & 46,79 & 55,18 & 68,47 \\
+Qwen2.5-7B & DIFF+I+MM & 83,72 & 45,18 & 56,69 & 69,27 \\
+Qwen2.5-7B & DIFF+I+MB & 87,60 & 49,20 & 53,18 & 69,20 \\
+Qwen2.5-7B & DIFF+MB & 76,74 & 45,66 & 55,78 & 65,54 \\
+Phi-4-mini & DIFF & 44,19 & 17,08 & 80,42 & 63,55 \\
+Phi-4-mini & DIFF+I & 45,74 & 13,87 & 83,53 & 65,94 \\
+Phi-4-mini & DIFF+I+M & 64,34 & 41,17 & 59,19 & 61,59 \\
+Phi-4-mini & DIFF+I+MM & 63,57 & 36,83 & 63,19 & 63,37 \\
+Phi-4-mini & DIFF+I+MB & 55,04 & 31,37 & 67,75 & 61,83 \\
+Phi-4-mini & DIFF+MB & 58,14 & 33,94 & 65,55 & 62,10 \\
+Llama-3.1-8B & DIFF & 78,29 & 60,22 & 42,26 & 59,03 \\
+Llama-3.1-8B & DIFF+I & 84,50 & 69,97 & 33,55 & 57,26 \\
+Llama-3.1-8B & DIFF+I+M & 89,15 & 79,23 & 25,19 & 54,96 \\
+Llama-3.1-8B & DIFF+I+MM & 82,17 & 68,58 & 34,70 & 56,80 \\
+Llama-3.1-8B & DIFF+I+MB & 87,60 & 69,70 & 34,00 & 58,95 \\
+Llama-3.1-8B & DIFF+MB & 79,07 & 57,71 & 44,67 & 60,68 \\
+Granite-3.3-8B & DIFF & 42,64 & 10,06 & 86,88 & 66,29 \\
+Granite-3.3-8B & DIFF+I & 34,88 & 7,71 & 88,58 & 63,59 \\
+Granite-3.3-8B & DIFF+I+M & 39,53 & 8,83 & 87,83 & 65,35 \\
+Granite-3.3-8B & DIFF+I+MM & 54,26 & 15,90 & 82,17 & 69,18 \\
+Granite-3.3-8B & DIFF+I+MB & 47,29 & 15,79 & 81,82 & 65,75 \\
+Granite-3.3-8B & DIFF+MB & 51,16 & 21,15 & 77,07 & 65,01 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\FloatBarrier
+\bibliographystyle{cas-model2-names}
+\bibliography{cas-refs}
+\end{document}

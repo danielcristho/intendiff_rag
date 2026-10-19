@@ -1,0 +1,56 @@
+\subsection{Trade-off model 3--4B tanpa contoh}
+
+Pada keenam kombinasi 3--4B, tidak ada konfigurasi yang sekaligus ber-TPR
+tinggi dan ber-FPR rendah (Tabel~\ref{tab:baseline-models}). Kedua ujungnya
+ditempati model yang berbeda: Qwen2.5-Coder-3B DIFF mencapai TPR 84,54\%
+tetapi menandai hampir separuh pembaruan tipikal, sedangkan Qwen3-4B DIFF+I
+menahan alarm tipikal di 3\% dengan melewatkan lebih dari sepertiga MAL
+berlabel sumber. Pada protokol ini, menaikkan satu sisi menurunkan sisi lain,
+dan itulah titik yang hendak diuji contoh pembanding serta profil intent pada
+rancangan utama.
+
+Blok intent sendiri belum terbukti menjadi pengungkit yang stabil. Arahnya
+berbeda antar model, dan pada Phi-4-mini kenaikannya justru datang dari
+transisi keluaran invalid menjadi valid, bukan dari pasangan yang kedua
+responsnya valid. Selama keluaran invalid dihitung benign, validitas format
+dan kemampuan menilai kode bercampur di dalam satu angka. Ablasi intent yang
+konfirmatori karena itu perlu dibaca bersama validitas JSON, bukan dari
+selisih TPR saja.
+
+Seluruh pembacaan di atas memakai label sumber tanpa gold manusia, tanpa
+subset \emph{hard negative}, dan tanpa interval kepercayaan, sehingga sifatnya
+menunjuk arah dan bukan estimasi.
+
+\subsection{Kecukupan konteks dan batas generalisasi}
+
+Diagnosis dependency menunjukkan bahwa keputusan model dapat bergantung
+pada kode yang tidak terlihat dalam diff target. Namun, kedua studi dependency
+tidak mendukung anggapan bahwa penambahan konteks selalu memperbaiki deteksi.
+Pada satu keluarga dependency, perubahan snapshot mengubah seluruh verdict;
+pada kohort dependency lain, tambahan isi tidak mengubah keputusan dan
+menambah penggunaan token. Temuan ini memotivasi pemeriksaan relevansi sumber,
+versi yang terpasang, dan cakupan kode sebelum memperluas konteks.
+
+Granite 3.3 8B juga tidak mengubah keputusan pada kohort yang sama. Model yang
+lebih besar dari keluarga lain tidak otomatis mengatasi keterbatasan
+informasi dalam masukan. Namun, hanya satu target MAL dan 14 kandidat HN
+yang diuji, sehingga hasil ini tidak menunjukkan bahwa Granite dan Qwen
+setara pada populasi pembaruan npm. Perluasan model harus disertai kohort
+yang cukup beragam dan label yang dapat dipertanggungjawabkan.
+
+Batas validitas utama adalah seleksi post-hoc pada studi versi dependency,
+keterpaparan dev, ketergantungan antartarget yang berbagi dependency,
+ketiadaan gold manusia, serta cakupan HN studi isi dependency yang belum
+mencakup perilaku runtime sensitif.
+Kedua studi menggunakan konteks kode dependency, bukan retrieval contoh KB
+berlabel. Hasilnya tidak menjawab hipotesis keunggulan contoh benign sebagai
+pembanding malicious, maupun efek intent terhadap FPR pada studi utama.
+
+Evaluasi berikutnya perlu mencakup beberapa keluarga dependency dengan
+provenance temporal, memisahkan versi resolved dari versi bersyarat, dan
+menyertakan pembaruan sah dengan perilaku network, process, atau lifecycle
+yang diverifikasi independen. Card KB harus ditulis dan diperiksa oleh dua
+anotator; target, dependency terkait, dan klon yang telah terpapar perlu
+dikecualikan dari KB dan test final. Audit ID bukti perlu dilengkapi penilaian
+apakah kutipan mendukung alasan, karena format yang valid tidak menjamin
+ketepatan penalaran.

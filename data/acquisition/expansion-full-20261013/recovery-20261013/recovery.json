@@ -1,0 +1,34 @@
+{
+  "at": "2026-10-13T09:14:05.818642+00:00",
+  "cause": "Unknown; no acquisition processes remained running",
+  "actions": [
+    {
+      "path": "data/acquisition/expansion-full-20261013/archives.jsonl",
+      "original_sha256": "7824861865e445c55a358582c38a6186d710c2acdf3badeb362d8453d738d4c8",
+      "complete_records": 4266,
+      "removed_zero_tail_bytes": 1549,
+      "retained_sha256": "c4ba8880292c212f3c1c48b4e4f633e6de666906afbdb6691b5303e36486108c"
+    },
+    {
+      "path": "data/acquisition/expansion-full-20261013/version-scans.jsonl",
+      "original_sha256": "e6d9e5b752ff0063025e856f2327fcdbcac97ac24556e33cf0266ac38d83d2d2",
+      "complete_records": 4576,
+      "removed_zero_tail_bytes": 930,
+      "retained_sha256": "cf5a63a99953bd9b5b1c5a573085e5f0f9eb9829bb14490f9d6309bb50969129"
+    },
+    {
+      "path": "data/acquisition/expansion-full-20261013/archives.log",
+      "original_sha256": "585080d3c8c6dd614241eb492690a74731c39e68d297a3472157757dd72b83f8",
+      "complete_records": 85,
+      "removed_zero_tail_bytes": 392,
+      "retained_sha256": "abcac956dafd9d197733891565a8bd5ed9623bcc2644b655c2aec0d2d06d651e"
+    },
+    {
+      "path": "data/acquisition/expansion-full-20261013/screen.log",
+      "original_sha256": "eb859b7c46f6a9628d8ba1e423eff8bf152cbd77b2fdeed06f02b33cf0b55a01",
+      "complete_records": 11,
+      "removed_zero_tail_bytes": 225,
+      "retained_sha256": "c35df4423bc361c033af46b75cd65378d2a4e07ab25f6ff5a0aa33f6fc82526e"
+    }
+  ]
+}

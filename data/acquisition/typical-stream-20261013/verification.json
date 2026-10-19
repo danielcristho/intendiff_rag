@@ -1,0 +1,18 @@
+{
+  "selection_reproduced": true,
+  "advisory_coverage_verified": true,
+  "archive_scan_coverage_verified": true,
+  "metadata_hashes_verified": true,
+  "selected": 500,
+  "eligible_names": 260175,
+  "malformed": 0,
+  "versions": 775,
+  "orphan_versions_not_used_in_pairs": [
+    [
+      "testpackagejpa",
+      "1.0.1"
+    ]
+  ],
+  "scan_failures": 11,
+  "download_failures": 8
+}

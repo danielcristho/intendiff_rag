@@ -1,0 +1,2596 @@
+Rc files read (in order):
+  NONE
+Latexmk: This is Latexmk, John Collins, 9 March 2026. Version 4.88.
+Latexmk: making output directory '/tmp/intendiff-latex-d91'
+No existing .aux file, so I'll make a simple one, and require run of *latex.
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Category 'other':
+  Rerun of 'pdflatex' forced or previously required:
+    Reason or flag: 'Initial setup'
+
+------------
+Run number 1 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder -output-directory="/tmp/intendiff-latex-d91"  "intendiff-rag.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./intendiff-rag.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-08-10>
+(./cas-dc.cls
+Document Class: cas-dc 2024/05/04, 2.4: Formatting class for CAS double column articles
+(~/.TinyTeX/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(~/.TinyTeX/texmf-dist/tex/latex/base/fleqn.clo) (~/.TinyTeX/texmf-dist/tex/latex/base/size10.clo)) (~/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty) (~/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/trig.sty) (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def))) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(~/.TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty) (~/.TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty (~/.TinyTeX/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)) (~/.TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty) (~/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (/tmp/intendiff-texmf/tex/latex/preprint/balance.sty) (~/.TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty) (/tmp/intendiff-texmf/tex/latex/makecell/makecell.sty (~/.TinyTeX/texmf-dist/tex/latex/tools/array.sty)) (/tmp/intendiff-texmf/tex/latex/multirow/multirow.sty) (/tmp/intendiff-texmf/tex/latex/colortbl/colortbl.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/color.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+new hooks used!!
+) (~/.TinyTeX/texmf-dist/tex/latex/tools/dcolumn.sty) (/tmp/intendiff-texmf/tex/latex/sttools/stfloats.sty) (~/.TinyTeX/texmf-dist/tex/latex/tools/xspace.sty) (/tmp/intendiff-texmf/tex/generic/xstring/xstring.sty (/tmp/intendiff-texmf/tex/generic/xstring/xstring.tex)) (/tmp/intendiff-texmf/tex/latex/footmisc/footmisc.sty) (~/.TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (~/.TinyTeX/texmf-dist/tex/latex/xcolor/svgnam.def) (~/.TinyTeX/texmf-dist/tex/latex/graphics/dvipsnam.def) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (~/.TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (~/.TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (~/.TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (~/.TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (~/.TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (~/.TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (~/.TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (~/.TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (~/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (~/.TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (~/.TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (~/.TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (~/.TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (~/.TinyTeX/texmf-dist/tex/latex/url/url.sty) (~/.TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (~/.TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (~/.TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (~/.TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))) (./cas-common.sty (/tmp/intendiff-texmf/tex/latex/moreverb/moreverb.sty (~/.TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty)) (/tmp/intendiff-texmf/tex/latex/wrapfig/wrapfig.sty)) (~/.TinyTeX/texmf-dist/tex/latex/base/fontenc.sty) (/tmp/intendiff-texmf/tex/latex/stix/stix.sty (~/.TinyTeX/texmf-dist/tex/latex/base/textcomp.sty)) (~/.TinyTeX/texmf-dist/tex/latex/inconsolata/inconsolata.sty `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (~/.TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty (~/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (~/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex)))) (~/.TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty (~/.TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty))) (~/.TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty) (/tmp/intendiff-texmf/tex/latex/stix/t1stix.fd) (/tmp/intendiff-latex-d91/intendiff-rag.aux) (/tmp/intendiff-texmf/tex/latex/stix/ls1stix.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stix.fd) (~/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty (/tmp/intendiff-texmf/tex/latex/grfext/grfext.sty) (~/.TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)) (/tmp/intendiff-texmf/tex/latex/upquote/upquote.sty)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/tmp/intendiff-texmf/tex/latex/stix/ts1stix.fd) [0{/tmp/intendiff-texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/tmp/intendiff-texmf/fonts/enc/dvips/stix/stix-t1.enc}{/tmp/intendiff-texmf/fonts/enc/dvips/stix/stix-ts1.enc}] (/tmp/intendiff-texmf/tex/latex/stix/ls1stixscr.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixex.fd) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixfrak.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixbb.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixcal.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixsf.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixtt.fd)
+Overfull \hbox (123.62721pt too wide) detected at line 42
+[]
+(/tmp/intendiff-latex-d91/intendiff-rag.abs)
+
+Package hyperref Warning: Ignoring empty anchor on input line 42.
+
+
+Package hyperref Warning: Ignoring empty anchor on input line 42.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 1 undefined on input line 52.
+
+
+Overfull \hbox (1.80554pt too wide) in paragraph at lines 49--57
+[]\T1/stix/m/n/10 Pengembangan perangkat lu-nak mod-ern bergan-tung pada
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 1 undefined on input line 61.
+
+(~/.TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+
+Package natbib Warning: Citation `aws2025chalk' on page 1 undefined on input line 67.
+
+
+Package natbib Warning: Citation `aws2025chalk' on page 1 undefined on input line 71.
+
+
+Package natbib Warning: Citation `unit42shaihulud' on page 1 undefined on input line 71.
+
+
+Package natbib Warning: Citation `datadog2026axios' on page 1 undefined on input line 75.
+
+
+Package natbib Warning: Citation `npmaudit' on page 1 undefined on input line 82.
+
+
+Package natbib Warning: Citation `guo2026effective' on page 1 undefined on input line 87.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 1 undefined on input line 94.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 1 undefined on input line 100.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 1 undefined on input line 104.
+
+
+Package natbib Warning: Citation `zahan2025leveraging' on page 1 undefined on input line 107.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 1 undefined on input line 107.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 1 undefined on input line 115.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 1 undefined on input line 120.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 1 undefined on input line 121.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 1 undefined on input line 123.
+
+
+Package natbib Warning: Citation `nguyen2025taint' on page 1 undefined on input line 126.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 1 undefined on input line 130.
+
+
+Package natbib Warning: Citation `zhao2021calibrate' on page 1 undefined on input line 133.
+
+
+Package natbib Warning: Citation `liu2022makes' on page 1 undefined on input line 135.
+
+
+Package natbib Warning: Citation `gao2024customizing' on page 1 undefined on input line 139.
+
+
+Package natbib Warning: Citation `min2022rethinking' on page 1 undefined on input line 142.
+
+
+Underfull \hbox (badness 1688) in paragraph at lines 129--144
+\T1/stix/m/n/10 garuhi prediksi model. Model ba-hasa cen-derung mem-
+[1{~/.TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+
+Package natbib Warning: Citation `gorla2014checking' on page 2 undefined on input line 149.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 2 undefined on input line 150.
+
+
+Overfull \hbox (2.09636pt too wide) in paragraph at lines 145--154
+\T1/stix/m/n/10 pola mal-ware yang su-dah dike-tahui, pen-dekatan ini menandai
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 2 undefined on input line 159.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 2 undefined on input line 161.
+
+
+Underfull \hbox (badness 1442) in paragraph at lines 155--172
+\T1/stix/m/n/10 ran ke-cil. Un-tuk se-tiap pasan-gan versi, IntentDiff-RAG
+
+Overfull \hbox (12.768pt too wide) in paragraph at lines 155--172
+\T1/stix/m/n/10 melakukan em-pat langkah: (i) mem-ben-tuk \T1/stix/m/it/10 smart-diff \T1/stix/m/n/10 mengikuti
+
+Underfull \hbox (badness 1496) in paragraph at lines 155--172
+\T1/stix/m/n/10 spe-si-fikasi \T1/stix/b/n/10 ?\T1/stix/m/n/10 ; (ii) menyusun pro-fil in-tent dari versi se-
+
+Underfull \hbox (badness 1365) in paragraph at lines 155--172
+\T1/stix/m/n/10 model meng-hasilkan vo-nis dalam for-mat JSON be-serta
+
+Underfull \hbox (badness 1728) in paragraph at lines 176--179
+[]\T1/stix/m/n/10 Evaluasi LLM \T1/stix/m/it/10 open-weight \T1/stix/m/n/10 beruku-ran 3--4 mil-iar
+
+Underfull \hbox (badness 1173) in paragraph at lines 176--179
+\T1/stix/m/n/10 haya pada tingkat \T1/stix/m/it/10 smart-diff\T1/stix/m/n/10 , den-gan metrik yang
+
+LaTeX Warning: Reference `sec:related' on page 2 undefined on input line 193.
+
+
+LaTeX Warning: Reference `sec:method' on page 2 undefined on input line 194.
+
+
+LaTeX Warning: Reference `sec:setup' on page 2 undefined on input line 195.
+
+
+LaTeX Warning: Reference `sec:results' on page 2 undefined on input line 196.
+
+
+LaTeX Warning: Reference `sec:discussion' on page 2 undefined on input line 196.
+
+
+LaTeX Warning: Reference `sec:conclusion' on page 2 undefined on input line 197.
+
+
+Overfull \hbox (13.0105pt too wide) in paragraph at lines 193--198
+\T1/stix/m/n/10 mem-ba-has peneli-tian terkait. Bagian [] men-je-laskan IntentDiff-
+
+Underfull \hbox (badness 1527) in paragraph at lines 193--198
+\T1/stix/m/n/10 ba-has im-p-likasi dan an-ca-man va-lid-i-tas, dan Bagian []
+
+Package natbib Warning: Citation `zimmermann2019small' on page 2 undefined on input line 213.
+
+
+Package natbib Warning: Citation `ohm2020backstabber' on page 2 undefined on input line 216.
+
+
+Package natbib Warning: Citation `ladisa2023sok' on page 2 undefined on input line 218.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 2 undefined on input line 226.
+
+
+Package natbib Warning: Citation `wyss2022wolf' on page 2 undefined on input line 230.
+
+
+Package natbib Warning: Citation `duan2021towards' on page 2 undefined on input line 236.
+
+
+Package natbib Warning: Citation `sejfia2022practical' on page 2 undefined on input line 239.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[2]
+
+Package natbib Warning: Citation `huang2024donapi' on page 3 undefined on input line 244.
+
+
+Package natbib Warning: Citation `zhang2025killing' on page 3 undefined on input line 246.
+
+
+Package natbib Warning: Citation `zheng2024towards' on page 3 undefined on input line 250.
+
+
+Package natbib Warning: Citation `guo2026effective' on page 3 undefined on input line 252.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 3 undefined on input line 267.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 3 undefined on input line 271.
+
+
+Underfull \hbox (badness 2150) in paragraph at lines 264--272
+[]\T1/stix/m/n/10 Kelompok peneli-tian ini men-jadikan pe-ruba-han an-
+
+Underfull \hbox (badness 1803) in paragraph at lines 264--272
+\T1/stix/m/n/10 data baru, se-hingga kon-fig-urasi bawaan-nya mele-watkan
+
+Package natbib Warning: Citation `froh2023differential' on page 3 undefined on input line 273.
+
+
+Underfull \hbox (badness 2042) in paragraph at lines 273--277
+[]\T1/stix/b/n/10 ? \T1/stix/m/n/10 meny-atakan per-i-laku men-curi-gakan se-ba-gai kueri
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 3 undefined on input line 278.
+
+
+Underfull \hbox (badness 1648) in paragraph at lines 278--284
+\T1/stix/m/it/10 smart-diff\T1/stix/m/n/10 . Anal-i-sis mereka me-nun-jukkan bahwa posi-tif
+
+Underfull \hbox (badness 1122) in paragraph at lines 278--284
+\T1/stix/m/n/10 kode dalam jum-lah be-sar (ter-ma-suk paket yang di-ganti
+
+Underfull \hbox (badness 1082) in paragraph at lines 278--284
+\T1/stix/m/n/10 Kom-bi-nasi ob-fuskasi ali-ran data ringan dan pe-mec-a-han
+
+Package natbib Warning: Citation `zahan2025leveraging' on page 3 undefined on input line 289.
+
+
+Package natbib Warning: Citation `wang2025malpacdetector' on page 3 undefined on input line 293.
+
+
+Overfull \hbox (2.33469pt too wide) in paragraph at lines 287--294
+[]\T1/stix/m/n/10 SocketAI me-nun-jukkan bahwa GPT-4 men-gung-guli anal-
+
+Underfull \hbox (badness 2057) in paragraph at lines 287--294
+\T1/stix/m/n/10 me-man-faatkan LLM un-tuk mem-bangk-itkan fi-tur se-cara
+
+Underfull \hbox (badness 1803) in paragraph at lines 287--294
+\T1/stix/m/n/10 otoma-tis alih-alih men-gan-dalkan fi-tur yang diru-muskan
+
+Package natbib Warning: Citation `guo2026bridging' on page 3 undefined on input line 298.
+
+
+Package natbib Warning: Citation `guo2026effective' on page 3 undefined on input line 298.
+
+
+Package natbib Warning: Citation `nguyen2025taint' on page 3 undefined on input line 303.
+
+
+Package natbib Warning: Citation `ryan2026evaluation' on page 3 undefined on input line 308.
+
+
+Overfull \hbox (3.48047pt too wide) in paragraph at lines 303--309
+[]\T1/stix/m/n/10 Untuk model \T1/stix/m/it/10 open-weight\T1/stix/m/n/10 , \T1/stix/b/n/10 ? \T1/stix/m/n/10 mem-o-tong kode berdasarkan
+
+Underfull \hbox (badness 1067) in paragraph at lines 303--309
+\T1/stix/m/n/10 ter-hadap 13 LLM men-e-mukan bahwa model men-ge-nali
+
+Package natbib Warning: Citation `du2026vulrag' on page 3 undefined on input line 318.
+
+
+Package natbib Warning: Citation `ding2025vulnerability' on page 3 undefined on input line 320.
+
+
+Package natbib Warning: Citation `kaniewski2026revisiting' on page 3 undefined on input line 325.
+
+
+Package natbib Warning: Citation `liu2022makes' on page 3 undefined on input line 329.
+
+
+Package natbib Warning: Citation `zhao2021calibrate' on page 3 undefined on input line 329.
+
+
+Package natbib Warning: Citation `min2022rethinking' on page 3 undefined on input line 329.
+
+
+Package natbib Warning: Citation `gao2024customizing' on page 3 undefined on input line 331.
+
+
+Package natbib Warning: Citation `pandita2013whyper' on page 3 undefined on input line 340.
+
+
+Package natbib Warning: Citation `qu2014autocog' on page 3 undefined on input line 343.
+
+
+Package natbib Warning: Citation `gorla2014checking' on page 3 undefined on input line 345.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 3 undefined on input line 346.
+
+
+Overfull \hbox (7.40549pt too wide) in paragraph at lines 337--349
+\T1/stix/m/n/10 den-gan deskripsinya berkem-bang di eko-sis-tem ap-likasi seluler.
+
+Underfull \hbox (badness 1997) in paragraph at lines 337--349
+\T1/stix/m/n/10 An-droid berdasarkan topik deskripsinya, lalu menandai
+
+Underfull \hbox (badness 1107) in paragraph at lines 337--349
+\T1/stix/m/n/10 peng-gu-naan API yang meny-im-pang di se-tiap kelom-pok
+
+Underfull \hbox (badness 1163) in paragraph at lines 337--349
+\T1/stix/m/n/10 (\T1/stix/b/n/10 ?\T1/stix/m/n/10 ). Pada paket npm, In-tel-Guard men-er-ap-kan pe-nalaran
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[3]
+
+LaTeX Warning: Reference `tab:positioning' on page 4 undefined on input line 352.
+
+
+Package natbib Warning: Citation `froh2023differential' on page 4 undefined on input line 354.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 4 undefined on input line 354.
+
+
+Underfull \hbox (badness 1033) in paragraph at lines 363--366
+\T1/stix/m/n/10 Mengikuti pela-jaran dari Vul-RAG, Prime-Vul, dan rep-
+
+Underfull \hbox (badness 1838) in paragraph at lines 363--366
+\T1/stix/m/n/10 likasinya, eval-u-asi di-lakukan pada \T1/stix/m/it/10 hard neg-a-tive\T1/stix/m/n/10 , yaitu
+
+Underfull \hbox (badness 2644) in paragraph at lines 376--376
+[]|\T1/cmss/m/n/9 Unit anal-i-
+
+Package natbib Warning: Citation `duan2021towards' on page 4 undefined on input line 378.
+
+
+Package natbib Warning: Citation `sejfia2022practical' on page 4 undefined on input line 379.
+
+
+Package natbib Warning: Citation `huang2024donapi' on page 4 undefined on input line 380.
+
+
+Package natbib Warning: Citation `zheng2024towards' on page 4 undefined on input line 381.
+
+
+Package natbib Warning: Citation `froh2023differential' on page 4 undefined on input line 382.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 4 undefined on input line 383.
+
+
+Package natbib Warning: Citation `zahan2025leveraging' on page 4 undefined on input line 384.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 384--384
+[]|\T1/cmss/m/n/9 Tertutup (GPT-3,
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 4 undefined on input line 385.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 385--385
+[]|\T1/cmss/m/n/9 Tertutup (GPT-4o,
+
+Underfull \hbox (badness 6658) in paragraph at lines 385--385
+\T1/cmss/m/n/9 GPT-4-Turbo, Gem-ini
+
+Package natbib Warning: Citation `guo2026bridging' on page 4 undefined on input line 386.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
+[]|\T1/cmss/m/n/9 Tertutup (GPT-4.1-
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
+[]|\T1/cmss/m/n/9 Contoh
+
+Package natbib Warning: Citation `nguyen2025taint' on page 4 undefined on input line 387.
+
+
+Overfull \hbox (35.58018pt too wide) in paragraph at lines 374--391
+ [][] 
+
+Package natbib Warning: Citation `datadog2026axios' on page 4 undefined on input line 410.
+
+
+Overfull \hbox (0.92926pt too wide) in paragraph at lines 403--411
+[]\T1/stix/m/n/10 Unit anal-i-sis adalah satu pem-baruan \T1/zi4/m/n/10 pkg\T1/stix/m/n/10 @$\LS1/stix/m/n/10 v[]  \LS1/stixsf/m/n/10 ™$\T1/zi4/m/n/10 pkg\T1/stix/m/n/10 @$\LS1/stix/m/n/10 v[]$\T1/stix/m/n/10 ,
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 4 undefined on input line 412.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 4 undefined on input line 419.
+
+
+LaTeX Warning: Reference `tab:models' on page 4 undefined on input line 429.
+
+
+Package natbib Warning: Citation `liu2024lost' on page 4 undefined on input line 433.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[4]
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 5 undefined on input line 443.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 5 undefined on input line 446.
+
+
+Overfull \hbox (2.0062pt too wide) in paragraph at lines 445--450
+\T1/stix/m/n/10 di-ta-mpilkan. Prompt \T1/stix/b/n/10 ? \T1/stix/m/n/10 juga hanya berisi \T1/stix/m/it/10 smart-diff\T1/stix/m/n/10 ; menyem-
+
+Package natbib Warning: Citation `guo2026bridging' on page 5 undefined on input line 457.
+
+
+Package natbib Warning: Citation `guo2026effective' on page 5 undefined on input line 460.
+
+
+Package natbib Warning: Citation `min2022rethinking' on page 5 undefined on input line 462.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 5 undefined on input line 469.
+
+
+LaTeX Warning: Reference `sec:data' on page 5 undefined on input line 471.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 5 undefined on input line 485.
+
+
+Package natbib Warning: Citation `liu2022makes' on page 5 undefined on input line 486.
+
+
+Package natbib Warning: Citation `zhao2021calibrate' on page 5 undefined on input line 493.
+
+
+Package natbib Warning: Citation `gao2024customizing' on page 5 undefined on input line 496.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 5 undefined on input line 501.
+
+
+Overfull \hbox (2.72638pt too wide) in paragraph at lines 500--507
+[]\T1/stix/m/n/10 Model berperan se-ba-gai pen-ganal-i-sis pro-gram, mengikuti
+
+Underfull \hbox (badness 1442) in paragraph at lines 500--507
+\T1/stix/m/n/10 di-akan --- ke-sesua-ian den-gan pro-fil in-tent serta con-toh
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 5 undefined on input line 513.
+
+
+Overfull \hbox (12.38786pt too wide) in paragraph at lines 508--515
+\T1/stix/m/n/10 tiga baris dis-alin dari \T1/stix/m/it/10 smart-diff\T1/stix/m/n/10 ), \T1/zi4/m/n/10 reason\T1/stix/m/n/10 , dan \T1/zi4/m/n/10 verdict \T1/stix/m/n/10 (\T1/zi4/m/n/10 malicious
+
+Underfull \hbox (badness 1831) in paragraph at lines 508--515
+\T1/stix/m/n/10 atau \T1/zi4/m/n/10 benign\T1/stix/m/n/10 ). Out-put yang ga-gal di-u-rai, atau ter-po-tong
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 5 undefined on input line 524.
+
+
+LaTeX Warning: Reference `sec:discussion' on page 5 undefined on input line 526.
+
+
+LaTeX Warning: Reference `tab:eval-protocol' on page 5 undefined on input line 531.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 5 undefined on input line 532.
+
+
+Package natbib Warning: Citation `nguyen2025taint' on page 5 undefined on input line 535.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 5 undefined on input line 536.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 5 undefined on input line 537.
+
+
+Underfull \hbox (badness 1122) in paragraph at lines 531--538
+\T1/stix/m/n/10 me-ni-lai paket utuh den-gan RAG con-toh berba-haya dan
+
+Package natbib Warning: Citation `ding2025vulnerability' on page 5 undefined on input line 543.
+
+
+Package natbib Warning: Citation `du2026vulrag' on page 5 undefined on input line 545.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 5 undefined on input line 548.
+
+
+Underfull \hbox (badness 1082) in paragraph at lines 539--550
+\T1/stix/m/n/10 4B dan di-jalankan se-cara lokal. Ke-dua, pem-baruan sah
+
+Underfull \hbox (badness 1320) in paragraph at lines 539--550
+\T1/stix/m/n/10 melebih-lebihkan kin-erja: model 7B yang men-ca-pai F1
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[5]
+Underfull \hbox (badness 2837) in paragraph at lines 559--559
+[]|\T1/cmss/m/n/9 Pembaruan atau paket
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 6 undefined on input line 561.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 6 undefined on input line 567.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 572--573
+[]|\T1/cmss/m/n/9 Sensitivitas,
+
+Package natbib Warning: Citation `zahan2025leveraging' on page 6 undefined on input line 573.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 6 undefined on input line 579.
+
+
+Package natbib Warning: Citation `nguyen2025taint' on page 6 undefined on input line 585.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 593--594
+[]|\T1/cmss/m/it/9 Smart-diff \T1/cmss/m/n/9 +
+
+Overfull \hbox (24.19925pt too wide) in paragraph at lines 557--599
+ [][] 
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 6 undefined on input line 611.
+
+
+Package natbib Warning: Citation `ohm2020backstabber' on page 6 undefined on input line 612.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 6 undefined on input line 614.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 6 undefined on input line 619.
+
+
+Underfull \hbox (badness 1648) in paragraph at lines 626--630
+\T1/stix/m/n/10 se-hingga mema-sukkan-nya akan menaikkan \T1/stix/m/it/10 re-call \T1/stix/m/n/10 tanpa
+
+Overfull \hbox (5.20546pt too wide) in paragraph at lines 631--636
+\T1/stix/m/n/10 kam-pa-nye yang ter-bit sete-lah tang-gal rilis model dikumpulkan
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 6 undefined on input line 648.
+
+
+Package natbib Warning: Citation `guo2026effective' on page 6 undefined on input line 652.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 6 undefined on input line 655.
+
+
+Underfull \hbox (badness 1924) in paragraph at lines 646--656
+\T1/stix/m/n/10 yang menam-bahkan ke-mam-puan sen-si-tif den-gan tu-juan
+
+Underfull \hbox (badness 1642) in paragraph at lines 646--656
+\T1/stix/m/n/10 de-pen-densi; pada anal-i-sis lang-sung, con-tohnya meliputi
+
+Underfull \hbox (badness 1371) in paragraph at lines 646--656
+\T1/stix/m/n/10 skrip uji. \T1/stix/b/n/10 ? \T1/stix/m/n/10 me-nun-juk \T1/zi4/m/n/10 husky\T1/stix/m/n/10 , \T1/zi4/m/n/10 patch-package\T1/stix/m/n/10 , dan \T1/zi4/m/n/10 prisma
+
+LaTeX Warning: Reference `tab:hn' on page 6 undefined on input line 657.
+
+
+Underfull \hbox (badness 3271) in paragraph at lines 679--680
+[]|\T1/cmss/m/n/9 Dasar di eval-u-asi ter-
+
+Underfull \hbox (badness 10000) in paragraph at lines 682--683
+[]|\T1/zi4/m/n/9 install_script\T1/cmss/m/n/9 ,
+
+Package natbib Warning: Citation `guo2026effective' on page 6 undefined on input line 683.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 688--689
+[]|\T1/zi4/m/n/9 obfuscation\T1/cmss/m/n/9 ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 689--690
+[]|\T1/cmss/m/n/9 Validasi lisensi ter-
+
+Underfull \hbox (badness 1881) in paragraph at lines 689--690
+\T1/cmss/m/n/9 obfuscate pada anal-i-sis
+
+Underfull \hbox (badness 10000) in paragraph at lines 690--691
+[]|\T1/cmss/m/n/9 Jaringan dan
+
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
+[]|\T1/zi4/m/n/9 network\T1/cmss/m/n/9 ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 693--694
+[]|\T1/cmss/m/n/9 Depresiasi dan
+
+Underfull \hbox (badness 10000) in paragraph at lines 693--694
+\T1/cmss/m/n/9 pe-ruba-han
+
+Underfull \hbox (badness 10000) in paragraph at lines 694--695
+[]|\T1/zi4/m/n/9 large_deletion\T1/cmss/m/n/9 ,
+
+Overfull \hbox (8.11996pt too wide) in paragraph at lines 694--695
+\T1/zi4/m/n/9 dependency_change| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 695--696
+\T1/cmss/m/n/9 pe-ruba-han de-pen-densi,
+
+Overfull \hbox (13.9862pt too wide) in paragraph at lines 677--698
+ [][] 
+
+Underfull \hbox (badness 1067) in paragraph at lines 701--709
+\T1/stix/m/n/10 pa-nye jika meru-juk in-si-den yang sama, memuat berkas
+
+Underfull \hbox (badness 1527) in paragraph at lines 701--709
+\T1/stix/m/n/10 pada am-bang 0,5. Am-bang con-dong ke peng-gabun-gan:
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[6]
+
+LaTeX Warning: Reference `tab:models' on page 7 undefined on input line 718.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 731--731
+[]|\T1/cmss/m/n/9 Qwen3-4B-
+
+Underfull \hbox (badness 10000) in paragraph at lines 731--732
+[]|\T1/cmss/m/n/9 Qwen2.5-Coder-
+
+Overfull \hbox (13.98665pt too wide) in paragraph at lines 729--739
+ [][] 
+
+Underfull \hbox (badness 1048) in paragraph at lines 741--746
+\T1/stix/m/n/10 pe-m-anasan dari dev set dibuang. Qwen3-4B se-cara na-
+
+Underfull \hbox (badness 1789) in paragraph at lines 741--746
+\T1/stix/m/n/10 Qwen2.5-Coder-3B su-paya ke-ung-gu-lan kon-teks pan-jang
+
+LaTeX Warning: Reference `tab:configs' on page 7 undefined on input line 749.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 7 undefined on input line 754.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 7 undefined on input line 757.
+
+
+Underfull \hbox (badness 1237) in paragraph at lines 749--760
+\T1/stix/m/it/10 smart-diff \T1/stix/m/n/10 hasil po-ton-gan, dan pa-ram-e-ter gen-erasi yang
+
+Overfull \hbox (28.37964pt too wide) in paragraph at lines 749--760
+\T1/stix/m/n/10 DIFF+I+MM mengam-bil dua card berba-haya ter-atas. DIFF+I+MB
+
+Overfull \hbox (2.62749pt too wide) in paragraph at lines 806--807
+[]\T1/stix/m/it/10 Recall\T1/stix/m/n/10 : pro-porsi pair MAL yang diberi vo-nis \T1/zi4/m/n/10 malicious\T1/stix/m/n/10 . 
+
+Overfull \hbox (6.54744pt too wide) in paragraph at lines 807--808
+[]\T1/stix/m/n/10 FPR$[]$: pro-porsi pair TYP yang diberi vo-nis \T1/zi4/m/n/10 malicious\T1/stix/m/n/10 . 
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[7]
+
+Package natbib Warning: Citation `tam2024speak' on page 8 undefined on input line 815.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 8 undefined on input line 819.
+
+
+Package natbib Warning: Citation `guo2026effective' on page 8 undefined on input line 829.
+
+
+Overfull \hbox (0.44302pt too wide) in paragraph at lines 825--831
+[]\T1/stix/m/n/10 FPR tidak di-ga-bung an-tara TYP dan HN. TYP mendekati
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 8 undefined on input line 835.
+
+
+Package natbib Warning: Citation `dietterich1998approximate' on page 8 undefined on input line 858.
+
+
+Overfull \hbox (8.12465pt too wide) in paragraph at lines 880--882
+[]\T1/stix/m/it/10 Arah sesuai, tidak sig-nifikan\T1/stix/m/n/10 : FPR$[]$ tu-run, $\LS1/stix/m/it/10 p[][]\LS1/stix/m/n/10 0[]05$\T1/stix/m/n/10 ,
+
+Overfull \hbox (8.76463pt too wide) in paragraph at lines 886--892
+\T1/stix/m/n/10 bel-nya \T1/stix/m/it/10 Didukung \T1/stix/m/n/10 jika FPR$[]$(DIFF+I+M) $\LS1/stix/m/it/10 >$ \T1/stix/m/n/10 FPR$[]$(DIFF+I)
+
+Underfull \hbox (badness 1635) in paragraph at lines 886--892
+\T1/stix/m/n/10 den-gan $\LS1/stix/m/it/10 p[][]\LS1/stix/m/n/10 0[]05$\T1/stix/m/n/10 ; \T1/stix/m/it/10 Arah sesuai, tidak sig-nifikan\T1/stix/m/n/10 ; atau
+
+Overfull \hbox (3.9255pt too wide) in paragraph at lines 886--892
+\T1/stix/m/n/10 hanya di-t-ulis jika ke-d-u-anya berla-bel Didukung atau Didukung
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 8 undefined on input line 899.
+
+
+Underfull \hbox (badness 1490) in paragraph at lines 902--908
+\T1/stix/m/n/10 la-porkan log vLLM saat model dimuat dan KV cache
+
+Overfull \hbox (32.35634pt too wide) in paragraph at lines 921--925
+\T1/stix/m/n/10 berubah pada tiga seed (\T1/stix/m/it/10 tem-per-a-ture \T1/stix/m/n/10 0,7; DIFF+I dan DIFF+I+MB),
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[8]
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 9 undefined on input line 929.
+
+(./results-exploratory.tex
+Underfull \hbox (badness 1540) in paragraph at lines 14--24
+\T1/stix/m/n/10 sum-ber dan 100 TYP di-a-sum-sikan be-nign) pada enam
+
+Underfull \hbox (badness 1242) in paragraph at lines 14--24
+\T1/stix/m/n/10 batas out-put 2.048 to-ken terse-dia 11.676 re-spons unik;
+
+Underfull \hbox (badness 4531) in paragraph at lines 14--24
+\T1/stix/m/n/10 re-trieval. Se-ba-liknya, D88 hanya men-cakup 20 tar-get
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--24
+\T1/stix/m/n/10 di-ag-nos-tik, sedan-gkan D89 dan D90 masing-masing
+
+Underfull \hbox (badness 1303) in paragraph at lines 14--24
+\T1/stix/m/n/10 penye-le-sa-ian in-fer-ensi pada sub-set tidak be-rarti selu-ruh
+
+LaTeX Warning: Reference `tab:dependency-versions' on page 9 undefined on input line 54.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--61
+\T1/stix/m/n/10 Versi 1.11.22 memi-liki postin-stall yang men-jalankan
+
+Underfull \hbox (badness 3396) in paragraph at lines 53--61
+\T1/zi4/m/n/10 setup.cjs\T1/stix/m/n/10 ; pem-ba-caan statis file terse-but me-nun-jukkan
+
+Underfull \hbox (badness 1762) in paragraph at lines 62--68
+\T1/stix/m/n/10 pakan kepu-tu-san bersyarat pada snap-shot, bukan re-call
+
+Underfull \hbox (badness 1248) in paragraph at lines 62--68
+\T1/stix/m/n/10 100%. Tidak ada kelu-aran ter-po-tong atau ID bukti tak
+
+Underfull \hbox (badness 1308) in paragraph at lines 83--90
+\T1/stix/m/n/10 in-struksi kon-di-sional serta nama/versi de-pen-dency yang
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[9]
+
+LaTeX Warning: Reference `tab:granite-comparison' on page 10 undefined on input line 132.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--139
+[]\T1/stix/m/n/10 Tidak ada satu pun ver-dict yang berbeda an-tar
+
+Underfull \hbox (badness 2735) in paragraph at lines 131--139
+\T1/stix/m/n/10 model (Tabel []). Selu-ruh re-spons Gran-ite memenuhi
+
+Underfull \hbox (badness 6078) in paragraph at lines 131--139
+\T1/stix/m/n/10 atau er-ror trans-port. Satu tar-get MAL tetap be-nign,
+
+Underfull \hbox (badness 2134) in paragraph at lines 131--139
+\T1/stix/m/n/10 se-hingga per-gan-tian model belum mem-per-baiki de-teksi
+
+Underfull \hbox (badness 3746) in paragraph at lines 131--139
+\T1/stix/m/n/10 isi de-pen-dency, pada \T1/zi4/m/n/10 get-symbol-description@1.0.2 \T1/stix/m/n/10 dan
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--139
+\T1/zi4/m/n/10 @tolicodes/picklejs@0.75.0\T1/stix/m/n/10 ; dukun-gan se-man-tik alasan
+)
+Underfull \hbox (badness 2717) in paragraph at lines 140--939
+[]\T1/stix/m/n/10 Granite memakai 76.964 to-ken pada NO-SOURCE
+
+Underfull \hbox (badness 3713) in paragraph at lines 140--939
+\T1/stix/m/n/10 diband-ingkan to-tal 196.035 to-ken Qwen. To-ken an-tar
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--939
+\T1/stix/m/n/10 model mengikuti to-k-enizer masing-masing dan tidak
+
+Underfull \hbox (badness 1122) in paragraph at lines 140--939
+\T1/stix/m/n/10 14 kan-di-dat HN adalah 1.676 ms dan 2.422 ms un-tuk
+
+Underfull \hbox (badness 2856) in paragraph at lines 140--939
+\T1/stix/m/n/10 pay-load, jum-lah to-ken, pars-ing, ku-ti-pan, 27 check-sum
+
+Underfull \hbox (badness 2293) in paragraph at lines 140--939
+\T1/stix/m/n/10 ini men-dukung ke-samaan kepu-tu-san pada ko-hort yang
+(./discussion-exploratory.tex)
+No file intendiff-rag.bbl.
+
+Package natbib Warning: There were undefined citations.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[10] (/tmp/intendiff-latex-d91/intendiff-rag.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `intendiff-rag.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information) </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecso0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0900.600pk><~/.TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Bold.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Italic.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Regular.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathcal.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathit.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathrm.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathsf.pfb>
+Output written on /tmp/intendiff-latex-d91/intendiff-rag.pdf (11 pages, 284829 bytes).
+Transcript written on /tmp/intendiff-latex-d91/intendiff-rag.log.
+Latexmk: Getting log file '/tmp/intendiff-latex-d91/intendiff-rag.log'
+Latexmk: Examining '/tmp/intendiff-latex-d91/intendiff-rag.fls'
+Latexmk: Examining '/tmp/intendiff-latex-d91/intendiff-rag.log'
+Latexmk: Missing bbl file '/tmp/intendiff-latex-d91/intendiff-rag.bbl' in following:
+ No file intendiff-rag.bbl.
+Latexmk: References changed.
+Latexmk: References changed.
+Latexmk: Log file says output to '/tmp/intendiff-latex-d91/intendiff-rag.pdf'
+Latexmk: Using bibtex to make bibliography file(s).
+  ===Source file '/tmp/intendiff-latex-d91/intendiff-rag.bbl' for 'pdflatex'
+Create bibtex /tmp/intendiff-latex-d91/intendiff-rag
+Latexmk: Found bibliography file(s):
+  ./cas-refs.bib
+Latexmk: applying rule 'bibtex /tmp/intendiff-latex-d91/intendiff-rag'...
+Rule 'bibtex /tmp/intendiff-latex-d91/intendiff-rag':  Reasons for rerun
+Category 'other':
+  Rerun of 'bibtex /tmp/intendiff-latex-d91/intendiff-rag' forced or previously required:
+    Reason or flag: 'Initial set up of rule'
+
+------------
+Run number 1 of rule 'bibtex /tmp/intendiff-latex-d91/intendiff-rag'
+------------
+Latexmk: Change directory to '/tmp/intendiff-latex-d91/'.
+To assist finding of files in document directory, I set
+  BIBINPUTS='~/intendiff_rag/labs/latex:/tmp/intendiff-latex-d91:'
+  BSTINPUTS='~/intendiff_rag/labs/latex:'.
+------------
+Running 'bibtex  "intendiff-rag.aux"'
+------------
+This is BibTeX, Version 0.99e (TeX Live 2026)
+The top-level auxiliary file: intendiff-rag.aux
+The style file: cas-model2-names.bst
+Database file #1: cas-refs.bib
+Warning--empty pages in ding2025vulnerability
+Warning--empty pages in duan2021towards
+Warning--empty pages in gao2024customizing
+Warning--empty pages in gorla2014checking
+Warning--empty pages in guo2026bridging
+Warning--empty pages in huang2024donapi
+Warning--empty pages in kaniewski2026revisiting
+Warning--empty pages in ladisa2023sok
+Warning--empty pages in liu2022makes
+Warning--empty pages in min2022rethinking
+Warning--empty pages in ohm2020backstabber
+Warning--empty pages in qu2014autocog
+Warning--empty pages in sofaer2024rogueone
+Warning--empty pages in tam2024speak
+Warning--empty pages in wyss2025evaluating
+Warning--empty pages in zahan2025leveraging
+Warning--empty pages in zhao2021calibrate
+Warning--empty pages in zheng2024towards
+(There were 18 warnings)
+Latexmk: Change directory back to '~/intendiff_rag/labs/latex'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  /tmp/intendiff-latex-d91/intendiff-rag.abs
+  /tmp/intendiff-latex-d91/intendiff-rag.aux
+  /tmp/intendiff-latex-d91/intendiff-rag.bbl
+  /tmp/intendiff-latex-d91/intendiff-rag.out
+
+------------
+Run number 2 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder -output-directory="/tmp/intendiff-latex-d91"  "intendiff-rag.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./intendiff-rag.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-08-10>
+(./cas-dc.cls
+Document Class: cas-dc 2024/05/04, 2.4: Formatting class for CAS double column articles
+(~/.TinyTeX/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(~/.TinyTeX/texmf-dist/tex/latex/base/fleqn.clo) (~/.TinyTeX/texmf-dist/tex/latex/base/size10.clo)) (~/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty) (~/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/trig.sty) (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def))) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(~/.TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty) (~/.TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty (~/.TinyTeX/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)) (~/.TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty) (~/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (/tmp/intendiff-texmf/tex/latex/preprint/balance.sty) (~/.TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty) (/tmp/intendiff-texmf/tex/latex/makecell/makecell.sty (~/.TinyTeX/texmf-dist/tex/latex/tools/array.sty)) (/tmp/intendiff-texmf/tex/latex/multirow/multirow.sty) (/tmp/intendiff-texmf/tex/latex/colortbl/colortbl.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/color.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+new hooks used!!
+) (~/.TinyTeX/texmf-dist/tex/latex/tools/dcolumn.sty) (/tmp/intendiff-texmf/tex/latex/sttools/stfloats.sty) (~/.TinyTeX/texmf-dist/tex/latex/tools/xspace.sty) (/tmp/intendiff-texmf/tex/generic/xstring/xstring.sty (/tmp/intendiff-texmf/tex/generic/xstring/xstring.tex)) (/tmp/intendiff-texmf/tex/latex/footmisc/footmisc.sty) (~/.TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (~/.TinyTeX/texmf-dist/tex/latex/xcolor/svgnam.def) (~/.TinyTeX/texmf-dist/tex/latex/graphics/dvipsnam.def) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (~/.TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (~/.TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (~/.TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (~/.TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (~/.TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (~/.TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (~/.TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (~/.TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (~/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (~/.TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (~/.TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (~/.TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (~/.TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (~/.TinyTeX/texmf-dist/tex/latex/url/url.sty) (~/.TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (~/.TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (~/.TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (~/.TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))) (./cas-common.sty (/tmp/intendiff-texmf/tex/latex/moreverb/moreverb.sty (~/.TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty)) (/tmp/intendiff-texmf/tex/latex/wrapfig/wrapfig.sty)) (~/.TinyTeX/texmf-dist/tex/latex/base/fontenc.sty) (/tmp/intendiff-texmf/tex/latex/stix/stix.sty (~/.TinyTeX/texmf-dist/tex/latex/base/textcomp.sty)) (~/.TinyTeX/texmf-dist/tex/latex/inconsolata/inconsolata.sty `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (~/.TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty (~/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (~/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex)))) (~/.TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty (~/.TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty))) (~/.TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty) (/tmp/intendiff-texmf/tex/latex/stix/t1stix.fd) (/tmp/intendiff-latex-d91/intendiff-rag.aux) (/tmp/intendiff-texmf/tex/latex/stix/ls1stix.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stix.fd) (~/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty (/tmp/intendiff-texmf/tex/latex/grfext/grfext.sty) (~/.TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)) (/tmp/intendiff-latex-d91/intendiff-rag.out) (/tmp/intendiff-latex-d91/intendiff-rag.out) (/tmp/intendiff-texmf/tex/latex/upquote/upquote.sty)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/tmp/intendiff-texmf/tex/latex/stix/ts1stix.fd) [0{/tmp/intendiff-texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/tmp/intendiff-texmf/fonts/enc/dvips/stix/stix-t1.enc}{/tmp/intendiff-texmf/fonts/enc/dvips/stix/stix-ts1.enc}] (/tmp/intendiff-texmf/tex/latex/stix/ls1stixscr.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixex.fd) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixfrak.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixbb.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixcal.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixsf.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixtt.fd)
+Overfull \hbox (123.62721pt too wide) detected at line 42
+[]
+(/tmp/intendiff-latex-d91/intendiff-rag.abs)
+
+Package hyperref Warning: Ignoring empty anchor on input line 42.
+
+
+Package hyperref Warning: Ignoring empty anchor on input line 42.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 1 undefined on input line 52.
+
+
+Overfull \hbox (1.80554pt too wide) in paragraph at lines 49--57
+[]\T1/stix/m/n/10 Pengembangan perangkat lu-nak mod-ern bergan-tung pada
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 1 undefined on input line 61.
+
+(~/.TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+
+Package natbib Warning: Citation `aws2025chalk' on page 1 undefined on input line 67.
+
+
+Package natbib Warning: Citation `aws2025chalk' on page 1 undefined on input line 71.
+
+
+Package natbib Warning: Citation `unit42shaihulud' on page 1 undefined on input line 71.
+
+
+Package natbib Warning: Citation `datadog2026axios' on page 1 undefined on input line 75.
+
+
+Package natbib Warning: Citation `npmaudit' on page 1 undefined on input line 82.
+
+
+Package natbib Warning: Citation `guo2026effective' on page 1 undefined on input line 87.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 1 undefined on input line 94.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 1 undefined on input line 100.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 1 undefined on input line 104.
+
+
+Package natbib Warning: Citation `zahan2025leveraging' on page 1 undefined on input line 107.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 1 undefined on input line 107.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 1 undefined on input line 115.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 1 undefined on input line 120.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 1 undefined on input line 121.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 1 undefined on input line 123.
+
+
+Package natbib Warning: Citation `nguyen2025taint' on page 1 undefined on input line 126.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 1 undefined on input line 130.
+
+
+Package natbib Warning: Citation `zhao2021calibrate' on page 1 undefined on input line 133.
+
+
+Package natbib Warning: Citation `liu2022makes' on page 1 undefined on input line 135.
+
+
+Package natbib Warning: Citation `gao2024customizing' on page 1 undefined on input line 139.
+
+
+Package natbib Warning: Citation `min2022rethinking' on page 1 undefined on input line 142.
+
+
+Underfull \hbox (badness 1688) in paragraph at lines 129--144
+\T1/stix/m/n/10 garuhi prediksi model. Model ba-hasa cen-derung mem-
+[1{~/.TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+
+Package natbib Warning: Citation `gorla2014checking' on page 2 undefined on input line 149.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 2 undefined on input line 150.
+
+
+Overfull \hbox (2.09636pt too wide) in paragraph at lines 145--154
+\T1/stix/m/n/10 pola mal-ware yang su-dah dike-tahui, pen-dekatan ini menandai
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 2 undefined on input line 159.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 2 undefined on input line 161.
+
+
+Underfull \hbox (badness 1442) in paragraph at lines 155--172
+\T1/stix/m/n/10 ran ke-cil. Un-tuk se-tiap pasan-gan versi, IntentDiff-RAG
+
+Overfull \hbox (12.768pt too wide) in paragraph at lines 155--172
+\T1/stix/m/n/10 melakukan em-pat langkah: (i) mem-ben-tuk \T1/stix/m/it/10 smart-diff \T1/stix/m/n/10 mengikuti
+
+Underfull \hbox (badness 1496) in paragraph at lines 155--172
+\T1/stix/m/n/10 spe-si-fikasi \T1/stix/b/n/10 ?\T1/stix/m/n/10 ; (ii) menyusun pro-fil in-tent dari versi se-
+
+Underfull \hbox (badness 1365) in paragraph at lines 155--172
+\T1/stix/m/n/10 model meng-hasilkan vo-nis dalam for-mat JSON be-serta
+
+Underfull \hbox (badness 1728) in paragraph at lines 176--179
+[]\T1/stix/m/n/10 Evaluasi LLM \T1/stix/m/it/10 open-weight \T1/stix/m/n/10 beruku-ran 3--4 mil-iar
+
+Underfull \hbox (badness 1173) in paragraph at lines 176--179
+\T1/stix/m/n/10 haya pada tingkat \T1/stix/m/it/10 smart-diff\T1/stix/m/n/10 , den-gan metrik yang
+
+Overfull \hbox (8.0105pt too wide) in paragraph at lines 193--198
+\T1/stix/m/n/10 mem-ba-has peneli-tian terkait. Bagian [][]3[][] men-je-laskan IntentDiff-
+
+Package natbib Warning: Citation `zimmermann2019small' on page 2 undefined on input line 213.
+
+
+Package natbib Warning: Citation `ohm2020backstabber' on page 2 undefined on input line 216.
+
+
+Package natbib Warning: Citation `ladisa2023sok' on page 2 undefined on input line 218.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 2 undefined on input line 226.
+
+
+Package natbib Warning: Citation `wyss2022wolf' on page 2 undefined on input line 230.
+
+
+Package natbib Warning: Citation `duan2021towards' on page 2 undefined on input line 236.
+
+
+Package natbib Warning: Citation `sejfia2022practical' on page 2 undefined on input line 239.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[2]
+
+Package natbib Warning: Citation `huang2024donapi' on page 3 undefined on input line 244.
+
+
+Package natbib Warning: Citation `zhang2025killing' on page 3 undefined on input line 246.
+
+
+Package natbib Warning: Citation `zheng2024towards' on page 3 undefined on input line 250.
+
+
+Package natbib Warning: Citation `guo2026effective' on page 3 undefined on input line 252.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 3 undefined on input line 267.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 3 undefined on input line 271.
+
+
+Underfull \hbox (badness 2150) in paragraph at lines 264--272
+[]\T1/stix/m/n/10 Kelompok peneli-tian ini men-jadikan pe-ruba-han an-
+
+Underfull \hbox (badness 1803) in paragraph at lines 264--272
+\T1/stix/m/n/10 data baru, se-hingga kon-fig-urasi bawaan-nya mele-watkan
+
+Package natbib Warning: Citation `froh2023differential' on page 3 undefined on input line 273.
+
+
+Underfull \hbox (badness 2042) in paragraph at lines 273--277
+[]\T1/stix/b/n/10 ? \T1/stix/m/n/10 meny-atakan per-i-laku men-curi-gakan se-ba-gai kueri
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 3 undefined on input line 278.
+
+
+Underfull \hbox (badness 1648) in paragraph at lines 278--284
+\T1/stix/m/it/10 smart-diff\T1/stix/m/n/10 . Anal-i-sis mereka me-nun-jukkan bahwa posi-tif
+
+Underfull \hbox (badness 1122) in paragraph at lines 278--284
+\T1/stix/m/n/10 kode dalam jum-lah be-sar (ter-ma-suk paket yang di-ganti
+
+Underfull \hbox (badness 1082) in paragraph at lines 278--284
+\T1/stix/m/n/10 Kom-bi-nasi ob-fuskasi ali-ran data ringan dan pe-mec-a-han
+
+Package natbib Warning: Citation `zahan2025leveraging' on page 3 undefined on input line 289.
+
+
+Package natbib Warning: Citation `wang2025malpacdetector' on page 3 undefined on input line 293.
+
+
+Overfull \hbox (2.33469pt too wide) in paragraph at lines 287--294
+[]\T1/stix/m/n/10 SocketAI me-nun-jukkan bahwa GPT-4 men-gung-guli anal-
+
+Underfull \hbox (badness 2057) in paragraph at lines 287--294
+\T1/stix/m/n/10 me-man-faatkan LLM un-tuk mem-bangk-itkan fi-tur se-cara
+
+Underfull \hbox (badness 1803) in paragraph at lines 287--294
+\T1/stix/m/n/10 otoma-tis alih-alih men-gan-dalkan fi-tur yang diru-muskan
+
+Package natbib Warning: Citation `guo2026bridging' on page 3 undefined on input line 298.
+
+
+Package natbib Warning: Citation `guo2026effective' on page 3 undefined on input line 298.
+
+
+Package natbib Warning: Citation `nguyen2025taint' on page 3 undefined on input line 303.
+
+
+Package natbib Warning: Citation `ryan2026evaluation' on page 3 undefined on input line 308.
+
+
+Overfull \hbox (3.48047pt too wide) in paragraph at lines 303--309
+[]\T1/stix/m/n/10 Untuk model \T1/stix/m/it/10 open-weight\T1/stix/m/n/10 , \T1/stix/b/n/10 ? \T1/stix/m/n/10 mem-o-tong kode berdasarkan
+
+Underfull \hbox (badness 1067) in paragraph at lines 303--309
+\T1/stix/m/n/10 ter-hadap 13 LLM men-e-mukan bahwa model men-ge-nali
+
+Package natbib Warning: Citation `du2026vulrag' on page 3 undefined on input line 318.
+
+
+Package natbib Warning: Citation `ding2025vulnerability' on page 3 undefined on input line 320.
+
+
+Package natbib Warning: Citation `kaniewski2026revisiting' on page 3 undefined on input line 325.
+
+
+Package natbib Warning: Citation `liu2022makes' on page 3 undefined on input line 329.
+
+
+Package natbib Warning: Citation `zhao2021calibrate' on page 3 undefined on input line 329.
+
+
+Package natbib Warning: Citation `min2022rethinking' on page 3 undefined on input line 329.
+
+
+Package natbib Warning: Citation `gao2024customizing' on page 3 undefined on input line 331.
+
+
+Package natbib Warning: Citation `pandita2013whyper' on page 3 undefined on input line 340.
+
+
+Package natbib Warning: Citation `qu2014autocog' on page 3 undefined on input line 343.
+
+
+Package natbib Warning: Citation `gorla2014checking' on page 3 undefined on input line 345.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 3 undefined on input line 346.
+
+
+Overfull \hbox (7.40549pt too wide) in paragraph at lines 337--349
+\T1/stix/m/n/10 den-gan deskripsinya berkem-bang di eko-sis-tem ap-likasi seluler.
+
+Underfull \hbox (badness 1997) in paragraph at lines 337--349
+\T1/stix/m/n/10 An-droid berdasarkan topik deskripsinya, lalu menandai
+
+Underfull \hbox (badness 1107) in paragraph at lines 337--349
+\T1/stix/m/n/10 peng-gu-naan API yang meny-im-pang di se-tiap kelom-pok
+
+Underfull \hbox (badness 1163) in paragraph at lines 337--349
+\T1/stix/m/n/10 (\T1/stix/b/n/10 ?\T1/stix/m/n/10 ). Pada paket npm, In-tel-Guard men-er-ap-kan pe-nalaran
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[3]
+
+Package natbib Warning: Citation `froh2023differential' on page 4 undefined on input line 354.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 4 undefined on input line 354.
+
+
+Underfull \hbox (badness 1158) in paragraph at lines 352--358
+[]\T1/stix/m/n/10 Tabel [][]1[][] merangkum po-sisi IntentDiff-RAG ter-hadap
+
+Underfull \hbox (badness 1033) in paragraph at lines 363--366
+\T1/stix/m/n/10 Mengikuti pela-jaran dari Vul-RAG, Prime-Vul, dan rep-
+
+Underfull \hbox (badness 1838) in paragraph at lines 363--366
+\T1/stix/m/n/10 likasinya, eval-u-asi di-lakukan pada \T1/stix/m/it/10 hard neg-a-tive\T1/stix/m/n/10 , yaitu
+
+Underfull \hbox (badness 2644) in paragraph at lines 376--376
+[]|\T1/cmss/m/n/9 Unit anal-i-
+
+Package natbib Warning: Citation `duan2021towards' on page 4 undefined on input line 378.
+
+
+Package natbib Warning: Citation `sejfia2022practical' on page 4 undefined on input line 379.
+
+
+Package natbib Warning: Citation `huang2024donapi' on page 4 undefined on input line 380.
+
+
+Package natbib Warning: Citation `zheng2024towards' on page 4 undefined on input line 381.
+
+
+Package natbib Warning: Citation `froh2023differential' on page 4 undefined on input line 382.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 4 undefined on input line 383.
+
+
+Package natbib Warning: Citation `zahan2025leveraging' on page 4 undefined on input line 384.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 384--384
+[]|\T1/cmss/m/n/9 Tertutup (GPT-3,
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 4 undefined on input line 385.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 385--385
+[]|\T1/cmss/m/n/9 Tertutup (GPT-4o,
+
+Underfull \hbox (badness 6658) in paragraph at lines 385--385
+\T1/cmss/m/n/9 GPT-4-Turbo, Gem-ini
+
+Package natbib Warning: Citation `guo2026bridging' on page 4 undefined on input line 386.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
+[]|\T1/cmss/m/n/9 Tertutup (GPT-4.1-
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
+[]|\T1/cmss/m/n/9 Contoh
+
+Package natbib Warning: Citation `nguyen2025taint' on page 4 undefined on input line 387.
+
+
+Overfull \hbox (35.58018pt too wide) in paragraph at lines 374--391
+ [][] 
+
+Package natbib Warning: Citation `datadog2026axios' on page 4 undefined on input line 410.
+
+
+Overfull \hbox (0.92926pt too wide) in paragraph at lines 403--411
+[]\T1/stix/m/n/10 Unit anal-i-sis adalah satu pem-baruan \T1/zi4/m/n/10 pkg\T1/stix/m/n/10 @$\LS1/stix/m/n/10 v[]  \LS1/stixsf/m/n/10 ™$\T1/zi4/m/n/10 pkg\T1/stix/m/n/10 @$\LS1/stix/m/n/10 v[]$\T1/stix/m/n/10 ,
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 4 undefined on input line 412.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 4 undefined on input line 419.
+
+
+Package natbib Warning: Citation `liu2024lost' on page 4 undefined on input line 433.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[4]
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 5 undefined on input line 443.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 5 undefined on input line 446.
+
+
+Overfull \hbox (2.0062pt too wide) in paragraph at lines 445--450
+\T1/stix/m/n/10 di-ta-mpilkan. Prompt \T1/stix/b/n/10 ? \T1/stix/m/n/10 juga hanya berisi \T1/stix/m/it/10 smart-diff\T1/stix/m/n/10 ; menyem-
+
+Package natbib Warning: Citation `guo2026bridging' on page 5 undefined on input line 457.
+
+
+Package natbib Warning: Citation `guo2026effective' on page 5 undefined on input line 460.
+
+
+Package natbib Warning: Citation `min2022rethinking' on page 5 undefined on input line 462.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 5 undefined on input line 469.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 5 undefined on input line 485.
+
+
+Package natbib Warning: Citation `liu2022makes' on page 5 undefined on input line 486.
+
+
+Package natbib Warning: Citation `zhao2021calibrate' on page 5 undefined on input line 493.
+
+
+Package natbib Warning: Citation `gao2024customizing' on page 5 undefined on input line 496.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 5 undefined on input line 501.
+
+
+Overfull \hbox (2.72638pt too wide) in paragraph at lines 500--507
+[]\T1/stix/m/n/10 Model berperan se-ba-gai pen-ganal-i-sis pro-gram, mengikuti
+
+Underfull \hbox (badness 1442) in paragraph at lines 500--507
+\T1/stix/m/n/10 di-akan --- ke-sesua-ian den-gan pro-fil in-tent serta con-toh
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 5 undefined on input line 513.
+
+
+Overfull \hbox (12.38786pt too wide) in paragraph at lines 508--515
+\T1/stix/m/n/10 tiga baris dis-alin dari \T1/stix/m/it/10 smart-diff\T1/stix/m/n/10 ), \T1/zi4/m/n/10 reason\T1/stix/m/n/10 , dan \T1/zi4/m/n/10 verdict \T1/stix/m/n/10 (\T1/zi4/m/n/10 malicious
+
+Underfull \hbox (badness 1831) in paragraph at lines 508--515
+\T1/stix/m/n/10 atau \T1/zi4/m/n/10 benign\T1/stix/m/n/10 ). Out-put yang ga-gal di-u-rai, atau ter-po-tong
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 5 undefined on input line 524.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 5 undefined on input line 532.
+
+
+Package natbib Warning: Citation `nguyen2025taint' on page 5 undefined on input line 535.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 5 undefined on input line 536.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 5 undefined on input line 537.
+
+
+Underfull \hbox (badness 1122) in paragraph at lines 531--538
+\T1/stix/m/n/10 me-ni-lai paket utuh den-gan RAG con-toh berba-haya dan
+
+Package natbib Warning: Citation `ding2025vulnerability' on page 5 undefined on input line 543.
+
+
+Package natbib Warning: Citation `du2026vulrag' on page 5 undefined on input line 545.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 5 undefined on input line 548.
+
+
+Underfull \hbox (badness 1082) in paragraph at lines 539--550
+\T1/stix/m/n/10 4B dan di-jalankan se-cara lokal. Ke-dua, pem-baruan sah
+
+Underfull \hbox (badness 1320) in paragraph at lines 539--550
+\T1/stix/m/n/10 melebih-lebihkan kin-erja: model 7B yang men-ca-pai F1
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[5]
+Underfull \hbox (badness 2837) in paragraph at lines 559--559
+[]|\T1/cmss/m/n/9 Pembaruan atau paket
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 6 undefined on input line 561.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 6 undefined on input line 567.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 572--573
+[]|\T1/cmss/m/n/9 Sensitivitas,
+
+Package natbib Warning: Citation `zahan2025leveraging' on page 6 undefined on input line 573.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 6 undefined on input line 579.
+
+
+Package natbib Warning: Citation `nguyen2025taint' on page 6 undefined on input line 585.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 593--594
+[]|\T1/cmss/m/it/9 Smart-diff \T1/cmss/m/n/9 +
+
+Overfull \hbox (24.19925pt too wide) in paragraph at lines 557--599
+ [][] 
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 6 undefined on input line 611.
+
+
+Package natbib Warning: Citation `ohm2020backstabber' on page 6 undefined on input line 612.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 6 undefined on input line 614.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 6 undefined on input line 619.
+
+
+Underfull \hbox (badness 1648) in paragraph at lines 626--630
+\T1/stix/m/n/10 se-hingga mema-sukkan-nya akan menaikkan \T1/stix/m/it/10 re-call \T1/stix/m/n/10 tanpa
+
+Overfull \hbox (5.20546pt too wide) in paragraph at lines 631--636
+\T1/stix/m/n/10 kam-pa-nye yang ter-bit sete-lah tang-gal rilis model dikumpulkan
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 6 undefined on input line 648.
+
+
+Package natbib Warning: Citation `guo2026effective' on page 6 undefined on input line 652.
+
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 6 undefined on input line 655.
+
+
+Underfull \hbox (badness 1924) in paragraph at lines 646--656
+\T1/stix/m/n/10 yang menam-bahkan ke-mam-puan sen-si-tif den-gan tu-juan
+
+Underfull \hbox (badness 1642) in paragraph at lines 646--656
+\T1/stix/m/n/10 de-pen-densi; pada anal-i-sis lang-sung, con-tohnya meliputi
+
+Underfull \hbox (badness 1371) in paragraph at lines 646--656
+\T1/stix/m/n/10 skrip uji. \T1/stix/b/n/10 ? \T1/stix/m/n/10 me-nun-juk \T1/zi4/m/n/10 husky\T1/stix/m/n/10 , \T1/zi4/m/n/10 patch-package\T1/stix/m/n/10 , dan \T1/zi4/m/n/10 prisma
+
+Underfull \hbox (badness 3271) in paragraph at lines 679--680
+[]|\T1/cmss/m/n/9 Dasar di eval-u-asi ter-
+
+Underfull \hbox (badness 10000) in paragraph at lines 682--683
+[]|\T1/zi4/m/n/9 install_script\T1/cmss/m/n/9 ,
+
+Package natbib Warning: Citation `guo2026effective' on page 6 undefined on input line 683.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 688--689
+[]|\T1/zi4/m/n/9 obfuscation\T1/cmss/m/n/9 ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 689--690
+[]|\T1/cmss/m/n/9 Validasi lisensi ter-
+
+Underfull \hbox (badness 1881) in paragraph at lines 689--690
+\T1/cmss/m/n/9 obfuscate pada anal-i-sis
+
+Underfull \hbox (badness 10000) in paragraph at lines 690--691
+[]|\T1/cmss/m/n/9 Jaringan dan
+
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
+[]|\T1/zi4/m/n/9 network\T1/cmss/m/n/9 ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 693--694
+[]|\T1/cmss/m/n/9 Depresiasi dan
+
+Underfull \hbox (badness 10000) in paragraph at lines 693--694
+\T1/cmss/m/n/9 pe-ruba-han
+
+Underfull \hbox (badness 10000) in paragraph at lines 694--695
+[]|\T1/zi4/m/n/9 large_deletion\T1/cmss/m/n/9 ,
+
+Overfull \hbox (8.11996pt too wide) in paragraph at lines 694--695
+\T1/zi4/m/n/9 dependency_change| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 695--696
+\T1/cmss/m/n/9 pe-ruba-han de-pen-densi,
+
+Overfull \hbox (13.9862pt too wide) in paragraph at lines 677--698
+ [][] 
+
+Underfull \hbox (badness 1067) in paragraph at lines 701--709
+\T1/stix/m/n/10 pa-nye jika meru-juk in-si-den yang sama, memuat berkas
+
+Underfull \hbox (badness 1527) in paragraph at lines 701--709
+\T1/stix/m/n/10 pada am-bang 0,5. Am-bang con-dong ke peng-gabun-gan:
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 731--731
+[]|\T1/cmss/m/n/9 Qwen3-4B-
+
+Underfull \hbox (badness 10000) in paragraph at lines 731--732
+[]|\T1/cmss/m/n/9 Qwen2.5-Coder-
+
+Overfull \hbox (13.98665pt too wide) in paragraph at lines 729--739
+ [][] 
+
+Underfull \hbox (badness 1048) in paragraph at lines 741--746
+\T1/stix/m/n/10 pe-m-anasan dari dev set dibuang. Qwen3-4B se-cara na-
+
+Underfull \hbox (badness 1789) in paragraph at lines 741--746
+\T1/stix/m/n/10 Qwen2.5-Coder-3B su-paya ke-ung-gu-lan kon-teks pan-jang
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 7 undefined on input line 754.
+
+
+Package natbib Warning: Citation `guo2026bridging' on page 7 undefined on input line 757.
+
+
+Underfull \hbox (badness 1237) in paragraph at lines 749--760
+\T1/stix/m/it/10 smart-diff \T1/stix/m/n/10 hasil po-ton-gan, dan pa-ram-e-ter gen-erasi yang
+
+Overfull \hbox (28.37964pt too wide) in paragraph at lines 749--760
+\T1/stix/m/n/10 DIFF+I+MM mengam-bil dua card berba-haya ter-atas. DIFF+I+MB
+
+Overfull \hbox (2.62749pt too wide) in paragraph at lines 806--807
+[]\T1/stix/m/it/10 Recall\T1/stix/m/n/10 : pro-porsi pair MAL yang diberi vo-nis \T1/zi4/m/n/10 malicious\T1/stix/m/n/10 . 
+
+Overfull \hbox (6.54744pt too wide) in paragraph at lines 807--808
+[]\T1/stix/m/n/10 FPR$[]$: pro-porsi pair TYP yang diberi vo-nis \T1/zi4/m/n/10 malicious\T1/stix/m/n/10 . 
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[7]
+
+Package natbib Warning: Citation `tam2024speak' on page 8 undefined on input line 815.
+
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 8 undefined on input line 819.
+
+
+Package natbib Warning: Citation `guo2026effective' on page 8 undefined on input line 829.
+
+
+Overfull \hbox (0.44302pt too wide) in paragraph at lines 825--831
+[]\T1/stix/m/n/10 FPR tidak di-ga-bung an-tara TYP dan HN. TYP mendekati
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 8 undefined on input line 835.
+
+
+Package natbib Warning: Citation `dietterich1998approximate' on page 8 undefined on input line 858.
+
+
+Overfull \hbox (8.12465pt too wide) in paragraph at lines 880--882
+[]\T1/stix/m/it/10 Arah sesuai, tidak sig-nifikan\T1/stix/m/n/10 : FPR$[]$ tu-run, $\LS1/stix/m/it/10 p[][]\LS1/stix/m/n/10 0[]05$\T1/stix/m/n/10 ,
+
+Overfull \hbox (8.76463pt too wide) in paragraph at lines 886--892
+\T1/stix/m/n/10 bel-nya \T1/stix/m/it/10 Didukung \T1/stix/m/n/10 jika FPR$[]$(DIFF+I+M) $\LS1/stix/m/it/10 >$ \T1/stix/m/n/10 FPR$[]$(DIFF+I)
+
+Underfull \hbox (badness 1635) in paragraph at lines 886--892
+\T1/stix/m/n/10 den-gan $\LS1/stix/m/it/10 p[][]\LS1/stix/m/n/10 0[]05$\T1/stix/m/n/10 ; \T1/stix/m/it/10 Arah sesuai, tidak sig-nifikan\T1/stix/m/n/10 ; atau
+
+Overfull \hbox (3.9255pt too wide) in paragraph at lines 886--892
+\T1/stix/m/n/10 hanya di-t-ulis jika ke-d-u-anya berla-bel Didukung atau Didukung
+
+Package natbib Warning: Citation `wyss2025evaluating' on page 8 undefined on input line 899.
+
+
+Underfull \hbox (badness 1490) in paragraph at lines 902--908
+\T1/stix/m/n/10 la-porkan log vLLM saat model dimuat dan KV cache
+
+Overfull \hbox (32.35634pt too wide) in paragraph at lines 921--925
+\T1/stix/m/n/10 berubah pada tiga seed (\T1/stix/m/it/10 tem-per-a-ture \T1/stix/m/n/10 0,7; DIFF+I dan DIFF+I+MB),
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[8]
+
+Package natbib Warning: Citation `sofaer2024rogueone' on page 9 undefined on input line 929.
+
+(./results-exploratory.tex
+Underfull \hbox (badness 1540) in paragraph at lines 14--24
+\T1/stix/m/n/10 sum-ber dan 100 TYP di-a-sum-sikan be-nign) pada enam
+
+Underfull \hbox (badness 1242) in paragraph at lines 14--24
+\T1/stix/m/n/10 batas out-put 2.048 to-ken terse-dia 11.676 re-spons unik;
+
+Underfull \hbox (badness 4531) in paragraph at lines 14--24
+\T1/stix/m/n/10 re-trieval. Se-ba-liknya, D88 hanya men-cakup 20 tar-get
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--24
+\T1/stix/m/n/10 di-ag-nos-tik, sedan-gkan D89 dan D90 masing-masing
+
+Underfull \hbox (badness 1303) in paragraph at lines 14--24
+\T1/stix/m/n/10 penye-le-sa-ian in-fer-ensi pada sub-set tidak be-rarti selu-ruh
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--61
+\T1/stix/m/n/10 Versi 1.11.22 memi-liki postin-stall yang men-jalankan
+
+Underfull \hbox (badness 3396) in paragraph at lines 53--61
+\T1/zi4/m/n/10 setup.cjs\T1/stix/m/n/10 ; pem-ba-caan statis file terse-but me-nun-jukkan
+
+Underfull \hbox (badness 1762) in paragraph at lines 62--68
+\T1/stix/m/n/10 pakan kepu-tu-san bersyarat pada snap-shot, bukan re-call
+
+Underfull \hbox (badness 1248) in paragraph at lines 62--68
+\T1/stix/m/n/10 100%. Tidak ada kelu-aran ter-po-tong atau ID bukti tak
+
+Underfull \hbox (badness 1308) in paragraph at lines 83--90
+\T1/stix/m/n/10 in-struksi kon-di-sional serta nama/versi de-pen-dency yang
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 131--139
+[]\T1/stix/m/n/10 Tidak ada satu pun ver-dict yang berbeda an-tar
+
+Underfull \hbox (badness 4981) in paragraph at lines 131--139
+\T1/stix/m/n/10 model (Tabel [][]7[][]). Selu-ruh re-spons Gran-ite memenuhi
+
+Underfull \hbox (badness 6078) in paragraph at lines 131--139
+\T1/stix/m/n/10 atau er-ror trans-port. Satu tar-get MAL tetap be-nign,
+
+Underfull \hbox (badness 2134) in paragraph at lines 131--139
+\T1/stix/m/n/10 se-hingga per-gan-tian model belum mem-per-baiki de-teksi
+
+Underfull \hbox (badness 3746) in paragraph at lines 131--139
+\T1/stix/m/n/10 isi de-pen-dency, pada \T1/zi4/m/n/10 get-symbol-description@1.0.2 \T1/stix/m/n/10 dan
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--139
+\T1/zi4/m/n/10 @tolicodes/picklejs@0.75.0\T1/stix/m/n/10 ; dukun-gan se-man-tik alasan
+)
+Underfull \hbox (badness 2717) in paragraph at lines 140--939
+[]\T1/stix/m/n/10 Granite memakai 76.964 to-ken pada NO-SOURCE
+
+Underfull \hbox (badness 3713) in paragraph at lines 140--939
+\T1/stix/m/n/10 diband-ingkan to-tal 196.035 to-ken Qwen. To-ken an-tar
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--939
+\T1/stix/m/n/10 model mengikuti to-k-enizer masing-masing dan tidak
+
+Underfull \hbox (badness 1122) in paragraph at lines 140--939
+\T1/stix/m/n/10 14 kan-di-dat HN adalah 1.676 ms dan 2.422 ms un-tuk
+
+Underfull \hbox (badness 2856) in paragraph at lines 140--939
+\T1/stix/m/n/10 pay-load, jum-lah to-ken, pars-ing, ku-ti-pan, 27 check-sum
+
+Underfull \hbox (badness 2293) in paragraph at lines 140--939
+\T1/stix/m/n/10 ini men-dukung ke-samaan kepu-tu-san pada ko-hort yang
+(./discussion-exploratory.tex) (/tmp/intendiff-latex-d91/intendiff-rag.bbl
+Underfull \hbox (badness 7133) in paragraph at lines 16--21
+[]\T1/stix/m/n/8 Amazon Web Ser-vices, 2025.  De-fend-ing against sup-ply chain
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--21
+\T1/stix/m/n/8 at-tacks like chalk/debug and the shai-hulud worm.  AWS
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--21
+\T1/stix/m/n/8 Se-cu-rity Blog.  URL: [][]$\T1/zi4/m/n/8 https : / / aws . amazon . com / blogs / security /
+
+Overfull \hbox (48.34505pt too wide) in paragraph at lines 16--21
+\T1/zi4/m/n/8 defending-[]against-[]supply-[]chain-[]attacks-[]like-[]chalk-[]debug-[]and-[]the-[]shai-[]hulud-[]worm$[][]\T1/stix/m/n/8 .
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[10])
+
+Package natbib Warning: There were undefined citations.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[11] (/tmp/intendiff-latex-d91/intendiff-rag.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+) )
+(see the transcript file for additional information) </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecso0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0900.600pk><~/.TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Bold.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Italic.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Regular.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathcal.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathit.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathrm.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathsf.pfb>
+Output written on /tmp/intendiff-latex-d91/intendiff-rag.pdf (12 pages, 305915 bytes).
+Transcript written on /tmp/intendiff-latex-d91/intendiff-rag.log.
+Latexmk: Getting log file '/tmp/intendiff-latex-d91/intendiff-rag.log'
+Latexmk: Examining '/tmp/intendiff-latex-d91/intendiff-rag.fls'
+Latexmk: Examining '/tmp/intendiff-latex-d91/intendiff-rag.log'
+Latexmk: Found input bbl file '/tmp/intendiff-latex-d91/intendiff-rag.bbl'
+Latexmk: References changed.
+Latexmk: Log file says output to '/tmp/intendiff-latex-d91/intendiff-rag.pdf'
+Latexmk: Using bibtex to make bibliography file(s).
+  ===Source file '/tmp/intendiff-latex-d91/intendiff-rag.bbl' for 'pdflatex'
+Latexmk: Found bibliography file(s):
+  ./cas-refs.bib
+Latexmk: applying rule 'bibtex /tmp/intendiff-latex-d91/intendiff-rag'...
+Rule 'bibtex /tmp/intendiff-latex-d91/intendiff-rag':  Reasons for rerun
+Changed files or newly in use/created:
+  /tmp/intendiff-latex-d91/intendiff-rag.aux
+
+------------
+Run number 2 of rule 'bibtex /tmp/intendiff-latex-d91/intendiff-rag'
+------------
+Latexmk: Change directory to '/tmp/intendiff-latex-d91/'.
+To assist finding of files in document directory, I set
+  BIBINPUTS='~/intendiff_rag/labs/latex:/tmp/intendiff-latex-d91:'
+  BSTINPUTS='~/intendiff_rag/labs/latex:'.
+------------
+Running 'bibtex  "intendiff-rag.aux"'
+------------
+This is BibTeX, Version 0.99e (TeX Live 2026)
+The top-level auxiliary file: intendiff-rag.aux
+The style file: cas-model2-names.bst
+Database file #1: cas-refs.bib
+Warning--empty pages in ding2025vulnerability
+Warning--empty pages in duan2021towards
+Warning--empty pages in gao2024customizing
+Warning--empty pages in gorla2014checking
+Warning--empty pages in guo2026bridging
+Warning--empty pages in huang2024donapi
+Warning--empty pages in kaniewski2026revisiting
+Warning--empty pages in ladisa2023sok
+Warning--empty pages in liu2022makes
+Warning--empty pages in min2022rethinking
+Warning--empty pages in ohm2020backstabber
+Warning--empty pages in qu2014autocog
+Warning--empty pages in sofaer2024rogueone
+Warning--empty pages in tam2024speak
+Warning--empty pages in wyss2025evaluating
+Warning--empty pages in zahan2025leveraging
+Warning--empty pages in zhao2021calibrate
+Warning--empty pages in zheng2024towards
+(There were 18 warnings)
+Latexmk: Change directory back to '~/intendiff_rag/labs/latex'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  /tmp/intendiff-latex-d91/intendiff-rag.aux
+
+------------
+Run number 3 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder -output-directory="/tmp/intendiff-latex-d91"  "intendiff-rag.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./intendiff-rag.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-08-10>
+(./cas-dc.cls
+Document Class: cas-dc 2024/05/04, 2.4: Formatting class for CAS double column articles
+(~/.TinyTeX/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(~/.TinyTeX/texmf-dist/tex/latex/base/fleqn.clo) (~/.TinyTeX/texmf-dist/tex/latex/base/size10.clo)) (~/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty) (~/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/trig.sty) (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def))) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(~/.TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty) (~/.TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty (~/.TinyTeX/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)) (~/.TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty) (~/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (/tmp/intendiff-texmf/tex/latex/preprint/balance.sty) (~/.TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty) (/tmp/intendiff-texmf/tex/latex/makecell/makecell.sty (~/.TinyTeX/texmf-dist/tex/latex/tools/array.sty)) (/tmp/intendiff-texmf/tex/latex/multirow/multirow.sty) (/tmp/intendiff-texmf/tex/latex/colortbl/colortbl.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/color.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+new hooks used!!
+) (~/.TinyTeX/texmf-dist/tex/latex/tools/dcolumn.sty) (/tmp/intendiff-texmf/tex/latex/sttools/stfloats.sty) (~/.TinyTeX/texmf-dist/tex/latex/tools/xspace.sty) (/tmp/intendiff-texmf/tex/generic/xstring/xstring.sty (/tmp/intendiff-texmf/tex/generic/xstring/xstring.tex)) (/tmp/intendiff-texmf/tex/latex/footmisc/footmisc.sty) (~/.TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (~/.TinyTeX/texmf-dist/tex/latex/xcolor/svgnam.def) (~/.TinyTeX/texmf-dist/tex/latex/graphics/dvipsnam.def) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (~/.TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (~/.TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (~/.TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (~/.TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (~/.TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (~/.TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (~/.TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (~/.TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (~/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (~/.TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (~/.TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (~/.TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (~/.TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (~/.TinyTeX/texmf-dist/tex/latex/url/url.sty) (~/.TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (~/.TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (~/.TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (~/.TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))) (./cas-common.sty (/tmp/intendiff-texmf/tex/latex/moreverb/moreverb.sty (~/.TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty)) (/tmp/intendiff-texmf/tex/latex/wrapfig/wrapfig.sty)) (~/.TinyTeX/texmf-dist/tex/latex/base/fontenc.sty) (/tmp/intendiff-texmf/tex/latex/stix/stix.sty (~/.TinyTeX/texmf-dist/tex/latex/base/textcomp.sty)) (~/.TinyTeX/texmf-dist/tex/latex/inconsolata/inconsolata.sty `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (~/.TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty (~/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (~/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex)))) (~/.TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty (~/.TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty))) (~/.TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty) (/tmp/intendiff-texmf/tex/latex/stix/t1stix.fd) (/tmp/intendiff-latex-d91/intendiff-rag.aux) (/tmp/intendiff-texmf/tex/latex/stix/ls1stix.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stix.fd) (~/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty (/tmp/intendiff-texmf/tex/latex/grfext/grfext.sty) (~/.TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)) (/tmp/intendiff-latex-d91/intendiff-rag.out) (/tmp/intendiff-latex-d91/intendiff-rag.out) (/tmp/intendiff-texmf/tex/latex/upquote/upquote.sty)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/tmp/intendiff-texmf/tex/latex/stix/ts1stix.fd) [0{/tmp/intendiff-texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/tmp/intendiff-texmf/fonts/enc/dvips/stix/stix-t1.enc}{/tmp/intendiff-texmf/fonts/enc/dvips/stix/stix-ts1.enc}] (/tmp/intendiff-texmf/tex/latex/stix/ls1stixscr.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixex.fd) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixfrak.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixbb.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixcal.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixsf.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixtt.fd)
+Overfull \hbox (123.62721pt too wide) detected at line 42
+[]
+(/tmp/intendiff-latex-d91/intendiff-rag.abs)
+
+Package hyperref Warning: Ignoring empty anchor on input line 42.
+
+
+Package hyperref Warning: Ignoring empty anchor on input line 42.
+
+
+Overfull \hbox (1.80554pt too wide) in paragraph at lines 49--57
+[]\T1/stix/m/n/10 Pengembangan perangkat lu-nak mod-ern bergan-tung pada
+(~/.TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+Underfull \hbox (badness 1424) in paragraph at lines 117--128
+[][]\T1/stix/m/n/10 2026b[][]). Model ter-tutup meng-haruskan kode dikirim ke
+
+Underfull \hbox (badness 1237) in paragraph at lines 117--128
+\T1/stix/m/n/10 pa-ram-e-ter ([][]Nguyen, Ho, Pham, Dang-Thi, Vu, Nguyen,
+[1{~/.TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+Underfull \hbox (badness 1082) in paragraph at lines 129--144
+\T1/stix/m/n/10 and Singh[][], [][]2021[][]), dan con-toh yang dip-ilih berdasarkan
+
+Underfull \hbox (badness 1215) in paragraph at lines 129--144
+\T1/stix/m/n/10 dan yang harus di-hin-dari model ([][]Gao and Das[][], [][]2024[][]).
+
+Underfull \hbox (badness 2181) in paragraph at lines 129--144
+\T1/stix/m/n/10 Ha-jishirzi and Zettle-moyer[][], [][]2022[][]) me-nun-jukkan bahwa
+
+Overfull \hbox (2.09636pt too wide) in paragraph at lines 145--154
+\T1/stix/m/n/10 pola mal-ware yang su-dah dike-tahui, pen-dekatan ini menandai
+
+Underfull \hbox (badness 2229) in paragraph at lines 145--154
+[][]\T1/stix/m/n/10 2014[][]). In-tel-Guard men-er-ap-kan pe-nalaran serupa se-cara
+
+Underfull \hbox (badness 1442) in paragraph at lines 155--172
+\T1/stix/m/n/10 ran ke-cil. Un-tuk se-tiap pasan-gan versi, IntentDiff-RAG
+
+Overfull \hbox (12.768pt too wide) in paragraph at lines 155--172
+\T1/stix/m/n/10 melakukan em-pat langkah: (i) mem-ben-tuk \T1/stix/m/it/10 smart-diff \T1/stix/m/n/10 mengikuti
+
+Underfull \hbox (badness 1184) in paragraph at lines 155--172
+\T1/stix/m/n/10 kendali peny-erang ([][]Wyss et al.[][], [][]2025[][]); (iii) mengam-bil
+
+Underfull \hbox (badness 1067) in paragraph at lines 155--172
+\T1/stix/m/n/10 satu con-toh berba-haya dan satu con-toh sah yang mirip
+
+Underfull \hbox (badness 1728) in paragraph at lines 176--179
+[]\T1/stix/m/n/10 Evaluasi LLM \T1/stix/m/it/10 open-weight \T1/stix/m/n/10 beruku-ran 3--4 mil-iar
+
+Underfull \hbox (badness 1173) in paragraph at lines 176--179
+\T1/stix/m/n/10 haya pada tingkat \T1/stix/m/it/10 smart-diff\T1/stix/m/n/10 , den-gan metrik yang
+
+Overfull \hbox (8.0105pt too wide) in paragraph at lines 193--198
+\T1/stix/m/n/10 mem-ba-has peneli-tian terkait. Bagian [][]3[][] men-je-laskan IntentDiff-
+
+Overfull \hbox (16.42215pt too wide) in paragraph at lines 212--222
+\T1/stix/m/n/10 sar paket. [][]Ohm, Plate, Sykosch and Meier[][] ([][]2020[][]) mengumpulkan
+
+Underfull \hbox (badness 1721) in paragraph at lines 212--222
+\T1/stix/m/n/10 Barais[][] ([][]2023[][]) ke-mu-dian menyusun tak-sonomi seran-gan
+
+Underfull \hbox (badness 1292) in paragraph at lines 212--222
+\T1/stix/m/it/10 tree\T1/stix/m/n/10 . Tak-sonomi ini memuat 107 vek-tor seran-gan yang
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[2]
+Underfull \hbox (badness 1546) in paragraph at lines 241--251
+\T1/stix/m/n/10 namis, lalu men-co-cokkan-nya den-gan ba-sis penge-tahuan
+
+Underfull \hbox (badness 2150) in paragraph at lines 264--272
+[]\T1/stix/m/n/10 Kelompok peneli-tian ini men-jadikan pe-ruba-han an-
+
+Overfull \hbox (2.33469pt too wide) in paragraph at lines 287--294
+[]\T1/stix/m/n/10 SocketAI me-nun-jukkan bahwa GPT-4 men-gung-guli anal-
+
+Underfull \hbox (badness 2050) in paragraph at lines 287--294
+\T1/stix/m/n/10 Mal-PacDe-tec-tor me-man-faatkan LLM un-tuk mem-bangk-
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[3]
+Underfull \hbox (badness 1838) in paragraph at lines 327--334
+\T1/stix/m/n/10 diusulkan un-tuk mem-per-je-las kelu-aran yang di-inginkan
+
+Overfull \hbox (7.40549pt too wide) in paragraph at lines 337--349
+\T1/stix/m/n/10 den-gan deskripsinya berkem-bang di eko-sis-tem ap-likasi seluler.
+
+Underfull \hbox (badness 1742) in paragraph at lines 337--349
+\T1/stix/m/n/10 je-laskan alasan ap-likasi mem-bu-tuhkan su-atu izin ([][]Pan-
+
+Underfull \hbox (badness 1365) in paragraph at lines 337--349
+\T1/stix/m/n/10 pokkan lebih dari 22.500 ap-likasi An-droid berdasarkan
+
+Underfull \hbox (badness 1158) in paragraph at lines 352--358
+[]\T1/stix/m/n/10 Tabel [][]1[][] merangkum po-sisi IntentDiff-RAG ter-hadap
+
+Underfull \hbox (badness 1033) in paragraph at lines 363--366
+\T1/stix/m/n/10 Mengikuti pela-jaran dari Vul-RAG, Prime-Vul, dan rep-
+
+Underfull \hbox (badness 1838) in paragraph at lines 363--366
+\T1/stix/m/n/10 likasinya, eval-u-asi di-lakukan pada \T1/stix/m/it/10 hard neg-a-tive\T1/stix/m/n/10 , yaitu
+
+Underfull \hbox (badness 2644) in paragraph at lines 376--376
+[]|\T1/cmss/m/n/9 Unit anal-i-
+
+Underfull \hbox (badness 10000) in paragraph at lines 379--379
+[]|\T1/cmss/m/n/9 Amalfi ([][]Se-j-fia and
+
+Underfull \hbox (badness 10000) in paragraph at lines 383--383
+[]|\T1/cmss/m/n/9 RogueOne ([][]So-faer
+
+Underfull \hbox (badness 10000) in paragraph at lines 384--384
+[]|\T1/cmss/m/n/9 Tertutup (GPT-3,
+
+Underfull \hbox (badness 10000) in paragraph at lines 385--385
+[]|\T1/cmss/m/n/9 Tertutup (GPT-4o,
+
+Underfull \hbox (badness 6658) in paragraph at lines 385--385
+\T1/cmss/m/n/9 GPT-4-Turbo, Gem-ini
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
+[]|\T1/cmss/m/n/9 Tertutup (GPT-4.1-
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
+[]|\T1/cmss/m/n/9 Contoh
+
+Overfull \hbox (35.58018pt too wide) in paragraph at lines 374--391
+ [][] 
+
+Overfull \hbox (0.92926pt too wide) in paragraph at lines 403--411
+[]\T1/stix/m/n/10 Unit anal-i-sis adalah satu pem-baruan \T1/zi4/m/n/10 pkg\T1/stix/m/n/10 @$\LS1/stix/m/n/10 v[]  \LS1/stixsf/m/n/10 ™$\T1/zi4/m/n/10 pkg\T1/stix/m/n/10 @$\LS1/stix/m/n/10 v[]$\T1/stix/m/n/10 ,
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[4]
+Underfull \hbox (badness 1270) in paragraph at lines 453--466
+\T1/stix/m/n/10 di-ta-mpilkan. In-tel-Guard menghubungkan po-ton-gan kode
+
+Overfull \hbox (2.72638pt too wide) in paragraph at lines 500--507
+[]\T1/stix/m/n/10 Model berperan se-ba-gai pen-ganal-i-sis pro-gram, mengikuti
+
+Underfull \hbox (badness 1577) in paragraph at lines 500--507
+\T1/stix/m/n/10 otoma-tis berba-haya: vo-nis di-dasarkan pada ke-mam-puan
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[5]
+Overfull \hbox (12.38786pt too wide) in paragraph at lines 508--515
+\T1/stix/m/n/10 tiga baris dis-alin dari \T1/stix/m/it/10 smart-diff\T1/stix/m/n/10 ), \T1/zi4/m/n/10 reason\T1/stix/m/n/10 , dan \T1/zi4/m/n/10 verdict \T1/stix/m/n/10 (\T1/zi4/m/n/10 malicious
+
+Underfull \hbox (badness 1082) in paragraph at lines 539--550
+\T1/stix/m/n/10 4B dan di-jalankan se-cara lokal. Ke-dua, pem-baruan sah
+
+Underfull \hbox (badness 1320) in paragraph at lines 539--550
+\T1/stix/m/n/10 melebih-lebihkan kin-erja: model 7B yang men-ca-pai F1
+
+Underfull \hbox (badness 1502) in paragraph at lines 539--550
+\T1/stix/m/it/10 hard neg-a-tive\T1/stix/m/n/10 . Ketiga, re-trieval tidak hanya mengam-bil
+
+Underfull \hbox (badness 2837) in paragraph at lines 559--559
+[]|\T1/cmss/m/n/9 Pembaruan atau paket
+
+Underfull \hbox (badness 10000) in paragraph at lines 572--573
+[]|\T1/cmss/m/n/9 Sensitivitas,
+
+Underfull \hbox (badness 10000) in paragraph at lines 573--574
+[]|\T1/cmss/m/n/9 SocketAI ([][]Za-han
+
+Underfull \hbox (badness 10000) in paragraph at lines 579--580
+[]|\T1/cmss/m/n/9 IntelGuard ([][]Guo
+
+Underfull \hbox (badness 10000) in paragraph at lines 585--586
+[]|[][]\T1/cmss/m/n/9 Nguyen et al.[][]
+
+Underfull \hbox (badness 10000) in paragraph at lines 593--594
+[]|\T1/cmss/m/it/9 Smart-diff \T1/cmss/m/n/9 +
+
+Overfull \hbox (24.19925pt too wide) in paragraph at lines 557--599
+ [][] 
+
+Underfull \hbox (badness 1648) in paragraph at lines 626--630
+\T1/stix/m/n/10 se-hingga mema-sukkan-nya akan menaikkan \T1/stix/m/it/10 re-call \T1/stix/m/n/10 tanpa
+
+Overfull \hbox (5.20546pt too wide) in paragraph at lines 631--636
+\T1/stix/m/n/10 kam-pa-nye yang ter-bit sete-lah tang-gal rilis model dikumpulkan
+
+Underfull \hbox (badness 1924) in paragraph at lines 646--656
+\T1/stix/m/n/10 yang menam-bahkan ke-mam-puan sen-si-tif den-gan tu-juan
+
+Underfull \hbox (badness 1769) in paragraph at lines 646--656
+\T1/zi4/m/n/10 patch-package\T1/stix/m/n/10 , dan \T1/zi4/m/n/10 prisma \T1/stix/m/n/10 se-ba-gai sum-ber posi-tif palsu
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[6]
+Underfull \hbox (badness 3271) in paragraph at lines 679--680
+[]|\T1/cmss/m/n/9 Dasar di eval-u-asi ter-
+
+Underfull \hbox (badness 10000) in paragraph at lines 682--683
+[]|\T1/zi4/m/n/9 install_script\T1/cmss/m/n/9 ,
+
+Underfull \hbox (badness 2173) in paragraph at lines 683--684
+[]|\T1/cmss/m/it/9 Install hook \T1/cmss/m/n/9 sah ([][]Guo
+
+Underfull \hbox (badness 10000) in paragraph at lines 688--689
+[]|\T1/zi4/m/n/9 obfuscation\T1/cmss/m/n/9 ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 689--690
+[]|\T1/cmss/m/n/9 Validasi lisensi ter-
+
+Underfull \hbox (badness 1881) in paragraph at lines 689--690
+\T1/cmss/m/n/9 obfuscate pada anal-i-sis
+
+Underfull \hbox (badness 10000) in paragraph at lines 690--691
+[]|\T1/cmss/m/n/9 Jaringan dan
+
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
+[]|\T1/zi4/m/n/9 network\T1/cmss/m/n/9 ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 693--694
+[]|\T1/cmss/m/n/9 Depresiasi dan
+
+Underfull \hbox (badness 10000) in paragraph at lines 693--694
+\T1/cmss/m/n/9 pe-ruba-han
+
+Underfull \hbox (badness 10000) in paragraph at lines 694--695
+[]|\T1/zi4/m/n/9 large_deletion\T1/cmss/m/n/9 ,
+
+Overfull \hbox (8.11996pt too wide) in paragraph at lines 694--695
+\T1/zi4/m/n/9 dependency_change| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 695--696
+\T1/cmss/m/n/9 pe-ruba-han de-pen-densi,
+
+Overfull \hbox (13.9862pt too wide) in paragraph at lines 677--698
+ [][] 
+
+Underfull \hbox (badness 1067) in paragraph at lines 701--709
+\T1/stix/m/n/10 pa-nye jika meru-juk in-si-den yang sama, memuat berkas
+
+Underfull \hbox (badness 1527) in paragraph at lines 701--709
+\T1/stix/m/n/10 pada am-bang 0,5. Am-bang con-dong ke peng-gabun-gan:
+
+Underfull \hbox (badness 10000) in paragraph at lines 731--731
+[]|\T1/cmss/m/n/9 Qwen3-4B-
+
+Underfull \hbox (badness 10000) in paragraph at lines 731--732
+[]|\T1/cmss/m/n/9 Qwen2.5-Coder-
+
+Overfull \hbox (13.98665pt too wide) in paragraph at lines 729--739
+ [][] 
+
+Underfull \hbox (badness 1048) in paragraph at lines 741--746
+\T1/stix/m/n/10 pe-m-anasan dari dev set dibuang. Qwen3-4B se-cara na-
+
+Underfull \hbox (badness 1789) in paragraph at lines 741--746
+\T1/stix/m/n/10 Qwen2.5-Coder-3B su-paya ke-ung-gu-lan kon-teks pan-jang
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[7]
+Underfull \hbox (badness 1237) in paragraph at lines 749--760
+\T1/stix/m/it/10 smart-diff \T1/stix/m/n/10 hasil po-ton-gan, dan pa-ram-e-ter gen-erasi yang
+
+Overfull \hbox (9.55966pt too wide) in paragraph at lines 749--760
+\T1/stix/m/n/10 mengam-bil dua card berba-haya ter-atas. DIFF+I+MB mengam-
+
+Overfull \hbox (2.62749pt too wide) in paragraph at lines 806--807
+[]\T1/stix/m/it/10 Recall\T1/stix/m/n/10 : pro-porsi pair MAL yang diberi vo-nis \T1/zi4/m/n/10 malicious\T1/stix/m/n/10 . 
+
+Overfull \hbox (6.54744pt too wide) in paragraph at lines 807--808
+[]\T1/stix/m/n/10 FPR$[]$: pro-porsi pair TYP yang diberi vo-nis \T1/zi4/m/n/10 malicious\T1/stix/m/n/10 . 
+
+Overfull \hbox (0.44302pt too wide) in paragraph at lines 825--831
+[]\T1/stix/m/n/10 FPR tidak di-ga-bung an-tara TYP dan HN. TYP mendekati
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[8]
+Overfull \hbox (8.12465pt too wide) in paragraph at lines 880--882
+[]\T1/stix/m/it/10 Arah sesuai, tidak sig-nifikan\T1/stix/m/n/10 : FPR$[]$ tu-run, $\LS1/stix/m/it/10 p[][]\LS1/stix/m/n/10 0[]05$\T1/stix/m/n/10 ,
+
+Overfull \hbox (8.76463pt too wide) in paragraph at lines 886--892
+\T1/stix/m/n/10 bel-nya \T1/stix/m/it/10 Didukung \T1/stix/m/n/10 jika FPR$[]$(DIFF+I+M) $\LS1/stix/m/it/10 >$ \T1/stix/m/n/10 FPR$[]$(DIFF+I)
+
+Underfull \hbox (badness 1635) in paragraph at lines 886--892
+\T1/stix/m/n/10 den-gan $\LS1/stix/m/it/10 p[][]\LS1/stix/m/n/10 0[]05$\T1/stix/m/n/10 ; \T1/stix/m/it/10 Arah sesuai, tidak sig-nifikan\T1/stix/m/n/10 ; atau
+
+Overfull \hbox (3.9255pt too wide) in paragraph at lines 886--892
+\T1/stix/m/n/10 hanya di-t-ulis jika ke-d-u-anya berla-bel Didukung atau Didukung
+
+Underfull \hbox (badness 1490) in paragraph at lines 902--908
+\T1/stix/m/n/10 la-porkan log vLLM saat model dimuat dan KV cache
+
+Overfull \hbox (32.35634pt too wide) in paragraph at lines 921--925
+\T1/stix/m/n/10 berubah pada tiga seed (\T1/stix/m/it/10 tem-per-a-ture \T1/stix/m/n/10 0,7; DIFF+I dan DIFF+I+MB),
+(./results-exploratory.tex
+Underfull \hbox (badness 1540) in paragraph at lines 14--24
+\T1/stix/m/n/10 sum-ber dan 100 TYP di-a-sum-sikan be-nign) pada enam
+
+Underfull \hbox (badness 1242) in paragraph at lines 14--24
+\T1/stix/m/n/10 batas out-put 2.048 to-ken terse-dia 11.676 re-spons unik;
+
+Underfull \hbox (badness 4531) in paragraph at lines 14--24
+\T1/stix/m/n/10 re-trieval. Se-ba-liknya, D88 hanya men-cakup 20 tar-get
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--24
+\T1/stix/m/n/10 di-ag-nos-tik, sedan-gkan D89 dan D90 masing-masing
+
+Underfull \hbox (badness 1303) in paragraph at lines 14--24
+\T1/stix/m/n/10 penye-le-sa-ian in-fer-ensi pada sub-set tidak be-rarti selu-ruh
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 53--61
+\T1/stix/m/n/10 Versi 1.11.22 memi-liki postin-stall yang men-jalankan
+
+Underfull \hbox (badness 3396) in paragraph at lines 53--61
+\T1/zi4/m/n/10 setup.cjs\T1/stix/m/n/10 ; pem-ba-caan statis file terse-but me-nun-jukkan
+
+Underfull \hbox (badness 1762) in paragraph at lines 62--68
+\T1/stix/m/n/10 pakan kepu-tu-san bersyarat pada snap-shot, bukan re-call
+
+Underfull \hbox (badness 1248) in paragraph at lines 62--68
+\T1/stix/m/n/10 100%. Tidak ada kelu-aran ter-po-tong atau ID bukti tak
+
+Underfull \hbox (badness 1308) in paragraph at lines 83--90
+\T1/stix/m/n/10 in-struksi kon-di-sional serta nama/versi de-pen-dency yang
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--139
+[]\T1/stix/m/n/10 Tidak ada satu pun ver-dict yang berbeda an-tar
+
+Underfull \hbox (badness 4981) in paragraph at lines 131--139
+\T1/stix/m/n/10 model (Tabel [][]7[][]). Selu-ruh re-spons Gran-ite memenuhi
+
+Underfull \hbox (badness 6078) in paragraph at lines 131--139
+\T1/stix/m/n/10 atau er-ror trans-port. Satu tar-get MAL tetap be-nign,
+
+Underfull \hbox (badness 2134) in paragraph at lines 131--139
+\T1/stix/m/n/10 se-hingga per-gan-tian model belum mem-per-baiki de-teksi
+
+Underfull \hbox (badness 3746) in paragraph at lines 131--139
+\T1/stix/m/n/10 isi de-pen-dency, pada \T1/zi4/m/n/10 get-symbol-description@1.0.2 \T1/stix/m/n/10 dan
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--139
+\T1/zi4/m/n/10 @tolicodes/picklejs@0.75.0\T1/stix/m/n/10 ; dukun-gan se-man-tik alasan
+)
+Underfull \hbox (badness 2717) in paragraph at lines 140--939
+[]\T1/stix/m/n/10 Granite memakai 76.964 to-ken pada NO-SOURCE
+
+Underfull \hbox (badness 3713) in paragraph at lines 140--939
+\T1/stix/m/n/10 diband-ingkan to-tal 196.035 to-ken Qwen. To-ken an-tar
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--939
+\T1/stix/m/n/10 model mengikuti to-k-enizer masing-masing dan tidak
+
+Underfull \hbox (badness 1122) in paragraph at lines 140--939
+\T1/stix/m/n/10 14 kan-di-dat HN adalah 1.676 ms dan 2.422 ms un-tuk
+
+Underfull \hbox (badness 2856) in paragraph at lines 140--939
+\T1/stix/m/n/10 pay-load, jum-lah to-ken, pars-ing, ku-ti-pan, 27 check-sum
+
+Underfull \hbox (badness 2293) in paragraph at lines 140--939
+\T1/stix/m/n/10 ini men-dukung ke-samaan kepu-tu-san pada ko-hort yang
+(./discussion-exploratory.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[10]) (/tmp/intendiff-latex-d91/intendiff-rag.bbl
+Underfull \hbox (badness 7133) in paragraph at lines 16--21
+[]\T1/stix/m/n/8 Amazon Web Ser-vices, 2025.  De-fend-ing against sup-ply chain
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--21
+\T1/stix/m/n/8 at-tacks like chalk/debug and the shai-hulud worm.  AWS
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--21
+\T1/stix/m/n/8 Se-cu-rity Blog.  URL: [][]$\T1/zi4/m/n/8 https : / / aws . amazon . com / blogs / security /
+
+Overfull \hbox (48.34505pt too wide) in paragraph at lines 16--21
+\T1/zi4/m/n/8 defending-[]against-[]supply-[]chain-[]attacks-[]like-[]chalk-[]debug-[]and-[]the-[]shai-[]hulud-[]worm$[][]\T1/stix/m/n/8 .
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[11])
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[12] (/tmp/intendiff-latex-d91/intendiff-rag.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information) </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecso0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0900.600pk><~/.TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Bold.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Italic.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Regular.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathcal.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathit.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathrm.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathsf.pfb>
+Output written on /tmp/intendiff-latex-d91/intendiff-rag.pdf (13 pages, 320042 bytes).
+Transcript written on /tmp/intendiff-latex-d91/intendiff-rag.log.
+Latexmk: Getting log file '/tmp/intendiff-latex-d91/intendiff-rag.log'
+Latexmk: Examining '/tmp/intendiff-latex-d91/intendiff-rag.fls'
+Latexmk: Examining '/tmp/intendiff-latex-d91/intendiff-rag.log'
+Latexmk: Found input bbl file '/tmp/intendiff-latex-d91/intendiff-rag.bbl'
+Latexmk: References changed.
+Latexmk: Log file says output to '/tmp/intendiff-latex-d91/intendiff-rag.pdf'
+Latexmk: Using bibtex to make bibliography file(s).
+  ===Source file '/tmp/intendiff-latex-d91/intendiff-rag.bbl' for 'pdflatex'
+Latexmk: Found bibliography file(s):
+  ./cas-refs.bib
+Latexmk: applying rule 'bibtex /tmp/intendiff-latex-d91/intendiff-rag'...
+Rule 'bibtex /tmp/intendiff-latex-d91/intendiff-rag':  Reasons for rerun
+Changed files or newly in use/created:
+  /tmp/intendiff-latex-d91/intendiff-rag.aux
+
+------------
+Run number 3 of rule 'bibtex /tmp/intendiff-latex-d91/intendiff-rag'
+------------
+Latexmk: Change directory to '/tmp/intendiff-latex-d91/'.
+To assist finding of files in document directory, I set
+  BIBINPUTS='~/intendiff_rag/labs/latex:/tmp/intendiff-latex-d91:'
+  BSTINPUTS='~/intendiff_rag/labs/latex:'.
+------------
+Running 'bibtex  "intendiff-rag.aux"'
+------------
+This is BibTeX, Version 0.99e (TeX Live 2026)
+The top-level auxiliary file: intendiff-rag.aux
+The style file: cas-model2-names.bst
+Database file #1: cas-refs.bib
+Warning--empty pages in ding2025vulnerability
+Warning--empty pages in duan2021towards
+Warning--empty pages in gao2024customizing
+Warning--empty pages in gorla2014checking
+Warning--empty pages in guo2026bridging
+Warning--empty pages in huang2024donapi
+Warning--empty pages in kaniewski2026revisiting
+Warning--empty pages in ladisa2023sok
+Warning--empty pages in liu2022makes
+Warning--empty pages in min2022rethinking
+Warning--empty pages in ohm2020backstabber
+Warning--empty pages in qu2014autocog
+Warning--empty pages in sofaer2024rogueone
+Warning--empty pages in tam2024speak
+Warning--empty pages in wyss2025evaluating
+Warning--empty pages in zahan2025leveraging
+Warning--empty pages in zhao2021calibrate
+Warning--empty pages in zheng2024towards
+(There were 18 warnings)
+Latexmk: Change directory back to '~/intendiff_rag/labs/latex'
+Latexmk: applying rule 'pdflatex'...
+Rule 'pdflatex':  Reasons for rerun
+Changed files or newly in use/created:
+  /tmp/intendiff-latex-d91/intendiff-rag.aux
+
+------------
+Run number 4 of rule 'pdflatex'
+------------
+------------
+Running 'pdflatex  -interaction=nonstopmode -halt-on-error -recorder -output-directory="/tmp/intendiff-latex-d91"  "intendiff-rag.tex"'
+------------
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./intendiff-rag.tex
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-08-10>
+(./cas-dc.cls
+Document Class: cas-dc 2024/05/04, 2.4: Formatting class for CAS double column articles
+(~/.TinyTeX/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(~/.TinyTeX/texmf-dist/tex/latex/base/fleqn.clo) (~/.TinyTeX/texmf-dist/tex/latex/base/size10.clo)) (~/.TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty) (~/.TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/trig.sty) (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def))) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(~/.TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (~/.TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty) (~/.TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty (~/.TinyTeX/texmf-dist/tex/latex/l3kernel/l3backend-pdftex.def)) (~/.TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty) (~/.TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (/tmp/intendiff-texmf/tex/latex/preprint/balance.sty) (~/.TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty) (/tmp/intendiff-texmf/tex/latex/makecell/makecell.sty (~/.TinyTeX/texmf-dist/tex/latex/tools/array.sty)) (/tmp/intendiff-texmf/tex/latex/multirow/multirow.sty) (/tmp/intendiff-texmf/tex/latex/colortbl/colortbl.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics/color.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+new hooks used!!
+) (~/.TinyTeX/texmf-dist/tex/latex/tools/dcolumn.sty) (/tmp/intendiff-texmf/tex/latex/sttools/stfloats.sty) (~/.TinyTeX/texmf-dist/tex/latex/tools/xspace.sty) (/tmp/intendiff-texmf/tex/generic/xstring/xstring.sty (/tmp/intendiff-texmf/tex/generic/xstring/xstring.tex)) (/tmp/intendiff-texmf/tex/latex/footmisc/footmisc.sty) (~/.TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty (~/.TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (~/.TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (~/.TinyTeX/texmf-dist/tex/latex/xcolor/svgnam.def) (~/.TinyTeX/texmf-dist/tex/latex/graphics/dvipsnam.def) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (~/.TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (~/.TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (~/.TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (~/.TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (~/.TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (~/.TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (~/.TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (~/.TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (~/.TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (~/.TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (~/.TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (~/.TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (~/.TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (~/.TinyTeX/texmf-dist/tex/latex/url/url.sty) (~/.TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (~/.TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))) (~/.TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (~/.TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (~/.TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty))) (./cas-common.sty (/tmp/intendiff-texmf/tex/latex/moreverb/moreverb.sty (~/.TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty)) (/tmp/intendiff-texmf/tex/latex/wrapfig/wrapfig.sty)) (~/.TinyTeX/texmf-dist/tex/latex/base/fontenc.sty) (/tmp/intendiff-texmf/tex/latex/stix/stix.sty (~/.TinyTeX/texmf-dist/tex/latex/base/textcomp.sty)) (~/.TinyTeX/texmf-dist/tex/latex/inconsolata/inconsolata.sty `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (~/.TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty (~/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (~/.TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex)))) (~/.TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty (~/.TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty))) (~/.TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty) (/tmp/intendiff-texmf/tex/latex/stix/t1stix.fd) (/tmp/intendiff-latex-d91/intendiff-rag.aux) (/tmp/intendiff-texmf/tex/latex/stix/ls1stix.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stix.fd) (~/.TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty (/tmp/intendiff-texmf/tex/latex/grfext/grfext.sty) (~/.TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg)) (/tmp/intendiff-latex-d91/intendiff-rag.out) (/tmp/intendiff-latex-d91/intendiff-rag.out) (/tmp/intendiff-texmf/tex/latex/upquote/upquote.sty)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/tmp/intendiff-texmf/tex/latex/stix/ts1stix.fd) [0{/tmp/intendiff-texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/tmp/intendiff-texmf/fonts/enc/dvips/stix/stix-t1.enc}{/tmp/intendiff-texmf/fonts/enc/dvips/stix/stix-ts1.enc}] (/tmp/intendiff-texmf/tex/latex/stix/ls1stixscr.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixex.fd) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (~/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixfrak.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixbb.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixcal.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls1stixsf.fd) (/tmp/intendiff-texmf/tex/latex/stix/ls2stixtt.fd)
+Overfull \hbox (123.62721pt too wide) detected at line 42
+[]
+(/tmp/intendiff-latex-d91/intendiff-rag.abs)
+
+Package hyperref Warning: Ignoring empty anchor on input line 42.
+
+
+Package hyperref Warning: Ignoring empty anchor on input line 42.
+
+
+Overfull \hbox (1.80554pt too wide) in paragraph at lines 49--57
+[]\T1/stix/m/n/10 Pengembangan perangkat lu-nak mod-ern bergan-tung pada
+(~/.TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd)
+Underfull \hbox (badness 1424) in paragraph at lines 117--128
+[][]\T1/stix/m/n/10 2026b[][]). Model ter-tutup meng-haruskan kode dikirim ke
+
+Underfull \hbox (badness 1237) in paragraph at lines 117--128
+\T1/stix/m/n/10 pa-ram-e-ter ([][]Nguyen, Ho, Pham, Dang-Thi, Vu, Nguyen,
+[1{~/.TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+Underfull \hbox (badness 1082) in paragraph at lines 129--144
+\T1/stix/m/n/10 and Singh[][], [][]2021[][]), dan con-toh yang dip-ilih berdasarkan
+
+Underfull \hbox (badness 1215) in paragraph at lines 129--144
+\T1/stix/m/n/10 dan yang harus di-hin-dari model ([][]Gao and Das[][], [][]2024[][]).
+
+Underfull \hbox (badness 2181) in paragraph at lines 129--144
+\T1/stix/m/n/10 Ha-jishirzi and Zettle-moyer[][], [][]2022[][]) me-nun-jukkan bahwa
+
+Overfull \hbox (2.09636pt too wide) in paragraph at lines 145--154
+\T1/stix/m/n/10 pola mal-ware yang su-dah dike-tahui, pen-dekatan ini menandai
+
+Underfull \hbox (badness 2229) in paragraph at lines 145--154
+[][]\T1/stix/m/n/10 2014[][]). In-tel-Guard men-er-ap-kan pe-nalaran serupa se-cara
+
+Underfull \hbox (badness 1442) in paragraph at lines 155--172
+\T1/stix/m/n/10 ran ke-cil. Un-tuk se-tiap pasan-gan versi, IntentDiff-RAG
+
+Overfull \hbox (12.768pt too wide) in paragraph at lines 155--172
+\T1/stix/m/n/10 melakukan em-pat langkah: (i) mem-ben-tuk \T1/stix/m/it/10 smart-diff \T1/stix/m/n/10 mengikuti
+
+Underfull \hbox (badness 1184) in paragraph at lines 155--172
+\T1/stix/m/n/10 kendali peny-erang ([][]Wyss et al.[][], [][]2025[][]); (iii) mengam-bil
+
+Underfull \hbox (badness 1067) in paragraph at lines 155--172
+\T1/stix/m/n/10 satu con-toh berba-haya dan satu con-toh sah yang mirip
+
+Underfull \hbox (badness 1728) in paragraph at lines 176--179
+[]\T1/stix/m/n/10 Evaluasi LLM \T1/stix/m/it/10 open-weight \T1/stix/m/n/10 beruku-ran 3--4 mil-iar
+
+Underfull \hbox (badness 1173) in paragraph at lines 176--179
+\T1/stix/m/n/10 haya pada tingkat \T1/stix/m/it/10 smart-diff\T1/stix/m/n/10 , den-gan metrik yang
+
+Overfull \hbox (8.0105pt too wide) in paragraph at lines 193--198
+\T1/stix/m/n/10 mem-ba-has peneli-tian terkait. Bagian [][]3[][] men-je-laskan IntentDiff-
+
+Overfull \hbox (16.42215pt too wide) in paragraph at lines 212--222
+\T1/stix/m/n/10 sar paket. [][]Ohm, Plate, Sykosch and Meier[][] ([][]2020[][]) mengumpulkan
+
+Underfull \hbox (badness 1721) in paragraph at lines 212--222
+\T1/stix/m/n/10 Barais[][] ([][]2023[][]) ke-mu-dian menyusun tak-sonomi seran-gan
+
+Underfull \hbox (badness 1292) in paragraph at lines 212--222
+\T1/stix/m/it/10 tree\T1/stix/m/n/10 . Tak-sonomi ini memuat 107 vek-tor seran-gan yang
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[2]
+Underfull \hbox (badness 1546) in paragraph at lines 241--251
+\T1/stix/m/n/10 namis, lalu men-co-cokkan-nya den-gan ba-sis penge-tahuan
+
+Underfull \hbox (badness 2150) in paragraph at lines 264--272
+[]\T1/stix/m/n/10 Kelompok peneli-tian ini men-jadikan pe-ruba-han an-
+
+Overfull \hbox (2.33469pt too wide) in paragraph at lines 287--294
+[]\T1/stix/m/n/10 SocketAI me-nun-jukkan bahwa GPT-4 men-gung-guli anal-
+
+Underfull \hbox (badness 2050) in paragraph at lines 287--294
+\T1/stix/m/n/10 Mal-PacDe-tec-tor me-man-faatkan LLM un-tuk mem-bangk-
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[3]
+Underfull \hbox (badness 1838) in paragraph at lines 327--334
+\T1/stix/m/n/10 diusulkan un-tuk mem-per-je-las kelu-aran yang di-inginkan
+
+Overfull \hbox (7.40549pt too wide) in paragraph at lines 337--349
+\T1/stix/m/n/10 den-gan deskripsinya berkem-bang di eko-sis-tem ap-likasi seluler.
+
+Underfull \hbox (badness 1742) in paragraph at lines 337--349
+\T1/stix/m/n/10 je-laskan alasan ap-likasi mem-bu-tuhkan su-atu izin ([][]Pan-
+
+Underfull \hbox (badness 1365) in paragraph at lines 337--349
+\T1/stix/m/n/10 pokkan lebih dari 22.500 ap-likasi An-droid berdasarkan
+
+Underfull \hbox (badness 1158) in paragraph at lines 352--358
+[]\T1/stix/m/n/10 Tabel [][]1[][] merangkum po-sisi IntentDiff-RAG ter-hadap
+
+Underfull \hbox (badness 1033) in paragraph at lines 363--366
+\T1/stix/m/n/10 Mengikuti pela-jaran dari Vul-RAG, Prime-Vul, dan rep-
+
+Underfull \hbox (badness 1838) in paragraph at lines 363--366
+\T1/stix/m/n/10 likasinya, eval-u-asi di-lakukan pada \T1/stix/m/it/10 hard neg-a-tive\T1/stix/m/n/10 , yaitu
+
+Underfull \hbox (badness 2644) in paragraph at lines 376--376
+[]|\T1/cmss/m/n/9 Unit anal-i-
+
+Underfull \hbox (badness 10000) in paragraph at lines 379--379
+[]|\T1/cmss/m/n/9 Amalfi ([][]Se-j-fia and
+
+Underfull \hbox (badness 10000) in paragraph at lines 383--383
+[]|\T1/cmss/m/n/9 RogueOne ([][]So-faer
+
+Underfull \hbox (badness 10000) in paragraph at lines 384--384
+[]|\T1/cmss/m/n/9 Tertutup (GPT-3,
+
+Underfull \hbox (badness 10000) in paragraph at lines 385--385
+[]|\T1/cmss/m/n/9 Tertutup (GPT-4o,
+
+Underfull \hbox (badness 6658) in paragraph at lines 385--385
+\T1/cmss/m/n/9 GPT-4-Turbo, Gem-ini
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
+[]|\T1/cmss/m/n/9 Tertutup (GPT-4.1-
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--386
+[]|\T1/cmss/m/n/9 Contoh
+
+Overfull \hbox (35.58018pt too wide) in paragraph at lines 374--391
+ [][] 
+
+Overfull \hbox (0.92926pt too wide) in paragraph at lines 403--411
+[]\T1/stix/m/n/10 Unit anal-i-sis adalah satu pem-baruan \T1/zi4/m/n/10 pkg\T1/stix/m/n/10 @$\LS1/stix/m/n/10 v[]  \LS1/stixsf/m/n/10 ™$\T1/zi4/m/n/10 pkg\T1/stix/m/n/10 @$\LS1/stix/m/n/10 v[]$\T1/stix/m/n/10 ,
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[4]
+Underfull \hbox (badness 1270) in paragraph at lines 453--466
+\T1/stix/m/n/10 di-ta-mpilkan. In-tel-Guard menghubungkan po-ton-gan kode
+
+Overfull \hbox (2.72638pt too wide) in paragraph at lines 500--507
+[]\T1/stix/m/n/10 Model berperan se-ba-gai pen-ganal-i-sis pro-gram, mengikuti
+
+Underfull \hbox (badness 1577) in paragraph at lines 500--507
+\T1/stix/m/n/10 otoma-tis berba-haya: vo-nis di-dasarkan pada ke-mam-puan
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[5]
+Overfull \hbox (12.38786pt too wide) in paragraph at lines 508--515
+\T1/stix/m/n/10 tiga baris dis-alin dari \T1/stix/m/it/10 smart-diff\T1/stix/m/n/10 ), \T1/zi4/m/n/10 reason\T1/stix/m/n/10 , dan \T1/zi4/m/n/10 verdict \T1/stix/m/n/10 (\T1/zi4/m/n/10 malicious
+
+Underfull \hbox (badness 1082) in paragraph at lines 539--550
+\T1/stix/m/n/10 4B dan di-jalankan se-cara lokal. Ke-dua, pem-baruan sah
+
+Underfull \hbox (badness 1320) in paragraph at lines 539--550
+\T1/stix/m/n/10 melebih-lebihkan kin-erja: model 7B yang men-ca-pai F1
+
+Underfull \hbox (badness 1502) in paragraph at lines 539--550
+\T1/stix/m/it/10 hard neg-a-tive\T1/stix/m/n/10 . Ketiga, re-trieval tidak hanya mengam-bil
+
+Underfull \hbox (badness 2837) in paragraph at lines 559--559
+[]|\T1/cmss/m/n/9 Pembaruan atau paket
+
+Underfull \hbox (badness 10000) in paragraph at lines 572--573
+[]|\T1/cmss/m/n/9 Sensitivitas,
+
+Underfull \hbox (badness 10000) in paragraph at lines 573--574
+[]|\T1/cmss/m/n/9 SocketAI ([][]Za-han
+
+Underfull \hbox (badness 10000) in paragraph at lines 579--580
+[]|\T1/cmss/m/n/9 IntelGuard ([][]Guo
+
+Underfull \hbox (badness 10000) in paragraph at lines 585--586
+[]|[][]\T1/cmss/m/n/9 Nguyen et al.[][]
+
+Underfull \hbox (badness 10000) in paragraph at lines 593--594
+[]|\T1/cmss/m/it/9 Smart-diff \T1/cmss/m/n/9 +
+
+Overfull \hbox (24.19925pt too wide) in paragraph at lines 557--599
+ [][] 
+
+Underfull \hbox (badness 1648) in paragraph at lines 626--630
+\T1/stix/m/n/10 se-hingga mema-sukkan-nya akan menaikkan \T1/stix/m/it/10 re-call \T1/stix/m/n/10 tanpa
+
+Overfull \hbox (5.20546pt too wide) in paragraph at lines 631--636
+\T1/stix/m/n/10 kam-pa-nye yang ter-bit sete-lah tang-gal rilis model dikumpulkan
+
+Underfull \hbox (badness 1924) in paragraph at lines 646--656
+\T1/stix/m/n/10 yang menam-bahkan ke-mam-puan sen-si-tif den-gan tu-juan
+
+Underfull \hbox (badness 1769) in paragraph at lines 646--656
+\T1/zi4/m/n/10 patch-package\T1/stix/m/n/10 , dan \T1/zi4/m/n/10 prisma \T1/stix/m/n/10 se-ba-gai sum-ber posi-tif palsu
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[6]
+Underfull \hbox (badness 3271) in paragraph at lines 679--680
+[]|\T1/cmss/m/n/9 Dasar di eval-u-asi ter-
+
+Underfull \hbox (badness 10000) in paragraph at lines 682--683
+[]|\T1/zi4/m/n/9 install_script\T1/cmss/m/n/9 ,
+
+Underfull \hbox (badness 2173) in paragraph at lines 683--684
+[]|\T1/cmss/m/it/9 Install hook \T1/cmss/m/n/9 sah ([][]Guo
+
+Underfull \hbox (badness 10000) in paragraph at lines 688--689
+[]|\T1/zi4/m/n/9 obfuscation\T1/cmss/m/n/9 ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 689--690
+[]|\T1/cmss/m/n/9 Validasi lisensi ter-
+
+Underfull \hbox (badness 1881) in paragraph at lines 689--690
+\T1/cmss/m/n/9 obfuscate pada anal-i-sis
+
+Underfull \hbox (badness 10000) in paragraph at lines 690--691
+[]|\T1/cmss/m/n/9 Jaringan dan
+
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
+[]|\T1/zi4/m/n/9 network\T1/cmss/m/n/9 ,
+
+Underfull \hbox (badness 10000) in paragraph at lines 693--694
+[]|\T1/cmss/m/n/9 Depresiasi dan
+
+Underfull \hbox (badness 10000) in paragraph at lines 693--694
+\T1/cmss/m/n/9 pe-ruba-han
+
+Underfull \hbox (badness 10000) in paragraph at lines 694--695
+[]|\T1/zi4/m/n/9 large_deletion\T1/cmss/m/n/9 ,
+
+Overfull \hbox (8.11996pt too wide) in paragraph at lines 694--695
+\T1/zi4/m/n/9 dependency_change| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 695--696
+\T1/cmss/m/n/9 pe-ruba-han de-pen-densi,
+
+Overfull \hbox (13.9862pt too wide) in paragraph at lines 677--698
+ [][] 
+
+Underfull \hbox (badness 1067) in paragraph at lines 701--709
+\T1/stix/m/n/10 pa-nye jika meru-juk in-si-den yang sama, memuat berkas
+
+Underfull \hbox (badness 1527) in paragraph at lines 701--709
+\T1/stix/m/n/10 pada am-bang 0,5. Am-bang con-dong ke peng-gabun-gan:
+
+Underfull \hbox (badness 10000) in paragraph at lines 731--731
+[]|\T1/cmss/m/n/9 Qwen3-4B-
+
+Underfull \hbox (badness 10000) in paragraph at lines 731--732
+[]|\T1/cmss/m/n/9 Qwen2.5-Coder-
+
+Overfull \hbox (13.98665pt too wide) in paragraph at lines 729--739
+ [][] 
+
+Underfull \hbox (badness 1048) in paragraph at lines 741--746
+\T1/stix/m/n/10 pe-m-anasan dari dev set dibuang. Qwen3-4B se-cara na-
+
+Underfull \hbox (badness 1789) in paragraph at lines 741--746
+\T1/stix/m/n/10 Qwen2.5-Coder-3B su-paya ke-ung-gu-lan kon-teks pan-jang
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[7]
+Underfull \hbox (badness 1237) in paragraph at lines 749--760
+\T1/stix/m/it/10 smart-diff \T1/stix/m/n/10 hasil po-ton-gan, dan pa-ram-e-ter gen-erasi yang
+
+Overfull \hbox (9.55966pt too wide) in paragraph at lines 749--760
+\T1/stix/m/n/10 mengam-bil dua card berba-haya ter-atas. DIFF+I+MB mengam-
+
+Overfull \hbox (2.62749pt too wide) in paragraph at lines 806--807
+[]\T1/stix/m/it/10 Recall\T1/stix/m/n/10 : pro-porsi pair MAL yang diberi vo-nis \T1/zi4/m/n/10 malicious\T1/stix/m/n/10 . 
+
+Overfull \hbox (6.54744pt too wide) in paragraph at lines 807--808
+[]\T1/stix/m/n/10 FPR$[]$: pro-porsi pair TYP yang diberi vo-nis \T1/zi4/m/n/10 malicious\T1/stix/m/n/10 . 
+
+Overfull \hbox (0.44302pt too wide) in paragraph at lines 825--831
+[]\T1/stix/m/n/10 FPR tidak di-ga-bung an-tara TYP dan HN. TYP mendekati
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[8]
+Overfull \hbox (8.12465pt too wide) in paragraph at lines 880--882
+[]\T1/stix/m/it/10 Arah sesuai, tidak sig-nifikan\T1/stix/m/n/10 : FPR$[]$ tu-run, $\LS1/stix/m/it/10 p[][]\LS1/stix/m/n/10 0[]05$\T1/stix/m/n/10 ,
+
+Overfull \hbox (8.76463pt too wide) in paragraph at lines 886--892
+\T1/stix/m/n/10 bel-nya \T1/stix/m/it/10 Didukung \T1/stix/m/n/10 jika FPR$[]$(DIFF+I+M) $\LS1/stix/m/it/10 >$ \T1/stix/m/n/10 FPR$[]$(DIFF+I)
+
+Underfull \hbox (badness 1635) in paragraph at lines 886--892
+\T1/stix/m/n/10 den-gan $\LS1/stix/m/it/10 p[][]\LS1/stix/m/n/10 0[]05$\T1/stix/m/n/10 ; \T1/stix/m/it/10 Arah sesuai, tidak sig-nifikan\T1/stix/m/n/10 ; atau
+
+Overfull \hbox (3.9255pt too wide) in paragraph at lines 886--892
+\T1/stix/m/n/10 hanya di-t-ulis jika ke-d-u-anya berla-bel Didukung atau Didukung
+
+Underfull \hbox (badness 1490) in paragraph at lines 902--908
+\T1/stix/m/n/10 la-porkan log vLLM saat model dimuat dan KV cache
+
+Overfull \hbox (32.35634pt too wide) in paragraph at lines 921--925
+\T1/stix/m/n/10 berubah pada tiga seed (\T1/stix/m/it/10 tem-per-a-ture \T1/stix/m/n/10 0,7; DIFF+I dan DIFF+I+MB),
+(./results-exploratory.tex
+Underfull \hbox (badness 1540) in paragraph at lines 14--24
+\T1/stix/m/n/10 sum-ber dan 100 TYP di-a-sum-sikan be-nign) pada enam
+
+Underfull \hbox (badness 1242) in paragraph at lines 14--24
+\T1/stix/m/n/10 batas out-put 2.048 to-ken terse-dia 11.676 re-spons unik;
+
+Underfull \hbox (badness 4531) in paragraph at lines 14--24
+\T1/stix/m/n/10 re-trieval. Se-ba-liknya, D88 hanya men-cakup 20 tar-get
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--24
+\T1/stix/m/n/10 di-ag-nos-tik, sedan-gkan D89 dan D90 masing-masing
+
+Underfull \hbox (badness 1303) in paragraph at lines 14--24
+\T1/stix/m/n/10 penye-le-sa-ian in-fer-ensi pada sub-set tidak be-rarti selu-ruh
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 53--61
+\T1/stix/m/n/10 Versi 1.11.22 memi-liki postin-stall yang men-jalankan
+
+Underfull \hbox (badness 3396) in paragraph at lines 53--61
+\T1/zi4/m/n/10 setup.cjs\T1/stix/m/n/10 ; pem-ba-caan statis file terse-but me-nun-jukkan
+
+Underfull \hbox (badness 1762) in paragraph at lines 62--68
+\T1/stix/m/n/10 pakan kepu-tu-san bersyarat pada snap-shot, bukan re-call
+
+Underfull \hbox (badness 1248) in paragraph at lines 62--68
+\T1/stix/m/n/10 100%. Tidak ada kelu-aran ter-po-tong atau ID bukti tak
+
+Underfull \hbox (badness 1308) in paragraph at lines 83--90
+\T1/stix/m/n/10 in-struksi kon-di-sional serta nama/versi de-pen-dency yang
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--139
+[]\T1/stix/m/n/10 Tidak ada satu pun ver-dict yang berbeda an-tar
+
+Underfull \hbox (badness 4981) in paragraph at lines 131--139
+\T1/stix/m/n/10 model (Tabel [][]7[][]). Selu-ruh re-spons Gran-ite memenuhi
+
+Underfull \hbox (badness 6078) in paragraph at lines 131--139
+\T1/stix/m/n/10 atau er-ror trans-port. Satu tar-get MAL tetap be-nign,
+
+Underfull \hbox (badness 2134) in paragraph at lines 131--139
+\T1/stix/m/n/10 se-hingga per-gan-tian model belum mem-per-baiki de-teksi
+
+Underfull \hbox (badness 3746) in paragraph at lines 131--139
+\T1/stix/m/n/10 isi de-pen-dency, pada \T1/zi4/m/n/10 get-symbol-description@1.0.2 \T1/stix/m/n/10 dan
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--139
+\T1/zi4/m/n/10 @tolicodes/picklejs@0.75.0\T1/stix/m/n/10 ; dukun-gan se-man-tik alasan
+)
+Underfull \hbox (badness 2717) in paragraph at lines 140--939
+[]\T1/stix/m/n/10 Granite memakai 76.964 to-ken pada NO-SOURCE
+
+Underfull \hbox (badness 3713) in paragraph at lines 140--939
+\T1/stix/m/n/10 diband-ingkan to-tal 196.035 to-ken Qwen. To-ken an-tar
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--939
+\T1/stix/m/n/10 model mengikuti to-k-enizer masing-masing dan tidak
+
+Underfull \hbox (badness 1122) in paragraph at lines 140--939
+\T1/stix/m/n/10 14 kan-di-dat HN adalah 1.676 ms dan 2.422 ms un-tuk
+
+Underfull \hbox (badness 2856) in paragraph at lines 140--939
+\T1/stix/m/n/10 pay-load, jum-lah to-ken, pars-ing, ku-ti-pan, 27 check-sum
+
+Underfull \hbox (badness 2293) in paragraph at lines 140--939
+\T1/stix/m/n/10 ini men-dukung ke-samaan kepu-tu-san pada ko-hort yang
+(./discussion-exploratory.tex
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[10]) (/tmp/intendiff-latex-d91/intendiff-rag.bbl
+Underfull \hbox (badness 7133) in paragraph at lines 16--21
+[]\T1/stix/m/n/8 Amazon Web Ser-vices, 2025.  De-fend-ing against sup-ply chain
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--21
+\T1/stix/m/n/8 at-tacks like chalk/debug and the shai-hulud worm.  AWS
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--21
+\T1/stix/m/n/8 Se-cu-rity Blog.  URL: [][]$\T1/zi4/m/n/8 https : / / aws . amazon . com / blogs / security /
+
+Overfull \hbox (48.34505pt too wide) in paragraph at lines 16--21
+\T1/zi4/m/n/8 defending-[]against-[]supply-[]chain-[]attacks-[]like-[]chalk-[]debug-[]and-[]the-[]shai-[]hulud-[]worm$[][]\T1/stix/m/n/8 .
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[11])
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+[12] (/tmp/intendiff-latex-d91/intendiff-rag.aux) )
+(see the transcript file for additional information) </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecso0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx0900.600pk> </tmp/intendiff-texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0900.600pk><~/.TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Bold.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-BoldItalic.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Italic.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/STIXGeneral-Regular.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathcal.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathit.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathrm.pfb></tmp/intendiff-texmf/fonts/type1/public/stix/stix-mathsf.pfb>
+Output written on /tmp/intendiff-latex-d91/intendiff-rag.pdf (13 pages, 320048 bytes).
+Transcript written on /tmp/intendiff-latex-d91/intendiff-rag.log.
+Latexmk: Getting log file '/tmp/intendiff-latex-d91/intendiff-rag.log'
+Latexmk: Examining '/tmp/intendiff-latex-d91/intendiff-rag.fls'
+Latexmk: Examining '/tmp/intendiff-latex-d91/intendiff-rag.log'
+Latexmk: Found input bbl file '/tmp/intendiff-latex-d91/intendiff-rag.bbl'
+Latexmk: Log file says output to '/tmp/intendiff-latex-d91/intendiff-rag.pdf'
+Latexmk: Using bibtex to make bibliography file(s).
+  ===Source file '/tmp/intendiff-latex-d91/intendiff-rag.bbl' for 'pdflatex'
+Latexmk: Found bibliography file(s):
+  ./cas-refs.bib
+Latexmk: All targets (/tmp/intendiff-latex-d91/intendiff-rag.pdf) are up-to-date
+

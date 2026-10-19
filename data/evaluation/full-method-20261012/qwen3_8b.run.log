@@ -1,0 +1,4 @@
+[2026-10-14T13:50:34+07:00] start qwen3_8b
+{"stage": "server_starting", "updated_unix": 1791960707.9674757, "model": "Qwen/Qwen3-8B", "pid": 11608, "command": ["~/intendiff_rag/.venv/bin/vllm", "serve", "~/intendiff_rag/data/upstream/models/qwen3-8b", "--served-model-name", "Qwen/Qwen3-8B", "--host", "127.0.0.1", "--port", "8101", "--dtype", "bfloat16", "--max-model-len", "32768", "--seed", "0", "--generation-config", "vllm", "--max-num-seqs", "1", "--kv-cache-memory-bytes", "6442450944", "--enable-prefix-caching"]}
+{"stage": "evaluating", "updated_unix": 1791960818.0700998, "model": "Qwen/Qwen3-8B", "expected_per_model": 2919, "total_expected": 20433}
+{"model": "Qwen/Qwen3-8B", "completed": 30, "expected": 2919, "pair_id": "vue-backbone@0.1.2", "arm": "VERIFY-I", "updated_unix": 1791960863.3097281}

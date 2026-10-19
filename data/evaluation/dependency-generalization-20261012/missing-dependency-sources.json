@@ -1,0 +1,131 @@
+[
+  {
+    "dependency": "@antv/setup",
+    "target_count": 4,
+    "targets": [
+      {
+        "pair_id": "echarts-for-react@3.0.7",
+        "constraint": "github:antvis/G2#7cb42f57561c321ecb09b4552802ae0ac55b3a7a",
+        "target_published": "2026-05-19T01:47:12.979Z"
+      },
+      {
+        "pair_id": "jest-canvas-mock@2.5.3",
+        "constraint": "github:antvis/G2#1916faa365f2788b6e193514872d51a242876569",
+        "target_published": "2026-05-19T01:39:31.249Z"
+      },
+      {
+        "pair_id": "jest-date-mock@1.0.11",
+        "constraint": "github:antvis/G2#dc3d62a2181beb9f326952a2d212900c94f2e13d",
+        "target_published": "2026-05-19T01:49:41.080Z"
+      },
+      {
+        "pair_id": "size-sensor@1.0.4",
+        "constraint": "github:antvis/G2#7cb42f57561c321ecb09b4552802ae0ac55b3a7a",
+        "target_published": "2026-05-19T01:44:36.140Z"
+      }
+    ],
+    "status": "source_absent_from_local_inventories",
+    "not_inference_results": true
+  },
+  {
+    "dependency": "@opensearch/setup",
+    "target_count": 2,
+    "targets": [
+      {
+        "pair_id": "@opensearch-project/opensearch@3.7.0",
+        "constraint": "github:opensearch-project/openearch#d446803f4c3bc116263faa3499a1d3f95b2825de",
+        "target_published": "2026-05-12T00:42:29.686Z"
+      },
+      {
+        "pair_id": "@opensearch-project/opensearch@3.5.3",
+        "constraint": "github:opensearch-project/opensearch-js#d446803f4c3bc116263faa3499a1d3f95b2825de",
+        "target_published": "2026-05-12T00:47:39.185Z"
+      }
+    ],
+    "status": "source_absent_from_local_inventories",
+    "not_inference_results": true
+  },
+  {
+    "dependency": "daemon",
+    "target_count": 2,
+    "targets": [
+      {
+        "pair_id": "kraken-api@0.1.8",
+        "constraint": "1.1.0",
+        "target_published": null
+      },
+      {
+        "pair_id": "rpc-websocket@0.7.11",
+        "constraint": "*",
+        "target_published": null
+      }
+    ],
+    "status": "source_absent_from_local_inventories",
+    "not_inference_results": true
+  },
+  {
+    "dependency": "@accordproject/concerto-core",
+    "target_count": 1,
+    "targets": [
+      {
+        "pair_id": "@accordproject/concerto-linter-default-ruleset@3.24.1",
+        "constraint": "3.24.0",
+        "target_published": "2025-11-24T10:21:56.324Z"
+      }
+    ],
+    "status": "source_absent_from_local_inventories",
+    "not_inference_results": true
+  },
+  {
+    "dependency": "@types/object-path",
+    "target_count": 1,
+    "targets": [
+      {
+        "pair_id": "@dev-blinq/cucumber-js@1.0.131",
+        "constraint": "^0.11.4",
+        "target_published": "2025-11-24T09:33:49.503Z"
+      }
+    ],
+    "status": "source_absent_from_local_inventories",
+    "not_inference_results": true
+  },
+  {
+    "dependency": "bun",
+    "target_count": 1,
+    "targets": [
+      {
+        "pair_id": "leo-logger@1.0.8",
+        "constraint": "^1.3.13",
+        "target_published": "2026-06-24T23:04:55.255Z"
+      }
+    ],
+    "status": "source_absent_from_local_inventories",
+    "not_inference_results": true
+  },
+  {
+    "dependency": "object-path",
+    "target_count": 1,
+    "targets": [
+      {
+        "pair_id": "@dev-blinq/cucumber-js@1.0.131",
+        "constraint": "^0.11.8",
+        "target_published": "2025-11-24T09:33:49.503Z"
+      }
+    ],
+    "status": "source_absent_from_local_inventories",
+    "not_inference_results": true
+  },
+  {
+    "dependency": "request",
+    "target_count": 1,
+    "targets": [
+      {
+        "pair_id": "zuper-cli@1.0.1",
+        "constraint": "^2.88.2",
+        "target_published": "2025-11-24T06:56:23.566Z"
+      }
+    ],
+    "status": "source_absent_from_local_inventories",
+    "not_inference_results": true
+  }
+]

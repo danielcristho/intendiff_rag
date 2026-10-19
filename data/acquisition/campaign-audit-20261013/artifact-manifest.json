@@ -1,0 +1,180 @@
+{
+  "files": [
+    {
+      "path": "data/acquisition/campaign-audit-20261013/audit-attempt1.log",
+      "bytes": 171,
+      "sha256": "e5b79b20ea2541206bef680242ee2029f96d44470cb94c5fef84586734b0274c"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/audit-attempt2.log",
+      "bytes": 301,
+      "sha256": "c4cf1c682ac5881c51b0851a80ae1884f0cb40ac7d79374fb204180e7175d179"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/audit-attempt3.log",
+      "bytes": 365,
+      "sha256": "abfb38d06ac858e460a6f9172d8ef6fe6ecac378b3c2e7dc6b31a05aa5025914"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/audit.log",
+      "bytes": 80762,
+      "sha256": "93e375d8f785febc7e5c1aaf6ce8d4b86922a389ca71629ba6bcfb2f7cde4bbe"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/completion.json",
+      "bytes": 816,
+      "sha256": "532abe689879a9ff0c72a5b765f390a98f9813d87f81d2bffc3ef96464cdcc42"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/dev-dolos-bridges.jsonl",
+      "bytes": 16566,
+      "sha256": "e9b6de9c908235fa8da56b2b254d99dc7703e6dbbe4949920d368f635b6449b1"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/dev-exposure-paths.jsonl",
+      "bytes": 8697,
+      "sha256": "eee23fa9073c51223344b0c3df8c1da655d9839cc2bfee01c3ebdd04e4bd5ded"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/evidence.log",
+      "bytes": 78,
+      "sha256": "b5831f297896050fa4f08518d70e330767e6885bbb30aab22b9ce1427f581270"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/giant-common-hashes.jsonl",
+      "bytes": 7250,
+      "sha256": "2b8ce520e9bdf570056592c6d3c94480f9e02cfbe90ac32712ad8fbe2b243dff"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/hash-source-examples.jsonl",
+      "bytes": 94849,
+      "sha256": "1afc94f9385c154d8d9c4df39a7b77a30797413dc4ac25e63cd57160e19644d4"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/holdout-kb-exclusions.jsonl",
+      "bytes": 889,
+      "sha256": "afc19c508a748525220c900a8ac48a5c8beb45b84d4916682d5befd873712ad8"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/input-pins.jsonl",
+      "bytes": 2250811,
+      "sha256": "6a73ed4636037a6170acfcc2584dd482e58037e1ea691fd439689619e8e80623"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/material-index.jsonl",
+      "bytes": 33967712,
+      "sha256": "9fb9443bcc817fcfb913062f9c5da1824f7fb845516d0c9473a3b7675967ffc9"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/probe.log",
+      "bytes": 3496,
+      "sha256": "793382725fe74a7c318ee3eac8669976847edb54f4d2811a4621066c85ef18f5"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/source-snapshot/.agent/continuation.md",
+      "bytes": 11989,
+      "sha256": "93f320fabf1c2020dfc68d7934d0740f5989081dd220c12cd4ccb45960875142"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/source-snapshot/docs/campaign-audit-20261013.md",
+      "bytes": 6862,
+      "sha256": "23fb365d24a05103483da5c6b9320bb8627745a17374feb483e506fc404ce6b7"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/source-snapshot/docs/dataset-expansion-review-20261013.md",
+      "bytes": 4497,
+      "sha256": "def1005c1e012bc0c621a3cf2e2272b6246fe9b53ba72afd59b52f363fc5be44"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/source-snapshot/docs/decisions.md",
+      "bytes": 97384,
+      "sha256": "f5b3dd636d8757b16bd2d4d569086917da8e24e1d90cb6880db325dc5028f8e6"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/source-snapshot/docs/methodology.md",
+      "bytes": 45977,
+      "sha256": "682ceeb51ed02728330789d68397fb756fbb70f89e63ce3fb21fc886abcfad61"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/source-snapshot/pipeline/campaign_audit.py",
+      "bytes": 5813,
+      "sha256": "7f55eb3f46f9370ff1321382c0d898835858e97c1392eb9401316775362daea1"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/source-snapshot/pipeline/campaign_audit_evidence.py",
+      "bytes": 4745,
+      "sha256": "1204e8717d8bf4d9f9b57be57fff9962889fe6ffb1a2c3d0ab0341be23d74d21"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/source-snapshot/pipeline/campaign_audit_graph.py",
+      "bytes": 5630,
+      "sha256": "932c95a55252de130c65cce4ca0a2cad8388b78f66d608589d0dfe288984c8db"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/source-snapshot/pipeline/campaign_audit_verify.py",
+      "bytes": 3394,
+      "sha256": "b55675c0bdd8c19c6722e0552fc18df2e4e1ec9a6d36be416cb38be769bb2ad9"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/source-snapshot/pipeline/expansion_annotation.py",
+      "bytes": 2479,
+      "sha256": "3fb9636dd7d94b2b6215fa65b9f448fc0546c289aef15b2df05cb8170845497f"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/source-snapshot/tests/test_campaign_audit.py",
+      "bytes": 4347,
+      "sha256": "778f9547ca3f00605611b6f83501a69d6e23c608ae8f102ec28f2167b9d86a5d"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/summary.json",
+      "bytes": 5745,
+      "sha256": "e7478c361abe9f02e66c9db373c753805b4b365cbf93f05f5d712c11b33f8576"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/tests.log",
+      "bytes": 2760,
+      "sha256": "0fb0a0b3b34b0ce62f5c41c7a7413b9a9f5121231330347136df49dcd339133d"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/verification.json",
+      "bytes": 195,
+      "sha256": "a9981089ecd265b53dd5fdd4ff940f93bbd68e6d926690edbff4045bf1b82d43"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/verification.log",
+      "bytes": 183,
+      "sha256": "1d2ea2e2bde8876fec16312ca5ab9075fc539f3c32bd8cabc1bbb43ea27d73f4"
+    },
+    {
+      "path": "data/acquisition/campaign-audit-20261013/witness-forest.jsonl",
+      "bytes": 3461583,
+      "sha256": "7283d317f65492cbf8a868582b01b1a798e8934c89a744432a16ca3d8b796a77"
+    },
+    {
+      "path": "data/acquisition/hn-annotation-20261013/README.md",
+      "bytes": 1181,
+      "sha256": "0881739e086f170fc1c42cac5faf73e39ed6aed0e88ae75013a9d6979158f82a"
+    },
+    {
+      "path": "data/acquisition/hn-annotation-20261013/annotation.A.jsonl",
+      "bytes": 43068,
+      "sha256": "60d12afe114b25a42a55d88d2e7dfe8a072f59e3ac125fec7573cfa4c795c960"
+    },
+    {
+      "path": "data/acquisition/hn-annotation-20261013/annotation.B.jsonl",
+      "bytes": 43068,
+      "sha256": "587bdedbb7f6976ee0c754a1bc81384bbf38093403dcc0fd48c888ed58b18664"
+    },
+    {
+      "path": "data/acquisition/hn-annotation-20261013/materials.jsonl",
+      "bytes": 138938,
+      "sha256": "44f0b61af6ae64546dce6a7877137e05871f2e481e76ea82e71f088ca3b23821"
+    },
+    {
+      "path": "data/acquisition/hn-annotation-20261013/summary.json",
+      "bytes": 733,
+      "sha256": "f03352fae05fd0be85fe30b6b73af262e8f918f11e50f6032ffc84621a071613"
+    }
+  ],
+  "annotation_forms": "initial blank baseline; future human decisions are new artifacts"
+}

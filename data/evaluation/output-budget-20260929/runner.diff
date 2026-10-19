@@ -1,0 +1,29 @@
+--- baseline/runner.py
++++ output-budget/runner.py
+@@ -34,7 +34,7 @@
+ def run_key(model, config, pair_id, seed, temperature):
+     # Temperature belongs in the key: seed 0 is reused at another temperature
+     # and would otherwise collide and be skipped.
+-    return f"{model}|{config}|{pair_id}|{seed}|{temperature}"
++    return f"{model}|{config}|{pair_id}|{seed}|{temperature}|max_tokens=2048"
+ 
+ 
+ # A resume skips these.
+@@ -152,7 +152,7 @@
+         "model": model,
+         "messages": messages,
+         "seed": seed,
+-        "max_tokens": 512,
++        "max_tokens": 2048,
+         **sampling,
+     }).encode()
+     req = urllib.request.Request(
+@@ -230,6 +230,8 @@
+             "temperature": args.temperature,
+             "top_p": args.top_p,
+             "top_k": args.top_k,
++            "max_tokens": 2048,
++            "experiment_id": "output-budget-20260929",
+             "label": pair.get("label"),
+             "truncated": pair.get("truncated"),
+             "cards": retrieval_log(pair, cards),

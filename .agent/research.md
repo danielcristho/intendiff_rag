@@ -15,10 +15,10 @@ false positive-nya?
 
 | RQ | Dibandingkan | Endpoint | Cara menjawab |
 |---|---|---|---|
-| RQ1 | E0-noint, E0 | Recall, FPR_TYP, FPR_HN dengan Wilson CI | deskriptif |
-| RQ2a | E3 vs E0 | FPR_HN | McNemar exact + Holm |
-| **RQ2b (utama)** | E4 vs E3-k2 | FPR_HN, batas recall −5 poin | McNemar exact + Holm; bootstrap recall per kampanye |
-| RQ3 | E4 vs E4-noint | FPR_HN, batas recall −5 poin | sama dengan RQ2b |
+| RQ1 | DIFF, DIFF+I | Recall, FPR_TYP, FPR_HN dengan Wilson CI | deskriptif |
+| RQ2a | DIFF+I+M vs DIFF+I | FPR_HN | McNemar exact + Holm |
+| **RQ2b (utama)** | DIFF+I+MB vs DIFF+I+MM | FPR_HN, batas recall −5 poin | McNemar exact + Holm; bootstrap recall per kampanye |
+| RQ3 | DIFF+I+MB vs DIFF+MB | FPR_HN, batas recall −5 poin | sama dengan RQ2b |
 | RQ4 | semua konfigurasi | token, latency median/p95, memori GPU terhitung | deskriptif |
 
 Hanya ada **6 uji konfirmatori**: H2a, H2b, dan H3 untuk masing-masing dari 2 model.
@@ -30,12 +30,12 @@ Semua analisis lain bersifat eksploratif (EA1–EA5). Label hasil ("Didukung",
 | Invarian | Akibat kalau dilanggar |
 |---|---|
 | System prompt dan smart-diff identik di semua konfigurasi | Semua perbandingan batal |
-| E3-k2 dan E4 sama-sama berisi 2 card | RQ2b tidak bisa memisahkan efek contrastive dari efek jumlah contoh |
-| Konfigurasi `*-noint` hanya menghapus blok intent | RQ3 batal |
+| DIFF+I+MM dan DIFF+I+MB sama-sama berisi 2 card | RQ2b tidak bisa memisahkan efek contrastive dari efek jumlah contoh |
+| `DIFF+MB` hanya menghapus blok intent dari `DIFF+I+MB` | RQ3 batal |
 | Intent diambil dari v_{t−1} | Penyerang bisa memengaruhi intent lewat README di v_t |
 | Retrieval mengecualikan card dari paket atau kampanye yang sama dengan pair | Terjadi kebocoran; RQ2 dan RQ3 batal |
-| Urutan card E3-k2 dan E4 di-counterbalance dengan aturan yang sama (card malicious teratas di posisi yang sama) | RQ2b tercampur recency bias |
-| Retrieval tidak membaca intent | E4 dan E4-noint mendapat card berbeda; RQ3 batal |
+| Urutan card DIFF+I+MM dan DIFF+I+MB di-counterbalance dengan aturan yang sama (card malicious teratas di posisi yang sama) | RQ2b tercampur recency bias |
+| Retrieval tidak membaca intent | DIFF+I+MB dan DIFF+MB mendapat card berbeda; RQ3 batal |
 | Nama paket dan capability delta tidak pernah masuk prompt | RQ1 mengukur extractor atau hafalan model, bukan kemampuan membaca smart-diff (D25, D26) |
 | Smart-diff dipotong sekali per pair dengan tokenizer Qwen2.5-Coder-3B dan dipakai apa adanya oleh semua konfigurasi dan kedua model | Input berbeda antar konfigurasi atau antar model |
 | Teks prompt disalin verbatim dari methodology §6 | Prompt yang diuji tidak sama dengan yang dilaporkan |

@@ -1,0 +1,24 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","module.exports","options",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.getChat","id",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.searchPublicChat","username",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.getChats","",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.parseTextEntities","text,type",12
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.getUser","id",13
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.getMessages","chat_id,message_ids",14
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.sendMessage","chat_id,text,type",18
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__._deleteChat","id",35
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.deleteChatHistory","id",38
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.getMe","id",40
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.openChat","id",41
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__._deleteChatMember","chat_id,user_id",43
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.createPrivateChat","id",44
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.getMessage","chat_id,message_id",45
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.closeChat","id",47
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","module.exports","options",48
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.createNewSecretChat","user",63
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.closeSecretChat","id",64
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.createSecretChat","id",65
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.getSecretChats","",75
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.getSecretChat","id",76
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","(new module.exports()).__proto__.deleteSecretChat","id",77
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/tlg_1.1.3-->1.1.4/tlg-1.1.3/","main","",3

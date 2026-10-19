@@ -1,0 +1,19 @@
+{
+  "complete": true,
+  "decision": "D85",
+  "new_llm_calls": 160,
+  "completed_unix": 1790865758.5660229,
+  "model_server_stopped": true,
+  "prior_failure": "CUDA SIGSEGV before any generation, retained in server.log",
+  "recovery": "CUDA probe and tensor operation succeeded after user-authorized WSL restart",
+  "inference_protocol_changed": false,
+  "gold_labels_created": false,
+  "accuracy_claim": null,
+  "findings": [
+    "Schema validity 29/32 to 32/32 on this dev cohort",
+    "ID-format decisions all benign; no recall estimate available",
+    "Verifier retained all 32 candidate verdicts",
+    "Existing citation IDs do not establish semantic support"
+  ],
+  "shutdown_note": "One leaked semaphore cleanup warning after normal API shutdown"
+}

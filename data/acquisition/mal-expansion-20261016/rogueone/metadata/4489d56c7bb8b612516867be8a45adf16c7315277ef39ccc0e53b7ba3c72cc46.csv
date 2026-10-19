@@ -1,0 +1,43 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.use","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.tmp","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.keys","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.parEach","",29
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.each","",36
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.clone","",30
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.set","",30
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.use","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.each","",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.get","key",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.out","",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.sub","key",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.keys","",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.parEach","",36
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.clone","",31
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.mv","",31
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.tmp","",31
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.set","",31
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.sub().obj.get","",31
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.clone","",9
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.set","",9
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.each","",27
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.get","key",27
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.mv","",27
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.keys","",27
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.sub","key",27
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.use","",30
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.parEach","",43
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.use","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.tmp","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.keys","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.set","",5
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.parEach","",31
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.out","",31
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.clone","",24
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.get","key",24
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.mv","",24
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.each","",30
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","(new module.exports()).__proto__.sub","key",30
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/obj_0.2.0-->0.3.0/obj-0.2.0/","main","",3

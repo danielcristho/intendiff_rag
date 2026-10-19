@@ -1,0 +1,32 @@
+{
+  "MAL": {
+    "n": 875,
+    "median_diff_tokens": 2133.0,
+    "q25_tokens": 567.5,
+    "q75_tokens": 2644.0,
+    "truncated": 327,
+    "fallback": 324,
+    "intent_unavailable": 32,
+    "empty_delta": 25
+  },
+  "HN": {
+    "n": 182,
+    "median_diff_tokens": 2157.0,
+    "q25_tokens": 629.5,
+    "q75_tokens": 9035.5,
+    "truncated": 31,
+    "fallback": 8,
+    "intent_unavailable": 8,
+    "empty_delta": 0
+  },
+  "TYP": {
+    "n": 100,
+    "median_diff_tokens": 593.0,
+    "q25_tokens": 182.0,
+    "q75_tokens": 2308.0,
+    "truncated": 14,
+    "fallback": 0,
+    "intent_unavailable": 9,
+    "empty_delta": 91
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "candidate_pairs": 1902,
+  "attempts": 1903,
+  "successful_pairs": 1901,
+  "failed_pairs": 1,
+  "truncated_pairs": 96,
+  "pairs_with_raw_fallback": 38,
+  "raw_fallback_files": 53,
+  "intent_unavailable": 135,
+  "input_sha256": "3c6c81590bc2476b06de313b50462f54c6ddfdbc6120209bc14523e8a987a0f9"
+}

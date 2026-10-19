@@ -332,208 +332,462 @@ Konteks: GPU yang tersedia dicek terhadap kebutuhan memori di
 - Selisih 171 versus 163 clone **belum ditelusuri**; jangan kutip angka mana pun sebelum jelas.
 - `code/openai.key` berukuran 0 byte — placeholder, bukan kredensial yang bocor.
 
-**D58. Sampel TYP tidak ada di paket replikasi; kerangka sampelnya masih hidup di registry npm.**
+## 2026-09-25 — Audit referensi dan dataset sebelum G2
 
-- Isi zip diperiksa per baris terhadap direktori yang benar-benar terekstrak:
+**D58. Batas EA3 adalah satu tanggal per model, dan lengan pasca-rilis punya target minimum.**
 
-| Daftar | Baris | Ada isinya |
+- Dua dokumen mendefinisikannya berbeda: research.md §6 menulis "tanggal rilis diambil dari model card", methodology §11.2 menulis "tanggal commit pertama repositori model di Hugging Face". Keduanya di `docs/`, jadi aturan "docs/ yang benar" tidak menyelesaikannya.
+- **Yang dipakai:** tanggal commit pertama repositori model di Hugging Face, yaitu saat bobot pertama kali publik. Tanggal di model card dicatat sebagai pembanding; kalau keduanya berbeda, yang lebih awal menjadi batas dan keduanya dilaporkan.
+- Alasan [L]: yang diukur adalah kemungkinan sebuah insiden ikut ke data latih. Yang bisa diamati hanya kapan bobot terbit, jadi tanggal paling awal yang bisa dipastikan adalah batas yang konservatif.
+- **Target: minimal 15 pair MAL dari kampanye yang terbit setelah batas kedua model.** Kampanye pasca-rilis dikumpulkan lebih dulu sampai target terpenuhi, baru sisa kuota diisi. Urutan hash di dalam kampanye (§3.1) tidak berubah.
+- Alasan [L]: MAL didominasi Backstabber's Knife Collection (2015–2019). Empat insiden pasca-rilis yang sudah tercatat di references.md — chalk/debug, Shai-Hulud, axios, node-ipc — hanya memberi paling banyak 11 pair dengan cap 3 pair per kampanye, sehingga tanpa stratifikasi besar lengan itu diserahkan ke undian.
+- Dasar angka 15 [L]: Wilson 95% pada recall 0,8 memberi ±22,7 poin pada n=10 dan ±19,1 poin pada n=15. Lebar itu tetap besar, jadi 15 bukan ambang kecukupan melainkan batas bawah agar arah efeknya masih terbaca. Lebar interval selalu dilaporkan bersama angkanya.
+- Cap 3 pair per kampanye **tidak** dinaikkan untuk kampanye pasca-rilis. Itu akan membuat satu insiden mendominasi recall, yang justru alasan cap itu ada.
+- **Dampak:** kedua tanggal wajib diverifikasi sebelum G1 dan dicatat di sini. Kalau target 15 tidak tercapai, EA3 dilaporkan dengan n apa adanya beserta lebar intervalnya, dan syarat "arah efek sama pada subset pasca-rilis" di kriteria adopsi (research.md §5) dinyatakan tidak dapat dievaluasi, bukan dianggap terpenuhi.
+
+**D59. Kedua sisi pair dari sumber Wyss diambil dari paket replikasi, bukan registry, dan alur eksklusi dilaporkan per kriteria.**
+
+- §4.1 mengambil versi benign dari `dist.tarball` di registry npm untuk semua sumber. Untuk 46 pair Wyss itu tidak perlu: D57 mencatat setiap baris `malicious_updates.txt` berformat `path_sebelum,path_sesudah`, jadi kedua sisi ada di dalam zip.
+- Alasan [L]: mengambil dari registry menambah dua risiko tanpa manfaat. Tarball bisa berbeda dari yang dipakai Wyss (repack atau versi ditarik), dan untuk paket yang di-unpublish seluruhnya v_{t−1} tidak ada lagi. Memakai isi zip membuat masukan kami identik dengan masukan mereka.
+- Registry tetap satu-satunya jalur untuk sumber Datadog, OSV, dan RogueOne. Di sumber-sumber itu kriteria (c) §3.1 bisa menggugurkan kandidat karena paketnya sudah hilang dari registry.
+- **Alur eksklusi dilaporkan per kriteria** (a, b, c, d, dan cap kampanye), bukan hanya jumlah pair yang gugur karena payload biner seperti sebelumnya.
+- **Dampak:** §4.1 dan §3.1 diperbarui. `data/samples.jsonl` mencatat asal tiap tarball (`replication` atau `registry`) di samping checksum. Komponen pengunduh dan ekstraksi belum ada di `pipeline/` dan belum tercatat di checklist experiments.md §4; ditambahkan sebagai item, karena seluruh subset bergantung padanya.
+
+**D60. Kuota HN di-backfill antar kategori, dan jalur B punya aturan berhenti.**
+
+- §3.3 menetapkan kategori dari tujuan yang terdokumentasi, bukan dari sinyal penyaring. Kategori sebuah kandidat karena itu baru diketahui setelah verifikasi, sementara kuotanya per kategori (20 uji + 5 card). Konstruksinya tidak bisa menjamin kuota itu.
+- **Aturan:** total HN uji dijaga 100 dan card benign 25. Kategori yang tidak mencapai kuotanya diisi dari kategori yang surplus menurut urutan hash. Komposisi akhir per kategori dilaporkan apa adanya, dan EA1 dibaca dengan n yang tidak sama antar kategori.
+- Kategori paling rawan adalah Perizinan: dasarnya satu contoh (react-native-bootsplash pada live analysis Wyss) dan sinyalnya `obfuscation` serta `dynamic_code`, kombinasi yang paling jarang sah sekaligus terdokumentasi.
+- **Aturan berhenti jalur B:** pencarian sebuah kategori dihentikan setelah 25 kandidat terverifikasi atau 250 hasil pencarian habis, mana yang lebih dulu. Tanpa batas ini volume unduhnya tidak terbatas (5 kategori × ≤250 hasil × 20 rilis per paket).
+- Kuota total tetap 125, tidak dinaikkan. Aturan ini ditulis sebelum G1 supaya bukan penyetelan setelah melihat data.
+
+**D61. E2 dihapus; proporsi label card dihitung tanpa inferensi.**
+
+- E2 (satu card teratas tanpa melihat label) tidak masuk perbandingan konfirmatori mana pun dan tidak pernah diuji. Satu-satunya angka yang dilaporkan darinya adalah proporsi label card yang terambil.
+- Alasan [L]: angka itu tidak butuh LLM. Retrieval deterministik — Jaccard atas delta, seri dipecah `sha256(pair_id|card_id)`, dan tidak membaca intent — sehingga label card teratas per pair bisa dihitung langsung dari `pairs.jsonl` dan `kb.jsonl`. E2 memakan 500 panggilan untuk angka yang gratis.
+- Alasan [L]: vonis E2 juga tidak bisa diatribusikan. Label card-nya berbeda antar pair, jadi FPR-nya campuran dua mekanisme dan tidak berbeda satu faktor dari konfigurasi mana pun.
+- **Dampak:** Stage 1 turun dari 3.500 ke 3.000 panggilan. Proporsi label card dilaporkan sebagai properti retrieval (§3.4), bukan sebagai hasil sebuah konfigurasi.
+
+**D62. ID konfigurasi diganti menjadi semantik.**
+
+| Sebelum | Sekarang | Isi |
 |---|---|---|
-| `malicious_updates.txt` (MAL) | 46 | **46 direktori, 45 berisi** (D59) |
-| `malicious_clones.txt` | 171 | **171** |
-| `typical_updates_popular.txt` | 1.000 | **0** |
-| `typical_updates_random.txt` | 1.000 | **0** |
+| E0-noint | `DIFF` | smart-diff saja |
+| E0 | `DIFF+I` | + intent |
+| E3 | `DIFF+I+M` | + 1 card berbahaya |
+| E3-k2 | `DIFF+I+MM` | + 2 card berbahaya |
+| E4 | `DIFF+I+MB` | + 1 berbahaya + 1 sah |
+| E4-noint | `DIFF+MB` | sama, tanpa intent |
 
-- `code/automated_b_samples/` dan `code/r_samples/` adalah **direktori kosong** (0 byte) di dalam zip. Yang dirilis hanya daftar `paket@versi`, bukan tarball-nya. MAL dan clone lengkap, sehingga §3.1 dan KB malicious bisa dibangun offline.
-- Ketersediaan 2.000 typical update dicek ke `registry.npmjs.org` pada 2026-09-19, kedua versi per pair:
+- Alasan [L]: penomoran lama adalah sisa skema yang sudah digantikan. E1 dihapus D8 dan E2 dihapus D61, sehingga tabel konfigurasi memuat dua lubang yang tidak berarti apa pun bagi pembaca. ID baru menyatakan komposisi faktornya, sehingga ketiga kontras konfirmatori terbaca sebagai selisih satu token: `+M`, `MM→MB`, dan `±I`.
+- Alasan [L] **kenapa sekarang:** `run_key` memuat nama konfigurasi, dan `data/results.jsonl` belum ada — belum ada satu pun run test-set. Rename setelah Stage 1 berarti 3.000 run hangus.
+- Entri D1–D61 di file ini **tidak** ditulis ulang. Log ini bertanggal, jadi entri lama tetap memakai ID yang berlaku saat itu, dan tabel di atas adalah pemetaannya.
 
-| | Lengkap | Paket 404 | Kedua versi hilang |
-|---|---|---|---|
-| Popular | **1.000** | 0 | 0 |
-| Random | **981** | 10 | 9 |
+**D63. Naskah dibingkai kontribusi, tanpa label RQ.**
 
-- **1.981 dari 2.000 pair masih bisa dibangun.** Yang hilang seluruhnya dari kelompok acak, dan contohnya paket sangat kecil (`qietuzai-cli`), konsisten dengan unpublish biasa.
-- **Dampak:** §3.2 mengambil 100 TYP dan §3.3 jalur A memakai 1.900 sisanya, jadi kehilangan 19 (0,95%) tidak mengancam keduanya. Aturan pengganti di §3.2 sudah menangani pair yang gugur. Tarball ditarik lewat `collect.py`, bukan dari OSF.
-- `malicious_packages.zip` dan `malicious_updates.zip` punya CRC identik (`277aa32c`) — satu file diduplikasi, bukan dua korpus.
+- RQ1–RQ4 tetap di research.md sebagai desain internal dan tetap mengikat kode serta skrip analisis. Naskah tidak menyebut "RQ1" dan seterusnya; strukturnya mengikuti daftar kontribusi di Pendahuluan.
+- Naskah memang sudah tidak memuat satu pun label RQ (diperiksa 2026-09-25), jadi entri ini mengunci keadaan itu, bukan mengubahnya.
+- Alasan [L]: pembaca naskah membutuhkan kontribusi dan endpoint, bukan penomoran internal. Penomoran tetap berguna di `docs/` untuk melacak konfigurasi mana menjawab apa.
 
-**D59. MAL terpakai 45 pair, bukan 46, dan direktori versi harus dibaca menembus pembungkus `package/`** (§3.1).
+**D64. Angka yang harus diverifikasi sebelum masuk naskah.**
 
-- **Pembungkus tarball.** 60 dari 92 direktori versi di paket replikasi masih memuat direktori `package/` bawaan tarball npm; 31 sisanya rata. Dibaca apa adanya, `package.json` jadi tak terlihat, sehingga profil intent kosong dan seluruh sinyal yang diturunkan dari manifest (`install_script`, `dependency_change`) tidak pernah menyala. Terdeteksi dari angka **31 dari 46 pair tanpa intent**; setelah pembungkusnya dibaca, tinggal **1**.
-- Tidak ada pair yang pembungkusnya berbeda antara v_(t−1) dan v_t, jadi smart-diff sebelumnya tidak rusak — hanya membawa prefix `package/` di setiap path.
-- **`stream-combine@2.0.2` dikeluarkan.** Direktori v_(t−1) (`stream-combine@2.0.1`) ada tetapi **kosong**. Men-diff-kan v_t terhadap direktori kosong menyajikan seluruh paket sebagai file baru, dan itu bukan update.
-- Verifikasi D58 sebelumnya hanya mengecek direktorinya ada, bukan berisi; angka "46/46" di sana dikoreksi.
+- **"163 klon" dikutip dua kali di naskah** (Pendahuluan dan §Data) padahal D57 melarangnya sampai selisih 171 versus 163 jelas. Sampai itu selesai, argumen klon ditulis tanpa angka; argumennya — seluruh klon terdeteksi di evaluasi asli — tidak membutuhkan hitungannya.
+- **SocketAI "presisi +16%, F1 +9% dibanding CodeQL"** tidak ada di references.md dan tidak bisa diturunkan dari angka yang tercatat (GPT-4 99%/97%, GPT-3 91%/94%). Ditandai belum terverifikasi.
+- **Angka RogueOne-Paranoid (38/41 = 92,7%, FP 120/300 = 40,0%) dan CC-Harvest (10 dari 10) terverifikasi**, dibaca dari PDF pada 2026-09-13, tetapi hanya tercatat di `.agent/rogueone.md`. Itu membalik hierarki `docs/` dan `.agent/`, jadi baris RogueOne di references.md dilengkapi.
+- **Bagian statistik naskah tidak memuat satu pun sitasi.** Dietterich 1998, Liu et al. 2024, dan Tam et al. 2024 sudah terverifikasi dan masuk `cas-refs.bib`. Lima referensi klasik — McNemar 1947, Holm 1979, Wilson 1927, Cohen 1960, Efron & Tibshirani 1993 — belum diverifikasi, jadi belum masuk.
+- **Tabel §11.3 dihitung ulang dan cocok:** recall 0,9 pada n=50 → [0,786; 0,957]; recall 0,8 → [0,670; 0,888].
 
-Hasil `data/pairs.mal.jsonl`: **45 pair, 41 kampanye, 1 terpotong, 1 tanpa intent, 42 punya capability delta tidak kosong.**
+## 2026-09-25 — Rantai data dibangun
 
-| Sinyal | Pair |
-|---|---|
-| `network` | 30 |
-| `browser_data` | 28 |
-| `obfuscation` | 9 |
-| `install_script` | 8 |
-| `process_exec` | 5 |
-| `dependency_change` | 3 |
+**D65. Dua berkas perantara masuk skema, dan isolasi §4.1 dijalankan sebagai dua fase.**
 
-- `browser_data` menyala di 28 dari 45 (62%), sejalan dengan klaim Wyss bahwa 33 dari 46 insiden asli adalah form grabbing.
-- Dua kampanye memuat lebih dari satu pair: `rc-calendar-jhorst@8.4.3` (4) dan `coa@2.0.3` (2). Sisanya tunggal, karena kriteria (a) advisory belum terisi dan (c) Dolos belum bisa dijalankan (D56).
-- **`sha256_before`/`sha256_after` memuat digest pohon, bukan digest tarball**, karena yang dirilis adalah direktori terekstrak. Dihitung dari daftar terurut `path\0sha256`, jadi tetap stabil di mana pun diekstrak.
-- **`gold_evidence` sengaja kosong.** Baris bukti gold berasal dari anotasi §8, tidak boleh diturunkan dari extractor — kalau tidak, metrik lokalisasi bukti hanya mengukur extractor terhadap dirinya sendiri.
+- §3 menamai `samples.jsonl`, `pairs.jsonl`, `kb.jsonl`, dan `dev.jsonl`, tetapi tidak ada tempat untuk dua fakta yang tidak bisa diturunkan dari kode: versi mana yang perlu diunduh, dan pair mana yang ada beserta labelnya. Keduanya berasal dari pengumpulan dan pelabelan, jadi masing-masing mendapat berkas: `data/wanted.jsonl` dan `data/pairs.manifest.jsonl`.
+- **Dua fase** [R]: §4.1 sendiri sudah memisahkannya — tarball "diunduh di luar container", sedangkan ekstraksi dijalankan di container tanpa jaringan. Karena itu `samples.py fetch` butuh jaringan dan tidak pernah membuka arsip, sementara `samples.py extract` membuka arsip dan dijalankan tanpa jaringan. Modulnya tidak memanggil `docker` sendiri; operator yang menjalankan fase kedua di dalam container.
+- **Ekstraksi memperlakukan arsip sebagai bermusuhan** [L]: sampel malicious diasumsikan jahat, dan membuka arsipnya adalah satu-satunya titik di mana isinya menyentuh filesystem. Anggota arsip yang path-nya absolut atau memuat `..` ditolak, begitu pula symlink dan hardlink; hanya berkas biasa dan direktori yang diekstrak. Yang ditolak dilaporkan, tidak dibuang diam-diam.
+- **Checksum diverifikasi ulang sebelum arsip dibuka** [L]: fase kedua harus bisa memastikan bahwa yang dianalisis adalah bita yang tercatat di `samples.jsonl`, bukan berkas yang berubah di antara dua fase.
+- **Awalan `package/` npm dibuang** [L]: tarball npm menaruh semua berkas di bawah satu direktori teratas, sedangkan extractor, intent builder, dan smart-diff mencari `package.json` di akar direktori versi.
+- **Diff dipotong di perakit, bukan di runner** (§4.5): `dataset.py` memanggil pemotongan sekali per pair dan menyimpan hasilnya di `pairs.jsonl`, sehingga semua konfigurasi dan kedua model membaca teks yang sama. Runner tidak pernah memotong ulang.
+- **Urutan keluaran `pairs.jsonl`** mengikuti urutan naik SHA-256 dari `name@versi` (§3), sehingga berkasnya tidak bergantung pada urutan manifest.
+- Terverifikasi lewat dry run penuh tanpa jaringan: tarball bergaya npm → `samples.jsonl` → `work/` → `pairs.jsonl` → prompt keenam konfigurasi, dengan smart-diff sampai ke prompt dan nama paket tidak muncul di header diff.
 
-**D60. TYP terkumpul: 100 pair, diundi dari daftar Wyss dan ditarik dari registry npm** (§3.2).
+**D66. Undian TYP dan jalur A adalah satu pembagian, dengan tiga penafsiran dicatat.**
 
-- 50 dari `typical_updates_popular.txt` dan 50 dari `typical_updates_random.txt`, diambil menurut urutan SHA-256 `name@version`, bukan popularitas.
-- **Lima undian ditolak karena punya advisory** dan diganti undian berikutnya, sesuai §3.2: `@babel/core@8.0.0-alpha.8`, `@babel/runtime@8.0.0-alpha.8`, `@angular/common@18.0.0-next.4`, `http-cache-semantics@4.1.1`, `jws@4.0.0`. Semuanya dari kelompok populer, yang memang wajar — paket populer lebih sering punya CVE tercatat.
-- Tarball diekstrak dengan `tarfile.extractall(..., filter="data")`, yang menolak path absolut, symlink, dan `..`. Paket tidak pernah di-`npm install` maupun dijalankan.
+- §3.2 mengambil 100 TYP dari 2.000 typical update Wyss dan §3.3 menjalankan 1.900 sisanya lewat extractor. Keduanya bagian dari satu pembagian atas daftar yang sama, jadi ditangani satu modul ([pipeline/typical.py](../pipeline/typical.py)) supaya aturan pembagiannya tidak hidup di dua tempat.
+- **Undian: urut digest dulu, lalu diacak dengan seed 2026.** Alasan [L]: mengurutkan menurut SHA-256 lebih dulu membuat undian tidak bisa dipengaruhi urutan baris di berkas upstream. Yang dipakai `shuffle`, bukan `sample`, karena §3.2 mengganti TYP yang ternyata punya advisory dengan "hasil undian berikutnya" — aturan itu hanya terdefinisi kalau sisa undiannya berurutan. Sisa itu sekaligus menjadi kolam jalur A.
+- **Identitas pair dibaca dari `package.json`, bukan dari path.** Alasan [L]: tata letak direktori di dalam zip replikasi belum diverifikasi; D57 baru memastikan format barisnya `path_sebelum,path_sesudah`. Membaca `name` dan `version` dari manifest membuat jalur A tidak bergantung pada tata letak yang belum pernah dilihat.
+- **Keluaran memakai field `signal_categories`, bukan `category`.** Alasan [L]: §3.3 menetapkan kategori dari tujuan yang terdokumentasi, sedangkan sinyal hanya menyaring. Satu delta bisa cocok dengan beberapa kategori — `network` masuk kategori 2 dan 4, `process_exec` masuk 1 dan 4 — jadi nama field harus menyatakan bahwa isinya kandidat, bukan penetapan. Anotator yang menetapkan kategorinya.
+- **Penyaringan dijalankan tanpa jaringan,** dan kriterianya hanya "delta tidak kosong". Tiga kriteria HN lainnya — tidak ada advisory, tujuan terdokumentasi, penerbit sama — adalah langkah verifikasi; `has_advisory` sudah ada di `collect.py`.
+- Terverifikasi pada skala sebenarnya: 1.000 + 1.000 baris menghasilkan 100 TYP (50 popular, 50 random) dan kolam 1.900 tanpa irisan, dengan undian ulang yang identik. Penyaringan diuji atas enam update sintetis yang memicu kelima kategori plus satu tanpa delta.
 
-| | MAL (45) | TYP (100) |
-|---|---|---|
-| Capability delta kosong | 3 (7%) | **86 (86%)** |
-| Terpotong (§4.5) | 1 (2%) | 15 (15%) |
-| Panjang diff, median | 6.941 char | 1.277 char |
-| Panjang diff, p95 | 30.317 char | **103.405 char** |
-| Sinyal terbanyak | `network` 30, `browser_data` 28 | `dependency_change` 13 |
+**D67. Pemilihan card malicious dan batas ukuran card diimplementasikan; skeleton memisahkan yang otomatis dari yang ditulis anotator.**
 
-- **Pemisahan capability delta bekerja seperti yang diharapkan §4.3.** MAL menyala di 42 dari 45; TYP diam di 86 dari 100, dan yang menyala hampir semuanya `dependency_change` — perubahan rutin, bukan payload.
-- **Dampak pada retrieval:** untuk 86 pair TYP, skor Jaccard terhadap setiap card adalah 0, sehingga card yang terpilih ditentukan tie-break SHA-256 §5.2 langkah 3. Aturannya sudah ada dan deterministik, jadi tidak ada celah desain — tetapi artinya E2, E3, dan E4 pada sebagian besar TYP mengukur "apakah card yang tidak relevan merusak", bukan "apakah card yang relevan menolong". Itu justru yang relevan untuk FPR_TYP, dan harus disebut saat membaca hasilnya.
-- **TYP lebih panjang daripada MAL di ekor atas:** p95 103.405 char melawan 30.317. Update rutin bisa menyentuh seluruh pohon, sementara payload malicious biasanya kecil dan terpusat. Karena itu pemotongan §4.5 mengenai TYP tujuh kali lebih sering daripada MAL.
+- Round-robin §3.4 dijalankan dengan satu kursor per capability. Alasan [L]: setiap penolakan bersifat permanen — kuota kampanye tidak pernah menyusut, paket tidak pernah dilepas, dan kampanye yang dikecualikan tidak pernah kembali — sehingga kursor yang hanya maju sudah benar dan tidak perlu menyapu ulang kolam.
+- **Empat field yang ditulis manusia dikeluarkan dalam keadaan kosong:** `intent`, `behavior_chain`, `code_excerpt`, dan `rationale`. Alasan [R]: §5.1 mewajibkan card disusun dari isi paket oleh anotator A dan dicek anotator B, dan card tidak pernah berasal dari output model. Kode hanya boleh menyiapkan slotnya.
+- **`drawn_for` dan `dir` dicatat** sebagai metadata: yang pertama membuat round-robin bisa diaudit, yang kedua menunjukkan anotator ke kodenya. Keduanya tidak pernah masuk prompt, sama seperti `id`, `campaign`, `source`, dan `delta`.
+- **`fit` menahan 15 baris excerpt lalu anggaran 512 token**, dan yang dipangkas adalah excerpt (§5.1). Pemangkasan **berhenti di satu baris**: excerpt kosong dirender sebagai placeholder `not available`, yang lebih panjang daripada satu baris kode pendek, sehingga pangkasan terakhir justru membesarkan card. Card yang prosa-nya sendiri sudah melebihi anggaran dilaporkan, bukan dipangkas diam-diam.
+- **Perenderan card sekarang hanya didefinisikan di `prompts.card_block`,** dipakai bersama oleh prompt dan pemeriksa ukuran. Alasan [L]: kalau formatnya ditulis dua kali, yang diukur bisa berbeda dari yang dilihat model.
+- **Koreksi ke `.agent/experiments.md`:** barisnya menyatakan `label` tidak pernah masuk prompt. Untuk pair itu benar, untuk card salah — §5.1 dan §6.2 menampilkan label card, dan justru itu yang membuat contohnya kontrastif. Barisnya dipisah menjadi field pair dan field card.
+- Terverifikasi atas kolam 80 paket sintetis dengan 30 kampanye: 50 card, sebaran round-robin 7/7/6/6/6/6/6/6, maksimum 2 card per kampanye, dan dua kampanye MAL test tidak muncul.
 
-## 2026-09-26 — Card malicious KB dan dev set
+**D68. Pembagian HN mengisi kuota card lebih dulu, dan pengisian kekurangan memakai urutan hash global.**
 
-**D61. 50 card malicious dipilih dari Datadog; teksnya ditulis anotator, bukan oleh model** (§3.4, §5.1).
+- §3.3 membagi 125 HN terverifikasi menjadi 100 uji dan 25 card benign, berstrata per kategori. Kategori yang dipakai adalah kategori yang **ditetapkan anotator**, bukan sinyal yang menyaring kandidatnya.
+- **Kuota card diisi lebih dulu, baru kuota uji.** Alasan [L]: retrieval kontrastif hanya punya pembanding kalau setiap kategori menyumbang setidaknya satu card benign, sedangkan subset uji yang kurang masih bisa ditambal dari kategori lain. Membalik urutannya akan membuat kategori yang tipis — Perizinan adalah yang paling rawan (D60) — kehilangan card-nya justru pada kategori yang paling ingin diuji.
+- **Pengisian kekurangan memakai urutan hash atas seluruh sisa**, bukan urutan kategori. Alasan [L]: mengambil sisa kategori 1 lebih dulu hanya karena nomornya kecil adalah bias yang tidak ada dasarnya, dan D60 sendiri menyebut urutan hash.
+- **Komposisi akhir per kategori dilaporkan apa adanya.** Pada simulasi dengan kategori Perizinan hanya mendapat 9 kandidat: total uji tetap 100 dengan komposisi 22/25/4/28/21, card tetap 25, dan kategori Perizinan tetap menyumbang 5 card. EA1 karena itu dibaca dengan n yang tidak sama antar kategori.
+- **Kandidat tanpa kategori dihitung, tidak ditebak.** Kandidat yang belum diberi kategori oleh anotator tidak masuk kedua kuota, dan jumlahnya dilaporkan.
+- **Dev set (§3.5) tidak butuh komponen baru:** isinya 10 pair berbentuk sama, jadi dirakit `dataset.py` dari manifest yang berbeda.
 
-- Dataset Datadog diambil sebagai clone *blobless* (commit `a9749c04`), dan isi sampel ditarik hanya untuk kandidat yang diperiksa. Pool: **21.068** sampel npm `malicious_intent` yang manifest-nya `null`. Sampel diekstrak dengan `ZipFile.extractall` (tanpa symlink, tanpa `..`), dibatasi 50 MiB, dan hanya dibaca.
-- Round-robin atas 8 capability dalam urutan tabel §4.3, menurut urutan hash. Cukup **358 sampel** dipindai untuk mengisi 50 card: 7 card per capability untuk `network` dan `process_exec`, 6 untuk sisanya.
-- **44 kampanye**, 6 di antaranya berisi 2 card. 12 sampel dilewati karena kampanyenya sudah penuh, 2 karena tidak terbaca, dan **0** karena kampanyenya ada di MAL.
-- **Angka 0 itu belum bukti tidak ada kebocoran.** 45 pair MAL hanya menghasilkan **17** digest file tambahan, karena sebagian besar payload MAL disisipkan ke file yang sudah ada. Kriteria (b) §3.6 jadi lemah sebagai penjaga KB–test, dan kriteria (c) Dolos belum bisa dijalankan (D56). Sampai Dolos jalan, pengecualian per kampanye praktis hanya bersandar pada nama paket.
-- **Root paket:** sampel Datadog dibungkus `tmp/<acak>/<nama>/` bersama `package_info-*.json` milik Datadog. Root diambil dari `package.json` terdangkal di luar `node_modules`, jadi file metadata itu tidak ikut dipindai atau di-hash.
-- **Field `name` ditambahkan ke skema card.** `runner.eligible` sudah mengecualikan card lewat `name`, tetapi skema di experiments.md belum mencantumkannya.
-- **Teks card (`intent`, `behavior_chain`, `code_excerpt`, `rationale`) ditulis anotator A lalu dicek anotator B, sesuai §5.1.** Opsi agar Claude menyusun draf ditolak, karena draf itu termasuk output model. `data/kb.skeleton.jsonl` membawa `delta_evidence` dan `selected_for` sebagai penunjuk ke kode. Kedua field itu dibuang saat card dipromosikan ke `data/kb.jsonl`.
+## 2026-09-28 — Akuisisi data asli dan pemeriksaan sumber
 
-**D62. Dev set: 4 clone Wyss dan 3 TYP yang belum terpakai; 3 HN menyusul** (§3.5).
+**D69. Arsip dan identitas sumber diperiksa sebelum pemilihan dataset.**
 
-- **Clone** diambil menurut urutan hash dari `nama_asli@direktori_clone`. `malicious_clones.txt` tidak memberi versi di sisi clone (`j_samples/agent-base/agentbas-7.1.1`), jadi nama direktori clone yang dipakai sebagai identitas. Ke-171 clone berisi.
-- **TYP** diundi menurut urutan hash dari gabungan kedua daftar Wyss, setelah membuang 100 pair TYP test, dengan aturan advisory §3.2 (empat undian ditolak, sama dengan D60). Hasilnya: `ant-mini-flip-draw@1.0.2`, `react-d3-library@1.1.8`, `snappydown@0.0.2`.
-- **Ketiga TYP dev dicatat di `data/pairs.dev.taken.txt` dan harus dikecualikan dari jalur A** (§3.3). Tanpa itu, pair yang dipakai untuk memverifikasi mekanisme bisa muncul lagi sebagai item uji HN.
-- Isinya mencakup kasus yang perlu dilalui mekanisme pipeline: 3 dari 7 pair terpotong, 3 TYP dengan delta kosong, dan 2 clone dengan `large_deletion`.
-- **Replikasi di server:** `pairs.mal.jsonl` yang dibangun ulang dari zip OSF (sha256 cocok dengan D56) identik byte-per-byte dengan versi di git.
+- ZIP OSF sudah diunduh dan SHA-256 cocok dengan metadata OSF. Arsip memuat daftar 2.000 typical updates, tetapi tidak memuat kode versi typical. Versi tepat pada daftar diambil dari registry dengan verifikasi integrity, tanpa instalasi paket. Kedua sisi MAL Wyss tetap memakai ZIP sesuai D59.
+- Undian D66 memakai identitas kanonis `name@after`, bukan nama direktori lokal. Perubahan lokasi ekstraksi tidak boleh mengubah hasil undian. Entri yang gagal diunduh atau tidak cocok identitasnya dicatat dan diganti mengikuti urutan undian yang sama. Tidak ada output test model yang dilihat.
+- Nama sumber `fangrong-xoc` merujuk ke manifest `@fangrong/xoc`; nama sumber dipertahankan sebagai metadata dan pemeriksaan advisory memakai nama kanonis. Versi `stream-combine@2.0.1` dalam arsip tidak berisi kode; pair tersebut tidak dinyatakan tersedia.
+- Metadata build SemVer (`+...`) tidak mengubah precedence versi; manifest aslinya tetap dicatat. Mismatch lain tidak diperbaiki dengan tebakan.
 
-**D63. Card ditulis dan dicek lewat UI dalam empat tahap; `kb.jsonl` hanya ditulis kalau semua card disetujui** (§5.1).
+**D70. Inventaris Datadog dipatok ke commit, dan kandidat belum berarti label gold.**
 
-- Tahap: **kosong → draf → menunggu cek → disetujui**. Card yang dikembalikan pengecek kembali ke draf dengan alasan wajib. Card yang sudah disetujui terkunci sampai pengecek membukanya lagi.
-- **Penulis ≠ pengecek dipaksa di backend** (`backend/src/cards.rs`), bukan hanya disembunyikan di UI. Penulis card ditentukan per card oleh siapa yang pertama menulisnya.
-- Teks card disimpan di `data/kb.cards.json`, satu file bersama. Beda dengan keputusan audit (§8), card memang dikerjakan berdua, jadi tidak ada independensi yang perlu dijaga.
-- **`code_excerpt` dipilih dari rentang baris sampel di UI**, bukan diketik, supaya verbatim. `pipeline/promote.py` memeriksanya lagi: setiap baris excerpt harus ada di file sampel.
-- **Batas token dicek saat promosi dengan tokenizer Qwen**: intent ≤ 64 token, card ≤ 512 token yang dihitung atas blok yang benar-benar dilihat model (`prompts.examples_block`). Card yang melebihi batas **ditolak, tidak dipangkas otomatis**. Memangkas excerpt verbatim tanpa anotator berarti mengubah card yang sudah dicek.
-- **Promosi menolak menulis `kb.jsonl` parsial.** Runner otomatis beralih ke `kb.sample.jsonl` kalau `kb.jsonl` tidak ada, dan akan memakai KB parsial tanpa peringatan.
-- **Promosi tetap lewat CLI, tidak lewat tombol di UI.** Backend terbuka di jaringan host GPU tanpa autentikasi, dan menjalankan skrip dari endpoint HTTP menambah permukaan serangan.
+- Snapshot sumber: `a9749c044f47563143ee10f600fee290cdeaeef0`. Tree root GitHub terpotong, sehingga inventaris memakai subtree `compromised_lib` dan `malicious_intent` yang tidak terpotong.
+- Semua 1.438 versi compromised yang memenuhi inventaris sumber diunduh. Untuk persiapan KB baru 1.000 versi awal menurut hash `name@version` yang diunduh dari 24.324 versi malicious-intent; ini **prefix kolam**, bukan 50 card final atau hasil screening seluruh kolam.
+- Pendahulu Datadog diturunkan dari packument registry yang ikut diarsipkan. Urutan prerelease numerik diperbaiki (`beta.10 > beta.2`), tanggal terbit kedua versi wajib tersedia, dan versi pendahulu yang juga tercatat compromised dikeluarkan. Tarball pendahulu tetap diambil dari registry sesuai §4.1.
+- Hasil pemeriksaan advisory, identitas, dan ketersediaan disimpan terpisah dari keputusan manusia. `source_label` tidak dipromosikan menjadi `label`; `signal_categories` tidak dipromosikan menjadi kategori HN.
 
-## 2026-09-26 — Smoke test dev set pertama dengan model sungguhan
+**D71. Dolos kampanye memakai keluaran JSON library yang dikunci versinya.**
 
-**D64. Smoke test E0/E0-noint atas 7 pair dev set: validitas JSON 10/14; prefix caching vLLM mencemari latensi** (§6.4, §9.2).
+- `@dodona/dolos-lib` 3.5.1 dipasang di image preprocessing; k-gram 70 dan window 17. Adapter mengembalikan pasangan ID dan similarity sebagai JSON, sehingga tidak bergantung pada format tabel terminal CLI. Kegagalan alat adalah error, bukan similarity nol.
+- Pemeriksaan kode identik yang cukup panjang, input kosong, dan clustering 45 pair MAL Wyss telah dijalankan dengan Dolos sungguhan. Klaster ini masih parsial: gabungan sumber MAL dan kolam KB belum selesai.
+- Adapter kampanye ini **tidak** menggantikan `index.mjs` penghapus kode berulang pada smart-diff. Normalisasi §4.2 langkah 1–2 masih belum lengkap; berkas audit saat ini diberi penanda `raw_zero_context_before_normalization`.
+- Tidak ada perubahan hipotesis, prompt, decision rule, kewajiban dua anotator, atau pembekuan G2. Tidak ada inferensi test set yang dijalankan dalam akuisisi ini.
 
-- Server: vLLM **0.29.0**, `Qwen/Qwen2.5-Coder-3B-Instruct`, bf16, `--max-model-len 32768`, `--seed 0`, tanpa kuantisasi, `--gpu-memory-utilization 0.80`, RTX 5080 16 GB. Hasil di `data/results.dev.jsonl`, terpisah dari test.
-- **Warm-up §9.2 ternyata belum ada di runner.** Sekarang runner mengirim 3 request E0 dari `data/pairs.dev.jsonl` sebelum run pertama, tanpa dicatat.
-- **Validitas JSON 10/14 (71%)**: E0 5/7, E0-noint 5/7. Angka ini di bawah ambang 90% §6.4, tetapi dev set baru 7 dari 10 pair, jadi keputusan revisi format **belum** diambil.
+**D72. Rekonstruksi preprocessing statis diberi identitas terpisah sebelum G2.**
 
-| Penyebab tidak valid | Run |
-|---|---|
-| `finish_reason=length` (512 token): `evidence` diisi seluruh hunk diff, bukan ≤ 3 baris | 2 |
-| JSON rusak: `"` tidak di-escape di dalam string | 1 |
-| JSON rusak: karakter tab mentah di dalam string | 1 |
+- `index.mjs` upstream tidak tersedia. Implementasi lokal bernama `static-dolos-exact-v1`; ini rekonstruksi yang dapat diaudit, **bukan klaim reproduksi identik Wyss**. Seluruh pair akan mencatat versi preprocessing dan laporan per file. Belum ada prediksi test set yang terpengaruh.
+- Minify memakai UglifyJS `compress=true, mangle=true`, lalu Webcrack unminify. `deobfuscate=false` dan `unpack=false`; sandbox yang mengeksekusi ekspresi dinonaktifkan dengan fungsi yang selalu menolak. Alasannya: aturan proyek melarang eksekusi sampel, sedangkan deobfuscation string-array Webcrack dapat mengevaluasi kode. Ini perbedaan eksplisit dari CLI default upstream.
+- Untuk file sumber yang ada di kedua versi, Dolos k=70/window=17 mengusulkan fragmen berulang. Hanya baris lengkap di fragmen dengan teks identik pada kedua sisi yang dihapus. Kemiripan token saja tidak cukup, karena normalisasi identifier/literal oleh detektor kemiripan dapat menyembunyikan perubahan perilaku. Baris batas fragmen dipertahankan. File baru tidak didedup terhadap file lain.
+- File yang byte-nya identik dilewati pada kedua sisi; file non-JS tetap mentah (TypeScript boleh didedup, tetapi tidak di-minify). Kegagalan parsing/minify/unminify mempertahankan kedua sisi mentah dan dicatat sebagai fallback. Batas 4 MiB per file sumber berlaku untuk transformasi; file yang lebih besar tetap tersedia mentah, dengan alasan fallback dicatat. Timeout proses menjadikan pair error yang harus ditangani, bukan sukses kosong.
+- Input asli tidak diubah. Transformasi bekerja pada direktori temporer di container tanpa jaringan. Capability dan prioritas file tetap dihitung dari sumber mentah.
+- Sebelum inferensi, laporan jumlah fallback, pemotongan, dan keterbatasan rekonstruksi harus tersedia. Gate G2 belum dibekukan; hipotesis, enam konfigurasi, dan aturan anotasi tidak berubah.
 
-- Semua jawaban dibungkus pagar kode ` ```json `. Parser tetap membacanya karena mencari `{` pertama.
-- Pair dengan prompt 28–29K token (smart-diff terpotong §4.5) diproses tanpa error dan muat di konteks 32K.
-- **Prefix caching aktif** (`enable_prefix_caching=True`, default vLLM 0.29, hit rate 22–33%). Warm-up mengirim prompt yang sama dengan run terukur pertama, sehingga run itu tercatat 1,2 s, sedangkan E0-noint pada pair yang sama 4,0 s. Methodology tidak mengatur prefix caching, jadi latensi RQ4 saat ini bergantung pada urutan run. **Keputusan terbuka**, harus diambil sebelum G2.
-- Verdict dev set tidak ditafsirkan (§3.5).
+**D73. Anggaran diff menghitung teks akhir beserta marker pemotongan.**
 
-**D64 (lanjutan). Prefix caching dimatikan; image vLLM di-pin per digest.**
+- Penjumlahan token per hunk tidak menjamin jumlah token teks gabungan, dan marker pemotongan sebelumnya ditambahkan setelah pemeriksaan anggaran. Pemeriksaan akhir sekarang menghitung seluruh string; jika berlebih, hunk paling akhir dilepas sampai muat. Anggaran tetap 28.000 token Qwen, prioritas file dan batas hunk tetap sama. Anggaran nol menghasilkan string kosong, bukan marker yang melampaui anggaran.
+- Koreksi diterapkan sebelum batch preprocessing asli dan sebelum inferensi penelitian. Pengujian memastikan teks hasil, termasuk marker, tidak melewati anggaran.
 
-- **Keputusan:** `--no-enable-prefix-caching` ditambahkan ke `command` vLLM. Latensi tiap request diukur tanpa cache, sehingga tidak bergantung pada run sebelumnya. Konsekuensinya, angka latensi sedikit lebih pesimis daripada deployment yang memakai cache; ini disebut saat melaporkan RQ4.
-- Smoke test diulang tanpa cache. E0 `log4js` naik dari 1,2 s menjadi **4,4 s**, yang mengonfirmasi artefak cache. Validitas JSON jadi **11/14 (79%)**: E0 6/7, E0-noint 5/7. Run dengan cache disimpan di `data/results.dev.prefix-cache.jsonl`.
-- **Determinisme:** dengan setelan server identik, output greedy **14/14 identik byte-per-byte**, dan tetap 14/14 setelah container vLLM di-restart. Run yang dilanjutkan setelah restart tidak mengubah jawaban.
-- **Tetapi setelan server ikut menentukan output.** Mengganti prefix caching saja sudah mengubah teks 4 dari 14 jawaban dan membalik satu verdict (E0 `react-d3-library`: tidak valid → `malicious`). Setelan dan versi vLLM termasuk desain yang dibekukan di G2. Mengubahnya setelah G2 berarti semua konfigurasi di-run ulang.
-- Karena itu **image di-pin per digest** (`vllm/vllm-openai@sha256:c2914767…`, v0.29.0), baik di compose maupun `.env.example`. Tag `latest` bisa berganti diam-diam saat `docker pull`.
+**D74. Penghapusan fragmen tidak menghitung longest-common-substring Dolos.**
 
-## 2026-09-27 — Login anotator dan struktur backend
+- Batch awal `static-dolos-exact-v1` menemukan kegagalan memori pada bundle `pm-controls`. API `Pair` Dolos juga menghitung longest-common-substring dengan biaya kuadratik, padahal normalisasi hanya memerlukan lokasi fingerprint yang cocok.
+- `static-dolos-exact-v2` membaca lokasi k-gram dari indeks Dolos langsung, mengelompokkan jendela berdasarkan teks identik, lalu menghapus interior baris lengkap yang sama. Jumlah pasangan jendela yang identik tidak diperbanyak secara Cartesian. Parameter tokenizer/winnowing dan syarat teks identik tetap sama.
+- Seluruh batch diulang ke berkas baru dengan versi v2; keluaran v1 tetap disimpan sebagai diagnostik, tidak dicampur dengan hasil v2. Ini koreksi implementasi sebelum G2, bukan perubahan berdasarkan prediksi model.
 
-**D65. Identitas anotator diambil dari JWT hasil login, bukan dari parameter `?annotator=`** (§5.1, §8).
+**D75. Kampanye skala korpus memakai fingerprint Dolos yang dicache.**
 
-- Sebelumnya siapa pun bisa mengetik nama anotator lain di UI, lalu membaca label orang itu atau menyetujui card tulisannya sendiri dengan mengaku sebagai "B". Akibatnya independensi label ganda (§8) dan aturan penulis ≠ pengecek (D63) hanya berlaku di atas kertas.
-- Login memakai username dan password. Hash argon2id disimpan di `data/users.json` (gitignored), dan akun dibuat di mesin lewat `make user-add`, tidak lewat HTTP. Token berupa HS256 dengan `JWT_SECRET` minimal 32 byte dan berlaku 7 hari.
-- Semua route `/api` kecuali `/api/login` menolak request tanpa token yang valid. `GET /api/decisions` hanya mengembalikan keputusan milik pemegang token.
-- **Belum ada rate limit login**; biaya argon2 satu-satunya rem. Backend jangan dibuka di luar jaringan privat sebelum rate limit ditambahkan.
-- Backend dipecah per fitur di `src/modules/` (`auth`, `pairs`, `audit`, `cards`). Tiap modul punya `routes.rs`, `handlers.rs`, `dto.rs`, serta service dan `repository.rs` di belakangnya: satu file per lapisan, pola yang lazim di Rust/axum. Helper lintas modul ada di `src/shared/`, dan integration test di `backend/tests/`. **Data tetap berupa file, bukan database**: pipeline Python membaca file yang sama, dan database akan memaksa ada lapisan ekspor yang bisa tidak sinkron. Path di D63 berubah: aturan card kini di `backend/src/modules/cards/service.rs`, dan `valid_annotator` di `backend/src/shared/files.rs`.
+- Skor tetap rumus `Pair.similarity` Dolos 3.5.1: jumlah occurrence fingerprint bersama di kedua sisi dibagi jumlah fingerprint kedua sisi. Tidak ada ignored fingerprint atau template. Fingerprint tetap dibuat library Dolos dengan k=70/window=17; hanya perhitungan longest-common-substring yang tidak dibutuhkan dihilangkan.
+- Ekuivalensi skor diuji terhadap API `Pair` pada kode identik, rename, perubahan literal, dan kode pendek. Kegagalan fingerprint dicatat dan membuat laporan clustering tidak lengkap; kegagalan tidak boleh menjadi similarity nol.
+- Kriteria file identik memakai SHA-256 **byte mentah**, termasuk file biner. Implementasi lama membaca teks sehingga CRLF ternormalisasi dan file biner terlewat. Ini koreksi terhadap definisi §3.6, bukan penggantian kriteria.
+- Clustering gabungan saat ini mencakup MAL yang tersedia dan prefix KB yang telah diunduh. Statusnya tetap parsial sampai seluruh pool yang diperlukan serta laporan insiden selesai diverifikasi; tidak dipakai untuk mengklaim 50 card final bebas kebocoran.
 
-**D66. Sesi di cookie HttpOnly, rate limit, CORS, dan Swagger; semua setelan di `.env`** (D65).
+**D76. Cache dan pembentukan diff diperbaiki tanpa mengubah teks hasil.**
 
-- JWT dipindah dari localStorage ke cookie `session` (`HttpOnly; SameSite=Strict`, `Secure` sesuai `COOKIE_SECURE`). Script di halaman, termasuk XSS lewat sampel yang ditampilkan, tidak bisa membacanya. Endpoint baru: `POST /api/logout` dan `GET /api/session`.
-- **Logout hanya menghapus cookie.** Token yang sempat tercuri tetap berlaku sampai `SESSION_TTL_HOURS` habis. Ini konsekuensi sesi stateless yang dipilih; pencabutan butuh penyimpanan sesi di server.
-- Rate limit per IP klien: login `LOGIN_RATE_*` (5 percobaan, lalu 1 per 12 s) dan seluruh `/api` `API_RATE_*`. Di Docker, backend hanya dipublikasikan di loopback, dan nginx menimpa `X-Forwarded-For` dengan IP asli. Kalau backend terbuka langsung dengan `TRUST_PROXY=true`, klien bisa memalsukan IP-nya sendiri.
-- CORS hanya mengizinkan `CORS_ORIGINS` dengan credentials. Wildcard tidak bisa dipakai bersama cookie.
-- Swagger UI tertanam di binary (`utoipa-swagger-ui`, vendored) di `/api/docs`. Path dan method tiap endpoint ditulis sekali di `#[utoipa::path]`, lalu router dan dokumen OpenAPI dibangun dari sumber itu (`utoipa-axum`).
-- Setelan yang berbeda per lingkungan dibaca dari `.env` oleh `backend/src/config.rs`, yang gagal dengan nama variabel yang kurang. `BACKEND_PORT` dipakai bersama oleh backend, nginx (template), Vite, dan compose. Aturan desain (panjang minimal secret dan password, parameter argon2) tetap konstanta di kode.
+- Cache normalisasi dipisah menurut isi sebelum/sesudah, jenis parser, versi normalisasi, hash adapter Node, dan lockfile dependensi. Cache menggunakan penggantian berkas atomik; hasil yang dibaca kembali memakai path pair yang sedang diproses. Antrian menyimpan setiap pair yang selesai agar pair lambat tidak menahan checkpoint pair lain.
+- Pemisahan raw diff memakai list baris lalu satu `join`, menggantikan penambahan string berulang melalui dictionary yang berbiaya kuadratik. Pemeriksaan 200.000 baris memastikan teks hasil tetap identik. Perubahan ini tidak mengubah smart-diff, anggaran, atau parameter penelitian.
+- Manifest kampanye 3,8 GB dibaca secara streaming; kode mentah tidak disimpan seluruhnya dalam RAM setelah fingerprint dihitung. Error resource tetap dilaporkan.
 
-## 2026-09-27 — Aturan advisory, jalur B, dan isolasi sampel
+**D77. Runner tidak lagi memilih fixture sebagai pengganti data penelitian yang hilang.**
 
-**D67. Advisory hanya diperiksa pada v_t; advisory pada v_(t−1) tidak menggugurkan update** (§3.2, §3.3).
+- Permintaan menjalankan data asli tidak boleh berakhir sebagai panggilan fixture karena `data/pairs.jsonl` belum ada. Runner sekarang memakai path yang diberikan secara literal; fixture hanya bisa dipakai dengan path fixture eksplisit.
+- Konfigurasi retrieval menolak KB kosong sebelum membuat hasil atau memanggil model. Ini pemeriksaan kelengkapan masukan, bukan perubahan aturan retrieval saat kandidat setelah pengecualian memang kurang.
+- UI audit memakai direktori `data/review/`, terpisah dari dataset final dan hasil model. Label sumber tidak dikirim sebagai gold ke antrean ini. UI menampilkan intent terstruktur, menyimpan evidence verbatim, dan tidak mengambil prediksi untuk pair pending.
 
-- §3.2 dan §3.3 melarang advisory pada versi hasil update. Kode sebelumnya menolak kalau salah satu dari v_(t−1) atau v_t punya advisory, sehingga update yang *memperbaiki* celah ikut terbuang (misalnya `lodash.merge@4.6.2`, yang memperbaiki prototype pollution di 4.6.1).
-- **Dampak ke HN jalur A:** 16 pair ditolak keliru (`ansi-regex@6.0.1`, `lodash.merge@4.6.2`, `ejs@3.1.10`, `crypto-js@4.2.0`, dan lainnya). Screening jalur A dijalankan ulang dengan aturan baru.
-- **Dampak ke TYP (D60):** 1 dari 5 penolakan keliru. `http-cache-semantics@4.1.1` masuk (delta kosong), dan `invariant@2.2.4` (undian terakhir kelompok populer) keluar. 95 pair lain identik. Belum ada hasil run pada TYP, dan G2 belum lewat.
-- Dev set tidak berubah (7/7 pair identik).
-- **Jalur B kini lengkap** (`pipeline/path_b.py`): paket hasil pencarian diproses dalam urutan hash nama. Untuk tiap paket, pair **paling awal** di antara 20 rilis terakhir yang delta-nya memuat sinyal kategori dipilih lebih dulu, baru kriteria advisory dan penerbit diterapkan pada pair itu. Pair berikutnya tidak dicoba, supaya tidak "berbelanja" pair yang kebetulan lolos.
-- Jalur A menghasilkan 157 kandidat sebelum perbaikan ini, dengan sinyal kategori 1–4 hanya 4, 8, 10, dan 10. Jalur B dijalankan untuk kategori 1–4.
+## 2026-09-29 — Penutupan batch preprocessing dan batas EA3
 
-**D68. §4.1 ditegakkan: host hanya mengambil, analisis sampel berjalan di container `--network none`.**
+**D78. Batas per-model D58 dicatat dari riwayat repositori resmi.**
 
-- Sampai D67, ekstraksi, capability extractor, smart-diff, dan intent dijalankan di host yang terhubung jaringan. Ini menyimpang dari §4.1 sejak MAL dan TYP pertama kali dibentuk (D59/D60), dan `data/samples.jsonl` belum pernah ada. Sampel tidak pernah dijalankan; yang belum terpasang adalah lapisan isolasi jaringan.
-- **Sekarang:** host hanya menghubungi registry, OSV, dan git, lalu mengunduh tarball ke `data/tarballs/` dengan SHA-256 dicatat di `data/samples.jsonl`. Semua ekstraksi lewat `pipeline/extract.py` berdasarkan file rencana, dan analisis berjalan di image `intentdiff-analysis` (Python dan transformers yang di-pin, sama dengan `.venv`) melalui target make. Tokenizer dimuat dari cache Hugging Face host yang di-mount read-only dengan `HF_HUB_OFFLINE=1`.
-- **Ditegakkan oleh kode:** setiap entrypoint analisis memanggil `isolation.require_offline()`, yang berhenti kalau ada interface jaringan selain `lo`. Pemeriksaannya membaca `/sys/class/net`, tanpa mengirim paket.
-- **Verifikasi setelah dibangun ulang di container:** `kb.skeleton.jsonl` identik byte-per-byte, dev set identik, dan 95 pair TYP identik termasuk digest pohonnya.
-- **Dua bug smart-diff terungkap oleh perpindahan ini, dan diperbaiki:**
-  - urutan file dari `diff -r` mengikuti collation locale (host `en_US.UTF-8`, container `C`). Sekarang `diff` dijalankan dengan `LC_ALL=C`, sehingga smart-diff sama di mesin mana pun. Urutan bagian berubah di 4 pair MAL dan 4 pair TYP, tanpa satu baris pun berubah;
-  - timestamp tidak dibuang dari header `---`/`+++` untuk nama file yang dikutip (mengandung spasi). Selama ini timestamp itu ikut ke teks yang dibaca model. Terkena: `zemen@0.0.5`.
-- Hasil smoke test dev set D64 tetap berlaku, karena ketujuh pair dev identik.
-- **Tambahan D68: batas ukuran ekstraksi.** Batas 50 MiB awalnya penjaga zip bomb untuk sampel Datadog, lalu terbawa sebagai default untuk tarball npm dan membuang 8 pair jalur A, termasuk satu kandidat (`com.microsoft.mesh.toolkit.preview@5.2404.340`). Spesifikasi tidak mengenal batas ukuran. Default kini 2 GiB, hanya untuk mencegah disk penuh, sedangkan sampel Datadog tetap 50 MiB lewat `kb.py`, sehingga seleksi KB tidak berubah.
-- **Hasil jalur A setelah D67 dan D68:** 158 kandidat, satu lebih banyak dari sebelum D67 (`ejs@3.1.10` masuk). Sinyal kategori: 1→4, 2→8, 3→10, 4→10, 5→144.
+- Qwen2.5-Coder-3B-Instruct: commit pertama **6 November 2024**, pukul 07:49:38 UTC, [`b16b5ab`](https://huggingface.co/Qwen/Qwen2.5-Coder-3B-Instruct/commit/b16b5abca15f178464c9c85a8f1942f5b925d5ed).
+- Qwen3-4B-Instruct-2507: commit pertama **5 Agustus 2025**, pukul 10:58:03 UTC, [`e7974da`](https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507/commit/e7974da369bd887ad4f10a072ec4f933ac5391bf). Sufiks `2507` tidak dipakai sebagai tanggal rilis.
+- API riwayat masing-masing mengembalikan 16 dan 4 commit tanpa halaman lanjutan. Riwayat, header respons, dan model card diarsipkan dalam `data/upstream/model-release/`; tanggal dan checksum disimpan di `data/acquisition/model-release-cutoffs.json`. Kedua card tidak menyebut tanggal rilis eksplisit yang lebih awal.
+- Commit pertama adalah proksi operasional yang dipilih D58; commit awal tidak membuktikan waktu bobot pertama kali dapat diakses publik. Tanggal insiden kampanye tetap perlu diverifikasi dari sumbernya sebelum menetapkan subgroup EA3. Tanggal publikasi versi saja tidak dianggap membuktikan kampanye pasca-rilis.
+- Batch 1.157 pair selesai menggunakan `static-dolos-exact-v2`. Pemetaan kampanye 1.870 item yang tersedia ditambahkan sebagai metadata kandidat dengan penanda cakupan prefix KB. Ini tidak membekukan test set, tidak menggantikan anotasi, dan tidak menandai G1/G2 selesai.
 
-**D69. Dataset diterbitkan di Hugging Face pada M7–8, tanpa kode malicious mentah.**
+**D79. Skeleton card mempertahankan identitas paket untuk pengecualian retrieval.**
 
-- **Yang diterbitkan:** metadata pair (`id`, nama, versi, subset, kategori HN, kampanye, delta, `truncated`), label dan anotasi kita (verdict, kategori HN, `gold_evidence`, κ), card KB, hasil run (`results.jsonl`), dan checksum dari `data/samples.jsonl`, sehingga setiap sampel bisa diambil ulang dan diverifikasi dari sumber aslinya.
-- **Yang tidak diterbitkan:** isi atau smart-diff pair MAL dan `code_excerpt` card malicious dalam bentuk terbuka. Kalau diperlukan, bagian itu disertakan dalam zip terenkripsi seperti praktik Datadog, dengan peringatan di dataset card.
-- **Lisensi sumber:** dataset Datadog berlisensi Apache-2.0, jadi turunannya boleh diterbitkan dengan atribusi dan menyertakan NOTICE. Paket replikasi Wyss di OSF tidak mencantumkan lisensi, jadi turunannya (pair MAL, clone, daftar typical update) hanya dirujuk ke OSF, kecuali ada izin dari penulis. Pair TYP dan HN berasal dari paket npm dengan lisensinya masing-masing, jadi yang diterbitkan adalah referensi `nama@versi` beserta checksum, bukan tarball-nya.
-- **Dataset card** memuat tujuan riset, larangan eksekusi sampel, dan batasan (FPR dan recall hasil Stage 1) supaya dataset tidak dipakai sebagai daftar blokir produksi.
+- Skeleton malicious sebelumnya menyimpan ID hash card tetapi menghilangkan `name` dan `version`. Akibatnya aturan pengecualian paket sama di `runner.eligible` tidak dapat bekerja dari skeleton yang diisi anotator. Kedua field kini dipertahankan sebagai metadata dan tetap tidak dirender ke prompt.
+- Regresi menguji skeleton aktual terhadap pengecualian paket sama serta memastikan identitas tidak masuk teks card. Ini koreksi implementasi sebelum G2; tidak ada perubahan ranking, kuota, atau isi prosa card, dan belum ada hasil penelitian yang terpengaruh.
 
-**D70. Verifikasi HN (§3.3) lewat halaman "HN Verification"; satu verifikator, kategori final dari label ganda §8.**
+**D80. Indeks relasi persis dan cache terbatas dipakai untuk pool KB penuh.**
 
-- Antrean dibangun offline oleh `pipeline/hn_queue.py` (`make hn-queue`): jalur A lebih dulu, lalu jalur B, masing-masing dalam urutan hash. Setiap baris dibangun dengan `pairs.build_row` yang sama dengan MAL dan TYP, jadi smart-diff, intent, dan bukti delta yang dilihat verifikator sama dengan yang nanti dibaca model. Pair yang ditemukan kedua jalur hanya masuk sekali.
-- **Kandidat yang diterima wajib menyebut kategori 1–5 dan tempat tujuannya terdokumentasi** (`readme`, `changelog`, `commit`, atau `issue`), beserta kutipan atau URL. Kandidat yang ditolak wajib punya alasan. Aturan ini ditegakkan di backend (`backend/src/modules/hn/service.rs`), tidak hanya di UI.
-- §3.3 tidak menyebut siapa yang memverifikasi. Verifikasi dilakukan satu anotator, dan namanya tercatat di `data/hn_verification.json`. Kategori pilihan verifikator bersifat sementara. Kategori final dan κ-nya berasal dari label ganda §8 di halaman Label Audit, sehingga κ tetap mengukur dua anotator yang independen.
-- Verifikasi berhenti saat kelima kategori mencapai 25. Tautan dokumentasi dibangun dari nama dan versi paket di registry npm, bukan dari URL yang tertulis di dalam kode sampel.
+- Semua relasi laporan sama dan SHA-256 file sama digabung melalui indeks sebelum perbandingan Dolos. Penutupan transitif tetap sama; tidak ada perwakilan kampanye yang menggantikan anggota saat perbandingan kode. Cara lama membuat ulang himpunan hash pada setiap pasangan, sehingga biayanya berlebihan untuk 24.324 versi KB.
+- Cache skor similarity dibatasi 65.536 pasangan kode. Penggusuran cache hanya menyebabkan penghitungan ulang skor yang sama, bukan pengabaian pasangan atau perubahan ambang.
+- Kesetaraan diuji terhadap graf pasangan lengkap pada kasus acak berseed serta urutan terbalik. Pengulangan atas seluruh 1.870 item asli memberi pemetaan dan ringkasan yang identik dengan hasil sebelum optimasi: 714/735 klaster. Parameter Dolos dan definisi kampanye tidak berubah.
 
-**D71. Pipeline menjadi paket per fitur dengan satu CLI; definisi studi dipindah dari kode ke `pipeline/specs/`.**
+**D81. Evaluasi baseline eksploratif dijalankan atas permintaan pengguna untuk memperoleh hasil sekarang.**
 
-- Struktur mengikuti backend: `shared/` (setelan dari `.env` dan satu kelas `Layout` untuk semua nama file data), `samples/`, `features/`, `datasets/` (termasuk `hn/` dan `kb/`), `experiment/`, dan `results/`, dengan test di `pipeline/tests/`. Semua perintah lewat `python -m pipeline <perintah>`, dan target make tidak lagi membawa path.
-- **Definisi studi kini berupa data**, bukan kode: kategori HN (`hn_categories.json`), daftar konfigurasi dan strategi card-nya (`configurations.json`), teks prompt verbatim (`prompt.json`), serta perbandingan dan kata-kata hasilnya (`comparisons.json`). Kode tidak memuat nomor RQ, nama hipotesis, atau label hasil. Kode menghitung kunci netral (`not_moved`, `recall_drop`, `not_significant`, `confirmed`, `confirmed_point_only`), dan spesifikasi memetakannya ke kalimat.
-- Label hasil kini berbahasa Inggris, mengikuti naskah: "Supported", "Partially supported", "Direction consistent, not significant", dan "Not supported". Sheet `hypotheses` dan figur `fig_hypotheses` berganti nama menjadi `comparisons` dan `fig_comparisons`. Opsi `--sensitivity` diganti `--invalid-as malicious`, sama dengan tabel dan figur.
-- Semua keluaran CLI dan pesan error dalam bahasa Inggris. Komentar satu baris, tanpa rujukan RQ, hipotesis, atau §/D.
-- Duplikasi yang dihapus: penghitung token (dulu di `intent` dan `smartdiff`), pembaca/penulis JSONL (±6 salinan), `TEXT_FIELDS` card, aturan advisory v_t, pemuatan laporan (dulu di `analysis`, `tables`, dan `plots`), serta `pairs.typ.taken.txt` yang dulu disalin dari `typ/taken.txt`.
-- **Verifikasi:** 78 test lulus. Dibangun ulang di container `--network none`, keluaran berikut identik byte-per-byte dengan versi sebelumnya: `pairs.mal.jsonl`, `pairs.typ.jsonl`, `pairs.dev.jsonl`, kandidat jalur A, antrean HN, dan `kb.skeleton.jsonl`. Laporan atas `results.dev.jsonl` memberi angka yang sama; hanya kata-kata labelnya yang berubah.
-- **Kesalahan selama refactor:** satu pengecekan kesetaraan sempat menjalankan extractor atas sampel MAL langsung di host, di luar container, karena penjaga isolasi hanya ada di `main()` dan pengecekan itu memanggil fungsi secara langsung. Tidak ada kode sampel yang dijalankan (hanya dibaca dengan regex dan `diff`), tetapi ini melanggar §4.1. Semua pengecekan berikutnya berjalan di container.
-- **Temuan terbuka:** satu tarball jalur B (`react-native-smartlook-analytics@2.1.18`) ukurannya sesuai catatan tetapi SHA-256-nya berbeda, sehingga pemeriksaan checksum menolak mengekstraknya. Penyebabnya belum diketahui. Tarball itu diunduh ulang setelah jalur B selesai.
+- Setelah diberi tahu bahwa anotasi manusia belum tersedia, pengguna meminta: “Oke lanjutkan ke evaluasi untuk mendapatkan resultnya”. Evaluasi yang dapat dijalankan saat ini memakai label sumber; statusnya **eksploratif**, terpisah dari test set konfirmatori §8 dan Gate G1/G2. Kewajiban dua anotator untuk studi utama tidak dinyatakan telah terpenuhi.
+- Seluruh 873 kandidat MAL dengan predecessor tersedia/bebas advisory serta 100 TYP digunakan; 2 MAL yang gagal screening dikeluarkan. MAL memakai `source_label`; TYP memakai asumsi benign §3.2. Label sumber tidak ditulis ke paket review manusia. Semua masukan dan hasil eksploratif mencatat asal label serta `human_annotation_verified=false`.
+- DIFF dan DIFF+I dijalankan pada kedua model, greedy, seed 0, top_p 1, output maksimal 512 token. Total yang direncanakan adalah 973 × 2 × 2 = 3.892 panggilan. Tidak ada fixture sintetis, pembatasan jumlah pair, atau pemilihan berdasarkan prediksi. Empat konfigurasi retrieval menunggu card yang diverifikasi; HN tidak diberi label berdasarkan sinyal otomatis.
+- Dataset ini merupakan kumpulan kandidat yang lolos screening, bukan undian test final dengan cap kampanye dan kuota pasca-rilis. Metrik terhadap label sumber dilaporkan deskriptif. Tidak ada klaim akurasi gold, keputusan hipotesis, hasil HN, atau evidence localization tanpa anotasi. Output tidak boleh dipakai untuk menyetel prompt lalu dilaporkan sebagai hasil konfirmatori pada pair yang sama.
+- Kedua model berjalan bergantian pada RTX 5090 yang sama, BF16, konteks 32.768, `max_num_seqs=1`, alokasi GPU 0,65, prefix caching aktif, dan `generation-config=vllm`. Tidak ada request pemanasan terpisah; latency mencakup request awal dan hanya menggambarkan sesi eksploratif ini, bukan benchmark RQ4.
+- Artefak berada di `data/evaluation/source-baselines-20260929/`, termasuk snapshot masukan/kode, respons mentah, log server, dan ringkasan. `data/results.jsonl` tetap dicadangkan untuk penelitian utama.
 
-## 2026-09-28 — Jalur B selesai dan antrean HN lengkap
+**D82. Eksperimen anggaran keluaran 2.048 token memakai baseline 512 token sebagai kontrol historis.**
 
-**D72. Jalur B menghasilkan 139 kandidat; antrean verifikasi berisi 297 kandidat; unduhan kini dicocokkan dengan integrity registry.**
+- Pengguna menyetujui kelanjutan eksperimen setelah audit Qwen2.5: “Oke lanjutkan experiment tersebut”. Faktor inferensi yang diubah hanya `max_tokens`, dari 512 menjadi 2.048. Tidak ada perubahan prompt, urutan field, parser, aturan invalid-as-benign, atau revisi instruksi format §6.4.
+- Seluruh 973 pair D81 digunakan kembali, dengan kedua model dan konfigurasi DIFF/DIFF+I: 3.892 panggilan baru. Baseline 3.892 run pada 512 token dipakai dari artefak yang telah diverifikasi, bukan diulang. Ini kontrol historis dan eksperimen eksploratif setelah hasil awal diketahui, bukan dev/test konfirmatori baru. Hasil tidak menyelesaikan G1/G2 dan tidak digunakan sebagai bukti manfaat RAG.
+- Identitas/revisi model, prompt, input, BF16, seed 0, temperature 0, top_p 1, konteks 32.768, urutan pair, prefix caching, GPU utilization 0,65, dan max_num_seqs 1 sama dengan D81. Versi Python dan seluruh library yang dicatat cocok dengan baseline. Prompt terpanjang baseline aktual adalah 29.329 token; batas baru menyisakan minimal 1.391 token konteks. Tidak ada pemotongan input tambahan.
+- Sebelum inferensi, snapshot dan checksum dibekukan di `data/evaluation/output-budget-20260929/`. Pengujian payload dengan jaringan dimock memastikan satu-satunya field request yang berubah adalah `max_tokens`; run key dan metadata tambahan membedakan eksperimen. Pemeriksaan ini bukan panggilan evaluasi atau fixture yang dihitung sebagai hasil.
+- Metrik yang ditetapkan sebelum inferensi: validitas JSON, respons terpotong, recall label sumber MAL, FPR TYP, sensitivitas invalid-as-malicious, macro recall per kampanye, transisi berpasangan tiga status (malicious/benign/invalid), token, dan latency sesi. Seluruh empat kombinasi dilaporkan, termasuk yang menurun. Kesamaan respons/prefix dengan kontrol historis dicatat untuk diagnosis reproduksibilitas, bukan dipaksakan.
+- Tidak ada uji hipotesis utama, anotasi gold, HN, retrieval, atau klaim kausal kecepatan dari perbandingan antar-sesi. Format prompt tidak akan diubah di tengah batch. Data/hasil baseline dipertahankan; checksum `docs/decisions.md` dalam manifest lama merupakan snapshot historis sebelum entri ini ditambahkan, bukan larangan menambah keputusan baru.
+- **Penyelesaian 30 September 2026:** 3.892 respons baru unik, seluruhnya HTTP 200, tanpa retry/error transport. Recall label sumber 2.048 token: Qwen2.5 DIFF 84,54% dan DIFF+I 72,05%; Qwen3 DIFF 54,98% dan DIFF+I 63,23%. FPR TYP masing-masing 48%, 49%, 6%, 3%. Total invalid 1.077 → 876; terpotong 520 → 202. Semua recall naik, tetapi FPR Qwen2.5 memburuk. Tidak ada perubahan protokol di tengah batch. Hasil/dekomposisi dan batas interpretasi dicatat di `docs/output-budget-20260930.md`; ini tidak menetapkan 2.048 token sebagai default studi utama atau mengesahkan revisi prompt baru.
 
-| Kategori | Paket dicari | Punya pair cocok | Kandidat |
-|---|---|---|---|
-| 1 | 500 | 76 | 60 (batas `HN_PATH_B_WANT`) |
-| 2 | 499 | 29 | 22 |
-| 3 | 250 | 13 | 11 |
-| 4 | 500 | 52 | 46 |
+**D83. Pembanding eksploratif diperluas ke Qwen2.5-Coder-7B dan Qwen3-8B.**
 
-- Antrean (`make hn-queue`): **297 kandidat**, terdiri dari 158 jalur A dan 139 jalur B. Jumlah kandidat yang sinyalnya cocok per kategori: 1→82, 2→66, 3→32, 4→99, 5→179. Satu kandidat bisa cocok dengan beberapa kategori, dan kategori finalnya ditentukan saat verifikasi.
-- **Kategori 2 dan 3 paling tipis.** Paket telemetry dan licensing biasanya sudah punya capability-nya sejak versi awal, sehingga delta di 20 rilis terakhir kosong, sesuai titik buta §4.3. Kalau setelah verifikasi jumlahnya di bawah kuota, aturan batas minimum di research.md §5 berlaku, atau prosedur §3.3 diubah lewat keputusan baru.
-- **Checksum `react-native-smartlook-analytics@2.1.18` (D71):** file di disk cocok dengan `dist.integrity` registry; yang salah adalah SHA-256 yang tercatat di `samples.jsonl`. Catatan itu dibetulkan, kedua versinya diekstrak, dan pencocokan ulang kategori 2 memberi `matches.cat2.jsonl` yang identik. **Sejak ini `Fetcher` mencocokkan setiap unduhan dengan `dist.integrity` (SHA-512) atau `dist.shasum` dari registry** sebelum menyimpannya, dan packument ringkas jalur B ikut menyimpan kedua field itu.
-- **Masalah terbuka:** percobaan pertama `make hn-queue` gagal karena `tokenizers` panic (`AddedVocabulary bad split`). Pelacakan per kandidat atas data dan kode yang sama tidak mengulang kegagalan itu, dan run berikutnya lolos. Penyebabnya belum diketahui dan kemungkinan ada di library `tokenizers`. Kalau muncul lagi, catat kandidatnya sebelum menjalankan ulang.
-- Skrip pipeline lama dihapus setelah jalur B selesai; semua perintah sekarang lewat `python -m pipeline`.
+- Setelah menerima usulan `docs/model-scale-proposal-20260930.md`, pengguna menyatakan “Oke lanjutkan”. Tahap yang dijalankan adalah dua model prioritas: Qwen2.5-Coder-7B-Instruct dan Qwen3-8B, seluruh 973 pair D81/D82, masing-masing DIFF dan DIFF+I; 3.892 panggilan baru. Llama, DeepSeek, Qwen3.5, 14B, fine-tuning, dan konfigurasi retrieval tidak ditambahkan dalam tahap ini.
+- Kelompok ukuran operasional: A = 1 ≤ P < 5B dan B = 5 ≤ P < 10B, berdasarkan jumlah parameter total, dengan ukuran per checkpoint tetap dilaporkan. Qwen2.5-Coder-7B adalah 7,61B dan Qwen3-8B 8,2B menurut card resmi. Tidak ada rerata kelompok yang diperlakukan sebagai bukti universal efek ukuran. Qwen3-4B-Instruct-2507 dan Qwen3-8B berbeda checkpoint/post-training; perbandingannya tidak mengisolasi ukuran.
+- Revisi model dan checksum bobot/tokenizer dikunci sebelum inferensi dalam `data/evaluation/model-scale-20260930/`. Input, prompt, format, parser, aturan invalid, seed 0, temperature 0, top_p 1, BF16, konteks 32.768, dan output maksimum 2.048 sama dengan D82. Qwen3-8B mendapat `chat_template_kwargs={"enable_thinking": false}` agar mode non-thinking eksplisit. Greedy dipilih sebagai kontrol metode bersama, bukan klaim setting optimal yang disarankan pengembang.
+- Model berjalan bergantian pada GPU yang sama, `max_num_seqs=1`, prefix caching aktif, `generation-config=vllm`. Alokasi GPU vLLM dinaikkan dari 0,65 pada kontrol historis ke 0,80 untuk kedua model baru, sebelum inferensi, agar memuat bobot/cache lebih besar. Perbedaan alokasi dan sesi dicatat; latency tidak dipakai sebagai klaim kausal efek ukuran. Tidak ada request pemanasan terpisah.
+- Audit tokenisasi lokal atas semua pesan nyata dan pemeriksaan endpoint `/tokenize` tanpa generasi memastikan konteks cukup serta template server sesuai audit. Tidak ada pemotongan input tambahan atau penghapusan pair berdasarkan keluaran model. Jika konteks tidak muat, batch tidak dimulai sampai masalah dicatat dan diselesaikan secara konsisten.
+- Kontrol adalah 3.892 hasil D82 pada 2.048 token; tambahan ini menghasilkan tabel empat model × dua konfigurasi, total 7.784 respons historis + baru. Metrik yang dibekukan: recall label sumber MAL, FPR TYP, validitas JSON, jenis invalid, sensitivitas, macro recall kampanye, transisi berpasangan per keluarga, token, dan latency sesi. Semua kombinasi dilaporkan termasuk yang menurun; tidak ada pemilihan prompt/model berdasarkan kenaikan angka.
+- Cakupan tetap eksploratif dengan label sumber dan TYP diasumsikan benign, tanpa gold manusia/HN/RAG atau uji hipotesis utama. RQ konfirmatori dan enam konfigurasi inti 3–4B belum diperluas; model lebih besar adalah pembanding tambahan DIFF/DIFF+I. G1/G2 belum selesai. Perubahan desain utama selanjutnya memerlukan pembekuan tersendiri.
+- **Penyelesaian 1 Oktober 2026, 00:04 WIB:** 3.892 respons baru unik, seluruhnya HTTP 200, tanpa retry/error transport; 22 checksum snapshot dan 13 checksum kontrol cocok. Qwen2.5-7B DIFF/DIFF+I: recall sumber 92,90%/67,12%, FPR TYP 65%/67%; Qwen3-8B: 50,74%/48,34%, FPR 6%/3%. Dibanding kontrol D82 pada 2.048 token, Δrecall masing-masing +8,36/−4,93/−4,24/−14,89 poin. Invalid baru 435 versus 876 kontrol; terpotong 45 versus 202. Kedua server berhenti normal. Tidak ada perubahan protokol di tengah batch. Seluruh delapan kelompok dan dekomposisi valid/invalid dilaporkan dalam `docs/model-scale-20260930.md`. Tidak ada klaim kenaikan umum akibat ukuran, keputusan hipotesis utama, atau perluasan otomatis ke model lain.
+
+**D84. Eksplorasi diperluas ke dua keluarga model di luar Qwen.**
+
+- Pengguna meminta “oke lanjtukan dengan explore dengan model yang lain”. Tahap ini membandingkan dua model tambahan pada seluruh 973 pair, DIFF dan DIFF+I, target 3.892 inferensi baru; empat model D82/D83 menjadi kontrol historis 7.784 respons pada output 2.048. Tujuannya perbandingan deskriptif lintas keluarga, bukan mencari model sampai hasil positif atau mengisolasi pengaruh ukuran.
+- Sebelum melihat prediksi baru, prioritas kecil adalah Microsoft Phi-4-mini-instruct (nominal 3,8B). Prioritas besar: Meta Llama-3.1-8B-Instruct jika akses yang sudah tersedia mengizinkan; berikutnya Mistral-7B-Instruct-v0.3; kemudian IBM Granite-3.3-8B-Instruct dengan `thinking=false`. Pemilihan berdasarkan akses, dukungan runtime, audit semua prompt, dan memori BF16. Tidak ada penerimaan syarat akses baru atau penggantian sumber bobot tidak resmi. Kandidat yang tidak layak dicatat beserta alasannya, bukan dikeluarkan berdasarkan akurasi.
+- Audit metadata/tokenizer dilakukan tanpa generasi; checkpoint resmi dipin. DeepSeek-Coder-6.7B turut diperiksa sebagai kandidat terkait literatur, tetapi konteks 16K berpotensi memerlukan eksperimen dengan input pendek yang disamakan untuk semua pembanding. Pair panjang tidak dibuang dan input tidak dipotong hanya untuk satu model. Tidak ada eksekusi kode repository model atau sampel; memakai implementasi runtime lokal dengan `trust_remote_code=false`.
+- Input pesan, label sumber, prompt, parser, invalid-as-benign, output 2.048, seed 0, temperature 0, top_p 1, BF16, max_num_seqs 1, prefix caching, dan GPU allocation 0,80 dipertahankan. Template resmi tiap model digunakan. Batas server 32.768 diprioritaskan; 49.152 diperbolehkan hanya jika tokenizer membutuhkan ruang tambahan dan konteks native mendukung, dicatat sebelum inferensi. Ini mempertahankan teks input identik, bukan memaksa jumlah token antar-tokenizer identik. Tanpa RoPE extension, kuantisasi, atau pemotongan input baru. Perbedaan konteks/alokasi/sesi dibatasi interpretasinya pada biaya observasional.
+- Snapshot baru di `data/evaluation/model-families-20261001/`; snapshot D82/D83 tetap dipertahankan. Seluruh kombinasi dilaporkan, termasuk yang menurun, dengan recall sumber, FPR TYP, validitas/jenis invalid, sensitivitas, macro recall kampanye, transisi berpasangan, token, dan latency. Tidak ada warm-up LLM sintetis, fine-tuning, revisi format, HN/RAG buatan, atau uji hipotesis konfirmatori. Gold manusia, cutoff temporal formal, serta G1/G2 belum selesai.
+- **Hasil seleksi sebelum inferensi:** Phi-4-mini-instruct (3,836B parameter aktual, revisi `cfbefacb99257ffa30c83adab238a50856ac3083`) dan Llama-3.1-8B-Instruct (8,030B, revisi `0e9e39f249a16976918f6564b8830bc894c89659`) lolos akses dan audit 1.946 prompt masing-masing. Keduanya memakai server 32.768; prompt maksimum 29.919 dan 29.186 token. Akses Llama yang tersedia sudah mencukupi tanpa persetujuan syarat baru. Mistral memiliki 109 prompt melebihi konteks native dengan cadangan output; DeepSeek 167. Granite layak secara konteks 49.152 tetapi tidak dipilih karena prioritas Llama sudah memenuhi syarat. Semua audit tanpa generasi disimpan, termasuk kandidat yang tidak dijalankan.
+- **Penghentian jawaban native:** `generation-config=vllm` tetap menjaga kontrol sampling. Namun Phi dan Llama memiliki beberapa EOS/end-of-turn pada `generation_config.json` resmi yang tidak seluruhnya terdapat pada `config.json`. Sebelum inferensi, request diberi `stop_token_ids` resmi: Phi `[200020,199999]`, Llama `[128001,128008,128009]`. Ini mencegah model melanjutkan ke giliran berikutnya, tanpa repair respons/parser atau stop string buatan. Daftar dan tokennya diaudit, dicatat dalam metadata setiap respons, serta dipin bersama snapshot. Kontrol Qwen historis tidak memiliki override ini; perbedaan end-of-turn native dicatat sebagai karakteristik lintas keluarga, bukan diklaim identik pada semua field request.
+- **Amendemen sebelum prediksi:** startup Phi pertama gagal pada alokasi buffer KV otomatis 15,80 GiB; bobot 7,17 GiB sudah termuat dan belum ada request generasi. Penyebab allocator/driver belum dipastikan meskipun log melaporkan memori bebas lebih besar. Kedua model ditetapkan memakai `kv_cache_memory_bytes=6442450944` (6 GiB), cukup untuk KV BF16 satu sequence 32K yang terhitung 4 GiB. Ini menggantikan kalkulasi cache dari `gpu_memory_utilization=0.80`; flag 0,80 bukan lagi ukuran cache efektif. Konteks, bobot, dtype, sampling, prompt, parser, input, dan stop tokens tidak berubah. Protokol awal beserta 27 sumber dan log kegagalan diarsipkan di `startup-initial/`, lineage/hash dicatat di `cache-amendment.json`, kemudian 30 checksum sumber dibekukan ulang sebelum request pertama. Perbedaan cache dengan kontrol historis membatasi interpretasi latency.
+- **Penyelesaian 1 Oktober 2026, 09:24 WIB:** 3.892 respons baru unik selesai, 1.946 request generasi HTTP 200 per model, tanpa retry request/error transport; kedua server berhenti normal. 30 checksum sumber aktif, 13 kontrol, dan 27 sumber arsip awal cocok. Phi DIFF/DIFF+I: recall sumber 45,93%/50,29%, FPR TYP 13%/13%, JSON valid 58,17%/82,94%. Llama DIFF/DIFF+I: recall 85,45%/89,23%, FPR 57%/69%, JSON valid 88,08%/89,62%. Invalid baru 790, termasuk 219 terpotong. Tidak ada perubahan protokol setelah prediksi pertama; amendemen cache tetap terdokumentasi. Tabel 12 kombinasi dari enam model dan dua konfigurasi berisi 11.676 respons, termasuk kontrol D82/D83, di `docs/model-families-20261001.md`. Hasil tidak menunjukkan satu model baru unggul menyeluruh; kenaikan Llama DIFF+I terhadap Qwen2.5-7B DIFF+I terutama melalui transisi valid/invalid. Tidak ada pemilihan prompt berdasarkan hasil, klaim konfirmatori, atau penambahan model berikutnya secara otomatis.
+
+
+**D85. Pengembangan format dan verifikasi bukti dipisahkan dari evaluasi akurasi.**
+
+- Pengguna menyetujui kelanjutan diagnosis FPR. Dibuat indeks ID baris yang membedakan added/deleted/context dan memeriksa keberadaan kutipan tanpa mengubah verdict. Tidak menganggap ID valid sebagai bukti kebenaran semantik.
+- Eksperimen dev nyata Qwen3-4B memakai 32 kandidat HN belum dievaluasi, dipilih deterministik berdasarkan hash sebelum prediksi; untruncated <=16.000 token, nama/hash diff/arsip berbeda dari kontrol historis. Kelimanya: LEGACY-I, SCHEMA-I, IDS-I, IDS-D, VERIFY-I; 160 generasi. Detail dan seluruh batas interpretasi ada di docs/evidence-dev-20261001.md.
+- LEGACY-I/SCHEMA-I memakai pesan sama, hanya kendala decoder berbeda. IDS-I mengganti representasi/format; IDS-D menghapus intent. Verifier memeriksa ulang semua kandidat IDS-I, bukan hanya alarm. Panggilan tambahan dan biayanya dilaporkan.
+- Semua label masih pending; yang diukur validitas, keterlacakan kutipan, transisi, token/latency, bukan recall/FPR. Paket dev dan klon terkait dikeluarkan dari test/KB final. HN belum memiliki pemetaan kampanye, sehingga pemisahan nama/hash tidak dianggap independensi kampanye. Tidak membuat label/card palsu, mengubah hasil historis, atau menyetel pada test. Gold/HN/MB dan G1/G2 belum selesai.
+- BF16, seed 0, temperature 0, top_p 1, output 2.048, konteks 32.768, KV 6 GiB, satu sequence. Sumber dan input dibekukan sebelum inferensi, token aktual diverifikasi, invalid dipertahankan, error transport menghentikan batch tanpa retry otomatis.
+
+**D86. Dev campuran disiapkan untuk anotasi independen sebelum menilai trade-off alarm dan recall.**
+
+- Kelanjutan yang disetujui pengguna menambahkan 32 kandidat MAL dari 32 kampanye berbeda ke seluruh 32 kandidat HN D85. MAL dipilih tanpa membaca prediksi: urut SHA-256 `D86|campaign`, lalu `D86|id`, maksimal satu per kampanye/nama/hash diff/arsip, tidak terpotong dan <=16.000 token diff sebelumnya. Semua calon MAL telah terpapar eksperimen D81–D84 dan HN terpapar D85; ini dev eksploratif, bukan holdout baru. Pemetaan kampanye HN belum tersedia.
+- Paket anotasi memakai ID netral, urutan hash, dan proyeksi field yang menyembunyikan subset sumber, kampanye, kategori sinyal, label, dan prediksi. Identitas paket, intent, capability delta otomatis, dan diff tetap terlihat; tidak diklaim buta terhadap seluruh reputasi paket. Kedua anotator harus manusia berbeda dan menilai secara independen. Kolom bukti dan kategori tersedia untuk semua sampel.
+- Skrip kesiapan hanya memeriksa kelengkapan, bukti verbatim pada konten perubahan, serta kesepakatan label/kategori. Kecocokan teks atau dua nama akun tidak membuktikan kebenaran semantik maupun dua manusia. Tidak mengekspor gold otomatis. Kesepakatan, bukti, tujuan sah, dan identitas diperiksa manusia sebelum konsensus. Sampel `skip`/tidak sepakat dicatat sebagai attrition; tidak diganti berdasarkan hasil agar kuota tampak terpenuhi.
+- Tahap ini tidak membuat inferensi, metrik recall/FPR, atau label baru. Audit konteks semua prompt dan pembekuan protokol inferensi berikutnya masih diperlukan. Seluruh sampel dev, nama/hash/klon terkait, dan kampanye MAL terpilih dikecualikan dari test/KB final. Seleksi final harus menerapkan berkas pengecualian ini; G1/G2 tetap belum selesai.
+- Artefak ada di `data/evaluation/mixed-dev-20261002/`. Sebelum append ini, `docs/decisions.md` disalin ke `decisions-through-D85.md` di direktori tersebut dan hash dicocokkan dengan pin D85. Manifest/protokol/hasil D85 tidak diubah; hash dokumen historis tetap merujuk versi sebelum D86, bukan dokumen hidup setelah append.
+
+
+**D87. Validasi intervensi D85 diperluas ke MAL dengan label sumber secara eksploratif.**
+
+- Pengguna mengoreksi arah agar kembali ke penelitian dan menyetujui kelanjutan dev campuran. Batas gold tetap berlaku untuk klaim, bukan menghentikan seluruh eksperimen eksploratif yang telah diizinkan D81.
+- Semua 32 MAL dari seleksi D86 dipakai pada lima arm D85, menghasilkan 160 inferensi baru. Hasil 32 HN D85 (160 respons) menjadi kontrol historis tanpa dijalankan ulang. Prompt/model/parser/parameter tetap; tanpa perubahan intervensi berdasarkan hasil MAL.
+- MAL dilaporkan sebagai recall proxy label sumber; HN hanya jumlah alarm, bukan FPR. Laporkan invalid, transisi, bukti, serta biaya. Tidak ada klaim gold, manfaat RAG, atau uji hipotesis utama. Pembatasan anotasi D86 tetap berlaku untuk gold; tahap baru ini secara eksplisit memakai label sementara.
+- Detail dibekukan di `docs/mixed-validation-20261011.md`; artefak di `data/evaluation/mixed-validation-20261011/`. Dokumen keputusan sebelum entri ini diarsipkan sebagai `decisions-through-D86.md`, menjaga jejak pin D86. Snapshot dan hasil D85 tidak diubah.
+
+
+**D88. Diagnosis dependency dilakukan sebagai evaluasi versi bersyarat, dengan perlindungan kebocoran KB.**
+
+- Setelah kelanjutan disetujui pengguna, seluruh 20 target D87 yang menambahkan easy-day-js diuji dengan konteks sumber versi 1.11.21 dan 1.11.22: 40 inferensi nyata baru. Ini subgroup post-hoc dari dev terpapar, bukan holdout. Kedua versi cocok rentang dan terbit sebelum target menurut metadata arsip; tanpa lockfile, versi instalasi aktual tidak diketahui. Tidak menetapkan gold benign/malicious bagi snapshot dependency.
+- Prompt IDS-I dan model/parameter D87 dipertahankan, dengan instruksi kondisional identik untuk kedua arm serta berkas manifest/main/install-hook tanpa label keamanan. Semua sumber dipin sebelum inferensi; raw respons, token, transisi, validitas dan kutipan dilaporkan. Tidak mengeksekusi sampel atau mengakses endpoint sampel. Detail: docs/dependency-context-20261011.md.
+- Dua puluh target berbagi satu keluarga dependency. Tidak mengklaim 20 insiden independen, FPR, recall instalasi aktual, manfaat RAG, atau keberhasilan hipotesis utama. Kontrol IDS-I D87 historis tidak dijalankan ulang; tambahan instruksi membatasi perbandingan terhadap kontrol itu.
+- Filter KB lama meloloskan 40 kombinasi target–versi dependency karena nama/cluster berbeda. Filter mendatang juga menolak identitas dependency yang berubah dan pengecualian nama eksplisit. Konteks dependency tanpa label dipisahkan dari contoh KB berlabel. Belum ada card nyata terverifikasi untuk MM/MB; tidak menggunakan fixture sebagai hasil. Snapshot historis tidak diubah; keputusan sebelumnya diarsipkan dalam decisions-through-D87.md.
+
+- **Penyelesaian 12 Oktober 2026, 00:31 UTC+7:** 40 inferensi baru selesai, semuanya HTTP 200/JSON valid, tanpa length truncation atau unknown ID. Konteks 1.11.21 menghasilkan 20 benign dan 1.11.22 menghasilkan 20 malicious. Seluruh request/token/parser/citation serta 21 sumber, tiga kontrol, 13 model pin cocok; server berhenti. Hanya 14/20 respons positif mengutip isi setup.cjs. Total 370.164 token. Hasil merupakan diagnosis versi bersyarat pada satu keluarga dependency, bukan recall 100%, FPR, atau manfaat RAG. Laporan: docs/dependency-context-results-20261012.md.
+
+
+**D89. Isi dependency diuji dengan instruksi kondisional sejajar pada kohort yang tersedia.**
+
+- Kelanjutan pengguna memperluas diagnosis D88. Seleksi memakai dependency tercatat, kecocokan semver, ketersediaan arsip, tanggal rilis, keterbacaan file dan batas konteks; bukan prediksi. Seluruh target easy-day-js dikeluarkan. Audit awal menemukan hanya satu target MAL di luar keluarga itu; tidak mengklaim generalisasi lintas keluarga serangan.
+- Maksimal satu pair per nama dependency/target berdasarkan hash D89, tanpa kuota label hasil. Versi lokal terbaru yang cocok dan mendahului target dipilih; versi terpasang tetap tidak terverifikasi. Dua kondisi baru NO-SOURCE/WITH-SOURCE memakai instruksi asumsi identik dan hanya berbeda ketersediaan isi berkas. Snapshot model/parameter D88 dipertahankan; semua request dibekukan sebelum inferensi.
+- HN dilaporkan sebagai alarm, bukan FPR. MAL terbatas tidak menjadi estimasi recall populasi. Paparan dev dan pengecualian KB/test dicatat, tanpa gold/card buatan, eksekusi sampel atau perubahan hasil historis. Protokol: docs/dependency-generalization-20261012.md. Arsip: data/evaluation/dependency-generalization-20261012/.
+
+- **Penyelesaian 12 Oktober 2026, 01:09 UTC+7:** 15 target (14 HN pending, satu MAL sumber) × dua arm menghasilkan 30 respons HTTP 200/JSON valid tanpa unknown ID/length truncation. Semua verdict benign di kedua arm; tidak ada perubahan atau kenaikan deteksi. 44 kandidat target–versi gugur karena dependency terbit sesudah target. Semua HN terpilih hanya memiliki delta dependency_change dan semua snapshot tanpa install hook, sehingga tidak mewakili HN runtime sensitif. Total 196.035 token, WITH-SOURCE 1,89× NO-SOURCE. 91 sumber, 21 input/provenance dan 13 model pin cocok; server berhenti. Tidak ada klaim FPR 0%, gold, atau RAG. Laporan: docs/dependency-generalization-results-20261012.md.
+
+
+**D90. Model baru Granite 3.3 8B diuji pada seluruh kondisi D89 tanpa mengubah data/prompt.**
+
+- Pengguna secara eksplisit meminta model baru. Granite revisi 51dd4bc2ade4059a6bd87649d68aa11e4fb2529b dipilih sebelum keluaran model, bukan berdasarkan kenaikan pada cohort. Model ini baru untuk inferensi penelitian; kandidat/metadata telah diaudit D84. Bobot resmi diunduh dan hash diperiksa, tanpa remote-code.
+- Seluruh 15 target × dua arm D89 dipertahankan: 30 inferensi baru. Qwen3-4B D89 menjadi kontrol historis. Pesan/schema/parser, urutan dan parameter bersama sama; native template Granite thinking=false dan EOS [0] dicatat eksplisit. Preflight maksimum 24.467 token muat pada 32.768 dengan output 2.048; KV 6 GiB, BF16, greedy, seed 0.
+- Semua hasil dilaporkan, tidak menjamin model baru lebih baik. Satu MAL dan HN pending tidak menghasilkan klaim akurasi gold/FPR atau efek kausal ukuran. Tidak ada perubahan hipotesis RAG utama, penambahan fixture, atau pencampuran ke data/results.jsonl. Protokol: docs/granite-dependency-20261012.md.
+
+- **Penyelesaian 12 Oktober 2026, 05:44 UTC+7:** 30 inferensi Granite selesai, seluruhnya benign seperti 30 kontrol Qwen D89. Semua valid; nol length/unknown ID/error transport. Total 223.382 token; dua WITH-SOURCE mengutip isi dependency. Audit 27 sumber, enam kontrol, 14 model pin serta payload/token/parser/kutipan cocok; server berhenti normal. Tidak ada kenaikan deteksi pada kohort ini, tanpa klaim kesetaraan umum/FPR. Laporan: docs/granite-dependency-results-20261012.md.
+- Pengguna mengizinkan penulisan hasil tersedia ke LaTeX. D88–D90 ditambahkan ke Results dan Discussion sebagai eksplorasi dev, dengan kontrol historis, kondisi versi ambigu, hasil negatif, batas gold dan RAG disebut eksplisit. Naskah tidak diubah seolah evaluasi konfirmatori sudah selesai; abstrak/kesimpulan utama tetap belum diisi. Sumber: labs/latex/results-exploratory.tex dan labs/latex/discussion-exploratory.tex.
+
+**D91. Penegasan pengguna: hasil paper harus berasal dari eksperimen nyata dengan cakupan lengkap.**
+
+- Pada 12 Oktober 2026 pengguna menegaskan bahwa seluruh eksperimen yang diklaim dalam paper harus benar-benar dijalankan. Ini menjadi syarat pelaksanaan dan pelaporan, bukan sekadar catatan keterbatasan. Fixture, simulasi, proyeksi, dan hasil subset tidak menggantikan evaluasi penuh metode pada himpunan serta konfigurasi yang ditetapkan.
+- Sebelum menjalankan eksperimen berikutnya, tetapkan matriks pair × model × konfigurasi × seed beserta eksklusi yang beralasan. Sebelum menyatakan selesai, cocokkan seluruh kombinasi yang diharapkan dengan respons mentah unik, provenance input/model/prompt, serta log inferensi. Invalid dan kegagalan tetap dicatat; kombinasi yang belum dijalankan tidak diimputasi atau dibuang agar terlihat lengkap. Penyesuaian cakupan harus dinyatakan, tidak diperkecil diam-diam setelah hasil terlihat.
+- Kontrol historis boleh digunakan hanya jika merupakan inferensi nyata yang terverifikasi dan protokolnya sesuai; harus disebut historis dan tidak dihitung sebagai panggilan baru. Hasil negatif tetap dilaporkan. Menjalankan seluruh kombinasi tidak menggantikan validitas label, pemisahan data, atau verifikasi card KB.
+- Audit cakupan saat penegasan: D82–D84 memuat 11.676 respons unik untuk enam model × DIFF/DIFF+I × 973 pair yang identik. D88 hanya 20 target, D89/D90 hanya 15 target; ketiganya selesai pada subset diagnostik dan belum memenuhi evaluasi penuh pendekatan dependency/Granite pada 973 pair. RAG MM/MB dan ablasi intent konfirmatori belum selesai. Jangan menyatakan penelitian keseluruhan selesai atau keberhasilan metode berdasarkan subset ini.
+
+**D92. Jalankan ulang penuh setelah perubahan representasi diff, schema dan verifier.**
+
+- Pengguna menolak penyajian hasil lama sebagai hasil kode terbaru dan meminta eksperimen dijalankan ulang. Seluruh 973 pair D82–D84 dipakai kembali tanpa subsampling, pada enam model sebelumnya ditambah Granite. Implementasi IDS-D, IDS-I dan VERIFY-I D87 dipertahankan byte-identik: 973 × 7 × 3 = 20.433 panggilan baru. Setiap verdict, termasuk benign dan invalid, menjadi kandidat verifier. Tabel utama batch membandingkan model pada metode ini, bukan tabel lama-vs-baru.
+- Audit membedakan kode: pipeline/prompts.py masih baseline lama; perubahan retrieval filter tidak memengaruhi arm tanpa card. Metode ID/schema/verifier diambil eksplisit dari implementasi D87, bukan menyebut hasil runner lama sudah diperbarui. Konteks dependency bersyarat D88–D90 tidak dimasukkan tidak seragam ketika sumber/versi seluruh dataset belum tersedia. Semua tetap label sumber/dev terpapar, tanpa klaim gold/RAG atau bukti keunggulan sebelumnya.
+- Audit token semua model/pair dilakukan sebelum inferensi. ID menambah panjang; prefix diff yang sama dipilih sekali per pair agar kedua prompt dasar muat pada semua model (26.624 token), dengan cadangan verifier 4.096 dan output 2.048 pada konteks 32.768. Semua eksklusi/pemotongan dicatat; tidak ada pair dibuang atau trimming berdasarkan prediksi. Prompt verifier aktual wajib muat, jika tidak batch berhenti. Ini pemotongan tambahan yang dinyatakan, bukan input byte-identik baseline.
+- Parameter bersama BF16/greedy/seed 0/top_p 1/output 2.048/KV 6 GiB, native template/EOS tercatat, tanpa warmup generasi/retry otomatis/repair. Respons lama tidak digunakan sebagai hasil baru. Hash/coverage/token/parser/kutipan/log diverifikasi sebelum menandai model lengkap; hasil parsial tetap parsial. Protokol docs/full-method-20261012.md; artefak data/evaluation/full-method-20261012/.
+
+- **Pencatatan 12 Oktober 2026, 08:30 WIB:** dua blocker diperbaiki sebelum inferensi pertama. Pertama, `pin_models.py` membandingkan sha256 isi berkas dengan nama berkas hasil `Path.resolve()`, padahal cache Hugging Face versi baru menambah hop kedua ke penyimpanan content-addressed yang namanya bukan digest berkas; Qwen2.5-Coder-3B karena itu tampak tidak cocok. Perbaikan membaca nama target symlink hop pertama yang berupa 64 heksadesimal, yaitu digest LFS. Setelah perbaikan ketujuh model lolos: Qwen2.5-Coder-3B terhadap digest LFS resmi, enam lainnya terhadap manifest eksperimen sebelumnya. Bobot tidak diganti dan tidak ada pemeriksaan yang dilewati.
+- Kedua, percobaan menjalankan server tanpa `VLLM_USE_FLASHINFER_SAMPLER=0` gagal saat startup: sampler flashinfer mencoba JIT dan host ini tidak punya `nvcc` (`cached_ops/sampling` kosong). Driver resmi `evaluate.py` sudah menyetel variabel itu bersama `HF_HUB_OFFLINE=1` dan `TOKENIZERS_PARALLELISM=false`, jadi batch dijalankan lewat driver tersebut, bukan lewat skrip pembungkus baru. Log startup yang gagal tetap disimpan di `qwen3.server.log`, tidak dibuang. Pembekuan pertama yang sempat memuat skrip pembungkus itu dibatalkan dan protokol dibekukan ulang tanpa berkas tersebut, sebelum ada satu pun generasi.
+
+**D93. Tabel perbandingan model baseline masuk naskah dengan label baseline, cakupan tetap 3–4B.**
+
+- Pengguna meminta perbandingan antar model (TPR/FPR) ditulis lebih dulu ke naskah, dengan pembaruan menyusul setelah run D92 selesai, dan memilih cakupan judul tetap 3–4B. Dasarnya: Results sebelumnya hanya memuat D88–D90, yaitu faktor konteks dependency yang tidak ada di RQ mana pun, sehingga naskah belum menjawab judulnya sendiri.
+- Bagian baru `sec:baseline-models` memuat dua belas kombinasi D82–D84 (enam model × DIFF/DIFF+I, 973 pair identik, 11.676 respons): TPR label sumber, FPR TYP, macro recall kampanye, validitas JSON, median/p95 latensi. Seluruh kombinasi ditampilkan termasuk yang menurun. Tabel dipisah menjadi blok 3–4B di dalam cakupan dan blok 7–8B sebagai konteks skala, bukan klaim penelitian; Granite tetap hanya di bagian diagnostik D90.
+- Label klaim yang ditulis eksplisit di naskah: angka berasal dari implementasi prompt baseline, bukan representasi diff/schema/verifier terkini; pengulangan penuh D92 akan menggantikan tabel ini. MAL berlabel sumber, TYP diasumsikan benign, HN tidak ada pada run ini, invalid dihitung benign dengan sensitivitas invalid-as-malicious disebutkan, interval kepercayaan belum dihitung, tidak ada uji signifikansi, tidak ada klaim model terbaik. Akurasi tidak dilaporkan karena belum ada gold manusia dan subsetnya terpisah serta tidak seimbang.
+- Subbagian D88–D90 diberi kalimat pembuka yang menyatakan posisinya sebagai diagnostik di luar enam konfigurasi `tab:configs`. Diskusi mendapat satu subbagian trade-off 3–4B yang menyebut bahwa pengaruh blok intent sebagian datang dari transisi valid/invalid, bukan dari penalaran. Tidak ada angka baru dihitung di luar artefak yang sudah diaudit; prompt, konfigurasi, dan aturan keputusan tidak berubah.
+- Kode internal tidak ditulis di naskah. Nomor keputusan/eksperimen (D82–D84, D86–D90), nama arm internal (IDS-I, NO-SOURCE, WITH-SOURCE), dan status internal ("HN pending") diganti nama deskriptif: "evaluasi baseline", "studi versi dependency", "studi isi dependency", "pembanding Granite", "kondisi tanpa isi/dengan isi", "kandidat HN", serta "konfigurasi DIFF+I dengan baris ber-ID dan schema JSON ketat". Hitungan audit internal (jumlah checksum, artefak kontrol, berkas model) disebut tanpa angka. Jejak ke nomor keputusan tetap hidup di `docs/` dan di arsip artefak, bukan di naskah.
+- Naskah mendapat Bagian "Himpunan yang dijalankan" (`sec:run-cohort`) karena bagian Data hanya menjelaskan himpunan uji yang dirancang, bukan kohort yang benar-benar dipakai hasilnya. Isinya dihitung langsung dari `pairs.jsonl` beku: 973 pair (873 MAL label sumber + 100 TYP diasumsikan sah), 830 MAL dari dataset paket berbahaya Datadog dengan tanggal terbit 19 Desember 2024–24 Juni 2026 dan 43 MAL serta 100 TYP dari paket replikasi Wyss et al.; 224 kampanye dengan 213 kampanye tunggal dan kampanye terbesar 607 pair; intent tersedia pada 932 pair; delta kemampuan kosong pada 25 MAL dan 91 TYP; 936 nama paket unik; 143 pair tanpa tanggal terbit. Panjang smart-diff median 2.131/rata-rata 3.804/maksimum 27.998 token, dan setelah pemotongan representasi ber-ID median 2.131/rata-rata 2.841/maksimum 20.637. Dinyatakan eksplisit: kohort ini kandidat yang lolos penyaringan dan sudah terpapar pengembangan, bukan holdout; kuota tiga pair per kampanye tidak berlaku; subset HN tidak ada sehingga FPR HN tidak terukur; tidak ada verifikasi dua anotator.
+
+
+**D94. Penguatan dataset dimulai sebagai akuisisi terpisah, bukan pembesaran semu hasil D92.**
+
+- Pengguna menyetujui kelanjutan penguatan dataset untuk target Q1. Target kerja 2.000–5.000 TYP, 300–500 HN terverifikasi, serta 200–400 MAL terverifikasi lintas kampanye adalah sasaran desain, bukan jaminan power atau syarat jurnal. Tidak mengubah input maupun hasil eksperimen lama.
+- Seluruh 2.000 pasangan TYP sumber diaudit, termasuk overlap HN; tidak menyaring berdasarkan prediksi. Paparan dev dipetakan menurut identitas, nama, dan dependency terkait, dengan pemeriksaan klon/split final tetap pending. Pemeriksaan advisory awal memakai snapshot 28 September dan harus dibedakan dari pemeriksaan baru.
+- Antrean metadata HN mencakup maksimum 250 nama per kategori dari snapshot pencarian tetap. Gelombang kode pertama mengambil peringkat 1–50 setiap kategori, sebelum penyaringan, dengan 20 versi SemVer tertinggi yang sudah terbit pada cutoff. Sisa antrean dicatat, bukan dianggap selesai. Semua kegagalan, batas ukuran, dan pair sebelumnya yang tidak tersedia dilaporkan.
+- Analisis kode statis dilakukan tanpa jaringan; tidak ada label manusia, kategori final, card KB, atau holdout buatan. MAL lama tetap dev, termasuk setelah cap kampanye. Protokol: docs/dataset-expansion-20261012.md; artefak: data/acquisition/expansion-20261012/.
+
+
+**D95. Tambahan TYP dari stream update yang diarsipkan, dengan strata terpisah.**
+
+- Arsip replikasi Wyss berisi live_analysis_update_events.txt. Untuk memperluas cakupan melewati 2.000 pair sumber typical lama, pilih 500 nama paket yang belum ada dalam pool typical, MAL, KB, pencarian HN, atau nama/dependency dev. Per nama, pilih target versi dengan hash identitas terkecil dari stream, lalu undi nama dengan seed 2026. Jumlah 500 ditetapkan sebelum metadata/pemindaian; tidak mengganti kandidat yang gagal agar kuota tampak terpenuhi.
+- Predecessor ditentukan dari metadata registry dengan SemVer lebih rendah dan waktu lebih awal; target wajib mendahului cutoff D94. Identitas, digest arsip, advisory kedua versi, serta ketersediaan sumber diverifikasi. Ketiadaan advisory tetap asumsi, bukan gold benign.
+- Cohort ini merupakan strata live-stream dengan nama yang sebelumnya belum dipakai. Tidak menyebutnya sampel acak seluruh npm, sampel pasca-rilis model, atau holdout final. Laporkan terpisah dari popular/random; pooling FPR membutuhkan bobot yang ditetapkan sebelum inferensi. Clone/campaign split dan anotasi tetap pending. Artefak: data/acquisition/typical-stream-20261013/.
+
+
+**Penyelesaian akuisisi D94–D95, 13 Oktober 2026.**
+
+- Antrean HN penuh selesai: 17.225 versi berstatus akhir, 17.097 arsip diunduh, 16.922 versi berhasil dipindai, 16.018 pair diperiksa (15.715 kedua sisi tersedia). Ada 201 kandidat HN baru; 163 lolos publisher/advisory/kelengkapan pemilihan pair, termasuk 91 dengan sinyal runtime sensitif. Bersama 182 kandidat lama, pool berisi 383 kandidat; 325 lolos penyaringan otomatis. Tidak ada verifikasi tujuan sah/gold manusia.
+- TYP lama diperluas menjadi 1.876 setelah advisory baru; strata stream menambah 381 dari 500 nama yang dipilih sebelum penyaringan. Total 2.257 TYP. Ada 162 overlap dengan HN yang lolos, sehingga gabungan review mempunyai 2.420 identitas pair unik. Strata tidak digabung menjadi satu FPR tanpa bobot.
+- Sebanyak 2.062 TYP dan 281 HN belum terpapar menurut pemeriksaan identitas/nama/dependency; belum bebas klon atau menjadi holdout. MAL baru tersedia nol: dua tambahan manifest Datadog tidak mempunyai arsip dan endpoint registry versi tepat mengembalikan 404. MAL lama tetap dev, termasuk setelah cap kampanye.
+- Interupsi meninggalkan ekor nol pada manifest/log serta 324 cache arsip tidak cocok digest. Salinan/hash dipertahankan, cache diminta ulang, dan 4.465 tree hasil scan lama semuanya cocok. Satu kegagalan arsip lama dipindai ulang setelah pulih. Penyebab interupsi/kerusakan tidak diketahui; tidak ada penggantian hasil inferensi atau label.
+- Cakupan pair/versi, sampling stream, metadata, advisory, dan status label diverifikasi; delapan unit test terfokus lulus. Laporan: docs/dataset-expansion-results-20261013.md. Template A/B kosong dan panduan review tersedia; benchmark final/RAG belum selesai.
+
+
+**D96. File trivial tidak lagi menautkan kampanye lewat kriteria (b) §3.6; clustering gabungan TYP/HN dengan pool MAL/KB.**
+
+- Diagnostik hash-only 13 Oktober 2026 pada 25.073 item lama + 2.420 kandidat TYP/HN: 76 kandidat benign tertaut ke mega-klaster KB malicious (7.069 item) hampir seluruhnya lewat file trivial, yaitu `.env` kosong (921 item lama), stub `"use strict";`, `export {};`, dan `{"type":"module"}`. Kriteria (b) dirancang untuk payload identik; file kosong bukan bukti asal serangan yang sama.
+- Pengguna memilih: file tambahan yang panjangnya < 64 byte setelah strip whitespace dikeluarkan dari kriteria (b). Kriteria (a) laporan sama dan (c) Dolos ≥ 0,5 tidak berubah. Ambang ditetapkan sebelum melihat hasil split dan tidak disetel ulang; stub 77 byte seperti `"use strict"; Object.defineProperty(...)` masih menautkan dan dilaporkan apa adanya.
+- Hash trivial tetap disimpan per item (`trivial_hashes`), sehingga clustering dengan aturan lama dijalankan sebagai sensitivitas dan jumlah klaster kedua aturan dilaporkan. Material 25.073 item lama diregenerasi dari sumber yang sama di container tanpa jaringan, bukan diedit.
+- Kandidat TYP/HN `holdout_eligible` hanya jika tidak terpapar menurut identitas/nama/dependency **dan** kampanyenya tidak memuat item terpapar (seluruh MAL kandidat dihitung terpapar). Satu kampanye dengan card KB bukan paparan, tetapi dilaporkan. Hasilnya usulan partisi, bukan test set beku: HN tetap menunggu anotasi A/B dan kategori gold sebelum dibagi test/KB per §3.3. Kode: pipeline/campaign_materials.py, campaign_fingerprints.py, expansion_split.py; artefak data/acquisition/campaigns-20261013/.
+
+- **Penyelesaian 13 Oktober 2026:** 27.493 item, nol kegagalan fingerprint. Klaster @0,5/0,8: D96 7.178/7.702, aturan lama 5.982/6.433. Usulan partisi: 274 dev, 1.896 calon test TYP, 250 HN calon holdout menunggu anotasi (2.004 TYP eligible termasuk overlap HN). Clustering menambah 79 item ke dev; hanya 20 item berbeda status antar aturan. Belum test set beku. Laporan: docs/campaign-split-20261013.md.
+- **Audit lanjutan 13 Oktober 2026:** klaster 12.269 item menyatukan 1.996 komponen laporan/hash lewat Dolos. File penghubung juga mencakup template Next.js, aset umum, dan stub 77 byte; batas 64 byte tidak menghapus seluruh boilerplate. Sertifikat 20.315 tautan mereproduksi pemetaan D96, dengan bukti jalur untuk semua 79 kandidat yang masuk dev akibat clustering. Seluruh tautan dan 11.912 pin diverifikasi; 128 contoh file cocok dengan 64 hash. Tidak mengubah ambang/split, tidak membuat label atau inferensi. §3.6 memperjelas semantik `bytes.strip()` serta dampak penggabungan berlebih pada KB dan eksklusi dev. Laporan: docs/campaign-audit-20261013.md. Paket review sumber 250 HN dan formulir A/B kosong: data/acquisition/hn-annotation-20261013/; smart-diff final dan anotasi manusia masih diperlukan.
+
+
+**D97. Akuisisi MAL independen: benchmark Guo et al. 2026 ditambahkan sebagai sumber, artefak RogueOne (sumber 4 §3.1) diakuisisi.**
+
+- Seluruh MAL lama terpapar pengembangan (D94–D96), sehingga holdout MAL membutuhkan kampanye baru. Pengguna memilih menambah benchmark Guo et al. (ASE 2026, figshare 10.6084/m9.figshare.31869370, CC BY 4.0; 6.420 versi malicious dari 4.286 paket, label ditinjau tiga pakar) dan mengakuisisi artefak RogueOne (figshare 10.6084/m9.figshare.25050512, image docker tersimpan). Protokol ini dicatat sebelum isi arsip dilihat.
+- Kriteria inklusi tetap §3.1 a–d: v_t malicious menurut sumber; v_{t−1} = SemVer tertinggi lebih kecil yang terbit lebih dulu, tanpa advisory, tersedia di registry; tarball v_t ada di arsip sumber; payload di berkas teks. Paket yang jahat sejak versi pertama bukan pair update dan hanya dicatat sebagai calon pool KB. Gugur per kriteria dilaporkan.
+- Dedup `nama@versi` terhadap Datadog/Wyss/pool KB; clustering §3.6 dengan aturan D96 terhadap seluruh pool. Hanya pair yang kampanyenya tidak memuat item terpapar yang menjadi calon holdout MAL; cap 3 pair per kampanye berlaku. Label sumber tetap label sumber, bukan gold A/B.
+- Keamanan: unduhan di luar container ke direktori kosong baru dengan verifikasi md5 figshare; daftar isi dan ekstraksi di container `--network none`. Image RogueOne tidak di-load maupun dijalankan; layer dibaca sebagai tar. Tidak ada eksekusi sampel atau kontak ke endpoint di dalamnya.
+
+**D98. Fokus eksperimen akhir: pemeriksaan kelengkapan retrieval sebelum inferensi dan persiapan evidence HN.**
+
+- Pengguna meminta fokus pada eksperimen akhir setelah mengetahui bahwa D92 tidak menjalankan RAG. Cakupan utama tetap enam konfigurasi §10 pada dua model 3–4B §9; tujuh model D92 tidak otomatis menjadi tujuh model konfirmatori RAG. Tidak memilih model berdasarkan hasil TPR D92, tidak mengubah snapshot D92, tidak menjalankan inferensi final sebelum G1/G2.
+- Ditemukan bahwa fungsi retrieval mengembalikan daftar pendek jika kandidat berlabel tertentu habis setelah filter. Runner sekarang memeriksa seluruh matriks sebelum request pertama: komposisi M/MM/MB harus lengkap, ID unik, nama/kampanye tersedia, card utama dan posisinya sama antara MM/MB, serta card/urutan sama antara MB dengan/tanpa intent. Kegagalan menghentikan batch. Ini penegakan konfigurasi §5.2, bukan perubahan skor/ambang/aturan keputusan.
+- Pemeriksaan input final `pipeline/final_readiness.py` tidak memakai fixture dan tidak menerbitkan rilis dari flag metadata semata. Dataset test final, card A/B, bukti anotasi, split kampanye, eksklusi dependency, budget model, dan pin protokol masih harus lengkap. Exit 2 menandakan belum ada rilis; ini belum script inferensi final.
+- Normalisasi 250 kandidat HN dilakukan sebagai bahan anotasi di container tanpa jaringan, dengan normalizer/budget yang sudah ada. Tidak membuat label, kategori gold, atau rationale card otomatis. Artefak `data/preparation/final-rag-20261014/`; laporan `docs/final-rag-preparation-20261014.md`.
+- **Hasil persiapan:** 250/250 sukses tanpa error pair, hash/token cocok seluruhnya, 10 pin input cocok. Tetap dicatat 53 diff terpotong, 15 pair/74 file raw fallback, dan 6 intent tidak tersedia. Formulir A/B kosong terikat hash diff; belum gold atau input test final. Lima arsip D97 cocok ukuran/MD5 metadata; belum menambah MAL holdout. Sepuluh unit test dan selfcheck runner/configs lulus. Inferensi baru nol; rilis final masih menunggu anotasi/card manusia, split, audit konteks, dan G1/G2.
+
+**D99. Eksperimen akhir memakai label dataset; anotasi dua manusia bukan prasyarat universal.**
+
+- Pada 14 Oktober 2026 pengguna mempertanyakan kewajiban anotasi manusia lalu menyetujui kelanjutan berbasis dataset. Persyaratan anotasi ganda MAL/HN dan card ahli dalam desain lama diganti untuk batch baru; snapshot historis tetap utuh.
+- MAL memakai label sumber dengan provenance yang dipin, TYP memakai asumsi benign dan pemeriksaan advisory dua versi. Tidak membuat gold manusia, kategori HN sah, κ, atau gold evidence otomatis. 250 HN pending hanya kohort alarm tanpa confusion matrix.
+- Enam konfigurasi dan dua model utama tetap. RQ2/RQ3 menjadi perbandingan deskriptif pada MAL+TYP; tidak mengklaim hipotesis awal FPR_HN teruji. Laporan wajib menyebut kualitas label, paparan dev, kampanye dan ketidakpastian.
+- Card diekstrak deterministik dari sumber dengan metode sama untuk dua label, kutipan verbatim dan pin sumber; tidak mengklaim rationale ahli. Benign KB direservasi dari TYP; seluruh nama/kampanyenya dikeluarkan dari test. Target 50 M + 25 B, batas ukuran dan kontrol MM/MB tetap.
+- G1/G2 kini memeriksa provenance, pembagian, konteks dan keterulangan; tidak bergantung pada tersedianya dua manusia. Kebocoran kampanye, target tanpa label, atau card tidak cukup tetap alasan teknis menunda inferensi. Protokol aktif: docs/source-labelled-final-20261014.md.
+
+**D100. Revisi format tunggal setelah validitas dev RAG D99 di bawah ambang (15 Oktober 2026).**
+
+- Dev awal memakai 10 pair terpapar (5 MAL sumber + 5 TYP), hash-order D99, seluruh enam konfigurasi dan dua model utama; KB nyata 50 M + 25 assumed-benign. Snapshot awal dipertahankan di data/evaluation/source-rag-20261015/.
+- Qwen3 menghasilkan 60 respons, hanya 45/60 JSON valid (75%). Dari 15 invalid, 14 berakhir normal tetapi JSON kutipan/evidence rusak; satu terpotong pada 512 token. Temuan format ini memenuhi pemicu §6.4. Tidak memilih perbaikan berdasarkan TPR/FPR dan belum ada inferensi test.
+- Satu revisi hanya pada instruksi format di akhir user prompt: evidence harus string JSON (bukan fragmen objek), escape tepat sekali, maksimal satu baris smart-diff pendek atau array kosong, reason <30 kata, dan semua delimiter harus ditutup. System prompt, aturan malicious/benign, retrieval, model, input, label, sampling dan batas 512 token tidak berubah. Batas satu evidence merupakan perubahan keluaran; tidak mengklaim perbandingan evidence localization setara dengan snapshot lama.
+- Kedua model dan semua konfigurasi dev dijalankan ulang dari nol dalam snapshot baru sebelum mempertimbangkan rilis test. Tidak boleh menyambung respons dev lama sebagai respons protokol baru. Hasil percobaan awal dan kekurangannya tetap dilaporkan.
+
+- **Dev awal D100 selesai:** 120/120 respons diverifikasi; Qwen3 45/60 valid dan Qwen2.5 47/60 valid. Kedua model gagal ambang format 90%; tidak ada test inference. Rerun satu revisi memakai data/evaluation/source-rag-v2-20261015/.
+
+**D101. Keluaran terstruktur seragam untuk eksperimen deteksi D99; mengganti ketentuan tanpa constrained decoding.**
+
+- Dev D100 lengkap 120/120, tetapi Qwen3 50/60 valid (83,33%) dan Qwen2.5 42/60 (70%). Satu revisi format telah habis; tidak melakukan revisi teks berulang atau menyetel pada test. Pengguna kembali meminta melanjutkan agar penelitian selesai. Untuk menjaga fokus pada deteksi berbasis dataset, keputusan ini secara terbuka mengubah metode inferensi sebelum G2, bukan mengklaim hanya memperbaiki bug.
+- Semua enam konfigurasi dan kedua model memakai `response_format=json_schema` melalui vLLM, mekanisme yang sudah tersedia dalam D92. Schema sama: evidence array 0–1 string, panjang maksimal 200 karakter; reason string maksimal 240 karakter; verdict malicious/benign; semua field wajib dan tidak menerima field tambahan. Ini membatasi representasi jawaban; dampak constrained decoding menjadi batasan metode. Validitas JSON kini hanya pemeriksaan teknis, bukan klaim kemampuan format intrinsik model.
+- System prompt, instruksi D100, aturan keputusan, card, pemisahan, model, suhu/seed dan budget 512 tetap. Constraint dapat memengaruhi prediksi, sehingga hasil D99/D100 tidak dipakai sebagai kontrol langsung bagi efek retrieval D101. Perbandingan kausal antar-arm hanya dalam protokol D101 yang sama.
+- Snapshot baru data/evaluation/source-rag-v3-20261015/. Kedua model/semua konfigurasi dev diulang, tanpa memakai ulang respons lama. Semua panggilan menyimpan hash request lengkap, response ID/model; verifier merekonstruksi request termasuk schema, token, retrieval, parser, serta memeriksa schema respons yang valid. Respons terpotong tetap invalid, bukan dipaksa berhasil.
+- D101 menggantikan larangan constrained decoding §6.3 untuk batch baru, tidak mengubah snapshot D92 atau dev sebelumnya. Keputusan ini bukan revisi teks format kedua di §6.4; ini revisi eksplisit kondisi inferensi, didorong kegagalan format dev, sebelum satu pun prediksi test.
+
+- Attrition preprocessing sebelum G2: satu TYP stream `@libav.js/variant-vp9-opus@6.5.7` timeout setelah 300 detik pada dua percobaan, termasuk retry bermemori lebih besar. Pair dikeluarkan secara eksplisit melalui technical-exclusions.jsonl; manifest 1.902 kandidat dan log kegagalan dipertahankan. Tersisa 1.901 pair (33 MAL + 1.868 TYP), dengan kelayakan konteks masih harus diverifikasi. Tidak memilih eksklusi berdasarkan prediksi.
+
+**D102. Perluasan RAG ke lima model tambahan, 16 Oktober 2026.**
+
+- Pengguna meminta melanjutkan evaluasi Qwen2.5-Coder-7B, Qwen3-8B, Phi-4-mini, Llama-3.1-8B, dan Granite-3.3-8B setelah hasil dua model utama tersedia. Semua lima ditetapkan sebelum prediksi tambahan; ini evaluasi tambahan setelah hasil utama diketahui, bukan studi tujuh model yang dipraregistrasi sejak awal.
+- Seluruh 1.901 pair test, 10 pair dev, 75 card, enam konfigurasi, teks prompt, schema D101, suhu 0, seed 0, dan output 512 token dipertahankan byte-for-byte dari sumber beku. Tidak memilih ulang data, card atau model berdasarkan keberhasilan MM/MB. Target 57.030 respons test dan 300 dev, di luar warm-up.
+- Revisi bobot/tokenizer dan opsi chat/stop memakai pin D92. Qwen3-8B memakai enable_thinking=false, Granite thinking=false. Opsi dikirim eksplisit dan masuk hash request. Model diuji satu per satu, bfloat16, satu request aktif.
+- Audit token memakai tokenizer/chat template model masing-masing. Batas ukuran card 512/intent 64 pada konstruksi Qwen lama dipertahankan sebagai aturan pembentukan teks; panjang token tokenizer baru dilaporkan, tidak memangkas ulang card. Konteks layanan minimal 32.768, dapat dinaikkan ke kelipatan 1.024 terkecil yang memuat seluruh prompt+512 jika masih dalam batas native model. KV cache dapat ditambah secara terhitung untuk memuat satu sequence; catat sebagai perbedaan sumber daya, bukan tuning prediksi. Jika tidak muat, model ditandai gagal teknis tanpa mengeluarkan pair secara diam-diam.
+- Setiap model memiliki snapshot terpisah, audit seluruh konteks dan dev >=90% JSON valid sebelum test. Kegagalan satu model tidak membatalkan model lain yang lolos; kegagalan dicatat. Tidak ada revisi format/prompt lanjutan berdasarkan test. Hasil utama D101 dan snapshot D92 tidak diubah.
+
+**D103. Akuisisi tambahan MAL sesudah evaluasi utama, 16 Oktober 2026.**
+
+- Pengguna meminta menambah MAL setelah membahas keterbatasan 33 MAL test. Akuisisi baru disimpan di `data/acquisition/mal-expansion-20261016/`; hasil unduhan belum merupakan test yang dirilis. Tidak ada target jumlah yang dijadikan alasan melonggarkan syarat pair atau kampanye.
+- Label MAL tetap berasal dari dataset dengan provenance, versi sumber, dan checksum. Prioritas awal: pembaruan kategori compromised npm Datadog dan inventaris arsip RogueOne yang sudah diperoleh D97. Arsip dibaca statis dalam container tanpa jaringan; image RogueOne tidak dimuat atau dijalankan.
+- Pair harus mempunyai versi sebelum/sesudah yang cocok identitasnya, urutan publikasi yang terverifikasi, serta pemeriksaan pendahulu terhadap sumber MAL dan advisory. Paket jahat sejak lahir bukan update benign-ke-malicious. Ketiadaan advisory adalah hasil screening, bukan gold benign manusia.
+- Calon evaluasi baru harus diperiksa terhadap closure kampanye D99 `campaigns-with-reports`, seluruh paparan lama, dan test/dev/KB D101 yang kini sudah dipakai. Ambang kampanye D96 tetap. Item yang hanya baru bagi inventaris Datadog belum berarti kampanye independen.
+- Untuk batch akuisisi pertama, semua nama/kampanye dalam pool D99 sebanyak 27.536 item diblok secara konservatif, termasuk yang dahulu belum dipilih. Nama dependency pada exposure registry serta nama/identitas test/dev/KB D101 juga diperiksa eksplisit. Maksimum tiga pair per kampanye tetap berlaku; tiga versi dari satu kampanye tidak dihitung sebagai tiga kampanye independen.
+- Test D101/D102, KB, prompt, parser dan model yang telah dipin tetap. Penambahan data tidak mengubah hasil lama, dan tidak otomatis memulai inferensi baru. Rilis evaluasi tambahan memerlukan artefak pembagian dan audit provenance yang selesai; sifat pemilihan data setelah hasil utama diketahui wajib dilaporkan.
+
+**D104. Perluasan penelusuran sumber MAL, 17 Oktober 2026.**
+
+- Pengguna kembali meminta menambah MAL dengan fokus keragaman kampanye, sesudah penjelasan bahwa 11.406 respons bukan 11.406 sampel unik. Sasaran kerja sekitar 100 kampanye bukan kuota yang boleh dipenuhi dengan duplikasi, label buatan, atau perubahan aturan eksklusi.
+- Identitas npm dari artefak Draz (Scientific Reports, DOI 10.1038/s41598-026-71750-5; artefak Zenodo 10.5281/zenodo.22057621) dipakai sebagai **petunjuk pencarian**, bukan label final. Record sebelum/urutan tanggal yang hanya diestimasi penulis tidak diterima begitu saja. Pendahulu dihitung ulang dari metadata registry menggunakan aturan yang berlaku; target harus dikonfirmasi advisory MAL OSV dan pendahulu harus lolos pemeriksaan sumber MAL/advisory.
+- Arsip paket diambil tanpa instalasi atau eksekusi; kedua identitas dan integrity wajib cocok. Kandidat digabung dengan tambahan D103 sebelum clustering terhadap D99 dan seluruh exposure D101. Tidak menggunakan fitur/prediksi model sumber untuk memilih kandidat.
+- Manifest incident corpus `tstromberg/supplychain-attack-data` diperiksa sebagai petunjuk ketersediaan arsip dan provenance, bukan label otomatis. Payload parsial, fixture sintetis, rekonstruksi yang tidak terverifikasi, serta endpoint privat tidak dijadikan arsip paket lengkap.
+- Guo yang dahulu gagal karena pendahulu hilang diperiksa kembali pada tingkat advisory dan ketersediaan. Versi pendahulu yang sendiri sudah berlabel MAL tetap gugur; tidak melompati versi jahat untuk mencari pasangan yang terlihat benign. Tanpa bukti urutan publikasi, kedua arsip, dan provenance, kandidat belum boleh masuk holdout.
+- Akuisisi baru di `data/acquisition/mal-expansion-20261017/`. Test utama, prompt, dan KB beku tetap; tidak ada inferensi baru selama akuisisi ini.
+
+**D105. Evaluasi seluruh model eligible pada tambahan MAL, 18 Oktober 2026.**
+
+- Pengguna mengizinkan menjalankan seluruh evaluasi yang siap, meninggalkan batch berjalan mandiri, lalu mengakhiri sesi. Tidak melakukan fine-tuning. Enam model sudah lengkap pada D101/D102; Qwen3-8B tetap gagal gate dev49/60valid (81,67%), tidak masuk test dan tidak diubah agar lolos.
+- Rilis baru `data/evaluation/source-rag-mal-20261018/` berisi96MAL/65kampanye D104, terpisah dari hasil historis. Enam konfigurasi termasuk MM/MB untuk setiap model eligible:576respons/model, total3.456. Label sumber, prompt/KB/schema/parser/sampling/output512 dan revisi model tetap; audit konteks/KV memakai aturan D102.
+- Verifikasi ulang hasil dan pin lama; dev10pair/60respons per model dipakai ulang hanya jika hash request/token identik dan gate>=90% tetap lolos. Tidak mengulang test historis lengkap11.406/model. Pemakaian ulang ini dicatat eksplisit dan tidak dihitung sebagai inferensi baru.
+- TPR baru dan lama dilaporkan terpisah; CI tambahan memakai bootstrap kampanye10.000resample seed2026. Seluruh tambahan MAL sehingga FPR/BA tidak terdefinisi pada cohort itu. Gabungan129MAL+1.868TYP hanya deskriptif, memakai ulang FPR TYP lama. Invalid benign utama/malicious sensitivitas dan kontras paired tetap.
+- Rincian pra-inferensi di `docs/mal-evaluation-20261018.md`. Snapshot tiap model dipin sebelum test, dijalankan berurutan, resumable, memiliki log/PID/status/verifikasi hasil. Sampel dianalisis statis saja.
+
+**D106. Naskah melaporkan 129 MAL sebagai satu himpunan, menggantikan pemisahan TPR lama/baru D105, 18 Oktober 2026.**
+
+- Pengguna meminta 33 MAL D101 dan 96 MAL D105 tidak dipisah agar naskah lebih mudah dipahami. Opsi melaporkan 96 MAL saja ditolak karena menyembunyikan test set awal setelah hasilnya diketahui; pengguna memilih penggabungan.
+- TPR utama memakai 129 MAL dari 98 klaster (33 + 65, tidak beririsan). CI dan kontras berpasangan memakai bootstrap kampanye yang sama dengan D105 (10.000 resample, seed 2026), kini atas 98 klaster. FPR tetap 1.868 TYP. Validitas JSON digabung berbobot respons (11.406 + 576 per model).
+- Keputusan ini diambil setelah hasil kedua tahap diketahui; naskah menyatakannya di bagian data dan keterbatasan. Tidak ada inferensi baru, perubahan label, prompt, KB, atau aturan keputusan. Arah temuan MM→MB sama: FPR naik pada empat dari enam model, dan tidak ada model yang menurunkan FPR sambil mempertahankan TPR (estimasi titik).
+- `pipeline/paper_results.py` menghitung angka gabungan dan memeriksanya terhadap hitungan TP per tahap; kolom 33/96 tetap disimpan di `metrics.csv` dan `contrasts.csv` sebagai rincian per tahap.
+- Lanjutan: atas permintaan pengguna, naskah tidak lagi menyebut tahap pengumpulan, contoh TPR per tahap, atau pernyataan bahwa penggabungan diputuskan setelah hasil. Sumber MAL disebut per asal (33 Guo, 93 Draz, 3 Datadog). Satu kalimat di bagian keterbatasan tetap menyatakan bahwa sebagian model dan MAL ditambahkan setelah hasil awal diketahui; rincian per tahap dan keputusan pelaporan ini tercatat di sini dan di `metrics.csv`.
+
+**D107. Dataset dipindah ke Bab Metode; pengungkapan dan analisis deskriptif pasangan tanpa perubahan kemampuan, 18 Oktober 2026.**
+
+- Pengguna meminta penjelasan dataset di Bab 3. Subbagian `sec:data` kini memuat MAL (33 Guo, 93 Draz/OSV, 3 Datadog; terbit Juli 2016–September 2026), TYP (arsip Wyss: 692 populer, 801 acak, 375 stream), KB (50 Datadog malicious-intent, 25 TYP Wyss yang disisihkan), dev (5 Datadog MAL, 5 TYP Wyss), dan aturan kampanye. Semua angka dicocokkan ke file pasangan, KB, dan sumber TYP.
+- Ditemukan saat review: 87/129 MAL dan 1.837/1.868 TYP tidak memiliki perubahan kemampuan, sehingga semua card berskor Jaccard nol dan pemilihan ditentukan pemecah seri hash (`runner.rank`). Simulasi retrieval cocok dengan card yang tercatat pada 7.988 respons Qwen3-4B. Naskah sebelumnya menulis "tidak ada kontrol retrieval acak" tanpa menyebut ini.
+- Pengguna memilih pengungkapan plus analisis terpisah. `paper_results.py` menambah TP per subset (42 dengan delta, 87 tanpa); tabel `tab:delta` deskriptif tanpa interval. Arah MM→MB sama di kedua subset untuk lima model; Qwen2.5-7B sudah 100% pada subset dengan delta. Tidak ada inferensi baru, perubahan prompt, KB, retrieval, atau aturan keputusan.
+- Naskah juga menyebut bahwa pengurangan kode berulang smart-diff direkonstruksi lokal (D56, D72) dan bahwa perubahan kemampuan tidak ditampilkan ke model (D25).
+
+**D108. RQ deskriptif ditulis di naskah; interval FPR ditambahkan; klaim MM→MB dikoreksi, 18 Oktober 2026.**
+
+- Review Bab 4 menemukan ΔFPR dilaporkan tanpa interval, sementara naskah (dan D106) menyatakan MM→MB menaikkan FPR pada empat dari enam model. Bootstrap berpasangan per klaster TYP (1.865 klaster, 10.000 resample, seed 2026) menunjukkan interval di atas nol hanya pada Qwen3-4B, Qwen2.5-3B, dan Qwen2.5-7B; Llama (+1,12) dan Granite (−0,11) melintasi nol. Klaim di Bab 1 dan Bab 5 dikoreksi menjadi tiga model. Abstrak tidak berubah karena kedua angkanya (Qwen3 +2,30, Phi −5,46) memiliki interval yang tidak melintasi nol.
+- `paired_rate_delta` (vektorisasi numpy) ditambahkan ke `mal_eval_metrics.py` untuk ΔFPR; FPR per konfigurasi memakai `campaign_recall` yang sama atas TYP. Tabel utama dan tabel kontras kini memuat interval FPR.
+- RQ1–RQ4 versi D99 ditulis di Bab 1 dan dipetakan ke kontras di Bab 4; `docs/research.md` §4 diperbarui. Bab 4 menyatakan bahwa dua model ditetapkan sejak rancangan awal dan lima ditambahkan kemudian, serta bahwa analisis subset delta (D107) eksploratif pasca-hasil.
+- Tidak ada inferensi baru, perubahan label, prompt, KB, atau aturan keputusan.
+
+**D109. Naskah disesuaikan untuk Journal of Systems and Software; Hasil disusun per RQ, 18 Oktober 2026.**
+
+- Pengguna meminta format penulisan jurnal Q1. Target pertama, Computers & Security, dibatalkan karena halaman resmi Elsevier menyatakan moratorium untuk naskah yang menerapkan AI/ML pada keamanan; pengguna memilih JSS. Guide for Authors JSS tidak dapat diakses langsung (HTTP 403); aturan yang terkonfirmasi lewat pencarian: abstrak ≤250 kata, highlights 3–5 butir ≤85 karakter, dan JSS Open Science Initiative. Naskah tetap berbahasa Indonesia.
+- Hasil disusun per RQ1–RQ4 dengan kotak jawaban, ditambah analisis eksploratif di akhir. Tabel utama kini menjawab RQ1 (DIFF, DIFF+I); tabel kontras memuat ketiga kontras dengan interval TPR dan FPR. Tabel memakai koma desimal dan titik ribuan.
+- Review Bab 5 menemukan pelaporan intent tidak seimbang: FPR turun dengan jelas pada Qwen3-4B, Phi-4-mini, dan Granite, sedangkan teks hanya menonjolkan kenaikan pada Qwen2.5-7B dan Llama. Kesimpulan "intent menurunkan keduanya" tidak didukung dan diganti. Abstrak dan highlights diperbarui.
+- Keterbatasan disusun ulang menjadi ancaman validitas konstruk, internal, eksternal, dan kesimpulan. Ditambahkan bagian ketersediaan data, CRediT, deklarasi kepentingan, deklarasi AI generatif, dan pendanaan sebagai isian penulis.
+- Tidak ada inferensi baru, perubahan label, prompt, KB, retrieval, atau aturan keputusan.
+
+**D110. Naskah tidak memakai RQ; menggantikan bagian RQ pada D108 dan D109, 18 Oktober 2026.**
+
+- Pengguna menegaskan bahwa naskah sudah tidak memakai RQ. Penambahan RQ1–RQ4 pada D108 dan struktur Hasil per RQ pada D109 adalah kesalahan karena mengikuti `docs/research.md` §4 yang sudah tidak berlaku untuk naskah.
+- Daftar RQ di Pendahuluan dihapus. Bab Rancangan evaluasi kini menyebut empat analisis: kemampuan dasar (DIFF, DIFF+I), pengaruh contoh rujukan (DIFF+I → DIFF+I+M, DIFF+I+MM → DIFF+I+MB), pengaruh intent (DIFF+MB → DIFF+I+MB), serta format dan biaya. Subjudul Hasil, caption tabel, Pembahasan, dan Kesimpulan tidak lagi menyebut RQ; kotak ringkasan di Hasil berlabel "Temuan".
+- `docs/research.md` §4 kini mencatat bahwa naskah tidak memakai RQ dan bahwa RQ/hipotesis lama hanya riwayat. Jangan menambahkan RQ kembali ke naskah.
+- Interval FPR, koreksi klaim MM→MB, penyeimbangan pelaporan intent, dan format JSS dari D108–D109 tetap berlaku.

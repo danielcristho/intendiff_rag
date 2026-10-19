@@ -1,0 +1,7 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/lib3_0.0.2-->0.0.3/lib3-0.0.3/","module.exports.Lib3Module","",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/lib3_0.0.2-->0.0.3/lib3-0.0.3/","module.exports.Lib3Service","",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/lib3_0.0.2-->0.0.3/lib3-0.0.3/","module.exports.Lib3Component","",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/lib3_0.0.2-->0.0.3/lib3-0.0.3/","module.exports.Lib3Service.ctorParameters","",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/lib3_0.0.2-->0.0.3/lib3-0.0.3/","module.exports.Lib3Component.ctorParameters","",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/lib3_0.0.2-->0.0.3/lib3-0.0.3/","(new module.exports.Lib3Component()).__proto__.ngOnInit","",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/lib3_0.0.2-->0.0.3/lib3-0.0.3/","main","",3

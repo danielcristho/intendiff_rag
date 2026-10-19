@@ -1,0 +1,525 @@
+{
+  "scope": "Full pinned Datadog malicious-intent version pool",
+  "revision": "a9749c044f47563143ee10f600fee290cdeaeef0",
+  "pool": 24324,
+  "verified_archives": 24324,
+  "archive_bytes": 16529176471,
+  "valid_inventory": 24198,
+  "inventory_exclusions": 126,
+  "exclusion_reasons": {
+    "expected one matching package.json, found 0": 102,
+    "expected one matching package.json, found 2": 24
+  },
+  "errors": [
+    {
+      "id": "proleis-web-app@10.0.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "nintendoamerica-ncom@99.0.21",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "v0-next-shadcn@999.999.999",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "moonskin@1.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "proleis-web-app@1.0.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "yelp-mobile-site-common@99.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "jio-payment-sdk@1.0.3",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "dhhdbank92015@25.501.3",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "dhhdbank92015@25.515.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "yelp-react-component-badge@99.0.5",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "dhhdbank83600@25.515.3",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "dhhdbank92086@25.501.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "fetch-tickers@20.1.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "proleis-web-scanner@10.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "ultraconvert@1.3.6",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "@ikarem/telemetry@100.1.2",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "@chatgptclaudeclub/claude-code@1.0.5-1.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "@dvargas135/gunpowder-ghost@3.45.12",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "proleis-web-gallery@10.0.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "@ikarem/telemetry@100.0.6",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "yelp-react-component-badge@99.0.12",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "proleis-web-gallery@10.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "@ikarem/telemetry@100.1.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "yelp-react-component-badge@99.0.4",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "@validates-sdk/v3@1.22.17",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "@ikarem/telemetry@100.0.5",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "proleis-web-animations@1.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "proleis-web-app@10.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "proleis-web-animations@10.0.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "leonardo-nomorepo@0.0.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "splide@2.4.21",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "yelp-react-component-badge@99.0.6",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "@ikarem/telemetry@100.0.9",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "proleis-web-file-input@10.0.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "ultraconvert@1.3.5",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "yelp-react-component-badge@99.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "@solana-launchpads/sdk@1.0.12",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "yelp-react-component-badge@99.0.8",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "repo-typescript-config@99.0.37",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "n8n-nodes-zalo-fevox@0.5.10",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "@ikarem/telemetry@100.0.4",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "n8n-nodes-zalo-fevox@0.6.6",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "yelp-react-component-photo-upload@99.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "@ikarem/telemetry@100.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "securefiles-common@1.0.3",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "internallib_v691@1.0.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "dhhdbank83600@25.515.6",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "yelp-react-component-badge@99.0.11",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "dhhdbank83600@25.427.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "recoil-shared@1.0.2",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "handelsblatt-hypesignals-ui-components@99.99.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "subnplanmgmtserv@1.60.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "jio-payment-sdk@1.0.5",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "plide@2.4.21",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "@ikarem/telemetry@100.0.8",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "dhhdbank92086@25.515.5",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "jio-payment-sdk@1.0.4",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "dhhdbank92013@25.515.2",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "n8n-nodes-zalo-fevox@0.6.1",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "oasis-os-provider-messaging@8.9.2",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "@uselagoon/ui-library@0.1.7",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "n8n-nodes-zalo-fevox@0.6.0",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "recoil-shared@1.0.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "artillery-engine-spark@99.1.8",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "puppyperpetual@1.0.2",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "characterai-poc@1.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "proleis-web-scanner@10.0.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "internallib_v714@1.0.1",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "nintendoamerica-ncom@99.0.19",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "lynx-explorer@1.0.1",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "ultraconvert@1.3.9",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "dhhdbank92086@25.515.4",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "proleis-web-file-input@10.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "n8n-nodes-zalo-fevox@0.6.5",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "proleis-web-scanner@1.0.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "dhhdbank92086@25.501.2",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "bellacloudy@26.3.15",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "nintendoamerica-ncom@99.0.16",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "minimal-ts-webpack@11.0.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "dhhdbank83600@25.515.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "proleis-web-gallery@1.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "nintendoamerica-ncom@99.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "yelp-react-component-badge@99.0.38",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "@ikarem/telemetry@100.0.7",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "dhhdbank92015@25.515.3",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "nuget-task-common@1.0.4",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "handelsblatt-hypesignals-ui-components@99.99.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "nintendoamerica-ncom@1.0.2",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "proleis-web-animations@10.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "dhhdbank83600@25.515.4",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "@ikarem/telemetry@100.1.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "nlohmann-json@100.3.11",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "fancode-web-app@99.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "gunpowder-ghost-curse@3.45.12",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "agoda-dep-confusion@1.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "n8n-nodes-zalo-fevox@0.6.4",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "oasis-os-provider-messaging@8.9.3",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "proleis-web-file-input@1.0.3",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "nintendoamerica-ncom@1.0.5",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "ground-platform@9.0.0",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "@uselagoon/ui-library@2.0.2",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "dhhdbank92015@25.515.2",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "@ikarem/telemetry@100.0.2",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "yelp-react-component-badge@99.0.3",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "my-little-package-library@1.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "torbaileys@8.0.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "@ikarem/telemetry@100.0.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "repo-typescript-config@99.0.36",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "n8n-nodes-zalo-fevox@0.6.8",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "puppyperpetual@1.0.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "sd-skbms@999.0.0",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "nintendoamerica-ncom@99.0.7",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "dhhdbank83600@25.515.2",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "n8n-nodes-zalo-fevox@0.6.3",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "n8n-nodes-zalo-fevox@0.6.7",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "blackbeards-navigator@9999.0.0",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "proleis-web-gallery@1.0.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "@uselagoon/ui-library@0.1.8",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "grafana-amazonprometheus-datasource@1.0.0",
+      "error": "expected one matching package.json, found 2"
+    },
+    {
+      "id": "minimal-ts-webpack@11.0.2",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "vite-paypal@10.9.9",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "arc-offsec-custom-library6@1.0.7-x",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "moonskin@1.0.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "dhhdbank83600@25.513.1",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "bellacloudy@26.3.13",
+      "error": "expected one matching package.json, found 0"
+    },
+    {
+      "id": "@solana-launchpads/sdk@1.0.13",
+      "error": "expected one matching package.json, found 0"
+    }
+  ],
+  "final_cards_selected": false,
+  "input_sha256": {
+    "data/acquisition/datadog.intent-full.pool.jsonl": "62f3e18b7fe8d2c08f257474cdf2909034296ecb8c39619191ad54e115039a21",
+    "data/acquisition/datadog.intent-full.jsonl": "61dc34540b793637e7ff2bc8d098f5c0fdbb1c1857334c82041fcb359773569a",
+    "data/acquisition/datadog.inventory-full.jsonl": "3c423ab7aafafae07bc91e24f68f78d072c67f778cde78767c7bee8499f6c3db"
+  }
+}

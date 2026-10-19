@@ -1,0 +1,6 @@
+{"model": "qwen3_8b", "prepared": true, "max_model_len": 32768, "kv_cache_memory_bytes": 6442450944}
+{"model": "qwen25_7b", "prepared": true, "max_model_len": 32768, "kv_cache_memory_bytes": 6442450944}
+{"model": "llama31_8b", "prepared": true, "max_model_len": 32768, "kv_cache_memory_bytes": 6442450944}
+{"model": "phi4_mini", "prepared": true, "max_model_len": 32768, "kv_cache_memory_bytes": 6442450944}
+{"model": "granite33_8b", "prepared": true, "max_model_len": 38912, "kv_cache_memory_bytes": 6442450944}
+{"preparation_complete": true, "errors": []}

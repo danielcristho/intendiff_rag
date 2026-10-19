@@ -1,0 +1,27 @@
+{
+  "qwen25_7b": {
+    "stage": "complete",
+    "time_utc": "2026-10-16T02:17:02.003133+00:00",
+    "report": "data/evaluation/source-rag-extra-20261016/qwen25_7b/results.md"
+  },
+  "qwen3_8b": {
+    "stage": "dev_or_release_failed",
+    "time_utc": "2026-10-15T23:27:29.761119+00:00",
+    "error": "Command '['~/intendiff_rag/.venv/bin/python', '-u', 'pipeline/extension_release.py', '--release', 'data/evaluation/source-rag-extra-20261016/qwen3_8b']' returned non-zero exit status 1."
+  },
+  "phi4_mini": {
+    "stage": "complete",
+    "time_utc": "2026-10-16T04:43:18.332195+00:00",
+    "report": "data/evaluation/source-rag-extra-20261016/phi4_mini/results.md"
+  },
+  "llama31_8b": {
+    "stage": "complete",
+    "time_utc": "2026-10-16T08:04:24.403501+00:00",
+    "report": "data/evaluation/source-rag-extra-20261016/llama31_8b/results.md"
+  },
+  "granite33_8b": {
+    "stage": "complete",
+    "time_utc": "2026-10-16T13:02:18.062630+00:00",
+    "report": "data/evaluation/source-rag-extra-20261016/granite33_8b/results.md"
+  }
+}

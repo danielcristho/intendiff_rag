@@ -1,0 +1,22 @@
+tlmgr: package repository https://mirrors.mit.edu/CTAN/systems/texlive/tlnet (verified)
+[1/12, ??:??/??:??] install: colortbl [4k]
+[2/12, 00:02/22:53] install: footmisc [8k]
+[3/12, 00:04/14:49] install: grfext [3k]
+[4/12, 00:06/18:35] install: makecell [5k]
+[5/12, 00:08/18:54] install: moreverb [3k]
+[6/12, 00:10/21:01] install: multirow [3k]
+[7/12, 00:11/20:22] install: preprint [7k]
+[8/12, 00:13/18:35] install: stix [2535k]
+[9/12, 00:19/00:19] install: sttools [13k]
+[10/12, 00:20/00:20] install: upquote [2k]
+[11/12, 00:22/00:22] install: wrapfig [10k]
+[12/12, 00:23/00:23] install: xstring [12k]
+running mktexlsr ...
+done running mktexlsr.
+running updmap-user ...
+tlmgr: updmap-user failed (status 1), output:
+updmap [ERROR]: -user mode but path setup is -sys type, bailing out.
+tlmgr: An error has occurred. See above messages. Exiting.
+
+tlmgr: package log updated: ~/.TinyTeX/texmf-var/web2c/tlmgr.log
+tlmgr: command log updated: ~/.TinyTeX/texmf-var/web2c/tlmgr-commands.log

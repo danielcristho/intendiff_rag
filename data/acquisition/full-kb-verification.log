@@ -1,0 +1,25 @@
+verified 1000/24324
+verified 2000/24324
+verified 3000/24324
+verified 4000/24324
+verified 5000/24324
+verified 6000/24324
+verified 7000/24324
+verified 8000/24324
+verified 9000/24324
+verified 10000/24324
+verified 11000/24324
+verified 12000/24324
+verified 13000/24324
+verified 14000/24324
+verified 15000/24324
+verified 16000/24324
+verified 17000/24324
+verified 18000/24324
+verified 19000/24324
+verified 20000/24324
+verified 21000/24324
+verified 22000/24324
+verified 23000/24324
+verified 24000/24324
+{"scope": "Full pinned Datadog malicious-intent version pool", "revision": "a9749c044f47563143ee10f600fee290cdeaeef0", "pool": 24324, "verified_archives": 24324, "archive_bytes": 16529176471, "valid_inventory": 24198, "inventory_exclusions": 126, "exclusion_reasons": {"expected one matching package.json, found 0": 102, "expected one matching package.json, found 2": 24}, "final_cards_selected": false, "input_sha256": {"data/acquisition/datadog.intent-full.pool.jsonl": "62f3e18b7fe8d2c08f257474cdf2909034296ecb8c39619191ad54e115039a21", "data/acquisition/datadog.intent-full.jsonl": "61dc34540b793637e7ff2bc8d098f5c0fdbb1c1857334c82041fcb359773569a", "data/acquisition/datadog.inventory-full.jsonl": "3c423ab7aafafae07bc91e24f68f78d072c67f778cde78767c7bee8499f6c3db"}}

@@ -1,0 +1,72 @@
+{
+  "verified": true,
+  "pairs": 3,
+  "campaigns": 1,
+  "preprocessed_success": 3,
+  "prior_failed_attempts": 3,
+  "source_trees_unchanged": true,
+  "tokenizers_version": "0.23.2",
+  "images": {
+    "intendiff-preprocess:static-v2": "sha256:43d3cfe140925f347616b3884fc859f210e381f459b89ba38fbd7c9e0bb53c07",
+    "intendiff-preprocess:campaign-v1": "sha256:08d2f416af6e34f26c127cdb7dce786d1fe0840c1ee9f39303e8f0a87a5e82ec"
+  },
+  "test_released": false,
+  "inferences": 0,
+  "pending_checks": [
+    "separate_evaluation_release_protocol_and_context_audit"
+  ],
+  "input_pins": [
+    {
+      "path": "data/upstream/tokenizer-qwen25/tokenizer.json",
+      "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+    },
+    {
+      "path": "~/intendiff_rag/.venv/lib/python3.12/site-packages/tokenizers/tokenizers.abi3.so",
+      "sha256": "7c4ddf7ad4251a646d324151b4d698da59531fdd892ea3abd24a6f323fcb1d6b"
+    },
+    {
+      "path": "pipeline/mal_refresh.py",
+      "sha256": "a79107d2b1a0ddc20026e38a29d3ccb5bf535ca6001b3decdfb7cd012494d847"
+    },
+    {
+      "path": "pipeline/mal_refresh_pairs.py",
+      "sha256": "1247179c205d8c548becad32fc3460e42d6edc6992589c88a3bc31757bed9965"
+    },
+    {
+      "path": "pipeline/archive_layers.py",
+      "sha256": "4c1b32a6e6add9e92e91dbe9e9bf79d7d5983bc979391101a379235fa884ed32"
+    },
+    {
+      "path": "pipeline/mal_expansion_campaign.py",
+      "sha256": "ebd05b1c3a736dd4fba0842930f4612c330f5457f58cf1aba037cddb5dff83eb"
+    },
+    {
+      "path": "pipeline/mal_expansion_verify.py",
+      "sha256": "1d8626764bbab22dc729a45c4979b1ece014976ce5be29ca968ecd82e446862a"
+    },
+    {
+      "path": "pipeline/preprocess_corpus.py",
+      "sha256": "bc37d4f3ae15e8e633df93ed9016c3448594e8d39a546d2ad7c2f35b08c07383"
+    },
+    {
+      "path": "pipeline/normalization.py",
+      "sha256": "ad691d580c9a9a29df2a2213e0c9bcb55e6c14f522a50d6e8d51026d76ed8f3e"
+    },
+    {
+      "path": "pipeline/dataset.py",
+      "sha256": "4a6995feb378f639ab19f15d3caa524966543ecf36dc3ed04aca72d5899cbd8d"
+    },
+    {
+      "path": "pipeline/smartdiff.py",
+      "sha256": "2f0eba35dc67deb85bbaba5fbd0d1e5dc8c36e52e55c7cd419418f7e45d23c6a"
+    },
+    {
+      "path": "pipeline/capability.py",
+      "sha256": "bdf4d84ae065bb313d9d45ea36c993c6000eb3a2a93d65e737b76105405eb05b"
+    },
+    {
+      "path": "pipeline/intent.py",
+      "sha256": "05eb7116f31f4de33f27bf9f9d02328fb8867eb1801b333d87e9530f683a8921"
+    }
+  ]
+}

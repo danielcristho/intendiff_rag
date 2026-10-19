@@ -1,0 +1,787 @@
+{
+  "total": 64,
+  "annotators": [
+    "reviewer_a",
+    "reviewer_b"
+  ],
+  "counts": {
+    "incomplete": 64
+  },
+  "unexpected_ids": {
+    "reviewer_a": [],
+    "reviewer_b": []
+  },
+  "all_independent_forms_complete": false,
+  "gold_ready": false,
+  "human_identity_and_semantic_verification_required": true,
+  "rows": [
+    {
+      "review_id": "review-001",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-002",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-003",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-004",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-005",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-006",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-007",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-008",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-009",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-010",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-011",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-012",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-013",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-014",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-015",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-016",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-017",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-018",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-019",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-020",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-021",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-022",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-023",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-024",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-025",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-026",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-027",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-028",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-029",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-030",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-031",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-032",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-033",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-034",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-035",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-036",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-037",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-038",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-039",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-040",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-041",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-042",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-043",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-044",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-045",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-046",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-047",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-048",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-049",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-050",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-051",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-052",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-053",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-054",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-055",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-056",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-057",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-058",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-059",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-060",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-061",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-062",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-063",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    },
+    {
+      "review_id": "review-064",
+      "state": "incomplete",
+      "issues": {
+        "reviewer_a": [
+          "missing_or_invalid_label"
+        ],
+        "reviewer_b": [
+          "missing_or_invalid_label"
+        ]
+      }
+    }
+  ]
+}

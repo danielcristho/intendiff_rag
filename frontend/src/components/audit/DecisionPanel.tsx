@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { GoldEvidence } from "@/components/audit/GoldEvidence";
 import { CATEGORY_IDS, ERRORS, HN_CATEGORIES, VERDICTS } from "@/lib/audit";
 import type { Decision, ErrorClass, Pair, Verdict } from "@/types/api";
 
@@ -31,9 +32,9 @@ export function DecisionPanel({
         ))}
       </div>
 
-      {pair.subset === "HN" && (
+      {(pair.subset === "HN" || pair.annotation_blinded) && (
         <>
-          <h3 className="eyebrow mt-5">Kategori hard negative</h3>
+          <h3 className="eyebrow mt-5">Kategori tujuan sah (jika benign)</h3>
           <div className="space-y-1.5">
             {CATEGORY_IDS.map((category) => (
               <Button
@@ -67,6 +68,8 @@ export function DecisionPanel({
           </div>
         </>
       )}
+
+      {(pair.subset === "MAL" || pair.annotation_blinded) && <GoldEvidence key={pair.id} pair={pair} entry={entry} onRecord={onRecord} />}
 
       <textarea
         // Remounting per pair keeps the uncontrolled value from leaking across pairs.

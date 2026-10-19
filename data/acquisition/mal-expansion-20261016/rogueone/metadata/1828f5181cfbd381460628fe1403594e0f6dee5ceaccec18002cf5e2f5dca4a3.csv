@@ -1,0 +1,122 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports","line",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports.exclude","obj",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.toString","",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports.right","rl,x",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports.clearLine","rl,len",10
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports.left","rl,x",14
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports.down","rl,x",18
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports.up","rl,x",22
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports","opt",78
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.render","",78
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.write","message",87
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.updateBottomBar","bottomBar",114
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.enforceLF","str",114
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.clean","",127
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.writeLog","data",154
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).rl.setPrompt","",154
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).rl.output.unmute","",154
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).rl.output.mute","",154
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).rl.output.write","",154
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.render().bottomBar.split","",154
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports","val,answers",155
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports","choices,answers",162
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.forEach","",163
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.indexOf","",164
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.filter","",165
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.push","",171
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.reduce","",173
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.find","func",175
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.get","selector",175
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.getChoice","selector",175
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.where","whereClause",179
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.pluck","propertyName",183
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.get()","",183
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports","rl",183
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.releaseCursor","",187
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.breakLines","lines,width",190
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.done","",196
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.forceLineReturn","content,width",207
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.normalizedCliWidth","",207
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.renderWithSpinner","content,bottomContent",775
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.clean","extraLines",850
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.render","content,bottomContent,spinning",961
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports","question,rl,answers",967
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.throwParamError","name",967
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.getQuestion","",999
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.handleSubmitEvents","submit",1178
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.run","",1178
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run","cb",1178
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.close","",1179
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.getSpinningValue","value",1179
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.startSpinner","value,bottomContent",1179
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.run().then()","resolve,reject",1182
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports","rl",1257
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports().keypress.pipe","",1257
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports","screen,options",1257
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.getFiniteLines","lines,active,pageSize",1263
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.getInfiniteLines","lines,active,pageSize",1283
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.paginate","output,active,pageSize",1441
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports","current,dir,opt",1441
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports","questions,rl,answers",1444
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).throwParamError","",1444
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.getCurrentValue","",1448
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.onNumberKey","input",1564
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run","cb",2093
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.onUpKey","",2093
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.onSubmit","value",2093
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.render","",2093
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.onDownKey","",2093
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).opt.choices.reduce","",2093
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).opt.choices.getChoice","",2093
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).opt.choices.indexOf","",2093
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).opt.choices.forEach","",2093
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run().getQuestion","",2093
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run().screen.done","",2093
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run().screen.render","",2093
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports","",2093
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.render","error",2108
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.onKeypress","",2110
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.filterInput","input",2110
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run","cb",2551
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.onEnd","state",2551
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.onError","value,isValid",2551
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run().getQuestion","",2551
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run().handleSubmitEvents","",2551
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run().screen.render","",2551
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run().screen.done","",2551
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports","",2551
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.filterInput","input",2553
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports","questions,rl,answers",2554
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.onKeypress","",2559
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run","cb",2900
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.onEnd","input",2900
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.render","answer",2900
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run().getQuestion","",2900
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run().screen.render","",2900
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run().screen.done","",2900
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports","questions,rl,answers",2906
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).throwParamError","",2906
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.onKeypress","",4250
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.onArrowKey","type",4348
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run","cb",5801
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.onUpKey","",5849
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.render","error",5849
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.onDownKey","",5849
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.onError","",5849
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.getCurrentValue","index",5849
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.onEnd","state",5849
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).opt.choices.getChoice","",5849
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run().getQuestion","",5849
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run().handleSubmitEvents","",5849
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run().screen.done","",5849
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run().screen.render","",5849
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","module.exports","questions,rl,answers",5870
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).throwParamError","",5870
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__._run","cb",8636
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.validateChoices","choices",8636
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.getCurrentValue","input",8636
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.onError","state",8636
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.onSubmit","state",8636
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.render","error,hint",8636
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.getChoices","",8642
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/inquirer_8.2.3-->8.2.4/inquirer-8.2.3","(new module.exports()).__proto__.generateChoicesString","choices,defaultChoice",8645

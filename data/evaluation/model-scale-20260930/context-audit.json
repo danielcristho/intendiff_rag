@@ -1,0 +1,19 @@
+{
+  "verified": true,
+  "new_llm_calls": 0,
+  "input_truncation_added": false,
+  "groups": [
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "prompts": 1946,
+      "max_prompt_tokens": 29329,
+      "minimum_context_headroom_tokens": 1391
+    },
+    {
+      "model": "Qwen/Qwen3-8B",
+      "prompts": 1946,
+      "max_prompt_tokens": 29333,
+      "minimum_context_headroom_tokens": 1387
+    }
+  ]
+}
