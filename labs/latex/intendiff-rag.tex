@@ -53,8 +53,9 @@ open-weight language models \sep false positives
 \maketitle
 
 \section{Pendahuluan}\label{sec:intro}
-Pembaruan dependensi adalah sarana pemeliharaan perangkat lunak, tetapi juga
-celah masuk bagi kode yang tidak diinginkan. Karena keterkaitan antarpaket,
+Pembaruan dependensi merupakan bagian dari pemeliharaan perangkat lunak.
+Pengembang perlu menerima perbaikan dan fitur baru, sekaligus memeriksa apakah
+perubahan tersebut memperkenalkan perilaku berbahaya. Karena keterkaitan antarpaket,
 perubahan pada satu paket dapat menjangkau banyak proyek yang bergantung
 padanya \citep{zimmermann2019small}. Risiko ini telah berulang kali terjadi di
 ekosistem npm. Pada September 2025, penyerang memperoleh kredensial pengelola
@@ -99,11 +100,13 @@ pembaruan.
 Salah satu cara memperkaya konteks model adalah melalui contoh hasil retrieval.
 IntelGuard menghubungkan kode dengan contoh dan penalaran dari laporan ancaman
 \citep{guo2026bridging}, tetapi menilai paket utuh dan hanya menggunakan contoh
-\emph{malicious}. Contoh yang seluruhnya malicious berisiko mendorong model
-menandai setiap kemampuan sensitif sebagai berbahaya. Sebaliknya, pasangan
-contoh positif dan negatif telah digunakan untuk mengarahkan keluaran LLM pada
-domain lain \citep{gao2024customizing}. Dengan demikian, ada dua unsur yang
-belum diuji pada model lokal berukuran kecil untuk menilai pembaruan:
+\emph{malicious}. Salah satu dugaan yang perlu diuji adalah apakah contoh
+benign dapat membantu model membedakan penggunaan kemampuan sensitif yang
+sah dari penyalahgunaannya. Contoh positif dan negatif telah digunakan untuk
+mengarahkan keluaran LLM pada domain lain \citep{gao2024customizing}, tetapi
+hasil tersebut belum menjawab pengaruhnya terhadap deteksi pembaruan npm.
+Dengan demikian, ada dua unsur yang belum diuji bersama dalam rancangan
+perbandingan pada model lokal berukuran kecil untuk menilai pembaruan:
 (i) tujuan paket yang dinyatakan secara eksplisit, selanjutnya disebut
 \emph{intent}, dan (ii) contoh \emph{benign} yang menyertai contoh malicious.
 
@@ -124,14 +127,16 @@ penurunan alarm palsu yang jelas, pada Phi-4-mini, disertai penurunan deteksi.
 Pengaruh intent juga berbeda antarmodel. Kontribusi penelitian ini adalah
 sebagai berikut.
 \begin{enumerate}
-\item Evaluasi enam konfigurasi masukan pada enam model lokal untuk mengukur
-kemampuan deteksi dan tingkat alarm palsu pada pembaruan paket npm.
-\item Perbandingan berpasangan untuk mengukur pengaruh intent serta pengaruh
-penggantian MM menjadi MB terhadap deteksi, alarm palsu, dan biaya inferensi.
-\item Evaluasi pada 129 pembaruan malicious dari 98 klaster kampanye yang tidak
-beririsan dengan himpunan pengembangan menurut aturan pengelompokan yang
-digunakan, dengan estimasi ketidakpastian yang memperhitungkan pengelompokan
-kampanye.
+\item Bukti empiris tentang kemampuan deteksi dan alarm palsu enam model lokal
+berukuran 3--8 miliar parameter pada pembaruan npm, melalui enam konfigurasi
+masukan yang menggunakan smart-diff sama.
+\item Pengukuran berpasangan atas pengaruh intent dan penggantian MM menjadi
+MB, dengan jumlah contoh serta identitas dan posisi contoh malicious utama
+dipertahankan pada perbandingan MM--MB.
+\item Pelaporan hasil pada 129 pembaruan malicious dari 98 kelompok kampanye
+dan 1.868 pembaruan typical, beserta ketidakpastian per kampanye, sensitivitas
+terhadap keluaran invalid, dan biaya inferensi. Pemisahan dari data
+pengembangan diperiksa menurut aturan pengelompokan yang digunakan.
 \end{enumerate}
 
 Tujuan spesifik penelitian ini adalah mengukur perubahan deteksi, alarm palsu,
@@ -571,8 +576,15 @@ Enam konfigurasi pada Tabel~\ref{tab:configs} menggunakan instruksi keputusan
 yang sama: perilaku sensitif tidak otomatis malicious; model mempertimbangkan
 pemicu, data, tujuan pengiriman, dan konteks yang tersedia. Keluaran berisi
 verdict, alasan singkat, dan cuplikan bukti. JSON Schema membatasi bentuk
-keluaran, termasuk paling banyak satu string evidence. Validitas format tidak
-menjamin kebenaran keputusan atau ketepatan bukti.
+keluaran: evidence merupakan array berisi nol atau satu string, masing-masing
+maksimum 200 karakter; reason berupa string maksimum 240 karakter; verdict
+hanya menerima malicious atau benign. Ketiga field wajib dan field tambahan
+tidak diperbolehkan. Prompt disusun dalam urutan contoh rujukan, pasangan
+versi yang dinilai, profil intent bila digunakan, smart-diff, dan instruksi
+format. Instruksi sistem meminta model memperlakukan komentar, string, dan
+README sebagai data, bukan perintah. Validitas format tidak menjamin
+kebenaran keputusan atau ketepatan bukti. Prompt lengkap, schema, serta
+revisi model disertakan dalam berkas pendamping reproduksi.
 
 \begin{table}[t]
 \centering\small
@@ -641,6 +653,17 @@ TPR-nya nol. Karena itu, akurasi pada tabel perbandingan penelitian dan
 akurasi serta BA pada lampiran dilaporkan secara deskriptif, dengan TPR dan
 FPR sebagai ukuran utama efektivitas deteksi.
 
+Untuk memperjelas penyebut, metrik dihitung sebagai
+\begin{align}
+\mathrm{TPR} &= 100\,\frac{\mathrm{TP}}{129},\\
+\mathrm{FPR} &= 100\,\frac{\mathrm{FP}}{1\,868},\\
+\mathrm{Akurasi} &= 100\,\frac{\mathrm{TP}+\mathrm{TN}}{1\,997},\\
+\mathrm{BA} &= \frac{\mathrm{TPR}+(100-\mathrm{FPR})}{2}.
+\end{align}
+TN adalah jumlah TYP yang diprediksi benign. Selisih antarkonfigurasi dihitung
+sebagai metrik konfigurasi tujuan dikurangi metrik konfigurasi awal, dalam
+poin persentase.
+
 Respons dengan format invalid atau terpotong dihitung benign pada analisis
 utama dan malicious pada analisis sensitivitas. Error transport tidak
 diperlakukan sebagai prediksi. Seluruh matriks test yang dilaporkan lengkap dan
@@ -653,7 +676,12 @@ dan 1.865 klaster untuk TYP. Semua pasangan dalam klaster terpilih ikut diambil,
 sehingga satu kampanye yang mempunyai beberapa versi tidak diperlakukan sebagai
 beberapa unit independen. Interval dilaporkan sebagai ketidakpastian
 deskriptif, bukan uji konfirmatori dengan koreksi perbandingan berganda, dan
-tidak dimaksudkan untuk menyatakan bahwa TPR tidak menurun.
+tidak dimaksudkan untuk menyatakan bahwa TPR tidak menurun. Resampling untuk
+selisih memakai klaster yang sama pada kedua konfigurasi, dengan batas
+interval pada persentil 2,5 dan 97,5. Tabel utama menampilkan estimasi titik
+agar mudah dibaca; interval tetap disajikan pada gambar dan berkas hasil
+pendamping. Tidak melintasinya nol dipakai sebagai deskripsi interval, bukan
+sebagai jaminan manfaat operasional.
 
 Pemisahan MAL menurut ada atau tidaknya perubahan kemampuan
 (Bagian~\ref{sec:results}) merupakan analisis eksploratif yang ditetapkan setelah
@@ -734,7 +762,7 @@ Bagian~\ref{sec:discussion}.
 
 \section{Hasil}\label{sec:results}
 Keenam model yang lolos dev menyelesaikan 11.982 respons test per model, tanpa
-error transport pada matriks akhir. Hasil disajikan per pertanyaan penelitian;
+error transport pada matriks akhir. Hasil disajikan menurut jenis analisis;
 seluruh kombinasi model dan konfigurasi tersedia pada Tabel~\ref{tab:full}.
 
 \subsection{Kemampuan dasar tanpa contoh rujukan}
@@ -831,11 +859,15 @@ Granite-3.3-8B & Tambah M & +4,65 & +1,12 \\
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/paired-effects.pdf}
-\caption{Selisih TPR pada 129 MAL. Titik adalah estimasi berpasangan;
- garis menunjukkan interval bootstrap 95\% pada 98 klaster kampanye.
- Ketiga panel memakai kontras yang ditetapkan pada metode. Interval tidak
- dikoreksi untuk perbandingan berganda; gambar tidak menyatakan hasil uji
- hipotesis konfirmatori.}
+\caption{Perubahan tingkat deteksi (TPR) pada 129 pembaruan malicious.
+(a) Penambahan satu contoh malicious; (b) penggantian contoh malicious kedua
+dengan benign; (c) penambahan intent pada konfigurasi satu malicious dan satu
+benign. Titik menunjukkan selisih berpasangan dalam poin persentase; garis
+horizontal menunjukkan interval bootstrap 95\% dari 98 kelompok kampanye.
+Nilai positif berarti deteksi meningkat, sedangkan garis vertikal putus-putus
+menandai tidak ada perubahan. I: intent; M: contoh malicious; B: contoh benign.
+Interval tidak dikoreksi untuk perbandingan berganda. Gambar hanya memuat TPR;
+alarm palsu perlu dibaca bersama Tabel~\ref{tab:contrast}.}
 \label{fig:effects}
 \end{figure*}
 
@@ -972,19 +1004,26 @@ FPR yang jelas disertai penurunan TPR. Temuan ini sejalan dengan literatur
 \emph{in-context learning} yang menunjukkan bahwa isi dan urutan contoh
 memengaruhi prediksi tidak hanya melalui labelnya
 \citep{min2022rethinking,zhao2021calibrate}. Analisis eksploratif menunjukkan
-bahwa arah efek tersebut muncul juga ketika contoh dipilih oleh hash, sehingga
-efeknya tidak tampak bergantung pada kemiripan kemampuan antara pasangan dan
-contoh.
+bahwa arah efek tersebut juga muncul pada pasangan dengan skor retrieval
+nol, ketika contoh ditentukan oleh hash. Pengamatan ini belum membuktikan
+bahwa kemiripan tidak berpengaruh: kelompok pasangan berbeda, dan tidak ada
+perbandingan retrieval berbasis kemiripan dengan pemilihan acak pada pasangan
+yang sama. Penjelasan yang dapat didukung adalah bahwa perubahan keputusan
+tetap terjadi meskipun skor retrieval tidak membedakan relevansi contoh.
 
 \paragraph{Implikasi bagi praktik.}
 TPR dan FPR perlu dinilai bersama. Konfigurasi dengan TPR mendekati 90\% masih
 dapat menandai hampir setengah TYP sebagai malicious, sedangkan konfigurasi
 dengan FPR rendah dapat melewatkan sekitar separuh MAL. Dengan hasil ini,
 penggunaan langsung sebagai dasar pemblokiran otomatis belum didukung.
-Pemanfaatan sebagai alat triase juga memerlukan pengujian beban peninjauan pada
-lingkungan sasaran, yang tidak diukur di sini. Bagi peneliti, hasil ini
-menunjukkan bahwa manfaat retrieval perlu diuji per model, dengan pelaporan
-kedua jenis kesalahan dan ketidakpastian per kampanye.
+Sebagai contoh, Qwen3-4B pada DIFF+I+MB menandai 104 dari 1.868 TYP sebagai
+malicious, sekaligus melewatkan 64 dari 129 MAL. Angka tersebut memperjelas
+bahwa akurasi 91,59\% belum berarti pemeriksaan pembaruan sudah efektif:
+sebagian pembaruan typical tetap memerlukan pemeriksaan lanjutan, sementara
+hampir separuh MAL tidak terdeteksi. Pemanfaatan sebagai alat triase masih
+memerlukan pengukuran beban peninjauan dan kerugian akibat kasus terlewat pada
+lingkungan sasaran. Bagi peneliti, hasil ini menunjukkan bahwa manfaat
+retrieval perlu diuji per model dengan melaporkan kedua jenis kesalahan.
 
 \subsection{Perbandingan hasil dengan penelitian sebelumnya}
 Perbandingan hasil pada Tabel~\ref{tab:cross-study} memberi konteks untuk
@@ -1132,6 +1171,15 @@ inferensi baru. Paket replikasi publik belum diterbitkan; sampel malicious hanya
 dapat dibagikan sebagai identitas paket dan hash, bukan sebagai arsip yang dapat
 dijalankan. [Tautan repositori diisi penulis sebelum pengiriman.]
 
+\section*{Etika dan penanganan artefak}
+Penelitian ini menganalisis arsip paket dan metadata sumber publik, tanpa
+merekrut partisipan manusia atau menggunakan hewan. Kode sampel tidak
+dijalankan; pemeriksaan dilakukan secara statis. Penelitian tidak melakukan
+eksploitasi terhadap layanan aktif. Rilis artefak perlu mematuhi ketentuan
+sumber dan membatasi materi malicious pada identitas, hash, serta informasi
+yang diperlukan untuk reproduksi. Pernyataan ini menjelaskan kegiatan yang
+dilakukan dan bukan klaim adanya persetujuan atau pengecualian dari komite etik.
+
 \section*{Kontribusi penulis (CRediT)}
 [Diisi penulis.]
 
@@ -1139,7 +1187,11 @@ dijalankan. [Tautan repositori diisi penulis sebelum pengiriman.]
 [Diisi penulis.]
 
 \section*{Deklarasi penggunaan AI generatif dalam penulisan}
-[Diisi penulis, termasuk alat bantu AI yang dipakai dalam penyusunan naskah.]
+ChatGPT (OpenAI) digunakan untuk membantu peninjauan struktur, penyuntingan
+bahasa, pemeriksaan konsistensi pelaporan, serta penyusunan kode visualisasi
+dan berkas pendamping. Penggunaan tersebut tidak menggantikan verifikasi
+sumber dan hasil eksperimen. [Penulis perlu melengkapi riwayat penggunaan
+alat lain, meninjau seluruh isi, dan mengesahkan deklarasi sebelum pengiriman.]
 
 \section*{Pendanaan}
 [Diisi penulis.]
