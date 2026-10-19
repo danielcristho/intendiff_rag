@@ -1,0 +1,4 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/grunt-contrib-uglify_5.1.0-->5.2.1/grunt-contrib-uglify-5.1.0/","module.exports.init().minify","files,dest,options",165
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/grunt-contrib-uglify_5.1.0-->5.2.1/grunt-contrib-uglify-5.1.0/","module.exports","grunt",989
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/grunt-contrib-uglify_5.1.0-->5.2.1/grunt-contrib-uglify-5.1.0/","(new module.exports()).options","",989
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/grunt-contrib-uglify_5.1.0-->5.2.1/grunt-contrib-uglify-5.1.0/","main","",3

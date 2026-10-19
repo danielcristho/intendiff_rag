@@ -1,0 +1,9 @@
+{
+  "verified": true,
+  "new_generations": 2919,
+  "pairs": 973,
+  "complete_matrix": true,
+  "payload_tokens_parser_citations_reconstructed": true,
+  "http_200_generations": 2919,
+  "human_gold_verified": false
+}

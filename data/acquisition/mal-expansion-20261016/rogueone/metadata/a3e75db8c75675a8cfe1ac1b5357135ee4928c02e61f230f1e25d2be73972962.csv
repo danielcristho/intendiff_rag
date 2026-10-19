@@ -1,0 +1,16 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-uglify_3.0.1-->3.0.2/gulp-uglify-3.0.1/","module.exports.*.toString","",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-uglify_3.0.1-->3.0.2/gulp-uglify-3.0.1/","module.exports","uglify,log",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-uglify_3.0.1-->3.0.2/gulp-uglify-3.0.1/","module.exports()","opts",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-uglify_3.0.1-->3.0.2/gulp-uglify-3.0.1/","module.exports()()","file",58
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-uglify_3.0.1-->3.0.2/gulp-uglify-3.0.1/","module.exports","uglify,logger",58
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-uglify_3.0.1-->3.0.2/gulp-uglify-3.0.1/","module.exports()","opts",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-uglify_3.0.1-->3.0.2/gulp-uglify-3.0.1/","module.exports","opts",122
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-uglify_3.0.1-->3.0.2/gulp-uglify-3.0.1/","main","",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-uglify_3.0.1-->3.0.2/gulp-uglify-3.0.1/","module.exports.*.toString","",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-uglify_3.0.1-->3.0.2/gulp-uglify-3.0.1/","module.exports","uglify,log",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-uglify_3.0.1-->3.0.2/gulp-uglify-3.0.1/","module.exports()","opts",6
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-uglify_3.0.1-->3.0.2/gulp-uglify-3.0.1/","module.exports()()","file",58
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-uglify_3.0.1-->3.0.2/gulp-uglify-3.0.1/","module.exports","uglify,logger",58
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-uglify_3.0.1-->3.0.2/gulp-uglify-3.0.1/","module.exports()","opts",93
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-uglify_3.0.1-->3.0.2/gulp-uglify-3.0.1/","module.exports","opts",122
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples/gulp-uglify_3.0.1-->3.0.2/gulp-uglify-3.0.1/","main","",3

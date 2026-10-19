@@ -1,0 +1,3 @@
+{"model": "Qwen/Qwen3-4B-Instruct-2507", "max_prompt_tokens": 29717, "output_reserved": 512, "context": 32768}
+{"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "max_prompt_tokens": 29717, "output_reserved": 512, "context": 32768}
+{"ready_for_freeze_checks": true, "pairs": 10, "cards": 75, "expected_generations": 120, "models": [{"model": "Qwen/Qwen3-4B-Instruct-2507", "max_prompt_tokens": 29717, "output_reserved": 512, "context": 32768}, {"model": "Qwen/Qwen2.5-Coder-3B-Instruct", "max_prompt_tokens": 29717, "output_reserved": 512, "context": 32768}], "issues": [], "subset_counts": {"MAL": 5, "TYP": 5}}

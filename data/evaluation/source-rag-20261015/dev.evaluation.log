@@ -1,0 +1,7 @@
+{"stage": "server_starting", "time_unix": 1792019672.1140041, "model": "Qwen/Qwen3-4B-Instruct-2507", "experiment_stage": "dev", "pid": 707804}
+{"stage": "running", "time_unix": 1792019748.193317, "model": "Qwen/Qwen3-4B-Instruct-2507", "experiment_stage": "dev"}
+{"stage": "model_complete", "time_unix": 1792019841.791781, "model": "Qwen/Qwen3-4B-Instruct-2507", "experiment_stage": "dev", "completed": 60, "json_validity": 0.75}
+{"stage": "server_starting", "time_unix": 1792019863.9175057, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "experiment_stage": "dev", "pid": 714027}
+{"stage": "running", "time_unix": 1792019933.9364758, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "experiment_stage": "dev"}
+{"stage": "model_complete", "time_unix": 1792020032.4913883, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "experiment_stage": "dev", "completed": 60, "json_validity": 0.7833333333333333}
+{"stage": "stage_complete", "time_unix": 1792020032.4915516, "experiment_stage": "dev"}

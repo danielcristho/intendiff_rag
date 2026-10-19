@@ -1,0 +1,3 @@
+{"id": "ori-poc@7.7.8", "before_error": "ValueError: No unique package manifest matches the archive identity", "after_error": null}
+{"id": "openprompt-lang@1.5.0", "before_error": "ValueError: Archive exceeds member count or expanded byte limit", "after_error": "ValueError: Archive exceeds member count or expanded byte limit"}
+{"id": "codebuff-cli@1.1.10", "before_error": "ValueError: Download exceeds byte limit", "after_error": null}

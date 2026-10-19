@@ -1,0 +1,20 @@
+# identity: nodeid
+# label: %label%
+# style: shape=%shape%;fillColor=%fill%;strokeColor=%stroke%;strokeWidth=1
+# link: url
+# width: @width
+# height: @height
+# layout: verticalflow
+# ignore: nodeid,style,height,width,ref_0_0,ref_1_0,ref_2_0,ref_3_0,label_0,label_1,label_2,label_3
+# connect: {"from": "ref_0_0", "to": "nodeid", "fromlabel": "label_0", "style": "-"}
+# connect: {"from": "ref_1_0", "to": "nodeid", "fromlabel": "label_1", "style": "-"}
+# connect: {"from": "ref_2_0", "to": "nodeid", "fromlabel": "label_2", "style": "-"}
+# connect: {"from": "ref_3_0", "to": "nodeid", "fromlabel": "label_3", "style": "-"}
+nodeid,label,tags,shape,fill,stroke,width,height,link,ref_0_0,ref_1_0,ref_2_0,ref_3_0,label_0,label_1,label_2,label_3
+1174,"return {      ReturnStatement: markCurrentBranchAsGood,      ThrowStatement: markCurrentBranchAsGood,      onCodePathSegmentStart(segment, node) {        const funcInfo = peek(funcInfoStack)        funcInfo.branchIDStack.push(segment.id)        funcInfo.branchInfoMap[segment.id] = { good: false, node }      },      onCodePathSegmentEnd() {        const funcInfo = peek(funcInfoStack)        funcInfo.branchIDStack.pop()      },      onCodePathStart() {        funcInfoStack.push({          branchIDStack: [],          branchInfoMap: {},        })      },      onCodePathEnd(path, node) {        const funcInfo = funcInfoStack.pop()        if (!isInlineThenFunctionExpression(node)) {          return        }        path.finalSegments.forEach((segment) => {          const id = segment.id          const branch = funcInfo.branchInfoMap[id]          if (!branch.good) {            if (hasParentReturnStatement(branch.node)) {              return            }            context.report({              message: 'Each then() s",-,rectangle,#76F76D,#000000,auto,auto,-,1210,-,-,-,OBJ_REACHES,-,-,-
+9529,_SpecialValue: *,-,trapezoid,#FE913D,#000000,auto,auto,-,1262,-,-,-,OBJ_TO_AST,-,-,-
+9525,_SpecialValue: *,-,ellipse,#61F2F2,#000000,auto,auto,-,1262,-,-,-,OBJ_REACHES,-,-,-
+9595,_SpecialValue: *,-,ellipse,#61F2F2,#000000,auto,auto,-,1210,-,-,-,OBJ_REACHES,-,-,-
+1210,funcInfo.branchIDStack.push(segment.id),-,rectangle,#76F76D,#000000,auto,auto,-,9599,-,-,-,AST_CALL_TO_FUNC_OBJ,-,-,-
+1262,funcInfo.branchIDStack.pop(),-,rectangle,#76F76D,#000000,auto,auto,-,9529,-,-,-,AST_CALL_TO_FUNC_OBJ,-,-,-
+9599,_SpecialValue: *,-,trapezoid,#FE913D,#000000,auto,auto,-,1210,-,-,-,OBJ_TO_AST,-,-,-

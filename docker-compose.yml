@@ -7,15 +7,8 @@ services:
         CARGO_BUILD_JOBS: ${CARGO_BUILD_JOBS:-2}
     image: intentdiff-backend:latest
     user: "${APP_UID:-1000}:${APP_GID:-1000}"
-    env_file: .env
-    environment:
-      # These override .env with what the container sees: every interface, the mount, nginx in front.
-      BIND_ADDR: 0.0.0.0
-      DATA_DIR: /data
-      TRUST_PROXY: "true"
     ports:
-      # Loopback: reaching the API past nginx would let a client forge X-Forwarded-For.
-      - "127.0.0.1:${BACKEND_PORT}:${BACKEND_PORT}"
+      - "${BIND_ADDR:-0.0.0.0}:${BACKEND_PORT:-8100}:8000"
     volumes:
       - ./data:/data
     healthcheck:
@@ -23,14 +16,6 @@ services:
       interval: 10s
       timeout: 3s
       retries: 5
-    develop:
-      watch:
-        - action: rebuild
-          path: ./backend/src
-        - action: rebuild
-          path: ./backend/Cargo.toml
-        - action: rebuild
-          path: ./backend/Cargo.lock
 
   frontend:
     build:
@@ -38,25 +23,14 @@ services:
       dockerfile: deployments/docker/Dockerfile.frontend
     image: intentdiff-frontend:latest
     restart: unless-stopped
-    environment:
-      BACKEND_PORT: ${BACKEND_PORT:?set BACKEND_PORT in .env}
     ports:
       - "${BIND_ADDR:-0.0.0.0}:${FRONTEND_PORT:-5174}:80"
     depends_on:
       - backend
-    develop:
-      watch:
-        - action: rebuild
-          path: ./frontend
-          ignore:
-            - node_modules/
-            - dist/
-        - action: rebuild
-          path: ./deployments/docker/nginx.conf.template
 
   vllm:
     profiles: ["model"]
-    image: ${VLLM_IMAGE:-vllm/vllm-openai@sha256:c2914767605584b6d8f45686b82de173ecc99e781897aa3d0a66dacd72c51ae1}
+    image: ${VLLM_IMAGE:-vllm/vllm-openai:latest}
     ports:
       - "${BIND_ADDR:-0.0.0.0}:${VLLM_PORT:-8101}:8000"
     volumes:
@@ -74,8 +48,6 @@ services:
       - "0"
       - --generation-config
       - vllm
-      # Cached prefixes make a run's latency depend on what ran before it (D64).
-      - --no-enable-prefix-caching
       - --gpu-memory-utilization
       - "${VLLM_GPU_UTIL:-0.45}"
     ipc: host

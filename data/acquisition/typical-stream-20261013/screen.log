@@ -1,0 +1,9 @@
+{"scanned": 100, "total": 775, "errors": 3, "download_records": 156}
+{"scanned": 200, "total": 775, "errors": 6, "download_records": 213}
+{"scanned": 300, "total": 775, "errors": 7, "download_records": 314}
+{"scanned": 400, "total": 775, "errors": 8, "download_records": 410}
+{"scanned": 500, "total": 775, "errors": 11, "download_records": 584}
+{"scanned": 600, "total": 775, "errors": 11, "download_records": 619}
+{"scanned": 700, "total": 775, "errors": 11, "download_records": 705}
+{"scanned": 775, "total": 775, "errors": 11, "download_records": 775}
+{"pairs_screened": 387, "candidate_pairs": 0, "candidate_packages": 0, "earlier_pair_unavailable": 0, "human_labels_created": 0}

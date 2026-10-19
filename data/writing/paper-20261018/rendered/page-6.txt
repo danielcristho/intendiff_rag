@@ -1,0 +1,109 @@
+IntentDi-RAG
+Table 4
+Mengganti contoh kedua dari malicious menjadi benign (DIFF+I+MB dikurangi DIFF+I+MM). Selisih dalam poin persentase;
+CI 95% berkelompok memakai 65 kampanye MAL tambahan. Selisih FPR adalah estimasi titik pada TYP awal.
+Model
+ΔTPR tambahan [CI95%]
+ΔFPR TYP
+Qwen3-4B
++7.29 [+1.02, +14.13]
++2.30
+Qwen2.5-3B
++0.00 [-6.52, +6.45]
++8.35
+Qwen2.5-7B
++5.21 [+0.00, +11.00]
++4.01
+Phi-4-mini
+-11.46 [-19.54, -4.08]
+-5.46
+Llama-3.1-8B
++1.04 [-6.25, +8.49]
++1.12
+Granite-3.3-8B
+-9.38 [-18.68, -0.92]
+-0.11
+−20
+−10
+0
+10
+20
+30
+Selisih TPR (poin persentase)
+Qwen3-4B
+Qwen2.5-3B
+Qwen2.5-7B
+Phi-4-mini
+Llama-3.1-8B
+Granite-3.3-8B
+Tambah contoh M
+−20
+−10
+0
+10
+20
+30
+Selisih TPR (poin persentase)
+Ganti MM dengan MB
+−20
+−10
+0
+10
+20
+30
+Selisih TPR (poin persentase)
+Tambah intent pada MB
+Figure 1: Selisih TPR pada 96 MAL tambahan. Titik adalah estimasi berpasangan; garis menunjukkan interval bootstrap 95% pada
+65 klaster kampanye. Ketiga panel memakai kontras yang ditetapkan pada metode. Interval tidak dikoreksi untuk perbandingan
+berganda; gambar tidak menyatakan hasil uji hipotesis konrmatori.
+5.3. Pengaruh intent
+Pada contoh MB yang sama, penambahan intent
+menaikkan TPR tambahan Qwen2.5-7B sebesar 10,42
+poin (interval 2,13–19,05), tetapi FPR naik 3,53 poin.
+Pada Qwen3-4B, TPR tambahan turun 5,21 poin dengan
+interval yang melintasi nol, sedangkan FPR turun dari
+7,92% menjadi 5,57%. Pada Granite, estimasi penurunan
+TPR tambahan adalah 8,33 poin dan intervalnya juga
+melintasi nol. Gambar 1 memperlihatkan seluruh kontras
+TPR tambahan, termasuk hasil yang tidak menunjukkan
+arah perubahan yang jelas.
+Hasil tersebut menunjukkan bahwa deskripsi tujuan
+dapat mengubah keputusan, tetapi perubahan itu tidak selalu
+memperbaiki deteksi maupun alarm palsu secara bersamaan.
+Eksperimen ini belum memisahkan apakah perubahan
+dipengaruhi kualitas deskripsi, relevansi README, isi
+skrip, atau cara model menafsirkan konteks tersebut.
+5.4. Format keluaran dan biaya
+Validitas JSON test tambahan berkisar 95,49–100%
+di antara model yang lolos. Pada Qwen3-4B dengan
+DIFF+I+MB,
+menghitung
+invalid
+sebagai
+malicious
+mengubah TPR tambahan dari 47,92% menjadi 52,08%,
+dan FPR TYP dari 5,57% menjadi 8,46% (Tabel 5). Dengan
+demikian, penanganan invalid merupakan bagian dari
+definisi kinerja, bukan detail yang dapat diabaikan. Model
+yang gagal gate dev tetap dilaporkan sebagai kegagalan
+teknis protokol, bukan sebagai detektor dengan TPR nol.
+Pada cohort awal, DIFF+I+MB menambah sekitar 861–
+993 token input rata-rata terhadap DIFF, bergantung pada
+tokenizer. Median latensinya berkisar 0,358–1,063 detik;
+p95 berkisar 1,977–5,591 detik (Tabel 6). Tambahan konteks
+tidak selalu meningkatkan latensi p95: panjang jawaban dan
+penggunaan cache juga berperan dalam pengukuran. Hasil
+ini menunjukkan biaya request pada perangkat dan urutan
+batch yang dipakai, tanpa klaim kemampuan pemrosesan
+seluruh registry.
+6. Pembahasan
+Temuan utama adalah ketergantungan manfaat konteks
+pada model dan jenis kesalahan yang dianggap penting.
+Contoh benign tidak secara umum menekan alarm palsu, dan
+ketika alarm berkurang, deteksi dapat ikut menurun. Karena
+MM dan MB sama-sama berisi dua contoh dan memperta-
+hankan anchor, temuan ini tidak dapat dijelaskan hanya oleh
+bertambahnya jumlah contoh. Namun, perubahan isi, pan-
+jang, dan relevansi contoh tetap berpotensi berkontribusi.
+: Preprint submitted to Elsevier
+Page 5 of 8

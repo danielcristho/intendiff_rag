@@ -1,17 +1,14 @@
-import { intentSections } from "@/lib/audit";
 import type { Pair } from "@/types/api";
 
-// IntentView shows the intent profile the way the prompt presents it.
 export function IntentView({ intent }: { intent: Pair["intent"] }) {
-  if (!intent) return <p className="text-sm italic text-ink-faint">belum ada intent profile</p>;
+  if (!intent) return <p className="italic text-ink-faint">No intent profile available</p>;
+  if (typeof intent === "string") return <p className="whitespace-pre-wrap text-sm">{intent}</p>;
   return (
-    <dl className="space-y-2 text-sm">
-      {intentSections(intent).map(([label, text]) => (
-        <div key={label}>
-          <dt className="text-xs font-semibold text-ink">{label}</dt>
-          <dd className="mt-0.5 max-h-48 overflow-y-auto whitespace-pre-wrap break-words text-ink-soft">
-            {text}
-          </dd>
+    <dl className="space-y-3 text-sm">
+      {(["description", "keywords", "scripts", "readme"] as const).map((field) => (
+        <div key={field}>
+          <dt className="font-semibold capitalize">{field}</dt>
+          <dd className="max-h-60 overflow-auto whitespace-pre-wrap break-words">{intent[field]}</dd>
         </div>
       ))}
     </dl>

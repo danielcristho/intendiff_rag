@@ -1,0 +1,21 @@
+{
+  "status": "source review only; final normalized smartdiff evidence pending",
+  "candidates": 250,
+  "gold_labels_created": 0,
+  "inferences": 0,
+  "distinct_human_annotators_required": 2,
+  "input_pins": [
+    {
+      "path": "data/acquisition/expansion-full-20261013/review.hn-combined.jsonl",
+      "sha256": "905a35001b11df2e44875ad2b6da74a64946ad74de1240602ee3a1e3ebf715a1"
+    },
+    {
+      "path": "data/acquisition/campaigns-20261013/split-proposal.jsonl",
+      "sha256": "a010778282ec39267dce3575667b264d62ee7ea303607c00773851118d84512e"
+    },
+    {
+      "path": "~/intendiff_rag/pipeline/expansion_annotation.py",
+      "sha256": "3fb9636dd7d94b2b6215fa65b9f448fc0546c289aef15b2df05cb8170845497f"
+    }
+  ]
+}

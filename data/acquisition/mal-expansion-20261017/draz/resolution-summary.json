@@ -1,0 +1,14 @@
+{
+  "source_npm_records": 3344,
+  "leads": 2050,
+  "packages_queried": 984,
+  "candidate_pairs": 395,
+  "exclusions": {
+    "name_previously_held_or_exposed": 1294,
+    "target_archive_metadata_unavailable": 1639,
+    "no_predecessor_with_verified_publication_order": 3,
+    "predecessor_listed_malicious": 13
+  },
+  "labels_accepted": 0,
+  "pending": "independent OSV MAL confirmation, predecessor checks, archives, campaigns"
+}

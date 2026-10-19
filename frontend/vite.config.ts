@@ -1,17 +1,14 @@
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "node:path";
 
-// Ports come from the repository's .env, the same file docker compose reads.
-export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, path.resolve(import.meta.dirname, ".."), "");
-  const backend = `http://localhost:${env.BACKEND_PORT}`;
-  return {
-    plugins: [react()],
-    resolve: { alias: { "@": path.resolve(import.meta.dirname, "./src") } },
-    server: {
-      port: Number(env.FRONTEND_PORT),
-      proxy: { "/api": backend, "/health": backend },
-    },
-  };
+export default defineConfig({
+  plugins: [react()],
+  resolve: { alias: { "@": path.resolve(import.meta.dirname, "./src") } },
+  server: {
+    port: 5174,
+    // API dilayani backend Rust (backend/), bukan middleware dev — jadi build
+    // produksi memakai jalur yang sama dengan dev.
+    proxy: { "/api": "http://localhost:8100", "/health": "http://localhost:8100" },
+  },
 });

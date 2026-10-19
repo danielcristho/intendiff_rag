@@ -1,0 +1,5 @@
+model,config,completed,json_valid,mal_source_recall_proxy,typ_assumed_benign_fpr,mal_campaign_macro_recall_proxy,median_latency_ms,p95_latency_ms,mean_prompt_tokens,mean_completion_tokens,complete_summary,human_annotation_verified
+microsoft/Phi-4-mini-instruct,DIFF,973,566,0.45933562428407787,0.13,0.3587098925237311,1058.7,20167.7,3832.952723535457,417.1479958890031,True,False
+microsoft/Phi-4-mini-instruct,DIFF+I,973,807,0.5028636884306987,0.13,0.38119226582725346,945.6,21062.9,4416.1973278520045,275.53648509763616,True,False
+meta-llama/Llama-3.1-8B-Instruct,DIFF,973,857,0.854524627720504,0.57,0.7644405301247353,1342.4,12024.7,3828.6382322713257,168.9722507708119,True,False
+meta-llama/Llama-3.1-8B-Instruct,DIFF+I,973,872,0.8923253150057274,0.69,0.8667241556836903,1381.9,13325.0,4411.818088386433,191.26824254881808,True,False

@@ -1,0 +1,397 @@
+{
+  "ready": true,
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "stages": {
+    "dev": {
+      "pairs": 10,
+      "requests": 60,
+      "max_prompt_tokens": 28758
+    },
+    "test": {
+      "pairs": 1901,
+      "requests": 11406,
+      "max_prompt_tokens": 30275
+    }
+  },
+  "card_token_counts": [
+    {
+      "id": "source-card-ac2b63d9b39bb8e7",
+      "card_tokens": 154,
+      "intent_tokens": 8
+    },
+    {
+      "id": "source-card-5e2f4f39f69791de",
+      "card_tokens": 164,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-910b3145805facf2",
+      "card_tokens": 207,
+      "intent_tokens": 7
+    },
+    {
+      "id": "source-card-d58b23b57ff1a2ec",
+      "card_tokens": 134,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-f376fad8c568afbf",
+      "card_tokens": 277,
+      "intent_tokens": 17
+    },
+    {
+      "id": "source-card-9de1c84f7cfc29f6",
+      "card_tokens": 121,
+      "intent_tokens": 5
+    },
+    {
+      "id": "source-card-d71c5f8f45338953",
+      "card_tokens": 147,
+      "intent_tokens": 21
+    },
+    {
+      "id": "source-card-e058e156553cfd10",
+      "card_tokens": 214,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-83cf02c18edf0c3e",
+      "card_tokens": 161,
+      "intent_tokens": 8
+    },
+    {
+      "id": "source-card-11d5e0a0f7042383",
+      "card_tokens": 156,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-a8af8a48272d00de",
+      "card_tokens": 365,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-a547d3ef75caa1ca",
+      "card_tokens": 160,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-3f95953e498109bd",
+      "card_tokens": 182,
+      "intent_tokens": 13
+    },
+    {
+      "id": "source-card-2e4b45ce6b2747e4",
+      "card_tokens": 152,
+      "intent_tokens": 5
+    },
+    {
+      "id": "source-card-51006c966573fea2",
+      "card_tokens": 192,
+      "intent_tokens": 3
+    },
+    {
+      "id": "source-card-3a9bf25766c83544",
+      "card_tokens": 135,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-186fbe057fc08cbb",
+      "card_tokens": 204,
+      "intent_tokens": 4
+    },
+    {
+      "id": "source-card-ddb0c0fc66568ff0",
+      "card_tokens": 181,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-ded7abbdff04ca1c",
+      "card_tokens": 168,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-4c408cf569842123",
+      "card_tokens": 256,
+      "intent_tokens": 6
+    },
+    {
+      "id": "source-card-ecefeafd486a6af9",
+      "card_tokens": 177,
+      "intent_tokens": 15
+    },
+    {
+      "id": "source-card-c76d7e53b8bf9324",
+      "card_tokens": 189,
+      "intent_tokens": 22
+    },
+    {
+      "id": "source-card-e63d598e81ac1cb6",
+      "card_tokens": 188,
+      "intent_tokens": 10
+    },
+    {
+      "id": "source-card-df2a50073851785d",
+      "card_tokens": 143,
+      "intent_tokens": 5
+    },
+    {
+      "id": "source-card-4f57b90c9cf3b9af",
+      "card_tokens": 330,
+      "intent_tokens": 8
+    },
+    {
+      "id": "source-card-bd5ade5a1ac81bf2",
+      "card_tokens": 174,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-10d4092a7b7a92c3",
+      "card_tokens": 158,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-87c56710804c8998",
+      "card_tokens": 137,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-0f475cc8471a4f51",
+      "card_tokens": 182,
+      "intent_tokens": 13
+    },
+    {
+      "id": "source-card-c47472f6788e554d",
+      "card_tokens": 91,
+      "intent_tokens": 16
+    },
+    {
+      "id": "source-card-f9b13c73cce989df",
+      "card_tokens": 201,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-a78833b660b7e18f",
+      "card_tokens": 118,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-5209e1ef80ad0afc",
+      "card_tokens": 230,
+      "intent_tokens": 7
+    },
+    {
+      "id": "source-card-921aad9f936d51cb",
+      "card_tokens": 218,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-e3d2d56dceb024a2",
+      "card_tokens": 196,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-1eb6d601c2a30df1",
+      "card_tokens": 136,
+      "intent_tokens": 3
+    },
+    {
+      "id": "source-card-5541eeefdcb6547d",
+      "card_tokens": 218,
+      "intent_tokens": 12
+    },
+    {
+      "id": "source-card-201c01ccabf2ec36",
+      "card_tokens": 166,
+      "intent_tokens": 15
+    },
+    {
+      "id": "source-card-c35f0294778de39a",
+      "card_tokens": 198,
+      "intent_tokens": 6
+    },
+    {
+      "id": "source-card-f9370aa5af33f0dc",
+      "card_tokens": 344,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-f2e38dcc46bb4154",
+      "card_tokens": 190,
+      "intent_tokens": 19
+    },
+    {
+      "id": "source-card-72a22664817a9ba6",
+      "card_tokens": 158,
+      "intent_tokens": 16
+    },
+    {
+      "id": "source-card-b2fed886f7e57241",
+      "card_tokens": 168,
+      "intent_tokens": 8
+    },
+    {
+      "id": "source-card-664096d2daba0a71",
+      "card_tokens": 162,
+      "intent_tokens": 6
+    },
+    {
+      "id": "source-card-b2d1f8f8cb600fc7",
+      "card_tokens": 218,
+      "intent_tokens": 12
+    },
+    {
+      "id": "source-card-8c0f5cdbe94b36e8",
+      "card_tokens": 115,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-9c2a943d1de50270",
+      "card_tokens": 174,
+      "intent_tokens": 4
+    },
+    {
+      "id": "source-card-1b6659df41509bb3",
+      "card_tokens": 137,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-a49c6fa3ebf29727",
+      "card_tokens": 171,
+      "intent_tokens": 4
+    },
+    {
+      "id": "source-card-aac8cb58c5d375f5",
+      "card_tokens": 213,
+      "intent_tokens": 64
+    },
+    {
+      "id": "source-card-12458f3584300035",
+      "card_tokens": 180,
+      "intent_tokens": 6
+    },
+    {
+      "id": "source-card-424f70d2da062265",
+      "card_tokens": 216,
+      "intent_tokens": 9
+    },
+    {
+      "id": "source-card-6bf76e578707e450",
+      "card_tokens": 246,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-d01d099ea9bf3a71",
+      "card_tokens": 136,
+      "intent_tokens": 11
+    },
+    {
+      "id": "source-card-eda0ea8aca30d2ca",
+      "card_tokens": 224,
+      "intent_tokens": 9
+    },
+    {
+      "id": "source-card-6766fe0490d637fb",
+      "card_tokens": 182,
+      "intent_tokens": 11
+    },
+    {
+      "id": "source-card-ab71874ee617ad0d",
+      "card_tokens": 229,
+      "intent_tokens": 14
+    },
+    {
+      "id": "source-card-754bfe963e3bb4a7",
+      "card_tokens": 189,
+      "intent_tokens": 8
+    },
+    {
+      "id": "source-card-e475370c430914ae",
+      "card_tokens": 175,
+      "intent_tokens": 7
+    },
+    {
+      "id": "source-card-96c7c44e6ef2d29f",
+      "card_tokens": 179,
+      "intent_tokens": 7
+    },
+    {
+      "id": "source-card-47b06dd8a58b25ce",
+      "card_tokens": 141,
+      "intent_tokens": 4
+    },
+    {
+      "id": "source-card-931c28c73cf2db2f",
+      "card_tokens": 181,
+      "intent_tokens": 7
+    },
+    {
+      "id": "source-card-a4bbad500e64978a",
+      "card_tokens": 161,
+      "intent_tokens": 6
+    },
+    {
+      "id": "source-card-7d92ddd71de80f19",
+      "card_tokens": 216,
+      "intent_tokens": 11
+    },
+    {
+      "id": "source-card-8e04987d56b20cfe",
+      "card_tokens": 111,
+      "intent_tokens": 4
+    },
+    {
+      "id": "source-card-1557ae87ea5584a8",
+      "card_tokens": 167,
+      "intent_tokens": 17
+    },
+    {
+      "id": "source-card-a006325791dc3f59",
+      "card_tokens": 125,
+      "intent_tokens": 7
+    },
+    {
+      "id": "source-card-cd249cb0fef6d5b6",
+      "card_tokens": 186,
+      "intent_tokens": 9
+    },
+    {
+      "id": "source-card-7b83f7ee5eb0fcf6",
+      "card_tokens": 168,
+      "intent_tokens": 13
+    },
+    {
+      "id": "source-card-94aafce41be14b3f",
+      "card_tokens": 173,
+      "intent_tokens": 10
+    },
+    {
+      "id": "source-card-8726559b37c1d24f",
+      "card_tokens": 168,
+      "intent_tokens": 6
+    },
+    {
+      "id": "source-card-971800499dca6672",
+      "card_tokens": 132,
+      "intent_tokens": 10
+    },
+    {
+      "id": "source-card-65fd722fa0d4a454",
+      "card_tokens": 167,
+      "intent_tokens": 2
+    },
+    {
+      "id": "source-card-6c4ef4a56c96cb6f",
+      "card_tokens": 182,
+      "intent_tokens": 10
+    },
+    {
+      "id": "source-card-aeb52e55c4675be4",
+      "card_tokens": 190,
+      "intent_tokens": 10
+    }
+  ],
+  "cards_over_original_token_limit": 0,
+  "text_policy": "Identical frozen D101 text; original construction limits use Qwen tokenizers",
+  "max_model_len": 32768,
+  "kv_cache_memory_bytes": 6442450944
+}

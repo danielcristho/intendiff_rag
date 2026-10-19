@@ -1,0 +1,17 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/nodemon_2.0.15-->2.0.16/nodemon-2.0.15/","module.exports","obj",67
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/nodemon_2.0.15-->2.0.16/nodemon-2.0.15/","module.exports","obj",70
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/nodemon_2.0.15-->2.0.16/nodemon-2.0.15/","module.exports().hasOwnProperty","",70
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/nodemon_2.0.15-->2.0.16/nodemon-2.0.15/","module.exports","source,target,result",622
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/nodemon_2.0.15-->2.0.16/nodemon-2.0.15/","module.exports().*","",622
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/nodemon_2.0.15-->2.0.16/nodemon-2.0.15/","module.exports().*.__proto__.getTime","",705
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/nodemon_2.0.15-->2.0.16/nodemon-2.0.15/","module.exports.listeners","",742
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/nodemon_2.0.15-->2.0.16/nodemon-2.0.15/","module.exports.on","",742
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/nodemon_2.0.15-->2.0.16/nodemon-2.0.15/","module.exports.emit","event,data",745
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/nodemon_2.0.15-->2.0.16/nodemon-2.0.15/","module.exports","c,str",766
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/nodemon_2.0.15-->2.0.16/nodemon-2.0.15/","module.exports.strip","str",769
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/nodemon_2.0.15-->2.0.16/nodemon-2.0.15/","module.exports","r",770
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/nodemon_2.0.15-->2.0.16/nodemon-2.0.15/","(new module.exports()).__proto__.fail","type,text",772
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/nodemon_2.0.15-->2.0.16/nodemon-2.0.15/","(new module.exports()).__proto__._log","type,msg",773
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/nodemon_2.0.15-->2.0.16/nodemon-2.0.15/","(new module.exports()).__proto__.required","val",773
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/nodemon_2.0.15-->2.0.16/nodemon-2.0.15/","(new module.exports()).__proto__.detail","msg",774
+data_flow,"/home/raphael/workspace/RogueOneSamples/BenignSamples2/nodemon_2.0.15-->2.0.16/nodemon-2.0.15/","module.exports.quiet","",774

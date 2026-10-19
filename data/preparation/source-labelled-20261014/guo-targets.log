@@ -1,0 +1,34 @@
+{"indexed": "data/upstream/guo-20261014/63179326-NPMStudy.zip", "targets_found": 0}
+{"indexed": "data/upstream/guo-20261014/63260731-NPMStudy.zip", "targets_found": 54}
+{"indexed": "data/upstream/guo-20261014/65055888-NPMStudy.zip", "targets_found": 54}
+{"indexed": "data/upstream/guo-20261014/66774704-NPMStudy.zip", "targets_found": 54}
+{
+  "candidates": 54,
+  "extracted": 53,
+  "errors": [
+    {
+      "name": "@solana/web3.js",
+      "version": "1.95.7",
+      "error": "ValueError: No unique package manifest matches the archive identity"
+    }
+  ],
+  "archive_pins": [
+    {
+      "path": "data/upstream/guo-20261014/63179326-NPMStudy.zip",
+      "sha256": "be52e45edd976b39947db66ca75445d6d2f285f1837d2f910bb3d2b1e7f0b3bc"
+    },
+    {
+      "path": "data/upstream/guo-20261014/63260731-NPMStudy.zip",
+      "sha256": "bb22a7afff4d407244ad22951509bb2ab898d46e72a8e0c7509f65123ec50115"
+    },
+    {
+      "path": "data/upstream/guo-20261014/65055888-NPMStudy.zip",
+      "sha256": "83207f1e06b1cbf0161d6575e64cc4fe7f021241078ef060e4bfdc7764e9c2a1"
+    },
+    {
+      "path": "data/upstream/guo-20261014/66774704-NPMStudy.zip",
+      "sha256": "395cbd9ad1592e9bcf165e70522268f3068fd5f3623c879f745b3c21a94ac8ae"
+    }
+  ],
+  "sample_execution": false
+}

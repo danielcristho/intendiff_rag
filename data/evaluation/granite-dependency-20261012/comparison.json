@@ -1,0 +1,90 @@
+{
+  "groups": [
+    {
+      "cohort": "HN",
+      "arm": "NO-SOURCE",
+      "n": 14,
+      "qwen": {
+        "benign": 14
+      },
+      "granite": {
+        "benign": 14
+      },
+      "FPR": null,
+      "gold_accuracy": null
+    },
+    {
+      "cohort": "HN",
+      "arm": "WITH-SOURCE",
+      "n": 14,
+      "qwen": {
+        "benign": 14
+      },
+      "granite": {
+        "benign": 14
+      },
+      "FPR": null,
+      "gold_accuracy": null
+    },
+    {
+      "cohort": "MAL",
+      "arm": "NO-SOURCE",
+      "n": 1,
+      "qwen": {
+        "benign": 1
+      },
+      "granite": {
+        "benign": 1
+      },
+      "FPR": null,
+      "gold_accuracy": null
+    },
+    {
+      "cohort": "MAL",
+      "arm": "WITH-SOURCE",
+      "n": 1,
+      "qwen": {
+        "benign": 1
+      },
+      "granite": {
+        "benign": 1
+      },
+      "FPR": null,
+      "gold_accuracy": null
+    }
+  ],
+  "transitions": [
+    {
+      "cohort": "HN",
+      "arm": "NO-SOURCE",
+      "qwen": "benign",
+      "granite": "benign",
+      "n": 14
+    },
+    {
+      "cohort": "HN",
+      "arm": "WITH-SOURCE",
+      "qwen": "benign",
+      "granite": "benign",
+      "n": 14
+    },
+    {
+      "cohort": "MAL",
+      "arm": "NO-SOURCE",
+      "qwen": "benign",
+      "granite": "benign",
+      "n": 1
+    },
+    {
+      "cohort": "MAL",
+      "arm": "WITH-SOURCE",
+      "qwen": "benign",
+      "granite": "benign",
+      "n": 1
+    }
+  ],
+  "changed_decisions": 0,
+  "new_total_tokens": 223382,
+  "historical_total_tokens": 196035,
+  "claim_scope": "exploratory paired model comparison; not gold accuracy, FPR or causal size effect"
+}

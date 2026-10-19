@@ -1,0 +1,13 @@
+{
+  "decision": "D102",
+  "parent_release": "data/evaluation/source-rag-v3-20261015",
+  "models": [
+    "qwen25_7b",
+    "qwen3_8b",
+    "phi4_mini",
+    "llama31_8b",
+    "granite33_8b"
+  ],
+  "expected_test_generations": 57030,
+  "expected_dev_generations": 300
+}

@@ -1,0 +1,229 @@
+\subsection{Status evaluasi dan ruang lingkup hasil}
+\label{sec:exploratory-status}
+
+Hasil berikut berasal dari eksperimen pengembangan yang telah selesai,
+bukan evaluasi konfirmatori pada himpunan uji final. Label MAL mengikuti
+sumber akuisisi; kandidat HN belum memiliki verifikasi benign oleh anotator
+independen. Karena itu, kami melaporkan jumlah keputusan \emph{malicious},
+validitas keluaran, dan perubahan keputusan, tanpa menafsirkan alarm HN
+sebagai FPR atau menghitung akurasi terhadap gold. Card KB malicious/benign
+terverifikasi dan pemisahan final KB--test belum selesai. Perbandingan utama
+DIFF+I+MB dengan DIFF+I+MM serta ablasi intent belum memiliki hasil
+konfirmatori.
+
+Evaluasi baseline menjalankan seluruh 973 pasangan versi yang ditetapkan pada
+enam model, masing-masing dengan DIFF dan DIFF+I; hasilnya ada di
+Bagian~\ref{sec:baseline-models}. Baseline tersebut tidak mencakup konfigurasi
+retrieval. Sebaliknya, studi versi dependency hanya mencakup 20 target
+diagnostik, sedangkan studi isi dependency dan pembanding Granite
+masing-masing mencakup 15 target. Pendekatan konteks dependency dan Granite
+belum dievaluasi penuh pada 973 pair. Hasil subset di
+Bagian~\ref{sec:dependency-diagnosis}--\ref{sec:granite-comparison} tidak
+menggantikan evaluasi penuh tersebut, dan penyelesaian inferensi pada subset
+tidak berarti seluruh eksperimen penelitian selesai.
+
+\subsection{Perbandingan model pada prompt baseline}
+\label{sec:baseline-models}
+
+Tabel~\ref{tab:baseline-models} merangkum run baseline: enam model lokal,
+dua konfigurasi tanpa contoh, dan kohort 973 pair Bagian~\ref{sec:run-cohort}
+pada setiap kombinasi.
+Seluruh 11.676 respons memakai BF16, greedy, seed 0, batas keluaran 2.048
+token, konteks 32.768, dan satu permintaan pada satu waktu. Angka ini berasal
+dari implementasi prompt baseline, bukan dari representasi diff, schema, dan
+verifier yang dipakai sekarang. Angka pada tabel ini akan diperbarui setelah
+seluruh 973 pair dijalankan ulang pada metode terkini.
+
+\begin{table*}[t]
+\caption{Enam model lokal pada 973 pair yang sama, konfigurasi tanpa contoh.
+TPR adalah proporsi MAL berlabel sumber yang diberi verdict
+\texttt{malicious}, bukan recall terhadap gold manusia; FPR TYP dihitung atas
+100 pembaruan yang diasumsikan benign. Keluaran invalid dihitung benign.
+Subset \emph{hard negative} tidak ada pada run ini.}
+\label{tab:baseline-models}
+\centering
+\begin{tabular}{llrrrrrr}
+\toprule
+Model & Konfigurasi & TPR & FPR TYP & Macro kampanye & JSON valid & Median (ms) & p95 (ms) \\
+\midrule
+\multicolumn{8}{l}{\emph{Dalam cakupan penelitian: 3--4B}} \\
+Qwen2.5-Coder-3B & DIFF   & 84,54\% & 48\% & 78,69\% & 86,84\% & 1.088 & 14.214 \\
+Qwen2.5-Coder-3B & DIFF+I & 72,05\% & 49\% & 56,48\% & 75,03\% & 1.414 & 14.282 \\
+Qwen3-4B         & DIFF   & 54,98\% &  6\% & 42,38\% & 71,74\% &   829 & 15.326 \\
+Qwen3-4B         & DIFF+I & 63,23\% &  3\% & 54,05\% & 76,36\% &   893 & 14.114 \\
+Phi-4-mini       & DIFF   & 45,93\% & 13\% & 35,87\% & 58,17\% & 1.059 & 20.168 \\
+Phi-4-mini       & DIFF+I & 50,29\% & 13\% & 38,12\% & 82,94\% &   946 & 21.063 \\
+\midrule
+\multicolumn{8}{l}{\emph{Konteks skala, di luar cakupan: 7--8B}} \\
+Qwen2.5-Coder-7B & DIFF   & 92,90\% & 65\% & 93,05\% & 94,04\% & 1.440 &  4.284 \\
+Qwen2.5-Coder-7B & DIFF+I & 67,12\% & 67\% & 71,47\% & 70,81\% & 1.473 &  4.872 \\
+Qwen3-8B         & DIFF   & 50,74\% &  6\% & 37,87\% & 94,96\% & 1.189 & 24.288 \\
+Qwen3-8B         & DIFF+I & 48,34\% &  3\% & 33,27\% & 95,48\% & 1.520 & 24.084 \\
+Llama-3.1-8B     & DIFF   & 85,45\% & 57\% & 76,44\% & 88,08\% & 1.342 & 12.025 \\
+Llama-3.1-8B     & DIFF+I & 89,23\% & 69\% & 86,67\% & 89,62\% & 1.382 & 13.325 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Cakupan penelitian ini adalah model 3--4B (Tabel~\ref{tab:models}). Enam baris
+pertama berada di dalam cakupan itu, dan Phi-4-mini dengan 3,836 miliar
+parameter ikut masuk sebagai pembanding keluarga lain. Enam baris berikutnya
+dilaporkan sebagai konteks skala, bukan sebagai klaim penelitian. Seluruh dua
+belas kombinasi ditampilkan, termasuk yang menurun.
+
+Pada rentang 3--4B tidak ada konfigurasi yang sekaligus ber-TPR tinggi dan
+ber-FPR rendah. Qwen2.5-Coder-3B DIFF mencapai TPR tertinggi di kelompok itu,
+84,54\%, tetapi menandai 48\% pembaruan tipikal; Qwen3-4B DIFF+I menekan alarm
+tipikal ke 3\% dengan TPR 63,23\%. Pada keenam baris 3--4B, macro recall
+kampanye lebih rendah daripada TPR per pair, sehingga angka per pair ikut
+ditopang kampanye yang berisi banyak pair.
+
+Arah pengaruh blok intent berbeda antar model: DIFF $\rightarrow$ DIFF+I
+menaikkan TPR Qwen3-4B 8,25 poin sekaligus menurunkan FPR 3 poin, menurunkan
+TPR Qwen2.5-Coder-3B 12,49 poin, dan menaikkan TPR Phi-4-mini 4,35 poin.
+Kenaikan Phi tersebut terdiri dari $+$139 transisi yang melibatkan keluaran
+invalid dan $-$101 pada pasangan yang kedua responsnya valid, jadi tidak dapat
+dibaca sebagai perbaikan penalaran. Validitas JSON bergerak antara 58,17\% dan
+86,84\% pada kelompok 3--4B dan ikut menentukan verdict, karena keluaran
+invalid dihitung benign. Jika dihitung malicious, TPR/FPR Qwen2.5-Coder-3B DIFF
+menjadi 96,45\%/72\%, Qwen3-4B DIFF+I 88,55\%/12\%, dan Phi-4-mini DIFF+I
+67,93\%/25\%.
+
+Tabel ini belum menjawab pertanyaan utama penelitian. Label MAL berasal dari
+sumber akuisisi, bukan gold manusia; TYP diasumsikan benign; subset
+\emph{hard negative} belum ada pada run ini, sehingga FPR pada pembaruan sah
+yang menambahkan kemampuan sensitif tidak terukur. Interval kepercayaan belum
+dihitung, konfigurasi retrieval belum dijalankan, dan tidak ada uji
+signifikansi, sehingga tidak ada klaim model terbaik maupun klaim keunggulan
+terhadap evaluasi lain. Latensi adalah observasi sesi dengan cache yang
+berbeda, bukan tolok ukur kecepatan terkontrol.
+
+\subsection{Diagnosis bersyarat pada versi dependency}
+\label{sec:dependency-diagnosis}
+
+Tiga bagian berikut memeriksa kecukupan konteks, yaitu faktor diagnostik di
+luar enam konfigurasi Tabel~\ref{tab:configs}. Studi versi dependency meninjau
+20 pembaruan yang menambahkan \texttt{easy-day-js}, dan memakai konfigurasi
+DIFF+I dengan baris ber-ID serta schema JSON ketat. Kelompok ini dipilih
+setelah analisis kesalahan pada dev set; seluruh target berbagi satu keluarga
+dependency dan tidak dianggap sebagai 20 insiden independen.
+Qwen3-4B-Instruct-2507 menerima dua snapshot dependency secara terpisah,
+menghasilkan 40 inferensi baru. Instruksi kondisional pada kedua snapshot
+identik. Kontrol tanpa konteks diambil dari 20 respons historis pada
+konfigurasi yang sama; terhadap kontrol tersebut, penambahan instruksi
+kondisional dan isi konteks tidak terpisahkan.
+
+\begin{table}[t]
+\caption{Keputusan Qwen3-4B pada 20 target studi versi dependency. Angka
+merupakan jumlah verdict, bukan estimasi recall. Dua baris snapshot adalah
+inferensi baru.}
+\label{tab:dependency-versions}
+\centering
+\begin{tabular}{lrrr}
+\toprule
+Kondisi & Malicious & Benign & Invalid \\
+\midrule
+Tanpa konteks, historis & 0 & 20 & 0 \\
+Snapshot 1.11.21 & 0 & 20 & 0 \\
+Snapshot 1.11.22 & 20 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Seluruh target berubah dari benign menjadi malicious ketika snapshot
+1.11.21 diganti dengan 1.11.22 (Tabel~\ref{tab:dependency-versions}).
+Versi 1.11.22 memiliki postinstall yang menjalankan \texttt{setup.cjs};
+pembacaan statis file tersebut menunjukkan pengambilan konten jaringan,
+penulisan file, pemanggilan proses anak, dan penonaktifan verifikasi TLS.
+Sebanyak 18 dari 20 respons positif mengutip ID konteks dependency,
+tetapi hanya 14 mengutip isi \texttt{setup.cjs}. ID kutipan yang sah belum
+membuktikan bahwa seluruh alasan model didukung secara semantik.
+
+Kedua versi memenuhi rentang \texttt{\textasciicircum1.11.21} dan
+mendahului penerbitan target menurut metadata arsip. Namun, versi yang
+benar-benar terpasang tidak diketahui karena tidak tersedia lockfile.
+Hasil 20/20 malicious karenanya merupakan keputusan bersyarat pada snapshot,
+bukan recall 100\%. Tidak ada keluaran terpotong atau ID bukti tak dikenal.
+Total penggunaan 40 inferensi adalah 370.164 token prompt dan output.
+
+\subsection{Kontrol konteks pada dependency lain}
+\label{sec:dependency-generalization}
+
+Studi isi dependency memakai 15 target dengan 15 nama dependency berbeda dan
+mengecualikan seluruh target \texttt{easy-day-js}. Kohort terdiri dari 14
+kandidat HN dan satu MAL menurut sumber, yaitu \texttt{zuper-cli@1.0.1}. Dari
+67 kombinasi target--versi lokal yang memenuhi semver, 44 dikeluarkan karena
+dependency diterbitkan setelah target. Dua kombinasi self-dependency, satu
+versi lokal lebih lama, dan lima kombinasi yang melampaui batas nama/target
+juga dikeluarkan. Versi dipilih dari arsip lokal yang tersedia dan mendahului
+target; prosedur ini tidak menetapkan versi instalasi aktual atau versi
+terbaru dari seluruh registry. Enam target pernah terpapar pada eksperimen
+pengembangan sebelumnya; seluruh kohort tetap merupakan data pengembangan.
+
+Kondisi tanpa isi dan kondisi dengan isi memakai instruksi kondisional serta
+nama dan versi dependency yang sama. Kondisi dengan isi menambahkan isi
+snapshot; kondisi tanpa isi menyatakan bahwa isi tidak tersedia. Qwen3-4B
+menghasilkan 30 respons valid: seluruh 14 kandidat HN dan satu MAL dinilai
+benign pada kedua kondisi. Tidak ada perubahan keputusan. Hanya dua respons
+pada kondisi dengan isi yang mengutip isi dependency. Total token meningkat
+dari 67.749 menjadi 128.286 (1,89 kali), tanpa perubahan verdict.
+
+Semua kandidat HN terpilih hanya memiliki sinyal perubahan dependency;
+tidak ada snapshot terpilih yang memiliki install hook. Dengan demikian,
+kohort ini belum mewakili pembaruan sah dengan penambahan perilaku runtime
+sensitif. Nol alarm tidak menunjukkan FPR 0\%, dan satu MAL yang tetap
+benign tidak mendukung klaim kenaikan deteksi. Lima belas nama dependency
+juga tidak membuktikan 15 keluarga serangan independen.
+
+\subsection{Pembanding keluarga model: Granite 3.3 8B}
+\label{sec:granite-comparison}
+
+Pembanding Granite menjalankan IBM Granite 3.3 8B Instruct pada seluruh 15
+target dan dua kondisi di atas, menghasilkan 30 inferensi baru. Teks masukan,
+snapshot, schema JSON, parser, dan urutan permintaan dipertahankan.
+Pembanding Qwen menggunakan 30 respons historisnya. Kedua model memakai
+BF16, temperature 0, top-p 1, seed 0, batas output 2.048 token, konteks
+32.768 token, dan satu permintaan pada satu waktu. Granite menggunakan
+template native dengan \texttt{thinking=false} dan token akhir native;
+prompt maksimum 24.467 token, tanpa pemotongan tambahan. Bobot model dan
+input dipin menggunakan SHA-256 sebelum inferensi. Perbedaan keluarga,
+ukuran, tokenizer, dan template berarti perbandingan ini tidak mengisolasi
+efek jumlah parameter.
+
+\begin{table*}[t]
+\caption{Perbandingan pada target dan kondisi identik: Qwen3-4B (historis)
+dan Granite 3.3 8B (baru). Sel menunjukkan malicious/benign/invalid.
+HN belum terverifikasi benign; MAL mengikuti label sumber.}
+\label{tab:granite-comparison}
+\centering
+\begin{tabular}{llrrr}
+\toprule
+Kohort & Kondisi & Target & Qwen3-4B & Granite 3.3 8B \\
+\midrule
+Kandidat HN & Tanpa isi & 14 & 0/14/0 & 0/14/0 \\
+Kandidat HN & Dengan isi & 14 & 0/14/0 & 0/14/0 \\
+MAL label sumber & Tanpa isi & 1 & 0/1/0 & 0/1/0 \\
+MAL label sumber & Dengan isi & 1 & 0/1/0 & 0/1/0 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Tidak ada satu pun verdict yang berbeda antar model
+(Tabel~\ref{tab:granite-comparison}). Seluruh respons Granite memenuhi
+schema, tanpa keluaran terpotong, ID bukti tak dikenal, atau error transport.
+Satu target MAL tetap benign, sehingga pergantian model belum memperbaiki
+deteksi pada kohort ini. Dua respons pada kondisi dengan isi mengutip isi
+dependency, pada \texttt{get-symbol-description@1.0.2} dan
+\texttt{@tolicodes/picklejs@0.75.0}; dukungan semantik alasan belum
+diverifikasi manusia.
+
+Granite memakai 76.964 token tanpa isi dan 146.418 token dengan isi (total
+223.382), dibandingkan total 196.035 token Qwen. Token antar model mengikuti
+tokenizer masing-masing dan tidak disamakan dengan biaya komputasi. Median
+latensi pada 14 kandidat HN adalah 1.676 ms dan 2.422 ms untuk dua kondisi
+Granite; angka historis Qwen adalah 872 ms dan 1.195 ms. Latensi merupakan
+observasi sesi dengan prefix caching, tanpa warmup generasi, bukan benchmark
+kecepatan terkontrol. Audit pasca-inferensi mencocokkan payload, jumlah token,
+parsing, kutipan, checksum sumber, artefak kontrol, dan berkas model. Hasil
+ini mendukung kesamaan keputusan pada kohort yang diuji, tanpa memberikan
+peringkat umum model atau bukti penurunan FPR.

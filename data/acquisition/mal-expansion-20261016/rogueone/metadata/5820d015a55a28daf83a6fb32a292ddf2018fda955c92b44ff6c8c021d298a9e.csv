@@ -1,0 +1,37 @@
+# identity: nodeid
+# label: %label%
+# style: shape=%shape%;fillColor=%fill%;strokeColor=%stroke%;strokeWidth=1
+# link: url
+# width: @width
+# height: @height
+# layout: verticalflow
+# ignore: nodeid,style,height,width,ref_0_0,ref_1_0,ref_2_0,ref_3_0,ref_4_0,ref_5_0,ref_6_0,ref_7_0,ref_8_0,label_0,label_1,label_2,label_3,label_4,label_5,label_6,label_7,label_8
+# connect: {"from": "ref_0_0", "to": "nodeid", "fromlabel": "label_0", "style": "-"}
+# connect: {"from": "ref_1_0", "to": "nodeid", "fromlabel": "label_1", "style": "-"}
+# connect: {"from": "ref_2_0", "to": "nodeid", "fromlabel": "label_2", "style": "-"}
+# connect: {"from": "ref_3_0", "to": "nodeid", "fromlabel": "label_3", "style": "-"}
+# connect: {"from": "ref_4_0", "to": "nodeid", "fromlabel": "label_4", "style": "-"}
+# connect: {"from": "ref_5_0", "to": "nodeid", "fromlabel": "label_5", "style": "-"}
+# connect: {"from": "ref_6_0", "to": "nodeid", "fromlabel": "label_6", "style": "-"}
+# connect: {"from": "ref_7_0", "to": "nodeid", "fromlabel": "label_7", "style": "-"}
+# connect: {"from": "ref_8_0", "to": "nodeid", "fromlabel": "label_8", "style": "-"}
+nodeid,label,tags,shape,fill,stroke,width,height,link,ref_0_0,ref_1_0,ref_2_0,ref_3_0,ref_4_0,ref_5_0,ref_6_0,ref_7_0,ref_8_0,label_0,label_1,label_2,label_3,label_4,label_5,label_6,label_7,label_8
+864,AST_METHOD_CALL,-,rectangle,#76F76D,#000000,auto,auto,-,6232,6249,940,-,-,-,-,-,-,AST_CALL_TO_FUNC_OBJ,AST_CALL_TO_FUNC_OBJ,OBJ_REACHES,-,-,-,-,-,-
+940,"local.child = local.child_process.spawn(    local.__filename,    process.argv.slice(2),    {stdio: [0, ""pipe"", 2]})",-,rectangle,#FFFFFF,#000000,auto,auto,-,977,989,1046,-,-,-,-,-,-,OBJ_REACHES,OBJ_REACHES,OBJ_REACHES,-,-,-,-,-,-
+6448,exit,-,rectangle,#61F2F2,#000000,auto,auto,-,977,-,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-,-
+6459,{anon},-,rectangle,#FFFFFF,#000000,auto,auto,-,989,-,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-,-
+14,/home/raphael/workspace/RogueOneSamples/BenignSamples2/electron-lite_2018.9.23-->2019.1.7/electron-lite-2019.1.7/lib.electron.js,-,rectangle,#76F76D,#000000,auto,auto,-,940,977,989,1046,-,-,-,-,-,OBJ_REACHES,OBJ_REACHES,OBJ_REACHES,OBJ_REACHES,-,-,-,-,-
+6499,data,-,rectangle,#61F2F2,#000000,auto,auto,-,989,-,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-,-
+1058,"process.stdout.write(chunk, encoding, cb)",-,rectangle,#FFFFFF,#000000,auto,auto,-,6530,-,-,-,-,-,-,-,-,AST_CALL_TO_FUNC_OBJ,-,-,-,-,-,-,-,-
+774,"local = (    globalThis.utility2_rollup    // || globalThis.utility2_rollup_old    // || require(""./assets.utility2.rollup.js"")    || globalThis.globalLocal)",-,rectangle,#76F76D,#000000,auto,auto,-,940,977,989,1046,-,-,-,-,-,OBJ_REACHES,OBJ_REACHES,OBJ_REACHES,OBJ_REACHES,-,-,-,-,-
+4535,AST_CLOSURE,-,rectangle,#FFFFFF,#000000,auto,auto,-,977,-,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-,-
+6328,_SpecialValue: *,-,rectangle,#FFFFFF,#000000,auto,auto,-,940,-,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-,-
+977,"local.child.on(""exit"", process.exit)",-,rectangle,#76F76D,#000000,auto,auto,-,6416,989,-,-,-,-,-,-,-,AST_CALL_TO_FUNC_OBJ,OBJ_REACHES,-,-,-,-,-,-,-
+6530,_SpecialValue: *,-,trapezoid,#FE913D,#000000,auto,auto,-,1033,-,-,-,-,-,-,-,-,OBJ_TO_AST,-,-,-,-,-,-,-,-
+1046,local.child.kill(),-,rectangle,#FFFFFF,#000000,auto,auto,-,6416,-,-,-,-,-,-,-,-,AST_CALL_TO_FUNC_OBJ,-,-,-,-,-,-,-,-
+6416,_SpecialValue: *,-,trapezoid,#FE913D,#000000,auto,auto,-,977,-,-,-,-,-,-,-,-,OBJ_TO_AST,-,-,-,-,-,-,-,-
+989,AST_METHOD_CALL,-,rectangle,#76F76D,#000000,auto,auto,-,1033,1058,6459,-,-,-,-,-,-,OBJ_REACHES,OBJ_REACHES,AST_CALL_TO_FUNC_OBJ,-,-,-,-,-,-
+6528,_SpecialValue: *,-,ellipse,#61F2F2,#000000,auto,auto,-,1033,-,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-,-
+1033,"process.stdout.write(chunk, encoding, cb)",-,rectangle,#76F76D,#000000,auto,auto,-,6530,1046,1058,-,-,-,-,-,-,AST_CALL_TO_FUNC_OBJ,FLOWS_TO,OBJ_REACHES,-,-,-,-,-,-
+6249,"[    (        process.platform === ""darwin""        && __dirname + ""/external/Atom.app/Contents/MacOS/Atom""    ), (        process.platform === ""darwin""        && __dirname + ""/external/Electron.app/Contents/MacOS/Electron""    ),    __dirname + ""/external/electron""].some",-,trapezoid,#FE913D,#000000,auto,auto,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-,-
+6232,{anon},-,trapezoid,#FE913D,#000000,auto,auto,-,864,-,-,-,-,-,-,-,-,OBJ_REACHES,-,-,-,-,-,-,-,-

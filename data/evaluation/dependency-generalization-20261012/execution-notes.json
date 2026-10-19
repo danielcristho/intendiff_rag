@@ -1,0 +1,8 @@
+{
+  "finished": true,
+  "new_generations": 30,
+  "tests_passed": 5,
+  "server_application_shutdown_complete": true,
+  "shutdown_warning": "resource_tracker reported one leaked semaphore for cleanup; no failed generation recorded",
+  "formal_results_jsonl_exists": false
+}

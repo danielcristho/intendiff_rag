@@ -1,0 +1,29 @@
+{
+  "decision": "D105",
+  "models": [
+    "qwen3",
+    "qwen25",
+    "qwen25_7b",
+    "phi4_mini",
+    "llama31_8b",
+    "granite33_8b"
+  ],
+  "excluded": [
+    {
+      "tag": "qwen3_8b",
+      "eligible": false,
+      "reason": "historical_dev_format_gate_failed",
+      "dev_json_validity": 0.8166666666666667
+    }
+  ],
+  "errors": [],
+  "planned": [
+    "qwen3",
+    "qwen25",
+    "qwen25_7b",
+    "qwen3_8b",
+    "phi4_mini",
+    "llama31_8b",
+    "granite33_8b"
+  ]
+}

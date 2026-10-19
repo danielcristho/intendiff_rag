@@ -1,0 +1,428 @@
+{"completed": 10, "total": 1902, "id": "@j.u.p.iter/react-prompt@1.0.0", "error": null, "fallback_files": 0}
+{"completed": 20, "total": 1902, "id": "contentlayer-mock@0.0.11", "error": null, "fallback_files": 0}
+{"completed": 30, "total": 1902, "id": "ddongule@1.0.5", "error": null, "fallback_files": 0}
+{"completed": 40, "total": 1902, "id": "skipper-qiniu-qn@1.1.2", "error": null, "fallback_files": 0}
+{"completed": 50, "total": 1902, "id": "env2-shebang@0.0.2", "error": null, "fallback_files": 0}
+{"completed": 60, "total": 1902, "id": "mofron-comp-header@0.12.3", "error": null, "fallback_files": 0}
+{"completed": 70, "total": 1902, "id": "is-extglob@2.1.1", "error": null, "fallback_files": 0}
+{"completed": 80, "total": 1902, "id": "node-red-contrib-python3-function@0.0.4", "error": null, "fallback_files": 0}
+{"completed": 90, "total": 1902, "id": "khmer-unicode-converter@0.0.6", "error": null, "fallback_files": 0}
+{"completed": 100, "total": 1902, "id": "@bdsx/image-maps@1.0.4", "error": null, "fallback_files": 0}
+{"completed": 110, "total": 1902, "id": "domutils@3.1.0", "error": null, "fallback_files": 0}
+{"completed": 120, "total": 1902, "id": "@types/estree@1.0.5", "error": null, "fallback_files": 0}
+{"completed": 130, "total": 1902, "id": "@smithy/node-config-provider@2.3.0", "error": null, "fallback_files": 0}
+{"completed": 140, "total": 1902, "id": "@leather.io/tokens@0.12.0", "error": null, "fallback_files": 0}
+{"completed": 150, "total": 1902, "id": "url-join@5.0.0", "error": null, "fallback_files": 0}
+{"completed": 160, "total": 1902, "id": "micromq-mod@0.0.5", "error": null, "fallback_files": 0}
+{"completed": 170, "total": 1902, "id": "berlioz-gcp@1.0.15", "error": null, "fallback_files": 0}
+{"completed": 180, "total": 1902, "id": "@pezak/hui-theme@1.0.5", "error": null, "fallback_files": 0}
+{"completed": 190, "total": 1902, "id": "@types/gl-react-headless@3.15.7", "error": null, "fallback_files": 0}
+{"completed": 200, "total": 1902, "id": "string-width@7.1.0", "error": null, "fallback_files": 0}
+{"completed": 210, "total": 1902, "id": "reflect-metadata@0.2.2", "error": null, "fallback_files": 0}
+{"completed": 220, "total": 1902, "id": "node-opcua-local-discovery-server@2.138.1", "error": null, "fallback_files": 0}
+{"completed": 230, "total": 1902, "id": "@babel/plugin-transform-runtime@8.0.0-alpha.8", "error": null, "fallback_files": 0}
+{"completed": 240, "total": 1902, "id": "ramda@0.29.1", "error": null, "fallback_files": 0}
+{"completed": 250, "total": 1902, "id": "@types/uuid@9.0.8", "error": null, "fallback_files": 0}
+{"completed": 260, "total": 1902, "id": "postcss-loader@8.1.1", "error": null, "fallback_files": 0}
+Timeout (0:01:00)!
+Thread 0x00007dcf3f8fd340 (most recent call first):
+  File "/workspace/pipeline/capability.py", line 131 in scan_text
+  File "/workspace/pipeline/capability.py", line 187 in scan_version
+  File "/workspace/pipeline/capability.py", line 252 in delta
+  File "/workspace/pipeline/capability.py", line 272 in delta_evidence
+  File "/workspace/pipeline/dataset.py", line 57 in build_row
+  File "/workspace/pipeline/preprocess_corpus.py", line 31 in build
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 264 in _process_worker
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108 in run
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314 in _bootstrap
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 71 in _launch
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 19 in __init__
+  File "/usr/local/lib/python3.12/multiprocessing/context.py", line 282 in _Popen
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 121 in start
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 799 in _spawn_process
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 789 in _launch_processes
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 762 in _start_executor_manager_thread
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 823 in submit
+  File "/workspace/pipeline/preprocess_corpus.py", line 64 in main
+  File "/workspace/pipeline/preprocess_corpus.py", line 76 in <module>
+{"completed": 270, "total": 1902, "id": "es-iterator-helpers@1.0.18", "error": null, "fallback_files": 0}
+{"completed": 280, "total": 1902, "id": "@nodelib/fs.walk@2.0.0", "error": null, "fallback_files": 0}
+{"completed": 290, "total": 1902, "id": "make-fetch-happen@13.0.0", "error": null, "fallback_files": 0}
+{"completed": 300, "total": 1902, "id": "camstreamerlib@3.2.4", "error": null, "fallback_files": 0}
+{"completed": 310, "total": 1902, "id": "@react-map/vaticancity@1.0.9", "error": null, "fallback_files": 0}
+{"completed": 320, "total": 1902, "id": "@rollup/pluginutils@5.1.0", "error": null, "fallback_files": 0}
+{"completed": 330, "total": 1902, "id": "@fczbkk/gap-grid@2.1.2", "error": null, "fallback_files": 0}
+{"completed": 340, "total": 1902, "id": "redis@5.0.0-next.4", "error": null, "fallback_files": 0}
+{"completed": 350, "total": 1902, "id": "@types/babel__core@7.20.5", "error": null, "fallback_files": 0}
+{"completed": 360, "total": 1902, "id": "csso@5.0.5", "error": null, "fallback_files": 0}
+{"completed": 370, "total": 1902, "id": "lodash.uniq@4.5.0", "error": null, "fallback_files": 0}
+{"completed": 380, "total": 1902, "id": "@os-team/graphql-test-client@1.0.30", "error": null, "fallback_files": 0}
+{"completed": 390, "total": 1902, "id": "translit-rue@2.1.1", "error": null, "fallback_files": 0}
+{"completed": 400, "total": 1902, "id": "amumu@0.1.6", "error": null, "fallback_files": 1}
+{"completed": 410, "total": 1902, "id": "pluto-frontend@0.14.4", "error": null, "fallback_files": 0}
+{"completed": 420, "total": 1902, "id": "babel-core@7.0.0-bridge.0", "error": null, "fallback_files": 0}
+{"completed": 430, "total": 1902, "id": "ngx-bootstrap-growl@0.0.7", "error": null, "fallback_files": 0}
+{"completed": 440, "total": 1902, "id": "get-css-urls@1.0.1", "error": null, "fallback_files": 0}
+{"completed": 450, "total": 1902, "id": "sa-calendar-vue2@1.0.6", "error": null, "fallback_files": 0}
+{"completed": 460, "total": 1902, "id": "usermoduletest2@0.0.2", "error": null, "fallback_files": 0}
+{"completed": 470, "total": 1902, "id": "yummy-bolts@1.4.0", "error": null, "fallback_files": 0}
+{"completed": 480, "total": 1902, "id": "acorn-import-assertions@1.9.0", "error": null, "fallback_files": 0}
+{"completed": 490, "total": 1902, "id": "@apitree.cz/prettier-config@0.2.6", "error": null, "fallback_files": 0}
+{"completed": 500, "total": 1902, "id": "@marciocamello/react-dnd-scrollzone@3.0.1", "error": null, "fallback_files": 0}
+{"completed": 510, "total": 1902, "id": "checkmatejs@1.4.3", "error": null, "fallback_files": 0}
+{"completed": 520, "total": 1902, "id": "lodash.isequal@4.5.0", "error": null, "fallback_files": 0}
+{"completed": 530, "total": 1902, "id": "copy-first-asset-webpack-plugin@1.0.1", "error": null, "fallback_files": 0}
+{"completed": 540, "total": 1902, "id": "@glyphon/svelte@1.2.0", "error": null, "fallback_files": 0}
+{"completed": 550, "total": 1902, "id": "lcnpm@1.0.2", "error": null, "fallback_files": 0}
+{"completed": 560, "total": 1902, "id": "analytics.js-integration-funnelenvy@1.0.1", "error": null, "fallback_files": 0}
+{"completed": 570, "total": 1902, "id": "wdio-cucumber-json-reporter@0.0.4", "error": null, "fallback_files": 0}
+{"completed": 580, "total": 1902, "id": "stylehacks@7.0.0", "error": null, "fallback_files": 0}
+{"completed": 590, "total": 1902, "id": "@dreamworld/dw-icon@4.1.1", "error": null, "fallback_files": 0}
+{"completed": 600, "total": 1902, "id": "@material/shape@15.0.0-canary.fff4066c6.0", "error": null, "fallback_files": 0}
+{"completed": 610, "total": 1902, "id": "@angular-devkit/core@18.0.0-next.2", "error": null, "fallback_files": 0}
+{"completed": 620, "total": 1902, "id": "@sp-api-sdk/vendor-direct-fulfillment-inventory-api-v1@2.5.5", "error": null, "fallback_files": 0}
+Timeout (0:01:00)!
+Thread 0x00007dcf3f8fd340 (most recent call first):
+  File "/usr/local/lib/python3.12/hashlib.py", line 233 in file_digest
+  File "/workspace/pipeline/normalization.py", line 37 in digest
+  File "/workspace/pipeline/normalization.py", line 95 in prepared_pair
+  File "/usr/local/lib/python3.12/contextlib.py", line 137 in __enter__
+  File "/workspace/pipeline/smartdiff.py", line 205 in build
+  File "/workspace/pipeline/dataset.py", line 41 in build_row
+  File "/workspace/pipeline/preprocess_corpus.py", line 31 in build
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 264 in _process_worker
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108 in run
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314 in _bootstrap
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 71 in _launch
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 19 in __init__
+  File "/usr/local/lib/python3.12/multiprocessing/context.py", line 282 in _Popen
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 121 in start
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 799 in _spawn_process
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 789 in _launch_processes
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 762 in _start_executor_manager_thread
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 823 in submit
+  File "/workspace/pipeline/preprocess_corpus.py", line 64 in main
+  File "/workspace/pipeline/preprocess_corpus.py", line 76 in <module>
+{"completed": 630, "total": 1902, "id": "@fontsource/noto-sans-nushu@5.1.1", "error": null, "fallback_files": 0}
+{"completed": 640, "total": 1902, "id": "path-type@5.0.0", "error": null, "fallback_files": 0}
+{"completed": 650, "total": 1902, "id": "vite-plugin-themetest@0.0.2", "error": null, "fallback_files": 0}
+{"completed": 660, "total": 1902, "id": "tf-posenet@1.0.11", "error": null, "fallback_files": 0}
+{"completed": 670, "total": 1902, "id": "ipaddr.js@2.1.0", "error": null, "fallback_files": 0}
+{"completed": 680, "total": 1902, "id": "query-string@9.0.0", "error": null, "fallback_files": 0}
+{"completed": 690, "total": 1902, "id": "@smithy/util-middleware@2.2.0", "error": null, "fallback_files": 0}
+{"completed": 700, "total": 1902, "id": "ts-node@11.0.0-beta.1", "error": null, "fallback_files": 0}
+{"completed": 710, "total": 1902, "id": "external-editor@3.1.0", "error": null, "fallback_files": 0}
+{"completed": 720, "total": 1902, "id": "mingfu-ui@1.1.26", "error": null, "fallback_files": 0}
+{"completed": 730, "total": 1902, "id": "@discord-dashboard/core@3.0.1-0", "error": null, "fallback_files": 0}
+{"completed": 740, "total": 1902, "id": "binary-extensions@2.3.0", "error": null, "fallback_files": 0}
+{"completed": 750, "total": 1902, "id": "@spyglassmc/discord-bot@0.3.18", "error": null, "fallback_files": 0}
+{"completed": 760, "total": 1902, "id": "xpixi-data@1.0.54", "error": null, "fallback_files": 0}
+{"completed": 770, "total": 1902, "id": "regenerator-transform@0.15.2", "error": null, "fallback_files": 0}
+{"completed": 780, "total": 1902, "id": "@katarzynastrumidlo/id_generator@1.0.3", "error": null, "fallback_files": 0}
+{"completed": 790, "total": 1902, "id": "@raytio/decrypt-helper@6.3.1", "error": null, "fallback_files": 0}
+{"completed": 800, "total": 1902, "id": "n3u1s4-simple-calculator@1.0.2", "error": null, "fallback_files": 0}
+{"completed": 810, "total": 1902, "id": "@types/node-fetch@3.0.3", "error": null, "fallback_files": 0}
+Timeout (0:01:00)!
+Thread 0x00007dcf3f8fd340 (most recent call first):
+  File "/usr/local/lib/python3.12/selectors.py", line 415 in select
+  File "/usr/local/lib/python3.12/subprocess.py", line 2115 in _communicate
+  File "/usr/local/lib/python3.12/subprocess.py", line 1209 in communicate
+  File "/usr/local/lib/python3.12/subprocess.py", line 550 in run
+  File "/workspace/pipeline/normalization.py", line 69 in normalize_jobs
+  File "/workspace/pipeline/normalization.py", line 114 in prepared_pair
+  File "/usr/local/lib/python3.12/contextlib.py", line 137 in __enter__
+  File "/workspace/pipeline/smartdiff.py", line 205 in build
+  File "/workspace/pipeline/dataset.py", line 41 in build_row
+  File "/workspace/pipeline/preprocess_corpus.py", line 31 in build
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 264 in _process_worker
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108 in run
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314 in _bootstrap
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 71 in _launch
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 19 in __init__
+  File "/usr/local/lib/python3.12/multiprocessing/context.py", line 282 in _Popen
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 121 in start
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 799 in _spawn_process
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 789 in _launch_processes
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 762 in _start_executor_manager_thread
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 823 in submit
+  File "/workspace/pipeline/preprocess_corpus.py", line 64 in main
+  File "/workspace/pipeline/preprocess_corpus.py", line 76 in <module>
+Timeout (0:01:00)!
+Thread 0x00007dcf3f8fd340 (most recent call first):
+  File "/usr/local/lib/python3.12/selectors.py", line 415 in select
+  File "/usr/local/lib/python3.12/subprocess.py", line 2115 in _communicate
+  File "/usr/local/lib/python3.12/subprocess.py", line 1209 in communicate
+  File "/usr/local/lib/python3.12/subprocess.py", line 550 in run
+  File "/workspace/pipeline/normalization.py", line 69 in normalize_jobs
+  File "/workspace/pipeline/normalization.py", line 114 in prepared_pair
+  File "/usr/local/lib/python3.12/contextlib.py", line 137 in __enter__
+  File "/workspace/pipeline/smartdiff.py", line 205 in build
+  File "/workspace/pipeline/dataset.py", line 41 in build_row
+  File "/workspace/pipeline/preprocess_corpus.py", line 31 in build
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 264 in _process_worker
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108 in run
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314 in _bootstrap
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 71 in _launch
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 19 in __init__
+  File "/usr/local/lib/python3.12/multiprocessing/context.py", line 282 in _Popen
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 121 in start
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 799 in _spawn_process
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 789 in _launch_processes
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 762 in _start_executor_manager_thread
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 823 in submit
+  File "/workspace/pipeline/preprocess_corpus.py", line 64 in main
+  File "/workspace/pipeline/preprocess_corpus.py", line 76 in <module>
+{"completed": 820, "total": 1902, "id": "@fluencelabs/fluence-nft-client@0.1.5", "error": null, "fallback_files": 0}
+{"completed": 830, "total": 1902, "id": "globby@14.0.1", "error": null, "fallback_files": 0}
+{"completed": 840, "total": 1902, "id": "@kingscode/vuetify-phone-input@0.2.0", "error": null, "fallback_files": 0}
+{"completed": 850, "total": 1902, "id": "base-utils-js@0.0.2", "error": null, "fallback_files": 0}
+{"completed": 860, "total": 1902, "id": "compressible@2.0.18", "error": null, "fallback_files": 0}
+{"completed": 870, "total": 1902, "id": "@axolo/egg-aliyun-dysms@0.2.0", "error": null, "fallback_files": 0}
+{"completed": 880, "total": 1902, "id": "@dgrammatiko/joomla-tools@0.0.409", "error": null, "fallback_files": 0}
+{"completed": 890, "total": 1902, "id": "progress@2.0.3", "error": null, "fallback_files": 0}
+{"completed": 900, "total": 1902, "id": "@datableio/types@1.0.7", "error": null, "fallback_files": 0}
+{"completed": 910, "total": 1902, "id": "token-injectable-docker-builder@1.2.7", "error": null, "fallback_files": 0}
+{"completed": 920, "total": 1902, "id": "@smithy/util-body-length-node@2.3.0", "error": null, "fallback_files": 0}
+{"completed": 930, "total": 1902, "id": "my-little-snippet@1.0.5", "error": null, "fallback_files": 0}
+{"completed": 940, "total": 1902, "id": "jest-worker@30.0.0-alpha.3", "error": null, "fallback_files": 0}
+{"completed": 950, "total": 1902, "id": "@parameter1/base-cms-section-query-generator@4.40.3", "error": null, "fallback_files": 0}
+{"completed": 960, "total": 1902, "id": "helprs@0.21.1", "error": null, "fallback_files": 0}
+{"completed": 970, "total": 1902, "id": "is-number@7.0.0", "error": null, "fallback_files": 0}
+{"completed": 980, "total": 1902, "id": "create-wypam-app@1.0.5", "error": null, "fallback_files": 0}
+{"completed": 990, "total": 1902, "id": "@ryancavanaugh/random-js@1.0.12-alpha", "error": null, "fallback_files": 0}
+{"completed": 1000, "total": 1902, "id": "an-786-dir@4.0.2", "error": null, "fallback_files": 0}
+{"completed": 1010, "total": 1902, "id": "fotology@1.2.2", "error": null, "fallback_files": 0}
+{"completed": 1020, "total": 1902, "id": "querystringify@2.2.0", "error": null, "fallback_files": 0}
+{"completed": 1030, "total": 1902, "id": "@celo/ledger-token-signer@0.4.0", "error": null, "fallback_files": 0}
+{"completed": 1040, "total": 1902, "id": "typeface-spinnaker@1.1.13", "error": null, "fallback_files": 0}
+{"completed": 1050, "total": 1902, "id": "@babel/plugin-syntax-jsx@8.0.0-alpha.8", "error": null, "fallback_files": 0}
+{"completed": 1060, "total": 1902, "id": "@deot/dev-dever@2.8.2", "error": null, "fallback_files": 0}
+{"completed": 1070, "total": 1902, "id": "rent@2.0.0", "error": null, "fallback_files": 0}
+{"completed": 1080, "total": 1902, "id": "hive-multisig-sdk@0.1.8", "error": null, "fallback_files": 0}
+{"completed": 1090, "total": 1902, "id": "jasmine-runner@0.2.9", "error": null, "fallback_files": 0}
+{"completed": 1100, "total": 1902, "id": "custom-textinput@1.0.1", "error": null, "fallback_files": 1}
+{"completed": 1110, "total": 1902, "id": "vk-api-open-methods@1.0.2", "error": null, "fallback_files": 0}
+{"completed": 1120, "total": 1902, "id": "@dbux/common@0.7.9", "error": null, "fallback_files": 0}
+{"completed": 1130, "total": 1902, "id": "yarn@2.4.3", "error": null, "fallback_files": 0}
+{"completed": 1140, "total": 1902, "id": "cross-pwd@1.0.4", "error": null, "fallback_files": 0}
+{"completed": 1150, "total": 1902, "id": "@21epub/create-storybook-react-library@0.3.3", "error": null, "fallback_files": 0}
+{"completed": 1160, "total": 1902, "id": "key-name@1.1.3", "error": null, "fallback_files": 0}
+{"completed": 1170, "total": 1902, "id": "kindle2notion@0.1.5", "error": null, "fallback_files": 0}
+{"completed": 1180, "total": 1902, "id": "@bunnyapp/invoice-component@1.0.22", "error": null, "fallback_files": 0}
+{"completed": 1190, "total": 1902, "id": "@icedesign/awesome-icon@0.1.2", "error": null, "fallback_files": 0}
+{"completed": 1200, "total": 1902, "id": "@portabletext/to-html@2.0.13", "error": null, "fallback_files": 0}
+{"completed": 1210, "total": 1902, "id": "@rededor/cura@1.2.0-rc.0", "error": null, "fallback_files": 0}
+{"completed": 1220, "total": 1902, "id": "kaan-bitcoinjs-lib@5.4.0", "error": null, "fallback_files": 0}
+{"completed": 1230, "total": 1902, "id": "lego-yaojin-utils@0.0.5", "error": null, "fallback_files": 0}
+{"completed": 1240, "total": 1902, "id": "unofficial-electrify@2.1.7", "error": null, "fallback_files": 0}
+{"completed": 1250, "total": 1902, "id": "wrappy@1.0.2", "error": null, "fallback_files": 0}
+{"completed": 1260, "total": 1902, "id": "@kingkongdevs/vite-plugin-svg-inline@0.0.4", "error": null, "fallback_files": 0}
+{"completed": 1270, "total": 1902, "id": "@gejoy/gj-count@0.0.2", "error": null, "fallback_files": 0}
+{"completed": 1280, "total": 1902, "id": "jest-validate@30.0.0-alpha.3", "error": null, "fallback_files": 0}
+{"completed": 1290, "total": 1902, "id": "@topol.io/editor-svelte@0.1.0", "error": null, "fallback_files": 0}
+{"completed": 1300, "total": 1902, "id": "path-exists@5.0.0", "error": null, "fallback_files": 0}
+{"completed": 1310, "total": 1902, "id": "clow@0.0.7", "error": null, "fallback_files": 0}
+{"completed": 1320, "total": 1902, "id": "balanced-match@3.0.1", "error": null, "fallback_files": 0}
+{"completed": 1330, "total": 1902, "id": "silly-browser-inspect@1.0.1", "error": null, "fallback_files": 0}
+{"completed": 1340, "total": 1902, "id": "thebluealliance@1.2.3", "error": null, "fallback_files": 0}
+{"completed": 1350, "total": 1902, "id": "crypto-random-string@5.0.0", "error": null, "fallback_files": 0}
+{"completed": 1360, "total": 1902, "id": "cssstyle@4.0.1", "error": null, "fallback_files": 0}
+Timeout (0:01:00)!
+Thread 0x00007dcf3f8fd340 (most recent call first):
+  File "/usr/local/lib/python3.12/selectors.py", line 415 in select
+  File "/usr/local/lib/python3.12/subprocess.py", line 2115 in _communicate
+  File "/usr/local/lib/python3.12/subprocess.py", line 1209 in communicate
+  File "/usr/local/lib/python3.12/subprocess.py", line 550 in run
+  File "/workspace/pipeline/normalization.py", line 69 in normalize_jobs
+  File "/workspace/pipeline/normalization.py", line 114 in prepared_pair
+  File "/usr/local/lib/python3.12/contextlib.py", line 137 in __enter__
+  File "/workspace/pipeline/smartdiff.py", line 205 in build
+  File "/workspace/pipeline/dataset.py", line 41 in build_row
+  File "/workspace/pipeline/preprocess_corpus.py", line 31 in build
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 264 in _process_worker
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108 in run
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314 in _bootstrap
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 71 in _launch
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 19 in __init__
+  File "/usr/local/lib/python3.12/multiprocessing/context.py", line 282 in _Popen
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 121 in start
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 799 in _spawn_process
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 789 in _launch_processes
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 762 in _start_executor_manager_thread
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 823 in submit
+  File "/workspace/pipeline/preprocess_corpus.py", line 64 in main
+  File "/workspace/pipeline/preprocess_corpus.py", line 76 in <module>
+{"completed": 1370, "total": 1902, "id": "fast-diff@1.3.0", "error": null, "fallback_files": 0}
+{"completed": 1380, "total": 1902, "id": "irmapfz@1.0.3", "error": null, "fallback_files": 0}
+{"completed": 1390, "total": 1902, "id": "escape-html@1.0.3", "error": null, "fallback_files": 0}
+{"completed": 1400, "total": 1902, "id": "@mathmore0000/vue-dynamic-forms@1.1.8", "error": null, "fallback_files": 2}
+{"completed": 1410, "total": 1902, "id": "@web3-storage/upload-client@14.0.0", "error": null, "fallback_files": 0}
+{"completed": 1420, "total": 1902, "id": "@jridgewell/resolve-uri@3.1.2", "error": null, "fallback_files": 0}
+{"completed": 1430, "total": 1902, "id": "ly-ui@1.1.0", "error": null, "fallback_files": 0}
+{"completed": 1440, "total": 1902, "id": "submarin-converter-core-v2@0.1.4", "error": null, "fallback_files": 0}
+{"completed": 1450, "total": 1902, "id": "@enonic-types/lib-repo@7.14.1", "error": null, "fallback_files": 0}
+{"completed": 1460, "total": 1902, "id": "@types/semver@7.5.8", "error": null, "fallback_files": 0}
+{"completed": 1470, "total": 1902, "id": "@focme/argv@4.0.1", "error": null, "fallback_files": 0}
+{"completed": 1480, "total": 1902, "id": "@aquisi/base-marketplace-types@1.163.0", "error": null, "fallback_files": 0}
+{"completed": 1490, "total": 1902, "id": "@dstny/scp-sdk@2.9.0", "error": null, "fallback_files": 0}
+{"completed": 1500, "total": 1902, "id": "igor-dzhersh-snowman-lib@1.1.0", "error": null, "fallback_files": 0}
+{"completed": 1510, "total": 1902, "id": "figures@6.1.0", "error": null, "fallback_files": 0}
+{"completed": 1520, "total": 1902, "id": "opearlo@0.1.2", "error": null, "fallback_files": 0}
+{"completed": 1526, "total": 1902, "id": "@libav.js/variant-vp9-opus@6.5.7", "error": "TimeoutExpired: Command '['normalize-pair', '/tmp/intendiff-normalize-uq8b06h1/jobs.json']' timed out after 300 seconds", "fallback_files": null}
+{"completed": 1530, "total": 1902, "id": "better-monitor@0.0.42", "error": null, "fallback_files": 0}
+{"completed": 1540, "total": 1902, "id": "keytar-pass@6.1.4", "error": null, "fallback_files": 0}
+{"completed": 1550, "total": 1902, "id": "@starzkg/vuepress-plugin-giscus-comment@1.0.3", "error": null, "fallback_files": 0}
+{"completed": 1560, "total": 1902, "id": "minicolumns@1.0.1", "error": null, "fallback_files": 0}
+{"completed": 1570, "total": 1902, "id": "@bedrockio/model@0.7.6", "error": null, "fallback_files": 0}
+{"completed": 1580, "total": 1902, "id": "long@5.2.3", "error": null, "fallback_files": 0}
+{"completed": 1590, "total": 1902, "id": "ag-grid-angular@33.0.4", "error": null, "fallback_files": 0}
+{"completed": 1600, "total": 1902, "id": "env-paths@3.0.0", "error": null, "fallback_files": 0}
+{"completed": 1610, "total": 1902, "id": "unvired@1.0.0", "error": null, "fallback_files": 0}
+{"completed": 1620, "total": 1902, "id": "htmlparser2@9.1.0", "error": null, "fallback_files": 0}
+{"completed": 1630, "total": 1902, "id": "blazor-wasm-single-spa@0.5.0", "error": null, "fallback_files": 0}
+Timeout (0:01:00)!
+Thread 0x00007dcf3f8fd340 (most recent call first):
+  File "/usr/local/lib/python3.12/selectors.py", line 415 in select
+  File "/usr/local/lib/python3.12/subprocess.py", line 2115 in _communicate
+  File "/usr/local/lib/python3.12/subprocess.py", line 1209 in communicate
+  File "/usr/local/lib/python3.12/subprocess.py", line 550 in run
+  File "/workspace/pipeline/normalization.py", line 69 in normalize_jobs
+  File "/workspace/pipeline/normalization.py", line 114 in prepared_pair
+  File "/usr/local/lib/python3.12/contextlib.py", line 137 in __enter__
+  File "/workspace/pipeline/smartdiff.py", line 205 in build
+  File "/workspace/pipeline/dataset.py", line 41 in build_row
+  File "/workspace/pipeline/preprocess_corpus.py", line 31 in build
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 264 in _process_worker
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108 in run
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314 in _bootstrap
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 71 in _launch
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 19 in __init__
+  File "/usr/local/lib/python3.12/multiprocessing/context.py", line 282 in _Popen
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 121 in start
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 799 in _spawn_process
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 789 in _launch_processes
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 762 in _start_executor_manager_thread
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 823 in submit
+  File "/workspace/pipeline/preprocess_corpus.py", line 64 in main
+  File "/workspace/pipeline/preprocess_corpus.py", line 76 in <module>
+{"completed": 1640, "total": 1902, "id": "vue@3.4.22", "error": null, "fallback_files": 0}
+{"completed": 1650, "total": 1902, "id": "@xapi/xapi@3.0.1", "error": null, "fallback_files": 0}
+{"completed": 1660, "total": 1902, "id": "atropos-components@1.0.8", "error": null, "fallback_files": 0}
+{"completed": 1670, "total": 1902, "id": "cli-student-management@1.0.1", "error": null, "fallback_files": 0}
+{"completed": 1680, "total": 1902, "id": "templating-react-folder@1.0.6", "error": null, "fallback_files": 0}
+{"completed": 1690, "total": 1902, "id": "assistify-chatbot@1.2.8", "error": null, "fallback_files": 0}
+{"completed": 1700, "total": 1902, "id": "@angular/animations@18.0.0-next.4", "error": null, "fallback_files": 0}
+{"completed": 1710, "total": 1902, "id": "csstype@3.1.3", "error": null, "fallback_files": 0}
+{"completed": 1720, "total": 1902, "id": "@babel/eslint-parser@8.0.0-alpha.8", "error": null, "fallback_files": 0}
+{"completed": 1730, "total": 1902, "id": "sc-compression@2.1.0", "error": null, "fallback_files": 0}
+{"completed": 1740, "total": 1902, "id": "eventemitter3@5.0.1", "error": null, "fallback_files": 0}
+{"completed": 1750, "total": 1902, "id": "@liveryvideo/biome-lit@1.4.1", "error": null, "fallback_files": 0}
+{"completed": 1760, "total": 1902, "id": "eslint-visitor-keys@4.0.0", "error": null, "fallback_files": 0}
+{"completed": 1770, "total": 1902, "id": "event-target-shim@6.0.2", "error": null, "fallback_files": 0}
+{"completed": 1780, "total": 1902, "id": "content-disposition@0.5.4", "error": null, "fallback_files": 0}
+{"completed": 1790, "total": 1902, "id": "@zishone/logan@0.1.4", "error": null, "fallback_files": 0}
+{"completed": 1800, "total": 1902, "id": "genius-lyrics-fetcher@2.1.0", "error": null, "fallback_files": 0}
+Timeout (0:01:00)!
+Thread 0x00007dcf3f8fd340 (most recent call first):
+  File "/usr/local/lib/python3.12/selectors.py", line 415 in select
+  File "/usr/local/lib/python3.12/subprocess.py", line 2115 in _communicate
+  File "/usr/local/lib/python3.12/subprocess.py", line 1209 in communicate
+  File "/usr/local/lib/python3.12/subprocess.py", line 550 in run
+  File "/workspace/pipeline/normalization.py", line 69 in normalize_jobs
+  File "/workspace/pipeline/normalization.py", line 114 in prepared_pair
+  File "/usr/local/lib/python3.12/contextlib.py", line 137 in __enter__
+  File "/workspace/pipeline/smartdiff.py", line 205 in build
+  File "/workspace/pipeline/dataset.py", line 41 in build_row
+  File "/workspace/pipeline/preprocess_corpus.py", line 31 in build
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 264 in _process_worker
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108 in run
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314 in _bootstrap
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 71 in _launch
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 19 in __init__
+  File "/usr/local/lib/python3.12/multiprocessing/context.py", line 282 in _Popen
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 121 in start
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 799 in _spawn_process
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 789 in _launch_processes
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 762 in _start_executor_manager_thread
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 823 in submit
+  File "/workspace/pipeline/preprocess_corpus.py", line 64 in main
+  File "/workspace/pipeline/preprocess_corpus.py", line 76 in <module>
+{"completed": 1810, "total": 1902, "id": "cv3-route@0.0.3", "error": null, "fallback_files": 0}
+Timeout (0:01:00)!
+Thread 0x00007dcf3f8fd340 (most recent call first):
+  File "/workspace/pipeline/capability.py", line 107 in encoded_literals
+  File "/workspace/pipeline/capability.py", line 139 in scan_text
+  File "/workspace/pipeline/capability.py", line 187 in scan_version
+  File "/workspace/pipeline/capability.py", line 252 in delta
+  File "/workspace/pipeline/capability.py", line 272 in delta_evidence
+  File "/workspace/pipeline/dataset.py", line 57 in build_row
+  File "/workspace/pipeline/preprocess_corpus.py", line 31 in build
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 264 in _process_worker
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108 in run
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314 in _bootstrap
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 71 in _launch
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 19 in __init__
+  File "/usr/local/lib/python3.12/multiprocessing/context.py", line 282 in _Popen
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 121 in start
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 799 in _spawn_process
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 789 in _launch_processes
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 762 in _start_executor_manager_thread
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 823 in submit
+  File "/workspace/pipeline/preprocess_corpus.py", line 64 in main
+  File "/workspace/pipeline/preprocess_corpus.py", line 76 in <module>
+{"completed": 1820, "total": 1902, "id": "gitbook-version-swag@1.0.2", "error": null, "fallback_files": 0}
+{"completed": 1830, "total": 1902, "id": "@kayahr/jest-matchers@28.2.0", "error": null, "fallback_files": 0}
+{"completed": 1840, "total": 1902, "id": "fis-packager-map@0.0.9", "error": null, "fallback_files": 0}
+{"completed": 1850, "total": 1902, "id": "@freaktechnik/eslint-config-react@10.1.5", "error": null, "fallback_files": 0}
+{"completed": 1860, "total": 1902, "id": "maven-ui-kit@4.17.0-rc0", "error": null, "fallback_files": 0}
+{"completed": 1870, "total": 1902, "id": "log-update@6.0.0", "error": null, "fallback_files": 0}
+Timeout (0:01:00)!
+Thread 0x00007dcf3f8fd340 (most recent call first):
+  File "/usr/local/lib/python3.12/pathlib.py", line 555 in drive
+  File "/usr/local/lib/python3.12/pathlib.py", line 270 in __init__
+  File "/usr/local/lib/python3.12/pathlib.py", line 746 in parents
+  File "/usr/local/lib/python3.12/pathlib.py", line 678 in relative_to
+  File "/workspace/pipeline/capability.py", line 83 in text_files
+  File "/workspace/pipeline/capability.py", line 241 in deletion_counts
+  File "/workspace/pipeline/capability.py", line 246 in large_deletion
+  File "/workspace/pipeline/capability.py", line 263 in delta
+  File "/workspace/pipeline/dataset.py", line 56 in build_row
+  File "/workspace/pipeline/preprocess_corpus.py", line 31 in build
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 264 in _process_worker
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108 in run
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314 in _bootstrap
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 71 in _launch
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 19 in __init__
+  File "/usr/local/lib/python3.12/multiprocessing/context.py", line 282 in _Popen
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 121 in start
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 799 in _spawn_process
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 789 in _launch_processes
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 762 in _start_executor_manager_thread
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 823 in submit
+  File "/workspace/pipeline/preprocess_corpus.py", line 64 in main
+  File "/workspace/pipeline/preprocess_corpus.py", line 76 in <module>
+{"completed": 1880, "total": 1902, "id": "rwlndshprd-frame-print@1.1.2", "error": null, "fallback_files": 0}
+{"completed": 1890, "total": 1902, "id": "eslint-config-tamia@9.2.1", "error": null, "fallback_files": 0}
+{"completed": 1900, "total": 1902, "id": "@typescript-eslint/typescript-estree@7.7.1-alpha.0", "error": null, "fallback_files": 0}
+Timeout (0:01:00)!
+Thread 0x00007dcf3f8fd340 (most recent call first):
+  File "/workspace/pipeline/capability.py", line 131 in scan_text
+  File "/workspace/pipeline/capability.py", line 187 in scan_version
+  File "/workspace/pipeline/capability.py", line 252 in delta
+  File "/workspace/pipeline/capability.py", line 272 in delta_evidence
+  File "/workspace/pipeline/dataset.py", line 57 in build_row
+  File "/workspace/pipeline/preprocess_corpus.py", line 31 in build
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 264 in _process_worker
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 108 in run
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 314 in _bootstrap
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 71 in _launch
+  File "/usr/local/lib/python3.12/multiprocessing/popen_fork.py", line 19 in __init__
+  File "/usr/local/lib/python3.12/multiprocessing/context.py", line 282 in _Popen
+  File "/usr/local/lib/python3.12/multiprocessing/process.py", line 121 in start
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 799 in _spawn_process
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 789 in _launch_processes
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 762 in _start_executor_manager_thread
+  File "/usr/local/lib/python3.12/concurrent/futures/process.py", line 823 in submit
+  File "/workspace/pipeline/preprocess_corpus.py", line 64 in main
+  File "/workspace/pipeline/preprocess_corpus.py", line 76 in <module>
+{"completed": 1902, "total": 1902, "id": "gate-lowcode-component@0.2.17", "error": null, "fallback_files": 0}

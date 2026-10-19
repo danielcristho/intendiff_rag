@@ -1,0 +1,846 @@
+{
+  "metrics": [
+    {
+      "config": "DIFF",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1549,
+        "FP": 319,
+        "FN": 21,
+        "TP": 12
+      },
+      "tpr_source": 0.36363636363636365,
+      "cohort_accuracy": 0.8211467648605997,
+      "balanced_accuracy": 0.5964327428460191,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 60,
+          "fpr": 0.16,
+          "wilson_95": [
+            0.12637060122372556,
+            0.20052461031464086
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 125,
+          "fpr": 0.18063583815028902,
+          "wilson_95": [
+            0.15375991413513915,
+            0.21103792250268114
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 134,
+          "fpr": 0.16729088639200998,
+          "wilson_95": [
+            0.1430445245931689,
+            0.19471324849547617
+          ]
+        }
+      },
+      "invalid": 16,
+      "model": "microsoft/Phi-4-mini-instruct",
+      "tpr_wilson_95": [
+        0.2218717823524236,
+        0.5338382169773361
+      ],
+      "cost": {
+        "median_latency_ms": 404.8,
+        "p95_latency_ms": 2990.3,
+        "mean_prompt_tokens": 3213.845344555497,
+        "mean_completion_tokens": 58.55917937927406
+      }
+    },
+    {
+      "config": "DIFF",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1533,
+        "FP": 335,
+        "FN": 21,
+        "TP": 12
+      },
+      "tpr_source": 0.36363636363636365,
+      "cohort_accuracy": 0.8127301420305103,
+      "balanced_accuracy": 0.5921500875997664,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 60,
+          "fpr": 0.16,
+          "wilson_95": [
+            0.12637060122372556,
+            0.20052461031464086
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 135,
+          "fpr": 0.19508670520231214,
+          "wilson_95": [
+            0.1672789781802899,
+            0.22626103779518555
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 140,
+          "fpr": 0.17478152309612985,
+          "wilson_95": [
+            0.15005023151137867,
+            0.2026173102882163
+          ]
+        }
+      },
+      "invalid": 16,
+      "model": "microsoft/Phi-4-mini-instruct",
+      "tpr_wilson_95": [
+        0.2218717823524236,
+        0.5338382169773361
+      ],
+      "cost": {
+        "median_latency_ms": 404.8,
+        "p95_latency_ms": 2990.3,
+        "mean_prompt_tokens": 3213.845344555497,
+        "mean_completion_tokens": 58.55917937927406
+      }
+    },
+    {
+      "config": "DIFF+I",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1609,
+        "FP": 259,
+        "FN": 16,
+        "TP": 17
+      },
+      "tpr_source": 0.5151515151515151,
+      "cohort_accuracy": 0.855339295107838,
+      "balanced_accuracy": 0.6882502757770423,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 53,
+          "fpr": 0.14133333333333334,
+          "wilson_95": [
+            0.10970265113103714,
+            0.18023778770747492
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 87,
+          "fpr": 0.12572254335260116,
+          "wilson_95": [
+            0.10306888351060883,
+            0.15250867164412174
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 119,
+          "fpr": 0.14856429463171036,
+          "wilson_95": [
+            0.12561330462120168,
+            0.17487004669006884
+          ]
+        }
+      },
+      "invalid": 10,
+      "model": "microsoft/Phi-4-mini-instruct",
+      "tpr_wilson_95": [
+        0.3521837544891414,
+        0.674959578918663
+      ],
+      "cost": {
+        "median_latency_ms": 432.2,
+        "p95_latency_ms": 2949.9,
+        "mean_prompt_tokens": 3714.3819042609152,
+        "mean_completion_tokens": 54.17201472908995
+      }
+    },
+    {
+      "config": "DIFF+I",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1599,
+        "FP": 269,
+        "FN": 16,
+        "TP": 17
+      },
+      "tpr_source": 0.5151515151515151,
+      "cohort_accuracy": 0.8500789058390321,
+      "balanced_accuracy": 0.6855736162481345,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 54,
+          "fpr": 0.144,
+          "wilson_95": [
+            0.11207211904521434,
+            0.183147573036134
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 92,
+          "fpr": 0.1329479768786127,
+          "wilson_95": [
+            0.10966660465591091,
+            0.16028204016764722
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 123,
+          "fpr": 0.15355805243445692,
+          "wilson_95": [
+            0.13024940492697987,
+            0.18017379219159055
+          ]
+        }
+      },
+      "invalid": 10,
+      "model": "microsoft/Phi-4-mini-instruct",
+      "tpr_wilson_95": [
+        0.3521837544891414,
+        0.674959578918663
+      ],
+      "cost": {
+        "median_latency_ms": 432.2,
+        "p95_latency_ms": 2949.9,
+        "mean_prompt_tokens": 3714.3819042609152,
+        "mean_completion_tokens": 54.17201472908995
+      }
+    },
+    {
+      "config": "DIFF+I+M",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1099,
+        "FP": 769,
+        "FN": 7,
+        "TP": 26
+      },
+      "tpr_source": 0.7878787878787878,
+      "cohort_accuracy": 0.5917937927406628,
+      "balanced_accuracy": 0.6881042761663747,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 144,
+          "fpr": 0.384,
+          "wilson_95": [
+            0.33618702153268143,
+            0.43416546240393783
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 281,
+          "fpr": 0.4060693641618497,
+          "wilson_95": [
+            0.37009532044660426,
+            0.44308051385863684
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 344,
+          "fpr": 0.42946317103620474,
+          "wilson_95": [
+            0.3956004165968934,
+            0.4639992613749957
+          ]
+        }
+      },
+      "invalid": 21,
+      "model": "microsoft/Phi-4-mini-instruct",
+      "tpr_wilson_95": [
+        0.6224835500784931,
+        0.8932397846697919
+      ],
+      "cost": {
+        "median_latency_ms": 472.1,
+        "p95_latency_ms": 3114.3,
+        "mean_prompt_tokens": 3899.788006312467,
+        "mean_completion_tokens": 57.86796422935297
+      }
+    },
+    {
+      "config": "DIFF+I+M",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1078,
+        "FP": 790,
+        "FN": 7,
+        "TP": 26
+      },
+      "tpr_source": 0.7878787878787878,
+      "cohort_accuracy": 0.5807469752761705,
+      "balanced_accuracy": 0.682483291155668,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 148,
+          "fpr": 0.39466666666666667,
+          "wilson_95": [
+            0.34650426576469423,
+            0.4449652311432703
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 292,
+          "fpr": 0.42196531791907516,
+          "wilson_95": [
+            0.38569847088680853,
+            0.4590937606898534
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 350,
+          "fpr": 0.4369538077403246,
+          "wilson_95": [
+            0.4029858803002085,
+            0.47152356638263054
+          ]
+        }
+      },
+      "invalid": 21,
+      "model": "microsoft/Phi-4-mini-instruct",
+      "tpr_wilson_95": [
+        0.6224835500784931,
+        0.8932397846697919
+      ],
+      "cost": {
+        "median_latency_ms": 472.1,
+        "p95_latency_ms": 3114.3,
+        "mean_prompt_tokens": 3899.788006312467,
+        "mean_completion_tokens": 57.86796422935297
+      }
+    },
+    {
+      "config": "DIFF+I+MM",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1180,
+        "FP": 688,
+        "TP": 22,
+        "FN": 11
+      },
+      "tpr_source": 0.6666666666666666,
+      "cohort_accuracy": 0.6322987901104682,
+      "balanced_accuracy": 0.6491791577444682,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 150,
+          "fpr": 0.4,
+          "wilson_95": [
+            0.3516720087110691,
+            0.45035599468256826
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 247,
+          "fpr": 0.3569364161849711,
+          "wilson_95": [
+            0.32212029356396765,
+            0.3933321309932458
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 291,
+          "fpr": 0.36329588014981273,
+          "wilson_95": [
+            0.3307148892383309,
+            0.39718183178683475
+          ]
+        }
+      },
+      "invalid": 23,
+      "model": "microsoft/Phi-4-mini-instruct",
+      "tpr_wilson_95": [
+        0.49607894427805604,
+        0.8024977232077932
+      ],
+      "cost": {
+        "median_latency_ms": 477.4,
+        "p95_latency_ms": 3245.2,
+        "mean_prompt_tokens": 4083.7727511835874,
+        "mean_completion_tokens": 57.662809047869544
+      }
+    },
+    {
+      "config": "DIFF+I+MM",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1157,
+        "FP": 711,
+        "TP": 22,
+        "FN": 11
+      },
+      "tpr_source": 0.6666666666666666,
+      "cohort_accuracy": 0.6201998947922146,
+      "balanced_accuracy": 0.64302284082798,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 154,
+          "fpr": 0.4106666666666667,
+          "wilson_95": [
+            0.36202553099096196,
+            0.46111948537402064
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 257,
+          "fpr": 0.3713872832369942,
+          "wilson_95": [
+            0.3361899848581627,
+            0.408004619036706
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 300,
+          "fpr": 0.37453183520599254,
+          "wilson_95": [
+            0.34168735559949315,
+            0.4085740184920973
+          ]
+        }
+      },
+      "invalid": 23,
+      "model": "microsoft/Phi-4-mini-instruct",
+      "tpr_wilson_95": [
+        0.49607894427805604,
+        0.8024977232077932
+      ],
+      "cost": {
+        "median_latency_ms": 477.4,
+        "p95_latency_ms": 3245.2,
+        "mean_prompt_tokens": 4083.7727511835874,
+        "mean_completion_tokens": 57.662809047869544
+      }
+    },
+    {
+      "config": "DIFF+I+MB",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1282,
+        "FP": 586,
+        "FN": 11,
+        "TP": 22
+      },
+      "tpr_source": 0.6666666666666666,
+      "cohort_accuracy": 0.6859547606522882,
+      "balanced_accuracy": 0.676481084939329,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 120,
+          "fpr": 0.32,
+          "wilson_95": [
+            0.27481670320087914,
+            0.3688337029076678
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 221,
+          "fpr": 0.319364161849711,
+          "wilson_95": [
+            0.28570578809551095,
+            0.3550169701837991
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 245,
+          "fpr": 0.30586766541822724,
+          "wilson_95": [
+            0.27494752483067886,
+            0.3386409694105381
+          ]
+        }
+      },
+      "invalid": 14,
+      "model": "microsoft/Phi-4-mini-instruct",
+      "tpr_wilson_95": [
+        0.49607894427805604,
+        0.8024977232077932
+      ],
+      "cost": {
+        "median_latency_ms": 473.9,
+        "p95_latency_ms": 3109.3,
+        "mean_prompt_tokens": 4076.374013677012,
+        "mean_completion_tokens": 56.275644397685426
+      }
+    },
+    {
+      "config": "DIFF+I+MB",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1268,
+        "FP": 600,
+        "FN": 11,
+        "TP": 22
+      },
+      "tpr_source": 0.6666666666666666,
+      "cohort_accuracy": 0.67859021567596,
+      "balanced_accuracy": 0.672733761598858,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 121,
+          "fpr": 0.32266666666666666,
+          "wilson_95": [
+            0.27735470982882227,
+            0.3715749495225611
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 231,
+          "fpr": 0.3338150289017341,
+          "wilson_95": [
+            0.2996821378417472,
+            0.36978279977521805
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 248,
+          "fpr": 0.3096129837702871,
+          "wilson_95": [
+            0.27856774356948627,
+            0.3424756350272055
+          ]
+        }
+      },
+      "invalid": 14,
+      "model": "microsoft/Phi-4-mini-instruct",
+      "tpr_wilson_95": [
+        0.49607894427805604,
+        0.8024977232077932
+      ],
+      "cost": {
+        "median_latency_ms": 473.9,
+        "p95_latency_ms": 3109.3,
+        "mean_prompt_tokens": 4076.374013677012,
+        "mean_completion_tokens": 56.275644397685426
+      }
+    },
+    {
+      "config": "DIFF+MB",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1234,
+        "FP": 634,
+        "FN": 13,
+        "TP": 20
+      },
+      "tpr_source": 0.6060606060606061,
+      "cohort_accuracy": 0.6596528143082588,
+      "balanced_accuracy": 0.6333300888975407,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 123,
+          "fpr": 0.328,
+          "wilson_95": [
+            0.2824359038657854,
+            0.3770522619712707
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 244,
+          "fpr": 0.35260115606936415,
+          "wilson_95": [
+            0.31790618045492613,
+            0.3889235903009908
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 267,
+          "fpr": 0.3333333333333333,
+          "wilson_95": [
+            0.3015514411554536,
+            0.36670620502591267
+          ]
+        }
+      },
+      "invalid": 11,
+      "model": "microsoft/Phi-4-mini-instruct",
+      "tpr_wilson_95": [
+        0.4368344081994022,
+        0.7531689256552292
+      ],
+      "cost": {
+        "median_latency_ms": 434.2,
+        "p95_latency_ms": 2995.3,
+        "mean_prompt_tokens": 3575.8374539715937,
+        "mean_completion_tokens": 58.658600736454495
+      }
+    },
+    {
+      "config": "DIFF+MB",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1223,
+        "FP": 645,
+        "FN": 13,
+        "TP": 20
+      },
+      "tpr_source": 0.6060606060606061,
+      "cohort_accuracy": 0.6538663861125723,
+      "balanced_accuracy": 0.6303857634157419,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 124,
+          "fpr": 0.33066666666666666,
+          "wilson_95": [
+            0.2849790696292107,
+            0.37978834945068163
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 248,
+          "fpr": 0.3583815028901734,
+          "wilson_95": [
+            0.32352570027087113,
+            0.39480094222010786
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 273,
+          "fpr": 0.3408239700374532,
+          "wilson_95": [
+            0.30882886272933413,
+            0.374338552162982
+          ]
+        }
+      },
+      "invalid": 11,
+      "model": "microsoft/Phi-4-mini-instruct",
+      "tpr_wilson_95": [
+        0.4368344081994022,
+        0.7531689256552292
+      ],
+      "cost": {
+        "median_latency_ms": 434.2,
+        "p95_latency_ms": 2995.3,
+        "mean_prompt_tokens": 3575.8374539715937,
+        "mean_completion_tokens": 58.658600736454495
+      }
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "baseline": "DIFF+I",
+      "variant": "DIFF+I+M",
+      "subset": "MAL",
+      "alarm_rate_delta_points": 27.27272727272727,
+      "campaign_bootstrap_95": [
+        12.121212121212121,
+        42.42424242424242
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "baseline": "DIFF+I",
+      "variant": "DIFF+I+M",
+      "subset": "TYP:live-stream-unseen-names",
+      "alarm_rate_delta_points": 24.266666666666666,
+      "campaign_bootstrap_95": [
+        18.933333333333334,
+        29.866666666666664
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "baseline": "DIFF+I",
+      "variant": "DIFF+I+M",
+      "subset": "TYP:popular",
+      "alarm_rate_delta_points": 28.034682080924856,
+      "campaign_bootstrap_95": [
+        23.98843930635838,
+        32.22543352601156
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "baseline": "DIFF+I",
+      "variant": "DIFF+I+M",
+      "subset": "TYP:random",
+      "alarm_rate_delta_points": 28.08988764044944,
+      "campaign_bootstrap_95": [
+        24.344569288389515,
+        31.835205992509362
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "baseline": "DIFF+I+MM",
+      "variant": "DIFF+I+MB",
+      "subset": "MAL",
+      "alarm_rate_delta_points": 0.0,
+      "campaign_bootstrap_95": [
+        -21.21212121212121,
+        21.212121212121215
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "baseline": "DIFF+I+MM",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:live-stream-unseen-names",
+      "alarm_rate_delta_points": -8.000000000000002,
+      "campaign_bootstrap_95": [
+        -12.8,
+        -3.1999999999999975
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "baseline": "DIFF+I+MM",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:popular",
+      "alarm_rate_delta_points": -3.757225433526007,
+      "campaign_bootstrap_95": [
+        -7.514450867052025,
+        0.0
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "baseline": "DIFF+I+MM",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:random",
+      "alarm_rate_delta_points": -5.742821473158549,
+      "campaign_bootstrap_95": [
+        -9.363295880149813,
+        -1.997503121098626
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "baseline": "DIFF+MB",
+      "variant": "DIFF+I+MB",
+      "subset": "MAL",
+      "alarm_rate_delta_points": 6.060606060606055,
+      "campaign_bootstrap_95": [
+        -12.121212121212121,
+        24.242424242424242
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "baseline": "DIFF+MB",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:live-stream-unseen-names",
+      "alarm_rate_delta_points": -0.8000000000000007,
+      "campaign_bootstrap_95": [
+        -6.133333333333335,
+        4.533333333333333
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "baseline": "DIFF+MB",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:popular",
+      "alarm_rate_delta_points": -3.3236994219653146,
+      "campaign_bootstrap_95": [
+        -7.61494252873563,
+        0.8695652173913049
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "microsoft/Phi-4-mini-instruct",
+      "baseline": "DIFF+MB",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:random",
+      "alarm_rate_delta_points": -2.7465667915106073,
+      "campaign_bootstrap_95": [
+        -6.367041198501871,
+        0.8739076154806513
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    }
+  ]
+}

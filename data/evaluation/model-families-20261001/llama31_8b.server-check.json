@@ -1,0 +1,20 @@
+{
+  "verified": true,
+  "model": "meta-llama/Llama-3.1-8B-Instruct",
+  "tokenization_requests": 2,
+  "new_llm_calls": 0,
+  "checks": [
+    {
+      "config": "DIFF",
+      "pair_id": "@fexd/icons-bootstrap@0.1.0",
+      "tokens": 28270,
+      "token_ids_match": true
+    },
+    {
+      "config": "DIFF+I",
+      "pair_id": "vant@3.6.13",
+      "tokens": 29186,
+      "token_ids_match": true
+    }
+  ]
+}

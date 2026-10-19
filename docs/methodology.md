@@ -1,5 +1,12 @@
 # Metodologi IntentDiff-RAG
 
+**Revisi aktif D99 (14 Oktober 2026):** eksperimen akhir memakai label sumber
+dataset dan TYP assumed-benign; anotasi dua manusia tidak menjadi prasyarat.
+[Protokol D99](source-labelled-final-20261014.md) menggantikan persyaratan
+gold, card ahli, minimum HN, dan klaim konfirmatori HN pada bagian lama di bawah.
+Aturan normalisasi, enam konfigurasi, dua model utama, dan eksklusi retrieval
+tetap berlaku. Snapshot eksperimen terdahulu tidak berubah.
+
 Status: final per 2026-09-13, dibekukan di Gate G2. Perubahan setelah itu wajib
 dicatat di [decisions.md](decisions.md); keputusan yang menyusun dokumen ini
 adalah D25–D43.
@@ -41,7 +48,7 @@ flowchart LR
 | Smart-diff | semua konfigurasi | [R] Wyss et al. |
 | Perubahan versi (`2.3.0 → 2.4.0`) | semua konfigurasi | [L] tidak mengidentifikasi paket, tetapi memberi konteks jenis rilis |
 | Intent profile | konfigurasi tanpa akhiran `-noint` | ablation RQ3 |
-| Card hasil retrieval | E2, E3, E3-k2, E4, E4-noint | ablation RQ2 |
+| Card hasil retrieval | DIFF+I+M, DIFF+I+MM, DIFF+I+MB, DIFF+MB | ablation RQ2 |
 | Nama paket | **tidak** | lihat di bawah |
 | Capability delta | **tidak**, hanya kunci retrieval | lihat di bawah |
 | Label, sumber, kampanye | **tidak** | mencegah kebocoran label |
@@ -99,9 +106,11 @@ naik SHA-256 dari string `nama@versi`.
 
 **Pemilihan:**
 
-- Duplikat `nama@versi` dari beberapa sumber digabung menjadi satu pair.
+- Duplikat `nama@versi` dari beberapa sumber digabung menjadi satu pair. Sumber 1 dan 4 tumpang tindih: 46 update Wyss berasal dari Backstabber's Knife Collection, dan dataset single-update RogueOne memuat 29 rogue dari koleksi yang sama. Jumlah pair unik setelah penggabungan dilaporkan di Gate G1.
 - Setiap kampanye (§3.6) diwakili maksimal 3 pair, dipilih menurut urutan hash.
+- **Kampanye pasca-rilis dikumpulkan lebih dulu** sampai target minimal 15 pair MAL dari kampanye yang terbit setelah batas rilis kedua model (§11.2) terpenuhi, baru sisa kuota diisi. Cap 3 pair per kampanye tetap berlaku (D58).
 - Target 50 pair, minimum 40. Aturan jika minimum tidak tercapai ada di research.md §5.
+- **Alur eksklusi dilaporkan per kriteria:** jumlah kandidat yang gugur pada masing-masing kriteria a, b, c, dan d, ditambah jumlah yang gugur karena cap kampanye (D59).
 
 ### 3.2 TYP
 
@@ -149,6 +158,16 @@ hanya dipakai untuk menyaring kandidat.
 - 100 untuk test (20 per kategori, minimum 15);
 - 25 untuk card benign di KB (5 per kategori).
 
+**Kalau sebuah kategori tidak memenuhi kuotanya** (D60): total tetap 100 test dan
+25 card, dan kekurangan satu kategori diisi dari kategori yang surplus menurut
+urutan hash. Komposisi akhir per kategori dilaporkan apa adanya, dan EA1 dibaca
+dengan n yang tidak sama antar kategori.
+
+- [L] Kategori ditentukan setelah verifikasi, bukan oleh sinyal penyaring, sehingga kuota per kategori tidak bisa dijamin oleh konstruksinya. Aturan pengisiannya ditulis sebelum G1 supaya bukan penyetelan setelah melihat data.
+
+**Aturan berhenti jalur B** (D60): pencarian sebuah kategori dihentikan setelah 25
+kandidat terverifikasi atau 250 hasil pencarian habis, mana yang lebih dulu.
+
 ### 3.4 Knowledge base
 
 **Card malicious (50):**
@@ -164,7 +183,7 @@ hanya dipakai untuk menyaring kandidat.
 
 **Card benign (25):** berasal dari bagian KB hasil pembagian HN (§3.3).
 
-- Jumlah card malicious lebih banyak (50 vs 25). Ini tidak memengaruhi E4, yang mengambil satu card terbaik dari masing-masing label, tetapi membuat E2 (KB campuran) lebih sering mendapat card malicious. Proporsi label card yang terambil di E2 dilaporkan.
+- Jumlah card malicious lebih banyak (50 vs 25). Ini tidak memengaruhi konfigurasi mana pun: DIFF+I+M dan DIFF+I+MM hanya mengambil card malicious, dan DIFF+I+MB mengambil satu card terbaik dari masing-masing label. Sebagai properti retrieval, proporsi label card teratas dihitung tanpa inferensi — kalau KB diperlakukan sebagai satu kolam campuran, berapa persen pair mendapat card malicious — dan dilaporkan dari `pairs.jsonl` dan `kb.jsonl` (D61).
 
 ### 3.5 Dev set
 
@@ -182,14 +201,14 @@ Satu-satunya pengecualian ada di §6.4.
 Dua item (pair atau card) masuk satu kampanye jika memenuhi **salah satu** syarat:
 
 - a. merujuk laporan insiden atau advisory yang sama;
-- b. memiliki file tambahan yang identik (SHA-256 isi file mentah sama);
+- b. memiliki file tambahan yang identik (SHA-256 isi file mentah sama), dengan panjang ≥ 64 byte setelah whitespace di awal dan akhir dibuang (`bytes.strip()`, D96). Whitespace di tengah tetap dihitung; hash tetap dihitung dari byte mentah. Aturan sebelum D96 tetap dilaporkan sebagai sensitivitas;
 - c. skor similarity Dolos (0–1) antara kode JS tambahannya ≥ 0,5, dihitung dengan parameter Wyss k=70 dan window 17 [R].
 
 Klaster akhir adalah penutupan transitif dari relasi di atas.
 
 **Kenapa ambang 0,5** [L]:
 
-- Kesalahan menggabungkan dua kampanye yang sebenarnya berbeda hanya mengurangi n, karena setiap kampanye dibatasi 3 pair.
+- Penggabungan berlebih mengurangi jumlah klaster efektif dan dapat mengurangi keragaman pair/KB melalui batas per kampanye. Dalam split berbasis paparan, penggabungan juga dapat memindahkan kandidat ke dev; dampaknya bukan hanya mengurangi n (audit D96: `docs/campaign-audit-20261013.md`). Keanggotaan klaster konservatif ini tidak membuktikan satu asal insiden.
 - Kesalahan memisahkan dua item yang sebenarnya satu kampanye menimbulkan kebocoran antara KB dan test, dan membuat bootstrap menganggap item yang berkorelasi sebagai independen.
 - Kesalahan kedua lebih merusak validitas, jadi ambang dibuat condong ke penggabungan.
 - Jumlah klaster pada ambang 0,5 dan 0,8 dilaporkan.
@@ -200,9 +219,11 @@ Klaster akhir adalah penutupan transitif dari relasi di atas.
 
 - **Isolasi:** ekstraksi tarball, smart-diff, capability extractor, dan Dolos dijalankan di container tanpa jaringan (`docker run --network none`).
   - [L] Alat seperti UglifyJS dan Webcrack membaca kode sampel sebagai data. Isolasi jaringan menjamin tidak ada request ke endpoint di dalam sampel, bahkan kalau sebuah alat berperilaku tidak terduga.
-- **Versi benign:** URL tarball diambil dari field `dist.tarball` pada dokumen versi `GET /{package}/{version}` di registry npm [R], lalu diunduh di luar container.
+- **Pair dari sumber Wyss:** kedua sisi diambil dari paket replikasi, bukan dari registry. Setiap baris `malicious_updates.txt` berformat `path_sebelum,path_sesudah`, jadi v_{t−1} dan v_t sama-sama ada di dalam zip (D57, D59).
+  - [L] Mengambil versi benign dari registry menambah dua risiko tanpa manfaat: tarball bisa berbeda dari yang dipakai Wyss (repack atau versi ditarik), dan untuk paket yang di-unpublish seluruhnya v_{t−1} tidak ada lagi. Memakai isi zip membuat masukan identik dengan masukan mereka.
+- **Versi benign dari sumber lain** (Datadog, OSV, RogueOne): URL tarball diambil dari field `dist.tarball` pada dokumen versi `GET /{package}/{version}` di registry npm [R], lalu diunduh di luar container. Di sumber-sumber ini kriteria (c) §3.1 bisa menggugurkan kandidat karena paketnya sudah hilang dari registry; jumlahnya dilaporkan.
 - **Versi malicious:** diambil dari zip Datadog (password `infected`), paket replikasi Wyss, atau artefak RogueOne.
-- **Checksum:** SHA-256 setiap tarball dicatat di `data/samples.jsonl`.
+- **Checksum:** SHA-256 setiap tarball dicatat di `data/samples.jsonl`, bersama asalnya (`replication` atau `registry`).
 - **Dilarang:** `npm install`, menjalankan `node` pada file sampel, `require`/`import` kode sampel, dan membuka URL atau IP dari sampel.
 
 ### 4.2 Smart-diff
@@ -210,7 +231,7 @@ Klaster akhir adalah penutupan transitif dari relasi di atas.
 Tiga langkah pertama mengikuti spesifikasi Wyss et al. [R]:
 
 1. File yang namanya berakhiran `js` (`*.js`, `*.mjs`, `*.cjs`, `*.ejs` — **bukan** `*.ts`) di kedua versi di-minify dengan `uglifyjs -c -m`, lalu di-unminify dengan `webcrack`. Tujuannya menyeragamkan nama variabel dan struktur, serta membuang komentar.
-2. Untuk file yang ada di kedua versi, kode berulang dihapus dengan Dolos (panjang k-gram 70, window 17), dipanggil sebagai `node index.mjs FILE PEMBANDING` yang menghasilkan `FILE.stripped`. **`index.mjs` tidak ikut dirilis di paket replikasi**, jadi langkah ini belum bisa direproduksi (D56).
+2. Untuk file yang ada di kedua versi, kode berulang dihapus dengan Dolos (panjang k-gram 70, window 17). Generator upstream memanggil `node index.mjs FILE PEMBANDING` yang menghasilkan `FILE.stripped`, tetapi **`index.mjs` tidak ikut dirilis** (D56). Implementasi lokal memakai rekonstruksi `static-dolos-exact-v2` (D72–D74): indeks fingerprint mengusulkan jendela kecocokan, dan hanya interior baris lengkap pada jendela dengan teks identik yang dihapus. Ini tidak diklaim identik dengan preprocessing Wyss.
 3. Kedua direktori dibandingkan dengan `diff -N -U 0 -r` menjadi satu smart-diff per pair, setelah `*.wasm`, `*.md`, `*.map`, `.npmignore`, `LICENSE*`, `license*`, `*.tsbuildinfo`, `package-lock.json`, dan `yarn.lock` dibuang. `package.json` ikut masuk; README tidak (D56).
 
 Tiga tambahan berikut melengkapi hal yang tidak dirinci Wyss:
@@ -220,6 +241,14 @@ Tiga tambahan berikut melengkapi hal yang tidak dirinci Wyss:
 6. **Versi alat dicatat dan dikunci:** UglifyJS, Webcrack, Dolos, dan diffutils.
 
 Paket replikasi Wyss memuat generatornya (`code/smart_diff_generator.py`), dan langkah 1–3 di atas dibaca langsung dari sana, bukan dari teks paper (D56).
+
+**Pelaksanaan statis lokal (D72):** Webcrack dijalankan dengan
+`deobfuscate=false`, `unpack=false`, dan sandbox yang menolak eksekusi ekspresi.
+File non-JS tidak di-minify; TypeScript tetap boleh dibandingkan oleh Dolos.
+File yang identik byte-nya dilewati di kedua sisi. Kegagalan transformasi atau
+file sumber lebih besar dari 4 MiB mempertahankan teks mentah dan dicatat per
+file. Timeout proses dicatat sebagai error pair. Input asli tidak berubah.
+Versi preprocessing, jumlah fallback, dan pemotongan dilaporkan bersama hasil.
 
 **Ukuran yang diharapkan:** rata-rata smart-diff di Wyss adalah 25.246 token (tokenizer GPT-4), dan 1,47% melebihi 128 ribu token [R]. Dengan konteks 32.768 token (§4.5), sebagian pair pasti perlu dipotong. Aturan pemotongannya ada di §4.5.
 
@@ -307,7 +336,7 @@ Panjang dihitung dengan tokenizer Qwen2.5-Coder-3B-Instruct.
 **Kapan pemotongan dihitung:** sekali per pair, dengan tokenizer Qwen2.5-Coder-3B-Instruct (model yang membatasi konteks). Diff hasil potongan yang sama dipakai di semua konfigurasi dan kedua model.
 
 - [L] Ini menjaga invarian bahwa smart-diff identik antar konfigurasi.
-- [L] Anggaran dihitung untuk konfigurasi terbesar (E4), jadi diff tidak perlu dipotong ulang untuk konfigurasi yang lebih kecil.
+- [L] Anggaran dihitung untuk konfigurasi terbesar (DIFF+I+MB), jadi diff tidak perlu dipotong ulang untuk konfigurasi yang lebih kecil.
 
 **Aturan pemotongan** jika smart-diff melebihi 28.000 token:
 
@@ -331,7 +360,7 @@ Panjang dihitung dengan tokenizer Qwen2.5-Coder-3B-Instruct.
 
 | Field | Isi | Ditampilkan ke model |
 |---|---|---|
-| `id`, `campaign`, `source` | metadata | tidak |
+| `id`, `name`, `version`, `campaign`, `source` | metadata; identitas untuk pengecualian retrieval | tidak |
 | `label` | `malicious` atau `benign` | ya |
 | `delta` | capability delta (§4.3) | tidak; hanya kunci retrieval |
 | `intent` | tujuan paket dalam satu kalimat, ≤ 64 token | ya |
@@ -344,7 +373,7 @@ dipangkas lebih dulu.
 
 **Penulisan:**
 
-- Card ditulis dalam bahasa Inggris oleh anotator A, lalu dicek anotator B dengan membandingkannya ke kode sumber.
+- D99: card disusun deterministik dari kode dan metadata dataset, dalam bahasa Inggris. Label sumber/assumed-benign dan lokasi kutipan disimpan. Tidak mengklaim rationale ahli atau review manusia; detail format ada di protokol D99.
 - Card disusun dari isi paket, tidak pernah dari output model.
 
 **Dasar:**
@@ -357,22 +386,33 @@ dipangkas lebih dulu.
 
 ### 5.2 Prosedur retrieval
 
-1. **Kandidat:** semua card, kecuali card dengan nama paket yang sama atau kampanye yang sama (§3.6) dengan pair.
+1. **Kandidat:** semua card, kecuali card dengan nama paket yang sama atau kampanye yang sama (§3.6) dengan pair. Untuk run mendatang setelah D88, nama dependency dalam `delta_evidence.dependency_change` dan nama pada `retrieval_exclude_names` juga dikecualikan: dependency target tidak boleh menjadi contoh jawaban berlabel. Field tambahan ini tidak masuk prompt dan tidak memakai intent.
 2. **Skor:** Jaccard antara delta pair dan delta card. Kalau keduanya kosong, skornya 0.
 3. **Urutan:** skor dari tertinggi. Kalau seri, urutkan naik menurut SHA-256 dari `pair_id|card_id`.
 4. **Pemilihan per konfigurasi:**
-   - E2: 1 card teratas tanpa melihat label;
-   - E3: 1 card malicious teratas;
-   - E3-k2: 2 card malicious teratas;
-   - E4 dan E4-noint: 1 card malicious teratas + 1 card benign teratas.
-5. **Urutan card di prompt** (aturan sama untuk E3-k2, E4, dan E4-noint):
+   - DIFF+I+M: 1 card malicious teratas;
+   - DIFF+I+MM: 2 card malicious teratas;
+   - DIFF+I+MB dan DIFF+MB: 1 card malicious teratas + 1 card benign teratas.
+5. **Urutan card di prompt** (aturan sama untuk DIFF+I+MM, DIFF+I+MB, dan DIFF+MB):
    - card malicious teratas ditaruh di posisi 1 jika `crc32(pair_id)` genap, di posisi 2 jika ganjil;
-   - slot lainnya diisi card kedua: malicious terbaik kedua untuk E3-k2, benign terbaik untuk E4 dan E4-noint;
-   - [L] dengan begitu E3-k2 dan E4 hanya berbeda pada card kedua, bukan pada posisi card pertama (D42).
+   - slot lainnya diisi card kedua: malicious terbaik kedua untuk DIFF+I+MM, benign terbaik untuk DIFF+I+MB dan DIFF+MB;
+   - [L] dengan begitu DIFF+I+MM dan DIFF+I+MB hanya berbeda pada card kedua, bukan pada posisi card pertama (D42).
 6. **Log:** `id`, `label`, skor, dan posisi setiap card disimpan di baris hasil.
 
-**Invarian:** retrieval tidak memakai intent. Akibatnya E4 dan E4-noint selalu
+**Pemeriksaan sebelum inferensi (D98):** seluruh pair/konfigurasi harus
+memenuhi jumlah dan label card di atas setelah eksklusi. Jika tidak cukup,
+batch berhenti sebelum request pertama; jangan diam-diam menjalankan MM/MB
+dengan satu atau tanpa card. Metadata nama/kampanye dan ID unik juga wajib.
+
+**Invarian:** retrieval tidak memakai intent. Akibatnya DIFF+I+MB dan DIFF+MB selalu
 mendapat card dan urutan yang sama.
+
+**Cakupan filter D88:** bukti otomatis dependency saat ini mencatat penambahan
+atau perpindahan ke sumber non-registry, dengan jumlah bukti dibatasi extractor.
+Ini belum menjamin semua perubahan versi, alias, dependency transitif, atau klon
+tercakup. Daftar pengecualian tambahan harus digabung ke pair sebelum menjalankan
+retrieval; sidecar audit tidak otomatis dibaca runner. Snapshot dan hasil historis
+tetap memakai aturan yang dibekukan pada run masing-masing.
 
 - [L] Dengan begitu RQ3 hanya mengukur efek intent yang tampil di prompt.
 
@@ -380,7 +420,7 @@ mendapat card dan urutan yang sama.
 
 - [R] Memakai contoh terdekat (nearest neighbor) sebagai demonstrasi lebih baik daripada contoh acak (Liu et al., 2022).
 - [R] Contoh positif dan negatif dalam prompt membantu model membedakan apa yang harus dihindari (Gao & Das, 2024).
-- [R] Urutan contoh dan frekuensi label menimbulkan recency bias dan majority-label bias (Zhao et al., 2021). Karena itu urutan card di E3-k2 dan E4 di-counterbalance, dan jumlah contoh dikontrol lewat E3-k2.
+- [R] Urutan contoh dan frekuensi label menimbulkan recency bias dan majority-label bias (Zhao et al., 2021). Karena itu urutan card di DIFF+I+MM dan DIFF+I+MB di-counterbalance, dan jumlah contoh dikontrol lewat DIFF+I+MM.
 
 **Kenapa Jaccard atas capability, bukan embedding teks** [L]:
 
@@ -442,7 +482,7 @@ Respond with JSON only, using exactly these keys in this order:
 {"evidence": ["up to 3 lines copied exactly from the smart-diff"], "reason": "one or two sentences", "verdict": "malicious" or "benign"}
 ```
 
-`{EXAMPLES_BLOCK}` hanya ada di konfigurasi retrieval. Di E0 dan E0-noint,
+`{EXAMPLES_BLOCK}` hanya ada di konfigurasi retrieval. Di DIFF dan DIFF+I,
 blok ini berupa string kosong.
 
 ```text
@@ -492,7 +532,14 @@ README excerpt:
 - [L] Model menghasilkan token secara berurutan, jadi verdict yang ditulis terakhir dipengaruhi oleh bukti dan alasan yang sudah ditulis sebelumnya.
 - [R] Wyss et al. menolak jawaban ya/tidak karena penalaran model jadi hilang.
 
-**Tanpa constrained decoding** (JSON mode atau guided decoding).
+**Desain lama D99/D100: tanpa constrained decoding** (JSON mode atau guided decoding).
+
+**D101 aktif:** semua arm/model memakai JSON Schema sama, setelah dua dev
+gagal format. Lihat protokol D99 bagian kondisi inferensi D101 dan
+`pipeline/output_schema.py`. Validitas JSON sekarang pemeriksaan teknis, bukan
+ukuran kemampuan format intrinsik; hasil dengan/tanpa constraint tidak
+digabung untuk mengestimasi efek retrieval. Dasar rancangan lama berikut
+dipertahankan sebagai riwayat trade-off, bukan aturan aktif batch D101.
 
 - [R] Tam et al. (2024): pembatasan format yang ketat menurunkan kemampuan penalaran.
 - [L] Validitas JSON adalah salah satu metrik yang diukur. Dengan constrained decoding, nilainya selalu 100%.
@@ -503,6 +550,13 @@ README excerpt:
 - [L] Dengan 2 model × 7 konfigurasi, classifier terlatih menambah sumber galat yang bisa berbeda antar konfigurasi. Galat itu akan ikut masuk ke selisih yang diuji.
 
 ### 6.4 Satu-satunya revisi prompt yang diizinkan
+
+**D100, 15 Oktober 2026:** satu revisi di bagian ini sudah digunakan setelah
+dev awal memberi validitas 75% (Qwen3) dan 78,33% (Qwen2.5). Instruksi format
+menambahkan JSON escaping tepat sekali, evidence paling banyak satu baris
+pendek atau array kosong, dan reason <30 kata. Teks aktif ada di
+`pipeline/prompts.py`; system prompt dan aturan keputusan tetap. Kedua model
+dan enam konfigurasi diuji ulang dalam snapshot terpisah sebelum test.
 
 Kalau validitas JSON di dev set di bawah 90% untuk salah satu model:
 
@@ -531,26 +585,18 @@ revisi hanya pada instruksi format mencegah penyetelan aturan keputusan.
 
 ## 8. Pelabelan
 
-**Siapa dan apa yang dilabeli:**
+Label evaluasi utama diwarisi dari dataset, bukan dibuat ulang oleh dua
+anotator (D99). MAL menyimpan asal label malicious dan pin record sumber.
+TYP menyimpan dasar assumed-benign serta pemeriksaan advisory kedua versi;
+ketiadaan advisory bukan bukti mutlak aman. `label_provenance` membedakan
+keduanya. Tidak ada `human_annotation_verified` atau `gold_evidence` buatan.
 
-- Dua anotator melabeli semua kandidat MAL dan HN secara independen lewat UI audit.
-- TYP tidak dilabeli ganda. TYP diasumsikan benign seperti di Wyss et al. [R], dan hanya dicek terhadap advisory.
-
-**Isi label:**
-
-- Semua kandidat: `malicious`, `benign`, atau `skip`.
-- HN: ditambah kategori 1–5.
-- MAL: ditambah `gold_evidence`, yaitu baris smart-diff yang memuat perilaku jahat, disalin verbatim. Ditulis anotator A dan dicek anotator B.
-
-**Kesepakatan antar anotator:**
-
-- Cohen's κ dilaporkan untuk label (MAL dan HN digabung) dan untuk kategori HN [R].
-- Ketidaksepakatan diselesaikan lewat diskusi, dan alasannya ditulis di `note`.
-- Kandidat yang tetap tidak disepakati diberi label `skip`, dikeluarkan dari test set, dan jumlahnya dilaporkan.
-
-**Urutan kerja:** seluruh pelabelan selesai sebelum model dijalankan pada test set.
-
-- [L] Anotator tidak boleh melihat output model, supaya label gold tidak terpengaruh prediksi.
+250 kandidat HN yang belum berlabel dipertahankan sebagai kohort diagnostik
+tanpa label: laporkan tingkat alarm, bukan FPR/akurasi. HN tidak wajib untuk
+merilis eksperimen utama MAL+TYP. Anotasi manusia tetap boleh dilakukan sebagai
+pengayaan opsional, tetapi κ dan evidence localization gold tidak dilaporkan
+jika anotasinya tidak tersedia. Semua label, split dan pemilihan card dibekukan
+sebelum prediksi test.
 
 ## 9. Model dan inferensi
 
@@ -638,21 +684,23 @@ nearest-rank).
 
 | ID | Card | Intent | Dipakai untuk |
 |---|---|---|---|
-| E0-noint | — | tidak | RQ1 |
-| E0 | — | ya | RQ1, RQ2a, RQ3 (sekunder) |
-| E2 | 1 teratas, label bebas | ya | pembanding sekunder |
-| E3 | 1 malicious teratas | ya | RQ2a |
-| E3-k2 | 2 malicious teratas | ya | RQ2b |
-| **E4** | 1 malicious teratas + 1 benign teratas | ya | RQ2b, RQ3 |
-| E4-noint | 1 malicious teratas + 1 benign teratas | tidak | RQ3 |
+| DIFF | — | tidak | RQ1 |
+| DIFF+I | — | ya | RQ1, RQ2a, RQ3 (sekunder) |
+| DIFF+I+M | 1 malicious teratas | ya | RQ2a |
+| DIFF+I+MM | 2 malicious teratas | ya | RQ2b |
+| **DIFF+I+MB** | 1 malicious teratas + 1 benign teratas | ya | RQ2b, RQ3 |
+| DIFF+MB | 1 malicious teratas + 1 benign teratas | tidak | RQ3 |
+
+ID menyatakan komposisi faktornya (D62): `DIFF` smart-diff, `I` blok intent,
+`M` card malicious, `B` card benign. Pemetaan dari ID lama ada di D62.
 
 **Setiap perbandingan konfirmatori hanya berbeda satu faktor:**
 
 | Perbandingan | Faktor yang berbeda |
 |---|---|
-| E0 vs E3 | ada tidaknya satu card malicious |
-| E3-k2 vs E4 | card kedua: malicious terbaik kedua vs benign terbaik; card pertama dan posisinya sama (§5.2) |
-| E4 vs E4-noint | ada tidaknya blok intent; card dan urutannya identik |
+| DIFF+I vs DIFF+I+M | ada tidaknya satu card malicious |
+| DIFF+I+MM vs DIFF+I+MB | card kedua: malicious terbaik kedua vs benign terbaik; card pertama dan posisinya sama (§5.2) |
+| DIFF+I+MB vs DIFF+MB | ada tidaknya blok intent; card dan urutannya identik |
 
 **Invarian di semua konfigurasi:**
 
@@ -719,10 +767,10 @@ research.md §5.
 
 - pair MAL dengan delta kosong;
 - pair dengan `truncated=true`;
-- insiden sebelum vs sesudah rilis model (EA3). Batasnya adalah tanggal commit pertama repositori model di Hugging Face, dicatat di decisions.md;
+- insiden sebelum vs sesudah rilis model (EA3). Batas operasionalnya adalah tanggal commit pertama repositori model di Hugging Face, sebagai proksi rilis publik; commit awal tidak dengan sendirinya membuktikan waktu bobot pertama kali tersedia. Tanggal rilis eksplisit di model card dicatat sebagai pembanding, dan kalau berbeda yang lebih awal yang dipakai. Batas yang ditemukan adalah 6 November 2024 untuk Qwen2.5-Coder-3B dan 5 Agustus 2025 untuk Qwen3-4B-Instruct-2507 (D58, D78). Lengan pasca-rilis ditargetkan minimal 15 pair MAL (§3.1);
 - per kategori HN (EA1);
 - per sumber data;
-- proporsi label card yang terambil di E2.
+- proporsi label card teratas kalau KB diperlakukan sebagai satu kolam campuran, dihitung tanpa inferensi (§3.4).
 
 ### 11.3 Batas yang bisa dibuktikan
 

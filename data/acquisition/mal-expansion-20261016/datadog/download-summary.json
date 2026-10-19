@@ -1,0 +1,10 @@
+{
+  "revision": "8a74a4c8ee0e1a2927f0419e0710968702ded609",
+  "historical_versions": 1438,
+  "current_versions": 1443,
+  "new_versions": 5,
+  "downloaded": 5,
+  "errors": 0,
+  "screened_independent_pairs": null,
+  "note": "New relative to historical Datadog inventory only; exposure screening pending."
+}

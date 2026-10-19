@@ -6,8 +6,8 @@ import { DecisionPanel } from "@/components/audit/DecisionPanel";
 import { CapabilityDelta } from "@/components/audit/CapabilityDelta";
 import { DiffView } from "@/components/audit/DiffView";
 import { FilterBar } from "@/components/audit/FilterBar";
-import { IntentView } from "@/components/audit/IntentView";
 import { ModelOutput } from "@/components/audit/ModelOutput";
+import { IntentView } from "@/components/audit/IntentView";
 import { useDecisions, usePairs, useSaveDecision } from "@/hooks/useAuditData";
 import { NO_FILTER, keep, type Filters } from "@/lib/audit";
 import type { Decision } from "@/types/api";
@@ -72,9 +72,9 @@ export function AuditPage() {
     return () => window.removeEventListener("keydown", onKey);
   });
 
-  if (pairsQuery.isLoading) return <StateBlock>Memuat pasangan…</StateBlock>;
-  if (pairsQuery.isError)
-    return <StateBlock tone="error">Gagal memuat: {String(pairsQuery.error)}</StateBlock>;
+  if (pairsQuery.isLoading || decisionsQuery.isLoading) return <StateBlock>Memuat pasangan…</StateBlock>;
+  if (pairsQuery.isError || decisionsQuery.isError)
+    return <StateBlock tone="error">Gagal memuat: {String(pairsQuery.error ?? decisionsQuery.error)}</StateBlock>;
 
   return (
     <div className="space-y-5">
@@ -109,7 +109,7 @@ export function AuditPage() {
             <Card>
               <h3 className="eyebrow">Intent</h3>
               <IntentView intent={pair.intent} />
-              <CapabilityDelta item={pair} />
+              <CapabilityDelta pair={pair} />
             </Card>
 
             <DecisionPanel pair={pair} entry={entry} onRecord={record} />
@@ -120,7 +120,7 @@ export function AuditPage() {
               <h3 className="eyebrow">Smart-diff</h3>
               <DiffView diff={pair.diff} />
             </Card>
-            <ModelOutput pair={pair} />
+            {pair.annotation_status !== "pending" && <ModelOutput pair={pair} />}
           </div>
         </div>
       )}

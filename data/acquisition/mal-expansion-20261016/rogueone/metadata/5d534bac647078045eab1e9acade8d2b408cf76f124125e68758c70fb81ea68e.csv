@@ -1,0 +1,111 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isFloat","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isArray","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isString","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isObject","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isNull","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isUndefined","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isBool","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.inArray","value,array",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isNumber","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isNullOrUndefined","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isDate","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isInt","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.Response","request,httpResponse,data",15
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.Request","client",15
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.Model","data",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Response()).__proto__.getErrorField","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Response()).__proto__.isSuccess","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Response()).__proto__.isError","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Response()).__proto__.getHttpResponse","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Response()).__proto__.getErrorCode","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Response()).__proto__.isValidationError","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Response()).__proto__.getErrorFieldMessage","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Response()).__proto__.isInputError","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Response()).__proto__.isListError","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Response()).__proto__.getErrorMessage","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Response()).__proto__.getErrors","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Response()).__proto__.getData","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Response()).__proto__.getInputErrorCount","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Response()).__proto__.getRequest","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Response()).__proto__.getErrorFields","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.getClient","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.BINARY_ENCODING_DEFAULT","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.send","callback",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.getBinaryEncoding","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.REQUEST_SCOPE_STORE","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.promise","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.setClient","client",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.setStoreCode","storeCode",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.toObject","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.setBinaryEncoding","binaryEncoding",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.processRequestHeaders","headers",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.getFunction","",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.BINARY_ENCODING_BASE64","",17
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.createResponse","httpResponse,data",29
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.getStoreCode","",29
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.REQUEST_SCOPE_DOMAIN","",29
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.getScope","",29
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Model()).__proto__.getField","field,defaultValue",29
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Model()).__proto__.setField","field,value",29
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Model()).__proto__.toObject","",29
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Model()).__proto__.hasField","field",29
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Response()).__proto__.getErrorField().promise","",29
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isDate","value",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isNull","value",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.inArray","value,array",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isNullOrUndefined","value",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isNumber","value",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isUndefined","value",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isBool","value",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isArray","value",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isInt","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isInt","value",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isObject","value",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isFunction","value",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isDate","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.inArray","value,array",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isString","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isFloat","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isBool","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isNull","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isNumber","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.Model","data",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.Request","client",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isFloat","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isBool","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isDate","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isObject","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isInstanceOf","value,type",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isUndefined","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isNumber","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isFunction","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isNull","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isNullOrUndefined","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isArray","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isInt","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.inArray","value,array",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isString","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.Model","data",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.Response","request,httpResponse,data",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.Request","client",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Model()).__proto__.toObject","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Model()).__proto__.getField","field,defaultValue",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Model()).__proto__.setField","field,value",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isFloat","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.inArray","value,array",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isObject","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isFunction","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isInt","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isInstanceOf","value,type",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isUndefined","value",2
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isDate","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isArray","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isString","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isBool","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.isNumber","value",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.Request","client",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.Model","data",4
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","module.exports.Response","request,httpResponse,data",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.getClient","",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.setClient","client",16
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples/merchantapi_2.0.3-->2.1.0/merchantapi-2.1.0/","(new module.exports.Request()).__proto__.getStoreCode","",16

@@ -1,0 +1,99 @@
+{
+  "id": "meta-llama/Llama-3.1-8B-Instruct",
+  "tag": "llama31_8b",
+  "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+  "path": "~/intendiff_rag/data/upstream/models/llama31_8b",
+  "parameters_billion_nominal": 8.0,
+  "parameters_billion": 8.030261248,
+  "chat_template_kwargs": {},
+  "gated": "manual",
+  "max_model_len": 32768,
+  "stop_token_ids": [
+    128001,
+    128008,
+    128009
+  ],
+  "size_group": "B: 5<=P<10B",
+  "comparison_models": [
+    "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "Qwen/Qwen3-8B"
+  ],
+  "pins": [
+    {
+      "path": "~/intendiff_rag/data/upstream/models/llama31_8b/LICENSE",
+      "bytes": 7627,
+      "sha256": "64e1b2889b7892e6bbe7a7ed5bfe6ff793c61f9d584345f8f41cf9f5cb30a369",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/llama31_8b/README.md",
+      "bytes": 44044,
+      "sha256": "ed0e2e86f7a40c38b793b0a04dfd993b2c1dfb34906804f96b999f0bbd8d70e6",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/llama31_8b/config.json",
+      "bytes": 855,
+      "sha256": "29e4c210b0d6ac178b16b2a255a568bdb23b581e50ca1ef6a6d071dd85704e6e",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/llama31_8b/generation_config.json",
+      "bytes": 184,
+      "sha256": "189fb0c0d7fd8a527db217c0a60a0e013f0394cd8800f9697a666a9e75e5f7fd",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/llama31_8b/model-00001-of-00004.safetensors",
+      "bytes": 4976698672,
+      "sha256": "2b1879f356aed350030bb40eb45ad362c89d9891096f79a3ab323d3ba5607668",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/llama31_8b/model-00002-of-00004.safetensors",
+      "bytes": 4999802720,
+      "sha256": "09d433f650646834a83c580877bd60c6d1f88f7755305c12576b5c7058f9af15",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/llama31_8b/model-00003-of-00004.safetensors",
+      "bytes": 4915916176,
+      "sha256": "fc1cdddd6bfa91128d6e94ee73d0ce62bfcdb7af29e978ddcab30c66ae9ea7fa",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/llama31_8b/model-00004-of-00004.safetensors",
+      "bytes": 1168138808,
+      "sha256": "92ecfe1a2414458b4821ac8c13cf8cb70aed66b5eea8dc5ad9eeb4ff309d6d7b",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/llama31_8b/model.safetensors.index.json",
+      "bytes": 23950,
+      "sha256": "146776fce3f6db1103aa6f249e65ee5544c5923ce6f971b092eee79aa6e5d37b",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/llama31_8b/special_tokens_map.json",
+      "bytes": 296,
+      "sha256": "6f38c73729248f6c127296386e3cdde96e254636cc58b4169d3fd32328d9a8ec",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/llama31_8b/tokenizer.json",
+      "bytes": 9085657,
+      "sha256": "79e3e522635f3171300913bb421464a87de6222182a0570b9b2ccba2a964b2b4",
+      "historical_sha256_match": true
+    },
+    {
+      "path": "~/intendiff_rag/data/upstream/models/llama31_8b/tokenizer_config.json",
+      "bytes": 55351,
+      "sha256": "177c7b61e616fecb84c17ce0591acb92c6c4d60e9ac5ababfb940ff23bbcd424",
+      "historical_sha256_match": true
+    }
+  ],
+  "manifest_pin": {
+    "path": "data/evaluation/full-method-20261012/llama31_8b.model-manifest.json",
+    "sha256": "b731e10f4469d01e6d36aef5a86a0ec12cf5158806ce5ca4348713d0e373941e"
+  }
+}

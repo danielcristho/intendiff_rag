@@ -1,0 +1,5 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/admin_1.4.0-->1.4.1/admin-1.4.0/","module.exports.applyUserConfig","config",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/admin_1.4.0-->1.4.1/admin-1.4.0/","module.exports.start","",386
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/admin_1.4.0-->1.4.1/admin-1.4.0/","module.exports.start","",700
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/admin_1.4.0-->1.4.1/admin-1.4.0/","module.exports.configure","userConfig",727
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/admin_1.4.0-->1.4.1/admin-1.4.0/","main","",3

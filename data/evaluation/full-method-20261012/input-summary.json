@@ -1,0 +1,10 @@
+{
+  "pairs": 973,
+  "models": 7,
+  "additional_truncated_pairs": 83,
+  "base_prompt_budget": 26624,
+  "verifier_reserve_tokens": 4096,
+  "output_tokens": 2048,
+  "dropped_pairs": 0,
+  "maximum_final_base_prompt_tokens": 26624
+}

@@ -1,0 +1,3 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/lazy_1.0.9-->1.0.11/lazy-1.0.11/","module.exports","em,opts",414
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/lazy_1.0.9-->1.0.11/lazy-1.0.11/","module.exports.range","",625
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/lazy_1.0.9-->1.0.11/lazy-1.0.11/","(new module.exports()).skip","n",813

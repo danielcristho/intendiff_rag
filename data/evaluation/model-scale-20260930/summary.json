@@ -1,0 +1,305 @@
+{
+  "scope": "exploratory_source_labels",
+  "human_annotation_verified": false,
+  "generated_at_utc": "2026-09-30T17:04:26.926282+00:00",
+  "expected_runs": 3892,
+  "unique_runs": 3892,
+  "attempt_records": 3892,
+  "complete": true,
+  "missing_runs": 0,
+  "groups": [
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "config": "DIFF",
+      "completed": 973,
+      "transport_errors": 0,
+      "json_valid": 915,
+      "length_limited": 3,
+      "invalid_categories": {
+        "json_syntax": 55,
+        "length_limit": 3
+      },
+      "mal_source_recall_proxy": {
+        "positive": 811,
+        "n": 873,
+        "rate": 0.9289805269186713
+      },
+      "typ_assumed_benign_fpr": {
+        "positive": 65,
+        "n": 100,
+        "rate": 0.65
+      },
+      "invalid_as_malicious": {
+        "mal": {
+          "positive": 869,
+          "n": 873,
+          "rate": 0.995418098510882
+        },
+        "typ": {
+          "positive": 65,
+          "n": 100,
+          "rate": 0.65
+        }
+      },
+      "mal_campaigns": 224,
+      "mal_campaign_macro_recall_proxy": 0.9304652565309485,
+      "cost": {
+        "median_latency_ms": 1440.5,
+        "p95_latency_ms": 4284.0,
+        "mean_prompt_tokens": 4086.2929085303185,
+        "mean_completion_tokens": 127.45837615621788
+      },
+      "total_prompt_tokens": 3975963,
+      "total_completion_tokens": 124017,
+      "mal_subgroups": {
+        "truncated": {
+          "positive": 286,
+          "n": 326,
+          "rate": 0.8773006134969326
+        },
+        "not_truncated": {
+          "positive": 525,
+          "n": 547,
+          "rate": 0.9597806215722121
+        },
+        "empty_delta": {
+          "positive": 24,
+          "n": 25,
+          "rate": 0.96
+        },
+        "nonempty_delta": {
+          "positive": 787,
+          "n": 848,
+          "rate": 0.9280660377358491
+        }
+      },
+      "verbatim_evidence_check": {
+        "responses_with_evidence": 915,
+        "all_quotes_match_diff_lines": 0,
+        "gold_localization": false
+      }
+    },
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "config": "DIFF+I",
+      "completed": 973,
+      "transport_errors": 0,
+      "json_valid": 689,
+      "length_limited": 21,
+      "invalid_categories": {
+        "json_syntax": 263,
+        "length_limit": 21
+      },
+      "mal_source_recall_proxy": {
+        "positive": 586,
+        "n": 873,
+        "rate": 0.6712485681557846
+      },
+      "typ_assumed_benign_fpr": {
+        "positive": 67,
+        "n": 100,
+        "rate": 0.67
+      },
+      "invalid_as_malicious": {
+        "mal": {
+          "positive": 865,
+          "n": 873,
+          "rate": 0.9908361970217641
+        },
+        "typ": {
+          "positive": 72,
+          "n": 100,
+          "rate": 0.72
+        }
+      },
+      "mal_campaigns": 224,
+      "mal_campaign_macro_recall_proxy": 0.7146619057425276,
+      "cost": {
+        "median_latency_ms": 1472.6,
+        "p95_latency_ms": 4872.5,
+        "mean_prompt_tokens": 4676.1932168550875,
+        "mean_completion_tokens": 190.87564234326825
+      },
+      "total_prompt_tokens": 4549936,
+      "total_completion_tokens": 185722,
+      "mal_subgroups": {
+        "truncated": {
+          "positive": 222,
+          "n": 326,
+          "rate": 0.6809815950920245
+        },
+        "not_truncated": {
+          "positive": 364,
+          "n": 547,
+          "rate": 0.6654478976234004
+        },
+        "empty_delta": {
+          "positive": 23,
+          "n": 25,
+          "rate": 0.92
+        },
+        "nonempty_delta": {
+          "positive": 563,
+          "n": 848,
+          "rate": 0.6639150943396226
+        }
+      },
+      "verbatim_evidence_check": {
+        "responses_with_evidence": 689,
+        "all_quotes_match_diff_lines": 16,
+        "gold_localization": false
+      }
+    },
+    {
+      "model": "Qwen/Qwen3-8B",
+      "config": "DIFF",
+      "completed": 973,
+      "transport_errors": 0,
+      "json_valid": 924,
+      "length_limited": 9,
+      "invalid_categories": {
+        "json_syntax": 39,
+        "length_limit": 9,
+        "schema_mismatch": 1
+      },
+      "mal_source_recall_proxy": {
+        "positive": 443,
+        "n": 873,
+        "rate": 0.5074455899198167
+      },
+      "typ_assumed_benign_fpr": {
+        "positive": 6,
+        "n": 100,
+        "rate": 0.06
+      },
+      "invalid_as_malicious": {
+        "mal": {
+          "positive": 487,
+          "n": 873,
+          "rate": 0.5578465063001146
+        },
+        "typ": {
+          "positive": 11,
+          "n": 100,
+          "rate": 0.11
+        }
+      },
+      "mal_campaigns": 224,
+      "mal_campaign_macro_recall_proxy": 0.3787442633560838,
+      "cost": {
+        "median_latency_ms": 1189.2,
+        "p95_latency_ms": 24288.2,
+        "mean_prompt_tokens": 4090.2929085303185,
+        "mean_completion_tokens": 240.45220966084275
+      },
+      "total_prompt_tokens": 3979855,
+      "total_completion_tokens": 233960,
+      "mal_subgroups": {
+        "truncated": {
+          "positive": 103,
+          "n": 326,
+          "rate": 0.3159509202453988
+        },
+        "not_truncated": {
+          "positive": 340,
+          "n": 547,
+          "rate": 0.6215722120658135
+        },
+        "empty_delta": {
+          "positive": 18,
+          "n": 25,
+          "rate": 0.72
+        },
+        "nonempty_delta": {
+          "positive": 425,
+          "n": 848,
+          "rate": 0.5011792452830188
+        }
+      },
+      "verbatim_evidence_check": {
+        "responses_with_evidence": 924,
+        "all_quotes_match_diff_lines": 496,
+        "gold_localization": false
+      }
+    },
+    {
+      "model": "Qwen/Qwen3-8B",
+      "config": "DIFF+I",
+      "completed": 973,
+      "transport_errors": 0,
+      "json_valid": 929,
+      "length_limited": 12,
+      "invalid_categories": {
+        "length_limit": 12,
+        "json_syntax": 32
+      },
+      "mal_source_recall_proxy": {
+        "positive": 422,
+        "n": 873,
+        "rate": 0.4833906071019473
+      },
+      "typ_assumed_benign_fpr": {
+        "positive": 3,
+        "n": 100,
+        "rate": 0.03
+      },
+      "invalid_as_malicious": {
+        "mal": {
+          "positive": 460,
+          "n": 873,
+          "rate": 0.5269186712485682
+        },
+        "typ": {
+          "positive": 9,
+          "n": 100,
+          "rate": 0.09
+        }
+      },
+      "mal_campaigns": 224,
+      "mal_campaign_macro_recall_proxy": 0.3326518004236291,
+      "cost": {
+        "median_latency_ms": 1520.1,
+        "p95_latency_ms": 24084.5,
+        "mean_prompt_tokens": 4680.1932168550875,
+        "mean_completion_tokens": 330.7389516957862
+      },
+      "total_prompt_tokens": 4553828,
+      "total_completion_tokens": 321809,
+      "mal_subgroups": {
+        "truncated": {
+          "positive": 94,
+          "n": 326,
+          "rate": 0.2883435582822086
+        },
+        "not_truncated": {
+          "positive": 328,
+          "n": 547,
+          "rate": 0.5996343692870201
+        },
+        "empty_delta": {
+          "positive": 11,
+          "n": 25,
+          "rate": 0.44
+        },
+        "nonempty_delta": {
+          "positive": 411,
+          "n": 848,
+          "rate": 0.4846698113207547
+        }
+      },
+      "verbatim_evidence_check": {
+        "responses_with_evidence": 929,
+        "all_quotes_match_diff_lines": 395,
+        "gold_localization": false
+      }
+    }
+  ],
+  "mal_campaigns": 224,
+  "largest_mal_campaign_count": 607,
+  "limitations": [
+    "MAL uses upstream source labels; TYP is assumed benign.",
+    "Candidate corpus, without final campaign cap or post-release quota.",
+    "No HN, retrieval configurations, gold evidence localization, or hypothesis tests.",
+    "Sequential observed latency includes initial requests and prefix caching."
+  ]
+}

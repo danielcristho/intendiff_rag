@@ -1,0 +1,846 @@
+{
+  "metrics": [
+    {
+      "config": "DIFF",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 651,
+        "FP": 1217,
+        "TP": 26,
+        "FN": 7
+      },
+      "tpr_source": 0.7878787878787878,
+      "cohort_accuracy": 0.35612835349815886,
+      "balanced_accuracy": 0.5681899292712997,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 237,
+          "fpr": 0.632,
+          "wilson_95": [
+            0.582080491411438,
+            0.679242544108961
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 467,
+          "fpr": 0.6748554913294798,
+          "wilson_95": [
+            0.6390722092931118,
+            0.7087081606925159
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 513,
+          "fpr": 0.6404494382022472,
+          "wilson_95": [
+            0.6066198775902418,
+            0.6729382857400674
+          ]
+        }
+      },
+      "invalid": 6,
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "tpr_wilson_95": [
+        0.6224835500784931,
+        0.8932397846697919
+      ],
+      "cost": {
+        "median_latency_ms": 569.2,
+        "p95_latency_ms": 2807.9,
+        "mean_prompt_tokens": 3356.264071541294,
+        "mean_completion_tokens": 49.88269331930563
+      }
+    },
+    {
+      "config": "DIFF",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 645,
+        "FP": 1223,
+        "TP": 26,
+        "FN": 7
+      },
+      "tpr_source": 0.7878787878787878,
+      "cohort_accuracy": 0.35297211993687533,
+      "balanced_accuracy": 0.566583933553955,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 237,
+          "fpr": 0.632,
+          "wilson_95": [
+            0.582080491411438,
+            0.679242544108961
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 470,
+          "fpr": 0.6791907514450867,
+          "wilson_95": [
+            0.64350475778651,
+            0.7128982660004143
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 516,
+          "fpr": 0.6441947565543071,
+          "wilson_95": [
+            0.6104237677301586,
+            0.6765892799556256
+          ]
+        }
+      },
+      "invalid": 6,
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "tpr_wilson_95": [
+        0.6224835500784931,
+        0.8932397846697919
+      ],
+      "cost": {
+        "median_latency_ms": 569.2,
+        "p95_latency_ms": 2807.9,
+        "mean_prompt_tokens": 3356.264071541294,
+        "mean_completion_tokens": 49.88269331930563
+      }
+    },
+    {
+      "config": "DIFF+I",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 683,
+        "FP": 1185,
+        "TP": 27,
+        "FN": 6
+      },
+      "tpr_source": 0.8181818181818182,
+      "cohort_accuracy": 0.3734876380852183,
+      "balanced_accuracy": 0.5919067549153203,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 211,
+          "fpr": 0.5626666666666666,
+          "wilson_95": [
+            0.5120753745537369,
+            0.6119870766529171
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 478,
+          "fpr": 0.6907514450867052,
+          "wilson_95": [
+            0.6553416568809981,
+            0.7240551103760503
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 496,
+          "fpr": 0.6192259675405742,
+          "wilson_95": [
+            0.5851052782630014,
+            0.6522085403862833
+          ]
+        }
+      },
+      "invalid": 1,
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "tpr_wilson_95": [
+        0.6561176836533009,
+        0.9138923179105933
+      ],
+      "cost": {
+        "median_latency_ms": 615.4,
+        "p95_latency_ms": 2772.7,
+        "mean_prompt_tokens": 3862.8826933193054,
+        "mean_completion_tokens": 50.64860599684376
+      }
+    },
+    {
+      "config": "DIFF+I",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 682,
+        "FP": 1186,
+        "TP": 27,
+        "FN": 6
+      },
+      "tpr_source": 0.8181818181818182,
+      "cohort_accuracy": 0.3729615991583377,
+      "balanced_accuracy": 0.5916390889624294,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 211,
+          "fpr": 0.5626666666666666,
+          "wilson_95": [
+            0.5120753745537369,
+            0.6119870766529171
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 478,
+          "fpr": 0.6907514450867052,
+          "wilson_95": [
+            0.6553416568809981,
+            0.7240551103760503
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 497,
+          "fpr": 0.6204744069912609,
+          "wilson_95": [
+            0.5863689493202968,
+            0.6534298307808128
+          ]
+        }
+      },
+      "invalid": 1,
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "tpr_wilson_95": [
+        0.6561176836533009,
+        0.9138923179105933
+      ],
+      "cost": {
+        "median_latency_ms": 615.4,
+        "p95_latency_ms": 2772.7,
+        "mean_prompt_tokens": 3862.8826933193054,
+        "mean_completion_tokens": 50.64860599684376
+      }
+    },
+    {
+      "config": "DIFF+I+M",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 994,
+        "FP": 874,
+        "FN": 4,
+        "TP": 29
+      },
+      "tpr_source": 0.8787878787878788,
+      "cohort_accuracy": 0.5381378221988428,
+      "balanced_accuracy": 0.7054538965673869,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 148,
+          "fpr": 0.39466666666666667,
+          "wilson_95": [
+            0.34650426576469423,
+            0.4449652311432703
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 376,
+          "fpr": 0.5433526011560693,
+          "wilson_95": [
+            0.5061020499244858,
+            0.5801244880884796
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 350,
+          "fpr": 0.4369538077403246,
+          "wilson_95": [
+            0.4029858803002085,
+            0.47152356638263054
+          ]
+        }
+      },
+      "invalid": 3,
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "tpr_wilson_95": [
+        0.7267449482892476,
+        0.9518383869058644
+      ],
+      "cost": {
+        "median_latency_ms": 575.2,
+        "p95_latency_ms": 2860.9,
+        "mean_prompt_tokens": 4053.1351920042084,
+        "mean_completion_tokens": 44.941083640189376
+      }
+    },
+    {
+      "config": "DIFF+I+M",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 991,
+        "FP": 877,
+        "FN": 4,
+        "TP": 29
+      },
+      "tpr_source": 0.8787878787878788,
+      "cohort_accuracy": 0.536559705418201,
+      "balanced_accuracy": 0.7046508987087146,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 148,
+          "fpr": 0.39466666666666667,
+          "wilson_95": [
+            0.34650426576469423,
+            0.4449652311432703
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 377,
+          "fpr": 0.5447976878612717,
+          "wilson_95": [
+            0.5075486080116485,
+            0.5815521479350827
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 352,
+          "fpr": 0.4394506866416979,
+          "wilson_95": [
+            0.40544946000077087,
+            0.4740299095857181
+          ]
+        }
+      },
+      "invalid": 3,
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "tpr_wilson_95": [
+        0.7267449482892476,
+        0.9518383869058644
+      ],
+      "cost": {
+        "median_latency_ms": 575.2,
+        "p95_latency_ms": 2860.9,
+        "mean_prompt_tokens": 4053.1351920042084,
+        "mean_completion_tokens": 44.941083640189376
+      }
+    },
+    {
+      "config": "DIFF+I+MM",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1024,
+        "FP": 844,
+        "FN": 6,
+        "TP": 27
+      },
+      "tpr_source": 0.8181818181818182,
+      "cohort_accuracy": 0.5528669121514992,
+      "balanced_accuracy": 0.6831808448510804,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 151,
+          "fpr": 0.4026666666666667,
+          "wilson_95": [
+            0.3542581420069487,
+            0.4530491146295249
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 354,
+          "fpr": 0.5115606936416185,
+          "wilson_95": [
+            0.4743563954725122,
+            0.548637347997612
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 339,
+          "fpr": 0.4232209737827715,
+          "wilson_95": [
+            0.38945193525250466,
+            0.45772293546025955
+          ]
+        }
+      },
+      "invalid": 3,
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "tpr_wilson_95": [
+        0.6561176836533009,
+        0.9138923179105933
+      ],
+      "cost": {
+        "median_latency_ms": 579.0,
+        "p95_latency_ms": 2815.4,
+        "mean_prompt_tokens": 4242.533403471857,
+        "mean_completion_tokens": 44.66649132035771
+      }
+    },
+    {
+      "config": "DIFF+I+MM",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1021,
+        "FP": 847,
+        "FN": 6,
+        "TP": 27
+      },
+      "tpr_source": 0.8181818181818182,
+      "cohort_accuracy": 0.5512887953708574,
+      "balanced_accuracy": 0.682377846992408,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 151,
+          "fpr": 0.4026666666666667,
+          "wilson_95": [
+            0.3542581420069487,
+            0.4530491146295249
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 355,
+          "fpr": 0.5130057803468208,
+          "wilson_95": [
+            0.47579612839380275,
+            0.5500718330100868
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 341,
+          "fpr": 0.4257178526841448,
+          "wilson_95": [
+            0.39191066326456087,
+            0.4602341303518533
+          ]
+        }
+      },
+      "invalid": 3,
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "tpr_wilson_95": [
+        0.6561176836533009,
+        0.9138923179105933
+      ],
+      "cost": {
+        "median_latency_ms": 579.0,
+        "p95_latency_ms": 2815.4,
+        "mean_prompt_tokens": 4242.533403471857,
+        "mean_completion_tokens": 44.66649132035771
+      }
+    },
+    {
+      "config": "DIFF+I+MB",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 949,
+        "FP": 919,
+        "FN": 6,
+        "TP": 27
+      },
+      "tpr_source": 0.8181818181818182,
+      "cohort_accuracy": 0.5134139926354551,
+      "balanced_accuracy": 0.663105898384271,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 161,
+          "fpr": 0.42933333333333334,
+          "wilson_95": [
+            0.38020131671322205,
+            0.47989847235161504
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 375,
+          "fpr": 0.541907514450867,
+          "wilson_95": [
+            0.5046558039390333,
+            0.5786965161401668
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 383,
+          "fpr": 0.4781523096129838,
+          "wilson_95": [
+            0.44374619345184174,
+            0.5127669811412212
+          ]
+        }
+      },
+      "invalid": 4,
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "tpr_wilson_95": [
+        0.6561176836533009,
+        0.9138923179105933
+      ],
+      "cost": {
+        "median_latency_ms": 586.6,
+        "p95_latency_ms": 2827.6,
+        "mean_prompt_tokens": 4229.649132035771,
+        "mean_completion_tokens": 45.558127301420306
+      }
+    },
+    {
+      "config": "DIFF+I+MB",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 945,
+        "FP": 923,
+        "FN": 6,
+        "TP": 27
+      },
+      "tpr_source": 0.8181818181818182,
+      "cohort_accuracy": 0.5113098369279326,
+      "balanced_accuracy": 0.6620352345727079,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 161,
+          "fpr": 0.42933333333333334,
+          "wilson_95": [
+            0.38020131671322205,
+            0.47989847235161504
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 377,
+          "fpr": 0.5447976878612717,
+          "wilson_95": [
+            0.5075486080116485,
+            0.5815521479350827
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 385,
+          "fpr": 0.48064918851435706,
+          "wilson_95": [
+            0.44622407605754855,
+            0.5152590214391645
+          ]
+        }
+      },
+      "invalid": 4,
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "tpr_wilson_95": [
+        0.6561176836533009,
+        0.9138923179105933
+      ],
+      "cost": {
+        "median_latency_ms": 586.6,
+        "p95_latency_ms": 2827.6,
+        "mean_prompt_tokens": 4229.649132035771,
+        "mean_completion_tokens": 45.558127301420306
+      }
+    },
+    {
+      "config": "DIFF+MB",
+      "invalid_as": "benign",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1015,
+        "FP": 853,
+        "FN": 10,
+        "TP": 23
+      },
+      "tpr_source": 0.696969696969697,
+      "cohort_accuracy": 0.5460284061020515,
+      "balanced_accuracy": 0.6201657906690027,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 165,
+          "fpr": 0.44,
+          "wilson_95": [
+            0.3906196989669295,
+            0.49059710306925286
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 318,
+          "fpr": 0.4595375722543353,
+          "wilson_95": [
+            0.4227317676788212,
+            0.4967901301757442
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 370,
+          "fpr": 0.46192259675405745,
+          "wilson_95": [
+            0.4276609431882744,
+            0.496547732531064
+          ]
+        }
+      },
+      "invalid": 5,
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "tpr_wilson_95": [
+        0.5266186485419944,
+        0.8262446857594641
+      ],
+      "cost": {
+        "median_latency_ms": 520.6,
+        "p95_latency_ms": 2743.9,
+        "mean_prompt_tokens": 3723.030510257759,
+        "mean_completion_tokens": 44.37085744345082
+      }
+    },
+    {
+      "config": "DIFF+MB",
+      "invalid_as": "malicious",
+      "completed": 1901,
+      "expected": 1901,
+      "confusion": {
+        "TN": 1010,
+        "FP": 858,
+        "FN": 10,
+        "TP": 23
+      },
+      "tpr_source": 0.696969696969697,
+      "cohort_accuracy": 0.5433982114676486,
+      "balanced_accuracy": 0.6188274609045488,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 165,
+          "fpr": 0.44,
+          "wilson_95": [
+            0.3906196989669295,
+            0.49059710306925286
+          ]
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 321,
+          "fpr": 0.4638728323699422,
+          "wilson_95": [
+            0.4270184881708499,
+            0.5011260634850121
+          ]
+        },
+        "random": {
+          "n": 801,
+          "alarms": 372,
+          "fpr": 0.46441947565543074,
+          "wilson_95": [
+            0.43013322493599326,
+            0.4990453736869951
+          ]
+        }
+      },
+      "invalid": 5,
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "tpr_wilson_95": [
+        0.5266186485419944,
+        0.8262446857594641
+      ],
+      "cost": {
+        "median_latency_ms": 520.6,
+        "p95_latency_ms": 2743.9,
+        "mean_prompt_tokens": 3723.030510257759,
+        "mean_completion_tokens": 44.37085744345082
+      }
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "baseline": "DIFF+I",
+      "variant": "DIFF+I+M",
+      "subset": "MAL",
+      "alarm_rate_delta_points": 6.060606060606055,
+      "campaign_bootstrap_95": [
+        -6.060606060606055,
+        18.181818181818187
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "baseline": "DIFF+I",
+      "variant": "DIFF+I+M",
+      "subset": "TYP:live-stream-unseen-names",
+      "alarm_rate_delta_points": -16.799999999999997,
+      "campaign_bootstrap_95": [
+        -21.333333333333332,
+        -12.266666666666664
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "baseline": "DIFF+I",
+      "variant": "DIFF+I+M",
+      "subset": "TYP:popular",
+      "alarm_rate_delta_points": -14.739884393063585,
+      "campaign_bootstrap_95": [
+        -18.064580426549735,
+        -11.38328530259366
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "baseline": "DIFF+I",
+      "variant": "DIFF+I+M",
+      "subset": "TYP:random",
+      "alarm_rate_delta_points": -18.227215980024962,
+      "campaign_bootstrap_95": [
+        -21.473158551810233,
+        -15.230961298377027
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "baseline": "DIFF+I+MM",
+      "variant": "DIFF+I+MB",
+      "subset": "MAL",
+      "alarm_rate_delta_points": 0.0,
+      "campaign_bootstrap_95": [
+        -9.090909090909093,
+        9.090909090909093
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "baseline": "DIFF+I+MM",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:live-stream-unseen-names",
+      "alarm_rate_delta_points": 2.666666666666667,
+      "campaign_bootstrap_95": [
+        -1.6000000000000014,
+        6.933333333333335
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "baseline": "DIFF+I+MM",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:popular",
+      "alarm_rate_delta_points": 3.0346820809248554,
+      "campaign_bootstrap_95": [
+        -0.14409221902017544,
+        6.213872832369943
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "baseline": "DIFF+I+MM",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:random",
+      "alarm_rate_delta_points": 5.493133583021226,
+      "campaign_bootstrap_95": [
+        2.6217228464419486,
+        8.364544319600498
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "baseline": "DIFF+MB",
+      "variant": "DIFF+I+MB",
+      "subset": "MAL",
+      "alarm_rate_delta_points": 12.121212121212121,
+      "campaign_bootstrap_95": [
+        0.0,
+        27.27272727272727
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "baseline": "DIFF+MB",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:live-stream-unseen-names",
+      "alarm_rate_delta_points": -1.0666666666666658,
+      "campaign_bootstrap_95": [
+        -5.6,
+        3.733333333333333
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "baseline": "DIFF+MB",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:popular",
+      "alarm_rate_delta_points": 8.236994219653177,
+      "campaign_bootstrap_95": [
+        4.492753623188406,
+        11.849710982658962
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    },
+    {
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "baseline": "DIFF+MB",
+      "variant": "DIFF+I+MB",
+      "subset": "TYP:random",
+      "alarm_rate_delta_points": 1.6229712858926326,
+      "campaign_bootstrap_95": [
+        -1.2484394506866447,
+        4.49438202247191
+      ],
+      "resamples": 10000,
+      "seed": 2026,
+      "confirmatory_hypothesis_test": false
+    }
+  ]
+}

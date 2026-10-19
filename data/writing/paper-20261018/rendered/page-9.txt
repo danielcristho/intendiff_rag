@@ -1,0 +1,306 @@
+IntentDi-RAG
+Table 7
+Seluruh kongurasi, dalam persen. Akurasi dan BA gabungan memakai 129 MAL + 1.868 TYP dan bersifat deskriptif; TYP tidak
+dievaluasi ulang pada batch tambahan. BA: balanced accuracy.
+Model
+Kongurasi
+TPR awal
+TPR tambahan
+FPR TYP
+Akurasi gab.
+BA gab.
+Qwen3-4B
+DIFF
+39.39
+51.04
+6.37
+90.69
+70.85
+Qwen3-4B
+DIFF+I
+48.48
+43.75
+4.12
+92.59
+70.42
+Qwen3-4B
+DIFF+I+M
+51.52
+43.75
+4.82
+91.99
+70.46
+Qwen3-4B
+DIFF+I+MM
+45.45
+40.62
+3.27
+93.19
+69.30
+Qwen3-4B
+DIFF+I+MB
+57.58
+47.92
+5.57
+91.59
+72.41
+Qwen3-4B
+DIFF+MB
+45.45
+53.12
+7.92
+89.43
+71.62
+Qwen2.5-3B
+DIFF
+72.73
+77.08
+59.58
+42.71
+58.19
+Qwen2.5-3B
+DIFF+I
+78.79
+84.38
+59.31
+43.42
+61.82
+Qwen2.5-3B
+DIFF+I+M
+78.79
+78.12
+48.55
+53.18
+64.87
+Qwen2.5-3B
+DIFF+I+MM
+75.76
+82.29
+48.18
+53.68
+66.22
+Qwen2.5-3B
+DIFF+I+MB
+87.88
+82.29
+56.53
+46.07
+63.59
+Qwen2.5-3B
+DIFF+MB
+72.73
+80.21
+54.34
+47.77
+61.98
+Qwen2.5-7B
+DIFF
+78.79
+79.17
+65.15
+37.71
+56.96
+Qwen2.5-7B
+DIFF+I
+81.82
+86.46
+63.44
+39.71
+60.92
+Qwen2.5-7B
+DIFF+I+M
+87.88
+82.29
+46.79
+55.18
+68.47
+Qwen2.5-7B
+DIFF+I+MM
+81.82
+84.38
+45.18
+56.69
+69.27
+Qwen2.5-7B
+DIFF+I+MB
+81.82
+89.58
+49.20
+53.18
+69.20
+Qwen2.5-7B
+DIFF+MB
+69.70
+79.17
+45.66
+55.78
+65.54
+Phi-4-mini
+DIFF
+36.36
+46.88
+17.08
+80.42
+63.55
+Phi-4-mini
+DIFF+I
+51.52
+43.75
+13.87
+83.53
+65.94
+Phi-4-mini
+DIFF+I+M
+78.79
+59.38
+41.17
+59.19
+61.59
+Phi-4-mini
+DIFF+I+MM
+66.67
+62.50
+36.83
+63.19
+63.37
+Phi-4-mini
+DIFF+I+MB
+66.67
+51.04
+31.37
+67.75
+61.83
+Phi-4-mini
+DIFF+MB
+60.61
+57.29
+33.94
+65.55
+62.10
+Llama-3.1-8B
+DIFF
+72.73
+80.21
+60.22
+42.26
+59.03
+Llama-3.1-8B
+DIFF+I
+75.76
+87.50
+69.97
+33.55
+57.26
+Llama-3.1-8B
+DIFF+I+M
+84.85
+90.62
+79.23
+25.19
+54.96
+Llama-3.1-8B
+DIFF+I+MM
+72.73
+85.42
+68.58
+34.70
+56.80
+Llama-3.1-8B
+DIFF+I+MB
+90.91
+86.46
+69.70
+34.00
+58.95
+Llama-3.1-8B
+DIFF+MB
+72.73
+81.25
+57.71
+44.67
+60.68
+Granite-3.3-8B
+DIFF
+42.42
+42.71
+10.06
+86.88
+66.29
+Granite-3.3-8B
+DIFF+I
+48.48
+30.21
+7.71
+88.58
+63.59
+Granite-3.3-8B
+DIFF+I+M
+48.48
+36.46
+8.83
+87.83
+65.35
+Granite-3.3-8B
+DIFF+I+MM
+60.61
+52.08
+15.90
+82.17
+69.18
+Granite-3.3-8B
+DIFF+I+MB
+60.61
+42.71
+15.79
+81.82
+65.75
+Granite-3.3-8B
+DIFF+MB
+51.52
+51.04
+21.15
+77.07
+65.01
+References
+Draz, M.M., 2026. Version context and control construction in machine
+learning detection of malicious package updates across npm and PyPI.
+Scientific Reports 16, 30912. doi:10.1038/s41598-026-71750-5.
+Gorla, A., Tavecchia, I., Gross, F., Zeller, A., 2014. Checking app behavior
+against app descriptions, in: Proceedings of the 36th International Con-
+ference on Software Engineering (ICSE). doi:10.1145/2568225.2568276.
+Guo, W., Chen, Z., Xu, Z., Liu, C., Kang, M., Song, S., Liu, C., Xu, Y., Sun,
+W., Liu, Y., 2026a. How effective are NPM malicious package detectors?
+A large-scale empirical study. arXiv:2603.27549. arXiv:2603.27549v2.
+Guo, W., Song, S., Guo, J., Xu, Z., Liu, C., Ou, H., Ge, M., Liu, Y.,
+2026b. Bridging expert reasoning and LLM detection: A knowledge-
+driven framework for malicious packages, in: Proceedings of the ACM
+Web Conference 2026 (WWW). doi:10.1145/3774904.3792083.
+Min, S., Lyu, X., Holtzman, A., Artetxe, M., Lewis, M., Hajishirzi, H.,
+Zettlemoyer, L., 2022.
+Rethinking the role of demonstrations: What
+makes in-context learning work?, in: Proceedings of the 2022 Confer-
+ence on Empirical Methods in Natural Language Processing (EMNLP).
+Nguyen, D.K., Ho, G.T., Pham, Q.M., Dang-Thi, T.A., Vu, M.K., Nguyen,
+T.C., Tran-Truong, P.T., Vu, D.L., 2025.
+Taint-based code slicing
+for LLMs-based malicious NPM package detection. arXiv:2512.12313.
+arXiv:2512.12313.
+Sofaer, R.J., David, Y., Kang, M., Yu, J., Cao, Y., Yang, J., Nieh, J.,
+2024.
+RogueOne: Detecting rogue updates via differential data-flow
+analysis using trust domains, in: Proceedings of the IEEE/ACM 46th
+International Conference on Software Engineering (ICSE). doi:10.1145/
+3597503.3639199.
+Wyss, E., Tassio, D., De Carli, L., Davidson, D., 2025. Evaluating LLM-
+based detection of malicious package updates in npm, in: Proceedings
+of the 28th International Symposium on Research in Attacks, Intrusions
+and Defenses (RAID).
+Zahan, N., Burckhardt, P., Lysenko, M., Aboukhadijeh, F., Williams, L.,
+2025. Leveraging large language models to detect npm malicious pack-
+ages, in: Proceedings of the IEEE/ACM 47th International Conference
+on Software Engineering (ICSE). doi:10.1109/ICSE55347.2025.00146.
+Zimmermann, M., Staicu, C.A., Tenny, C., Pradel, M., 2019. Small world
+with high risks: A study of security threats in the npm ecosystem, in:
+Proceedings of the 28th USENIX Security Symposium, pp. 995–1010.
+: Preprint submitted to Elsevier
+Page 8 of 8

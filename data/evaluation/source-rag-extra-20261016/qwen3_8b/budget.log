@@ -1,0 +1,3 @@
+{"model": "qwen3_8b", "stage": "dev", "pairs": 10, "requests": 60, "max_prompt_tokens": 29804}
+{"model": "qwen3_8b", "stage": "test", "pairs": 1901, "requests": 11406, "max_prompt_tokens": 30148}
+{"ready": true, "model": "Qwen/Qwen3-8B", "stages": {"dev": {"pairs": 10, "requests": 60, "max_prompt_tokens": 29804}, "test": {"pairs": 1901, "requests": 11406, "max_prompt_tokens": 30148}}, "cards_over_original_token_limit": 0, "text_policy": "Identical frozen D101 text; original construction limits use Qwen tokenizers", "max_model_len": 32768, "kv_cache_memory_bytes": 6442450944}

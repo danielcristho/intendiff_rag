@@ -1,0 +1,91 @@
+{
+  "complete": true,
+  "generations": 30,
+  "groups": [
+    {
+      "cohort": "HN",
+      "arm": "NO-SOURCE",
+      "n": 14,
+      "verdicts": {
+        "benign": 14
+      },
+      "valid": 14,
+      "length": 0,
+      "unknown_id_responses": 0,
+      "dependency_content_citing_responses": 0,
+      "prompt_tokens": 59991,
+      "completion_tokens": 1550,
+      "median_latency_ms": 871.9821694994607,
+      "FPR": null,
+      "gold_accuracy": null
+    },
+    {
+      "cohort": "HN",
+      "arm": "WITH-SOURCE",
+      "n": 14,
+      "verdicts": {
+        "benign": 14
+      },
+      "valid": 14,
+      "length": 0,
+      "unknown_id_responses": 0,
+      "dependency_content_citing_responses": 2,
+      "prompt_tokens": 115716,
+      "completion_tokens": 1601,
+      "median_latency_ms": 1194.7938055018312,
+      "FPR": null,
+      "gold_accuracy": null
+    },
+    {
+      "cohort": "MAL",
+      "arm": "NO-SOURCE",
+      "n": 1,
+      "verdicts": {
+        "benign": 1
+      },
+      "valid": 1,
+      "length": 0,
+      "unknown_id_responses": 0,
+      "dependency_content_citing_responses": 0,
+      "prompt_tokens": 6084,
+      "completion_tokens": 124,
+      "median_latency_ms": 1071.883833999891,
+      "FPR": null,
+      "gold_accuracy": null
+    },
+    {
+      "cohort": "MAL",
+      "arm": "WITH-SOURCE",
+      "n": 1,
+      "verdicts": {
+        "benign": 1
+      },
+      "valid": 1,
+      "length": 0,
+      "unknown_id_responses": 0,
+      "dependency_content_citing_responses": 0,
+      "prompt_tokens": 10842,
+      "completion_tokens": 127,
+      "median_latency_ms": 2195.5378869970446,
+      "FPR": null,
+      "gold_accuracy": null
+    }
+  ],
+  "transitions": [
+    {
+      "cohort": "HN",
+      "without": "benign",
+      "with": "benign",
+      "n": 14
+    },
+    {
+      "cohort": "MAL",
+      "without": "benign",
+      "with": "benign",
+      "n": 1
+    }
+  ],
+  "human_gold_verified": false,
+  "installed_versions_verified": false,
+  "RAG_evaluated": false
+}

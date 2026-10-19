@@ -1,0 +1,3 @@
+{"model": "granite33_8b", "stage": "dev", "pairs": 10, "requests": 60, "max_prompt_tokens": 34964}
+{"model": "granite33_8b", "stage": "test", "pairs": 1901, "requests": 11406, "max_prompt_tokens": 37610}
+{"ready": true, "model": "ibm-granite/granite-3.3-8b-instruct", "stages": {"dev": {"pairs": 10, "requests": 60, "max_prompt_tokens": 34964}, "test": {"pairs": 1901, "requests": 11406, "max_prompt_tokens": 37610}}, "cards_over_original_token_limit": 1, "text_policy": "Identical frozen D101 text; original construction limits use Qwen tokenizers", "max_model_len": 38912, "kv_cache_memory_bytes": 6442450944}

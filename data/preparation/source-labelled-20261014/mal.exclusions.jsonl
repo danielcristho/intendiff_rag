@@ -1,0 +1,11 @@
+{"id": "@web-utilities/test@1.0.1", "reasons": ["predecessor: HTTP Error 404: Not Found", "predecessor_advisory_positive_or_missing"]}
+{"id": "@solana/web3.js@1.95.7", "reasons": ["target: ValueError: No unique package manifest matches the archive identity"]}
+{"id": "@tide-web-apps/bert2@2.2.0", "reasons": ["predecessor: HTTP Error 404: Not Found", "predecessor_advisory_positive_or_missing"]}
+{"id": "small_11931193@1.0.10", "reasons": ["predecessor_advisory_positive_or_missing"]}
+{"id": "small_11931193@1.0.12", "reasons": ["predecessor_advisory_positive_or_missing"]}
+{"id": "portal-shell@4.9.6", "reasons": ["predecessor_advisory_positive_or_missing"]}
+{"id": "portal-shell@1.9.8", "reasons": ["predecessor_advisory_positive_or_missing"]}
+{"id": "portal-shell@2.9.7", "reasons": ["predecessor_advisory_positive_or_missing"]}
+{"id": "portal-shell@3.9.3", "reasons": ["predecessor_advisory_positive_or_missing"]}
+{"id": "fsevents@2.0.0", "reasons": ["predecessor_advisory_positive_or_missing"]}
+{"id": "fsevents@0.2.0", "reasons": ["predecessor_advisory_positive_or_missing"]}

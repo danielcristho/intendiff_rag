@@ -1,0 +1,10 @@
+{"stage": "server_starting", "time_unix": 1792106876.0731072, "model": "microsoft/Phi-4-mini-instruct", "experiment_stage": "dev", "pid": 1714811}
+{"stage": "running", "time_unix": 1792106938.1110046, "model": "microsoft/Phi-4-mini-instruct", "experiment_stage": "dev"}
+{"stage": "model_complete", "time_unix": 1792107021.8265018, "model": "microsoft/Phi-4-mini-instruct", "experiment_stage": "dev", "completed": 60, "json_validity": 1.0}
+{"stage": "stage_complete", "time_unix": 1792107021.8266633, "experiment_stage": "dev"}
+{"model": "phi4_mini", "test_released": true, "dev_json_validity": 1.0}
+{"stage": "server_starting", "time_unix": 1792117057.559754, "model": "microsoft/Phi-4-mini-instruct", "experiment_stage": "test", "pid": 1831287}
+{"stage": "running", "time_unix": 1792117131.587337, "model": "microsoft/Phi-4-mini-instruct", "experiment_stage": "test"}
+{"stage": "model_complete", "time_unix": 1792125766.3881323, "model": "microsoft/Phi-4-mini-instruct", "experiment_stage": "test", "completed": 11406, "json_validity": 0.9916710503243906}
+{"stage": "stage_complete", "time_unix": 1792125766.389348, "experiment_stage": "test"}
+data/evaluation/source-rag-extra-20261016/phi4_mini/results.md

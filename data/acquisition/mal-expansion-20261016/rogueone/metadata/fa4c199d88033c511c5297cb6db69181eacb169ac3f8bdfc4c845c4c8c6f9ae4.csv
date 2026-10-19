@@ -1,0 +1,16 @@
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/ui_0.2.3-->0.2.4/ui-0.2.3","module.exports","element,styleProps",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/ui_0.2.3-->0.2.4/ui-0.2.3","module.exports.gradient","el,fromColor,toColor,pos",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/ui_0.2.3-->0.2.4/ui-0.2.3","module.exports.opacity","el,fraction",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/ui_0.2.3-->0.2.4/ui-0.2.3","module.exports.opacity","el,fraction",1
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/ui_0.2.3-->0.2.4/ui-0.2.3","module.exports","tag,properties,doc",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/ui_0.2.3-->0.2.4/ui-0.2.3","module.exports","win",3
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/ui_0.2.3-->0.2.4/ui-0.2.3","module.exports","elem,win",66
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/ui_0.2.3-->0.2.4/ui-0.2.3","module.exports().width.*.getComputedStyle","",66
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/ui_0.2.3-->0.2.4/ui-0.2.3","module.exports","el,className",81
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/ui_0.2.3-->0.2.4/ui-0.2.3","module.exports","el,className",83
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/ui_0.2.3-->0.2.4/ui-0.2.3","module.exports","component",84
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/ui_0.2.3-->0.2.4/ui-0.2.3","module.exports","component",85
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/ui_0.2.3-->0.2.4/ui-0.2.3","module.exports.createGenerator","tag",131
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/ui_0.2.3-->0.2.4/ui-0.2.3","module.exports.exposeGlobals","",131
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/ui_0.2.3-->0.2.4/ui-0.2.3","module.exports.createGenerator()","",131
+data_flow,"/home/raphael/workspace/RogueOneSamples/RandomBenignSamples2/ui_0.2.3-->0.2.4/ui-0.2.3","main","",3

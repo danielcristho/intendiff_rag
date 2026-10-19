@@ -1,0 +1,5 @@
+{"stage": "server_starting", "time_unix": 1792271476.1326444, "model": "meta-llama/Llama-3.1-8B-Instruct", "experiment_stage": "test", "pid": 3601537}
+{"stage": "running", "time_unix": 1792271564.160506, "model": "meta-llama/Llama-3.1-8B-Instruct", "experiment_stage": "test"}
+{"stage": "model_complete", "time_unix": 1792272346.9841607, "model": "meta-llama/Llama-3.1-8B-Instruct", "experiment_stage": "test", "completed": 576, "json_validity": 0.9635416666666666}
+{"stage": "stage_complete", "time_unix": 1792272346.9851804, "experiment_stage": "test"}
+data/evaluation/source-rag-mal-20261018/llama31_8b/results.md

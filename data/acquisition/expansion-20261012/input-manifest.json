@@ -1,0 +1,58 @@
+{
+  "data/evaluation/full-method-20261012/pairs.jsonl": {
+    "sha256": "066bcd339b527d211155b1a31544b8ecb37cca2779f6800fdc01d1f83cbcc133",
+    "bytes": 14213262
+  },
+  "data/evaluation/dependency-generalization-20261012/dev-exclusions.jsonl": {
+    "sha256": "96a87d941252c19308fa55f730275122926add1685ad8eea1503f3fbbf6fd6b2",
+    "bytes": 5633
+  },
+  "data/evaluation/evidence-dev-20261001/dev-exclusions.jsonl": {
+    "sha256": "eccf30073151016820da14aa66174d68a8251d8cee0a5ac0a2f482a54bbbf1a9",
+    "bytes": 13900
+  },
+  "data/evaluation/granite-dependency-20261012/dev-exclusions.jsonl": {
+    "sha256": "96a87d941252c19308fa55f730275122926add1685ad8eea1503f3fbbf6fd6b2",
+    "bytes": 5633
+  },
+  "data/evaluation/mixed-dev-20261002/dev-exclusions.jsonl": {
+    "sha256": "0f6a93da94227ef93c7cac3682b2b7a0c1a1abf70256a4fd111d1e5f07648856",
+    "bytes": 27735
+  },
+  "data/evaluation/mixed-validation-20261011/dev-exclusions.jsonl": {
+    "sha256": "0f6a93da94227ef93c7cac3682b2b7a0c1a1abf70256a4fd111d1e5f07648856",
+    "bytes": 27735
+  },
+  "data/evaluation/dependency-context-20261011/retrieval-exclusions.jsonl": {
+    "sha256": "aac1f41da2b22eb30750ed79cc938e6f34d2ebe5949c5168db92a0cb5defa060",
+    "bytes": 14240
+  },
+  "data/acquisition/typ.draw.jsonl": {
+    "sha256": "950eff882b3fc92a2f6f09db40a27ab13761416b0b82454ce0b91f688d43e524",
+    "bytes": 42674
+  },
+  "data/acquisition/typ.pool.jsonl": {
+    "sha256": "4fa633e34ad401e8f88d8a55e6c615373d8558aa76230ebbf2f72f5ac16b3d9e",
+    "bytes": 818721
+  },
+  "data/acquisition/extracted.typical.jsonl": {
+    "sha256": "878bb6243cbec0d30561bbc28eff0d52c68023845ad21205953eac7a0270a0d4",
+    "bytes": 762550
+  },
+  "data/acquisition/advisories.jsonl": {
+    "sha256": "b48fa64a2d10da7a5fa733e6d1d7b1454207dfe52a3f7e44df4ee7bed5d89845",
+    "bytes": 790071
+  },
+  "data/acquisition/hn.candidates.jsonl": {
+    "sha256": "488f28047d969cd72e47406f9a47a2011f8aefd0e25f3b9fa0b905184beb4744",
+    "bytes": 165563
+  },
+  "data/acquisition/samples.typical.jsonl": {
+    "sha256": "eb72898fea392f93500f0517840203a5c3749df9add0210b1418cdf3bb07f65b",
+    "bytes": 2248283
+  },
+  "data/acquisition/pairs.preprocessed-v2.jsonl": {
+    "sha256": "ea24acfee9ca9e9c1708ab70d0c355999882a4fbc107e3ccabed6012b955d0b1",
+    "bytes": 21997364
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "verified": true,
+  "new_generations": 160,
+  "historical_hn_generations": 160,
+  "all_request_hashes_and_prompt_tokens_match": true,
+  "raw_parsing_and_citations_match": true,
+  "source_MAL_labels_and_inputs_match_historical_corpus": true,
+  "unique_MAL_campaigns": 32,
+  "metrics_recounted": true,
+  "http_generation_statuses": {
+    "200": 160
+  },
+  "server_shutdown_complete": true,
+  "frozen_hash_counts": {
+    "source_sha256": 16,
+    "upstream_sha256": 5,
+    "model_sha256": 13
+  },
+  "human_annotation_verified": false,
+  "FPR_available": false
+}
