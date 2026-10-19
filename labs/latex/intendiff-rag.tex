@@ -389,6 +389,30 @@ kesamaan perubahan kemampuan. Keempat, LLM lokal menerima masukan sesuai
 konfigurasi dan mengembalikan verdict malicious atau benign. Seluruh langkah
 bersifat statis; kode paket tidak pernah dijalankan.
 
+Gambar~\ref{fig:pipeline} memperlihatkan hubungan antarbagian metode.
+Pasangan versi menghasilkan smart-diff dan himpunan perubahan kemampuan,
+sedangkan profil intent hanya menggunakan dokumentasi versi pendahulu.
+Perubahan kemampuan menjadi kueri untuk memilih contoh dari KB; intent
+tidak digunakan untuk pemilihan tersebut. Smart-diff selalu diberikan kepada
+model, sementara intent dan contoh rujukan ditambahkan sesuai konfigurasi
+pada Tabel~\ref{tab:configs}. Pemisahan jalur ini memungkinkan pengaruh
+masing-masing tambahan konteks diperiksa pada perubahan kode yang sama.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/pipeline.pdf}
+\caption{Alur utama IntentDiff-RAG untuk menilai satu pembaruan paket.
+Arsip pendahulu dan target diproses secara statis untuk membentuk smart-diff
+dan perubahan kemampuan; intent berasal dari versi pendahulu.
+Retrieval memilih contoh dari KB yang dipisahkan dari data uji.
+Garis putus-putus menunjukkan konteks opsional sesuai konfigurasi.
+M: contoh malicious; B: contoh benign. Himpunan perubahan kemampuan dipakai
+untuk retrieval, sedangkan model menerima teks perubahan kode, konteks yang
+diaktifkan, dan instruksi keputusan. Keluaran terstruktur memuat verdict,
+alasan singkat, dan bukti; validitas format tidak menjamin kebenaran keputusan.}
+\label{fig:pipeline}
+\end{figure*}
+
 \subsection{Unit analisis dan batas tugas}
 Satu sampel merupakan pasangan versi dari paket yang sama. Versi target adalah
 versi yang dinilai, sedangkan pendahulunya dipilih berdasarkan urutan semver
