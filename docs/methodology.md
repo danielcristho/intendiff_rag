@@ -646,11 +646,11 @@ tidak dicatat.
 | Tahap | Parameter |
 |---|---|
 | Stage 1 | temperature 0, top_p 1, `max_tokens` 512 |
-| Stage 2 (EA2) | temperature 0,7, top_p 0,8, top_k 20, seed 0, 1, 2 |
+| Ablasi decoding (EA2, D111) | temperature 0; 0,3; 0,7; 1,0 × seed 0, 1, 2; top_p 1, top_k tidak dikirim; dua model utama, enam konfigurasi |
 
-- [R] Nilai Stage 2 adalah rekomendasi sampling di model card Qwen3-4B-Instruct-2507.
-- [L] Nilai yang sama dipakai untuk kedua model supaya sampling bukan faktor pembeda.
-- `run_key` memuat temperature, sehingga run Stage 1 dan Stage 2 tidak bertabrakan.
+- [L] Hanya temperature dan seed yang berubah, sehingga pergeseran hasil bisa diatribusikan ke keduanya. Stage 2 lama (0,7 / top_p 0,8 / top_k 20) mengubah tiga parameter sekaligus dan diganti oleh D111.
+- [L] Seed 1 dan 2 juga dijalankan pada T=0 untuk memeriksa bahwa greedy tidak bergantung seed.
+- `run_key` memuat seed dan temperature, sehingga sel grid tidak bertabrakan. Protokol: `docs/sampling-ablation-20261109.md`.
 
 ### 9.3 Kebutuhan memori dan cara mengukurnya
 
@@ -724,7 +724,7 @@ ID menyatakan komposisi faktornya (D62): `DIFF` smart-diff, `I` blok intent,
 | Token | `prompt_tokens` dan `completion_tokens` dari field `usage` vLLM | RQ4 |
 | Latency | median dan p95 (§9.3) | RQ4 |
 | Memori | memori minimum terhitung (§9.3) | RQ4 |
-| Flip rate | proporsi pair yang verdict-nya tidak sama di ketiga seed | EA2 |
+| Flip rate | proporsi pair yang verdict-nya tidak sama di ketiga seed, per temperature dan konfigurasi | EA2 (D111) |
 
 **Aturan cocok untuk evidence localization:** setelah spasi dinormalisasi, satu
 string harus menjadi substring dari string lainnya (arah mana saja).
