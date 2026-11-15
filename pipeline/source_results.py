@@ -10,11 +10,13 @@ from output_schema import SCHEMA
 import jsonschema
 
 
-def verify(directory, stage, model):
+def verify(directory, stage, model, seed=0, temperature=0.0, stem=None):
     directory = Path(directory)
+    stem = stem or f'{stage}.{model["tag"]}'
+    sampling = dict(temperature=temperature, top_p=1.0)
     pairs = {r['id']: r for r in load_jsonl(directory / f'{stage}.pairs.jsonl')}
     cards = load_jsonl(directory / 'kb.jsonl')
-    rows = load_jsonl(directory / f'{stage}.{model["tag"]}.results.jsonl')
+    rows = load_jsonl(directory / f'{stem}.results.jsonl')
     tokens = {(r['pair_id'], r['config']): r['prompt_tokens']
               for r in load_jsonl(directory / f'{stage}.prompt-tokens.jsonl') if r['model'] == model['id']}
     expected = {(p, c) for p in pairs for c in CONFIGS}
@@ -23,17 +25,16 @@ def verify(directory, stage, model):
         key = (row['pair_id'], row['config'])
         if key not in expected or row['model'] != model['id']:
             raise ValueError('Unexpected model, pair or configuration')
-        if row['run_key'] != run_key(model['id'], key[1], key[0], 0, 0.0):
+        if row['run_key'] != run_key(model['id'], key[1], key[0], seed, temperature):
             raise ValueError('Unexpected run key')
-        if (row.get('seed'), row.get('temperature'), row.get('top_p'), row.get('top_k')) != (0, 0.0, 1.0, None):
+        if (row.get('seed'), row.get('temperature'), row.get('top_p'), row.get('top_k')) != (seed, temperature, 1.0, None):
             raise ValueError('Unexpected sampling parameters')
         if row.get('error'):
             continue
         if key in unique:
             raise ValueError('Duplicate completed generation')
         pair = pairs[key[0]]
-        payload_hash = request_hash(model['id'], build(key[1], pair, retrieve(key[1], pair, cards)), 0,
-                                    dict(temperature=0.0, top_p=1.0))
+        payload_hash = request_hash(model['id'], build(key[1], pair, retrieve(key[1], pair, cards)), seed, sampling)
         if row.get('request_sha256') != payload_hash or row.get('response_model') != model['id'] or not row.get('response_id'):
             raise ValueError('Request or response identity differs')
         if row['label'] != pair['label'] or row['diff_sha256'] != pair['diff_sha256']:
@@ -81,5 +82,5 @@ def verify(directory, stage, model):
                   transport_attempt_errors=sum(bool(r.get('error')) for r in rows),
                   json_validity=sum(r['json_valid'] for r in unique.values()) / len(unique) if unique else None,
                   label_policy='source MAL; assumed-benign TYP; no human gold', groups=groups)
-    (directory / f'{stage}.{model["tag"]}.verification.json').write_text(json.dumps(result, indent=2) + '\n')
+    (directory / f'{stem}.verification.json').write_text(json.dumps(result, indent=2) + '\n')
     return result

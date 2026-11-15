@@ -1,0 +1,79 @@
+{
+  "decision": "D111",
+  "reference_cell": [
+    0.0,
+    0
+  ],
+  "reproduction": {
+    "qwen3": {
+      "DIFF": {
+        "n": 1997,
+        "verdict_agree": 1997,
+        "raw_identical": 1995
+      },
+      "DIFF+I": {
+        "n": 1997,
+        "verdict_agree": 1997,
+        "raw_identical": 1993
+      },
+      "DIFF+I+M": {
+        "n": 1997,
+        "verdict_agree": 1997,
+        "raw_identical": 1997
+      },
+      "DIFF+I+MM": {
+        "n": 1997,
+        "verdict_agree": 1997,
+        "raw_identical": 1997
+      },
+      "DIFF+I+MB": {
+        "n": 1997,
+        "verdict_agree": 1997,
+        "raw_identical": 1997
+      },
+      "DIFF+MB": {
+        "n": 1997,
+        "verdict_agree": 1997,
+        "raw_identical": 1997
+      }
+    },
+    "qwen25": {
+      "DIFF": {
+        "n": 1997,
+        "verdict_agree": 1997,
+        "raw_identical": 1995
+      },
+      "DIFF+I": {
+        "n": 1997,
+        "verdict_agree": 1997,
+        "raw_identical": 1995
+      },
+      "DIFF+I+M": {
+        "n": 1997,
+        "verdict_agree": 1997,
+        "raw_identical": 1994
+      },
+      "DIFF+I+MM": {
+        "n": 1997,
+        "verdict_agree": 1996,
+        "raw_identical": 1996
+      },
+      "DIFF+I+MB": {
+        "n": 1997,
+        "verdict_agree": 1995,
+        "raw_identical": 1991
+      },
+      "DIFF+MB": {
+        "n": 1997,
+        "verdict_agree": 1997,
+        "raw_identical": 1992
+      }
+    }
+  },
+  "cells": 12,
+  "models": [
+    "qwen3",
+    "qwen25"
+  ],
+  "responses": 287568
+}

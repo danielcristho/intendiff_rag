@@ -1,0 +1,415 @@
+{"stage": "server_starting", "time_unix": 1794201616.7255085, "model": "Qwen/Qwen3-4B-Instruct-2507", "cells": 12}
+{"stage": "running", "time_unix": 1794201663.3567538, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.0, "seed": 0}
+{"stage": "cell_complete", "time_unix": 1794209522.431128, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.0, "seed": 0, "json_validity": 0.9562677349357369}
+{"stage": "running", "time_unix": 1794209522.4314954, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.0, "seed": 1}
+{"stage": "cell_complete", "time_unix": 1794217394.6514173, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.0, "seed": 1, "json_validity": 0.9562677349357369}
+{"stage": "running", "time_unix": 1794217394.6518424, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.0, "seed": 2}
+{"stage": "cell_complete", "time_unix": 1794225242.4354246, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.0, "seed": 2, "json_validity": 0.9562677349357369}
+{"stage": "running", "time_unix": 1794225242.4357865, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.3, "seed": 0}
+{"stage": "cell_complete", "time_unix": 1794233117.8243144, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.3, "seed": 0, "json_validity": 0.956518110499082}
+{"stage": "running", "time_unix": 1794233117.8246763, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.3, "seed": 1}
+{"stage": "cell_complete", "time_unix": 1794240988.5428634, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.3, "seed": 1, "json_validity": 0.9555166082457018}
+{"stage": "running", "time_unix": 1794240988.5432594, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.3, "seed": 2}
+{"stage": "cell_complete", "time_unix": 1794248782.9888165, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.3, "seed": 2, "json_validity": 0.9587714905691871}
+{"stage": "running", "time_unix": 1794248782.9891806, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.7, "seed": 0}
+{"stage": "cell_complete", "time_unix": 1794256571.5382025, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.7, "seed": 0, "json_validity": 0.9584376564847271}
+{"stage": "running", "time_unix": 1794256571.5386279, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.7, "seed": 1}
+{"stage": "cell_complete", "time_unix": 1794264566.5697634, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.7, "seed": 1, "json_validity": 0.9556000667668169}
+{"stage": "running", "time_unix": 1794264566.5701454, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.7, "seed": 2}
+{"stage": "cell_complete", "time_unix": 1794272468.6212962, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 0.7, "seed": 2, "json_validity": 0.9583541979636121}
+{"stage": "running", "time_unix": 1794272468.6217847, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 1.0, "seed": 0}
+{"stage": "cell_complete", "time_unix": 1794280127.7800384, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 1.0, "seed": 0, "json_validity": 0.9613587047237523}
+{"stage": "running", "time_unix": 1794280127.7804246, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 1.0, "seed": 1}
+{"stage": "cell_complete", "time_unix": 1794288066.420033, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 1.0, "seed": 1, "json_validity": 0.9543481889500918}
+{"stage": "running", "time_unix": 1794288066.4204016, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 1.0, "seed": 2}
+{"stage": "cell_complete", "time_unix": 1794295706.587496, "model": "Qwen/Qwen3-4B-Instruct-2507", "temperature": 1.0, "seed": 2, "json_validity": 0.9622767484560174}
+{"stage": "server_starting", "time_unix": 1794295763.2825756, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "cells": 12}
+{"stage": "running", "time_unix": 1794295826.7464273, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.0, "seed": 0}
+{"stage": "cell_complete", "time_unix": 1794303113.7788782, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.0, "seed": 0, "json_validity": 0.9953263228175597}
+{"stage": "running", "time_unix": 1794303113.7804515, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.0, "seed": 1}
+{"stage": "cell_complete", "time_unix": 1794310393.4306624, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.0, "seed": 1, "json_validity": 0.9953263228175597}
+{"stage": "running", "time_unix": 1794310393.4310322, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.0, "seed": 2}
+{"stage": "cell_complete", "time_unix": 1794317671.3562605, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.0, "seed": 2, "json_validity": 0.9953263228175597}
+{"stage": "running", "time_unix": 1794317671.3566208, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.3, "seed": 0}
+{"stage": "cell_complete", "time_unix": 1794325074.6372783, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.3, "seed": 0, "json_validity": 0.9933233183107996}
+{"stage": "running", "time_unix": 1794325074.637704, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.3, "seed": 1}
+{"stage": "cell_complete", "time_unix": 1794332455.8039742, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.3, "seed": 1, "json_validity": 0.9913203138040394}
+{"stage": "running", "time_unix": 1794332455.8043644, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.3, "seed": 2}
+{"stage": "cell_complete", "time_unix": 1794339946.5007143, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.3, "seed": 2, "json_validity": 0.9918210649307294}
+{"stage": "running", "time_unix": 1794339946.5012102, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.7, "seed": 0}
+{"stage": "cell_complete", "time_unix": 1794347615.8921497, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.7, "seed": 0, "json_validity": 0.9894007678183943}
+{"stage": "running", "time_unix": 1794347615.892531, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.7, "seed": 1}
+{"stage": "cell_complete", "time_unix": 1794355324.5456018, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.7, "seed": 1, "json_validity": 0.9868135536638291}
+{"stage": "running", "time_unix": 1794355324.545956, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.7, "seed": 2}
+{"stage": "cell_complete", "time_unix": 1794363069.7543137, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 0.7, "seed": 2, "json_validity": 0.9873977633116341}
+{"stage": "running", "time_unix": 1794363069.754682, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 1.0, "seed": 0}
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 85, in <module>
+    main()
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 71, in main
+    result = verify_cell(release, model, temperature, seed)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 36, in verify_cell
+    return verify(release, 'test', model, seed, temperature, stem(model['tag'], temperature, seed))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/source_results.py", line 19, in verify
+    rows = load_jsonl(directory / f'{stem}.results.jsonl')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/samples.py", line 30, in load_jsonl
+    return [json.loads(line) for line in p.read_text().splitlines() if line.strip()]
+            ^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/json/decoder.py", line 354, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 811 (char 810)
+{"stage": "server_starting", "time_unix": 1794398940.5931563, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "cells": 2}
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 85, in <module>
+    main()
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 60, in main
+    with served(model, release / f'test.{tag}.server.log'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/source_experiment.py", line 66, in served
+    raise RuntimeError('Model server exited')
+RuntimeError: Model server exited
+resume.sh: batch exited non-zero (attempt 1)
+{"stage": "server_starting", "time_unix": 1794399328.1562674, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "cells": 2}
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 85, in <module>
+    main()
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 60, in main
+    with served(model, release / f'test.{tag}.server.log'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/source_experiment.py", line 66, in served
+    raise RuntimeError('Model server exited')
+RuntimeError: Model server exited
+resume.sh: batch exited non-zero (attempt 2)
+{"stage": "server_starting", "time_unix": 1794399672.5197902, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "cells": 2}
+Traceback (most recent call last):
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 1344, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/http/client.py", line 1338, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/http/client.py", line 1384, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/http/client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/http/client.py", line 1093, in _send_output
+    self.send(msg)
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/http/client.py", line 1037, in send
+    self.connect()
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/http/client.py", line 1003, in connect
+    self.sock = self._create_connection(
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/socket.py", line 865, in create_connection
+    raise exceptions[0]
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/socket.py", line 850, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/source_experiment.py", line 68, in served
+    with urllib.request.urlopen('http://127.0.0.1:8101/v1/models', timeout=2) as response:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 1373, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/urllib/request.py", line 1347, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 111] Connection refused>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 85, in <module>
+    main()
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 60, in main
+    with served(model, release / f'test.{tag}.server.log'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/source_experiment.py", line 73, in served
+    time.sleep(2)
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 83, in interrupted
+    raise KeyboardInterrupt(signum)
+KeyboardInterrupt: 15
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 85, in <module>
+    main()
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 54, in main
+    check_pins(protocol, model)
+  File "~/intendiff_rag/pipeline/source_experiment.py", line 29, in check_pins
+    raise ValueError('Frozen input changed: ' + row['path'])
+ValueError: Frozen input changed: docs/sampling-ablation-20261109.md
+resume.sh: batch exited non-zero (attempt 1)
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 85, in <module>
+    main()
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 54, in main
+    check_pins(protocol, model)
+  File "~/intendiff_rag/pipeline/source_experiment.py", line 29, in check_pins
+    raise ValueError('Frozen input changed: ' + row['path'])
+ValueError: Frozen input changed: docs/sampling-ablation-20261109.md
+resume.sh: batch exited non-zero (attempt 2)
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 85, in <module>
+    main()
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 54, in main
+    check_pins(protocol, model)
+  File "~/intendiff_rag/pipeline/source_experiment.py", line 29, in check_pins
+    raise ValueError('Frozen input changed: ' + row['path'])
+ValueError: Frozen input changed: docs/sampling-ablation-20261109.md
+resume.sh: batch exited non-zero (attempt 3)
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 85, in <module>
+    main()
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 54, in main
+    check_pins(protocol, model)
+  File "~/intendiff_rag/pipeline/source_experiment.py", line 29, in check_pins
+    raise ValueError('Frozen input changed: ' + row['path'])
+ValueError: Frozen input changed: docs/sampling-ablation-20261109.md
+resume.sh: batch exited non-zero (attempt 4)
+{"stage": "server_starting", "time_unix": 1794402030.330754, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "cells": 2}
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 85, in <module>
+    main()
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 60, in main
+    with served(model, release / f'test.{tag}.server.log'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/source_experiment.py", line 66, in served
+    raise RuntimeError('Model server exited')
+RuntimeError: Model server exited
+resume.sh: batch exited non-zero (attempt 1)
+{"stage": "server_starting", "time_unix": 1794402389.473517, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "cells": 2}
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 85, in <module>
+    main()
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 60, in main
+    with served(model, release / f'test.{tag}.server.log'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/source_experiment.py", line 66, in served
+    raise RuntimeError('Model server exited')
+RuntimeError: Model server exited
+resume.sh: batch exited non-zero (attempt 2)
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 85, in <module>
+    main()
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 55, in main
+    todo = [(t, s) for t, s in grid(protocol) if not verify_cell(release, model, t, s)['complete']]
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 36, in verify_cell
+    return verify(release, 'test', model, seed, temperature, stem(model['tag'], temperature, seed))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/source_results.py", line 54, in verify
+    jsonschema.validate(raw_object, SCHEMA)
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 1328, in validate
+    cls.check_schema(schema)
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 315, in check_schema
+    for error in validator.iter_errors(schema):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 383, in iter_errors
+    for error in errors:
+                 ^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/_keywords.py", line 334, in allOf
+    yield from validator.descend(instance, subschema, schema_path=index)
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 431, in descend
+    for error in errors:
+                 ^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/_keywords.py", line 275, in ref
+    yield from validator._validate_reference(ref=ref, instance=instance)
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 431, in descend
+    for error in errors:
+                 ^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/_keywords.py", line 296, in properties
+    yield from validator.descend(
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 431, in descend
+    for error in errors:
+                 ^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/_keywords.py", line 279, in dynamicRef
+    yield from validator._validate_reference(ref=dynamicRef, instance=instance)
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 431, in descend
+    for error in errors:
+                 ^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/_keywords.py", line 334, in allOf
+    yield from validator.descend(instance, subschema, schema_path=index)
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 431, in descend
+    for error in errors:
+                 ^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/_keywords.py", line 275, in ref
+    yield from validator._validate_reference(ref=ref, instance=instance)
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 423, in descend
+    evolved = self.evolve(schema=schema, _resolver=resolver)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 345, in evolve
+    changes[init_name] = getattr(self, attr_name)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 83, in interrupted
+    raise KeyboardInterrupt(signum)
+KeyboardInterrupt: 15
+{"stage": "server_starting", "time_unix": 1794412670.683327, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "cells": 2}
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 85, in <module>
+    main()
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 60, in main
+    with served(model, release / f'test.{tag}.server.log'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/source_experiment.py", line 66, in served
+    raise RuntimeError('Model server exited')
+RuntimeError: Model server exited
+resume.sh: batch exited non-zero (attempt 1)
+{"stage": "server_starting", "time_unix": 1794413032.3157012, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "cells": 2}
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 85, in <module>
+    main()
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 60, in main
+    with served(model, release / f'test.{tag}.server.log'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/source_experiment.py", line 66, in served
+    raise RuntimeError('Model server exited')
+RuntimeError: Model server exited
+resume.sh: batch exited non-zero (attempt 2)
+{"stage": "server_starting", "time_unix": 1794413369.628469, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "cells": 2}
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 85, in <module>
+    main()
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 60, in main
+    with served(model, release / f'test.{tag}.server.log'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/source_experiment.py", line 66, in served
+    raise RuntimeError('Model server exited')
+RuntimeError: Model server exited
+resume.sh: batch exited non-zero (attempt 3)
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 85, in <module>
+    main()
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 55, in main
+    todo = [(t, s) for t, s in grid(protocol) if not verify_cell(release, model, t, s)['complete']]
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 36, in verify_cell
+    return verify(release, 'test', model, seed, temperature, stem(model['tag'], temperature, seed))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/source_results.py", line 54, in verify
+    jsonschema.validate(raw_object, SCHEMA)
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 1328, in validate
+    cls.check_schema(schema)
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 315, in check_schema
+    for error in validator.iter_errors(schema):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 383, in iter_errors
+    for error in errors:
+                 ^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/_keywords.py", line 334, in allOf
+    yield from validator.descend(instance, subschema, schema_path=index)
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 431, in descend
+    for error in errors:
+                 ^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/_keywords.py", line 275, in ref
+    yield from validator._validate_reference(ref=ref, instance=instance)
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 431, in descend
+    for error in errors:
+                 ^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/_keywords.py", line 296, in properties
+    yield from validator.descend(
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 431, in descend
+    for error in errors:
+                 ^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/_keywords.py", line 44, in additionalProperties
+    yield from validator.descend(instance[extra], aP, path=extra)
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 431, in descend
+    for error in errors:
+                 ^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/_keywords.py", line 279, in dynamicRef
+    yield from validator._validate_reference(ref=dynamicRef, instance=instance)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/jsonschema/validators.py", line 462, in _validate_reference
+    resolved = self._resolver.lookup(ref)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/referencing/_core.py", line 694, in lookup
+    resolver = self._evolve(registry=retrieved.registry, base_uri=uri)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/referencing/_core.py", line 723, in _evolve
+    return evolve(self, base_uri=base_uri, previous=previous, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/.venv/lib/python3.12/site-packages/attr/_make.py", line 587, in evolve
+    def evolve(*args, **changes):
+    
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 83, in interrupted
+    raise KeyboardInterrupt(signum)
+KeyboardInterrupt: 15
+{"stage": "server_starting", "time_unix": 1794414322.1492188, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "cells": 2}
+{"stage": "running", "time_unix": 1794414393.1730306, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 1.0, "seed": 1}
+reencoded test.qwen25.t1.0.s1.results.jsonl: 3206 rows, original kept in data/evaluation/sampling-ablation-20261109/recovery
+{"stage": "server_starting", "time_unix": 1794439604.1391795, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "cells": 2}
+{"stage": "running", "time_unix": 1794439673.2297153, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 1.0, "seed": 1}
+{"stage": "cell_complete", "time_unix": 1794445182.0144632, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 1.0, "seed": 1, "json_validity": 0.9849774661992989}
+{"stage": "running", "time_unix": 1794445182.0156233, "model": "Qwen/Qwen2.5-Coder-3B-Instruct", "temperature": 1.0, "seed": 2}
+Traceback (most recent call last):
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 85, in <module>
+    main()
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 71, in main
+    result = verify_cell(release, model, temperature, seed)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/sampling_batch.py", line 36, in verify_cell
+    return verify(release, 'test', model, seed, temperature, stem(model['tag'], temperature, seed))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/source_results.py", line 19, in verify
+    rows = load_jsonl(directory / f'{stem}.results.jsonl')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/intendiff_rag/pipeline/samples.py", line 30, in load_jsonl
+    return [json.loads(line) for line in p.read_text().splitlines() if line.strip()]
+            ^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/.local/share/uv/python/cpython-3.12.9-linux-x86_64-gnu/lib/python3.12/json/decoder.py", line 354, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 823 (char 822)
+resume.sh: batch exited non-zero (attempt 1)
+reencoded test.qwen25.t1.0.s2.results.jsonl: 11982 rows, original kept in data/evaluation/sampling-ablation-20261109/recovery
+{"stage": "grid_complete", "time_unix": 1794453036.4902399}

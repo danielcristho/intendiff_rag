@@ -259,9 +259,12 @@ Contoh card **fiktif**:
 9. **Dev set:** `--pairs data/dev.jsonl --out data/results.dev.jsonl`. Periksa validitas JSON (§6.4).
 10. **Gate G2:** bekukan desain. Perubahan setelah ini wajib dicatat di `docs/decisions.md`.
 11. **Stage 1:** jalankan 6 konfigurasi dengan temperature 0.
-12. **Stage 2:** tiga seed pada dua konfigurasi, flagnya sudah ada di runner:
-    `--configs DIFF+I,DIFF+I+MB --temperature 0.7 --top-p 0.8 --top-k 20 --seed 0` (lalu 1 dan 2).
-    `run_key` sudah memuat temperature, jadi run Stage 1 tidak dianggap selesai untuk Stage 2.
+12. **Ablasi decoding (D111, menggantikan Stage 2):** T {0; 0,3; 0,7; 1,0} × seed {0,1,2}, top_p 1,
+    dua model utama, enam konfigurasi. Jalankan `pipeline/sampling_batch.py --release
+    data/evaluation/sampling-ablation-20261109`, lalu `pipeline/sampling_report.py`.
+    Lihat `docs/sampling-ablation-20261109.md`. Selesai 12 November 2026; hasil di
+    `docs/sampling-ablation-results-20261112.md`. Di WSL, lanjutkan lewat
+    `recovery/resume.sh` di release (re-encode U+2028, pelepasan page cache).
 13. **Memori:** laporkan memori bobot dari log vLLM ditambah KV cache terhitung (methodology §9.3). Puncak nvidia-smi bukan metrik.
 
 `--base-url` ditulis tanpa `/v1`, dan jangan pakai port 8000 karena sudah dipakai backend.
