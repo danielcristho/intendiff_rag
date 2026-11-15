@@ -791,3 +791,20 @@ Konteks: GPU yang tersedia dicek terhadap kebutuhan memori di
 - Daftar RQ di Pendahuluan dihapus. Bab Rancangan evaluasi kini menyebut empat analisis: kemampuan dasar (DIFF, DIFF+I), pengaruh contoh rujukan (DIFF+I → DIFF+I+M, DIFF+I+MM → DIFF+I+MB), pengaruh intent (DIFF+MB → DIFF+I+MB), serta format dan biaya. Subjudul Hasil, caption tabel, Pembahasan, dan Kesimpulan tidak lagi menyebut RQ; kotak ringkasan di Hasil berlabel "Temuan".
 - `docs/research.md` §4 kini mencatat bahwa naskah tidak memakai RQ dan bahwa RQ/hipotesis lama hanya riwayat. Jangan menambahkan RQ kembali ke naskah.
 - Interval FPR, koreksi klaim MM→MB, penyeimbangan pelaporan intent, dan format JSS dari D108–D109 tetap berlaku.
+
+**D111. Ablasi temperature × seed pada dua model utama; menggantikan Stage 2 (D11), 9 November 2026.**
+
+- Dosen pembimbing meminta temperature dan seed dimasukkan ke studi ablasi. Seluruh hasil naskah (D101, D102, D105) memakai greedy T=0, seed 0, top_p 1, sehingga ketergantungan temuan pada decoding belum terukur. Stage 2 D11 (T 0,7, top_p 0,8, top_k 20, tiga seed, hanya DIFF+I dan DIFF+I+MB) tidak pernah dijalankan dan kini diganti. Rencana itu mengubah tiga parameter sekaligus dan tidak mencakup kontras.
+- Grid: T ∈ {0; 0,3; 0,7; 1,0} × seed {0, 1, 2}, top_p 1, top_k tidak dikirim, sehingga hanya temperature dan seed yang berubah. Keenam konfigurasi, 1.997 pair test naskah (129 MAL/98 kampanye, 1.868 TYP). Model hanya Qwen3-4B dan Qwen2.5-Coder-3B (ditetapkan sejak D99); pengguna memilih cakupan ini karena biayanya ±50 jam GPU, dibanding ±8 hari untuk enam model. Kelima model D102 tetap hanya T=0, dan naskah tidak mengklaim ketahanan decoding untuk kelimanya. Total 287.568 respons.
+- Sel (T=0, seed 0) dijalankan ulang di snapshot baru dan dibandingkan per pair dengan run historis sebagai pemeriksaan reproduksi (D54). Perbandingan antar sel dilakukan di dalam snapshot ablasi. Kode pembentuk request diperiksa identik dengan snapshot D101; runtime harus sama dengan `runtime-observation.json` D101 (vLLM 0.30.0), dan batch menolak berjalan kalau berbeda. Gate format dev tidak diulang; validitas JSON per sel dilaporkan sebagai hasil, tidak dipakai untuk menggugurkan sel.
+- Deskriptif: TPR/FPR dengan CI kampanye, rentang antar seed, flip rate (MAL/TYP), dan ΔTPR/ΔFPR ketiga kontras per sel, termasuk apakah tandanya sama dengan sel referensi. Hasil utama tetap T=0. Tidak ada setelan decoding yang dipilih dari grid ini, dan tidak ada prompt, KB, atau aturan keputusan yang berubah.
+- Input dibekukan di `data/evaluation/sampling-ablation-20261109/` sebelum inferensi. Protokol: `docs/sampling-ablation-20261109.md`. Kode: `pipeline/sampling_{grid,prepare,batch,report}.py`. `source_results.verify` kini menerima seed dan temperature (nilai default menghasilkan verifikasi byte-identik untuk rilis lama). Server dan warm-up dipindah ke `source_experiment.served`/`warm_up` agar flag-nya tidak terduplikasi. Belum dijalankan: `.venv` vLLM dan bobot model tidak ada di mesin saat pembekuan.
+- Hasil, 12 November 2026 (`docs/sampling-ablation-results-20261112.md`):
+  - Grid lengkap: 287.568 respons, semua sel terverifikasi.
+  - Sel referensi mereproduksi verdict historis: 11.982/11.982 (Qwen3-4B) dan 11.979/11.982 (Qwen2.5-Coder).
+  - Pada T=0, seed tidak mengubah verdict: flip 0 untuk Qwen3-4B, paling tinggi 0,05% untuk Qwen2.5-Coder.
+  - Qwen3-4B stabil terhadap temperature: TPR bergeser ≤2,3 poin, flip antar seed 3–9%.
+  - Qwen2.5-Coder sangat sensitif: TPR turun 10–16 poin dan FPR 11–14 poin dari T=0 ke 1,0, dan flip antar seed 29–59%.
+  - Kontras yang jelas pada T=0 tetap searah di semua 12 sel per model: MM→MB, ΔFPR intent Qwen3-4B, dan ΔFPR DIFF+I→DIFF+I+M Qwen2.5-Coder.
+  - Penyimpangan eksekusi (re-encode U+2028, restart server, page cache WSL) dicatat di `recovery/README.md` release. Request, flag, dan kode yang di-pin tidak berubah.
+  - Naskah Inggris (`labs/latex/intendif-rag-eng.tex`) diperbarui 13 November 2026: §4.5 desain, §5.5 hasil (Fig. `sampling-rates`, tabel flip), paragraf diskusi, ancaman validitas, kesimpulan. Abstrak tidak diubah (243 kata, batas JSS 250).

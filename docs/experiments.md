@@ -33,7 +33,7 @@ Kelengkapan panggilan tidak menggantikan gold, split data, atau card terverifika
 |---|---|
 | Dev set | 10 pair × 6 konfigurasi × 2 model = 120 |
 | Stage 1 | ~250 pair × 6 konfigurasi × 2 model = 3.000 |
-| Stage 2 (EA2) | ~250 pair × 2 konfigurasi × 3 seed × 2 model = 3.000 |
+| Ablasi decoding (EA2, D111) | 1.997 pair × 6 konfigurasi × 4 temperature × 3 seed × 2 model = 287.568 (±50 jam GPU); selesai 12 November 2026, hasil di `docs/sampling-ablation-results-20261112.md` |
 
 Warm-up menambah 3 request per sesi server dan tidak dicatat.
 
