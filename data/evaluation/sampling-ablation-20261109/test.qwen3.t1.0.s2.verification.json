@@ -1,0 +1,372 @@
+{
+  "model": "Qwen/Qwen3-4B-Instruct-2507",
+  "stage": "test",
+  "complete": true,
+  "completed": 11982,
+  "expected": 11982,
+  "transport_attempt_errors": 0,
+  "json_validity": 0.9622767484560174,
+  "label_policy": "source MAL; assumed-benign TYP; no human gold",
+  "groups": [
+    {
+      "config": "DIFF",
+      "invalid_as": "benign",
+      "completed": 1997,
+      "expected": 1997,
+      "confusion": {
+        "TN": 1746,
+        "FN": 71,
+        "FP": 122,
+        "TP": 58
+      },
+      "tpr_source": 0.4496124031007752,
+      "cohort_accuracy": 0.9033550325488232,
+      "balanced_accuracy": 0.692150955297711,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 28
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 30
+        },
+        "random": {
+          "n": 801,
+          "alarms": 64
+        }
+      },
+      "invalid": 107
+    },
+    {
+      "config": "DIFF",
+      "invalid_as": "malicious",
+      "completed": 1997,
+      "expected": 1997,
+      "confusion": {
+        "TN": 1650,
+        "FP": 218,
+        "FN": 60,
+        "TP": 69
+      },
+      "tpr_source": 0.5348837209302325,
+      "cohort_accuracy": 0.8607911867801703,
+      "balanced_accuracy": 0.7090906827349235,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 43
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 69
+        },
+        "random": {
+          "n": 801,
+          "alarms": 106
+        }
+      },
+      "invalid": 107
+    },
+    {
+      "config": "DIFF+I",
+      "invalid_as": "benign",
+      "completed": 1997,
+      "expected": 1997,
+      "confusion": {
+        "TN": 1786,
+        "FP": 82,
+        "FN": 67,
+        "TP": 62
+      },
+      "tpr_source": 0.4806201550387597,
+      "cohort_accuracy": 0.9253880821231848,
+      "balanced_accuracy": 0.7183614693823349,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 18
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 14
+        },
+        "random": {
+          "n": 801,
+          "alarms": 50
+        }
+      },
+      "invalid": 74
+    },
+    {
+      "config": "DIFF+I",
+      "invalid_as": "malicious",
+      "completed": 1997,
+      "expected": 1997,
+      "confusion": {
+        "TN": 1718,
+        "FP": 150,
+        "FN": 61,
+        "TP": 68
+      },
+      "tpr_source": 0.5271317829457365,
+      "cohort_accuracy": 0.8943415122684026,
+      "balanced_accuracy": 0.7234159985392494,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 30
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 37
+        },
+        "random": {
+          "n": 801,
+          "alarms": 83
+        }
+      },
+      "invalid": 74
+    },
+    {
+      "config": "DIFF+I+M",
+      "invalid_as": "benign",
+      "completed": 1997,
+      "expected": 1997,
+      "confusion": {
+        "TN": 1787,
+        "FP": 81,
+        "FN": 68,
+        "TP": 61
+      },
+      "tpr_source": 0.4728682170542636,
+      "cohort_accuracy": 0.9253880821231848,
+      "balanced_accuracy": 0.7147531663429776,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 20
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 15
+        },
+        "random": {
+          "n": 801,
+          "alarms": 46
+        }
+      },
+      "invalid": 64
+    },
+    {
+      "config": "DIFF+I+M",
+      "invalid_as": "malicious",
+      "completed": 1997,
+      "expected": 1997,
+      "confusion": {
+        "TN": 1730,
+        "FP": 138,
+        "FN": 61,
+        "TP": 68
+      },
+      "tpr_source": 0.5271317829457365,
+      "cohort_accuracy": 0.900350525788683,
+      "balanced_accuracy": 0.726627989973939,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 28
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 40
+        },
+        "random": {
+          "n": 801,
+          "alarms": 70
+        }
+      },
+      "invalid": 64
+    },
+    {
+      "config": "DIFF+I+MM",
+      "invalid_as": "benign",
+      "completed": 1997,
+      "expected": 1997,
+      "confusion": {
+        "TN": 1793,
+        "FP": 75,
+        "FN": 76,
+        "TP": 53
+      },
+      "tpr_source": 0.4108527131782946,
+      "cohort_accuracy": 0.9243865798698047,
+      "balanced_accuracy": 0.6853514101223379,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 16
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 18
+        },
+        "random": {
+          "n": 801,
+          "alarms": 41
+        }
+      },
+      "invalid": 57
+    },
+    {
+      "config": "DIFF+I+MM",
+      "invalid_as": "malicious",
+      "completed": 1997,
+      "expected": 1997,
+      "confusion": {
+        "TN": 1741,
+        "FP": 127,
+        "FN": 71,
+        "TP": 58
+      },
+      "tpr_source": 0.4496124031007752,
+      "cohort_accuracy": 0.900851276915373,
+      "balanced_accuracy": 0.690812625533257,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 21
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 39
+        },
+        "random": {
+          "n": 801,
+          "alarms": 67
+        }
+      },
+      "invalid": 57
+    },
+    {
+      "config": "DIFF+I+MB",
+      "invalid_as": "benign",
+      "completed": 1997,
+      "expected": 1997,
+      "confusion": {
+        "TN": 1775,
+        "FP": 93,
+        "FN": 65,
+        "TP": 64
+      },
+      "tpr_source": 0.49612403100775193,
+      "cohort_accuracy": 0.9208813219829745,
+      "balanced_accuracy": 0.7231690818850323,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 20
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 19
+        },
+        "random": {
+          "n": 801,
+          "alarms": 54
+        }
+      },
+      "invalid": 65
+    },
+    {
+      "config": "DIFF+I+MB",
+      "invalid_as": "malicious",
+      "completed": 1997,
+      "expected": 1997,
+      "confusion": {
+        "TN": 1718,
+        "FP": 150,
+        "FN": 57,
+        "TP": 72
+      },
+      "tpr_source": 0.5581395348837209,
+      "cohort_accuracy": 0.8963445167751627,
+      "balanced_accuracy": 0.7389198745082416,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 32
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 40
+        },
+        "random": {
+          "n": 801,
+          "alarms": 78
+        }
+      },
+      "invalid": 65
+    },
+    {
+      "config": "DIFF+MB",
+      "invalid_as": "benign",
+      "completed": 1997,
+      "expected": 1997,
+      "confusion": {
+        "TN": 1726,
+        "TP": 66,
+        "FP": 142,
+        "FN": 63
+      },
+      "tpr_source": 0.5116279069767442,
+      "cohort_accuracy": 0.8973460190285428,
+      "balanced_accuracy": 0.7178053881778796,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 37
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 33
+        },
+        "random": {
+          "n": 801,
+          "alarms": 72
+        }
+      },
+      "invalid": 85
+    },
+    {
+      "config": "DIFF+MB",
+      "invalid_as": "malicious",
+      "completed": 1997,
+      "expected": 1997,
+      "confusion": {
+        "TN": 1651,
+        "TP": 76,
+        "FP": 217,
+        "FN": 53
+      },
+      "tpr_source": 0.5891472868217055,
+      "cohort_accuracy": 0.8647971957936905,
+      "balanced_accuracy": 0.7364901316335508,
+      "typ_strata": {
+        "live-stream-unseen-names": {
+          "n": 375,
+          "alarms": 47
+        },
+        "popular": {
+          "n": 692,
+          "alarms": 69
+        },
+        "random": {
+          "n": 801,
+          "alarms": 101
+        }
+      },
+      "invalid": 85
+    }
+  ]
+}

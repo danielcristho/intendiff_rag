@@ -1,0 +1,1794 @@
+%% IntentDiff-RAG: source-labelled evaluation, D101/D102/D105-D110. Target: Journal of Systems and Software.
+%% English version of intendiff-rag-id.tex.
+%%
+\PassOptionsToPackage{hyphens}{url}
+%% The "doubleblind" option was removed so that the author block is printed.
+%% For a double-anonymized submission, add it back and supply the author
+%% details on a separate title page.
+\documentclass[a4paper,fleqn]{cas-dc}
+\usepackage[authoryear]{natbib}
+\usepackage{placeins}
+\usepackage{array,tabularx}
+\usepackage{xcolor}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+%% Exact paired p-values: scripts/paired_pvalues.py;
+%% audited output: data/writing/significance-20261026/paired-pvalues.json.
+\setlength{\emergencystretch}{2em}
+%% Placeholder for values that must still be taken from the pair manifest.
+%% Remove every \tbd{...} before submission.
+\newcommand{\tbd}[1]{\textcolor{red}{[#1]}}
+\newcommand{\finding}[1]{\par\medskip\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\small\textbf{Finding.} #1}}\par\medskip}
+\ExplSyntaxOn
+\cs_set:Npn \__first_footerline: { \small\itshape Research~draft }
+\ExplSyntaxOff
+\begin{document}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+\shorttitle{IntentDiff-RAG}
+\shortauthors{R.U. Pambudi and G.C.D. Pepuho}
+\title[mode=title]{An exploratory study of package-purpose context and example composition for malicious npm update detection with local LLMs}
+
+\author[1]{Robby Ulung Pambudi}
+
+\author[1]{Gloriyano Cristho Daniel Pepuho}
+
+\author[1]{Dwi Sunaryono}[orcid=0000-0001-9925-9263]
+\ead{dwi@if.its.ac.id}
+\cormark[1]
+
+\author[1]{Bilqis Amaliah}[orcid=0000-0003-3154-8653]
+% \ead{bilqis@if.its.ac.id}
+% \cormark[1]
+
+\affiliation[1]{organization={Department of Informatics, Institut Teknologi Sepuluh Nopember},
+  addressline={Kampus ITS Sukolilo},
+  city={Surabaya},
+  postcode={60111},
+  country={Indonesia}}
+
+\cortext[1]{Corresponding author}
+
+\begin{abstract}[]
+Package updates can introduce malicious behavior that resembles legitimate
+software activity. This study evaluates whether a profile of the package's
+purpose (intent) and in-context examples help small local large language
+models (LLMs) distinguish the two. Six configurations were compared on six
+open-weight models, using 129 updates labeled malicious from 98 campaign
+clusters and 1,868 typical updates. Malicious labels come from the dataset
+sources; typical updates are assumed benign after advisory filtering. For most
+pairs, no capability signal was found, so the examples were selected by a
+deterministic hash rather than by similarity. Replacing one of two malicious
+examples with a benign example significantly increased the false positive rate
+(FPR) in three of the six models, by 2.30--8.35 percentage points, and decreased
+it in one (Phi-4-mini, $-5.46$ points), whose true positive rate (TPR) estimate
+fell by 8.53 points. Significance used exact campaign-level paired tests with
+Holm correction over 36 hypotheses; no TPR change from this replacement was
+significant. Intent significantly lowered FPR in two models and raised it in
+two others, without a significant TPR change in any model. These results do not
+support the assumption that benign examples generally reduce false alarms without
+sacrificing detection. The contribution of this study is a controlled,
+update-level measurement of the effect of intent and example composition, with
+campaign-level uncertainty estimates and paired significance tests. The findings
+support evaluating the benefit of in-context examples for each specific model
+and data condition, rather than assuming a general fix.
+\end{abstract}
+\begin{highlights}
+\item Without examples, LLMs missed over half of attacks or flagged most typical updates.
+\item A benign in-context example raised false alarms in three of six models.
+\item Phi-4-mini's FPR drop with a benign example came with a lower TPR estimate.
+\item Intent lowered false alarms in two models and raised them in two others.
+\item For 2/3 of malicious updates, examples were chosen at random by a hash tie-break.
+\end{highlights}
+\begin{keywords}
+malicious package updates \sep npm \sep in-context examples \sep
+open-weight language models \sep false positives
+\end{keywords}
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+Dependency updates are a means of maintaining software, but they are also an
+entry point for unwanted code. Because packages are interconnected, a change to
+one package can reach many projects that depend on it
+\citep{zimmermann2019small}. This risk has materialized repeatedly in the npm
+ecosystem. In September 2025, attackers obtained the credentials of the
+maintainer of chalk, debug, and 16 other packages through social engineering,
+then published versions that silently manipulated cryptocurrency transactions.
+These packages together had roughly two billion weekly downloads
+\citep{aws2025chalk}. A week later, the Shai-Hulud worm stole npm tokens and
+published infected versions of other packages owned by the same maintainers
+\citep{aws2025chalk,unit42shaihulud}. In March 2026, two versions of axios added
+a dependency that downloaded and executed a remote access trojan at install time
+\citep{datadog2026axios}.
+
+All three cases share the same pattern: malicious code is injected into a
+package that users already trust and use. Advisory-based checks such as
+\texttt{npm audit} only recognize issues that have already been reported
+\citep{npmaudit}, so users are unprotected during the gap between the release of
+a malicious version and the publication of an advisory. The traces of such
+attacks are most visible in the difference between versions. Assessing
+inter-version changes therefore complements whole-package inspection
+\citep{sofaer2024rogueone}.
+
+The main challenge is judging the purpose behind the same technical
+capabilities. Network access, reading environment variables, and process
+execution can appear both in malicious code and in legitimate development
+tools. The evaluation of npm detectors by \citet{guo2026effective} shows that
+the precision and recall of each tool depend heavily on how the tool
+resolves this ambiguity. Raising the number of detections by flagging more
+sensitive behavior does not necessarily produce a more useful detector if false
+alarms rise as well. In an ecosystem that receives many updates every day, even
+a small false-alarm rate can create a large review burden.
+
+LLMs make it possible to assess code together with its context.
+\citet{wyss2025evaluating} summarized inter-version changes into a
+\emph{smart-diff} and evaluated GPT-4o, GPT-4-Turbo, and Gemini-2.0-Flash. All
+three models detected all 46 malicious updates, and GPT-4o produced only 8 false
+alarms out of 2,000 typical updates. However, commercial models require code to
+be sent to a third party and incur a cost for every query. Small
+open-weight models can run on one's own hardware, but their capability on
+the same task is unknown. \citet{nguyen2025taint} used a 6.7-billion-parameter
+model, but on whole packages rather than on updates.
+
+One way to enrich the model's context is through retrieved examples. IntelGuard
+links code to examples and reasoning drawn from threat reports
+\citep{guo2026bridging}, but it assesses whole packages and uses only
+\emph{malicious} examples. Examples that are all malicious risk pushing the model
+to flag every sensitive capability as harmful. In contrast, pairs of positive and
+negative examples have been used to steer LLM outputs in other domains
+\citep{gao2024customizing}. Two elements have therefore not yet been tested on
+small local models for assessing updates: (i) an explicitly stated package
+purpose, hereafter called \emph{intent}, and (ii) \emph{benign} examples that
+accompany malicious ones.
+
+We test both elements through IntentDiff-RAG, a comparison framework that
+combines a smart-diff, intent derived from the previous version, and
+retrieval of labeled examples. The MM configuration contains two
+malicious examples, whereas the MB configuration contains one malicious example
+and one benign example. Both keep the number of examples as well as the identity
+and position of the primary malicious example fixed, so differences in results
+cannot be explained by an increase in the number of examples. The content of the
+two examples nevertheless differs. The result is therefore the effect of
+replacing the example as a whole, not the effect of the benign label separated
+from the code content. In addition, most pairs show no capability change that
+the retriever can match, so their examples are selected by a deterministic hash
+rather than by similarity. The study therefore measures the effect of example
+composition, not the quality of similarity-based retrieval.
+
+The evaluation does not support the assumption that benign examples generally
+reduce false alarms. Replacing MM with MB instead increased false alarms in three
+of the six models, each significant after Holm correction. The only
+significant reduction in false alarms, for Phi-4-mini, came with a lower TPR
+estimate, although the TPR change was not significant after Holm correction. The
+effect of intent also differs across models. The contributions of this study are
+as follows.
+\begin{enumerate}
+\item We evaluate six input configurations on six small open-weight LLMs at the
+update level, reporting detection and false-alarm rates jointly and comparing
+them with a static capability-change rule that uses no LLM.
+\item We isolate the effect of intent and the effect of replacing MM with MB
+through paired contrasts on the same pairs, with exact campaign-level
+permutation tests, Holm correction, and inference-cost measurements.
+\item We construct a test set of 129 malicious updates from 98 campaign clusters
+that do not overlap with the development set under the clustering rules used,
+and 1,868 typical updates, with uncertainty estimates that account for campaign
+clustering.
+\end{enumerate}
+
+Section~\ref{sec:related} reviews related work.
+Section~\ref{sec:method} describes IntentDiff-RAG and the dataset, and
+Section~\ref{sec:setup} describes the evaluation design.
+Section~\ref{sec:results} presents the results, which are discussed in
+Section~\ref{sec:discussion}. Section~\ref{sec:limitations} describes threats
+to validity, and Section~\ref{sec:conclusion} concludes the paper.
+
+% TODO: Main Contribution and Novelty
+\subsection{Main contribution and novelty}\label{sec:contrib}
+Prior work leaves a specific gap. Update-level LLM detection has been shown
+with closed models and without examples in the prompt
+\citep{wyss2025evaluating}; retrieval of examples has been used on whole
+packages with malicious examples only \citep{guo2026bridging}; and the only
+open-weight evaluation we are aware of analyzes whole packages with a
+6.7-billion-parameter model \citep{nguyen2025taint}. To the best of our
+knowledge, no study has measured, under controlled conditions, whether an
+explicit package intent or a benign example placed next to a malicious one
+changes the decisions of small open-weight models on package updates. The
+novelty of this study lies in that measurement, not in intent or contrastive
+examples as concepts; Table~\ref{tab:related} summarizes the differences.
+
+The main contributions are as follows.
+\begin{enumerate}
+\item \textbf{A controlled test of example composition.} The MM and MB
+configurations hold the number of examples and the identity and position of the
+primary malicious example fixed, so their contrast measures the effect of
+replacing one malicious example with a benign one rather than the effect of
+adding examples. Because most pairs show no capability change that the retriever
+can match, examples are chosen by a deterministic hash, and the result concerns
+example composition rather than similarity-based retrieval.
+\item \textbf{A test of intent derived from the previous version.} Intent is
+built only from the predecessor, whose content the attacker of an update does
+not control. Its effect is measured as a paired contrast in the presence of one
+malicious and one benign example, and is reported as conditional on that
+setting.
+\item \textbf{An update-level evaluation of six small open-weight models.} Six
+configurations on six models with 3--8 billion parameters are evaluated on 129
+malicious updates from 98 campaign clusters and 1,868 typical updates. Detection
+and false-alarm rates are reported jointly, alongside a static
+capability-change rule that uses no LLM, and inference cost is measured per
+request.
+\item \textbf{Campaign-aware statistical analysis.} Uncertainty is estimated
+with a campaign-level bootstrap, and each contrast is tested with an exact
+campaign-level paired permutation test with Holm correction over 36
+hypotheses, so that several versions of one campaign are not counted as
+independent evidence. For two of the models, the contrasts are also rechecked
+across sampling temperatures and seeds.
+\item \textbf{A negative result on benign examples.} Contrary to the assumption
+that benign examples reduce false alarms, replacing MM with MB raised the false
+positive rate significantly in three of the six models, and the only
+significant reduction came with a lower detection estimate. This indicates that
+the value of in-context examples must be evaluated per model and data condition.
+\end{enumerate}
+
+\section{Related work}\label{sec:related}
+This section reviews six groups of work that underpin IntentDiff-RAG: supply
+chain attacks on package ecosystems, malicious package detection without LLMs,
+malicious update detection, LLM-based detection, the use of retrieval
+and examples in the prompt, and checking the consistency between program
+descriptions and behavior. The section closes with a summary of the state of
+the art and the position of this study.
+
+
+\subsection{Supply chain attacks on package ecosystems}
+Supply chain risk in npm is rooted in the structure of the ecosystem.
+\citet{zimmermann2019small} showed that an npm package implicitly trusts on
+average 79 third-party packages and 39 maintainers. They also found that a
+handful of maintainer accounts is enough to inject code into most packages.
+\citet{ohm2020backstabber} collected 174 malicious packages from npm, PyPI, and
+RubyGems that appeared between November 2015 and November 2019.
+\citet{ladisa2023sok} then built a taxonomy of attacks on open-source
+software supply chains in the form of an attack tree comprising 107 attack
+vectors, 94 real-world incidents, and 33 safeguards.
+
+This study targets only one class of attack, namely malicious updates to
+packages that were previously benign. RogueOne uses the same restriction and
+places packages that are malicious from the outset, such as
+typosquatting, outside its scope \citep{sofaer2024rogueone}. Beyond
+detection, some work opts for prevention. Latch prevents install-time attacks by
+creating a permission manifest that summarizes package behavior and then
+checking it against user policy \citep{wyss2022wolf}.
+
+\subsection{Malicious package detection without LLMs}
+Some detectors combine several kinds of analysis. MalOSS combines metadata,
+static, and dynamic analysis; of the 339 new malicious packages it reported, 278
+were confirmed \citep{duan2021towards}. Amalfi combines a classifier, a
+reproducibility checker, and a clone detector, with an analysis time of a few
+seconds per package \citep{sejfia2022practical}.
+
+Other work models behavior as sequences of API calls. DONAPI combines static
+analysis with API sequences from dynamic execution and then matches them against
+a hierarchical behavior knowledge base \citep{huang2024donapi}. Cerebro uses a
+single model of malicious behavior sequences for npm and PyPI and found 196 new
+malicious packages on npm and 306 on PyPI \citep{zhang2025killing}. OSCAR runs
+packages in a sandbox, fuzzes exported functions, and monitors
+their behavior through API hooks. On npm, OSCAR achieves an F1 of 0.95
+with a false-alarm rate of 2.57\% \citep{zheng2024towards}.
+
+For the problem studied here, this group of work has two limitations. First,
+most detectors assess whole packages rather than inter-version changes. Second,
+dynamic detectors require executing the package, so they cannot be applied under
+the static-analysis constraint used here.
+
+\subsection{Malicious update detection}
+This group of work takes inter-version changes as the unit of analysis.
+RogueOne flags new data flows that cross a trust domain between the old
+and new versions. On a single-update dataset of 41 malicious and 300 benign
+updates, its default configuration detected 31 malicious updates (75.6\%) with
+14 false alarms (4.7\%) \citep{sofaer2024rogueone}. The same work exposes a blind
+spot of the differential approach. For stealthy attacks whose payload only uses
+APIs already used by the previous version, no new data flow appears, so the
+default RogueOne configuration missed all 10 such test cases.
+
+\citet{froh2023differential} expressed suspicious behavior as CodeQL queries and
+compared query results across versions. This approach recognized all malicious
+versions in a dataset of packages with a history of malicious code. On popular
+npm packages, its average false-alarm rate was 1.3\%. \citet{draz2026version}
+studied machine-learning-based detection of malicious updates on npm and PyPI;
+its artifact is used in this study as a lead for locating the identities of
+malicious (MAL) updates (Section~\ref{sec:data}).
+
+\citet{wyss2025evaluating} brought the same unit of analysis to LLMs through the
+smart-diff. They found that false alarms mainly stem from sensitive
+operations, large-scale code removal (including packages replaced by a
+deprecation marker), and dependency changes. The three models tested were
+also vulnerable to light data-flow obfuscation and split payloads. This study
+follows that task and smart-diff representation. To the best of our knowledge,
+work in this group has not evaluated small open-weight models or added
+context in the form of intent or retrieved examples.
+
+\subsection{LLMs for malicious package detection}
+SocketAI evaluated GPT-3 and GPT-4 on 5,115 npm packages, 2,180 of which were
+malicious. GPT-4 reached a precision of 99\% and an F1 of 97\%, whereas GPT-3
+reached a precision of 91\% and an F1 of 94\% \citep{zahan2025leveraging}.
+MalPacDetector uses an LLM to generate features automatically, with a
+false-alarm rate of 1.3\% and a false-negative rate of 7.5\%. This detector also
+found 39 new malicious packages confirmed by npm \citep{wang2025malpacdetector}.
+
+IntelGuard builds a knowledge base of 4,420 malicious code contexts from 8,024
+threat-report pages. Similar examples are retrieved, and GPT-4.1-mini then
+assesses whether the code behavior is consistent with the package's function. On
+npm, IntelGuard reports an accuracy of 98.72\% with a false-alarm rate of 0.20\%
+\citep{guo2026bridging}. Both systems use closed models. For open-weight
+models, \citet{nguyen2025taint} slice code along taint flows before
+analyzing it with DeepSeek-Coder 6.7B, reaching an accuracy of 87.04\% on 2,537
+packages.
+
+Cross-tool evaluations test these detectors on the same data. On the benchmark of
+\citet{guo2026effective}, which contains 6,420 malicious and 7,288 benign
+packages, IntelGuard reaches an F1 of 95.98\%, whereas the recall of
+SocketAI is 44.41\%. This benchmark differs from SocketAI's original evaluation
+dataset, so these figures cannot be set directly against the precision and F1
+reported earlier. On PyPI, an evaluation of 13 LLMs on 4,070 packages found that
+models miss indicators that require context or an understanding of the author's
+purpose \citep{ryan2026evaluation}. The work in this group assesses whole
+packages, not updates.
+
+Related work on other security artifacts in software engineering faces the same
+two difficulties: positive cases are rare, and their labels are imperfect.
+\citet{wu2020cve} anchored positive security bug report labels to CVE records
+and found security reports mislabeled as non-security reports in an existing
+benchmark. \citet{jamwal2027llmsec} combined frozen LLM-derived embeddings with
+relevance-guided rebalancing for security bug report prediction and observed that
+the baseline with the lowest false-alarm rate also had the lowest detection rate,
+so a low false-alarm rate alone does not indicate a stronger detector. In LLM-based
+test automation, \citet{malhotra2027llm} found that an LLM repair step silently
+resolved the wrong element in roughly a quarter of cases, recommended keeping it
+behind a human gate, and cautioned that public evaluation targets are likely
+present in model pretraining data. These observations motivate reporting
+detection and false alarms together, treating source labels as a construct
+threat, and avoiding claims of unsupervised deployment.
+
+\subsection{Retrieval and examples in the prompt}
+Vulnerability detection research shows that distinguishing problematic code from
+similar but safe code is hard for LLMs. Vul-RAG reports an accuracy of only
+0.06--0.14 in distinguishing vulnerable code from similar patched code, and
+adding multi-dimensional vulnerability knowledge improves this accuracy
+\citep{du2026vulrag}. PrimeVul shows that less realistic benchmarks overstate
+performance: a 7B model with an F1 of 68.26\% on BigVul reaches only 3.09\% on
+PrimeVul \citep{ding2025vulnerability}. The benefit of retrieval for
+open-weight models also cannot be taken for granted. A replication of
+Vul-RAG with open-weight models found that accuracy on pairs of vulnerable
+and patched code stays around 0.30, and that adding model capacity alone does
+not help much \citep{kaniewski2026revisiting}.
+
+Outside the security domain, the in-context learning literature shows that
+the selection and order of examples affect predictions, whereas the correctness
+of example labels has little effect. Examples selected by similarity outperform
+random examples \citep{liu2022makes}. Example order can move accuracy from near
+chance to near the state of the art \citep{zhao2021calibrate}. Conversely,
+randomly replacing demonstration labels barely lowers performance
+\citep{min2022rethinking}. Positive and negative examples have also been used to
+clarify the desired output \citep{gao2024customizing}. These findings motivate
+two design decisions: the number and position of examples are controlled, and
+the effect of replacing MM with MB is interpreted as the effect of the example
+content as a whole, not of the label alone.
+
+\subsection{Consistency between description and behavior}
+The idea of checking whether a program's behavior matches its description
+developed in the mobile app ecosystem. WHYPER uses natural language processing to
+find sentences in an app description that explain the need for a permission
+\citep{pandita2013whyper}. AutoCog measures the fidelity between descriptions and
+permissions, with an average precision of 92.6\% and a recall of 92.0\% on
+eleven permissions, and was then applied to 45,811 apps \citep{qu2014autocog}.
+CHABADA examined more than 22,500 Android apps and flagged 56\% of novel malware
+without prior knowledge of malware patterns \citep{gorla2014checking}. For npm
+packages, IntelGuard implicitly assesses whether behavior is consistent with the
+package's function \citep{guo2026bridging}. \emph{Intent mismatch} is therefore
+not positioned as a new idea; what has not been measured is the effect of
+explicit intent separately from the other components.
+
+\subsection{State of the art and position of this study}
+Table~\ref{tab:related} summarizes the closest work: the unit of analysis, the
+approach, the language model, the use of retrieval and intent, and the
+results reported by each study. The reported figures come from different
+datasets, units of analysis, and metric definitions, so they cannot be compared
+directly and are not used as a baseline in this study. Nonetheless, the
+table reveals three patterns. First, most detectors assess whole packages; only
+three prior studies in the table assess updates. Second, most LLM-based studies
+in the table use closed models, at both the package level (IntelGuard, SocketAI)
+and the update level \citep{wyss2025evaluating}. Third, the only prior study in
+the table that reports using an open-weight model assesses whole packages
+\citep{nguyen2025taint}. The combination of the update level, small
+open-weight models, and retrieved examples has therefore not been
+evaluated in the work we surveyed.
+
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Closest work and the position of IntentDiff-RAG. A ``--'' means that
+the component is not used or not described in the sources examined, or that no
+comparable figure is summarized here. The Retrieval column refers to
+retrieving examples into the LLM prompt. Reported results come from the
+dataset and metric definitions of each study, so rows cannot be compared
+directly. MAL: malicious; FP: false alarm; FPR: false-alarm rate; FNR:
+false-negative rate.}
+\label{tab:related}
+\begin{tabularx}{\textwidth}{L{2.55cm} L{1.25cm} L{2.65cm} L{2.75cm} L{1.8cm} L{1.35cm} Y}
+\toprule
+Study & Unit & Approach & Language model & Retrieval & Intent & Reported results \\
+\midrule
+MalOSS \citep{duan2021towards} & Package & Metadata, static, dynamic & -- & -- & -- & 278 of 339 reported new malicious packages confirmed \\
+Amalfi \citep{sejfia2022practical} & Package & Classifier, reproduction, clone detection & -- & -- & -- & Analysis in a few seconds per package \\
+DONAPI \citep{huang2024donapi} & Package & Static and dynamic API sequences & -- & -- & -- & -- \\
+OSCAR \citep{zheng2024towards} & Package & Dynamic (sandbox, fuzzing) & -- & -- & -- & npm: F1 0.95; FPR 2.57\% \\
+\citet{froh2023differential} & Update & Differential static (CodeQL) & -- & -- & -- & All malicious versions detected; 1.3\% false alarms on average on popular npm packages \\
+RogueOne \citep{sofaer2024rogueone} & Update & Differential data flow & -- & -- & -- & 41 MAL, 300 benign: detected 31/41 (75.6\%); FP 14/300 (4.7\%) \\
+SocketAI \citep{zahan2025leveraging} & Package & LLM & Closed (GPT-3, GPT-4) & -- & -- & 5,115 packages (2,180 MAL), GPT-4: precision 99\%; F1 97\% \\
+MalPacDetector \citep{wang2025malpacdetector} & Package & LLM-generated features & LLM (unspecified) & -- & -- & FPR 1.3\%; FNR 7.5\% \\
+\citet{wyss2025evaluating} & Update & Smart-diff + LLM & Closed (GPT-4o, GPT-4-Turbo, Gemini-2.0-Flash) & -- & -- & 46 MAL, 2,000 typical, GPT-4o: detected 46/46; FP 8/2,000 \\
+IntelGuard \citep{guo2026bridging} & Package & RAG + LLM & Closed (GPT-4.1-mini) & Malicious examples & Implicit & npm: accuracy 98.72\%; FPR 0.20\% \\
+\citet{nguyen2025taint} & Package & Taint slicing + LLM & Open-weight (DeepSeek-Coder 6.7B) & -- & -- & 2,537 packages: accuracy 87.04\% \\
+\midrule
+\textbf{IntentDiff-RAG} & \textbf{Update} & \textbf{Smart-diff + examples + LLM} & \textbf{Open-weight (3--8B)} & \textbf{Malicious and benign examples} & \textbf{Explicit} & \textbf{129 MAL, 1,868 typical, DIFF+I+MB (six models): TPR 47.29--87.60\%; FPR 5.57--69.70\%} \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+The last row of Table~\ref{tab:related} shows the position of IntentDiff-RAG. This study
+takes the update as the unit of analysis from RogueOne,
+\citet{froh2023differential}, and \citet{wyss2025evaluating}, and the idea of
+retrieval and function-based assessment from IntelGuard. It differs in
+three respects:
+\begin{enumerate}
+\item open-weight models with 3--8 billion parameters run locally at the
+update level;
+\item benign examples accompanying malicious examples in the prompt; and
+\item explicit intent derived from the previous version.
+\end{enumerate}
+IntentDiff-RAG does not replicate IntelGuard's expert knowledge base: examples are
+built automatically from source labels and code snippets, so the comparison with
+IntelGuard is limited. The contribution tested is the effect of intent and example
+composition under controlled conditions, not the novelty of intent or contrastive
+examples as concepts.
+
+\section{Method}\label{sec:method}
+IntentDiff-RAG assesses a single package update in four steps. First, the
+archives of the target version and its predecessor are fetched and unpacked;
+their code changes are summarized into a smart-diff, and the capability signals
+that appear only in the target version are recorded as capability changes.
+Second, intent is built from the documentation of the predecessor version.
+Third, labeled examples are retrieved from the knowledge base based on the
+similarity of capability changes; when no similarity signal is available, the
+examples are selected by a deterministic hash (Section~\ref{sec:retrieval}).
+Fourth, the local LLM receives the input defined by the configuration and
+returns a malicious or benign verdict. All steps are static; package code is
+never executed. Fig.~\ref{fig:workflow} places these steps within the four
+phases of the study, and Fig.~\ref{fig:architecture} shows the components that
+carry them out for a single pair.
+
+\subsection{Research workflow}\label{sec:workflow}
+
+\begin{figure*}[t]
+\centering
+%% A vector version (figures/workflow-proposal.pdf) is preferred for submission.
+\includegraphics[width=\textwidth]{figures/workflow-proposal.png}
+\caption{Research workflow. The phases are read from left to right and each
+column from top to bottom. Each phase ends with an artifact (grey box) that the
+next phase consumes. Labels are taken from the data sources and are not
+re-annotated. The dev gate is applied to each model; the revised instruction and
+JSON Schema (dashed box) were introduced once, after a pilot run failed the
+format check. The dashed box in Phase~IV marks analyses that are reported
+descriptively and are not part of the 36 significance tests. The figure shows
+the final protocol; models and MAL that were added after the initial results are
+discussed in Section~\ref{sec:limitations}.}
+\label{fig:workflow}
+\end{figure*}
+
+The study proceeds in four phases, shown as the four columns of
+Fig.~\ref{fig:workflow}. Each phase ends with an artifact that the next phase
+consumes: a pair manifest with labels and clusters, the prompts, a frozen
+protocol, and the results.
+
+\paragraph{Phase I: data and source labels.} Candidates for MAL, TYP, the
+knowledge base, and dev are collected from the sources listed in
+Table~\ref{tab:data}. Each test and dev candidate is paired with its predecessor
+version (Section~\ref{sec:unit}). Labels are taken from the sources rather than
+assigned by annotators. The candidates are then grouped into campaign clusters,
+and campaign separation removes those linked to the dev data or to an existing
+MAL cluster and keeps at most three pairs per cluster (Section~\ref{sec:data}).
+The artifact of this phase is a manifest of 129 MAL in 98 clusters, 1,868 TYP,
+75 KB examples, and 10 dev pairs, each with its source label and cluster.
+
+\paragraph{Phase II: preprocessing.} Both versions of every pair are unpacked
+without executing package code. Three representations are built: a smart-diff
+and a set of capability changes $\Delta(p)$ from both versions, and an intent
+profile from the predecessor only (Section~\ref{sec:repr}). $\Delta(p)$ is used
+only to retrieve reference examples from the KB, and the retriever does not read
+intent. The prompt for each of the six configurations is then assembled
+(Sections~\ref{sec:retrieval} and~\ref{sec:configs}). The artifact of this phase
+is the set of prompts for the 1,997 test pairs and the 10 dev pairs under all six
+configurations.
+
+\paragraph{Phase III: design freeze.} Each model must pass a dev gate: it runs
+the ten dev pairs under all six configurations and must return at least 90\%
+valid outputs, that is, at least 54 of 60. A pilot run that failed this check
+led, once, to a revised instruction and to structured output constrained by a
+JSON Schema. Under the final protocol, seven models went through the gate;
+Qwen3-8B returned 49 valid outputs (81.67\%) and was excluded. The prompt, KB,
+and decision rules were then frozen, and nothing was tuned on test results
+(Section~\ref{sec:models}). The artifact of this phase is the frozen protocol
+with the six remaining models.
+
+\paragraph{Phase IV: evaluation.} The six models are run under the six
+configurations on all 1,997 test pairs at temperature~0 with a single seed,
+which yields 71,892 responses. For Qwen3-4B and Qwen2.5-3B, a decoding analysis
+repeats this run at four temperatures with three seeds each
+(Section~\ref{sec:decoding}). Each response is parsed into a verdict; invalid
+responses are counted as benign in the main analysis and as malicious in the
+sensitivity analysis. TPR and FPR are compared through paired contrasts, with
+campaign-level bootstrap intervals and cluster-level permutation tests under
+Holm correction. The static capability-change rule, the cost measurements, and
+the exploratory subset analysis are reported descriptively
+(Section~\ref{sec:setup}).
+
+\subsection{System architecture}\label{sec:architecture}
+
+\begin{figure*}[t]
+\centering
+%% A vector version (figures/architecture-proposal.pdf) is preferred for submission.
+\includegraphics[width=\textwidth]{figures/architecture-proposal.png}
+\caption{System architecture for one version pair $p$ under configuration $c$.
+Numbered badges follow the order in which the components process $p$; cylinders
+are data stores. Package code is unpacked and read but never executed. The
+configuration $c$ (Table~\ref{tab:configs}) decides whether the intent profile
+enters the prompt and which examples the retriever returns. $\Delta(p)$ reaches
+the model only through retrieval and is also used by the static
+capability-change rule; the retriever does not read intent. Campaign clusters,
+computed in Phase~I, are used to exclude examples from the target's campaign
+during retrieval and to group pairs in the evaluation. Source labels are used
+only by the evaluator and never enter the prompt.}
+\label{fig:architecture}
+\end{figure*}
+
+Fig.~\ref{fig:architecture} shows the components that carry out the workflow
+for a single pair $p$, grouped into five zones: acquisition, representation,
+retrieval and prompting, inference, and evaluation. The numbered badges follow
+$p$ through the system. The pair builder~(1) selects the predecessor version,
+fetches both archives from the npm registry, and records their hashes. The
+unpacker~(2) extracts both versions. The smart-diff generator~(3) and the
+capability extractor~(5) read both versions, whereas the intent profiler~(4)
+reads only the predecessor (Section~\ref{sec:repr}). The configuration $c$ is
+the experimental factor of the study (Table~\ref{tab:configs}): it decides
+whether the intent profile is included and whether the retriever returns no
+example, one malicious example, two malicious examples, or one malicious and one
+benign example. The retriever~(6) selects these reference examples $R_c(p)$ from
+the knowledge base using $\Delta(p)$ alone, and the prompt builder~(7) assembles
+the model input $x_c(p)$ from the smart-diff, the intent profile when $c$
+includes it, $R_c(p)$, and the fixed decision instruction. The inference
+server~(8) returns a response whose shape is constrained by the JSON Schema, and
+the output parser~(9) maps it to a verdict. The evaluator~(10) computes the
+metrics against the source labels. It also receives the verdicts of the static
+capability-change rule, which uses $\Delta(p)$ without an LLM
+(Section~\ref{sec:setup}).
+
+The campaign clusters and the source labels are data stores produced in
+Phase~I, not steps applied to each pair. The clusters are used for the disjoint
+split of the data, for excluding examples from the target's campaign during
+retrieval, and as the resampling unit of the bootstrap and permutation tests.
+Retrieval also excludes examples with the target's package name or from
+excluded dependencies (Section~\ref{sec:retrieval}). The source labels are read
+only by the evaluator, so the label of the target pair never enters the prompt.
+In terms of Fig.~\ref{fig:workflow}, component~1 runs in Phase~I, components~2--7
+in Phase~II, components~8 and~9 in Phases~III and~IV, and component~10 in
+Phase~IV.
+
+\subsection{Unit of analysis and task scope}\label{sec:unit}
+A sample is a pair of versions of the same package. The target version is the
+version being assessed, and its predecessor is selected by semver order and
+publication time: the highest lower version that was published before the
+target. Both archives must be available and their package identities must match.
+
+The task is motivated by detecting the injection of malicious behavior through
+updates. However, the empirical evidence is bounded by the source labels: not
+every pair has been proven to be a takeover of a legitimate package, and the
+absence of an advisory for the predecessor does not prove that the predecessor
+is benign. Within these bounds, what is measured is the detection of versions
+labeled malicious using the context of inter-version changes, not a forensic
+verification of the full attack history.
+
+\subsection{Dataset}\label{sec:data}
+A sample is a version pair (target version and predecessor) with a binary
+label for the target version. A pair is labeled MAL when a public source
+labels its target version as malicious. A pair is labeled TYP (typical) when
+it is an ordinary update that was not selected for suspicious behavior,
+following the terminology of \citet{wyss2025evaluating}. The data are divided
+into four disjoint parts with different roles: MAL and TYP form the test set,
+the knowledge base (KB) supplies the reference examples, and dev is used only
+to check the output format. Table~\ref{tab:data} gives the role, source, label
+basis, and size of each part. Table~\ref{tab:sample} shows what one sample
+contains and which of its components reach the model, and
+Table~\ref{tab:datachar} compares the two test classes. No label was
+re-annotated by human annotators.
+
+\begin{table*}[t]
+\centering\small
+\caption{Parts of the dataset. The parts are disjoint: test candidates linked to
+a dev cluster are excluded, and the packages and campaigns of the KB benign
+examples do not occur in the test set. Sizes are given in version pairs for MAL,
+TYP, and dev, and in reference examples for the KB.}
+\label{tab:data}
+\begin{tabularx}{\textwidth}{@{}L{1.55cm} L{3.1cm} Y L{3.3cm} L{1.75cm}@{}}
+\toprule
+Part & Role in the study & Source and selection & Label basis & Size \\
+\midrule
+Test MAL & Positive class; denominator of TPR &
+Malicious samples of the npm detector benchmark of \citet{guo2026effective} (33);
+package identities from the artifact of \citet{draz2026version}, kept only if
+OSV \citep{osv} has a MAL advisory for the target version (93); Datadog
+dataset \citep{datadog2023dataset}, one campaign (3) &
+Source label on the target version; the predecessor is not verified as
+legitimate &
+129 pairs in 98 clusters \\
+\addlinespace
+Test TYP & Negative class; denominator of FPR &
+Replication package of \citet{wyss2025evaluating}: updates of the most
+depended-upon packages (692), of randomly sampled packages (801), and from the
+recorded update stream (375) &
+Assumed benign: neither version had an advisory when checked &
+1,868 pairs in 1,865 clusters \\
+\addlinespace
+KB malicious & Malicious reference examples (M slots) &
+Datadog dataset, \emph{malicious intent} category: packages malicious from
+their first version, hence not updates &
+Source label &
+50 examples \\
+\addlinespace
+KB benign & Benign reference example (B slot) &
+TYP updates from the Wyss archive set aside before testing &
+Assumed benign, as for TYP &
+25 examples \\
+\addlinespace
+Dev & Dev gate (output format) only; not used to tune accuracy &
+Datadog dataset (5 MAL); Wyss archive (5 TYP) &
+As for MAL and TYP &
+10 pairs \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\paragraph{Inclusion criteria.} A candidate enters the test set only if
+(i) its source provides a label for the target version, (ii) a predecessor
+exists under the rule given above, (iii) both archives can be downloaded from
+the registry and their package identities match, and (iv) it passes campaign
+separation (described below). For MAL, the predecessor must in addition not be
+listed in a MAL advisory. For TYP, neither version may be listed in an
+advisory.
+% TODO (authors): confirm that criterion "predecessor not listed in a MAL
+% advisory" is exactly what the earlier draft called "predecessor filtering".
+% TODO (authors): if available, report the number of candidates per source
+% before and after each criterion (a selection funnel), e.g.
+% Guo: N_0 -> after (ii)-(iii) -> after predecessor filter -> after (iv) = 33.
+
+\paragraph{MAL.} The 129 MAL pairs come from three sources. Thirty-three come
+from the malicious samples of the benchmark of \citet{guo2026effective} that
+satisfy the inclusion criteria. Ninety-three come from a search guided by the
+artifact of \citet{draz2026version}. Package identities in that artifact serve
+only as search leads: a target version is kept only if OSV \citep{osv} lists it
+in a MAL advisory, and its predecessor is re-derived from registry metadata
+rather than taken from the artifact.
+% TODO (authors): state briefly what the Draz et al. artifact contains and
+% which release of it was used.
+The remaining three come from the Datadog dataset \citep{datadog2023dataset}
+and belong to a single campaign.
+% TODO (authors): name the Datadog category of these three MAL and of the five
+% dev MAL (e.g., compromised library vs. malicious intent).
+No model predictions from external sources were used as labels or as a basis
+for selection. The target versions were published between July 2016 and
+September 2026, and 75 of them in 2026. A MAL label states that the target
+version is malicious; it does not establish that the predecessor was a
+legitimate release. MAL may therefore contain both compromised legitimate
+packages and packages whose earlier versions were already published by the
+attacker (Section~\ref{sec:unit}). Of the 129 MAL, 42 (32.56\%) add at least
+one capability signal relative to the predecessor (Section~\ref{sec:repr});
+the other 87 add none that the extractor detects.
+
+\paragraph{TYP.} All 1,868 TYP pairs come from the replication package of
+\citet{wyss2025evaluating}, which provides typical updates in three subsets:
+updates of the most depended-upon npm packages (692), updates of randomly
+sampled packages (801), and updates from a recording of the registry update
+stream (375). The subset of each pair is retained in the manifest because the
+subsets differ in package popularity and therefore possibly in how familiar the
+packages are to the models (Section~\ref{sec:limitations}). The TYP label is an
+assumption rather than an observation: a pair is treated as benign because
+neither version had an advisory when checked, which does not prove the absence
+of malicious code. FPR is therefore conditional on this assumption. One
+candidate was excluded before inference because two preprocessing attempts
+exceeded the time limit. Only 31 TYP (1.66\%) contain a capability change.
+% TODO (authors): explain why 1,868 of the roughly 2,000 updates in the Wyss
+% archive remain (KB/dev set-aside, missing archives, predecessor rule, ...).
+
+\paragraph{Knowledge base.} The KB contains 50 malicious and 25 benign
+examples. The malicious examples come from packages in the \emph{malicious
+intent} category of the Datadog dataset, that is, packages that were malicious
+from their first version. Such packages have no legitimate predecessor and fall
+outside the unit of analysis, so they are used only as examples and never as
+test pairs. The benign examples are TYP updates from the Wyss archive that were
+set aside before testing; their package names and campaign clusters do not
+occur in the test set. Every KB entry has the same structure, described in
+Section~\ref{sec:retrieval}. The two labels therefore differ in origin:
+malicious examples are drawn from whole malicious packages, whereas benign
+examples are updates from the same archive as TYP.
+
+\paragraph{Dev.} Dev contains five MAL from the Datadog dataset and five TYP
+from the Wyss archive. Test candidates linked to a dev cluster were excluded
+during campaign separation. Dev is used only for the dev gate, which checks output format (Section~\ref{sec:models}),
+not to tune the prompt for accuracy.
+
+\paragraph{Campaign separation.} Two samples are considered the same campaign if
+they reference the same report or advisory, share an identical new file, or have
+a Dolos code similarity \citep{maertens2024dolos} of at least 0.5; the final
+clusters are the transitive closure of this relation. Trivial files below 64
+bytes after stripping leading and trailing whitespace are not used as links.
+Candidates linked to the development data or to an existing MAL cluster are
+excluded, with at most three pairs per cluster. As a result, the 129 MAL fall
+into 98 clusters and the 1,868 TYP into 1,865 clusters. The clusters are used
+for the disjoint split, for retrieval exclusions, and as the resampling unit of
+the bootstrap and permutation tests (Section~\ref{sec:setup}). Clusters are a
+proxy for campaign relatedness, not actor attribution.
+
+\paragraph{Class ratio.} MAL make up 6.46\% of the test pairs (129 of 1,997).
+This ratio follows from the availability of labeled sources and is not an
+estimate of the prevalence of malicious updates in the npm registry. TPR and
+FPR are therefore reported separately, and accuracy only descriptively
+(Section~\ref{sec:setup}).
+
+\begin{table*}[t]
+\centering\small
+\caption{Content of one sample (version pair $p$) and its use. Only the
+components marked as visible enter the prompt; the label and cluster are used
+only for evaluation and for excluding examples during retrieval.}
+\label{tab:sample}
+\begin{tabularx}{\textwidth}{@{}L{2.6cm} Y L{3.3cm} L{3.5cm}@{}}
+\toprule
+Component & Content & Visible to the model & Used for \\
+\midrule
+Package identity & npm package name, target version, predecessor version,
+and the hashes of both archives & No separate field; names may appear in code
+or documentation & Pair construction; retrieval exclusions \\
+\addlinespace
+Label and provenance & MAL or TYP, with its source (benchmark, OSV advisory,
+Datadog, or Wyss subset) & No & TPR and FPR \\
+\addlinespace
+Campaign cluster & Identifier assigned by campaign separation & No &
+Disjoint split; retrieval exclusions; bootstrap and permutation tests \\
+\addlinespace
+Smart-diff & Normalized and deduplicated differences between the two
+versions; lines capped at 2,000 characters and the whole diff at 28,000 tokens
+& Yes, in every configuration & Model input \\
+\addlinespace
+Intent profile & Description, keywords, scripts, and the opening of the
+README of the predecessor; at most 1,024 tokens & Only in configurations with
+I & Model input \\
+\addlinespace
+Capability changes $\Delta(p)$ & Signals, out of eight capability and two
+change signals, that occur in the target but not in the predecessor & No &
+Retrieval; static capability-change rule \\
+\addlinespace
+Reference examples $R_c(p)$ & Zero to two KB entries selected with
+Eq.~\eqref{eq:jaccard} & Only in configurations with M, MM, or MB &
+Model input \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Characteristics of the two test classes. MAL targets were published
+between July 2016 and September 2026. $\Delta(p)\neq\emptyset$ denotes at least
+one capability change. Truncation and raw-text fallback are described in
+Sections~\ref{sec:repr} and~\ref{sec:limitations}.}
+\label{tab:datachar}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Characteristic & MAL & TYP \\
+\midrule
+Version pairs & 129 & 1,868 \\
+Share of test pairs (\%) & 6.46 & 93.54 \\
+Campaign clusters & 98 & 1,865 \\
+Sources (subsets) & 3 & 1 (3) \\
+Pairs with $\Delta(p)\neq\emptyset$ & 42 (32.56\%) & 31 (1.66\%) \\
+Truncated smart-diffs & 14 & 90 \\
+Pairs with raw-text files & 5 (7 files) & 35 (48 files) \\
+% TODO (authors): optional rows if they can be computed from the manifest:
+% Distinct packages & ... & ... \\
+% Median smart-diff length (tokens) & ... & ... \\
+% Median days between predecessor and target & ... & ... \\
+Label basis & Source label & Assumed benign \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Change and intent representation}\label{sec:repr}
+The smart-diff is built through JavaScript normalization, deduplication of
+repeated code, and directory comparison, following the approach of
+\citet{wyss2025evaluating}. The deduplication script is not fully available in
+their replication package, so this step was reconstructed locally and is not
+claimed to be identical to the original implementation. Files that fail
+normalization keep their raw text and are marked. To make the input tractable for
+local models, line length is capped at 2,000 characters and the diff is capped at
+28,000 tokens using the Qwen2.5-Coder-3B tokenizer. The same truncated text is
+used for all models and configurations. Priority is given to the package manifest
+and to files with relevant capability signals; truncation is no guarantee that
+all malicious payloads are still covered.
+
+Capability changes are extracted from the raw archives of both versions through
+textual pattern matching. There are eight capability signals, namely network
+access, process execution, host information gathering, sensitive file access,
+browser data access, dynamic code execution, obfuscation, and install scripts,
+plus two change signals, namely new or non-registry-sourced dependencies and
+removal of most files. The capability changes of a pair are the signals that
+appear in the target version but not in its predecessor. These signals are used
+only for retrieval and are not shown to the model.
+
+Intent is derived from the description, keywords, scripts, and the opening part
+of the README of the predecessor version, with a budget of 1,024 tokens on the
+same tokenizer. Its purpose is to provide context about the package's function
+without relying on the target version's documentation. Intent is a statement by
+the package, not an independent validation of its legitimate function. The
+package name is not provided as a separate identity field, but names appearing in
+code or documentation are not fully removed.
+
+\subsection{Reference examples and retrieval}\label{sec:retrieval}
+Every example in the KB uses the same structure: a package description, static
+capability findings, a verbatim code snippet, and a fixed statement of the source
+label. Examples are built automatically with the same method for both labels,
+not written by experts. Static findings are not treated as a proven execution
+chain. Each example is capped at 15 lines and 512 tokens, with a purpose
+description of at most 64 tokens on the Qwen2.5 tokenizer. Example text is not
+re-truncated for other models' tokenizers.
+
+Retrieval uses the Jaccard similarity between the pair's set of capability
+changes $\Delta(p)$ and the capability set $C(e)$ of an example $e$:
+\begin{equation}
+s(p,e) = \frac{|\Delta(p) \cap C(e)|}{|\Delta(p) \cup C(e)|},
+\label{eq:jaccard}
+\end{equation}
+with $s(p,e)=0$ when both sets are empty. Ties are broken by a hash of the pair
+and example identities. Examples from the target's package name, campaign, or
+excluded dependencies may not be retrieved. Retrieval does not read intent, so
+adding intent does not change the examples shown.
+
+Ties are the majority case. Of the 129 MAL, 87, and of the 1,868 TYP, 1,837 have
+no capability change, so every example scores zero and the examples shown are
+effectively chosen at random by the hash. Of the 42 MAL with capability changes,
+both MB examples have a positive score in 29 pairs. Results for these two groups
+are reported in Section~\ref{sec:results}.
+
+In MM and MB, the primary malicious example is kept in the same position, while
+the other slot holds either a second malicious example or a benign example. The
+position of the primary example is determined by a hash of the pair identity, so
+that example comes first in 987 of the 1,997 pairs. This control keeps the number
+and position of examples fixed, but it does not equalize the overall length or
+semantic content of the two prompts.
+
+\subsection{Configurations and model decision}\label{sec:configs}
+The six configurations in Table~\ref{tab:configs} use the same decision
+instruction: sensitive behavior is not automatically malicious; the model
+considers the trigger, the data, the destination of any transmission, and the
+available context. The output contains a verdict, a brief rationale, and an
+evidence snippet. A JSON Schema constrains the output shape, including at most
+one evidence string \citep{jsonschema}. Format validity does not guarantee a correct decision or
+accurate evidence.
+
+\begin{table}[t]
+\centering\small
+\caption{Configurations tested. All use the same smart-diff.}
+\label{tab:configs}
+\begin{tabular}{lcl}
+\toprule
+Configuration & Intent & Reference examples \\
+\midrule
+DIFF & No & None \\
+DIFF+I & Yes & None \\
+DIFF+I+M & Yes & One malicious \\
+DIFF+I+MM & Yes & Two malicious \\
+DIFF+I+MB & Yes & One malicious, one benign \\
+DIFF+MB & No & One malicious, one benign \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Evaluation design}\label{sec:setup}
+The evaluation consists of four analyses. Baseline capability is measured with
+DIFF and DIFF+I. The effect of reference examples is measured with two contrasts:
+DIFF+I to DIFF+I+M for adding one malicious example, and DIFF+I+MM to DIFF+I+MB
+for replacing the second example. The effect of intent is measured with DIFF+MB
+to DIFF+I+MB. Cost is measured by token count and request latency. Each contrast
+is compared pairwise on the same model and samples, so only one factor differs.
+
+As a reference point without an LLM, we also report a static capability-change
+rule that flags a pair as malicious whenever $\Delta(p)$ is non-empty. The rule
+uses the same capability extractor as the retriever (Section~\ref{sec:repr}) and
+has no inference cost. It was added after the initial results were known, is
+reported descriptively, and is not part of the significance tests. Results
+reported by prior studies are compared in Section~\ref{sec:prior}.
+
+The data are described in Section~\ref{sec:data}. The prompt, KB, and decision
+rules were frozen before test inference and were not tuned on its results. Six
+models and six configurations yield 71,892 test responses from 1,997 unique
+pairs.
+
+\subsection{Models and inference conditions}\label{sec:models}
+Table~\ref{tab:models} lists the models. Two, Qwen3-4B-Instruct-2507
+\citep{yang2025qwen3} and Qwen2.5-Coder-3B-Instruct \citep{hui2024qwen25coder},
+were fixed in the initial design; five further models were added later
+(Section~\ref{sec:limitations}). No fine-tuning was performed; weights and
+tokenizers follow frozen revisions. To shorten the tables, the two Coder models
+are written as Qwen2.5-3B and Qwen2.5-7B.
+
+Each model had to pass the dev gate (Section~\ref{sec:workflow}): five MAL and
+five TYP under all six configurations, with at least 90\% valid responses. A dev
+pilot that failed on format led to a revision of the instruction and the
+adoption of structured output before the main test. Under the final conditions,
+Qwen3-8B produced only 49 of 60 valid responses (81.67\%) and therefore did not
+enter the test. Existing dev responses were reused when the request identity
+and tokens were identical; such responses are not counted as new inferences.
+
+Table~\ref{tab:inference} gives the inference conditions, which are identical
+for every model and configuration except for the serving context of Granite.
+All prompts were audited with each model's own tokenizer, without discarding
+long pairs. The KV-cache allocation is a serving setting, not a measurement of
+total GPU memory consumption.
+
+\begin{table*}[t]
+\centering\small
+\caption{Models evaluated. Parameter counts are taken from the model cards.}
+\label{tab:models}
+\begin{tabular}{llrcc}
+\toprule
+Model & Short name & Params & Added & Test \\
+\midrule
+Qwen3-4B-Instruct-2507 \citep{yang2025qwen3} & Qwen3-4B & 4.0B & Initial & Yes \\
+Qwen2.5-Coder-3B-Instruct \citep{hui2024qwen25coder} & Qwen2.5-3B & 3.1B & Initial & Yes \\
+Qwen2.5-Coder-7B-Instruct \citep{hui2024qwen25coder} & Qwen2.5-7B & 7.6B & Later & Yes \\
+Phi-4-mini-instruct \citep{microsoft2025phi4mini} & Phi-4-mini & 3.8B & Later & Yes \\
+Llama-3.1-8B-Instruct \citep{grattafiori2024llama3} & Llama-3.1-8B & 8.0B & Later & Yes \\
+Granite-3.3-8B-Instruct \citep{ibm2025granite33} & Granite-3.3-8B & 8.2B & Later & Yes \\
+Qwen3-8B \citep{yang2025qwen3} & Qwen3-8B & 8.2B & Later & No$^{a}$ \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize $^{a}$Failed the dev gate: 49 of 60 valid responses (81.67\%).}
+\end{tabular}
+\end{table*}
+
+\begin{table}[t]
+\centering\small
+\caption{Inference conditions, shared by all models and configurations. The
+decoding analysis (Section~\ref{sec:decoding}) varies only the temperature and
+seed.}
+\label{tab:inference}
+\begin{tabular}{ll}
+\toprule
+Setting & Value \\
+\midrule
+GPU & One NVIDIA GeForce RTX 5090 (32 GiB) \\
+Serving engine & vLLM 0.30.0 \citep{kwon2023vllm} \\
+Precision & bfloat16, no quantization \\
+Decoding & Temperature 0, seed 0 \\
+Output budget & 512 tokens \\
+Output format & JSON Schema (structured output) \\
+Context length & 32,768 tokens; Granite 36,864--38,912 \\
+KV cache & 6 GiB per model \\
+Concurrency & One active request, models run in sequence \\
+Prefix caching & Enabled \\
+Warm-up & Three requests per model session \\
+Fine-tuning & None \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Metrics}
+The \emph{true positive rate} (TPR) is the proportion of MAL flagged as malicious
+and is computed over the 129 MAL. The \emph{false positive rate} (FPR) is the
+proportion of TYP flagged as malicious and is computed over the 1,868 TYP,
+conditional on the assumption that TYP is benign. TP and FP are the corresponding
+absolute counts. \emph{Balanced accuracy} (BA) is the mean of TPR and
+specificity. Accuracy depends on class composition: always predicting benign
+already reaches 93.54\% on these data, although its TPR is zero. Accordingly,
+accuracy in the cross-study comparison table and accuracy and BA in the appendix
+are reported descriptively, with TPR and FPR as the primary measures of detection
+effectiveness.
+
+Responses with an invalid or truncated format are counted as benign in the main
+analysis and as malicious in the sensitivity analysis. Transport errors are not
+treated as predictions. All reported test matrices are complete and have been
+verified against the stored responses.
+
+\subsection{Uncertainty}
+95\% intervals for TPR, FPR, and paired differences are computed with 10,000
+bootstrap resamples at the campaign-cluster level with seed 2026: 98 clusters for
+MAL and 1,865 clusters for TYP. All pairs in a selected cluster are drawn
+together, so a campaign with several versions is not treated as several
+independent units. An interval that includes zero is not evidence that a rate is unchanged; showing
+non-inferiority would require a pre-specified margin, which this study does not
+define.
+
+\paragraph{Significance tests.} Each paired contrast defined at the start of
+this section is also tested for a difference in TPR or FPR on a given model.
+The permutation null assumes that the joint distribution of the paired
+predictions is invariant to swapping the two configuration labels for all
+pairs in any one campaign. This is stronger than equality of the marginal
+rates alone. Campaigns are assumed independent; within-campaign dependence is
+retained \citep{winkler2014permutation}. Because both
+configurations are evaluated on the same pairs, the test is paired, and because
+pairs from one campaign are not independent, it is carried out at the cluster
+level. For contrast $A \rightarrow B$ and cluster $k$, let
+$d_k = \sum_{i \in k} (y_{i,B} - y_{i,A})$, where $y_{i,c}=1$ if pair $i$ is
+flagged as malicious under configuration $c$. The test statistic is the observed
+difference $T = \sum_k d_k / n$, with $n=129$ for TPR and $n=1{,}868$ for FPR,
+which equals $\Delta$TPR or $\Delta$FPR. Under the permutation null, each
+cluster's difference has a symmetric sign distribution. A single sign is
+applied to the entire cluster, retaining all of its pairs together. The
+two-sided $p$-value is
+\begin{equation}
+p = 2^{-K_*}\sum_{\boldsymbol{s}\in\{-1,+1\}^{K_*}}
+\mathbb{1}\!\left\{\left|\sum_k s_k d_k\right|
+\geq \left|\sum_k d_k\right|\right\}
+\end{equation}
+where $K_*$ counts clusters with nonzero differences. Because the $d_k$ are
+integers, all assignment counts are computed exactly by dynamic programming
+over attainable sums, without Monte Carlo sampling. Specifically, the
+coefficient of $x^j$ in $\prod_{k:d_k\ne0}(1+x^{|d_k|})$ counts assignments
+with signed sum $2j-\sum_k|d_k|$; the counts in both tails, including ties,
+are divided by $2^{K_*}$.
+Clusters with $d_k = 0$ do not affect the result; when every cluster has
+$d_k = 0$, $p = 1$. With one pair per cluster, this test
+reduces to the exact McNemar test.
+
+The family of tests consists of 36 hypotheses: six models, three contrasts, and
+two metrics. Family-wise error is controlled at $\alpha = 0.05$ with the Holm
+procedure \citep{holm1979simple}, and both the unadjusted and the Holm-adjusted
+$p$-values are reported. A difference is called \emph{significant} only when its
+Holm-adjusted $p$-value is below 0.05. Because some models and MAL were added
+after the initial results were known (Section~\ref{sec:limitations}), these tests
+remain part of an exploratory study and do not turn it into a confirmatory one.
+The baseline comparison of DIFF and DIFF+I, which is not one of the defined
+contrasts, is not tested.
+
+Splitting MAL by the presence or absence of capability changes
+(Section~\ref{sec:results}) is an exploratory analysis defined after the results
+were known. This analysis reports point estimates only.
+
+\subsection{Cost}
+Cost is measured by input tokens and request latency after three warm-up
+requests per model session. Latency excludes acquisition, normalization,
+client-side retrieval, and model loading. Because the configuration order is
+fixed and prefix caching is active, latency differences reflect the conditions of
+this batch; they are not estimates of production serving throughput or of the
+cost of each component in isolation from cache effects.
+
+\subsection{Decoding sensitivity}\label{sec:decoding}
+The main results use temperature 0 and a single seed, so they show one decoding
+of each model. To see how much the results depend on this setting, the two
+initially selected models, Qwen3-4B and Qwen2.5-3B, were run again under all six
+configurations on all 1,997 test pairs at temperatures 0, 0.3, 0.7, and 1.0, each
+with seeds 0, 1, and 2. All other conditions follow Table~\ref{tab:inference}.
+This gives 24 runs and 287,568 responses. The analysis was added after the main
+results were known. It is descriptive: it is not part of the 36 significance
+tests, and no decoding setting was chosen from it, so the main tables keep
+temperature 0 and seed 0. For each run, TPR, FPR, and the three contrasts are
+computed as in the main analysis, with the same campaign-level bootstrap
+intervals. Stability across seeds is summarized as the share of pairs whose
+verdict is not the same under all three seeds.
+
+\section{Results}\label{sec:results}
+The six models that passed dev each completed 11,982 test responses, with no
+transport errors in the final matrix. Results are presented per research
+question; all combinations of model and configuration are available in
+Table~\ref{tab:full}.
+
+\subsection{Baseline capability without reference examples}
+Table~\ref{tab:main} shows DIFF and DIFF+I. Under DIFF, TPR ranges from
+42.64\% to 79.07\% and FPR from 6.37\% to 65.15\%. The models fall into two
+patterns. Qwen3-4B, Phi-4-mini, and Granite are conservative: their FPR is
+6.37--17.08\%, but their TPR is only 42.64--48.06\%. Qwen2.5-3B, Qwen2.5-7B, and
+Llama-3.1-8B detect more MAL (TPR 75.97--79.07\%) but flag 59.58--65.15\% of TYP
+as malicious. Differences in TPR across models therefore come with large
+differences in FPR, so ranking models by TPR alone is misleading. For reference,
+the static capability-change rule (Section~\ref{sec:setup}) flags 42 MAL
+(TPR 32.56\%) and 31 TYP (FPR 1.66\%) without any inference. Every model detects
+more MAL than the rule under DIFF, but at an FPR at least 3.8 times higher.
+
+Adding intent without examples (DIFF+I) lowers the estimated FPR for all three
+conservative models, for example from 6.37\% to 4.12\% for Qwen3-4B, but raises
+the FPR of Llama-3.1-8B from 60.22\% to 69.97\%. This comparison is descriptive
+because it is not one of the contrasts defined in Section~\ref{sec:setup}.
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Baseline capability without reference examples: smart-diff only (DIFF) and smart-diff with intent (DIFF+I). TP is the number of MAL detected out of 129 samples; FP is the number of false alarms out of 1,868 TYP. TPR and FPR are given as percentages. Invalid responses are counted as benign. The last row is the static capability-change rule, shown for reference.}
+\label{tab:main}
+\begin{tabular}{llrrrr}
+\toprule
+Model & Config. & TP & TPR (\%) & FP & FPR (\%) \\
+\midrule
+Qwen3-4B & DIFF & 62 & 48.06 & 119 & 6.37 \\
+Qwen3-4B & DIFF+I & 58 & 44.96 & 77 & 4.12 \\
+Qwen2.5-3B & DIFF & 98 & 75.97 & 1,113 & 59.58 \\
+Qwen2.5-3B & DIFF+I & 107 & 82.95 & 1,108 & 59.31 \\
+Qwen2.5-7B & DIFF & 102 & 79.07 & 1,217 & 65.15 \\
+Qwen2.5-7B & DIFF+I & 110 & 85.27 & 1,185 & 63.44 \\
+Phi-4-mini & DIFF & 57 & 44.19 & 319 & 17.08 \\
+Phi-4-mini & DIFF+I & 59 & 45.74 & 259 & 13.87 \\
+Llama-3.1-8B & DIFF & 101 & 78.29 & 1,125 & 60.22 \\
+Llama-3.1-8B & DIFF+I & 109 & 84.50 & 1,307 & 69.97 \\
+Granite-3.3-8B & DIFF & 55 & 42.64 & 188 & 10.06 \\
+Granite-3.3-8B & DIFF+I & 45 & 34.88 & 144 & 7.71 \\
+\midrule
+Rule (no LLM) & $\Delta(p)\neq\emptyset$ & 42 & 32.56 & 31 & 1.66 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\finding{Without reference examples, the six models detect 42.64--79.07\% of MAL.
+The models that detect more MAL also flag 59.58--65.15\% of TYP, whereas the
+models with an FPR below 18\% miss more than half of MAL. A static
+capability-change rule without an LLM detects 32.56\% of MAL at an FPR of
+1.66\%.}
+
+\subsection{Effect of reference examples}
+Table~\ref{tab:contrast} and Fig.~\ref{fig:effects} contain all contrasts.
+Table~\ref{tab:contrast} also gives the unadjusted and Holm-adjusted $p$-values
+of the cluster-level permutation test; below, $p_{\mathrm{H}}$ denotes the
+Holm-adjusted value. Statistical significance requires $p_{\mathrm{H}} < 0.05$;
+the bootstrap intervals describe uncertainty without multiplicity correction.
+Because 1,837 of the 1,868 TYP have no capability change, the FPR contrasts
+involving examples compare examples selected by the hash rather than by
+similarity.
+Of the 36 tests, 13 meet this threshold: 12 FPR contrasts and one TPR contrast.
+Adding one malicious example (DIFF+I to DIFF+I+M) does not produce a uniform
+direction. FPR significantly rises for Phi-4-mini (27.30 points) and
+Llama-3.1-8B (9.26 points), both with $p_{\mathrm{H}} < 0.001$; for Phi-4-mini,
+TPR also significantly rises by 18.60 points ($p_{\mathrm{H}} = 0.022$).
+Conversely, FPR significantly falls for Qwen2.5-7B (16.65 points) and
+Qwen2.5-3B (10.76 points), both with $p_{\mathrm{H}} < 0.001$, without a
+significant TPR change. A malicious example therefore does not always make a
+model more inclined to flag an update as malicious.
+
+Replacing the second example from malicious to benign (DIFF+I+MM to DIFF+I+MB)
+significantly raises FPR for Qwen3-4B (2.30 points, $p_{\mathrm{H}} < 0.001$),
+Qwen2.5-3B (8.35 points, $p_{\mathrm{H}} < 0.001$), and Qwen2.5-7B (4.01
+points, $p_{\mathrm{H}} = 0.001$). For Qwen3-4B, the estimated TPR increase
+is 8.53 points (interval 2.99 to 14.63; $p = 0.007$, $p_{\mathrm{H}} = 0.170$),
+which is not significant after correction. The only significant decrease in
+FPR occurs for Phi-4-mini (5.46 points, $p_{\mathrm{H}} < 0.001$), accompanied
+by an estimated TPR decrease of 8.53 points (interval $-16.53$ to $-0.79$;
+$p = 0.052$, $p_{\mathrm{H}} = 0.993$). Although this bootstrap interval
+excludes zero, the TPR decrease is not significant under the discrete paired
+test, even before correction. No MM-to-MB TPR contrast is significant after
+Holm correction. For Llama-3.1-8B and Granite, neither the FPR test nor its
+interval establishes a change. At the point estimates, no model shows an
+MM-to-MB replacement that both lowers FPR and maintains or improves TPR.
+\begin{table*}[t]
+\centering\small
+\caption{Change in TPR and FPR after adding or replacing context, in percentage points, with exact two-sided cluster-level permutation $p$-values. A positive sign means an increase; a negative sign means a decrease. Add M: DIFF+I to DIFF+I+M; MM to MB: DIFF+I+MM to DIFF+I+MB; add intent: DIFF+MB to DIFF+I+MB. $p$: unadjusted; $p_{\mathrm{H}}$: Holm-adjusted over the 36 tests in the table. Bold adjusted values indicate $p_{\mathrm{H}} < 0.05$ using unrounded values. Values below 0.001 are shown as $<0.001$. TPR uses 98 MAL clusters and FPR uses 1,865 TYP clusters.}
+\label{tab:contrast}
+\begin{tabular}{llrrrrrr}
+\toprule
+ & & \multicolumn{3}{c}{TPR} & \multicolumn{3}{c}{FPR} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}
+Model & Contrast & $\Delta$ & $p$ & $p_{\mathrm{H}}$ & $\Delta$ & $p$ & $p_{\mathrm{H}}$ \\
+\midrule
+Qwen3-4B & Add M & $+0.78$ & $1.000$ & $1.000$ & $+0.70$ & $0.171$ & $1.000$ \\
+ & MM to MB & $+8.53$ & $0.007$ & $0.170$ & $+2.30$ & $<0.001$ & $\mathbf{<0.001}$ \\
+ & Add intent & $-0.78$ & $1.000$ & $1.000$ & $-2.36$ & $<0.001$ & $\mathbf{0.009}$ \\
+Qwen2.5-3B & Add M & $-4.65$ & $0.263$ & $1.000$ & $-10.76$ & $<0.001$ & $\mathbf{<0.001}$ \\
+ & MM to MB & $+3.10$ & $0.481$ & $1.000$ & $+8.35$ & $<0.001$ & $\mathbf{<0.001}$ \\
+ & Add intent & $+5.43$ & $0.167$ & $1.000$ & $+2.19$ & $0.063$ & $1.000$ \\
+Qwen2.5-7B & Add M & $-1.55$ & $0.815$ & $1.000$ & $-16.65$ & $<0.001$ & $\mathbf{<0.001}$ \\
+ & MM to MB & $+3.88$ & $0.227$ & $1.000$ & $+4.01$ & $<0.001$ & $\mathbf{0.001}$ \\
+ & Add intent & $+10.85$ & $0.008$ & $0.184$ & $+3.53$ & $<0.001$ & $\mathbf{0.020}$ \\
+Phi-4-mini & Add M & $+18.60$ & $<0.001$ & $\mathbf{0.022}$ & $+27.30$ & $<0.001$ & $\mathbf{<0.001}$ \\
+ & MM to MB & $-8.53$ & $0.052$ & $0.993$ & $-5.46$ & $<0.001$ & $\mathbf{<0.001}$ \\
+ & Add intent & $-3.10$ & $0.609$ & $1.000$ & $-2.57$ & $0.046$ & $0.915$ \\
+Llama-3.1-8B & Add M & $+4.65$ & $0.210$ & $1.000$ & $+9.26$ & $<0.001$ & $\mathbf{<0.001}$ \\
+ & MM to MB & $+5.43$ & $0.167$ & $1.000$ & $+1.12$ & $0.267$ & $1.000$ \\
+ & Add intent & $+8.53$ & $0.035$ & $0.728$ & $+11.99$ & $<0.001$ & $\mathbf{<0.001}$ \\
+Granite-3.3-8B & Add M & $+4.65$ & $0.263$ & $1.000$ & $+1.12$ & $0.126$ & $1.000$ \\
+ & MM to MB & $-6.98$ & $0.108$ & $1.000$ & $-0.11$ & $0.950$ & $1.000$ \\
+ & Add intent & $-3.88$ & $0.514$ & $1.000$ & $-5.35$ & $<0.001$ & $\mathbf{<0.001}$ \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/paired-effects.pdf}
+\caption{TPR differences on the 129 MAL. Dots are paired estimates; lines show
+ 95\% bootstrap intervals over 98 campaign clusters. The three panels use the
+ contrasts defined in the method. The intervals are not corrected for multiple
+ comparisons; Holm-adjusted $p$-values for the same contrasts are given in
+ Table~\ref{tab:contrast}.}
+\label{fig:effects}
+\end{figure*}
+
+\finding{Reference examples change decisions, but the direction depends on the
+model. Benign examples significantly raise FPR in three models and lower it in
+one. The latter has a lower TPR estimate, but no MM-to-MB TPR change is
+significant after correction.}
+
+\subsection{Effect of intent}
+With the same MB examples (DIFF+MB to DIFF+I+MB), intent produces two opposite
+patterns. FPR significantly falls for Qwen3-4B (2.36 points,
+$p_{\mathrm{H}} = 0.009$) and Granite (5.35 points, $p_{\mathrm{H}} < 0.001$).
+Phi-4-mini has an estimated FPR decrease of 2.57 points, but it is not
+significant after correction ($p = 0.046$, $p_{\mathrm{H}} = 0.915$).
+For Qwen2.5-7B and Llama-3.1-8B, FPR significantly rises by 3.53 and 11.99
+points ($p_{\mathrm{H}} = 0.020$ and $p_{\mathrm{H}} < 0.001$). Their TPR
+estimates also rise by 10.85 and 8.53 points, but neither change is significant
+after correction ($p_{\mathrm{H}} = 0.184$ and $p_{\mathrm{H}} = 0.728$).
+For Qwen2.5-3B, neither metric changes significantly. No intent-related TPR contrast is significant. The FPR pattern is consistent with the models' baseline
+behavior, with significant decreases in two conservative models and increases
+in two aggressive models. This
+experiment does not separate whether the change is driven by the quality of the
+description, the relevance of the README, the content of the scripts, or the way
+the model interprets that context.
+
+\finding{Intent significantly lowers FPR in two models and raises it in two
+others. No TPR change survives Holm correction; this is not evidence that
+detection is preserved. The benefit of intent depends on the model.}
+
+\subsection{Output format and cost}
+Test JSON validity ranges from 95.32\% to 99.82\% among the models that passed.
+For Qwen3-4B with DIFF+I+MB, counting invalid responses as malicious changes TPR
+from 50.39\% to 55.81\% and FPR from 5.57\% to 8.46\%
+(Table~\ref{tab:sensitivity}). The handling of invalid responses is therefore part
+of the definition of performance. The model that failed the dev gate is still
+reported as a technical protocol failure, not as a detector with zero TPR.
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{JSON validity over 11,982 test responses per model and sensitivity of DIFF+I+MB. The two numbers in the TPR/FPR columns count invalid responses as benign/malicious; TPR uses the 129 MAL. All values are in percent.}
+\label{tab:sensitivity}
+\begin{tabular}{lrrr}
+\toprule
+Model & Valid JSON & TPR & FPR \\
+\midrule
+Qwen3-4B & 95.63 & 50.39 / 55.81 & 5.57 / 8.46 \\
+Qwen2.5-3B & 99.53 & 83.72 / 84.50 & 56.53 / 56.96 \\
+Qwen2.5-7B & 99.82 & 87.60 / 87.60 & 49.20 / 49.41 \\
+Phi-4-mini & 99.11 & 55.04 / 57.36 & 31.37 / 32.12 \\
+Llama-3.1-8B & 97.72 & 87.60 / 90.70 & 69.70 / 72.48 \\
+Granite-3.3-8B & 95.32 & 47.29 / 51.16 & 15.79 / 19.54 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Cost is measured on 1,901 pairs, including all 1,868 TYP, that were run in the
+same inference session for each model, so latency is not mixed across sessions.
+DIFF+I+MB adds about 860--990 input tokens on average relative to DIFF, depending
+on the tokenizer. Its median latency ranges from 0.358 to 1.063 seconds and its
+p95 from 1.977 to 5.591 seconds (Table~\ref{tab:cost}). Longer context does not
+always increase p95 latency, because answer length and cache use also play a
+role. These figures describe the per-request cost on the hardware and batch order
+used, without any claim about the capacity to process the entire registry.
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Request cost on 1,901 pairs from the same inference session. Each cell shows DIFF / DIFF+I+MB. Latency is in seconds, after warm-up, with prefix caching; it excludes preprocessing and startup.}
+\label{tab:cost}
+\begin{tabular}{lrrr}
+\toprule
+Model & Mean input & Median & p95 \\
+ & tokens & latency & latency \\
+\midrule
+Qwen3-4B & 3,356 / 4,230 & 0.328 / 0.358 & 3.538 / 2.885 \\
+Qwen2.5-3B & 3,356 / 4,230 & 0.465 / 0.515 & 1.940 / 1.977 \\
+Qwen2.5-7B & 3,356 / 4,230 & 0.569 / 0.587 & 2.808 / 2.828 \\
+Phi-4-mini & 3,214 / 4,076 & 0.405 / 0.474 & 2.990 / 3.109 \\
+Llama-3.1-8B & 3,193 / 4,055 & 0.645 / 0.840 & 3.260 / 3.471 \\
+Granite-3.3-8B & 3,853 / 4,846 & 1.018 / 1.063 & 5.495 / 5.591 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\finding{The fullest configuration adds about 860--990 input tokens per update,
+with a median latency below 1.1 seconds on a single GPU. Format validity is above
+95\%, but the way invalid responses are counted can change TPR by up to 5.4
+points (Qwen3-4B).}
+
+\subsection{Sensitivity to temperature and seed}\label{sec:decoding-results}
+Rerunning temperature 0 with seed 0 reproduced the main results: all 11,982
+verdicts of Qwen3-4B and 11,979 of the 11,982 verdicts of Qwen2.5-3B matched
+the main run. At temperature 0, the seed made almost no difference. Qwen3-4B
+gave the same verdict under all three seeds for every pair, and Qwen2.5-3B
+differed on at most one TYP pair per configuration.
+
+With sampling, the two models behave differently (Fig.~\ref{fig:decoding}). For
+Qwen3-4B, the mean TPR over seeds stays within 2.3 points and the mean FPR within
+0.7 points of its value at temperature 0. For Qwen2.5-3B, both rates fall as the
+temperature rises, in all six configurations. From temperature 0 to 1.0, its TPR
+falls by 10.1--15.5 points and its FPR by 10.8--14.3 points. Even at
+temperature 1.0, its FPR remains between 34\% and 48\% in every run, so sampling
+does not change the aggressive pattern of this model. Format validity stays above
+90\% for Qwen3-4B and above 97\% for Qwen2.5-3B at every temperature.
+
+Table~\ref{tab:flips} shows how often the verdict on a pair changes across
+seeds. For Qwen3-4B, this happens for at most 8.71\% of the pairs. For
+Qwen2.5-3B, it already happens for about a third of the pairs at temperature 0.3
+and for more than half at temperature 1.0. Many verdicts of Qwen2.5-3B at
+temperature 0 therefore do not hold once sampling is allowed.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/sampling-rates.pdf}
+\caption{TPR and FPR of Qwen3-4B and Qwen2.5-3B across sampling temperatures.
+ Points are means over seeds 0, 1, and 2; bars show the range across the three
+ seeds. Each row uses one y-axis scale. Temperature 0 is the setting of the main
+ results.}
+\label{fig:decoding}
+\end{figure*}
+
+\begin{table}[t]
+\centering\footnotesize
+\caption{Share of test pairs whose verdict is not the same under seeds 0, 1, and 2, in percent. Each cell gives the range over the six configurations. MAL: the 129 malicious pairs only.}
+\label{tab:flips}
+\begin{tabular}{lrrr}
+\toprule
+Model & Temperature & All pairs & MAL \\
+\midrule
+Qwen3-4B & 0 & 0 & 0 \\
+ & 0.3 & 3.10--4.76 & 6.20--12.40 \\
+ & 0.7 & 4.31--7.41 & 13.18--16.28 \\
+ & 1.0 & 4.91--8.71 & 13.18--17.83 \\
+Qwen2.5-3B & 0 & 0--0.05 & 0 \\
+ & 0.3 & 28.74--36.40 & 12.40--23.26 \\
+ & 0.7 & 41.56--49.17 & 23.26--37.98 \\
+ & 1.0 & 50.13--58.54 & 27.13--48.06 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For each model, the three contrasts were recomputed in 12 runs (four
+temperatures and three seeds). The four FPR contrasts that were significant for
+these two models in the main analysis kept their direction in all 12 runs:
+replacing MM with MB raised FPR for both models, adding intent lowered the FPR of
+Qwen3-4B, and adding a malicious example lowered the FPR of Qwen2.5-3B. Their
+bootstrap intervals excluded zero in 47 of the 48 runs. The TPR change from MM to
+MB was positive in all 12 runs for both models, and its interval excluded zero in
+8 runs for Qwen3-4B and 6 for Qwen2.5-3B. Because these intervals are not
+corrected for multiple comparisons and the change was not significant in the main
+analysis, this is not evidence of a gain in detection. The other contrasts that
+were not significant in the main analysis either changed sign between runs or
+had intervals that included zero in most runs.
+
+\finding{At temperature 0, the verdicts of Qwen3-4B and Qwen2.5-3B were
+reproducible and did not depend on the seed. With sampling, Qwen3-4B stayed
+stable, whereas Qwen2.5-3B flagged fewer pairs and changed the verdict on up to
+59\% of pairs across seeds. The significant FPR contrasts of both models kept
+their direction at every temperature and seed tested.}
+
+\subsection{Exploratory analysis: pairs with and without capability changes}
+Table~\ref{tab:delta} separates the 42 MAL with capability changes from the 87
+MAL without them. Under DIFF, which uses no examples, the TPR of the first group
+ranges from 73.81\% to 100\%, whereas that of the second group ranges from
+26.44\% to 68.97\%. Updates that add observable capabilities are therefore easier
+to detect, regardless of retrieval.
+
+The direction of the MM-to-MB difference is the same in both groups for five
+models. For Qwen3-4B, TPR rises by 9.52 points in the first group and by 8.05
+points in the second. For Phi-4-mini, TPR falls by 4.76 and 10.34 points, and for
+Granite by 7.14 and 6.90 points. Qwen2.5-7B already detects all MAL in the first
+group under both configurations. Because the examples in the second group are
+chosen by the hash, the effect of replacing the example does not appear to depend
+on capability similarity between the pair and the example. The groups are small
+and these differences come without intervals, so the results are descriptive.
+\begin{table*}[t]
+\centering\small
+\caption{TPR by the presence or absence of capability changes in MAL, in percent. For the 87 MAL without capability changes, all examples score zero and are chosen by the hash-based tie-breaker. Invalid responses are counted as benign.}
+\label{tab:delta}
+\begin{tabular}{lrrrrrr}
+\toprule
+Model & \multicolumn{3}{c}{With changes (42)} & \multicolumn{3}{c}{Without changes (87)} \\
+ & DIFF & MM & MB & DIFF & MM & MB \\
+\midrule
+Qwen3-4B & 80.95 & 71.43 & 80.95 & 32.18 & 27.59 & 35.63 \\
+Qwen2.5-3B & 97.62 & 92.86 & 95.24 & 65.52 & 74.71 & 78.16 \\
+Qwen2.5-7B & 100.00 & 100.00 & 100.00 & 68.97 & 75.86 & 81.61 \\
+Phi-4-mini & 73.81 & 83.33 & 78.57 & 29.89 & 54.02 & 43.68 \\
+Llama-3.1-8B & 97.62 & 90.48 & 95.24 & 68.97 & 78.16 & 83.91 \\
+Granite-3.3-8B & 76.19 & 78.57 & 71.43 & 26.44 & 42.53 & 35.63 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\section{Discussion}\label{sec:discussion}
+\subsection{Interpretation of the findings}
+\paragraph{The benefit of context depends on the model.}
+All three kinds of context tested, namely malicious examples, benign examples, and
+intent, change model decisions, but the direction of the change is not uniform.
+The models' baseline behavior without examples helps interpret this difference.
+Intent significantly lowers false alarms in two of the three conservative
+models, while significantly raising false alarms in two of the three
+aggressive models. None of the intent-related TPR changes is significant
+after Holm correction. Benign examples also significantly raise false alarms
+in two of the three aggressive models without a significant gain in detection.
+Because MM and MB both contain two examples and keep the primary
+malicious example, the effect of replacing the example cannot be explained by an
+increase in the number of examples alone. However, changes in the content, length,
+and relevance of the examples may still contribute, and this experiment does not
+isolate the models' internal reasoning mechanisms.
+
+\paragraph{Benign examples are not an automatic fix.}
+The idea that benign examples make a model more cautious is not supported in
+general: FPR significantly rises in three models, and the only significant
+decrease in FPR comes with a lower TPR estimate. The latter TPR change is not
+statistically significant, so these data do not establish a detection loss or
+demonstrate that detection is preserved. The model-dependent changes are consistent with the
+in-context learning literature, which shows that the content and order of
+examples affect predictions beyond their labels
+\citep{min2022rethinking,zhao2021calibrate}. The exploratory subset analysis, which reports point estimates only, suggests that the direction of this effect also appears when the examples are chosen by the hash, so the effect may not depend on capability similarity between the pair and the example.
+
+\paragraph{A static rule as a reference point.}
+The capability-change rule flags 42 of the 129 MAL (TPR 32.56\%) and 31 of the
+1,868 TYP (FPR 1.66\%), for a balanced accuracy of 65.45\%. Under DIFF+I+MB,
+three models reach a higher balanced accuracy (Qwen3-4B 72.41\%, Qwen2.5-7B
+69.20\%, Granite 65.75\%), whereas three remain below it (Qwen2.5-3B 63.59\%,
+Phi-4-mini 61.83\%, Llama-3.1-8B 58.95\%). The models detect MAL that the rule
+cannot see, including MAL without any capability change, but at an FPR about 3 to
+42 times higher. The rule is a reference point computed after the initial results
+on the same data, not a proposed detector. It indicates that the added value of an
+LLM over cheap static signals depends strongly on the model and on its
+false-alarm behavior.
+
+\paragraph{Stability of the decisions.}
+The decoding analysis qualifies the main results in two ways. First, for
+Qwen3-4B and Qwen2.5-3B, the significant FPR contrasts do not appear to depend on
+greedy decoding or on one seed, because their direction held at every
+temperature and seed tested. Second, the operating point of Qwen2.5-3B at
+temperature 0, with high TPR and high FPR, rests on many verdicts that change
+under sampling. When a verdict can change with the seed, a single verdict is a
+weak basis for an automatic decision. These observations cover two of the six
+models; the other four were run only at temperature 0.
+
+\subsection{Comparison with prior work}\label{sec:prior}
+The comparison in Table~\ref{tab:cross-study} provides context for assessing the
+capability of IntentDiff-RAG. The following comparison covers detection rate,
+false alarms, and the benefit of context. Each study uses its own data and
+evaluation procedure; cross-study figures do not form a performance ranking on a
+common benchmark. To discuss the full IntentDiff-RAG configuration, DIFF+I+MB is
+used consistently, without choosing different configurations to obtain the
+highest TPR and the lowest FPR. Figures for prior work come from each author's own evaluation; those systems
+were not re-run on the dataset of this study. All IntentDiff-RAG models are shown
+with DIFF+I+MB, and the capability-change rule is added as a reference.
+
+\begin{table*}[t]
+\centering\small
+\caption{Comparison of results with prior work, in percent.
+All IntentDiff-RAG models use DIFF+I+MB on 129 MAL and 1,868 TYP.
+Datasets differ across studies, so this table is a descriptive comparison.
+An asterisk (*) marks accuracy computed from the counts of correct predictions
+in the source paper.}
+\label{tab:cross-study}
+\begin{tabular}{p{6.5cm} l r r r}
+\toprule
+Study / model & Unit of analysis & TPR (\%) & FPR (\%) & Accuracy (\%) \\
+\midrule
+\citet{wyss2025evaluating} / GPT-4o & Update & 100.00 & 0.40 & 99.61* \\
+RogueOne \citep{sofaer2024rogueone} & Update & 75.60 & 4.70 & 92.96* \\
+IntelGuard \citep{guo2026bridging} & Package & 97.67 & 0.20 & 98.72 \\
+\citet{nguyen2025taint} / DeepSeek-Coder 6.7B & Package & 96.23 & -- & 87.04 \\
+\midrule
+\multicolumn{5}{l}{\textbf{IntentDiff-RAG (this study), DIFF+I+MB configuration}} \\
+Qwen3-4B & Update & 50.39 & 5.57 & 91.59 \\
+Qwen2.5-3B & Update & 83.72 & 56.53 & 46.07 \\
+Qwen2.5-7B & Update & 87.60 & 49.20 & 53.18 \\
+Phi-4-mini & Update & 55.04 & 31.37 & 67.75 \\
+Llama-3.1-8B & Update & 87.60 & 69.70 & 34.00 \\
+Granite-3.3-8B & Update & 47.29 & 15.79 & 81.82 \\
+\midrule
+Capability-change rule, this study (no LLM) & Update & 32.56 & 1.66 & 94.09 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+The accuracy of Wyss et al.\ is computed from 46 correct detections and 1,992
+correct benign predictions over 2,046 updates; the FPR of 0.40\% is computed from
+8 false alarms over 2,000 typical updates. These figures use the counts of all
+samples in the source table, not the complement of the specificity that the
+authors computed after excluding the training data of their output processor.
+The accuracy of RogueOne is computed from 31 correct detections and 286 correct
+benign predictions over 341 updates in the single-update evaluation. The TPR and
+FPR of RogueOne follow the rounding reported in the paper. The recall values of
+IntelGuard and Nguyen et al.\ are shown as TPR; a ``--'' means that FPR is not
+available in the results table of Nguyen et al.\ that we refer to.
+
+\paragraph{Update detection with smart-diff and LLMs.}
+\citet{wyss2025evaluating} are the closest point of comparison in terms of the
+unit of analysis and input representation. With GPT-4o, they report detecting 46
+of 46 malicious updates and 8 false alarms out of 2,000 typical updates. In this
+study, smart-diff without additional context (DIFF) yields a TPR of
+42.64--79.07\% and an FPR of 6.37--65.15\% across the six local models. Under the
+full DIFF+I+MB configuration, TPR lies between 47.29\% and 87.60\% and FPR between
+5.57\% and 69.70\%. These ranges reflect variation across models, not the result
+of a single detector. The use of smart-diff and added context on local models has
+therefore not yet produced the pattern of high detection with low false alarms
+reported by Wyss et al. This difference cannot yet be attributed to model size:
+data composition, the preprocessing reconstruction, the prompt, and output
+processing also differ.
+
+\paragraph{Update detection without LLMs.}
+In the single-update evaluation, RogueOne detects 31 of 41 malicious updates
+(75.6\%) with 14 false alarms out of 300 benign updates (4.7\%)
+\citep{sofaer2024rogueone}. For context, Qwen2.5-7B under DIFF+I+MB reaches a TPR
+of 87.60\%, but its FPR is 49.20\%. Qwen3-4B under the same configuration yields
+an FPR of 5.57\%, with a TPR of 50.39\%. These two examples illustrate different
+trade-offs: higher detection in local models can come with many false alarms,
+while lower false alarms can come with many missed cases. These figures do not
+prove an advantage over RogueOne because that tool was not run on the dataset of
+this study. The comparison reinforces the need to assess TPR and FPR together,
+rather than treating TPR alone as the measure of success.
+
+\paragraph{Retrieval and package-purpose context.}
+IntelGuard reports an accuracy of 98.72\% and an FPR of 0.20\% on npm packages
+\citep{guo2026bridging}. That system uses GPT-4.1-mini and a knowledge base of
+4,420 malicious code contexts containing reasoning from threat reports.
+IntentDiff-RAG uses local models, assesses updates, and uses 75 automatically
+built examples based on source labels. Moreover, the retrieval score is zero for
+all examples in most test pairs. These differences limit how far the results of
+IntelGuard carry over to the design here. In this study, adding one malicious
+example does not always improve detection or lower false alarms. Replacing the
+second malicious example with a benign one even raises FPR in three models, while
+the significant decrease in FPR for Phi-4-mini comes with a lower, but not
+significantly different, TPR estimate. These findings
+indicate that the benefit of retrieval depends on the model, the example content,
+and the selection policy used; they do not invalidate the benefit of retrieval in
+IntelGuard.
+
+\paragraph{Open-weight models and the meaning of reported metrics.}
+\citet{nguyen2025taint} report an accuracy of 87.04\% using DeepSeek-Coder 6.7B
+with taint-based slicing on whole packages. That work demonstrates the use of
+open-weight models for package security analysis, but its accuracy cannot serve
+as a direct target for the update evaluation here. On the data composition of
+IntentDiff-RAG, always predicting benign already reaches an accuracy of 93.54\%,
+even though it does not detect a single MAL. A numerically higher accuracy than
+other studies therefore does not indicate a better detector. TPR and FPR are
+needed to show both error types separately.
+
+This comparison places the contribution of IntentDiff-RAG in measuring the effect
+of intent and example composition on local models at the update level. The results
+show that context components that were promising in prior work need to be
+re-tested under these conditions. A detection advantage over prior systems cannot
+be concluded without an evaluation on the same version pairs, labels, and
+failure-handling policy.
+
+\subsection{Implications for practice and research}
+TPR and FPR must be assessed together. A configuration with a TPR close to 90\%
+can still flag almost half of TYP as malicious, whereas a configuration with a low
+FPR can miss about half of MAL. Given these results, direct use as a basis for automatic blocking is not supported; as in other LLM-assisted triage settings, model verdicts would need to stay behind human review \citep{malhotra2027llm}. Use as a triage tool would also require
+testing the review burden in the target environment, which is not measured here.
+For researchers, these results indicate that the benefit of retrieval should be
+tested per model, reporting both error types and per-campaign uncertainty. The capability-change rule also shows that part of the detectable signal is
+available from cheap static extraction; an LLM stage is worth its cost only where
+it adds detections at an acceptable review burden.
+
+\section{Threats to validity}\label{sec:limitations}
+\paragraph{Construct validity.}
+MAL labels come from public sources, whereas TYP is assumed benign. Label errors
+in security datasets built from advisory or vulnerability records are a known
+risk \citep{wu2020cve}. Advisory
+filtering is not proof of safety; source labels may also include proof-of-concept
+cases or behavior whose assessment depends on context. TPR, FPR, and BA are
+therefore conditional on this label construction. No human-verified gold evidence
+or hard negatives are available, so there is no claim about evidence localization
+accuracy or a hard-negative-specific FPR. Text-pattern-based capability extraction
+found no capability changes for 87 MAL, so retrieval for those pairs does not
+exploit similarity. The smart-diff is a local reconstruction of the approach of
+Wyss et al. Diffs are truncated for 14 MAL and 90 TYP, and seven files in five MAL
+and 48 files in 35 TYP use raw text because normalization failed or the file
+exceeded the size limit. Important information may be lost or become harder to
+read, and the predecessor documentation from which intent is derived may be
+incomplete.
+
+\paragraph{Internal validity.}
+Some models and MAL were added after the initial results were known, and the
+capability-change subset analysis was defined after the results were available.
+Freezing the prompt, KB, and decision rules before inference reduces the
+opportunity to fit them to the results, but it does not make this study
+confirmatory. Four of the six models were run once per configuration, at
+temperature zero with a single seed, so their stability across runs is not
+established. For Qwen3-4B and Qwen2.5-3B, the decoding analysis
+(Section~\ref{sec:decoding-results}) adds three seeds and four temperatures, but
+it was also defined after the main results were known. The fixed request order and
+active prefix caching may affect latency. The MM-to-MB contrast changes the label
+and the code content of the second example together, and the two prompts also
+differ in length. A context-matched arm that shows the benign code with a
+malicious label would separate label from content, in the spirit of the
+context-matched arm proposed by \citet{malhotra2027llm}; this arm was not run.
+
+\paragraph{External validity.}
+The availability of both archives, package identity, and the predecessor
+requirement restrict which samples can be included, so the data do not represent
+all npm updates. The results apply to npm, six open-weight models with
+3--8 billion parameters, one structured output format, and one retrieval policy.
+Of the 129 MAL targets, 75 were published in 2026, but this does not prove that
+the samples lie outside the pretraining exposure of each model; no controlled
+temporal experiment or training-data audit was performed. Public evaluation
+targets are a recognized contamination risk for LLM-based software engineering
+studies \citep{malhotra2027llm}. The classes also differ in exposure: TYP come
+from the archive of an earlier study, and 692 of them belong to the most
+depended-upon packages, whose names and code are likely familiar to the models,
+whereas most MAL are recent. Familiarity could therefore affect FPR or TPR
+independently of the configuration; FPR per TYP source and TPR by publication date
+relative to each model's release were not analyzed. Qwen3-8B failed under
+these conditions, without implying that the model is always unable to perform the
+task. This study did not re-run non-LLM detectors, commercial models, or
+fine-tuned models on the same data, so the results of other studies serve only as
+context.
+
+\paragraph{Conclusion validity.}
+The 129 MAL represent only 98 clusters; the results must not be read as 129
+independent campaign observations. Treating the cluster rather than the pair as
+the unit of inference follows the same reasoning as project-level inference in
+security bug report prediction \citep{jamwal2027llmsec}. The bootstrap accounts for the observed
+clusters but does not remove selection bias or clustering errors. The 95\%
+intervals are not corrected for multiple comparisons. The permutation
+$p$-values are Holm-adjusted over the 36 hypotheses, which controls the
+family-wise error rate for this family under the permutation assumptions.
+Independence across campaigns and sign symmetry of cluster differences are
+assumptions, not consequences of equal marginal rates or of clustering alone.
+The descriptive baseline
+comparisons, the sensitivity analysis, the decoding analysis, and the subset
+analysis are not included in that family.  The subset analysis reports
+only point estimates on small groups. No semantic audit of all false positives and
+false negatives was performed; explanations of error mechanisms remain
+possibilities.
+
+\paragraph{Reproducibility.}
+Inference used fixed model revisions, vLLM 0.30.0, temperature 0, and seed 0, but
+GPU kernels and request batching can still introduce nondeterminism. A rerun of
+Qwen3-4B and Qwen2.5-3B in a reinstalled environment reproduced 11,982 and 11,979
+of their 11,982 verdicts, respectively; the other four models were run once.
+Exact reproduction also depends on the continued
+availability of package archives in the registry and on the local reconstruction
+of the smart-diff deduplication step. The artifacts that are released are listed
+in the data availability statement.
+
+\section{Conclusion}\label{sec:conclusion}
+This study evaluated the effect of intent and reference examples on the detection
+of malicious npm updates by six local LLMs. Without examples, the models split
+into a conservative pattern with low FPR but TPR below 50\%, and an aggressive
+pattern with TPR of about 76--79\% but FPR above 59\%. Reference examples change
+decisions in a direction that depends on the model, and benign examples do not
+generally lower false alarms: MM-to-MB significantly raises FPR in three
+models and lowers it in one, with no significant TPR change after correction.
+Intent significantly lowers FPR in two models and raises it in two others;
+none of its TPR changes survives Holm correction. A static capability-change
+rule without an LLM reached 32.56\% TPR at 1.66\% FPR, a balanced accuracy that
+three of the six models did not exceed in the fullest configuration. The fullest
+configuration adds about 860--990 input tokens with a median latency below 1.1
+seconds per update. For the two models rerun at several temperatures and seeds,
+the significant FPR contrasts kept their direction, whereas Qwen2.5-3B changed
+many of its verdicts under sampling.
+
+These findings support reporting both error types, per-campaign uncertainty, and
+format sensitivity before judging the benefit of retrieval. The conclusions are
+limited to the source labels, sample selection, and inference conditions used;
+the results do not yet show readiness for autonomous detection or an advantage
+over approaches not tested on the same data. Future work should (i) add a context-matched arm that shows benign code with a
+malicious label to separate label from content, (ii) test retrieval that has a
+similarity signal for more pairs and compare it explicitly with random example
+selection, (iii) report FPR per TYP source and TPR by publication date relative
+to each model's release to bound familiarity effects, and (iv) evaluate
+human-verified hard negatives.
+
+
+\section*{Data availability}
+
+% Previous wording (data not publicly available):
+% The research data, including the pair manifest, label provenance, archive hashes,
+% campaign splits, model revisions, prompts, raw responses, and analysis scripts,
+% are not publicly available. The data supporting the findings of this study are
+% available from the corresponding author upon reasonable request.
+% TODO (authors): confirm this release commitment and add the repository URL.
+The pair manifest (package names, versions, and archive hashes), label
+provenance, campaign clusters, model revisions, prompts, raw model responses
+(including those of the decoding analysis), and analysis scripts will be deposited in a public repository upon acceptance.
+Executable archives of malicious packages are not redistributed because of the
+potential for misuse; they can be located in the original sources using the
+manifest and hashes.
+
+\section*{CRediT authorship contribution statement}
+
+\noindent
+\textbf{Robby Ulung Pambudi:}
+Conceptualization, Methodology, Software, Investigation, Formal analysis,
+Visualization, Writing -- original draft, Writing -- review \& editing.
+
+\noindent
+\textbf{Gloriyano Cristho Daniel Pepuho:}
+Conceptualization, Methodology, Investigation, Validation, Formal analysis,
+Writing -- review \& editing.
+
+\noindent
+\textbf{Bilqis Amaliah:}
+Conceptualization, Methodology, Supervision, Writing -- review \& editing.
+
+\noindent
+\textbf{Dwi Sunaryono:}
+Conceptualization, Methodology, Supervision, Writing -- review \& editing.
+
+\section*{Declaration of competing interest}
+
+The authors declare that they have no known competing financial interests or
+personal relationships that could have appeared to influence the work reported in
+this paper.
+
+% TODO (authors): Elsevier journals also ask for a funding statement. If there is
+% no funding, the standard wording is: "This research did not receive any specific
+% grant from funding agencies in the public, commercial, or not-for-profit sectors."
+
+\section*{Declaration of generative AI and AI-assisted technologies in the writing process}
+During the preparation of this work the authors used AI to improve its language and readability. After using this tool, the authors reviewed and edited the content as needed and take full responsibility for the content of the published article.
+
+
+\FloatBarrier
+\appendix
+\section{Results for all configurations}\label{sec:appendix}
+Table~\ref{tab:full} lists all configurations without selecting only the
+favorable ones. TPR uses the 129 MAL and FPR uses the 1,868 TYP. Accuracy and BA
+use both; these figures are not an evaluation under the natural class
+distribution of npm.
+\begin{table*}[t]
+\centering\small
+\caption{All configurations, in percent. TPR uses the 129 MAL; FPR uses the 1,868 TYP. Accuracy and BA use both and are descriptive. BA: balanced accuracy. The last row is the static capability-change rule.}
+\label{tab:full}
+\begin{tabular}{llrrrr}
+\toprule
+Model & Configuration & TPR & FPR & Accuracy & BA \\
+\midrule
+Qwen3-4B & DIFF & 48.06 & 6.37 & 90.69 & 70.85 \\
+Qwen3-4B & DIFF+I & 44.96 & 4.12 & 92.59 & 70.42 \\
+Qwen3-4B & DIFF+I+M & 45.74 & 4.82 & 91.99 & 70.46 \\
+Qwen3-4B & DIFF+I+MM & 41.86 & 3.27 & 93.19 & 69.30 \\
+Qwen3-4B & DIFF+I+MB & 50.39 & 5.57 & 91.59 & 72.41 \\
+Qwen3-4B & DIFF+MB & 51.16 & 7.92 & 89.43 & 71.62 \\
+Qwen2.5-3B & DIFF & 75.97 & 59.58 & 42.71 & 58.19 \\
+Qwen2.5-3B & DIFF+I & 82.95 & 59.31 & 43.42 & 61.82 \\
+Qwen2.5-3B & DIFF+I+M & 78.29 & 48.55 & 53.18 & 64.87 \\
+Qwen2.5-3B & DIFF+I+MM & 80.62 & 48.18 & 53.68 & 66.22 \\
+Qwen2.5-3B & DIFF+I+MB & 83.72 & 56.53 & 46.07 & 63.59 \\
+Qwen2.5-3B & DIFF+MB & 78.29 & 54.34 & 47.77 & 61.98 \\
+Qwen2.5-7B & DIFF & 79.07 & 65.15 & 37.71 & 56.96 \\
+Qwen2.5-7B & DIFF+I & 85.27 & 63.44 & 39.71 & 60.92 \\
+Qwen2.5-7B & DIFF+I+M & 83.72 & 46.79 & 55.18 & 68.47 \\
+Qwen2.5-7B & DIFF+I+MM & 83.72 & 45.18 & 56.69 & 69.27 \\
+Qwen2.5-7B & DIFF+I+MB & 87.60 & 49.20 & 53.18 & 69.20 \\
+Qwen2.5-7B & DIFF+MB & 76.74 & 45.66 & 55.78 & 65.54 \\
+Phi-4-mini & DIFF & 44.19 & 17.08 & 80.42 & 63.55 \\
+Phi-4-mini & DIFF+I & 45.74 & 13.87 & 83.53 & 65.94 \\
+Phi-4-mini & DIFF+I+M & 64.34 & 41.17 & 59.19 & 61.59 \\
+Phi-4-mini & DIFF+I+MM & 63.57 & 36.83 & 63.19 & 63.37 \\
+Phi-4-mini & DIFF+I+MB & 55.04 & 31.37 & 67.75 & 61.83 \\
+Phi-4-mini & DIFF+MB & 58.14 & 33.94 & 65.55 & 62.10 \\
+Llama-3.1-8B & DIFF & 78.29 & 60.22 & 42.26 & 59.03 \\
+Llama-3.1-8B & DIFF+I & 84.50 & 69.97 & 33.55 & 57.26 \\
+Llama-3.1-8B & DIFF+I+M & 89.15 & 79.23 & 25.19 & 54.96 \\
+Llama-3.1-8B & DIFF+I+MM & 82.17 & 68.58 & 34.70 & 56.80 \\
+Llama-3.1-8B & DIFF+I+MB & 87.60 & 69.70 & 34.00 & 58.95 \\
+Llama-3.1-8B & DIFF+MB & 79.07 & 57.71 & 44.67 & 60.68 \\
+Granite-3.3-8B & DIFF & 42.64 & 10.06 & 86.88 & 66.29 \\
+Granite-3.3-8B & DIFF+I & 34.88 & 7.71 & 88.58 & 63.59 \\
+Granite-3.3-8B & DIFF+I+M & 39.53 & 8.83 & 87.83 & 65.35 \\
+Granite-3.3-8B & DIFF+I+MM & 54.26 & 15.90 & 82.17 & 69.18 \\
+Granite-3.3-8B & DIFF+I+MB & 47.29 & 15.79 & 81.82 & 65.75 \\
+Granite-3.3-8B & DIFF+MB & 51.16 & 21.15 & 77.07 & 65.01 \\
+\midrule
+Rule (no LLM) & $\Delta(p)\neq\emptyset$ & 32.56 & 1.66 & 94.09 & 65.45 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+\FloatBarrier
+\bibliographystyle{cas-model2-names}
+\bibliography{cas-refs}
+\end{document}

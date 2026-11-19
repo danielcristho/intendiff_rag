@@ -33,6 +33,8 @@ test: ## run every suite
 	pnpm -C frontend test
 	$(PY) pipeline/configs.py --selfcheck
 	$(PY) pipeline/runner.py --selfcheck
+	$(PY) pipeline/sampling_grid.py --selfcheck
+	$(PY) pipeline/sampling_report.py --selfcheck
 	$(PY) pipeline/test_runner_inputs.py
 	$(PY) pipeline/capability.py --selfcheck
 	$(PY) pipeline/prompts.py
