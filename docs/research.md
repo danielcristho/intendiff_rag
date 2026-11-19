@@ -182,7 +182,7 @@ Bagian ini tidak diuji signifikansinya dan dilaporkan sebagai deskripsi.
 | ID | Analisis | Catatan |
 |---|---|---|
 | EA1 | FPR_HN per kategori hard negative, DIFF+I+MB vs DIFF+I+MM | Menggantikan H1 proposal. H1 lama menyebut kelima kategori HN sekaligus, jadi tidak mungkin salah. Dengan ~20 pair per kategori, hasilnya hanya deskriptif |
-| EA2 | Stabilitas: persentase pair yang verdict-nya berubah antar 3 run sampling (temperature 0,7) untuk DIFF+I dan DIFF+I+MB | Menjawab limitasi Wyss soal stabilitas berulang |
+| EA2 | Ablasi decoding (D111): TPR, FPR, flip rate antar 3 seed, dan arah kontras pada temperature 0; 0,3; 0,7; 1,0, keenam konfigurasi, dua model utama | Menjawab limitasi Wyss soal stabilitas berulang; hasil utama tetap T=0 |
 | EA3 | Recall dan FPR pada insiden yang terbit sebelum vs sesudah tanggal rilis model | Mengukur risiko kontaminasi pretraining; mendukung "bertahan pada temporal split" (slide 17). Lengan pasca-rilis ditargetkan minimal 15 pair MAL (D58); pada n itu Wilson 95% masih ±19 poin, jadi hasilnya arah, bukan estimasi presisi |
 | EA4 | Taksonomi error (capability, intent, retrieval) untuk semua kesalahan DIFF+I+MB | Dikerjakan di UI audit |
 | EA5 | Evidence localization: proporsi true positive yang evidence-nya menunjuk baris malicious di gold | Butuh anotasi baris malicious pada MAL |
