@@ -14,9 +14,9 @@ venv: ## create .venv with the Python analysis dependencies
 	# uv first: a Debian python without the python3-venv package has no ensurepip,
 	# and there `python3 -m venv` cannot bootstrap pip at all.
 	@if command -v uv >/dev/null; then \
-		uv venv .venv && uv pip install --python .venv/bin/python statsmodels matplotlib; \
+		uv venv .venv && uv pip install --python .venv/bin/python -r requirements.txt; \
 	else \
-		python3 -m venv .venv && .venv/bin/pip install statsmodels matplotlib; \
+		python3 -m venv .venv && .venv/bin/pip install -r requirements.txt; \
 	fi
 
 install: ## install frontend dependencies
