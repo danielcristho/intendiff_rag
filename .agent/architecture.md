@@ -1,7 +1,7 @@
 # Architecture
 
 The three components, how they share `data/`, and the operational traps.
-`docs/` holds the research design; this file only covers how the code runs.
+The research design is in the other `.agent/` files; this one covers how the code runs.
 
 ## Components
 
@@ -21,7 +21,7 @@ uv run pipeline/runner.py --selfcheck
 - **Sequential on purpose**: RQ4 reports median and p95 latency, which are wrong
   if requests overlap on the server.
 - **GPU memory is not measured by the runner.** Never report an nvidia-smi peak:
-  vLLM pre-allocates per `--gpu-memory-utilization`. `docs/methodology.md` §9.3
+  vLLM pre-allocates per `--gpu-memory-utilization`. methodology §9.3
   (D41) defines what to report.
 
 **`backend/`**: API for the audit UI, Rust + axum. A library crate served by

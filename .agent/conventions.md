@@ -6,7 +6,8 @@ How code, comments, tests and commits are written in this repository.
 ## Language
 
 Everything inside a source file is **English**: comments, test names,
-identifiers. Research documents in `docs/` and `.agent/` may be Indonesian.
+identifiers. `.agent/` is English too; the archived `docs/` on the `latex`
+branch is Indonesian.
 Code outlives the language its authors discussed it in.
 
 ## Writing code
@@ -53,7 +54,7 @@ Based on Stack Overflow's "Best practices for writing code comments"
 6. **Link the source of copied code.**
 7. **Link an external reference only when the code cannot be read without it**
    (a file-format spec, a copied algorithm). Never narrate the research: no RQ
-   numbers, no hypotheses, no "why the study needs this". The design lives in `docs/`.
+   numbers, no hypotheses, no "why the study needs this". The design lives in `.agent/`.
 8. **Comment when fixing a bug**, saying what broke.
 9. **Mark incomplete work.** `TODO` for a gap; `ponytail:` for a deliberate
    shortcut, naming its ceiling and upgrade path; `SAFETY:` on every Rust
@@ -61,7 +62,7 @@ Based on Stack Overflow's "Best practices for writing code comments"
 
 Format:
 
-- **One or two lines.** A paragraph in a source file belongs in `docs/`.
+- **One or two lines.** A paragraph in a source file belongs in `.agent/`.
 - **Module docstrings say how to run the file**, nothing more.
 - A comment on a declaration **starts with the declaration's own name**
   (`// write_atomic renames ...`, never `// Writes ...`). That is the format for
@@ -92,7 +93,8 @@ Co-Authored-By: ...   (only when an agent wrote the change)
 
 - **type**: `feat`, `fix`, `refactor`, `test`, `docs`, `build`, `chore`.
   Prompt, configuration, capability-list or decision-rule changes are `feat` or
-  `fix` and need a `docs/decisions.md` entry in the same commit (G2 rule).
+  `fix` and need a decision entry: add it to `docs/decisions.md` on the
+  `latex` branch and name the decision (`D<n>`) in the commit body (G2 rule).
 - **scope**: the top-level area, `pipeline`, `backend`, `frontend`, `data`,
   `docs`, `compose`, `deploy`. Leave it out when the change spans several.
 - **subject**: English, imperative, lowercase, no trailing full stop, at most
@@ -110,9 +112,10 @@ Co-Authored-By: ...   (only when an agent wrote the change)
 
 ## Branches
 
-- `main`: code, docs and the data the code reads.
-- `latex`: the manuscript (`labs/latex/`), every PDF, `scratchpad/` and the
-  evaluation data no code reads any more.
+- `main`: code, `.agent/` and the data the code reads.
+- `latex`: the manuscript (`labs/latex/`), the design documents and decision
+  log (`docs/`), every PDF, `scratchpad/` and the evaluation data no code reads
+  any more.
 - Work on a short-lived branch and merge through a pull request. Merging an
   older branch into `main` must not take "theirs" wholesale: the merge that
   reverted the modular backend (`refactor(backend)` restored it) did exactly that.
