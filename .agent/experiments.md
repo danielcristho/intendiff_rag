@@ -209,7 +209,7 @@ mendapat card dan urutan yang identik.
 | `data/dev.jsonl` | pipeline data | runner (dev set, warm-up) |
 | `data/results.jsonl` | runner (append per run) | analisis, UI |
 | `data/results.dev.jsonl` | runner | pemeriksaan validitas JSON (§6.4) |
-| `data/audit_decisions.json` | backend | UI, analisis |
+| `data/audit_decisions.<annotator>.json` | backend, satu file per annotator | UI, analisis |
 
 Definisi field ada di `docs/experiments.md` §3.
 
@@ -253,7 +253,7 @@ Contoh card **fiktif**:
 
 6. **Cek runner:** `python pipeline/runner.py --selfcheck`.
 7. **Jalankan server model:**
-   `vllm serve <model> --port 8001 --dtype bfloat16 --max-model-len 32768 --seed 0`.
+   `vllm serve <model> --port 8101 --dtype bfloat16 --max-model-len 32768 --seed 0`.
    Catat versi vLLM dan baris log memori bobot model.
 8. **Warm-up:** kirim 3 request dari `data/dev.jsonl` ke `--out /dev/null`. Hasilnya tidak dicatat.
 9. **Dev set:** `--pairs data/dev.jsonl --out data/results.dev.jsonl`. Periksa validitas JSON (§6.4).
@@ -267,7 +267,7 @@ Contoh card **fiktif**:
     `recovery/resume.sh` di release (re-encode U+2028, pelepasan page cache).
 13. **Memori:** laporkan memori bobot dari log vLLM ditambah KV cache terhitung (methodology §9.3). Puncak nvidia-smi bukan metrik.
 
-`--base-url` ditulis tanpa `/v1`, dan jangan pakai port 8000 karena sudah dipakai backend.
+`--base-url` ditulis tanpa `/v1`, default-nya port 8101. Backend di 8100; port 8000 dipakai layanan produksi di mesin GPU.
 
 ## Penanganan sampel yang aman
 

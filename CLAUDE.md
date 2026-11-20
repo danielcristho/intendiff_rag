@@ -65,7 +65,7 @@ five files.
 **DRY** applies to duplicated *knowledge*, not duplicated characters. Two
 functions that look alike but change for different reasons stay apart. One rule
 is duplicated on purpose, because it spans a language boundary:
-`valid_annotator` in `backend/src/store.rs` and `validAnnotator` in
+`valid_annotator` in `backend/src/shared/files.rs` and `validAnnotator` in
 `frontend/src/lib/annotator.ts` encode `[A-Za-z0-9_-]{1,32}` and guard a
 filename. **Change one, change the other**, and keep the test in each.
 
@@ -96,10 +96,10 @@ model is `Qwen2.5-Coder-3B`; Qwen3-4B does not fit in 12 GiB (D44).
 
 Deploying to the GPU host: `deployments/README.md`. vLLM pre-allocates VRAM as a
 fraction of the **total** card, so `VLLM_GPU_UTIL` must be sized against what is
-actually free or it will starve `production-service`.
+actually free or it will starve the production service sharing the card.
 
-**Ports on the GPU host are crowded.** 8000 belongs to production-service, plus
-8080, 8081, 5433, 9400 and 18888. Hence backend on 8100 and vLLM on 8101,
+**Ports on the GPU host are crowded.** 8000 and several
+others are taken by production services. Hence backend on 8100 and vLLM on 8101,
 published via `BIND_ADDR`. Run `docker ps` before changing ports in `.env`.
 
 ## Components
@@ -135,7 +135,11 @@ GPU memory is not measured by the runner. Never use an nvidia-smi peak as the
 metric: vLLM pre-allocates per `--gpu-memory-utilization`. `docs/methodology.md`
 §9.3 (D41) defines what to report instead.
 
-`backend/` — API for the audit UI. Rust + axum.
+`backend/` — API for the audit UI. Rust + axum, a library crate served by
+`main.rs`. One directory per feature under `src/modules/` (`pairs`, `audit`),
+each with `routes.rs`, `handlers.rs`, `dto.rs` and `repository.rs`; helpers
+several modules need live in `src/shared/`. Router-level tests are in
+`backend/tests/`.
 
 ```
 cd backend && cargo run -- --data-dir ../data --port 8100

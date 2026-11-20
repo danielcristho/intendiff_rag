@@ -1,6 +1,6 @@
 # Deploying to the GPU host
 
-`gpu-host` is shared with production. The two risks below matter more than
+The GPU host is shared with production. The two risks below matter more than
 the command sequence.
 
 ## Read first: two risks
@@ -8,9 +8,9 @@ the command sequence.
 **1. vLLM can take down production.** vLLM pre-allocates
 `--gpu-memory-utilization` as a fraction of **total** GPU memory, not of what is
 free. Left at the 0.9 default it claims roughly 11 GiB of the 12 GiB card, and
-`production-service` sharing that card runs out of memory.
+the production service sharing that card runs out of memory.
 
-Check what is genuinely free, with yolo running:
+Check what is genuinely free, with production running:
 
 ```
 nvidia-smi --query-gpu=memory.total,memory.used,memory.free --format=csv
@@ -18,7 +18,7 @@ nvidia-smi --query-gpu=memory.total,memory.used,memory.free --format=csv
 
 Then set `VLLM_GPU_UTIL` below that figure. For scale: Qwen2.5-Coder-3B needs
 about 6.9 GiB and Qwen3-4B about 11.95 GiB (D44). If less than that is free,
-**do not force it** — schedule a window with yolo stopped, or use another
+**do not force it** — schedule a window with production stopped, or use another
 machine (D45, option A).
 
 **2. The audit UI has no authentication.** Ports publish to `0.0.0.0`, so anyone
@@ -26,10 +26,10 @@ who can reach the host can read and change research labels. There is no login
 and no token.
 
 To narrow that without losing remote access, set `BIND_ADDR` in `.env` to the
-host's VPN address:
+host IP address you reach it on:
 
 ```
-BIND_ADDR=192.0.2.11
+BIND_ADDR=<host-ip-address>
 ```
 
 That matches how the other containers on this host are published and keeps the
