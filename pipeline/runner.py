@@ -136,7 +136,8 @@ def parse_verdict(text):
         return None
     try:
         parsed, _ = json.JSONDecoder().raw_decode(text[start:])
-    except json.JSONDecodeError:
+    # RecursionError: a reply nested ~10k levels deep crashed the whole batch (found by fuzzing).
+    except (json.JSONDecodeError, RecursionError):
         return None
     if not isinstance(parsed, dict):
         return None
@@ -374,6 +375,7 @@ def selfcheck():
     assert parse_verdict(f"Here it is: {ok}")["verdict"] == "benign"
     assert parse_verdict("no json here") is None
     assert parse_verdict('{"broken": }') is None
+    assert parse_verdict('{"verdict": ' + '[' * 100_000) is None, "deep nesting must be invalid, not a crash"
 
     # The old slice-to-last-brace parser broke here: prose after the object
     # containing a closing brace swallowed it (§7).
