@@ -1,0 +1,5 @@
+#!/bin/sh
+
+make -s test > /tmp/intentdiff-pre-push.log 2>&1 \
+  || { echo "✗ make test failed, see /tmp/intentdiff-pre-push.log"; exit 1; }
+echo "✓ make test"

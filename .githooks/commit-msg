@@ -1,0 +1,22 @@
+#!/bin/sh
+
+SUBJECT=$(head -n 1 "$1")
+
+case "$SUBJECT" in
+  "Merge "* | "Revert "* | "fixup! "* | "squash! "* | "amend! "*) exit 0 ;;
+esac
+
+TYPES="feat|fix|refactor|test|docs|build|chore"
+SCOPES="pipeline|backend|frontend|data|docs|compose|deploy"
+PATTERN="^($TYPES)(\(($SCOPES)\))?: [a-z0-9\`].*[^.]$"
+
+if ! echo "$SUBJECT" | grep -qE "$PATTERN" || [ ${#SUBJECT} -gt 72 ]; then
+  echo "✗ invalid commit subject: $SUBJECT"
+  echo "  format: type(scope): subject   (scope optional)"
+  echo "  types:  feat fix refactor test docs build chore"
+  echo "  scopes: pipeline backend frontend data docs compose deploy"
+  echo "  subject: lowercase, imperative, no trailing full stop, at most 72 characters"
+  echo "  example: fix(pipeline): retry connection resets, which bypassed the backoff"
+  exit 1
+fi
+echo "✓ commit message"
