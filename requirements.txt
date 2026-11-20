@@ -1,0 +1,9 @@
+# Pipeline and tests; `make venv` installs these into .venv.
+# vLLM runs from its pinned Docker image, not from this environment.
+jsonschema==4.26.0
+matplotlib==3.11.2
+numpy==2.5.3
+scipy==1.18.1
+statsmodels==0.15.0
+tokenizers==0.23.2
+transformers==5.17.0
