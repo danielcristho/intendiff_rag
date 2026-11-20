@@ -50,7 +50,7 @@ intervals and exact permutation tests under Holm correction.
 | `backend/`, `frontend/` | label-audit and error-analysis UI (Rust + React) |
 | `data/` | pair manifests, KB, and evaluation outputs |
 | `labs/latex/` | manuscript sources, on the `latex` branch (`git switch latex`) |
-| `docs/` | design, methodology, and dated decision log (in Indonesian) |
+| `.agent/` | design summary, conventions, architecture and status; full `docs/` (in Indonesian) is on the `latex` branch |
 
 ## Running it
 
