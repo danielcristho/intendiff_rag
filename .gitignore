@@ -25,3 +25,6 @@ data/hn/
 data/datadog/
 data/tarballs/
 data/hn-jalur-a.log
+
+# PDFs (proposal, manuscript builds, figure exports) live on the latex branch.
+*.pdf

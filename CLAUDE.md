@@ -169,7 +169,7 @@ runner defaults to `--base-url http://localhost:8101`, the vLLM port.
 - `docs/experiments.md` — execution: timeline and gates, run volume, file schemas, implementation checklist
 - `docs/references.md` — reference status (checked against the originals), quotable facts, corrections to the P1 slides
 - `docs/decisions.md` — dated decision log; add an entry whenever the design changes
-- `labs/refrences/P1_Metodologi Penelitian.pdf` — the original proposal; its scope still holds, its RQs are superseded by `docs/research.md`
+- `labs/refrences/P1_Metodologi Penelitian.pdf` (on the `latex` branch, like every PDF) — the original proposal; its scope still holds, its RQs are superseded by `docs/research.md`
 - `.agent/research.md` — agent summary: RQ to configuration, invariants, prohibitions, terminology
 - `.agent/experiments.md` — configuration spec for the code, file schemas, run order, safe sample handling
 - `.agent/rogueone.md` — position relative to RogueOne: ideas taken and skipped, quotable numbers (not re-run, D20)
