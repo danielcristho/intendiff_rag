@@ -41,7 +41,7 @@ perlu persetujuan eksplisit sebelum menghentikan lingkungan bersama.
 Tidak menginstal driver Linux ke WSL, sesuai
 [panduan NVIDIA](https://docs.nvidia.com/cuda/wsl-user-guide/index.html).
 
-Setelah membuka kembali WSL, dari `~/intendiff_rag`:
+Setelah membuka kembali WSL, dari root repositori:
 
 ```bash
 .venv/bin/python scratchpad/cuda-recovery-20261001/resume.py
