@@ -16,3 +16,12 @@ figures/
 # Downloaded research archives and unpacked samples stay local.
 data/upstream/
 data/work/
+texput.log
+
+# Downloaded tarballs and unpacked samples, some malicious; data/samples.jsonl keeps their checksums.
+data/wyss/
+data/typ/
+data/hn/
+data/datadog/
+data/tarballs/
+data/hn-jalur-a.log
