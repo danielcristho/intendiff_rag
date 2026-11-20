@@ -3,5 +3,8 @@
     "@dodona/dolos-lib": "3.5.1",
     "uglify-js": "3.19.3",
     "webcrack": "2.16.0"
+  },
+  "overrides": {
+    "undici": "^8.12.2"
   }
 }
