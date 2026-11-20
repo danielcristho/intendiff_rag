@@ -3,7 +3,7 @@ DATA ?= ./data
 # The pipeline's dependencies live in .venv (`make venv`); a system python lacks them.
 PY :=$(shell [ -x .venv/bin/python ] && echo .venv/bin/python || echo python3)
 
-.PHONY: help venv install backend ui test
+.PHONY: help venv hooks install backend ui test
 
 help:
 	@grep -hE '^[a-z-]+:.*?##' $(MAKEFILE_LIST) \
@@ -11,6 +11,9 @@ help:
 
 venv: ## create .venv from uv.lock
 	uv sync --frozen
+
+hooks: ## use the hooks in .githooks/
+	git config core.hooksPath .githooks
 
 install: ## install frontend dependencies
 	pnpm -C frontend install
