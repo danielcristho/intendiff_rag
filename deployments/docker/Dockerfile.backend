@@ -1,4 +1,4 @@
-FROM rust:1.98-slim-bookworm AS build
+FROM rust:1.98-slim-bookworm@sha256:ff521445a372125ed4f76e1453a1f8098f2d05332d1601d30db1c1f62757e730 AS build
 
 ARG CARGO_BUILD_JOBS=2
 ENV CARGO_BUILD_JOBS=${CARGO_BUILD_JOBS}
@@ -15,7 +15,7 @@ COPY backend/src ./src
 
 RUN touch src/main.rs && cargo build --release --locked
 
-FROM debian:bookworm-slim
+FROM debian:bookworm-slim@sha256:734a72b3d6142a71993b4bc580ca01d8ca687f77a2c422d96a961d3376b179bc
 
 RUN useradd --system --create-home --uid 10001 audit
 
