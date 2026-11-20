@@ -1,74 +1,77 @@
-# Ringkasan penelitian untuk agent
+# Research summary
 
-Sumber kebenaran: [docs/research.md](../docs/research.md) untuk RQ dan [docs/methodology.md](../docs/methodology.md) untuk prosedur. File ini adalah
-ringkasan operasional supaya agent tidak melanggar desain saat mengubah kode
-atau menulis teks. Kalau isinya berbeda dengan `docs/`, yang benar `docs/`,
-dan file ini yang harus diperbarui.
+Operational summary of `docs/research.md` (RQs) and `docs/methodology.md`
+(procedure), both on the `latex` branch (`git show latex:docs/research.md`).
+It exists so a change to the code or the text does not break the design. When
+it disagrees with those documents, they are right and this file is updated.
 
-## Pertanyaan inti
+## Core question
 
-Bisakah LLM open-weight 3–4B membedakan update npm berbahaya dari update sah
-yang perilakunya mirip? Apakah contoh benign pembanding dan intent paket menekan
-false positive-nya?
+Can a 3–4B open-weight LLM tell a malicious npm update from a legitimate update
+that behaves similarly? Do a contrasting benign example and the package's
+intent reduce its false positives?
 
-## RQ, konfigurasi, dan endpoint
+## RQs, configurations and endpoints
 
-| RQ | Dibandingkan | Endpoint | Cara menjawab |
+| RQ | Compared | Endpoint | Answered by |
 |---|---|---|---|
-| RQ1 | DIFF, DIFF+I | Recall, FPR_TYP, FPR_HN dengan Wilson CI | deskriptif |
-| RQ2a | DIFF+I+M vs DIFF+I | FPR_HN | McNemar exact + Holm |
-| **RQ2b (utama)** | DIFF+I+MB vs DIFF+I+MM | FPR_HN, batas recall −5 poin | McNemar exact + Holm; bootstrap recall per kampanye |
-| RQ3 | DIFF+I+MB vs DIFF+MB | FPR_HN, batas recall −5 poin | sama dengan RQ2b |
-| RQ4 | semua konfigurasi | token, latency median/p95, memori GPU terhitung | deskriptif |
+| RQ1 | DIFF, DIFF+I | recall, FPR_TYP, FPR_HN with Wilson CI | descriptive |
+| RQ2a | DIFF+I+M vs DIFF+I | FPR_HN | exact McNemar + Holm |
+| **RQ2b (primary)** | DIFF+I+MB vs DIFF+I+MM | FPR_HN, recall margin −5 points | exact McNemar + Holm; recall bootstrap by campaign |
+| RQ3 | DIFF+I+MB vs DIFF+MB | FPR_HN, recall margin −5 points | as RQ2b |
+| RQ4 | every configuration | tokens, median/p95 latency, computed GPU memory | descriptive |
 
-Hanya ada **6 uji konfirmatori**: H2a, H2b, dan H3 untuk masing-masing dari 2 model.
-Semua analisis lain bersifat eksploratif (EA1–EA5). Label hasil ("Didukung",
-"Didukung sebagian", dan seterusnya) ada di `docs/research.md` §5.
+There are only **six confirmatory tests**: H2a, H2b and H3 for each of the two
+models. Everything else is exploratory (EA1–EA5). Outcome labels ("supported",
+"partially supported", …) are defined in `docs/research.md` §5.
 
-## Invarian yang tidak boleh dilanggar
+Since D99 the evaluation runs on dataset labels and every comparison is
+reported descriptively; see [status.md](status.md).
 
-| Invarian | Akibat kalau dilanggar |
+## Invariants
+
+| Invariant | If broken |
 |---|---|
-| System prompt dan smart-diff identik di semua konfigurasi | Semua perbandingan batal |
-| DIFF+I+MM dan DIFF+I+MB sama-sama berisi 2 card | RQ2b tidak bisa memisahkan efek contrastive dari efek jumlah contoh |
-| `DIFF+MB` hanya menghapus blok intent dari `DIFF+I+MB` | RQ3 batal |
-| Intent diambil dari v_{t−1} | Penyerang bisa memengaruhi intent lewat README di v_t |
-| Retrieval mengecualikan card dari paket atau kampanye yang sama dengan pair | Terjadi kebocoran; RQ2 dan RQ3 batal |
-| Urutan card DIFF+I+MM dan DIFF+I+MB di-counterbalance dengan aturan yang sama (card malicious teratas di posisi yang sama) | RQ2b tercampur recency bias |
-| Retrieval tidak membaca intent | DIFF+I+MB dan DIFF+MB mendapat card berbeda; RQ3 batal |
-| Nama paket dan capability delta tidak pernah masuk prompt | RQ1 mengukur extractor atau hafalan model, bukan kemampuan membaca smart-diff (D25, D26) |
-| Smart-diff dipotong sekali per pair dengan tokenizer Qwen2.5-Coder-3B dan dipakai apa adanya oleh semua konfigurasi dan kedua model | Input berbeda antar konfigurasi atau antar model |
-| Teks prompt disalin verbatim dari methodology §6 | Prompt yang diuji tidak sama dengan yang dilaporkan |
-| Capability delta diekstrak otomatis dengan extractor yang sama untuk pair dan card | Penilaian manusia bocor ke input model |
-| Stage 1 memakai temperature 0 dan request sekuensial | Hasil tidak reproducible; latency RQ4 rusak |
-| Runner menyimpan output mentah; kebijakan output invalid diterapkan di skrip analisis | Analisis sensitivitas D18 tidak bisa dijalankan |
-| Prompt tidak menyebut kategori hard negative | FPR_HN terlalu optimis (D17) |
+| System prompt and smart-diff identical across configurations | every comparison is void |
+| DIFF+I+MM and DIFF+I+MB both carry 2 cards | RQ2b cannot separate the contrastive effect from the number of examples |
+| `DIFF+MB` only removes the intent block from `DIFF+I+MB` | RQ3 is void |
+| Intent is taken from v_{t−1} | an attacker could steer intent through the README of v_t |
+| Retrieval excludes cards from the pair's package or campaign | leakage; RQ2 and RQ3 are void |
+| Card order in DIFF+I+MM and DIFF+I+MB is counterbalanced by the same rule (top malicious card in the same position) | RQ2b is confounded by recency bias |
+| Retrieval never reads intent | DIFF+I+MB and DIFF+MB get different cards; RQ3 is void |
+| Package name and capability delta never enter the prompt | RQ1 would measure the extractor or memorisation, not reading the smart-diff (D25, D26) |
+| Smart-diff is truncated once per pair with the Qwen2.5-Coder-3B tokenizer and used as-is by every configuration and model | inputs differ between configurations or models |
+| Prompt text is copied verbatim from methodology §6 | the tested prompt is not the reported one |
+| Capability delta is extracted automatically by the same extractor for pairs and cards | human judgement leaks into the model input |
+| Stage 1 uses temperature 0 and sequential requests | not reproducible; RQ4 latency is wrong |
+| The runner stores raw output; the invalid-output policy is applied in analysis | the D18 sensitivity analysis cannot run |
+| The prompt never names the hard-negative categories | FPR_HN is optimistic (D17) |
 
-## Jangan
+## Never
 
-- Jangan menyetel prompt, konfigurasi, atau daftar capability setelah melihat hasil test set. Setelah Gate G2, setiap perubahan wajib dicatat di `docs/decisions.md` dan semua konfigurasi dijalankan ulang.
-- Jangan menulis bahwa metode ini "lebih baik" dari RogueOne, IntelGuard, atau Wyss et al. Data dan setup-nya berbeda, jadi angka mereka hanya konteks di Diskusi (D23).
-- Jangan menulis "tidak ada efek" dari hasil yang tidak signifikan. Tulis batas deteksi desainnya.
-- Jangan menambah uji konfirmatori tanpa memperbarui koreksi Holm dan `docs/decisions.md`.
-- Jangan mengklaim intent mismatch sebagai ide baru; yang baru adalah pengukurannya (D3). Klaim kebaruan utama ada di Gap 2.
-- Jangan menjalankan, meng-install, atau mengakses endpoint dari sampel malicious.
+- Tune a prompt, configuration or capability list after seeing test-set results. After Gate G2, every change is recorded in `docs/decisions.md` and every configuration is re-run.
+- Write that the method is "better" than RogueOne, IntelGuard or Wyss et al. The data and setups differ; their numbers are context for the Discussion only (D23).
+- Write "no effect" from a non-significant result. State the design's detection limit instead.
+- Add a confirmatory test without updating the Holm correction and `docs/decisions.md`.
+- Claim intent mismatch as a new idea; what is new is measuring it (D3). The main novelty claim is Gap 2.
+- Run, install, or contact an endpoint from a malicious sample.
 
-## Istilah
+## Terms
 
-| Istilah | Arti |
+| Term | Meaning |
 |---|---|
-| pair | satu update `pkg@v_{t−1} → pkg@v_t` |
-| MAL / HN / TYP | subset update malicious / hard negative / typical |
-| hard negative | update benign yang menambahkan capability sensitif dengan tujuan sah yang terdokumentasi |
-| capability delta | capability yang ada di v_t tetapi tidak ada di v_{t−1} |
-| intent profile | `description`, `keywords`, bagian awal README, dan `scripts` dari v_{t−1} |
-| card | contoh di KB berlabel malicious atau benign, berisi intent, delta, dan ringkasan alasan |
-| kampanye | kelompok pair dengan pelaku atau payload yang sama (misalnya Shai-Hulud); menjadi unit bootstrap dan unit pengecualian retrieval |
-| FPR_HN | proporsi pair HN yang diberi verdict `malicious` |
+| pair | one update `pkg@v_{t−1} → pkg@v_t` |
+| MAL / HN / TYP | malicious / hard-negative / typical subset |
+| hard negative | a benign update that adds a sensitive capability for a documented legitimate purpose |
+| capability delta | capabilities present in v_t but not in v_{t−1} |
+| intent profile | `description`, `keywords`, the start of the README and `scripts` of v_{t−1} |
+| card | a KB example labelled malicious or benign, holding intent, delta and a short rationale |
+| campaign | pairs sharing an actor or payload (e.g. Shai-Hulud); the bootstrap unit and the retrieval-exclusion unit |
+| FPR_HN | share of HN pairs given the verdict `malicious` |
 
-## Saat menulis naskah
+## Writing the manuscript
 
-- Referensi utama: Wyss et al. (RAID 2025). Fakta yang boleh dikutip dan koreksi slide P1 ada di `docs/references.md`.
-- Contoh motivasi: chalk/debug, Shai-Hulud, dan axios. CVE-2025-66478 bukan contoh update berbahaya.
-- Posisi penelitian: triage update dependensi sebelum advisory terbit, bukan audit tata kelola TI.
-- Posisi terhadap RogueOne ada di [rogueone.md](rogueone.md).
+- Main reference: Wyss et al. (RAID 2025). Quotable facts and corrections to the P1 slides are in `docs/references.md`.
+- Motivating examples: chalk/debug, Shai-Hulud, axios. CVE-2025-66478 is not a malicious update.
+- Positioning: triage of dependency updates before an advisory is published, not IT governance audit.
+- Positioning against RogueOne: [rogueone.md](rogueone.md).
