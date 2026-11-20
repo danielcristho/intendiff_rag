@@ -10,7 +10,7 @@ A malicious npm package is not a vulnerability in this project. Report a new one
 
 ## Supported versions
 
-IntentDiff-RAG is a research experiment with pre-releases only. Only the `main` branch receives fixes.
+IntentDiff-RAG is a research experiment. Fixes land on `main` and ship in the next release; older releases are not patched.
 
 ## What to keep in mind
 
