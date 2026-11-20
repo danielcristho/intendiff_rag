@@ -9,7 +9,7 @@ decision by "does this answer an RQ", not by feature completeness.
 - **Malicious samples are analysed statically only.** Never execute them, never `npm install` them, never run their lifecycle scripts, never call an endpoint found inside a sample.
 - **`.ref/` is read-only** reference material.
 - **Report numbers as they come out.** A configuration losing to the baseline is a result, not a bug to tune.
-- **The design lives in `docs/`**; every design change gets an entry in `docs/decisions.md`.
+- **The design is summarised in `.agent/`.** The full documents and the decision log (`docs/decisions.md`) are on the `latex` branch; every design change gets an entry there.
 - **The design is frozen after Gate G2.** A change to a prompt, configuration, capability list or decision rule is recorded in `docs/decisions.md` and every configuration is re-run. Never tune against test-set results.
 - Out of scope unless asked: CI integration, dynamic sandboxing, fine-tuning, closed models.
 
@@ -34,7 +34,7 @@ on :8101 (needs an NVIDIA GPU). GPU host: `deployments/README.md`.
 | `.agent/research.md` | RQs, invariants that must not break, terminology |
 | `.agent/experiments.md` | configuration spec, file schemas, run order, safe sample handling |
 | `.agent/rogueone.md` | positioning against RogueOne |
-| `.agent/continuation.md` | where the latest experiment work left off |
-| `docs/` (`research.md`, `methodology.md`, `experiments.md`, `decisions.md`) | the source of truth; when `.agent/` disagrees, `docs/` wins and `.agent/` gets fixed |
+| `.agent/status.md` | what is done, frozen and still open |
+| `latex:docs/` (`git show latex:docs/<file>`) | full design and decision log; when `.agent/` disagrees, `docs/` wins and `.agent/` gets fixed |
 
-The manuscript, every PDF and the archived evaluation data live on the `latex` branch.
+The manuscript, `docs/`, every PDF and the archived evaluation data live on the `latex` branch.
