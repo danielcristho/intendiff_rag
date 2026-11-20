@@ -54,11 +54,12 @@ intervals and exact permutation tests under Holm correction.
 
 | Path | Contents |
 |---|---|
-| `pipeline/` | experiment runner; configurations live in `pipeline/configs.py` |
-| `backend/`, `frontend/` | label-audit and error-analysis UI (Rust + React) |
-| `data/` | pair manifests, KB, and evaluation outputs |
-| `labs/latex/` | manuscript sources, on the `latex` branch (`git switch latex`) |
-| `.agent/` | design summary, conventions, architecture and status; full `docs/` (in Indonesian) is on the `latex` branch |
+| `pipeline/` | experiment runner; configurations in `pipeline/configs.py` |
+| `backend/`, `frontend/` | audit UI (Rust + React) |
+| `data/` | pair manifests, knowledge base, evaluation releases |
+| `.agent/` | design, architecture and status |
+
+The manuscript and the design documents are on the `latex` branch.
 
 ## Running it
 
@@ -88,3 +89,8 @@ make test      # backend, frontend and pipeline; CI runs the same targets
 uv run pipeline/runner.py --model Qwen/Qwen3-4B-Instruct-2507   # needs vLLM on :8101
 uv run pipeline/runner.py --selfcheck
 ```
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md).
+Report security problems privately, as described in [SECURITY.md](SECURITY.md).
