@@ -1,0 +1,2 @@
+# data/ holds frozen code copies and archived outputs, not live source; keep it out of language stats.
+data/** linguist-vendored
