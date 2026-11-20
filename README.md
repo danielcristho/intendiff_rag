@@ -57,14 +57,29 @@ intervals and exact permutation tests under Holm correction.
 
 ## Running it
 
+### With Docker
+
 ```bash
+docker compose up -d --build   # UI on http://localhost:5174, API on :8100
+docker compose down
+```
+
+Plain `up` starts only the backend and the frontend. The UI proxies `/api` to the
+backend, and the backend serves `./data`, falling back to the sample pairs. No
+`.env` is needed. To change ports or the bind address, copy `.env.example` to
+`.env`. For vLLM on :8101 (needs an NVIDIA GPU), run
+`docker compose --profile model up -d`. See
+[deployments/README.md](deployments/README.md).
+
+### Locally
+
+```bash
+make venv      # Python env from uv.lock
+make install   # frontend dependencies
 make backend   # terminal 1: API on :8100
 make ui        # terminal 2: http://localhost:5174
 make test      # backend, frontend and pipeline; CI runs the same targets
 
-python pipeline/runner.py --model Qwen/Qwen3-4B-Instruct-2507   # needs vLLM on :8101
-python pipeline/runner.py --selfcheck
+uv run pipeline/runner.py --model Qwen/Qwen3-4B-Instruct-2507   # needs vLLM on :8101
+uv run pipeline/runner.py --selfcheck
 ```
-
-With Docker: `docker compose up -d backend frontend`; add `--profile model` for
-vLLM (needs an NVIDIA GPU). See [deployments/README.md](deployments/README.md).
