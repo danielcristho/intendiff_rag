@@ -110,6 +110,10 @@ Co-Authored-By: ...   (only when an agent wrote the change)
   docs or commit messages. Use `<gpu-host>`, `<host-ip-address>`, paths
   relative to the repository root.
 
+`.githooks/` enforces part of this (`make hooks` once per clone): `commit-msg`
+checks the subject format, `pre-commit` rejects forbidden paths, IP addresses,
+home paths and unformatted Rust, and `pre-push` runs `make test`.
+
 ## Branches
 
 - `main`: code, `.agent/` and the data the code reads.

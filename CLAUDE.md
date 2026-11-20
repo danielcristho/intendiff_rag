@@ -17,6 +17,7 @@ decision by "does this answer an RQ", not by feature completeness.
 
 ```
 make venv      # Python env from uv.lock
+make hooks     # commit-msg, pre-commit and pre-push checks from .githooks/
 make backend   # :8100, must be up first
 make ui        # http://localhost:5174
 make test      # backend, frontend and pipeline checks; must pass before a push
