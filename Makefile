@@ -1,8 +1,7 @@
 PORT ?= 8100
 DATA ?= ./data
-# analysis.py needs statsmodels (D43) and plots.py needs matplotlib, neither of
-# which a system python is allowed to install under PEP 668.
-PY := $(shell [ -x .venv/bin/python ] && echo .venv/bin/python || echo python3)
+# The pipeline's dependencies live in .venv (`make venv`); a system python lacks them.
+PY :=$(shell [ -x .venv/bin/python ] && echo .venv/bin/python || echo python3)
 
 .PHONY: help venv install backend ui test
 
@@ -10,14 +9,8 @@ help:
 	@grep -hE '^[a-z-]+:.*?##' $(MAKEFILE_LIST) \
 		| awk 'BEGIN{FS=":.*?## "}{printf "  \033[36m%-9s\033[0m %s\n", $$1, $$2}'
 
-venv: ## create .venv with the Python analysis dependencies
-	# uv first: a Debian python without the python3-venv package has no ensurepip,
-	# and there `python3 -m venv` cannot bootstrap pip at all.
-	@if command -v uv >/dev/null; then \
-		uv venv .venv && uv pip install --python .venv/bin/python -r requirements.txt; \
-	else \
-		python3 -m venv .venv && .venv/bin/pip install -r requirements.txt; \
-	fi
+venv: ## create .venv from uv.lock
+	uv sync --frozen
 
 install: ## install frontend dependencies
 	pnpm -C frontend install
