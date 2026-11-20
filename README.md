@@ -1,20 +1,5 @@
 # IntentDiff-RAG
 
-Code and data for the paper:
-
-📄 [**An exploratory study of package-purpose context and example composition
-for malicious npm update detection with local LLMs**](An%20exploratory%20study%20of%20package-purpose.pdf)<br>
-Robby Ulung Pambudi, Gloriyano Cristho Daniel Pepuho, Dwi Sunaryono, Bilqis Amaliah
-— Department of Informatics, Institut Teknologi Sepuluh Nopember (ITS).
-
-The paper asks whether a profile of a package's purpose (*intent*) and
-in-context examples help small local LLMs tell malicious npm updates apart from
-legitimate ones that behave similarly.
-
-> This is a research experiment, not a production scanner. Every step is
-> static: malicious packages are never installed, executed, or allowed to run
-> their lifecycle scripts.
-
 ## Highlights
 
 - Without examples, LLMs missed over half of attacks or flagged most typical updates.
@@ -64,7 +49,7 @@ intervals and exact permutation tests under Holm correction.
 | `pipeline/` | experiment runner; configurations live in `pipeline/configs.py` |
 | `backend/`, `frontend/` | label-audit and error-analysis UI (Rust + React) |
 | `data/` | pair manifests, KB, and evaluation outputs |
-| `labs/latex/` | manuscript sources, see [`BUILD.md`](labs/latex/BUILD.md) |
+| `labs/latex/` | manuscript sources, on the `latex` branch (`git switch latex`) |
 | `docs/` | design, methodology, and dated decision log (in Indonesian) |
 
 ## Running it
