@@ -1,8 +1,0 @@
-{
-  "expected": 24324,
-  "download_records": 24324,
-  "inventoried": 24324,
-  "inventory_errors": 126,
-  "status": "inventory_complete_with_reported_exclusions",
-  "updated_unix": 1790623960.3419244
-}
