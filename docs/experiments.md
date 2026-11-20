@@ -109,7 +109,7 @@ KB belum selesai; G1/G2 belum tercapai.
 - [x] `call_llm`: kirim temperature, top_p, dan top_k dari argumen, lalu kembalikan `finish_reason` ([L80-L101](../pipeline/runner.py#L80-L101)).
 - [x] Masukkan temperature ke `run_key` ([L34-L35](../pipeline/runner.py#L34-L35)). Tanpa ini, run Stage 2 dengan seed 0 dianggap sudah selesai dan dilewati.
 - [x] Simpan field hasil tambahan (§3).
-- [x] Ganti default `--base-url` yang memakai port 8000 dan bentrok dengan backend ([L107](../pipeline/runner.py#L107)). Sekarang 8101; backend pindah ke 8100. Port 8000 dipakai production-service di mesin GPU.
+- [x] Ganti default `--base-url` yang memakai port 8000 dan bentrok dengan backend ([L107](../pipeline/runner.py#L107)). Sekarang 8101; backend pindah ke 8100. Port 8000 dipakai layanan produksi di mesin GPU.
 - [x] Perbarui `selfcheck` untuk konfigurasi dan aturan baru ([L170-L201](../pipeline/runner.py#L170-L201)).
 
 **Komponen baru**
