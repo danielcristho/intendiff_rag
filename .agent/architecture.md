@@ -3,6 +3,20 @@
 The three components, how they share `data/`, and the operational traps.
 The research design is in the other `.agent/` files; this one covers how the code runs.
 
+## Pipeline
+
+![IntentDiff-RAG pipeline](pipeline.svg)
+
+| Step | Module | Notes |
+|---|---|---|
+| 1 Represent | `smartdiff.py`, `intent.py`, `capability.py` | static only; intent from the predecessor version |
+| 2 Retrieve | `runner.py` (`retrieve`) | Jaccard on Δ; drops the pair's own name, campaign and dependencies |
+| 3 Prompt | `prompts.py`, `configs.py` | configuration `c` decides intent and M / MM / MB examples |
+| 4 Infer | `runner.py`, `output_schema.py` | vLLM with a JSON Schema; invalid output is kept, judged in analysis |
+| 5 Evaluate | `analysis.py`, `paper_results.py` | TPR, FPR, paired tests; `paper_results.py` also scores the static rule (flag if Δ ≠ ∅) |
+
+Source labels and campaign clusters reach step 5 only, never the prompt.
+
 ## Components
 
 **`pipeline/`**: experiment runner and data preparation, Python. A batch, not a
