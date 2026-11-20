@@ -3,6 +3,9 @@
 [![ci](https://github.com/danielcristho/intendiff_rag/actions/workflows/ci.yml/badge.svg)](https://github.com/danielcristho/intendiff_rag/actions/workflows/ci.yml)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/danielcristho/intendiff_rag/badge)](https://scorecard.dev/viewer/?uri=github.com/danielcristho/intendiff_rag)
 
+Measures how a package's stated purpose and in-context reference examples shift
+what locally run language models flag as a malicious npm update.
+
 ## Highlights
 
 - Without examples, LLMs missed over half of attacks or flagged most typical updates.
