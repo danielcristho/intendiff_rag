@@ -1,9 +1,0 @@
-{
-  "selected_packages": 500,
-  "resolved_pairs": 387,
-  "candidates_after_checks": 381,
-  "excluded_after_checks": 6,
-  "human_labels_created": 0,
-  "final_holdout_pairs": 0,
-  "note": "Separate stratum; do not pool FPR without specifying weights."
-}

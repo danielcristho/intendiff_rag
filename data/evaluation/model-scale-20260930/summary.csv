@@ -1,5 +1,0 @@
-model,config,completed,json_valid,mal_source_recall_proxy,typ_assumed_benign_fpr,mal_campaign_macro_recall_proxy,median_latency_ms,p95_latency_ms,mean_prompt_tokens,mean_completion_tokens,complete_summary,human_annotation_verified
-Qwen/Qwen2.5-Coder-7B-Instruct,DIFF,973,915,0.9289805269186713,0.65,0.9304652565309485,1440.5,4284.0,4086.2929085303185,127.45837615621788,True,False
-Qwen/Qwen2.5-Coder-7B-Instruct,DIFF+I,973,689,0.6712485681557846,0.67,0.7146619057425276,1472.6,4872.5,4676.1932168550875,190.87564234326825,True,False
-Qwen/Qwen3-8B,DIFF,973,924,0.5074455899198167,0.06,0.3787442633560838,1189.2,24288.2,4090.2929085303185,240.45220966084275,True,False
-Qwen/Qwen3-8B,DIFF+I,973,929,0.4833906071019473,0.03,0.3326518004236291,1520.1,24084.5,4680.1932168550875,330.7389516957862,True,False
