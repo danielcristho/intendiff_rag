@@ -1,5 +1,8 @@
 # IntentDiff-RAG
 
+[![ci](https://github.com/danielcristho/intendiff_rag/actions/workflows/ci.yml/badge.svg)](https://github.com/danielcristho/intendiff_rag/actions/workflows/ci.yml)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/danielcristho/intendiff_rag/badge)](https://scorecard.dev/viewer/?uri=github.com/danielcristho/intendiff_rag)
+
 ## Highlights
 
 - Without examples, LLMs missed over half of attacks or flagged most typical updates.
@@ -57,7 +60,7 @@ intervals and exact permutation tests under Holm correction.
 ```bash
 make backend   # terminal 1: API on :8100
 make ui        # terminal 2: http://localhost:5174
-make test      # backend, frontend, and runner
+make test      # backend, frontend and pipeline; CI runs the same targets
 
 python pipeline/runner.py --model Qwen/Qwen3-4B-Instruct-2507   # needs vLLM on :8101
 python pipeline/runner.py --selfcheck
