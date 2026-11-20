@@ -35,9 +35,8 @@ jobs:
             mv body.md notes.md
           fi
 
-          logins=$(git log --no-merges --format=%H "$range" \
-            | xargs -I{} gh api "repos/$GITHUB_REPOSITORY/commits/{}" -q '.author.login // empty' \
-            | grep -v '\[bot\]$' | sort -u)
+          # Every human contributor to the repository, not only this range's authors.
+          logins=$(gh api "repos/$GITHUB_REPOSITORY/contributors" --paginate -q '.[] | select(.type == "User") | .login' | sort -u)
           if [ -n "$logins" ]; then
             { echo; echo "## Contributors"; printf '* @%s\n' $logins; } >> notes.md
           fi
