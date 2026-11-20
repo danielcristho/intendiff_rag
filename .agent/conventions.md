@@ -75,7 +75,9 @@ Format:
   `tests/test_*.py` file.
 - **Name a test after the invariant it pins**, not the function it calls:
   `keeps_two_annotators_verdicts_on_the_same_pair_apart`, not `test_merge`.
-- New checks are wired into `make test`. `make test` must pass before a push.
+- New checks are wired into `make test` under the stack's target
+  (`test-backend`, `test-frontend`, `test-pipeline`); CI runs those targets, so
+  a check added there runs in CI too. `make test` must pass before a push.
 - Test fixtures use made-up names (`alice`, `bob`, `pkg-a`), never real people
   or hosts.
 
