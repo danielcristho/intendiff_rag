@@ -1,8 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.js";
 
 @layer base {
+  /* Tailwind 4 gives buttons the default cursor; keep the v3 pointer. */
+  button:not(:disabled), [role="button"]:not(:disabled) { cursor: pointer; }
+
   :root { color-scheme: light; }
 
   body {
