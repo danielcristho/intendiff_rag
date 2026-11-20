@@ -1,1 +1,0 @@
-{"preparation_complete": true, "errors": [{"model": "qwen25_7b", "error": "KeyError('pins')"}, {"model": "qwen3_8b", "error": "KeyError('pins')"}, {"model": "phi4_mini", "error": "KeyError('pins')"}, {"model": "llama31_8b", "error": "KeyError('pins')"}, {"model": "granite33_8b", "error": "KeyError('pins')"}]}
