@@ -2,9 +2,10 @@ FROM node:22-alpine AS build
 
 WORKDIR /web
 
-RUN corepack enable
-
 COPY frontend/package.json frontend/pnpm-lock.yaml ./
+
+# Node 25 images no longer ship corepack; install the pnpm that package.json pins.
+RUN npm install -g "$(node -p "require('./package.json').packageManager")"
 
 RUN pnpm install --frozen-lockfile
 
