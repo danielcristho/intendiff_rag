@@ -31,3 +31,9 @@ data/hn-jalur-a.log
 
 # One-off experiment scratch work; the history lives on the latex branch.
 /scratchpad/
+
+# Sample archives and their extracted code never enter git; manifests do.
+data/preparation/*/guo-targets/archives/
+data/preparation/*/guo-targets/extracted/
+*.tgz
+*.zip

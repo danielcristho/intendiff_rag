@@ -5,7 +5,7 @@ set -e
 STAGED=$(git diff --cached --name-only --diff-filter=ACMR)
 [ -z "$STAGED" ] && exit 0
 
-FORBIDDEN='^(\.env$|data/users\.json$|data/(wyss|typ|hn|datadog|tarballs)/)|\.pdf$|^scratchpad/'
+FORBIDDEN='^(\.env$|data/users\.json$|data/(wyss|typ|hn|datadog|tarballs|upstream)/)|/guo-targets/(archives|extracted)/|\.(pdf|tgz|zip)$|^scratchpad/'
 if BAD=$(echo "$STAGED" | grep -E "$FORBIDDEN"); then
   echo "✗ these paths must not be committed:"
   echo "$BAD" | sed 's/^/  /'
