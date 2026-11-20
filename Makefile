@@ -1,9 +1,11 @@
+# Makefile for intendiff-rag
+
+# Consts
 PORT ?= 8100
 DATA ?= ./data
-# The pipeline's dependencies live in .venv (`make venv`); a system python lacks them.
 PY :=$(shell [ -x .venv/bin/python ] && echo .venv/bin/python || echo python3)
 
-.PHONY: help venv hooks install backend ui test
+.PHONY: help venv hooks install backend ui test test-backend test-frontend test-pipeline
 
 help:
 	@grep -hE '^[a-z-]+:.*?##' $(MAKEFILE_LIST) \
@@ -24,9 +26,16 @@ backend: ## run the API on $(PORT)
 ui: ## run the audit UI
 	pnpm -C frontend dev
 
-test: ## run every suite
+test: test-backend test-frontend test-pipeline ## run every suite
+
+test-backend:
 	cargo test --manifest-path backend/Cargo.toml
+
+test-frontend:
 	pnpm -C frontend test
+
+test-pipeline:
+	$(PY) -m unittest discover -s tests
 	$(PY) pipeline/configs.py --selfcheck
 	$(PY) pipeline/runner.py --selfcheck
 	$(PY) pipeline/sampling_grid.py --selfcheck
