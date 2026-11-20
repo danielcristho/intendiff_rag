@@ -1,5 +1,0 @@
-Six local models are evaluated on 129 malicious and 1,868 typical updates.
-Replacing a malicious example with a benign one raises false alarms on three models.
-For Phi-4-mini, fewer false alarms come with reduced detection.
-Package intent lowers false alarms on three models and raises them on two.
-Retrieval scores do not distinguish examples for 87 of 129 malicious updates.
