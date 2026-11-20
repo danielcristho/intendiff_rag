@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: If you use this software or its data, please cite it as below.
+title: "IntentDiff-RAG: package purpose and reference examples in malicious npm update detection with small open-weight LLMs"
+type: software
+authors:
+  - given-names: Daniel
+    family-names: Pepuho
+    alias: danielcristho
+  - given-names: Robby
+    family-names: Pambudi
+    alias: robbypambudi
+repository-code: https://github.com/danielcristho/intendiff_rag
+license: Apache-2.0
+version: 2026.11.1
+date-released: 2026-11-20
