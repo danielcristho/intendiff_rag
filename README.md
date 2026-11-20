@@ -6,6 +6,8 @@
 Measures how a package's stated purpose and in-context reference examples shift
 what locally run language models flag as a malicious npm update.
 
+![IntentDiff-RAG pipeline](.agent/pipeline.svg)
+
 ## Highlights
 
 - Without examples, LLMs missed over half of attacks or flagged most typical updates.
