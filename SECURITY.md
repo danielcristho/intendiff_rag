@@ -2,9 +2,9 @@
 
 ## Reporting a vulnerability
 
-Do not open a public issue. Use the repository's **Security** tab and choose **Report a vulnerability**.
+Do not open a public issue. Report it privately at https://github.com/danielcristho/intendiff_rag/security/advisories/new (the **Security** tab, **Report a vulnerability**).
 
-Include the affected version or commit, the steps to reproduce and the impact. Maintainers work on a best-effort basis, will reply as soon as they can, and will agree a disclosure date with you.
+Include the affected version or commit, the steps to reproduce and the impact. Maintainers work on a best-effort basis: they aim to acknowledge a report within 7 days, and to agree a coordinated disclosure date with you, at most 90 days after the report.
 
 A malicious npm package is not a vulnerability in this project. Report a new one to npm; the packages named in `data/` are already known.
 
