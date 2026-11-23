@@ -91,10 +91,6 @@ Format:
 <body: why, and what broke if it is a fix>
 ```
 
-No AI co-author trailer: authorship and citation credit the people in
-`CITATION.cff`. Say in the pull request when an AI tool wrote a substantial
-part of a change (see `CONTRIBUTING.md`).
-
 - **type**: `feat`, `fix`, `refactor`, `test`, `docs`, `build`, `chore`.
   Prompt, configuration, capability-list or decision-rule changes are `feat` or
   `fix` and need a decision entry: add it to `docs/decisions.md` on the
