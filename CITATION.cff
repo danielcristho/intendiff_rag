@@ -3,12 +3,21 @@ message: If you use this software or its data, please cite it as below.
 title: "IntentDiff-RAG: package purpose and reference examples in malicious npm update detection with small open-weight LLMs"
 type: software
 authors:
-  - given-names: Robby
+  - given-names: Robby Ulung
     family-names: Pambudi
     alias: robbypambudi
+    orcid: https://orcid.org/0009-0004-2392-801X
   - given-names: Daniel
     family-names: Pepuho
     alias: danielcristho
+    oricid: https://orcid.org/0009-0008-6863-4671
+  - given-names: Dwi
+    family-names: Sunaryono
+    email: dwi@its.ac.id
+    orcid: https://orcid.org/0000-0001-9925-9263
+  - given-names: Bilqis
+    family-names: Amaliah
+    orcid: https://orcid.org/0000-0003-3154-8653
 repository-code: https://github.com/danielcristho/intendiff_rag
 license: Apache-2.0
 version: 2026.11.1
